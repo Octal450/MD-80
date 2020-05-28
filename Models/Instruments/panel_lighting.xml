@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+<path>panel_lighting.ac</path>
+
+<animation>
+  <type>material</type>
+  <object-name>PlacardLts</object-name>
+  <object-name>KnobLtsPanel</object-name>
+  <object-name>KnobLtsDigital</object-name>
+  <object-name>KnobLtsFlood</object-name>
+  <emission>
+    <red>0.2</red>
+    <green>0.1</green>
+    <blue>0.05</blue>
+    <!--factor-prop>controls/switches/battery</factor-prop-->
+  </emission>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>KnobLtsPanel</object-name>
+  <property>controls/lighting/panel-norm</property>
+  <interpolation>
+    <entry><ind>0</ind><dep>  0</dep></entry>
+    <entry><ind>1</ind><dep>180</dep></entry>
+  </interpolation>
+  <center>
+    <x-m>0.005</x-m>
+    <y-m>-0.030</y-m>
+    <z-m>-0.007</z-m>
+  </center>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>pick</type>
+  <object-name>KnobLtsPanel</object-name>
+  <action>
+    <button>3</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>controls/lighting/panel-norm</property>
+      <step>0.1</step>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+</animation>
+<animation>
+  <type>pick</type>
+  <object-name>KnobLtsPanel</object-name>
+  <action>
+    <button>4</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>controls/lighting/panel-norm</property>
+      <step>-0.1</step>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>KnobLtsDigital</object-name>
+  <property>controls/lighting/digital-norm</property>
+  <interpolation>
+    <entry><ind>0</ind><dep>  0</dep></entry>
+    <entry><ind>1</ind><dep>180</dep></entry>
+  </interpolation>
+  <center>
+    <x-m>0.008</x-m>
+    <y-m>0</y-m>
+    <z-m>-0.007</z-m>
+  </center>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>pick</type>
+  <object-name>KnobLtsDigital</object-name>
+  <action>
+    <button>3</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>controls/lighting/digital-norm</property>
+      <step>0.1</step>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+</animation>
+<animation>
+  <type>pick</type>
+  <object-name>KnobLtsDigital</object-name>
+  <action>
+    <button>4</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>controls/lighting/digital-norm</property>
+      <step>-0.1</step>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+</animation>
+
+</PropertyList>
+
+

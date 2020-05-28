@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<path>ft.ac</path>
+
+<animation>
+  <type>material</type>
+  <object-name>Face</object-name>
+  <object-name>NeedleL</object-name>
+  <object-name>NeedleR</object-name>
+<emission>
+    <red>0.3</red>
+    <green>0.3</green>
+    <blue>0.3</blue>
+  </emission>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>NeedleL</object-name>
+  <!--property>/systems/fuel/temperatureL</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+  <property>environment/temperature-degc</property>
+  <interpolation>
+    <entry><ind>-60</ind><dep>49</dep></entry>
+    <entry><ind>-40</ind><dep>32</dep></entry>
+    <entry><ind>  0</ind><dep>2</dep></entry>
+    <entry><ind>40</ind><dep>-24</dep></entry>
+    <entry><ind>80</ind><dep>-50</dep></entry>
+  </interpolation>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+  <center>
+    <x-m>0</x-m>
+    <y-m>-0.0145</y-m>
+    <z-m>0</z-m>
+  </center>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>NeedleR</object-name>
+  <!--property>/systems/fuel/temperatureR</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+  <property>environment/temperature-degc</property>
+  <interpolation>
+    <entry><ind>-60</ind><dep>-49</dep></entry>
+    <entry><ind>-40</ind><dep>-32</dep></entry>
+    <entry><ind>  0</ind><dep>-2</dep></entry>
+    <entry><ind>40</ind><dep>24</dep></entry>
+    <entry><ind>80</ind><dep>50</dep></entry>
+  </interpolation>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+  <center>
+    <x-m>0</x-m>
+    <y-m>0.0145</y-m>
+    <z-m>0</z-m>
+  </center>
+</animation>
+
+</PropertyList>
+

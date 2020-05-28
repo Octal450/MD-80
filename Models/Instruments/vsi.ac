@@ -1,0 +1,108 @@
+AC3Db
+MATERIAL "ac3dmat1" rgb 1 1 1  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  shi 128  trans 0
+MATERIAL "ac3dmat1" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 0  trans 0
+MATERIAL "ac3dmat1" rgb 0 0 0  amb 0 0 0  emis 0 0 0  spec 0 0 0  shi 0  trans 0
+MATERIAL "DefaultWhite.001" rgb 0 0 0  amb 0 0 0  emis 0 0 0  spec 0 0 0  shi 64  trans 0
+OBJECT world
+kids 5
+OBJECT poly
+name "Off"
+loc 0.000262202 -0.000158596 0.000120436
+crease 45.000000
+numvert 4
+0 0.041012 0.040925
+0 -0.041012 0.040925
+0 -0.041012 -0.040925
+0 0.041012 -0.040925
+numsurf 1
+SURF 0x10
+mat 3
+refs 4
+2 0.879687 0.45
+3 0.879687 0.55
+0 0.979688 0.55
+1 0.979688 0.45
+kids 0
+OBJECT poly
+name "face3"
+loc 5.38818e-005 -0.00180592 0.000363302
+data 10
+crease 30.
+crease 45.000000
+numvert 4
+0 0.0432928 -0.0416733
+0 -0.0399138 -0.0416733
+0 -0.0399138 0.0415378
+0 0.0432928 0.0415378
+numsurf 1
+SURF 0x0
+mat 2
+refs 4
+0 1.00067 0.999407
+3 4.45843e-005 0.999407
+2 4.45843e-005 0.000756443
+1 1.00067 0.000756443
+kids 0
+OBJECT poly
+name "faceblock"
+loc 5.07182e-005 -0.00158378 0.000216655
+data 10
+enginepane
+texture "vsi2.png"
+crease 30.000002
+numvert 4
+0 0.049016 -0.0477578
+0 -0.0460816 -0.0477578
+0 -0.0460816 0.0476303
+0 0.049016 0.0476303
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+0 1.00067 0.999407
+3 4.45843e-005 0.999407
+2 4.45843e-005 0.000756443
+1 1.00067 0.000756443
+kids 0
+OBJECT poly
+name "needle"
+loc 0.000180999 -0.000695044 0.0173322
+data 10
+enginepane
+texture "vsineedle.png"
+crease 30.000002
+numvert 4
+0 0.00211351 -0.0123339
+0 -0.00134253 -0.0123339
+0 -0.00134253 0.0123063
+0 0.00211351 0.0123063
+numsurf 1
+SURF 0x0
+mat 1
+refs 4
+0 1.00067 0.999407
+3 4.45843e-005 0.999407
+2 4.45843e-005 0.000756443
+1 1.00067 0.000756443
+kids 0
+OBJECT poly
+name "face"
+loc 6.56102e-005 -0.00157202 0.000353905
+data 10
+enginepane
+texture "vsi.png"
+crease 30.000002
+numvert 4
+0 0.0406086 0.0390968
+0 -0.0376975 0.0390968
+0 -0.0376975 -0.0392136
+0 0.0406086 -0.0392136
+numsurf 1
+SURF 0x0
+mat 1
+refs 4
+3 1.00067 0.999407
+0 4.45843e-005 0.999407
+1 4.45843e-005 0.000756443
+2 1.00067 0.000756443
+kids 0

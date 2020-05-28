@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">Insel Air</name>
+      <texture>Liveries/ia_fuselage.rgb</texture>
+    </livery>
+    <fairings>
+      <texture>Liveries/ia_fairing.rgb</texture>
+    </fairings>
+    <rudders>
+      <texture>Liveries/ia_vstab_engines.rgb</texture>
+    </rudders>
+  </model>
+</sim>
+</PropertyList>

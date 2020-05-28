@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<path>op.ac</path>
+
+<animation>
+  <type>material</type>
+  <object-name>Face</object-name>
+  <object-name>Needle</object-name>
+<emission>
+    <red>0.3</red>
+    <green>0.3</green>
+    <blue>0.3</blue>
+
+  </emission>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>Needle</object-name>
+  <property>engines/engine[1]/oil-pressure</property>
+  <interpolation>
+    <entry><ind>  0</ind><dep>-205</dep></entry>
+    <entry><ind>100</ind><dep>50</dep></entry>
+  </interpolation>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+</PropertyList>
+

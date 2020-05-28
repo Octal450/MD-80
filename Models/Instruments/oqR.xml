@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<path>oq.ac</path>
+
+<animation>
+  <type>material</type>
+  <object-name>Face</object-name>
+  <object-name>Needle</object-name>
+<emission>
+    <red>0.3</red>
+    <green>0.3</green>
+    <blue>0.3</blue>
+
+  </emission>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>Needle</object-name>
+  <property>engines/engine[1]/oil-q</property>
+  <interpolation>
+    <entry><ind> 0</ind><dep>-49</dep></entry>
+    <entry><ind> 8</ind><dep>  0</dep></entry>
+    <entry><ind>16</ind><dep> 49</dep></entry>
+  </interpolation>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+  <center>
+    <x-m>0</x-m>
+    <y-m>0.01</y-m>
+    <z-m>0</z-m>
+  </center>
+</animation>
+
+</PropertyList>
+

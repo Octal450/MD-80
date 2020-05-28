@@ -1,0 +1,427 @@
+AC3Db
+MATERIAL "alt" rgb 0.8 0.8 0.8  amb 1 1 1  emis 0.1 0.1 0.1  spec 1 1 1  shi 50  trans 0
+MATERIAL "transparent" rgb 0.8 0.8 0.8  amb 1 1 1  emis 0.1 0.1 0.1  spec 1 1 1  shi 50  trans 1
+OBJECT world
+kids 18
+OBJECT poly
+name "ALT.face"
+data 8
+ALT.face
+texture "D:/FlightGear 2016.1.1/data/Aircraft/CitationX/Models/Instruments/ALT/stbyalt.png"
+crease 30.000002
+numvert 9
+0.001709 0.039548 -0.016384
+0.001709 0.01638 -0.03955
+0.001709 -0.016383 -0.039548
+0.001709 -0.039549 -0.01638
+0.001709 -0.039548 0.016384
+0.001709 -0.016379 0.03955
+0.001709 0.016384 0.039548
+0.001709 0.03955 0.01638
+0.001709 0 0
+numsurf 8
+SURF 0x10
+mat 0
+refs 3
+1 0.873957 0.725525
+0 0.656977 0.942526
+8 0.503523 0.572109
+SURF 0x10
+mat 0
+refs 3
+8 0.503523 0.572109
+2 0.873941 0.418654
+1 0.873957 0.725525
+SURF 0x10
+mat 0
+refs 3
+8 0.503523 0.572109
+3 0.656939 0.201675
+2 0.873941 0.418654
+SURF 0x10
+mat 0
+refs 3
+8 0.503523 0.572109
+4 0.350069 0.201691
+3 0.656939 0.201675
+SURF 0x10
+mat 0
+refs 3
+8 0.503523 0.572109
+5 0.13309 0.418692
+4 0.350069 0.201691
+SURF 0x10
+mat 0
+refs 3
+8 0.503523 0.572109
+6 0.133105 0.725563
+5 0.13309 0.418692
+SURF 0x10
+mat 0
+refs 3
+8 0.503523 0.572109
+7 0.350107 0.942542
+6 0.133105 0.725563
+SURF 0x10
+mat 0
+refs 3
+8 0.503523 0.572109
+0 0.656977 0.942526
+7 0.350107 0.942542
+kids 0
+OBJECT poly
+name "ALT.needle"
+data 10
+ALT.needle
+texture "D:/FlightGear 2016.1.1/data/Aircraft/CitationX/Models/Instruments/ALT/stbyalt.png"
+crease 30.000002
+numvert 7
+0.002247 0.028615 -0.000564
+0.002247 0.016109 -0.000564
+0.002247 0.016109 0.000102
+0.002247 0.028615 0.000102
+0.002247 0.029006 -0.000964
+0.002247 0.029006 0.000502
+0.002247 0.032231 -0.000231
+numsurf 3
+SURF 0x10
+mat 0
+refs 4
+0 0.518983 0.265807
+3 0.518983 0.251393
+2 0.533397 0.251393
+1 0.533397 0.265807
+SURF 0x10
+mat 0
+refs 4
+3 0.518983 0.265807
+0 0.518983 0.251393
+4 0.533397 0.251393
+5 0.533397 0.265807
+SURF 0x10
+mat 0
+refs 3
+5 0.518983 0.265807
+4 0.518983 0.251393
+6 0.533397 0.251393
+kids 0
+OBJECT poly
+name "alttxt"
+data 6
+alttxt
+texture "D:/FlightGear 2016.1.1/data/Aircraft/CitationX/Models/Instruments/ALT/stbyalt.png"
+crease 30.000002
+numvert 4
+0.00193 0.021855 0.008312
+0.00193 0.016867 0.008312
+0.00193 0.016867 0.012813
+0.00193 0.021855 0.012813
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.979435 0.0886354
+3 0.923708 0.0886354
+2 0.923708 0.0144676
+1 0.979435 0.0144676
+kids 0
+OBJECT poly
+name "alttxt.001"
+data 10
+alttxt.001
+texture "D:/FlightGear 2016.1.1/data/Aircraft/CitationX/Models/Instruments/ALT/stbyalt.png"
+crease 30.000002
+numvert 4
+0.00193 0.021855 0.002469
+0.00193 0.016867 0.002469
+0.00193 0.016867 0.00697
+0.00193 0.021855 0.00697
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.979435 0.0882143
+3 0.923708 0.0882143
+2 0.923708 0.0140464
+1 0.979435 0.0140464
+kids 0
+OBJECT poly
+name "alttxt.002"
+data 10
+alttxt.002
+texture "D:/FlightGear 2016.1.1/data/Aircraft/CitationX/Models/Instruments/ALT/stbyalt.png"
+crease 30.000002
+numvert 4
+0.00193 0.021855 -0.001751
+0.00193 0.016867 -0.001751
+0.00193 0.016867 0.001647
+0.00193 0.021855 0.001647
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.979435 0.08773
+3 0.923708 0.08773
+2 0.923708 0.0135621
+1 0.979435 0.0135621
+kids 0
+OBJECT poly
+name "alttxt.003"
+data 10
+alttxt.003
+texture "D:/FlightGear 2016.1.1/data/Aircraft/CitationX/Models/Instruments/ALT/stbyalt.png"
+crease 30.000002
+numvert 4
+0.00193 0.021855 -0.0052
+0.00193 0.016867 -0.0052
+0.00193 0.016867 -0.001801
+0.00193 0.021855 -0.001801
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.979435 0.086894
+3 0.923708 0.086894
+2 0.923708 0.0127262
+1 0.979435 0.0127262
+kids 0
+OBJECT poly
+name "alttxt.004"
+data 10
+alttxt.004
+texture "D:/FlightGear 2016.1.1/data/Aircraft/CitationX/Models/Instruments/ALT/stbyalt.png"
+crease 30.000002
+numvert 4
+0.00193 0.021855 -0.008568
+0.00193 0.016867 -0.008568
+0.00193 0.016867 -0.005169
+0.00193 0.021855 -0.005169
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.979435 0.0869604
+3 0.923708 0.0869604
+2 0.923708 0.0127926
+1 0.979435 0.0127926
+kids 0
+OBJECT poly
+name "iastape"
+data 7
+iastape
+texture "D:/FlightGear 2016.1.1/data/Aircraft/CitationX/Models/Instruments/ALT/stbyalt.png"
+crease 30.000002
+numvert 4
+0.00193 -0.017135 -0.024904
+0.00193 -0.02598 -0.024904
+0.00193 -0.02598 0.011152
+0.00193 -0.017135 0.011152
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.0564121 0.835788
+3 0.0564121 0.984661
+2 0.00964417 0.984661
+1 0.00964417 0.835788
+kids 0
+OBJECT poly
+name "inhg.001"
+data 8
+inhg.001
+texture "D:/FlightGear 2016.1.1/data/Aircraft/CitationX/Models/Instruments/ALT/stbyalt.png"
+crease 30.000002
+numvert 4
+0.00193 0.001461 -0.023911
+0.00193 -0.003527 -0.023911
+0.00193 -0.003527 -0.020512
+0.00193 0.001461 -0.020512
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.979435 0.0880105
+3 0.923708 0.0880105
+2 0.923708 0.0138426
+1 0.979435 0.0138426
+kids 0
+OBJECT poly
+name "inhg.002"
+data 8
+inhg.002
+texture "D:/FlightGear 2016.1.1/data/Aircraft/CitationX/Models/Instruments/ALT/stbyalt.png"
+crease 30.000002
+numvert 4
+0.00193 0.001461 -0.027359
+0.00193 -0.003527 -0.027359
+0.00193 -0.003527 -0.023961
+0.00193 0.001461 -0.023961
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.979435 0.0878236
+3 0.923708 0.0878236
+2 0.923708 0.0136558
+1 0.979435 0.0136558
+kids 0
+OBJECT poly
+name "inhg.003"
+data 8
+inhg.003
+texture "D:/FlightGear 2016.1.1/data/Aircraft/CitationX/Models/Instruments/ALT/stbyalt.png"
+crease 30.000002
+numvert 4
+0.00193 0.001461 -0.030727
+0.00193 -0.003527 -0.030727
+0.00193 -0.003527 -0.027329
+0.00193 0.001461 -0.027329
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.979435 0.0875288
+3 0.923708 0.0875288
+2 0.923708 0.013361
+1 0.979435 0.013361
+kids 0
+OBJECT poly
+name "inhg.004"
+data 8
+inhg.004
+texture "D:/FlightGear 2016.1.1/data/Aircraft/CitationX/Models/Instruments/ALT/stbyalt.png"
+crease 30.000002
+numvert 4
+0.00193 0.001461 -0.034145
+0.00193 -0.003527 -0.034145
+0.00193 -0.003527 -0.030747
+0.00193 0.001461 -0.030747
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.979435 0.0882143
+3 0.923708 0.0882143
+2 0.923708 0.0140465
+1 0.979435 0.0140465
+kids 0
+OBJECT poly
+name "inhg.dn"
+loc 0.008776 0.004548 -0.006157
+data 7
+inhg.dn
+crease 30.000002
+numvert 4
+0.000699 -0.050174 0.056364
+0.000699 -0.024893 0.056354
+0.000699 -0.05018 0.037405
+0.000699 -0.024904 0.037392
+numsurf 1
+SURF 0x10
+mat 1
+refs 4
+0 0 0
+2 0 0
+3 0 0
+1 0 0
+kids 0
+OBJECT poly
+name "inhg.up"
+loc 0.008776 0.004548 -0.006157
+data 7
+inhg.up
+crease 30.000002
+numvert 4
+0.000699 -0.024904 0.037392
+0.000699 -0.05018 0.037405
+0.000699 -0.05019 0.018443
+0.000699 -0.02491 0.018432
+numsurf 1
+SURF 0x10
+mat 1
+refs 4
+3 0 0
+0 0 0
+1 0 0
+2 0 0
+kids 0
+OBJECT poly
+name "kpa.001"
+data 7
+kpa.001
+texture "D:/FlightGear 2016.1.1/data/Aircraft/CitationX/Models/Instruments/ALT/stbyalt.png"
+crease 30.000002
+numvert 4
+0.00193 0.001461 0.029366
+0.00193 -0.003527 0.029366
+0.00193 -0.003527 0.032765
+0.00193 0.001461 0.032765
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.979435 0.0877921
+3 0.923708 0.0877921
+2 0.923708 0.0136242
+1 0.979435 0.0136242
+kids 0
+OBJECT poly
+name "kpa.002"
+data 7
+kpa.002
+texture "D:/FlightGear 2016.1.1/data/Aircraft/CitationX/Models/Instruments/ALT/stbyalt.png"
+crease 30.000002
+numvert 4
+0.00193 0.001461 0.025918
+0.00193 -0.003527 0.025918
+0.00193 -0.003527 0.029317
+0.00193 0.001461 0.029317
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.979435 0.08724
+3 0.923708 0.08724
+2 0.923708 0.0130721
+1 0.979435 0.0130721
+kids 0
+OBJECT poly
+name "kpa.003"
+data 7
+kpa.003
+texture "D:/FlightGear 2016.1.1/data/Aircraft/CitationX/Models/Instruments/ALT/stbyalt.png"
+crease 30.000002
+numvert 4
+0.00193 0.001461 0.02255
+0.00193 -0.003527 0.02255
+0.00193 -0.003527 0.025949
+0.00193 0.001461 0.025949
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.979435 0.0878237
+3 0.923708 0.0878237
+2 0.923708 0.0136559
+1 0.979435 0.0136559
+kids 0
+OBJECT poly
+name "kpa.004"
+data 7
+kpa.004
+texture "D:/FlightGear 2016.1.1/data/Aircraft/CitationX/Models/Instruments/ALT/stbyalt.png"
+crease 30.000002
+numvert 4
+0.00193 0.001461 0.019132
+0.00193 -0.003527 0.019132
+0.00193 -0.003527 0.022531
+0.00193 0.001461 0.022531
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.979435 0.0879458
+3 0.923708 0.0879458
+2 0.923708 0.0137779
+1 0.979435 0.0137779
+kids 0

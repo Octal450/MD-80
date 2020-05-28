@@ -1,0 +1,784 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
+<PropertyList>
+	
+	<sim>
+		<author>Josh Davidson/Octal450 (Flight Dynamics, Systems, Instruments), Gary Neely/Buckaroo (3D, Textures, Instruments)</author>
+		<chase-distance-m type="double">-80.0</chase-distance-m>
+		<current-view>
+			<z-offset-default type="float">80.0</z-offset-default>
+			<z-offset-min-m type="float">20.0</z-offset-min-m>
+			<z-offset-max-m type="float">300.0</z-offset-max-m>
+		</current-view>
+		<flight-recorder include="Systems/flight-recorder.xml"/>
+		<gui n="0" include="gui/it-gui.xml"/>
+		<hud n="0">
+			<enable3d n="0">false</enable3d>
+			<enable3d n="1">false</enable3d>
+		</hud>
+		<instrument-options>
+			<canvas-popup-enable type="bool">true</canvas-popup-enable>
+		</instrument-options>
+		<instrumentation>
+			<path>Aircraft/MD-80/Systems/instrumentation.xml</path>
+		</instrumentation>
+		<menubar>
+			<default>
+				<menu n="100">
+					<label>|</label>
+					<enabled type="bool">false</enabled>
+				</menu>
+				<menu n="101">
+					<label>System</label>
+					<enabled type="bool">false</enabled>
+				</menu>
+				<menu n="102">
+					<label>Utilities</label>
+					<item>
+						<label>Select Livery</label>
+						<binding>
+							<command>nasal</command>
+							<script>aircraft.livery.dialog.toggle();</script>
+						</binding>
+					</item>
+					<item>
+						<label>Pushback</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>autopush</dialog-name>
+						</binding>
+					</item>
+				</menu>
+			</default>
+		</menubar>
+		<minimum-fg-version>2019.2.0</minimum-fg-version>
+		<model n="0">
+			<autopush>
+				<available type="int">1</available>
+				<chocks alias="/services/chokes/nose"/>
+				<connected type="bool">0</connected>
+				<debug type="bool">0</debug>
+				<driver>
+					<F_V type="float">8.0</F_V>
+					<K_psi type="float">0.03</K_psi>
+					<F_psi type="float">1.0</F_psi>
+					<K_psidot type="float">0.03</K_psidot>
+					<F_psidot type="float">1.0</F_psidot>
+				</driver>
+				<enabled type="int"/>
+				<F_d type="float">0.0</F_d>
+				<F_i type="float">0.1</F_i>
+				<F_p type="float">0.15</F_p>
+				<K_d type="float">0.0</K_d>
+				<K_i type="float">0.25</K_i>
+				<K_p type="float">0.5</K_p>
+				<min-turn-radius-m type="float">15</min-turn-radius-m>
+				<pitch-deg type="float">0.0</pitch-deg>
+				<position-norm type="double">0</position-norm>
+				<route>
+					<show type="bool"/>
+				</route>
+				<steer-cmd-norm alias="/fdm/jsbsim/fcs-actual/tiller/autopush-cmd"/>
+				<stopping-distance-m type="float">5.0</stopping-distance-m>
+				<target-speed-km_h type="float">0.0</target-speed-km_h>
+				<yaw alias="/fdm/jsbsim/fcs/steer-deg"/>
+				<yaw-mult type="float">1.0</yaw-mult>
+			</autopush>
+		</model>
+		<multiplay n="0">
+			<generic n="0">
+				<float n="0" alias="/gear/gear[0]/compression-norm"/>
+				<float n="1" alias="/gear/gear[1]/compression-norm"/>
+				<float n="2" alias="/gear/gear[2]/compression-norm"/>
+				<float n="3" alias="/engines/engine[0]/reverser-pos-norm"/>
+				<float n="4" alias="/engines/engine[1]/reverser-pos-norm"/>
+				<float n="5" alias="/gear/gear[0]/steering-norm"/>
+				<float n="6" alias="/gear/gear[0]/rollspeed-ms"/>
+				<float n="7" alias="/gear/gear[1]/rollspeed-ms"/>
+				<float n="8" alias="/gear/gear[2]/rollspeed-ms"/>
+				<float n="9" alias="/fdm/jsbsim/fcs/slat-pos-norm"/>
+				<float n="10" alias="/gear/gear[0]/steering-norm"/>
+				<int n="0" alias="/sim/model/lights/strobe/state"/>
+				<int n="1" alias="/sim/model/lights/beacon/state"/>
+				<int n="2" alias="/controls/lighting/landing-lights-n"/>
+				<int n="3" alias="/sim/model/lights/logo-lights"/>
+				<int n="4" alias="/controls/lighting/landing-lights-l"/>
+				<int n="5" alias="/controls/lighting/landing-lights-r"/>
+				<int n="6" alias="/sim/model/lights/nav-lights"/>
+				<int n="7" alias="/controls/lighting/wing-lights"/>
+			</generic>
+		</multiplay>
+		<previews>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>Splash/splash1.png</path>
+			</preview>
+		</previews>
+		<startup>
+			<splash-texture>Aircraft/MD-80/Splash/SplashOld.png</splash-texture>
+		</startup>
+		<status>Pre V1.0</status>
+		<systems n="0">
+			<!--electrical>
+				<path></path>
+			</electrical-->
+			<autopilot n="0">
+				<path>Aircraft/MD-80/Systems/it-autoflight.xml</path>
+			</autopilot>
+			<autopilot n="1">
+				<path>Aircraft/MD-80/Systems/it-autothrust.xml</path>
+			</autopilot>
+			<autopilot n="2">
+				<path>Aircraft/MD-80/Systems/libraries.xml</path>
+			</autopilot>
+			<autopilot n="3">
+				<path>Aircraft/MD-80/Sounds/MD-80-sound-variables.xml</path>
+			</autopilot>
+		</systems>
+		<tags>
+			<tag>transport</tag>
+			<tag>douglas</tag>
+			<tag>1980s</tag>
+			<tag>1990s</tag>
+			<tag>2000s</tag>
+			<tag>ifr</tag>
+			<tag>retractable-gear</tag>
+			<tag>glass-cockpit</tag>
+			<tag>pressurised</tag>
+			<tag>jet</tag>
+			<tag>2-engine</tag>
+		</tags>
+		<view n="0">
+			<name>Captain View</name>
+			<internal type="bool" archive="y">true</internal>
+			<config>
+				<x-offset-m archive="y">-0.5</x-offset-m>
+				<y-offset-m archive="y">1.3</y-offset-m>
+				<z-offset-m archive="y">-19.6</z-offset-m>
+				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
+				<pitch-offset-deg archive="y">-18</pitch-offset-deg>
+			</config>
+		</view>
+		<view n="100">
+			<name>First Officer View</name>
+			<type>lookfrom</type>
+			<enabled type="bool">true</enabled>
+			<internal type="bool" archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0.5</x-offset-m>
+				<y-offset-m archive="y">1.3</y-offset-m>
+				<z-offset-m archive="y">-19.6</z-offset-m>
+				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
+				<pitch-offset-deg archive="y">-18</pitch-offset-deg>
+			</config>
+		</view>
+		<view n="105">
+			<name>Left Front View</name>
+			<type>lookfrom</type>
+			<enabled type="bool">true</enabled>
+			<internal type="bool" archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">-1.75</x-offset-m>
+				<y-offset-m archive="y">0.92</y-offset-m>
+				<z-offset-m archive="y">-5.5</z-offset-m>
+				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
+				<heading-offset-deg archive="y">129</heading-offset-deg>
+				<pitch-offset-deg archive="y">-7</pitch-offset-deg>
+			</config>
+		</view>
+		<view n="106">
+			<name>Right Mid View</name>
+			<type>lookfrom</type>
+			<internal archive="y">false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">1.75</x-offset-m>
+				<y-offset-m archive="y">0.92</y-offset-m>
+				<z-offset-m archive="y">1.0</z-offset-m>
+				<heading-offset-deg>257</heading-offset-deg>
+				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
+				<pitch-offset-deg archive="y">-7</pitch-offset-deg>
+			</config>
+		</view>
+		<view n="107">
+			<name>Left Aft View</name>
+			<type>lookfrom</type>
+			<internal archive="y">false</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">-1.75</x-offset-m>
+				<y-offset-m archive="y">0.92</y-offset-m>
+				<z-offset-m archive="y">4.5</z-offset-m>
+				<heading-offset-deg>75</heading-offset-deg>
+				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
+				<pitch-offset-deg archive="y">-7</pitch-offset-deg>
+			</config>
+		</view>
+	</sim>
+	
+	<consumables n="0">
+		<fuel>
+			<tank n="0"><name>Left Tank</name></tank>
+			<tank n="1"><name>Center Tank</name></tank>
+			<tank n="2"><name>Right Tank</name></tank>
+			<tank n="3"><name>Engine 1 Pipe</name></tank>
+			<tank n="4"><name>Engine 2 Pipe</name></tank>
+			<tank n="5"><name>APU Pipe</name></tank>
+		</fuel>
+	</consumables>
+	
+	<controls n="0">
+		<engines n="0">
+			<engine n="0">
+				<cutoff type="bool">0</cutoff>
+				<cutoff-switch type="bool">0</cutoff-switch>
+				<reverse-lever type="double">0</reverse-lever>
+			</engine>
+			<engine n="1">
+				<cutoff type="bool">0</cutoff>
+				<cutoff-switch type="bool">0</cutoff-switch>
+				<reverse-lever type="double">0</reverse-lever>
+			</engine>
+		</engines>
+		<flight n="0">
+			<aileron-drives-tiller type="bool">0</aileron-drives-tiller>
+			<elevator-trim type="double">-0.35</elevator-trim>
+			<elevator-trim-lever type="int">0</elevator-trim-lever>
+			<dial-a-flap type="double">15</dial-a-flap> <!-- Rounded in md-11-fcc.xml -->
+			<rudder-pwr type="bool">1</rudder-pwr>
+			<speedbrake-arm type="bool">0</speedbrake-arm>
+		</flight>
+		<gear n="0">
+			<brake-parking type="bool">0</brake-parking>
+			<tiller-cmd-norm type="double">0</tiller-cmd-norm>
+			<tiller-enabled type="bool">0</tiller-enabled>
+		</gear>
+		<lighting n="0">
+			<beacon type="bool">0</beacon>
+			<landing-light-l type="double">0</landing-light-l>
+			<landing-light-r type="double">0</landing-light-r>
+			<landing-light-n type="double">0</landing-light-n>
+			<land-on-l type="double">0</land-on-l>
+			<land-on-r type="double">0</land-on-r>
+			<land-ext-l type="double">0</land-ext-l>
+			<land-ext-r type="double">0</land-ext-r>
+			<logo-lights type="bool">0</logo-lights>
+			<nav-lights type="bool">0</nav-lights>
+			<strobe type="bool">0</strobe>
+		</lighting>
+		<switches n="0">
+			<annun-test type="bool">0</annun-test>
+			<ap-yoke-button1 type="bool">0</ap-yoke-button1>
+			<ap-yoke-button2 type="bool">0</ap-yoke-button2>
+			<cart type="bool">0</cart>
+			<minimums type="int">200</minimums>
+			<no-smoking-sign type="double">1</no-smoking-sign> <!-- Smoking is bad! -->
+			<no-smoking-sign-status type="bool">1</no-smoking-sign-status>
+			<seatbelt-sign type="double">0</seatbelt-sign>
+			<seatbelt-sign-status type="bool">0</seatbelt-sign-status>
+		</switches>
+	</controls>
+	
+	<engines n="0">
+		<engine n="0">
+			<egt-actual type="double">0</egt-actual>
+			<epr-actual type="double">1</epr-actual>
+			<ff-actual type="double">0</ff-actual>
+			<n1-actual type="double">0</n1-actual>
+			<n2-actual type="double">0</n2-actual>
+			<on-fire type="bool">0</on-fire>
+			<reverser-pos-norm type="double">0</reverser-pos-norm>
+			<running type="bool">1</running>
+			<state type="int">3</state>
+		</engine>
+		<engine n="1">
+			<egt-actual type="double">0</egt-actual>
+			<epr-actual type="double">1</epr-actual>
+			<ff-actual type="double">0</ff-actual>
+			<n1-actual type="double">0</n1-actual>
+			<n2-actual type="double">0</n2-actual>
+			<on-fire type="bool">0</on-fire>
+			<reverser-pos-norm type="double">0</reverser-pos-norm>
+			<running type="bool">1</running>
+			<state type="int">3</state>
+		</engine>
+	</engines>
+	
+	<fdm n="0">
+		<jsbsim n="0">
+			<external_reactions n="0">
+				<tractor>
+					<magnitude alias="/sim/model/autopush/force-lbf"/>
+					<x alias="/sim/model/autopush/force-x"/>
+					<y alias="/sim/model/autopush/force-y"/>
+				</tractor>
+			</external_reactions>
+			<fcs n="0">
+				<slat-pos-deg type="double">0</slat-pos-deg>
+				<throttle-lever-feedback n="0" type="double">0</throttle-lever-feedback>
+				<throttle-lever-feedback n="1" type="double">0</throttle-lever-feedback>
+			</fcs>
+		</jsbsim>
+	</fdm>
+	
+	<gear n="0">
+		<gear n="0">
+			<tyre-smoke type="bool">0</tyre-smoke>
+			<sprayspeed-ms type="double">0</sprayspeed-ms>
+			<spray-density type="double">0</spray-density>
+			<caster-angle-deg-damped type="double">0</caster-angle-deg-damped>
+		</gear>
+		<gear n="1">
+			<tyre-smoke type="bool">0</tyre-smoke>
+			<sprayspeed-ms type="double">0</sprayspeed-ms>
+			<spray-density type="double">0</spray-density>
+		</gear>
+		<gear n="2">
+			<tyre-smoke type="bool">0</tyre-smoke>
+			<sprayspeed-ms type="double">0</sprayspeed-ms>
+			<spray-density type="double">0</spray-density>
+		</gear>
+	</gear>
+	
+	<input n="0">
+		<keyboard n="0">
+			<key n="2">
+				<name>Ctrl-b</name>
+				<desc>Cycle speedbrake setting</desc>
+				<binding>
+					<condition>
+						<and>
+							<not-equals>
+								<property>/controls/flight/speedbrake-arm</property>
+								<value>1</value>
+							</not-equals>
+							<equals>
+								<property>spoilers/main-gear-and</property>
+								<value>1</value>
+							</equals>
+						</and>
+					</condition>
+					<command>property-cycle</command>
+					<property>controls/flight/speedbrake</property>
+					<value>0.0</value>
+					<value>0.2</value>
+					<value>0.4</value>
+					<value>0.6</value>
+					<value>0.8</value>
+				</binding>
+				<binding>
+					<condition>
+						<and>
+							<not-equals>
+								<property>/controls/flight/speedbrake-arm</property>
+								<value>1</value>
+							</not-equals>
+							<not-equals>
+								<property>spoilers/main-gear-and</property>
+								<value>1</value>
+							</not-equals>
+						</and>
+					</condition>
+					<command>property-cycle</command>
+					<property>controls/flight/speedbrake</property>
+					<value>0.0</value>
+					<value>0.2</value>
+					<value>0.4</value>
+					<value>0.6</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/flight/speedbrake-arm</property>
+					<value>0</value>
+				</binding>
+			</key>
+			<key n="24">
+				<name>Ctrl-x</name>
+				<desc>Reset zoom to default</desc>
+				<binding>
+					<command>nasal</command>
+					<script>libraries.fovZoom(0);</script>
+				</binding>
+			</key>
+			<key n="88">
+				<name>X</name>
+				<desc>Increase field of view</desc>
+				<binding>
+					<command>nasal</command>
+					<script>libraries.fovZoom(1);</script>
+				</binding>
+			</key>
+			<key n="99">
+				<name>c</name>
+				<desc>Reset view to center</desc>
+				<binding>
+					<command>nasal</command>
+					<script>libraries.resetView();</script>
+				</binding>
+			</key>
+			<key n="120">
+				<name>x</name>
+				<desc>Decrease field of view</desc>
+				<binding>
+					<command>nasal</command>
+					<script>libraries.fovZoom(-1);</script>
+				</binding>
+			</key>
+			<key n="362">
+				<name>Home</name>
+				<desc>Elevator Trim Down</desc>
+				<binding>
+					<command>nasal</command>
+					<script>controls.elevatorTrim(1);</script>
+				</binding>
+			</key>
+			<key n="363">
+				<name>End</name>
+				<desc>Elevator Trim Up</desc>
+				<binding>
+					<command>nasal</command>
+					<script>controls.elevatorTrim(-1);</script>
+				</binding>
+			</key>
+		</keyboard>
+		<mice n="0">
+			<mouse n="0">
+				<mode n="0">
+					<button n="3">
+						<binding n="0">
+							<script></script>
+						</binding>
+						<binding n="1">
+							<condition>
+								<and>
+									<property>/devices/status/mice/mouse[0]/button[2]</property>
+									<not><property>/sim/mouse/right-button-mode-cycle-enabled</property></not>
+								</and>
+							</condition>
+							<command>nasal</command>
+							<script>libraries.fovZoom(-1);</script>
+						</binding>
+					</button>
+					<button n="4">
+						<binding n="0">
+							<script></script>
+						</binding>
+						<binding n="1">
+							<condition>
+								<and>
+									<property>/devices/status/mice/mouse[0]/button[2]</property>
+									<not><property>/sim/mouse/right-button-mode-cycle-enabled</property></not>
+								</and>
+							</condition>
+							<command>nasal</command>
+							<script>libraries.fovZoom(1);</script>
+						</binding>
+					</button>
+				</mode>
+				<mode n="1"> <!-- Mouse Yoke Support -->
+					<button n="3">
+						<binding n="0">
+							<command>nasal</command>
+							<script></script>
+						</binding>
+						<binding n="1">
+							<command>nasal</command>
+							<script>controls.elevatorTrim(1);</script>
+						</binding>
+					</button>
+					<button n="4">
+						<binding n="0">
+							<command>nasal</command>
+							<script></script>
+						</binding>
+						<binding n="1">
+							<command>nasal</command>
+							<script>controls.elevatorTrim(-1);</script>
+						</binding>
+					</button>
+				</mode>
+			</mouse>
+		</mice>
+	</input>
+	
+	<instrumentation n="0">
+		<airspeed-indicator n="0">
+			<indicated-mach type="double">0</indicated-mach>
+			<indicated-speed-kt type="double">0</indicated-speed-kt>
+		</airspeed-indicator>
+		<altimeter n="0">
+			<inhg type="bool">1</inhg>
+			<indicated-altitude-ft type="double">0</indicated-altitude-ft>
+			<oldqnh type="double">29.92</oldqnh>
+			<std type="bool">0</std>
+		</altimeter>
+		<chrono n="0">
+			<started type="bool">0</started>
+			<paused type="bool">0</paused>
+			<text type="string">0' 00'</text>
+			<started-at type="int">0</started-at>
+			<elapsed-time type="int">0</elapsed-time>
+		</chrono>
+		<chrono n="1">
+			<started type="bool">0</started>
+			<paused type="bool">0</paused>
+			<text type="string">0' 00'</text>
+			<started-at type="int">0</started-at>
+			<elapsed-time type="int">0</elapsed-time>
+		</chrono>
+		<comm n="0">
+			<frequencies>
+				<selected-mhz type="double">118.7</selected-mhz>
+				<standby-mhz type="double">121.4</standby-mhz>
+			</frequencies>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0.6</volume>
+		</comm>
+		<comm n="1">
+			<frequencies>
+				<selected-mhz type="double">119.4</selected-mhz>
+				<standby-mhz type="double">122.6</standby-mhz>
+			</frequencies>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0.6</volume>
+		</comm>
+		<comm n="2">
+			<frequencies>
+				<selected-mhz type="double">0</selected-mhz>
+				<standby-mhz type="double">123.2</standby-mhz>
+			</frequencies>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0.6</volume>
+		</comm>
+		<dme n="0">
+			<frequencies>
+				<selected-mhz type="double">111.15</selected-mhz>
+				<source type="string">/instrumentation/nav[0]/frequencies/selected-mhz</source>
+			</frequencies>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</dme>
+		<dme n="1">
+			<frequencies>
+				<selected-mhz type="double">109.55</selected-mhz>
+				<source type="string">/instrumentation/nav[1]/frequencies/selected-mhz</source>
+			</frequencies>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</dme>
+		<dme n="2">
+			<frequencies>
+				<selected-mhz type="double">112.8</selected-mhz>
+				<source type="string">/instrumentation/nav[2]/frequencies/selected-mhz</source>
+			</frequencies>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</dme>
+		<dme n="3">
+			<frequencies>
+				<selected-mhz type="double">114.8</selected-mhz>
+				<source type="string">/instrumentation/nav[3]/frequencies/selected-mhz</source>
+			</frequencies>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</dme>
+		<groundradar>
+			<range type="double">1.0</range>
+		</groundradar>
+		<mk-viii n="0"> <!-- See http://wiki.flightgear.org/index.php/GPWS -->
+			<serviceable type="bool">true</serviceable>
+			<configuration-module>
+				<category-1 type="int">255</category-1>
+				<category-3 type="int">2</category-3>
+				<category-4 type="int">13</category-4>
+				<category-5 type="int">0</category-5>
+				<category-6 type="int">1</category-6>
+				<category-7 type="int">124</category-7>
+				<category-8 type="int">3</category-8>
+				<category-9 type="int">3</category-9> 
+				<category-10 type="int">6</category-10>
+				<category-13 type="int">7</category-13>
+				<category-14 type="int">0</category-14>
+			</configuration-module>
+			<input-feeders>
+				<discretes>
+					<!-- Disable the built-in input feeder -->
+					<landing-flaps type="bool">false</landing-flaps>
+				</discretes>
+			</input-feeders>
+			<inputs>
+				<arinc429>
+					<decision-height-ncd type="bool">0</decision-height-ncd>
+					<decision-height type="double">250</decision-height>
+				</arinc429>
+			</inputs>
+			<speaker>
+				<max-dist type="double">100</max-dist>
+				<reference-dist type="double">20</reference-dist>
+				<volume type="double">2</volume>
+			</speaker>
+			<voice>
+				<file-prefix>Aircraft/MD-80/Sounds/GPWS/</file-prefix>
+			</voice>
+		</mk-viii>
+		<nav n="0">
+			<frequencies>
+				<selected-mhz type="double">111.15</selected-mhz>
+				<standby-mhz type="double">110.95</standby-mhz>
+			</frequencies>
+			<radials>
+				<selected-deg type="double">360</selected-deg>
+			</radials>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</nav>
+		<nav n="1">
+			<frequencies>
+				<selected-mhz type="double">109.55</selected-mhz>
+				<standby-mhz type="double">110.55</standby-mhz>
+			</frequencies>
+			<radials>
+				<selected-deg type="double">360</selected-deg>
+			</radials>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</nav>
+		<nav n="2">
+			<cdi>
+				<serviceable type="bool">true</serviceable>
+			</cdi>
+			<frequencies>
+				<selected-mhz type="double">112.8</selected-mhz>
+				<standby-mhz type="double">112.6</standby-mhz>
+			</frequencies>
+			<radials>
+				<selected-deg type="double">360</selected-deg>
+			</radials>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</nav>
+		<nav n="3">
+			<cdi>
+				<serviceable type="bool">true</serviceable>
+			</cdi>
+			<frequencies>
+				<selected-mhz type="double">114.8</selected-mhz>
+				<standby-mhz type="double">114.6</standby-mhz>
+			</frequencies>
+			<radials>
+				<selected-deg type="double">360</selected-deg>
+			</radials>
+			<serviceable type="bool">true</serviceable>
+			<volume type="double">0</volume>
+		</nav>
+		<tcas>
+			<inputs>
+				<mode type="int">3</mode>
+			</inputs>
+			<voice>
+				<file-prefix type="string">Sounds/tcas/female/</file-prefix>
+			</voice>
+			<serviceable type="bool">true</serviceable>
+			<speaker>
+				<max-dist>2</max-dist>
+				<reference-dist>1</reference-dist>
+				<volume>0.8</volume>
+			</speaker>
+		</tcas>
+	</instrumentation>
+	
+	<it-autoflight>
+		<config>
+			<roll>
+				<kp-low>0.13</kp-low> <!-- Kp at low speed -->
+				<kp-high>0.06</kp-high> <!-- Kp at high speed -->
+				<ti>1.0</ti>
+				<td>0.0001</td>
+			</roll>
+			<pitch>
+				<kp-low>-0.16</kp-low> <!-- Kp at low speed -->
+				<kp-high>-0.07</kp-high> <!-- Kp at high speed -->
+				<ti>0.5</ti>
+				<td>0.001</td>
+			</pitch>
+			<cmd>
+				<roll>1.6</roll>
+				<alt-gain>-5</alt-gain>
+			</cmd>
+			<autoland> 
+				<pitch-kp>0.0051</pitch-kp>
+				<yaw-kp>-0.05</yaw-kp>
+			</autoland>
+			<rollout>
+				<roll-kp>-0.1</roll-kp>
+				<pitch-defl>0.15</pitch-defl>
+				<yaw-kp>-0.02</yaw-kp>
+			</rollout>
+		</config>
+		<settings>
+			<auto-bank-max-deg>30</auto-bank-max-deg> <!-- Maximum Auto Bank Limit -->
+			<disable-final>0</disable-final> <!-- Disable the Final Controllers, for custom FCS integration -->
+			<land-enable>1</land-enable> <!-- Enable/Disable Autoland -->
+			<land-flap>0.68</land-flap> <!-- Minimum Flap used for Landing -->
+			<retard-ft>50</retard-ft> <!-- Enable Thrust Retard -->
+			<retard-enable>1</retard-enable> <!-- AGL to Thrust Retard -->
+			<togaspd>150</togaspd> <!-- V2 + 10kts -->
+			<lat-agl-ft>100</lat-agl-ft> <!-- AGL when LNAV becomes active if armed -->
+			<reduc-agl-ft>1500</reduc-agl-ft> <!-- AGL when T/O CLB changes to SPD CLB (FLCH), set to 0 to disable -->
+			<autoland-without-ap>0</autoland-without-ap> <!-- Engage LAND and FLARE Modes even if the AP is off -->
+		</settings>
+	</it-autoflight>
+	
+	<payload n="0">
+		<weight n="0">
+			<name>Cockpit Crew</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
+			<min-lb type="double">200</min-lb>
+			<max-lb type="double">440</max-lb>
+		</weight>
+		<weight n="1">
+			<name>Cabin/Cargo</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">40112</max-lb>
+		</weight>
+	</payload>
+	
+	<systems n="0">
+		<acconfig n="0">
+			<autoconfig-running type="bool">0</autoconfig-running>
+		</acconfig>
+	</systems>
+	
+	<nasal n="0">
+		<pts>
+			<file>Aircraft/MD-11/Nasal/property-tree-setup.nas</file>
+		</pts>
+		<libraries>
+			<file>Aircraft/MD-80/Nasal/libraries.nas</file>
+			<file>Aircraft/MD-80/Nasal/shake.nas</file>
+			<file>Aircraft/MD-80/Nasal/zoom-views.nas</file>
+		</libraries>
+		<itaf>
+			<file>Aircraft/MD-80/Nasal/it-autoflight.nas</file>
+		</itaf>
+		<autopush>
+			<file>Aircraft/MD-80/Nasal/Autopush/autopush.nas</file>
+		</autopush>
+		<autopush_driver>
+			<file>Aircraft/MD-80/Nasal/Autopush/driver.nas</file>
+		</autopush_driver>
+		<dynarr>
+			<file>Aircraft/MD-80/Nasal/Autopush/dynarr.nas</file>
+		</dynarr>
+		<autopush_route>
+			<file>Aircraft/MD-80/Nasal/Autopush/route.nas</file>
+		</autopush_route>
+	</nasal>
+
+</PropertyList>

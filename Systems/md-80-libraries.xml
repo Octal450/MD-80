@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-80 Libraries -->
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
+<system name="MD-80: Libraries">
+	
+	<channel name="FDM Rate Libraries">
+		
+		<switch name="position/wow">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				gear/unit[0]/WOW eq 1
+				gear/unit[1]/WOW eq 1
+				gear/unit[2]/WOW eq 1
+			</test>
+		</switch>
+		
+		<switch name="aero/alpha-deg-norm">
+			<default value="0"/>
+			<test value="aero/alpha-deg">
+				gear/unit[0]/WOW eq 0
+			</test>
+		</switch>
+	
+	</channel>
+	
+	<channel name="Execrate 8 Libraries" execrate="8">
+		
+		
+	
+	</channel>
+
+</system>

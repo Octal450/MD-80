@@ -1,0 +1,384 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+<path>fuel.ac</path>
+
+<animation>
+  <type>material</type>
+  <object-name>FuelL1</object-name>
+  <object-name>FuelL2</object-name>
+  <object-name>FuelL3</object-name>
+  <object-name>FuelL4</object-name>
+  <object-name>FuelL5</object-name>
+  <object-name>FuelR1</object-name>
+  <object-name>FuelR2</object-name>
+  <object-name>FuelR3</object-name>
+  <object-name>FuelR4</object-name>
+  <object-name>FuelR5</object-name>
+  <object-name>FuelC1</object-name>
+  <object-name>FuelC2</object-name>
+  <object-name>FuelC3</object-name>
+  <object-name>FuelC4</object-name>
+  <object-name>FuelC5</object-name>
+  <object-name>FuelT1</object-name>
+  <object-name>FuelT2</object-name>
+  <object-name>FuelT3</object-name>
+  <object-name>FuelT4</object-name>
+  <object-name>FuelT5</object-name>
+  <object-name>Lbs1</object-name>
+  <object-name>Lbs2</object-name>
+  <object-name>Lbs3</object-name>
+  <object-name>Lbs4</object-name>
+  <object-name>Lbs5</object-name>
+  <object-name>Lbs6</object-name>
+  <emission>
+    <red>0.8</red>
+    <green>0.4</green>
+    <blue>0.2</blue>
+    <factor-prop>controls/lighting/digital-norm</factor-prop>
+  </emission>
+</animation>
+
+	<!-- Power on/off -->
+	<animation>
+		<name>Power on/off</name>
+		<type>select</type>
+		<object-name>Off</object-name>
+		<condition>
+			<less-than>
+				<property>systems/electrical/bus/dcL</property>
+				<value>15</value>
+			</less-than>
+		</condition>
+	</animation>
+
+<!-- Fuel Left Digits -->
+
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelL1</object-name>
+  <property>consumables/fuel/tank[0]/level-lbs</property>
+  <factor>0.00001</factor>
+  <step>10000</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelL2</object-name>
+  <property>consumables/fuel/tank[0]/level-lbs</property>
+  <factor>0.0001</factor>
+  <step>1000</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelL3</object-name>
+  <property>consumables/fuel/tank[0]/level-lbs</property>
+  <factor>0.001</factor>
+  <step>100</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelL4</object-name>
+  <property>consumables/fuel/tank[0]/level-lbs</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelL5</object-name>
+  <property>consumables/fuel/tank[0]/level-lbs</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<!-- Fuel Right Digits -->
+
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelR1</object-name>
+  <property>consumables/fuel/tank[1]/level-lbs</property>
+  <factor>0.00001</factor>
+  <step>10000</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelR2</object-name>
+  <property>consumables/fuel/tank[1]/level-lbs</property>
+  <factor>0.0001</factor>
+  <step>1000</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelR3</object-name>
+  <property>consumables/fuel/tank[1]/level-lbs</property>
+  <factor>0.001</factor>
+  <step>100</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelR4</object-name>
+  <property>consumables/fuel/tank[1]/level-lbs</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelR5</object-name>
+  <property>consumables/fuel/tank[1]/level-lbs</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<!-- Fuel Center Digits -->
+
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelC1</object-name>
+  <property>consumables/fuel/tank[2]/level-lbs</property>
+  <factor>0.00001</factor>
+  <step>10000</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelC2</object-name>
+  <property>consumables/fuel/tank[2]/level-lbs</property>
+  <factor>0.0001</factor>
+  <step>1000</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelC3</object-name>
+  <property>consumables/fuel/tank[2]/level-lbs</property>
+  <factor>0.001</factor>
+  <step>100</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelC4</object-name>
+  <property>consumables/fuel/tank[2]/level-lbs</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelC5</object-name>
+  <property>consumables/fuel/tank[2]/level-lbs</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<!-- Fuel Total Digits -->
+
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelT1</object-name>
+  <property>consumables/fuel/total-fuel-lbs</property>
+  <factor>0.00001</factor>
+  <step>10000</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelT2</object-name>
+  <property>consumables/fuel/total-fuel-lbs</property>
+  <factor>0.0001</factor>
+  <step>1000</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelT3</object-name>
+  <property>consumables/fuel/total-fuel-lbs</property>
+  <factor>0.001</factor>
+  <step>100</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelT4</object-name>
+  <property>consumables/fuel/total-fuel-lbs</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelT5</object-name>
+  <property>consumables/fuel/total-fuel-lbs</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<!-- Gross Weight Pounds Digits -->
+
+<animation>
+  <type>textranslate</type>
+  <object-name>Lbs1</object-name>
+  <property>yasim/gross-weight-lbs</property>
+  <factor>0.000001</factor>
+  <step>100000</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>Lbs2</object-name>
+  <property>yasim/gross-weight-lbs</property>
+  <factor>0.00001</factor>
+  <step>10000</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>Lbs3</object-name>
+  <property>yasim/gross-weight-lbs</property>
+  <factor>0.0001</factor>
+  <step>1000</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>Lbs4</object-name>
+  <property>yasim/gross-weight-lbs</property>
+  <factor>0.001</factor>
+  <step>100</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>Lbs5</object-name>
+  <property>yasim/gross-weight-lbs</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>textranslate</type>
+  <object-name>Lbs6</object-name>
+  <property>yasim/gross-weight-lbs</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+</PropertyList>
+
+

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<path>revthrust_ind.ac</path>
+
+<animation>
+  <type>select</type>
+  <object-name>FaceEngRevL</object-name>
+  <condition>
+    <or>
+      <property>controls/engines/engine[0]/reverser</property>
+	  <not>
+		<property>controls/engines/engine[0]/reverser</property>
+	  </not>
+    </or>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>FaceEngRevLOn</object-name>
+  <condition>
+	<and>
+    <property>controls/engines/engine[0]/reverser</property>
+		<or>
+		<greater-than>
+			<property>systems/electrical/bus/dcL</property>
+			<value>15</value>
+		</greater-than>
+		<greater-than>
+			<property>systems/electrical/bus/dcR</property>
+			<value>15</value>
+		</greater-than>
+		</or>
+	</and>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>FaceEngRevR</object-name>
+  <condition>
+    <or>
+      <property>controls/engines/engine[1]/reverser</property>
+	  <not>
+		<property>controls/engines/engine[1]/reverser</property>
+	  </not>
+    </or>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>FaceEngRevROn</object-name>
+  <condition>
+	<and>
+    <property>controls/engines/engine[1]/reverser</property>
+		<or>
+		<greater-than>
+			<property>systems/electrical/bus/dcL</property>
+			<value>15</value>
+		</greater-than>
+		<greater-than>
+			<property>systems/electrical/bus/dcR</property>
+			<value>15</value>
+		</greater-than>
+		</or>
+	</and>
+  </condition>
+</animation>
+
+</PropertyList>
+

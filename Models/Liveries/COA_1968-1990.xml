@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">Continental Airlines (1968-1990)</name>
+      <texture>Liveries/COA_1968-1990_fuselage.png</texture>
+    </livery>
+    <fairings>
+      <texture>Liveries/COA_1968-1990_fuselage_fairing.png</texture>
+    </fairings>
+    <rudders>
+      <texture>Liveries/COA_1968-1990_vstab_engines.png</texture>
+    </rudders>
+  </model>
+</sim>
+</PropertyList>

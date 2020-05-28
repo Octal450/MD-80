@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>vsi.ac</path>
+ 
+	<!-- Power on/off -->
+	<animation>
+		<name>Power on/off</name>
+		<type>select</type>
+		<object-name>Off</object-name>
+		<condition>
+			<greater-than>
+				<property>systems/electrical/bus/unused</property>
+				<value>99999</value>
+			</greater-than>
+		</condition>
+	</animation> 
+
+  <animation>
+    <type>material</type>
+    <object-name>face</object-name>
+    <object-name>needle</object-name>
+    <emission>
+      <red>   1.0 </red>
+      <green> 1.0 </green>
+      <blue>  1.0 </blue>
+	  <factor-prop>controls/lighting/pfd-norm</factor-prop>
+    </emission>
+  </animation>
+
+  <animation>
+    <name>needle</name>
+    <type>rotate</type>
+    <object-name>needle</object-name>
+    <property>instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
+    <interpolation>
+      <entry><ind> -6000 </ind><dep> -174 </dep></entry>
+      <entry><ind> -5000 </ind><dep> -164 </dep></entry>
+      <entry><ind> -4000 </ind><dep> -149 </dep></entry>
+      <entry><ind> -3000 </ind><dep> -134 </dep></entry>
+      <entry><ind> -2000 </ind><dep> -109 </dep></entry>
+      <entry><ind> -1500 </ind><dep>  -89 </dep></entry>
+      <entry><ind> -1000 </ind><dep>  -64 </dep></entry>
+      <entry><ind>  -500 </ind><dep>  -32 </dep></entry>
+      <entry><ind>     0 </ind><dep>   0 </dep></entry>
+      <entry><ind>   500 </ind><dep>   33 </dep></entry>
+      <entry><ind>  1000 </ind><dep>   65 </dep></entry>
+      <entry><ind>  1500 </ind><dep>   90 </dep></entry>
+      <entry><ind>  2000 </ind><dep>  110 </dep></entry>
+      <entry><ind>  3000 </ind><dep>  135 </dep></entry>
+      <entry><ind>  4000 </ind><dep>  150 </dep></entry>
+      <entry><ind>  5000 </ind><dep>  165 </dep></entry>
+      <entry><ind>  6000 </ind><dep>  176 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+
+</PropertyList>

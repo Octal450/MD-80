@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">FGMEMBERS</name>
+      <texture>Liveries/FGMEMBERS_fuselage.png</texture>
+    </livery>
+    <fairings>
+      <texture>Liveries/FGMEMBERS_fuselage_fairing.png</texture>
+    </fairings>
+    <rudders>
+      <texture>Liveries/FGMEMBERS_vstab_engines.png</texture>
+    </rudders>
+  </model>
+</sim>
+</PropertyList>

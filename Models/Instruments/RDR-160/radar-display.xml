@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<!--RDR 160 WxRadar hotspots-->
+
+<PropertyList>
+
+    <name>radar display</name>
+    <w-base>256</w-base>
+    <h-base>256</h-base>
+    <w>256</w>
+    <h>256</h>
+
+    <layers>
+
+        <layer>
+            <condition>
+                <not-equals>
+                    <property>instrumentation/radar/switch</property>
+                    <value>off</value>
+                </not-equals>
+            </condition>
+            <name>background</name>
+            <texture>
+                <path>Aircraft/MD-80/Models/Instruments/RDR-160/bkgrd.png</path>
+                <x1>0.07</x1>
+                <y1>0.05</y1>
+                <x2>0.930</x2>
+                <y2>0.910</y2>
+            </texture>
+            <emissive>true</emissive>
+        </layer>
+
+        <layer>
+            <condition>
+                <equals>
+                    <property>instrumentation/radar/switch</property>
+                    <value>on</value>
+                </equals>
+            </condition>
+            <name>radar data</name>
+            <texture>
+                <path>Aircraft/MD-80/Models/Instruments/RDR-160/od_wxradar.png</path>
+                <x1>0.0</x1>
+                <y1>0.0</y1>
+                <x2>1.0</x2>
+                <y2>1.0</y2>
+            </texture>
+            <emissive>true</emissive>
+        </layer>
+
+        <layer>
+            <condition>
+                <not-equals>
+                    <property>instrumentation/radar/switch</property>
+                    <value>off</value>
+                </not-equals>
+            </condition>
+            <name>RNG1</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>10</point-size>
+            <color>
+                <red>0.39</red>
+                <green>0.55</green>
+                <blue>0.69</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>number-value</type>
+                    <property>instrumentation/radar/range</property>
+                    <format>%3.0f</format>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>99</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>70</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <condition>
+                <not-equals>
+                    <property>instrumentation/radar/switch</property>
+                    <value>off</value>
+                </not-equals>
+            </condition>
+            <name>RNG2</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>10</point-size>
+            <color>
+                <red>0.39</red>
+                <green>0.55</green>
+                <blue>0.69</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>number-value</type>
+                    <property>instrumentation/radar/range</property>
+                    <scale>0.75</scale>
+                    <format>%3.1f</format>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>99</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>0</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <condition>
+                <not-equals>
+                    <property>instrumentation/radar/switch</property>
+                    <value>off</value>
+                </not-equals>
+            </condition>
+            <name>RNG3</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>10</point-size>
+            <color>
+                <red>0.39</red>
+                <green>0.55</green>
+                <blue>0.69</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>number-value</type>
+                    <property>instrumentation/radar/range</property>
+                    <scale>0.5</scale>
+                    <format>%3.1f</format>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>67</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-31</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+        <layer>
+            <condition>
+                <not-equals>
+                    <property>instrumentation/radar/switch</property>
+                    <value>off</value>
+                </not-equals>
+            </condition>
+            <name>RNG4</name>
+            <type>text</type>
+            <font>arial_black</font>
+            <point-size>10</point-size>
+            <color>
+                <red>0.39</red>
+                <green>0.55</green>
+                <blue>0.69</blue>
+            </color>
+            <chunks>
+                <chunk>
+                    <type>number-value</type>
+                    <property>instrumentation/radar/range</property>
+                    <scale>0.25</scale>
+                    <format>%3.1f</format>
+                </chunk>
+            </chunks>
+            <transformations>
+                <transformation>
+                    <type>x-shift</type>
+                    <offset>38</offset>
+                </transformation>
+                <transformation>
+                    <type>y-shift</type>
+                    <offset>-60</offset>
+                </transformation>
+            </transformations>
+        </layer>
+
+</layers>
+
+    <actions>
+<!--
+        <action>
+            <name>outline</name>
+            <button>0</button>
+            <x>-128</x>
+            <y>-128</y>
+            <w>256</w>
+            <h>256</h>
+        </action>
+-->
+    </actions>
+
+</PropertyList>

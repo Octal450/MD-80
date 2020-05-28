@@ -1,0 +1,210 @@
+<PropertyList>
+
+<path>ai.ac</path>
+
+    <animation>
+		<type>scale</type>
+		<x-offset>1.1</x-offset>
+		<y-offset>1.1</y-offset>
+		<z-offset>1.1</z-offset>
+    </animation>
+	
+	<!-- Flight Director System -->
+    <animation>
+        <type>select</type>
+        <object-name>FDroll_rembrandt</object-name>
+        <object-name>FDpitch_rembrandt</object-name>
+        <condition>
+			<and>
+				<property>sim/rendering/rembrandt/enabled</property>
+				<property>it-autoflight/output/fd2</property>
+			</and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>FDroll</object-name>
+        <object-name>FDpitch</object-name>
+        <condition>
+			<and>
+				<not><property>sim/rendering/rembrandt/enabled</property></not>
+				<property>it-autoflight/output/fd2</property>
+			</and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>FDpitch</object-name>
+        <object-name>FDpitch_rembrandt</object-name>
+        <property>it-autoflight/fd/pitch-bar</property>
+        <factor>0.0005</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>FDroll</object-name>
+        <object-name>FDroll_rembrandt</object-name>
+        <property>it-autoflight/fd/roll-bar</property>
+        <factor>0.0002</factor>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>gs.flag</object-name>
+        <condition>
+			<or>
+				<not>
+					<property>instrumentation/nav/has-gs</property>
+				</not>
+				<not>
+					<property>instrumentation/nav/in-range</property>
+				</not>
+			</or>
+        </condition>
+        <property>orientation/roll-deg</property>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>loc.flag</object-name>
+        <condition>
+			<not>
+				<property>instrumentation/nav/in-range</property>
+			</not>
+		</condition>
+        <property>orientation/roll-deg</property>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>AIball</object-name>
+        <object-name>AI.ring</object-name>
+		  <property>orientation/roll-deg</property>
+        <center>
+            <x-m>-0.041</x-m>
+            <y-m>0</y-m>
+            <z-m>0</z-m>
+        </center>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>AIball</object-name>
+        <property>orientation/pitch-deg</property>
+        <center>
+            <x-m>-0.041</x-m>
+            <y-m>0</y-m>
+            <z-m>0</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>AI.slipball</object-name>
+        <property>instrumentation/slip-skid-ball/indicated-slip-skid</property>
+			<interpolation>
+         	   <entry><ind>-1</ind><dep>-8</dep></entry>
+       	     <entry><ind>0</ind><dep>0</dep></entry>
+          	  <entry><ind>1</ind><dep>8</dep></entry>
+     	   </interpolation>
+        <center>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>0.02</z-m>
+        </center>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>LOC.needle</object-name>
+        <property>instrumentation/nav/heading-needle-deflection</property>
+			<interpolation>
+            <entry><ind>-5</ind><dep>-0.0124</dep></entry>
+            <entry><ind>0.0</ind><dep>0</dep></entry>
+            <entry><ind>5</ind><dep>0.0124</dep></entry>
+        </interpolation>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>AI.gsneedle</object-name>
+        <property>instrumentation/nav/gs-needle-deflection</property>
+			<interpolation>
+            <entry><ind>-2.0</ind><dep>-0.0155</dep></entry>
+            <entry><ind>0.0</ind><dep>0.0</dep></entry>
+            <entry><ind>2.0</ind><dep>0.0155</dep></entry>
+        </interpolation>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>turn.needle</object-name>
+        <property>instrumentation/turn-indicator/indicated-turn-rate</property>
+			<interpolation>
+            <entry><ind>-2</ind><dep>-0.007</dep></entry>
+            <entry><ind>0.0</ind><dep>0</dep></entry>
+            <entry><ind>2</ind><dep>0.007</dep></entry>
+        </interpolation>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>aoa.needle</object-name>
+        <property>orientation/alpha-deg</property>
+			<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>5.60</ind><dep>0.004</dep></entry><!-- 0.4-->
+			<entry><ind>8.4</ind><dep>0.0166</dep></entry><!-- 0.6 - optimal appr-->
+			<entry><ind>11.2</ind><dep>0.0292</dep></entry><!-- 0.8-->
+            <entry><ind>14</ind><dep>0.0334</dep></entry>
+        </interpolation>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>-1</z>
+        </axis>
+    </animation>
+
+</PropertyList>

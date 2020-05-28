@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">BRT</name>
+      <texture>Liveries/BRT_fuselage.png</texture>
+    </livery>
+    <fairings>
+      <texture>Liveries/BRT_fuselage_fairing.png</texture>
+    </fairings>
+    <rudders>
+      <texture>Liveries/BRT_vstab_engines.png</texture>
+    </rudders>
+  </model>
+</sim>
+</PropertyList>

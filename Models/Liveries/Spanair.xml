@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">Spanair</name>
+      <texture>Liveries/spfuselage.rgb</texture>
+    </livery>
+    <fairings>
+      <texture>Liveries/sppanza.rgb</texture>
+    </fairings>
+    <rudders>
+      <texture>Liveries/spmotor.rgb</texture>
+    </rudders>
+  </model>
+</sim>
+</PropertyList>

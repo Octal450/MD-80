@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">JeTran Air</name>
+      <texture>Liveries/YR-MDS_fuselage.png</texture>
+    </livery>
+    <fairings>
+      <texture>Liveries/YR-MDS_fuselage_fairing.png</texture>
+    </fairings>
+    <rudders>
+      <texture>Liveries/YR-MDS_vstab_engines.png</texture>
+    </rudders>
+  </model>
+</sim>
+</PropertyList>

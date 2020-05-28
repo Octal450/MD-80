@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">Delta Air Lines (1962-1997)</name>
+      <texture>Liveries/DAL_1962-1997_fuselage.png</texture>
+    </livery>
+    <fairings>
+      <texture>Liveries/DAL_1962-1997_fuselage_fairing.png</texture>
+    </fairings>
+    <rudders>
+      <texture>Liveries/DAL_1962-1997_vstab_engines.png</texture>
+    </rudders>
+  </model>
+</sim>
+</PropertyList>

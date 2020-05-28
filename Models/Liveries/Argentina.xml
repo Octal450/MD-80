@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">Aerolineas Argentinas</name>
+      <texture>Liveries/argentina_fuselage.rgb</texture>
+    </livery>
+    <fairings>
+      <texture>Liveries/argentina_panza.rgb</texture>
+    </fairings>
+    <rudders>
+      <texture>Liveries/argentina_motores.rgb</texture>
+    </rudders>
+  </model>
+</sim>
+</PropertyList>

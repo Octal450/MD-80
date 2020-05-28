@@ -1,0 +1,386 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+<path>eadi.ac</path>
+
+<animation>
+  <type>material</type>
+  <object-name>Face</object-name>
+  <object-name>ArtHorizon</object-name>
+  <object-name>Roll.needle</object-name>
+  <object-name>FDbars</object-name>
+  <object-name>AirplaneSymbol</object-name>
+  <object-name>GS.needle</object-name>
+  <object-name>LOC.needle</object-name>
+  <object-name>GS.scale</object-name>
+  <object-name>LOC.scale</object-name>
+  <object-name>Alttape1</object-name>
+  <object-name>INH.1</object-name>
+  <object-name>INH.2</object-name>
+  <object-name>INH.3</object-name>
+  <object-name>INH.4</object-name>
+  <object-name>INH.dec</object-name>
+  <object-name>DH.1</object-name>
+  <object-name>DH.10</object-name>
+  <object-name>DH.100</object-name>
+  <object-name>DH</object-name>
+  <object-name>DHamber.1</object-name>
+  <object-name>DHamber.10</object-name>
+  <object-name>DHamber.100</object-name>
+  <object-name>DHamber</object-name>
+  <object-name>block</object-name>
+  <object-name>FDPitch</object-name>
+  <object-name>FDRoll</object-name>
+  <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+    <factor-prop>controls/lighting/pfd-norm</factor-prop>
+  </emission>
+</animation>
+
+	<!-- Power on/off -->
+	<animation>
+		<name>Power on/off</name>
+		<type>select</type>
+		<object-name>Off</object-name>
+		<condition>
+			<less-than>
+				<property>systems/electrical/bus/dcL</property>
+				<value>15</value>
+			</less-than>
+		</condition>
+	</animation>
+	
+<!--
+<animation>
+  <type>material</type>
+  <object-name>Bezel</object-name>
+  <emission>
+    <red>0.1</red>
+    <green>0.05</green>
+    <blue>0.025</blue>
+    <factor-prop>controls/lighting/panel-norm</factor-prop>
+  </emission>
+</animation>
+-->
+
+	<!-- Flight Director System -->
+    <animation>
+        <type>select</type>
+        <object-name>FDroll_rembrandt</object-name>
+        <object-name>FDpitch_rembrandt</object-name>
+        <condition>
+			<and>
+				<property>sim/rendering/rembrandt/enabled</property>
+				<property>it-autoflight/output/fd1</property>
+			</and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>FDroll</object-name>
+        <object-name>FDpitch</object-name>
+        <condition>
+			<and>
+				<not><property>sim/rendering/rembrandt/enabled</property></not>
+				<property>it-autoflight/output/fd1</property>
+			</and>
+        </condition>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>FDpitch</object-name>
+        <object-name>FDpitch_rembrandt</object-name>
+        <property>it-autoflight/fd/pitch-bar</property>
+        <factor>0.0005</factor>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>1</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>FDroll</object-name>
+        <object-name>FDroll_rembrandt</object-name>
+        <property>it-autoflight/fd/roll-bar</property>
+        <factor>0.0002</factor>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+<animation>
+  <type>material</type>
+  <object-name>SlipBack</object-name>
+  <emission>
+    <red>0.5</red>
+    <green>0.5</green>
+    <blue>0.25</blue>
+    <factor-prop>controls/lighting/panel-norm</factor-prop>
+  </emission>
+</animation>
+
+<animation>
+  <type>texmultiple</type>
+  <object-name>ArtHorizon</object-name>
+  <transform>
+    <property>orientation/pitch-deg</property>
+    <subtype>textranslate</subtype>
+    <factor>0.0046</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </transform>
+  <transform>
+    <property>orientation/roll-deg</property>
+    <subtype>texrotate</subtype>
+    <center>
+      <x>0.25</x>
+      <y>0.5</y>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>-1</z>
+    </axis>
+  </transform>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>SlipBall</object-name>
+  <property>instrumentation/slip-skid-ball/indicated-slip-skid</property>
+  <interpolation>
+    <entry><ind>-1.1</ind><dep>-6.0</dep></entry>
+    <entry><ind>0.0</ind><dep>0</dep></entry>
+    <entry><ind>1.1</ind><dep>6.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>-0</z>
+  </axis>
+  <center>
+    <x-m>0</x-m>
+    <y-m>0</y-m>
+    <z-m>0.055</z-m>
+  </center>
+</animation>
+
+<animation>
+		<name>RALToff</name>
+		<type>select</type>
+		<object-name>ROff</object-name>
+		<condition>
+			<greater-than>
+          <property>position/altitude-agl-ft</property>
+          <value>2505</value>
+          </greater-than>
+  </condition>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>Alttape1</object-name>
+  <property>position/altitude-agl-ft</property>
+  <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>9500</ind><dep>0.9068</dep></entry>
+  </interpolation>
+  <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>GS.needle</object-name>
+  <object-name>GS.scale</object-name>
+  <condition>
+    <and>
+      <property>instrumentation/nav[0]/nav-loc</property>
+      <property>instrumentation/nav[0]/in-range</property>
+    </and>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>LOC.needle</object-name>
+  <object-name>LOC.scale</object-name>
+  <condition>
+    <and>
+      <property>instrumentation/nav[0]/nav-loc</property>
+      <property>instrumentation/nav[0]/in-range</property>
+    </and>
+  </condition>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>LOC.needle</object-name>
+  <property>instrumentation/nav/heading-needle-deflection</property>
+  <interpolation>
+    <entry><ind>-10.0</ind><dep>-0.0125</dep></entry>
+    <entry><ind>  0.0</ind><dep>      0</dep></entry>
+    <entry><ind> 10.0</ind><dep> 0.0125</dep></entry>
+  </interpolation>
+  <axis>
+    <x></x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+  <center>
+    <x-m>0</x-m>
+    <y-m>0</y-m>
+    <z-m>0</z-m>
+  </center>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>GS.needle</object-name>
+  <property>instrumentation/nav/gs-needle-deflection</property>
+  <interpolation>
+    <entry><ind>-10.0</ind><dep>-0.0425</dep></entry>
+    <entry><ind>  0.0</ind><dep>      0</dep></entry>
+    <entry><ind> 10.0</ind><dep> 0.0425</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0.0</x>
+    <y>0.0</y>
+    <z>1.0</z>
+  </axis>
+  <center>
+    <x-m>0.000</x-m>
+    <y-m>0</y-m>
+    <z-m>0.0</z-m>
+  </center>
+</animation>
+
+<!-- DH -->
+
+<animation>
+  <type>select</type>
+  <object-name>DH</object-name>
+  <object-name>DH.1</object-name>
+  <object-name>DH.10</object-name>
+  <object-name>DH.100</object-name>
+  <condition>
+    <and>
+      <greater-than>
+        <property>instrumentation/mk-viii/inputs/arinc429/decision-height</property>
+        <value>0</value>
+      </greater-than>
+      <greater-than>
+        <property>position/altitude-agl-ft</property>
+        <property>instrumentation/mk-viii/inputs/arinc429/decision-height</property>
+      </greater-than>
+    </and>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>DHamber</object-name>
+  <object-name>DHamber.1</object-name>
+  <object-name>DHamber.10</object-name>
+  <object-name>DHamber.100</object-name>
+  <condition>
+    <and>
+      <greater-than>
+        <property>instrumentation/mk-viii/inputs/arinc429/decision-height</property>
+        <value>0</value>
+      </greater-than>
+      <less-than-equals>
+        <property>position/altitude-agl-ft</property>
+        <property>instrumentation/mk-viii/inputs/arinc429/decision-height</property>
+      </less-than-equals>
+    </and>
+  </condition>
+</animation>
+
+<animation>
+    <type>textranslate</type>
+    <object-name>DH.1</object-name>
+    <property>instrumentation/mk-viii/inputs/arinc429/decision-height</property>
+    <factor>0.1</factor>
+    <step>1</step>
+    <axis>
+        <x>1</x>
+        <y>0</y>
+        <z>0</z>
+    </axis>
+</animation>
+<animation>
+    <type>textranslate</type>
+    <object-name>DH.10</object-name>
+    <property>instrumentation/mk-viii/inputs/arinc429/decision-height</property>
+    <factor>0.01</factor>
+    <step>10</step>
+    <axis>
+        <x>1</x>
+        <y>0</y>
+        <z>0</z>
+    </axis>
+</animation>
+<animation>
+    <type>textranslate</type>
+    <object-name>DH.100</object-name>
+    <property>instrumentation/mk-viii/inputs/arinc429/decision-height</property>
+    <factor>0.001</factor>
+    <step>100</step>
+    <axis>
+        <x>1</x>
+        <y>0</y>
+        <z>0</z>
+    </axis>
+</animation>
+
+<animation>
+    <type>textranslate</type>
+    <object-name>DHamber.1</object-name>
+    <property>instrumentation/mk-viii/inputs/arinc429/decision-height</property>
+    <factor>0.1</factor>
+    <step>1</step>
+    <axis>
+        <x>1</x>
+        <y>0</y>
+        <z>0</z>
+    </axis>
+</animation>
+<animation>
+    <type>textranslate</type>
+    <object-name>DHamber.10</object-name>
+    <property>instrumentation/mk-viii/inputs/arinc429/decision-height</property>
+    <factor>0.01</factor>
+    <step>10</step>
+    <axis>
+        <x>1</x>
+        <y>0</y>
+        <z>0</z>
+    </axis>
+</animation>
+<animation>
+    <type>textranslate</type>
+    <object-name>DHamber.100</object-name>
+    <property>instrumentation/mk-viii/inputs/arinc429/decision-height</property>
+    <factor>0.001</factor>
+    <step>100</step>
+    <axis>
+        <x>1</x>
+        <y>0</y>
+        <z>0</z>
+    </axis>
+</animation>
+
+</PropertyList>

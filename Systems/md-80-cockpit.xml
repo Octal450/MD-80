@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-80 Cockpit -->
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
+<system name="MD-80: Cockpit"> <!-- Everything here is after all systems -->
+	
+	<channel name="Animations">
+		
+		<lag_filter name="fcs-actual/elevator-trim-lever">
+			<input>/controls/flight/elevator-trim-lever</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="fcs-actual/tiller-handle">
+			<input>fcs-actual/tiller/switch</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="controls/throttle-lever[0]">
+			<!--input>controls/control-1/throttle-pos</input-->
+			<input>/controls/engines/engine[0]/throttle</input>
+			<c1>20</c1>
+			<output>fcs/throttle-lever-feedback[0]</output>
+		</lag_filter>
+		
+		<lag_filter name="controls/throttle-lever[1]">
+			<!--input>controls/control-2/throttle-pos</input-->
+			<input>/controls/engines/engine[1]/throttle</input>
+			<c1>20</c1>
+			<output>fcs/throttle-lever-feedback[1]</output>
+		</lag_filter>
+		
+		<!--lag_filter name="controls/reverse-lever[0]">
+			<input>/controls/engines/engine[0]/reverse-lever</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="controls/reverse-lever[1]">
+			<input>/controls/engines/engine[1]/reverse-lever</input>
+			<c1>20</c1>
+		</lag_filter-->
+		
+		<lag_filter name="controls/flap-lever">
+			<input>/controls/flight/flaps-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="spoilers/main-lever">
+			<input>spoilers/lever-cmd</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="spoilers/lever-arm">
+			<input>/controls/flight/speedbrake-arm</input>
+			<c1>20</c1>
+		</lag_filter>
+	
+	</channel>
+
+</system>

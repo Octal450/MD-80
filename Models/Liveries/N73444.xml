@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">Everts Air Cargo</name>
+      <texture>Liveries/N73444_fuselage_eai.png</texture>
+    </livery>
+    <fairings>
+      <texture>Liveries/N73444_fuselage_fairing_wht.png</texture>
+    </fairings>
+    <rudders>
+      <texture>Liveries/N73444_vstab_engines_eai.png</texture>
+    </rudders>
+  </model>
+</sim>
+</PropertyList>

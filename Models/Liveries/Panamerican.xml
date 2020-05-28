@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">Pan American</name>
+      <texture>Liveries/pa_fuselage.rgb</texture>
+    </livery>
+    <fairings>
+      <texture>Liveries/pa_fuselage_fairing.rgb</texture>
+    </fairings>
+    <rudders>
+      <texture>Liveries/pa_vstab_engines.rgb</texture>
+    </rudders>
+  </model>
+</sim>
+</PropertyList>

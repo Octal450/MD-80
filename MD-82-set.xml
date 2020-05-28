@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
+<PropertyList include="MD-80-main.xml">
+	
+    <sim>
+		<aero>MD-82</aero>
+		<description>McDonnell Douglas MD-82 (JT8D-217A)</description>
+		<flight-model>jsb</flight-model>
+		<model n="0">
+			<livery>
+				<file type="string">DAL</file>
+			</livery>
+			<path>Aircraft/MD-80/Models/Article-8.xml</path>
+		</model>
+		<rating>
+			<FDM type="int">0</FDM>
+			<systems type="int">0</systems>
+			<cockpit type="int">3</cockpit>
+			<model type="int">5</model>
+		</rating>
+		<sound>
+			<path>Aircraft/MD-80/Sounds/jt8d-sound.xml</path>
+		</sound>
+    </sim>
+	
+	<limits>
+		<mass-and-balance>
+			<maximum-takeoff-mass-lbs>149473</maximum-takeoff-mass-lbs>
+			<maximum-landing-mass-lbs>130072</maximum-landing-mass-lbs>
+			<maximum-zero-fuel-mass-lbs>122003</maximum-zero-fuel-mass-lbs>
+		</mass-and-balance>
+	</limits>
+	
+	<options n="0">
+		<eng type="string">217A</eng>
+	</options>
+	
+	<nasal n="0">
+		<setup>
+			<script>aircraft.livery.init("Aircraft/MD-80/Models/Liveries");</script>
+		</setup>
+    </nasal>
+
+</PropertyList>

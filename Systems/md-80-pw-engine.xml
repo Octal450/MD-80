@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-80 JT8D-217A Engine -->
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
+<system name="MD-11: PW Engine/FADEC">
+	
+	<channel name="Thrust Limits">
+		
+		
+	
+	</channel>
+	
+	<channel name="Reversers">
+		
+		
+	
+	</channel>
+	
+	<channel name="Engine Control">
+		
+		
+	
+	</channel>
+	
+	<channel name="Engine Parameters" execrate="2">
+		
+		<lag_filter name="engine/n1-actual-1">
+			<input>/engines/engine[0]/n1</input>
+			<c1>2.25</c1>
+			<output>/engines/engine[0]/n1-actual</output>
+			<output>/engines/engine[3]/n1</output>
+		</lag_filter>
+		
+		<lag_filter name="engine/n1-actual-2">
+			<input>/engines/engine[1]/n1</input>
+			<c1>2.25</c1>
+			<output>/engines/engine[1]/n1-actual</output>
+			<output>/engines/engine[4]/n1</output>
+		</lag_filter>
+		
+		<lag_filter name="engine/n2-actual-1">
+			<input>/engines/engine[0]/n2</input>
+			<c1>2.25</c1>
+			<output>/engines/engine[0]/n2-actual</output>
+			<output>/engines/engine[3]/n2</output>
+		</lag_filter>
+		
+		<lag_filter name="engine/n2-actual-2">
+			<input>/engines/engine[1]/n2</input>
+			<c1>2.25</c1>
+			<output>/engines/engine[1]/n2-actual</output>
+			<output>/engines/engine[4]/n2</output>
+		</lag_filter>
+	
+	</channel>
+
+</system>

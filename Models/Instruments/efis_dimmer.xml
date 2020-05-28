@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+<path>efis_dimmer.ac</path>
+
+<animation>
+  <type>material</type>
+  <object-name>Bezel</object-name>
+  <object-name>KnobDH</object-name>
+  <object-name>KnobPFD</object-name>
+  <object-name>KnobND</object-name>
+  <emission>
+    <red>0.1</red>
+    <green>0.1</green>
+    <blue>0.01</blue>
+  </emission>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>KnobDH</object-name>
+  <property>instrumentation/mk-viii/inputs/arinc429/decision-height</property>
+  <interpolation>
+    <entry><ind>  0</ind><dep>  0</dep></entry>
+    <entry><ind>990</ind><dep>720</dep></entry>
+  </interpolation>
+  <center>
+    <x-m>0.008</x-m>
+    <y-m>0.009</y-m>
+    <z-m>0.026</z-m>
+  </center>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>pick</type>
+  <object-name>KnobDH</object-name>
+  <action>
+    <button>0</button>
+    <button>3</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>instrumentation/mk-viii/inputs/arinc429/decision-height</property>
+      <step>10</step>
+      <min>0</min>
+      <max>1000</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+</animation>
+<animation>
+  <type>pick</type>
+  <object-name>KnobDH</object-name>
+  <action>
+    <button>1</button>
+    <button>4</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>instrumentation/mk-viii/inputs/arinc429/decision-height</property>
+      <step>-10</step>
+      <min>0</min>
+      <max>1000</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>KnobPFD</object-name>
+  <property>controls/lighting/pfd-norm</property>
+  <interpolation>
+    <entry><ind>0</ind><dep>  0</dep></entry>
+    <entry><ind>1</ind><dep>270</dep></entry>
+  </interpolation>
+  <center>
+    <x-m>0.008</x-m>
+    <y-m>0</y-m>
+    <z-m>0.005</z-m>
+  </center>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>pick</type>
+  <object-name>KnobPFD</object-name>
+  <action>
+    <button>0</button>
+    <button>3</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>controls/lighting/pfd-norm</property>
+      <step>0.1</step>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+</animation>
+<animation>
+  <type>pick</type>
+  <object-name>KnobPFD</object-name>
+  <action>
+    <button>1</button>
+    <button>4</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>controls/lighting/pfd-norm</property>
+      <step>-0.1</step>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+</animation>
+
+<!--animation>
+  <type>rotate</type>
+  <object-name>KnobND</object-name>
+  <property>controls/lighting/nd-norm</property>
+  <interpolation>
+    <entry><ind>0</ind><dep>  0</dep></entry>
+    <entry><ind>1</ind><dep>270</dep></entry>
+  </interpolation>
+  <center>
+    <x-m>0.002</x-m>
+    <y-m>0</y-m>
+    <z-m>-0.020</z-m>
+  </center>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>pick</type>
+  <object-name>KnobND</object-name>
+  <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>controls/lighting/nd-norm</property>
+      <step>0.1</step>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+</animation>
+<animation>
+  <type>pick</type>
+  <object-name>KnobND</object-name>
+  <action>
+    <button>1</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>controls/lighting/nd-norm</property>
+      <step>-0.1</step>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+</animation-->
+
+</PropertyList>

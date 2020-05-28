@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">Austral</name>
+      <texture>Liveries/aerolineas_austral_fuselage.rgb</texture>
+    </livery>
+    <fairings>
+      <texture>Liveries/aerolineas_austral_panza.rgb</texture>
+    </fairings>
+    <rudders>
+      <texture>Liveries/aerolineas_austral_m.rgb</texture>
+    </rudders>
+  </model>
+</sim>
+</PropertyList>

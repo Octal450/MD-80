@@ -1,0 +1,828 @@
+<?xml version="1.0"?>
+ 
+<PropertyList>
+<fx>
+
+  <apoff>
+   <name>apoff</name>
+   <path>Aircraft/MD-80/Sounds/apoff.wav</path>
+   <condition>
+	 <property>/it-autoflight/sound/apoffsound</property>
+   </condition>
+   <volume>
+    <factor>10.0</factor>
+   </volume>
+  </apoff>
+  
+  <apoff>
+   <name>apoff elec</name>
+   <path>Aircraft/MD-80/Sounds/apoff.wav</path>
+   <condition>
+	 <property>/systems/electrical/bus/dcL</property>
+   </condition>
+   <volume>
+    <factor>10.0</factor>
+   </volume>
+  </apoff>
+  
+	<!-- ENGINE 1 IDLE -->
+	
+	<MDA_WHN>
+		<name>MDA WHN 1</name>
+		<path>FL2070/MDA_WHN_1.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[0]/n1</property>
+		<volume>
+			<property>MD80/engine/MDA_WHN_1</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDA_WHN_1</property>
+			<offset>0</offset>
+		</pitch>
+	</MDA_WHN>
+	
+	<!-- ENGINE 1 SPOOL -->
+	
+	<MDA_WHN>
+		<name>MDA WHN 2</name>
+		<path>FL2070/MDA_WHN_2.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[0]/n1</property>
+		<volume>
+			<property>MD80/engine/MDA_WHN_2</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDA_WHN_2</property>
+			<offset>0</offset>
+		</pitch>
+	</MDA_WHN>
+	
+	<MDA_WHN>
+		<name>MDA WHN 3</name>
+		<path>FL2070/MDA_WHN_3.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[0]/n1</property>
+		<volume>
+			<property>MD80/engine/MDA_WHN_3</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDA_WHN_3</property>
+			<offset>0</offset>
+		</pitch>
+	</MDA_WHN>
+	
+	<!-- ENGINE 1 BUZZ -->
+	
+	<MDA_WHN>
+		<name>MDA WHN 4</name>
+		<path>FL2070/MDA_WHN_4.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[0]/n1</property>
+		<volume>
+			<property>MD80/engine/MDA_WHN_4</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDA_WHN_4</property>
+			<offset>0</offset>
+		</pitch>
+	</MDA_WHN>
+	
+	<MDA_WHN>
+		<name>MDA WHN 5</name>
+		<path>FL2070/MDA_WHN_5.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[0]/n1</property>
+		<volume>
+			<property>MD80/engine/MDA_WHN_5</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDA_WHN_5</property>
+			<offset>0</offset>
+		</pitch>
+	</MDA_WHN>
+	
+	<!-- ENGINE 2 IDLE -->
+	
+	<MDB_WHN>
+		<name>MDB WHN 1</name>
+		<path>FL2070/MDB_WHN_1.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[1]/n1</property>
+		<volume>
+			<property>MD80/engine/MDB_WHN_1</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDB_WHN_1</property>
+			<offset>0</offset>
+		</pitch>
+	</MDB_WHN>
+	
+	<!-- ENGINE 2 SPOOL -->
+	
+	<MDB_WHN>
+		<name>MDB WHN 2</name>
+		<path>FL2070/MDB_WHN_2.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[1]/n1</property>
+		<volume>
+			<property>MD80/engine/MDB_WHN_2</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDB_WHN_2</property>
+			<offset>0</offset>
+		</pitch>
+	</MDB_WHN>
+	
+	<MDB_WHN>
+		<name>MDB WHN 3</name>
+		<path>FL2070/MDB_WHN_3.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[1]/n1</property>
+		<volume>
+			<property>MD80/engine/MDB_WHN_3</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDB_WHN_3</property>
+			<offset>0</offset>
+		</pitch>
+	</MDB_WHN>
+	
+	<!-- ENGINE 2 BUZZ -->
+	
+	<MDB_WHN>
+		<name>MDB WHN 4</name>
+		<path>FL2070/MDB_WHN_4.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[1]/n1</property>
+		<volume>
+			<property>MD80/engine/MDB_WHN_4</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDB_WHN_4</property>
+			<offset>0</offset>
+		</pitch>
+	</MDB_WHN>
+	
+	<MDB_WHN>
+		<name>MDB WHN 5</name>
+		<path>FL2070/MDB_WHN_5.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[1]/n1</property>
+		<volume>
+			<property>MD80/engine/MDB_WHN_5</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDB_WHN_5</property>
+			<offset>0</offset>
+		</pitch>
+	</MDB_WHN>
+	
+	<!-- COMBUSTION/THRUST ENGINE 1 -->
+	
+	<MDA_CMB>
+		<name>MDA CMB 0</name>
+		<path>FL2070/MDA_CMB_1.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[0]/epr</property>
+		<volume>
+			<property>MD80/engine/MDA_CMB_0</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDA_CMB_0</property>
+			<offset>0</offset>
+		</pitch>
+	</MDA_CMB>
+	
+	<!-- COMBUSTION/THRUST ENGINE 2 -->
+	
+	<MDB_CMB>
+		<name>MDB CMB 0</name>
+		<path>FL2070/MDB_CMB_1.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[1]/epr</property>
+		<volume>
+			<property>MD80/engine/MDB_CMB_1</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDB_CMB_1</property>
+			<offset>0</offset>
+		</pitch>
+	</MDB_CMB>
+	
+	<!-- AVIONICS -->
+	
+	<MDAMB>
+		<name>MD EFIS</name>
+		<path>FL2070/83cockpit.wav</path>
+		<mode>looped</mode>
+		<condition>
+			<or>
+				<greater-than>
+					<property>/systems/electrical/bus/dcL</property>
+					<value>20</value>
+				</greater-than>
+				<greater-than>
+					<property>/systems/electrical/bus/dcR</property>
+					<value>20</value>
+				</greater-than>
+			</or>
+		</condition>
+		<property>sim/current-view/internal</property>
+		<volume>
+			<property>MD80/ambience/cockpit-amb-z</property>
+		</volume>
+	</MDAMB>
+	
+	<!-- CABIN NOISE -->
+	
+	<MDAMB>
+		<name>MD NOISE</name>
+		<path>FL2070/83cabin.wav</path>
+		<mode>looped</mode>
+		<volume>
+			<property>MD80/ambience/wind-b-z</property>
+			<factor>0.3</factor>
+		</volume>
+	</MDAMB>
+	
+	<MDAMB>
+		<name>MD PASSENGERS</name>
+		<path>FL2070/83passengers.wav</path>
+		<mode>looped</mode>
+		<volume>
+			<property>MD80/ambience/wind-b-z</property>
+			<factor>0.3</factor>
+		</volume>
+	</MDAMB>
+	
+	<!-- WIND -->
+	
+	<MDAMB>
+		<name>MD WIND C</name>
+		<path>FL2070/83wind_c.wav</path>
+		<mode>looped</mode>
+		<property>sim/current-view/internal</property>
+		<volume>
+			<property>MD80/ambience/wind-f-z</property>
+		</volume>
+		<volume>
+			<property>MD80/ambience/wind-f-s</property>
+		</volume>
+	</MDAMB>
+	
+	<MDAMB>
+		<name>MD WIND B</name>
+		<path>FL2070/83wind_b.wav</path>
+		<mode>looped</mode>
+		<property>sim/current-view/internal</property>
+		<volume>
+			<property>MD80/ambience/wind-b-z</property>
+		</volume>
+		<volume>
+			<property>MD80/ambience/wind-b-s</property>
+		</volume>
+	</MDAMB>
+	
+	<!-- ANNOUNCEMENTS -->
+	
+	<MDANN>
+		<name>MD ANN 01</name>
+		<path>FL2070/Cabin/01_at_gate.wav</path>
+		<mode>once</mode>
+		<property>controls/switches/captain</property>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+	</MDANN>
+	
+	<MDANN>
+		<name>MD ANN 02</name>
+		<path>FL2070/Cabin/02_safety.wav</path>
+		<mode>once</mode>
+		<property>controls/switches/safety</property>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+	</MDANN>
+	
+	<MDANN>
+		<name>MD ANN 03</name>
+		<path>FL2070/Cabin/03_cleared_takeoff.wav</path>
+		<mode>once</mode>
+		<property>controls/switches/preparetakeoff</property>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+	</MDANN>
+	
+	<MDANN>
+		<name>MD ANN 04</name>
+		<path>FL2070/Cabin/04_climbing.wav</path>
+		<mode>once</mode>
+		<property>controls/switches/tenthousand</property>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+	</MDANN>
+	
+	<MDANN>
+		<name>MD ANN 05</name>
+		<path>FL2070/Cabin/05_can_use_devices.wav</path>
+		<mode>once</mode>
+		<property>controls/switches/cruisingalt</property>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+	</MDANN>
+	
+	<MDANN>
+		<name>MD ANN 06</name>
+		<path>FL2070/Cabin/06_seatbelt_on.wav</path>
+		<mode>once</mode>
+		<property>controls/switches/seatbelt-sign</property>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+	</MDANN>
+	
+	<MDANN>
+		<name>MD ANN 07</name>
+		<path>FL2070/Cabin/07_turbulence.wav</path>
+		<mode>once</mode>
+		<property>controls/switches/turbulence</property>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+	</MDANN>
+	
+	<MDANN>
+		<name>MD ANN 08</name>
+		<path>FL2070/Cabin/08_seatbelt_off.wav</path>
+		<mode>once</mode>
+		<property>controls/switches/unseatbelt</property>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+	</MDANN>
+	
+	<MDANN>
+		<name>MD ANN 09</name>
+		<path>FL2070/Cabin/09_decend.wav</path>
+		<mode>once</mode>
+		<property>controls/switches/decending</property>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+	</MDANN>
+	
+	<MDANN>
+		<name>MD ANN 10</name>
+		<path>FL2070/Cabin/10_post_land.wav</path>
+		<mode>once</mode>
+		<property>controls/switches/afterland</property>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+	</MDANN>
+	
+	<MDANN>
+		<name>MD ANN 11</name>
+		<path>FL2070/Cabin/11_at_gate.wav</path>
+		<mode>once</mode>
+		<property>controls/switches/atgate</property>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+	</MDANN>
+	
+	<MDANN>
+		<name>MD MUS 1</name>
+		<path>FL2070/Cabin/music-flute.wav</path>
+		<mode>looped</mode>
+		<property>controls/switches/music</property>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+	</MDANN>
+	
+	<MDANN>
+		<name>MD MUS 2</name>
+		<path>FL2070/Cabin/music-modern.wav</path>
+		<mode>once</mode>
+		<property>controls/switches/music2</property>
+		<volume>
+			<property>sim/current-view/internal</property>
+		</volume>
+	</MDANN>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- X ENGINE 1 IDLE -->
+	
+	<MDA_WHN>
+		<name>XMDA WHN 1</name>
+		<path>FL2070/XMDA_WHN_1.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[0]/n1</property>
+		<volume>
+			<property>MD80/engine/MDA_WHN_1</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/external</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDA_WHN_1</property>
+			<offset>0</offset>
+		</pitch>
+	</MDA_WHN>
+	
+	<!-- X ENGINE 1 SPOOL -->
+	
+	<MDA_WHN>
+		<name>XMDA WHN 2</name>
+		<path>FL2070/XMDA_WHN_2.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[0]/n1</property>
+		<volume>
+			<property>MD80/engine/MDA_WHN_2</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/external</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDA_WHN_2</property>
+			<offset>0</offset>
+		</pitch>
+		<orientation>
+			<x>-10</x>
+			<inner-angle>40</inner-angle>
+			<outer-angle>180</outer-angle>
+			<outer-gain>0.7</outer-gain>
+		</orientation>
+	</MDA_WHN>
+	
+	<MDA_WHN>
+		<name>XMDA WHN 3</name>
+		<path>FL2070/XMDA_WHN_3.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[0]/n1</property>
+		<volume>
+			<property>MD80/engine/MDA_WHN_3</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/external</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDA_WHN_3</property>
+			<offset>0</offset>
+		</pitch>
+		<orientation>
+			<x>-10</x>
+			<inner-angle>40</inner-angle>
+			<outer-angle>180</outer-angle>
+			<outer-gain>0.5</outer-gain>
+		</orientation>
+	</MDA_WHN>
+	
+	<!-- X ENGINE 1 BUZZ -->
+	
+	<MDA_WHN>
+		<name>XMDA WHN 4</name>
+		<path>FL2070/XMDA_WHN_4.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[0]/n1</property>
+		<volume>
+			<property>MD80/engine/MDA_WHN_4</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/external</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/external</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDA_WHN_4</property>
+			<offset>0</offset>
+		</pitch>
+		<orientation>
+			<x>-10</x>
+			<inner-angle>25</inner-angle>
+			<outer-angle>99</outer-angle>
+			<outer-gain>0</outer-gain>
+		</orientation>
+	</MDA_WHN>
+	
+	<MDA_WHN>
+		<name>XMDA WHN 5</name>
+		<path>FL2070/XMDA_WHN_5.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[0]/n1</property>
+		<volume>
+			<property>MD80/engine/MDA_WHN_5</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/external</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDA_WHN_5</property>
+			<offset>0</offset>
+		</pitch>
+		<orientation>
+			<x>-10</x>
+			<inner-angle>25</inner-angle>
+			<outer-angle>99</outer-angle>
+			<outer-gain>0</outer-gain>
+		</orientation>
+	</MDA_WHN>
+	
+	<!-- X ENGINE 2 IDLE -->
+	
+	<MDB_WHN>
+		<name>XMDB WHN 1</name>
+		<path>FL2070/XMDB_WHN_1.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[1]/n1</property>
+		<volume>
+			<property>MD80/engine/MDB_WHN_1</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/external</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDB_WHN_1</property>
+			<offset>0</offset>
+		</pitch>
+	</MDB_WHN>
+	
+	<!-- X ENGINE 2 SPOOL -->
+	
+	<MDB_WHN>
+		<name>XMDB WHN 2</name>
+		<path>FL2070/XMDB_WHN_2.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[1]/n1</property>
+		<volume>
+			<property>MD80/engine/MDB_WHN_2</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/external</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDB_WHN_2</property>
+			<offset>0</offset>
+		</pitch>
+		<orientation>
+			<x>-10</x>
+			<inner-angle>40</inner-angle>
+			<outer-angle>180</outer-angle>
+			<outer-gain>0.7</outer-gain>
+		</orientation>
+	</MDB_WHN>
+	
+	<MDB_WHN>
+		<name>XMDB WHN 3</name>
+		<path>FL2070/XMDB_WHN_3.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[1]/n1</property>
+		<volume>
+			<property>MD80/engine/MDB_WHN_3</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/external</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDB_WHN_3</property>
+			<offset>0</offset>
+		</pitch>
+		<orientation>
+			<x>-10</x>
+			<inner-angle>40</inner-angle>
+			<outer-angle>180</outer-angle>
+			<outer-gain>0.5</outer-gain>
+		</orientation>
+	</MDB_WHN>
+	
+	<!-- X ENGINE 2 BUZZ -->
+	
+	<MDB_WHN>
+		<name>XMDB WHN 4</name>
+		<path>FL2070/XMDB_WHN_4.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[1]/n1</property>
+		<volume>
+			<property>MD80/engine/MDB_WHN_4</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/external</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDB_WHN_4</property>
+			<offset>0</offset>
+		</pitch>
+		<orientation>
+			<x>-10</x>
+			<inner-angle>25</inner-angle>
+			<outer-angle>99</outer-angle>
+			<outer-gain>0</outer-gain>
+		</orientation>
+	</MDB_WHN>
+	
+	<MDB_WHN>
+		<name>XMDB WHN 5</name>
+		<path>FL2070/XMDB_WHN_5.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[1]/n1</property>
+		<volume>
+			<property>MD80/engine/MDB_WHN_5</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/external</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDB_WHN_5</property>
+			<offset>0</offset>
+		</pitch>
+		<orientation>
+			<x>-10</x>
+			<inner-angle>25</inner-angle>
+			<outer-angle>99</outer-angle>
+			<outer-gain>0</outer-gain>
+		</orientation>
+	</MDB_WHN>
+	
+	
+	
+	
+	
+	<MDA_CMB>
+		<name>MDA CMB 1</name>
+		<path>FL2070/xMDA_CMB_1.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[0]/epr</property>
+		<volume>
+			<property>MD80/engine/MDA_CMB_0</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/external</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDA_CMB_0</property>
+			<offset>0</offset>
+		</pitch>
+		<orientation>
+			<x>10</x>
+			<inner-angle>50</inner-angle>
+			<outer-angle>140</outer-angle>
+			<outer-gain>0.08</outer-gain>
+		</orientation>
+	</MDA_CMB>
+	
+	<MDA_CMB>
+		<name>MDA CMB 2</name>
+		<path>FL2070/xMDA_CMB_2.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[0]/epr</property>
+		<volume>
+			<property>MD80/engine/MDA_CMB_1</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/external</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDA_CMB_1</property>
+			<offset>0</offset>
+		</pitch>
+		<orientation>
+			<x>10</x>
+			<inner-angle>50</inner-angle>
+			<outer-angle>140</outer-angle>
+			<outer-gain>0.08</outer-gain>
+		</orientation>
+	</MDA_CMB>
+	
+	<MDB_CMB>
+		<name>MDB CMB 1</name>
+		<path>FL2070/xMDB_CMB_1.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[0]/epr</property>
+		<volume>
+			<property>MD80/engine/MDB_CMB_0</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/external</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDB_CMB_0</property>
+			<offset>0</offset>
+		</pitch>
+		<orientation>
+			<x>10</x>
+			<inner-angle>50</inner-angle>
+			<outer-angle>140</outer-angle>
+			<outer-gain>0.08</outer-gain>
+		</orientation>
+	</MDB_CMB>
+	
+	<MDB_CMB>
+		<name>MDB CMB 2</name>
+		<path>FL2070/xMDB_CMB_2.wav</path>
+		<mode>looped</mode>
+		<property>engines/engine[0]/epr</property>
+		<volume>
+			<property>MD80/engine/MDB_CMB_1</property>
+		</volume>
+		<volume>
+			<property>sim/current-view/external</property>
+		</volume>
+		<pitch>
+			<property>MD80/enginep/MDB_CMB_1</property>
+			<offset>0</offset>
+		</pitch>
+		<orientation>
+			<x>10</x>
+			<inner-angle>50</inner-angle>
+			<outer-angle>140</outer-angle>
+			<outer-gain>0.08</outer-gain>
+		</orientation>
+	</MDB_CMB>
+	
+	<outside>
+		<name>out sied</name>
+		<mode>looped</mode>
+		<path>FL2070/83outside.wav</path>
+		<property>sim/current-view/external</property>
+	</outside>
+
+</fx>
+</PropertyList>

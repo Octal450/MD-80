@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
+<PropertyList>
+	
+	<filter>
+		<name>Groundspeed Meters Per Second</name>
+		<type>gain</type>
+		<gain>0.5144444444444</gain>
+		<input>/velocities/groundspeed-kt</input>
+		<output>/velocities/groundspeed-mps</output>
+		<min>0</min>
+		<max>1000</max>
+	</filter>
+	
+	<predict-simple>
+		<name>Groundspeed Meters Per Second Ahead</name>
+		<debug>false</debug>
+		<input>/velocities/groundspeed-mps</input>
+		<output>/velocities/groundspeed-mps-ahead</output>
+		<seconds>1.5</seconds>
+		<filter-gain>0.0</filter-gain>
+	</predict-simple>
+	
+	<filter>
+		<name>Gear AGL Altitude FT</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<dif>
+					<property>/position/altitude-agl-ft</property>
+					<value>11.665</value>
+				</dif>
+			</expression>
+		</input>
+		<output>/position/gear-agl-ft</output>
+	</filter>
+	
+	<filter>
+		<name>Gear AGL Altitude M</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<product>
+					<property>/position/gear-agl-ft</property>
+					<value>0.3048</value>
+				</product>
+			</expression>
+		</input>
+		<output>/position/gear-agl-m</output>
+	</filter>
+
+	<predict-simple>
+		<name>Gear AGL Altitude</name>
+		<debug>false</debug>
+		<input>/position/gear-agl-ft</input>
+		<output>/position/gear-agl-ft-2-sec</output>
+		<seconds>2.0</seconds>
+		<filter-gain>0.0</filter-gain>
+	</predict-simple>
+	
+	<filter>
+		<name>Gear Lever</name>
+		<type>noise-spike</type>
+		<update-interval-secs type="double">0.02</update-interval-secs>
+		<input>/controls/gear/gear-down</input>
+		<output>controls/gear/gearlever/position-norm</output>
+		<max-rate-of-change>1.5</max-rate-of-change>
+	</filter>
+	
+	<filter>
+		<name>TAS</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>/instrumentation/airspeed-indicator/true-speed-kt</input>
+		<output>/velocities/TAS</output>
+	</filter>
+	
+	<filter>
+		<name>LBtoKG</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<update-interval-secs type="double">0.05</update-interval-secs>
+		<input>
+			<product>
+				<property>fdm/jsbsim/inertia/weight-lbs</property>
+				<value>0.45359237</value>
+			</product>
+		</input>
+		<output>fdm/jsbsim/inertia/weight-kg</output>
+	</filter>
+	
+	<!-- GPWS Controller -->
+	<logic>
+		<!-- Smewhat confusing : this input is not 'are the flaps in landing configration', but rather,
+		are the flaps NOT in a landing configuration'. There is a configuration bit to flip
+		the sense of this, if required. -->
+		<input>
+			<less-than>
+				<property>/controls/flight/flaps</property>
+				<value>0.68</value>
+			</less-than>
+		</input>
+		<output>/instrumentation/mk-viii/inputs/discretes/landing-flaps</output>
+	</logic>
+
+</PropertyList>

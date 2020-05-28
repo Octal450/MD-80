@@ -1,0 +1,650 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-80 FCS -->
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
+<system name="MD-80: FCS">
+	
+	<property value="25">/systems/electrical/trim-power</property> <!-- Fix prop -->
+	<property value="3000">/systems/hydraulics/sys-l-psi</property>
+	<property value="3000">/systems/hydraulics/sys-r-psi</property>
+	
+	<channel name="Libraries">
+		
+		<fcs_function name="fcs-actual/authority"> <!-- Guesses based on pilot info -->
+			<function>
+				<table>
+					<independentVar lookup="row">aero/qbar-psf</independentVar>
+					<tableData>
+						  7  0.0
+						 60  1.0
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="fcs-actual/authority-alpha"> <!-- Guesses based on pilot info -->
+			<function>
+				<product>
+					<property>fcs-actual/authority</property>
+					<table>
+						<independentVar lookup="row">aero/alpha-deg-norm</independentVar>
+						<tableData>
+							10  1.0
+							15  0.1
+						</tableData>
+					</table>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="fcs-actual/elevator-l/anti-up"> <!-- Guesses based on pilot info -->
+			<function>
+				<table>
+					<independentVar lookup="row">aero/qbar-psf</independentVar>
+					<tableData>
+						  7 -15
+						 60   0
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="fcs-actual/elevator-r/anti-up"> <!-- Guesses based on pilot info -->
+			<function>
+				<table>
+					<independentVar lookup="row">aero/qbar-psf</independentVar>
+					<tableData>
+						  7 -20
+						 60   0
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="fcs-actual/aileron-yoke">
+			<input>/controls/flight/aileron</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="fcs-actual/aileron-trim">
+			<input>/controls/flight/aileron-trim</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="fcs-actual/elevator-yoke">
+			<input>/controls/flight/elevator</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<switch name="fcs-actual/rudder/pedal-switch">
+			<default value="/controls/flight/rudder"/>
+			<!--test value="fcc/yaw/afs-cmd">
+				fcc/yaw/autoland-switch eq 1
+			</test-->
+		</switch>
+		
+		<lag_filter name="fcs-actual/rudder-pedal">
+			<input>fcs-actual/rudder/pedal-switch</input>
+			<c1>20</c1>
+		</lag_filter>
+	
+	</channel>
+	
+	<!--
+	The MD-80s Ailerons are connected together mechanically, and thus alwayys move together
+	They cannot ever move seperately. Thus the tab positions are averaged for each aileron
+	That makes the most sense, and allows a reasonably good simulation of jamming one side
+	-->
+	
+	<channel name="Aileron Common">
+		
+		<pure_gain name="fcs-actual/aileron-l/control-tab-cmd-deg">
+			<input>fcs-actual/aileron-yoke</input>
+			<gain>-20</gain>
+			<output>fcs-actual/aileron-l/control-tab-final-deg</output>
+		</pure_gain>
+		
+		<pure_gain name="fcs-actual/aileron-r/control-tab-cmd-deg">
+			<input>fcs-actual/aileron-yoke</input>
+			<gain>20</gain>
+			<output>fcs-actual/aileron-r/control-tab-final-deg</output>
+		</pure_gain>
+		
+		<pure_gain name="fcs-actual/aileron-l/trim-tab-cmd-deg">
+			<input>fcs-actual/aileron-trim</input>
+			<gain>-20</gain>
+			<output>fcs-actual/aileron-l/trim-tab-final-deg</output>
+		</pure_gain>
+		
+		<pure_gain name="fcs-actual/aileron-r/trim-tab-cmd-deg">
+			<input>fcs-actual/aileron-trim</input>
+			<gain>20</gain>
+			<output>fcs-actual/aileron-r/trim-tab-final-deg</output>
+		</pure_gain>
+		
+	</channel>
+	
+	<channel name="Aileron L">
+		
+		<fcs_function name="fcs-actual/aileron-l/surface-cmd-deg">
+			<function>
+				<product>
+					<sum>
+						<avg> <!-- Because both ailerons are linked -->
+							<product>
+								<property>fcs-actual/aileron-l/control-tab-cmd-deg</property>
+								<value>-1</value>
+							</product>
+							<property>fcs-actual/aileron-r/control-tab-cmd-deg</property>
+						</avg>
+						<avg> <!-- Because both ailerons are linked -->
+							<product>
+								<property>fcs-actual/aileron-l/trim-tab-cmd-deg</property>
+								<value>-0.5</value>
+							</product>
+							<product>
+								<property>fcs-actual/aileron-r/trim-tab-cmd-deg</property>
+								<value>0.5</value>
+							</product>
+						</avg>
+					</sum>
+					<property>fcs-actual/authority</property>
+				</product>
+			</function>
+			<clipto>
+				<min>-20</min>
+				<max>20</max>
+			</clipto>
+		</fcs_function>
+		
+		<lag_filter name="fcs-actual/aileron-l/surface-final-lag">
+			<input>fcs-actual/aileron-l/surface-cmd-deg</input>
+			<c1>10</c1>
+			<output>fcs-actual/aileron-l/surface-final-deg</output>
+		</lag_filter>
+	
+	</channel>
+	
+	<channel name="Aileron R">
+		
+		<fcs_function name="fcs-actual/aileron-r/surface-cmd-deg">
+			<function>
+				<product>
+					<sum>
+						<avg> <!-- Because both ailerons are linked -->
+							<property>fcs-actual/aileron-l/control-tab-cmd-deg</property>
+							<product>
+								<property>fcs-actual/aileron-r/control-tab-cmd-deg</property>
+								<value>-1</value>
+							</product>
+						</avg>
+						<avg> <!-- Because both ailerons are linked -->
+							<product>
+								<property>fcs-actual/aileron-l/trim-tab-cmd-deg</property>
+								<value>0.5</value>
+							</product>
+							<product>
+								<property>fcs-actual/aileron-r/trim-tab-cmd-deg</property>
+								<value>-0.5</value>
+							</product>
+						</avg>
+					</sum>
+					<property>fcs-actual/authority</property>
+				</product>
+			</function>
+			<clipto>
+				<min>-20</min>
+				<max>20</max>
+			</clipto>
+		</fcs_function>
+		
+		<lag_filter name="fcs-actual/aileron-r/surface-final-lag">
+			<input>fcs-actual/aileron-r/surface-cmd-deg</input>
+			<c1>10</c1>
+			<output>fcs-actual/aileron-r/surface-final-deg</output>
+		</lag_filter>
+	
+	</channel>
+	
+	<channel name="Elevator L">
+		
+		<pure_gain name="fcs-actual/elevator-l/control-tab-cmd-deg">
+			<input>fcs-actual/elevator-yoke</input>
+			<gain>-22.5</gain>
+			<output>fcs-actual/elevator-l/control-tab-final-deg</output>
+			<clipto>
+				<min>-19.5</min>
+				<max>22.5</max>
+			</clipto>
+		</pure_gain>
+		
+		<fcs_function name="fcs-actual/elevator-l/surface-cmd-deg">
+			<function>
+				<sum>
+					<product>
+						<property>fcs-actual/elevator-l/control-tab-cmd-deg</property>
+						<value>-1</value>
+						<property>fcs-actual/authority-alpha</property>
+					</product>
+					<property>fcs-actual/elevator-l/anti-up</property>
+				</sum>
+			</function>
+			<clipto>
+				<min>-22.5</min>
+				<max>19.5</max>
+			</clipto>
+		</fcs_function>
+		
+		<lag_filter name="fcs-actual/elevator-l/surface-final-lag">
+			<input>fcs-actual/elevator-l/surface-cmd-deg</input>
+			<c1>10</c1>
+			<output>fcs-actual/elevator-l/surface-final-deg</output>
+		</lag_filter>
+		
+		<lag_filter name="fcs-actual/elevator-l/geared-tab-final-lag">
+			<input>-fcs-actual/elevator-l/surface-final-lag</input>
+			<c1>20</c1>
+			<output>fcs-actual/elevator-l/geared-tab-final-deg</output>
+		</lag_filter>
+	
+	</channel>
+	
+	<channel name="Elevator R">
+		
+		<pure_gain name="fcs-actual/elevator-r/control-tab-cmd-deg">
+			<input>fcs-actual/elevator-yoke</input>
+			<gain>-22.5</gain>
+			<output>fcs-actual/elevator-r/control-tab-final-deg</output>
+			<clipto>
+				<min>-19.5</min>
+				<max>22.5</max>
+			</clipto>
+		</pure_gain>
+		
+		<fcs_function name="fcs-actual/elevator-r/surface-cmd-deg">
+			<function>
+				<sum>
+					<product>
+						<property>fcs-actual/elevator-r/control-tab-cmd-deg</property>
+						<value>-1</value>
+						<property>fcs-actual/authority-alpha</property>
+					</product>
+					<property>fcs-actual/elevator-r/anti-up</property>
+				</sum>
+			</function>
+			<clipto>
+				<min>-22.5</min>
+				<max>19.5</max>
+			</clipto>
+		</fcs_function>
+		
+		<lag_filter name="fcs-actual/elevator-r/surface-final-lag">
+			<input>fcs-actual/elevator-r/surface-cmd-deg</input>
+			<c1>10</c1>
+			<output>fcs-actual/elevator-r/surface-final-deg</output>
+		</lag_filter>
+		
+		<lag_filter name="fcs-actual/elevator-r/geared-tab-final-lag">
+			<input>-fcs-actual/elevator-r/surface-final-lag</input>
+			<c1>20</c1>
+			<output>fcs-actual/elevator-r/geared-tab-final-deg</output>
+		</lag_filter>
+	
+	</channel>
+	
+	<channel name="Stabilizer">
+		
+		<switch name="fcs-actual/stabilizer/rate">
+			<default value="0"/>
+			<test value="0.333333"> <!-- 1/3 deg per second for primary, 1/10 deg per second for alternate --> <!-- Fix prop -->
+				/systems/electrical/trim-power ge 25
+			</test>
+		</switch>
+		
+		<aerosurface_scale name="fcs-actual/stabilizer/cmd-deg">
+			<input>/controls/flight/elevator-trim</input>
+			<domain>
+				<min>-1.0</min>
+				<max>0.2</max>
+			</domain>
+			<range>
+				<min>-12.5</min>
+				<max>2.5</max>
+			</range>
+		</aerosurface_scale>
+		
+		<actuator name="fcs-actual/stabilizer/final-actuator">
+			<input>fcs-actual/stabilizer/cmd-deg</input>
+			<rate_limit>fcs-actual/stabilizer/rate</rate_limit>
+			<lag>22.5</lag>
+			<output>fcs-actual/stabilizer/final-deg</output>
+		</actuator>
+	
+	</channel>
+	
+	<channel name="Rudder">
+		
+		<fcs_function name="fcs-actual/rudder/control-tab-cmd-deg">
+			<function>
+				<ifthen>
+					<eq>
+						<property>/controls/flight/rudder-pwr</property>
+						<value>1</value>
+					</eq>
+					<value>0</value> <!-- Tab locks -->
+					<product>
+						<property>fcs-actual/rudder-pedal</property>
+						<value>-17</value>
+					</product>
+				</ifthen>
+			</function>
+			<output>fcs-actual/rudder/control-tab-final-deg</output>
+		</fcs_function>
+		
+		<fcs_function name="fcs-actual/rudder/surface-max-clamp">
+			<function>
+				<table>
+					<independentVar lookup="row">velocities/vc-kts</independentVar>
+					<tableData>
+						125  17.0
+						285   2.5
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="fcs-actual/rudder/surface-cmd-deg">
+			<function>
+				<ifthen>
+					<eq>
+						<property>/controls/flight/rudder-pwr</property>
+						<value>1</value>
+					</eq>
+					<product> <!-- Hydraulic Mode -->
+						<property>fcs-actual/rudder-pedal</property>
+						<value>17</value>
+					</product>
+					<product> <!-- Aerodynamic Mode -->
+						<property>fcs-actual/rudder/control-tab-cmd-deg</property>
+						<value>-1</value>
+						<property>fcs-actual/authority</property>
+					</product>
+				</ifthen>
+			</function>
+			<clipto>
+				<min>-fcs-actual/rudder/surface-max-clamp</min>
+				<max>fcs-actual/rudder/surface-max-clamp</max>
+			</clipto>
+		</fcs_function>
+		
+		<switch name="fcs-actual/rudder/rate">
+			<default value="1000"/> <!-- For aerodynamically flown -->
+			<test logic="AND" value="75">
+				/systems/hydraulics/sys-r-psi ge 950
+				/controls/flight/rudder-pwr eq 1
+			</test>
+		</switch>
+		
+		<switch name="fcs-actual/rudder/lag">
+			<default value="10"/>
+			<test logic="AND" value="25.5">
+				/systems/hydraulics/sys-r-psi ge 950
+				/controls/flight/rudder-pwr eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="fcs-actual/rudder/surface-final-lag">
+			<input>fcs-actual/rudder/surface-cmd-deg</input>
+			<c1>fcs-actual/rudder/lag</c1>
+		</lag_filter>
+		
+		<actuator name="fcs-actual/rudder/surface-final-actuator">
+			<input>fcs-actual/rudder/surface-final-lag</input>
+			<rate_limit>fcs-actual/rudder/rate</rate_limit>
+			<!--lag>fcs-actual/rudder/lag</lag--> <!-- Doesn't work, so I put a lag filter before it -->
+			<output>fcs-actual/rudder/surface-final-deg</output>
+		</actuator>
+	
+	</channel>
+	
+	<channel name="Flap Lever">
+		
+		<switch name="/controls/flight/flaps-input">
+			<default value="0"/> <!-- UP/RET -->
+			<test logic="AND" value="1"> <!-- UP/MID -->
+				/controls/flight/flaps ge 0.20
+				/controls/flight/flaps lt 0.36
+			</test>
+			<test logic="AND" value="2"> <!-- 11/MID -->
+				/controls/flight/flaps ge 0.36
+				/controls/flight/flaps lt 0.52
+			</test>
+			<test logic="AND" value="3"> <!-- 15/EXT -->
+				/controls/flight/flaps ge 0.52
+				/controls/flight/flaps lt 0.68
+			</test>
+			<test logic="AND" value="4"> <!-- 28/EXT -->
+				/controls/flight/flaps ge 0.68
+				/controls/flight/flaps lt 0.84
+			</test>
+			<test value="5"> <!-- 40/EXT -->
+				/controls/flight/flaps ge 0.84
+			</test>
+		</switch>
+		
+		<switch name="/controls/flight/flaps-cmd">
+			<default value="0"/>
+			<test value="11">
+				/controls/flight/flaps-input eq 2
+			</test>
+			<test value="15">
+				/controls/flight/flaps-input eq 3
+			</test>
+			<test value="28">
+				/controls/flight/flaps-input eq 4
+			</test>
+			<test value="40">
+				/controls/flight/flaps-input eq 5
+			</test>
+		</switch>
+		
+		<switch name="/controls/flight/slats-cmd">
+			<default value="0"/>
+			<test value="20">
+				/controls/flight/flaps-input ge 4
+			</test>
+			<test value="10">
+				/controls/flight/flaps-input ge 1
+			</test>
+		</switch>
+	
+	</channel>
+	
+	<channel name="Flaps">
+		
+		<switch name="fcs/flap-pos-rate">
+			<default value="0.0"/>
+			<test value="100">
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<test logic="OR" value="2.5">
+				/systems/hydraulics/sys-l-psi ge 1500
+				/systems/hydraulics/sys-r-psi ge 1500
+			</test>
+		</switch>
+		
+		<actuator name="rubbish/flap-pos-deg">
+			<input>/controls/flight/flaps-cmd</input>
+			<rate_limit>fcs/flap-pos-rate</rate_limit>
+			<output>fcs/flap-pos-deg</output>
+		</actuator>
+		
+		<aerosurface_scale name="rubbish/flap-pos-norm">
+			<input>fcs/flap-pos-deg</input>
+			<domain>
+				<min>0</min>
+				<max>40</max>
+			</domain>
+			<range>
+				<min>0</min>
+				<max>1</max>
+			</range>
+			<output>fcs/flap-pos-norm</output>
+		</aerosurface_scale>
+	
+	</channel>
+	
+	<channel name="Slats">
+		
+		<switch name="fcs/slat-pos-rate">
+			<default value="0.0"/>
+			<test value="100">
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<test logic="OR" value="2">
+				/systems/hydraulics/sys-l-psi ge 1500
+				/systems/hydraulics/sys-r-psi ge 1500
+			</test>
+		</switch>
+		
+		<actuator name="rubbish/slat-pos-deg">
+			<input>/controls/flight/slats-cmd</input>
+			<rate_limit>fcs/slat-pos-rate</rate_limit>
+			<output>fcs/slat-pos-deg</output>
+		</actuator>
+		
+		<aerosurface_scale name="rubbish/slat-pos-norm">
+			<input>fcs/slat-pos-deg</input>
+			<domain>
+				<min>0</min>
+				<max>20</max>
+			</domain>
+			<range>
+				<min>0</min>
+				<max>1</max>
+			</range>
+			<output>fcs/slat-pos-norm</output>
+		</aerosurface_scale>
+	
+	</channel>
+	
+	<channel name="Landing Gear">
+		
+		<kinematic name="rubbish/gear-pos-norm">
+			<input>gear/gear-cmd-norm</input>
+			<traverse>
+				<setting>
+					<position>0</position>
+					<time>0</time>
+				</setting>
+				<setting>
+					<position>1</position>
+					<time>10</time>
+				</setting>
+			</traverse>
+			<output>gear/gear-pos-norm</output>
+		</kinematic>
+	
+	</channel>
+	
+	<channel name="Tiller">
+		
+		<switch name="fcs-actual/tiller/switch">
+			<default value="/controls/flight/rudder"/>
+			<test value="0">
+				/gear/gear[0]/wow ne 1
+			</test>
+			<test logic="AND" value="/controls/flight/aileron">
+				<!--fcc/afs/enabled eq 0-->
+				/controls/flight/aileron-drives-tiller eq 1
+			</test>
+			<!--test value="fcc/afs/yaw-cmd">
+				fcc/afs/enabled eq 1
+			</test-->
+		</switch>
+		
+		<switch name="fcs-actual/tiller/rate">
+			<default value="0"/>
+			<test value="82">
+				/sim/model/autopush/connected eq 1
+			</test>
+			<test logic="OR" value="82">
+				/systems/hydraulics/sys-l-psi ge 1500
+				/systems/hydraulics/sys-r-psi ge 1500
+			</test>
+		</switch>
+		
+		<switch name="fcs-actual/tiller/min-deg">
+			<default value="-50"/>
+			<test value="-82">
+				/sim/model/autopush/connected eq 1
+			</test>
+			<test value="-82">
+				/systems/hydraulics/sys-l-psi ge 1500
+			</test>
+		</switch>
+		
+		<switch name="fcs-actual/tiller/max-deg">
+			<default value="50"/>
+			<test value="82">
+				/sim/model/autopush/connected eq 1
+			</test>
+			<test value="82">
+				/systems/hydraulics/sys-r-psi ge 1500
+			</test>
+		</switch>
+		
+		<fcs_function name="fcs-actual/tiller/function">
+			<function>
+				<ifthen>
+					<eq>
+						<property>/sim/model/autopush/connected</property>
+						<value>1</value>
+					</eq>
+					<product>
+						<property>fcs-actual/tiller/autopush-cmd</property>
+						<value>82</value>
+					</product>
+					<product>
+						<property>/gear/gear[0]/wow</property>
+						<table>
+							<independentVar lookup="row">/velocities/groundspeed-kt</independentVar>
+							<independentVar lookup="column">fcs-actual/tiller/switch</independentVar>
+							<tableData>
+								      -1  0   1
+								 0.5   0  0   0
+								 1.0 -82  0  82
+								15.0 -82  0  82
+								45.0 -17  0  17
+							</tableData>
+						</table>
+					</product>
+				</ifthen>
+			</function>
+			<min>fcs-actual/tiller/min-deg</min>
+			<max>fcs-actual/tiller/max-deg</max>
+		</fcs_function>
+		
+		<actuator name="fcs/steer-deg">
+			<input>fcs-actual/tiller/function</input>
+			<rate_limit>fcs-actual/tiller/rate</rate_limit>
+			<output>fcs/steer-pos-deg[0]</output>
+		</actuator>
+		
+		<switch name="fcs/pushback-steer-deg">
+			<default value="0"/>
+			<test value="fcs/steer-deg">
+				/sim/model/autopush/connected eq 1
+			</test>
+		</switch>
+	
+	</channel>
+	
+	<channel name="Brakes">
+		
+		
+	
+	</channel>
+
+</system>

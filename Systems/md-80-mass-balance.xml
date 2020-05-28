@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-11 JSBsim -->
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
+<mass_balance>
+	
+	<ixx unit="SLUG*FT2">546998</ixx>
+	<iyy unit="SLUG*FT2">1094654</iyy>
+	<izz unit="SLUG*FT2">926546</izz>
+	<ixy unit="SLUG*FT2">0</ixy>
+	<ixz unit="SLUG*FT2">0</ixz>
+	<iyz unit="SLUG*FT2">0</iyz>
+	<emptywt unit="LBS">77888</emptywt>
+	
+	<location name="CG" unit="M">
+		<x>23.802</x>
+		<y>0</y>
+		<z>0.7145</z>
+	</location>
+	
+	<pointmass name="Crew">
+		<weight unit="LBS">320</weight>
+		<location name="POINTMASS" unit="M">
+			<x>2.95138</x>
+			<y>0</y>
+			<z>0.82058</z>
+		</location>
+	</pointmass>
+	
+	<pointmass name="Cabin/Cargo"> <!-- Seperate later -->
+		<weight unit="LBS">22000</weight>
+		<location name="POINTMASS" unit="M"> 
+			<x>23.802</x>
+			<y>0</y>
+			<z>0.7145</z>
+		</location>
+	</pointmass>
+
+</mass_balance>

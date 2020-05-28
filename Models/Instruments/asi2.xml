@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+<path>asi.ac</path>
+
+<animation>
+  <type>material</type>
+  <object-name>Face</object-name>
+  <object-name>Needle1</object-name>
+  <object-name>Mach1</object-name>
+  <object-name>Mach2</object-name>
+  <emission>
+    <red>0.3</red>
+    <green>0.3</green>
+    <blue>0.3</blue>
+
+  </emission>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>Needle1</object-name>
+  <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+  <interpolation>
+    <entry>
+      <ind>0</ind>
+      <dep>-9.5</dep>
+    </entry>
+    <entry>
+      <ind>60</ind>
+      <dep>0</dep>
+    </entry>
+    <entry>
+      <ind>250</ind>
+      <dep>244</dep>
+    </entry>
+    <entry>
+      <ind>300</ind>
+      <dep>265.5</dep>
+    </entry>
+    <entry>
+      <ind>450</ind>
+      <dep>331</dep>
+    </entry>
+  </interpolation>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<!--  Mach digits -->
+
+<animation>
+  <type>textranslate</type>
+  <object-name>Mach1</object-name>
+  <property>velocities/mach</property>
+  <factor>1.0</factor>
+  <step>0.1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>Mach2</object-name>
+  <property>velocities/mach</property>
+  <factor>10</factor>
+  <step>.01</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+</PropertyList>
+
+

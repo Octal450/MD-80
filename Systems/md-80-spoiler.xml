@@ -1,0 +1,367 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-80 Spoilers -->
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
+<system name="MD-80: Spoilers">
+	
+	<channel name="Spoiler Lever and Logic">
+		
+		<switch name="spoilers/auto-speedbrake-arm">
+			<default value="/controls/flight/speedbrake-arm"/>
+			<test value="0">
+				/controls/flight/speedbrake gt 0
+			</test>
+			<output>/controls/flight/speedbrake-arm</output>
+		</switch>
+		
+		<switch name="spoilers/lever-input">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/flight/speedbrake ge 0.2
+				/controls/flight/speedbrake lt 0.4
+			</test>
+			<test logic="AND" value="2">
+				/controls/flight/speedbrake ge 0.4
+				/controls/flight/speedbrake lt 0.6
+			</test>
+			<test logic="AND" value="3">
+				/controls/flight/speedbrake ge 0.6
+				/controls/flight/speedbrake lt 0.8
+			</test>
+			<test value="4">
+				/controls/flight/speedbrake ge 0.8
+			</test>
+		</switch>
+		
+		<switch name="spoilers/main-gear-or">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				gear/unit[1]/WOW eq 1
+				gear/unit[2]/WOW eq 1
+			</test>
+		</switch>
+		
+		<switch name="spoilers/main-gear-and">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				gear/unit[1]/WOW eq 1
+				gear/unit[2]/WOW eq 1
+			</test>
+		</switch>
+		
+		<switch name="spoilers/auto-speedbrake">
+			<description>Flip flop for autospeedbrake</description>
+			<default value="spoilers/auto-speedbrake"/>
+			<test logic="OR" value="0"> <!-- Reset -->
+				fcs/throttle-lever-feedback[0] ge 0.05
+				fcs/throttle-lever-feedback[1] ge 0.05
+				/controls/flight/speedbrake-arm ne 1
+			</test>
+			<test logic="AND" value="4"> <!-- Set -->
+				fcs/throttle-lever-feedback[0] lt 0.05
+				fcs/throttle-lever-feedback[1] lt 0.05
+				/controls/flight/speedbrake-arm eq 1
+				spoilers/main-gear-or eq 1
+				/velocities/groundspeed-kt ge 60
+			</test>
+			<output>spoilers/auto-speedbrake-feedback</output>
+		</switch>
+		
+		<switch name="spoilers/ground-spoiler-unlocked-cmd">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				spoilers/main-gear-and eq 1
+				fcs/throttle-lever-feedback[0] lt 0.05
+				fcs/throttle-lever-feedback[1] lt 0.05
+			</test>
+		</switch>
+		
+		<actuator name="spoilers/ground-spoiler-unlocked">
+			<input>spoilers/ground-spoiler-unlocked-cmd</input>
+			<rate_limit sense="incr">2</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>spoilers/ground-spoiler-unlocked-out</output>
+		</actuator>
+		
+		<switch name="spoilers/lever-cmd">
+			<default value="spoilers/lever-input"/>
+			<test value="spoilers/auto-speedbrake">
+				/controls/flight/speedbrake-arm eq 1
+			</test>
+		</switch>
+		
+		<switch name="spoilers/main-cmd-deg">
+			<default value="0.0"/>
+			<test value="11.6">
+				spoilers/lever-cmd eq 1
+			</test>
+			<test value="23.2">
+				spoilers/lever-cmd eq 2
+			</test>
+			<test value="35">
+				spoilers/lever-cmd eq 3
+			</test>
+			<test value="60">
+				spoilers/lever-cmd eq 4
+			</test>
+		</switch>
+		
+		<aerosurface_scale name="spoilers/main-cmd">
+			<input>spoilers/main-cmd-deg</input>
+			<domain>
+				<min>0</min>
+				<max>60</max>
+			</domain>
+			<range>
+				<min>0.0</min>
+				<max>1.0</max>
+			</range>
+		</aerosurface_scale>
+		
+		<fcs_function name="spoilers/aileron"> <!-- At 5 deg yoke deflection they start to go out, 90 deg yoke = 20 deg tab, so 5 deg yoke is 0.0555555 -->
+			<function>
+				<quotient>
+					<table>
+						<independentVar lookup="row">/controls/flight/aileron</independentVar>
+						<tableData>
+							-1.0000000 -35
+							-0.0555555   0
+							 0.0555555   0
+							 1.0000000  35
+						</tableData>
+					</table>
+					<value>60</value> <!-- Normalize -->
+				</quotient>
+			</function>
+		</fcs_function>
+	
+	</channel>
+	
+	<channel name="Spoiler L1">
+		
+		<switch name="hydraulics/spoiler-l1/switch">
+			<default value="0"/>
+			<test value="spoilers/main-cmd">
+				spoilers/ground-spoiler-unlocked eq 1
+			</test>
+		</switch>
+		
+		<switch name="hydraulics/spoiler-l1/switch">
+			<default value="0"/>
+			<test logic="OR" value="hydraulics/spoiler-l1/switch">
+				/systems/hydraulics/sys-l-psi ge 1500
+				/systems/hydraulics/sys-r-psi ge 1500
+			</test>
+		</switch>
+		
+		<pure_gain name="hydraulics/spoiler-l1/cmd-deg">
+			<input>hydraulics/spoiler-l1/switch</input>
+			<gain>60.0</gain>
+		</pure_gain>
+		
+		<actuator name="hydraulics/spoiler-l1/final-actuator">
+			<input>hydraulics/spoiler-l1/cmd-deg</input>
+			<rate_limit>60</rate_limit>
+			<lag>26.5</lag>
+			<output>hydraulics/spoiler-l1/final-deg</output>
+		</actuator>
+	
+	</channel>
+	
+	<channel name="Spoiler L2">
+		
+		<summer name="hydraulics/spoiler-l2/sum">
+			<input>-spoilers/aileron</input>
+			<input>spoilers/main-cmd</input>
+			<clipto>
+				<min>0.0</min>
+				<max>1.0</max>
+			</clipto>
+		</summer>
+		
+		<switch name="hydraulics/spoiler-l2/switch">
+			<default value="0"/>
+			<test value="hydraulics/spoiler-l2/sum">
+				/systems/hydraulics/sys-l-psi ge 1500
+			</test>
+		</switch>
+		
+		<pure_gain name="hydraulics/spoiler-l2/cmd-deg">
+			<input>hydraulics/spoiler-l2/switch</input>
+			<gain>60.0</gain>
+		</pure_gain>
+		
+		<actuator name="hydraulics/spoiler-l2/final-actuator">
+			<input>hydraulics/spoiler-l2/cmd-deg</input>
+			<rate_limit>60</rate_limit>
+			<lag>26.5</lag>
+			<output>hydraulics/spoiler-l2/final-deg</output>
+		</actuator>
+	
+	</channel>
+	
+	<channel name="Spoiler L3">
+		
+		<summer name="hydraulics/spoiler-l3/sum">
+			<input>-spoilers/aileron</input>
+			<input>spoilers/main-cmd</input>
+			<clipto>
+				<min>0.0</min>
+				<max>1.0</max>
+			</clipto>
+		</summer>
+		
+		<switch name="hydraulics/spoiler-l3/switch">
+			<default value="0"/>
+			<test value="hydraulics/spoiler-l3/sum">
+				/systems/hydraulics/sys-r-psi ge 1500
+			</test>
+		</switch>
+		
+		<pure_gain name="hydraulics/spoiler-l3/cmd-deg">
+			<input>hydraulics/spoiler-l3/switch</input>
+			<gain>60.0</gain>
+		</pure_gain>
+		
+		<actuator name="hydraulics/spoiler-l3/final-actuator">
+			<input>hydraulics/spoiler-l3/cmd-deg</input>
+			<rate_limit>60</rate_limit>
+			<lag>26.5</lag>
+			<output>hydraulics/spoiler-l3/final-deg</output>
+		</actuator>
+	
+	</channel>
+	
+	<channel name="Spoiler R1">
+		
+		<switch name="hydraulics/spoiler-r1/switch">
+			<default value="0"/>
+			<test value="spoilers/main-cmd">
+				spoilers/ground-spoiler-unlocked eq 1
+			</test>
+		</switch>
+		
+		<switch name="hydraulics/spoiler-r1/switch">
+			<default value="0"/>
+			<test logic="OR" value="hydraulics/spoiler-r1/switch">
+				/systems/hydraulics/sys-l-psi ge 1500
+				/systems/hydraulics/sys-r-psi ge 1500
+			</test>
+		</switch>
+		
+		<pure_gain name="hydraulics/spoiler-r1/cmd-deg">
+			<input>hydraulics/spoiler-r1/switch</input>
+			<gain>60.0</gain>
+		</pure_gain>
+		
+		<actuator name="hydraulics/spoiler-r1/final-actuator">
+			<input>hydraulics/spoiler-r1/cmd-deg</input>
+			<rate_limit>60</rate_limit>
+			<lag>26.5</lag>
+			<output>hydraulics/spoiler-r1/final-deg</output>
+		</actuator>
+	
+	</channel>
+	
+	<channel name="Spoiler R2">
+		
+		<summer name="hydraulics/spoiler-r2/sum">
+			<input>spoilers/aileron</input>
+			<input>spoilers/main-cmd</input>
+			<clipto>
+				<min>0.0</min>
+				<max>1.0</max>
+			</clipto>
+		</summer>
+		
+		<switch name="hydraulics/spoiler-r2/switch">
+			<default value="0"/>
+			<test value="hydraulics/spoiler-r2/sum">
+				/systems/hydraulics/sys-l-psi ge 1500
+			</test>
+		</switch>
+		
+		<pure_gain name="hydraulics/spoiler-r2/cmd-deg">
+			<input>hydraulics/spoiler-r2/switch</input>
+			<gain>60.0</gain>
+		</pure_gain>
+		
+		<actuator name="hydraulics/spoiler-r2/final-actuator">
+			<input>hydraulics/spoiler-r2/cmd-deg</input>
+			<rate_limit>60</rate_limit>
+			<lag>26.5</lag>
+			<output>hydraulics/spoiler-r2/final-deg</output>
+		</actuator>
+	
+	</channel>
+	
+	<channel name="Spoiler R3">
+		
+		<summer name="hydraulics/spoiler-r3/sum">
+			<input>spoilers/aileron</input>
+			<input>spoilers/main-cmd</input>
+			<clipto>
+				<min>0.0</min>
+				<max>1.0</max>
+			</clipto>
+		</summer>
+		
+		<switch name="hydraulics/spoiler-r3/switch">
+			<default value="0"/>
+			<test value="hydraulics/spoiler-r3/sum">
+				/systems/hydraulics/sys-r-psi ge 1500
+			</test>
+		</switch>
+		
+		<pure_gain name="hydraulics/spoiler-r3/cmd-deg">
+			<input>hydraulics/spoiler-r3/switch</input>
+			<gain>60.0</gain>
+		</pure_gain>
+		
+		<actuator name="hydraulics/spoiler-r3/final-actuator">
+			<input>hydraulics/spoiler-r3/cmd-deg</input>
+			<rate_limit>60</rate_limit>
+			<lag>26.5</lag>
+			<output>hydraulics/spoiler-r3/final-deg</output>
+		</actuator>
+	
+	</channel>
+	
+	<channel name="Output">
+		
+		<summer name="fcs/spoiler-left-sum">
+			<input>hydraulics/spoiler-l1/final-actuator</input>
+			<input>hydraulics/spoiler-l2/final-actuator</input>
+			<input>hydraulics/spoiler-l3/final-actuator</input>
+		</summer>
+		
+		<fcs_function name="fcs/spoiler-left-deg">
+			<function>
+				<quotient>
+					<property>fcs/spoiler-left-sum</property>
+					<value>3</value>
+				</quotient>
+			</function>
+			<output>fcs/spoiler-left-feedback</output>
+		</fcs_function>
+		
+		<summer name="fcs/spoiler-right-sum">
+			<input>hydraulics/spoiler-r1/final-actuator</input>
+			<input>hydraulics/spoiler-r2/final-actuator</input>
+			<input>hydraulics/spoiler-r3/final-actuator</input>
+		</summer>
+		
+		<fcs_function name="fcs/spoiler-right-deg">
+			<function>
+				<quotient>
+					<property>fcs/spoiler-right-sum</property>
+					<value>3</value>
+				</quotient>
+			</function>
+			<output>fcs/spoiler-right-feedback</output>
+		</fcs_function>
+	
+	</channel>
+
+</system>

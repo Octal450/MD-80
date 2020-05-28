@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">Venezolana</name>
+      <texture>Liveries/Venezolana_fuselage_bac.png</texture>
+    </livery>
+    <fairings>
+      <texture>Liveries/Venezolana_fuselage_fairing_wht.png</texture>
+    </fairings>
+    <rudders>
+      <texture>Liveries/Venezolana_vstab_engines.png</texture>
+    </rudders>
+  </model>
+</sim>
+</PropertyList>

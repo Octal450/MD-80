@@ -1,0 +1,916 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<path>eng2.ac</path>
+
+<animation>
+  <object-name>Temp1</object-name>
+  <object-name>Temp2</object-name>
+  <object-name>Temp-</object-name>
+  <object-name>Temp1.-</object-name>
+  <object-name>Temp2.-</object-name>
+  <object-name>OilPressL1</object-name>
+  <object-name>OilPressL2</object-name>
+  <object-name>OilPressR1</object-name>
+  <object-name>OilPressR2</object-name>
+  <object-name>OilTempLOne</object-name>
+  <object-name>OilTempL1</object-name>
+  <object-name>OilTempL2</object-name>
+  <object-name>OilTempROne</object-name>
+  <object-name>OilTempR1</object-name>
+  <object-name>OilTempR2</object-name>
+  <object-name>OilQTYL1</object-name>
+  <object-name>OilQTYL2</object-name>
+  <object-name>OilQTYR1</object-name>
+  <object-name>OilQTYR2</object-name>
+  <object-name>HydPressL1</object-name>
+  <object-name>HydPressL2</object-name>
+  <object-name>HydPressR1</object-name>
+  <object-name>HydPressR2</object-name>
+  <object-name>HydQTYL1</object-name>
+  <object-name>HydQTYL2</object-name>
+  <object-name>HydQTYR1</object-name>
+  <object-name>HydQTYR2</object-name>
+  <object-name>FlapL</object-name>
+  <object-name>FlapR</object-name>
+  <emission>
+    <red>1.0</red>
+    <green>1.0</green>
+    <blue>1.0</blue>
+  </emission>
+</animation>
+
+<!-- Power on/off -->
+<animation>
+	<name>Power on/off</name>
+	<type>select</type>
+	<object-name>Temp1</object-name>
+	<object-name>Temp2</object-name>
+	<object-name>Temp-</object-name>
+	<object-name>Temp1.-</object-name>
+	<object-name>Temp2.-</object-name>
+	<object-name>FuelTempL1</object-name>
+	<object-name>FuelTempL2</object-name>
+	<object-name>FuelTempR1</object-name>
+	<object-name>FuelTempR2</object-name>
+	<object-name>OilPressL1</object-name>
+	<object-name>OilPressL2</object-name>
+	<object-name>OilPressR1</object-name>
+	<object-name>OilPressR2</object-name>
+	<object-name>OilTempLOne</object-name>
+	<object-name>OilTempL1</object-name>
+	<object-name>OilTempL2</object-name>
+	<object-name>OilTempROne</object-name>
+	<object-name>OilTempR1</object-name>
+	<object-name>OilTempR2</object-name>
+	<object-name>OilQTYL1</object-name>
+	<object-name>OilQTYL2</object-name>
+	<object-name>OilQTYR1</object-name>
+	<object-name>OilQTYR2</object-name>
+	<object-name>HydPressL1</object-name>
+	<object-name>HydPressL2</object-name>
+	<object-name>HydPressR1</object-name>
+	<object-name>HydPressR2</object-name>
+	<object-name>HydQTYL1</object-name>
+	<object-name>HydQTYL2</object-name>
+	<object-name>HydQTYR1</object-name>
+	<object-name>HydQTYR2</object-name>
+	<object-name>FlapL</object-name>
+	<object-name>FlapR</object-name>
+	<condition>
+		<or>
+		<greater-than>
+			<property>systems/electrical/bus/dcL</property>
+			<value>15</value>
+		</greater-than>
+		<greater-than>
+			<property>systems/electrical/bus/dcR</property>
+			<value>15</value>
+		</greater-than>
+		</or>
+	</condition>
+</animation>
+
+<!-- Temperature Celcius -->
+
+<animation>
+	<type>select</type>
+	<object-name>Temp-</object-name>
+	<object-name>Temp1.-</object-name>
+	<object-name>Temp2.-</object-name>
+	<condition>
+		<less-than>
+			<property>environment/temperature-degc</property>
+			<value>0</value>
+		</less-than>
+	</condition>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>Temp1</object-name>
+	<object-name>Temp2</object-name>
+	<condition>
+		<greater-than-equals>
+			<property>environment/temperature-degc</property>
+			<value>0</value>
+		</greater-than-equals>
+	</condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>Temp1</object-name>
+  <condition>
+	<greater-than-equals>
+	  <property>environment/temperature-degc</property>
+	  <value>10</value>
+	</greater-than-equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>Temp1.-</object-name>
+  <condition>
+	<less-than-equals>
+	  <property>environment/temperature-degc</property>
+	  <value>-10</value>
+	</less-than-equals>
+  </condition>
+</animation>
+
+
+<animation>
+  <type>textranslate</type>
+  <object-name>Temp1</object-name>
+  <property>environment/temperature-degc</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>Temp2</object-name>
+  <property>environment/temperature-degc</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>Temp1.-</object-name>
+  <property>environment/temperature-degc</property>
+  <factor>-0.01</factor>
+  <bias>9</bias>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>Temp2.-</object-name>
+  <property>environment/temperature-degc</property>
+  <factor>-0.1</factor>
+  <bias>.9</bias>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<!-- Fuel Temp -->
+
+<animation>
+	<type>select</type>
+	<object-name>FuelTempL-</object-name>
+	<object-name>FuelTempL1.-</object-name>
+	<object-name>FuelTempL2.-</object-name>
+	<condition>
+		<less-than>
+			<!--property>/systems/fuel/temperatureL</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+			<property>environment/temperature-degc</property>
+			<value>0</value>
+		</less-than>
+	</condition>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>FuelTempL1</object-name>
+	<object-name>FuelTempL2</object-name>
+	<condition>
+		<greater-than-equals>
+			<!--property>/systems/fuel/temperatureL</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+			<property>environment/temperature-degc</property>
+			<value>0</value>
+		</greater-than-equals>
+	</condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>FuelTempL1</object-name>
+  <condition>
+	<greater-than-equals>
+	  <!--property>/systems/fuel/temperatureL</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+	  <property>environment/temperature-degc</property>
+	  <value>10</value>
+	</greater-than-equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>FuelTempL1.-</object-name>
+  <condition>
+	<less-than-equals>
+	  <!--property>/systems/fuel/temperatureL</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+	  <property>environment/temperature-degc</property>
+	  <value>-10</value>
+	</less-than-equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>FuelTempL1</object-name>
+  <condition>
+	<greater-than-equals>
+	  <!--property>/systems/fuel/temperatureL</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+	  <property>environment/temperature-degc</property>
+	  <value>10</value>
+	</greater-than-equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelTempL1</object-name>
+  <!--property>/systems/fuel/temperatureL</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+  <property>environment/temperature-degc</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelTempL2</object-name>
+  <!--property>/systems/fuel/temperatureL</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+  <property>environment/temperature-degc</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelTempL1.-</object-name>
+  <!--property>/systems/fuel/temperatureL</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+  <property>environment/temperature-degc</property>
+  <factor>-0.01</factor>
+  <bias>9</bias>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelTempL2.-</object-name>
+  <!--property>/systems/fuel/temperatureL</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+  <property>environment/temperature-degc</property>
+  <factor>-0.1</factor>
+  <bias>.9</bias>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>FuelTempR-</object-name>
+	<object-name>FuelTempR1.-</object-name>
+	<object-name>FuelTempR2.-</object-name>
+	<condition>
+		<less-than>
+			<!--property>/systems/fuel/temperatureR</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+			<property>environment/temperature-degc</property>
+			<value>0</value>
+		</less-than>
+	</condition>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>FuelTempR1</object-name>
+	<object-name>FuelTempR2</object-name>
+	<condition>
+		<greater-than-equals>
+			<!--property>/systems/fuel/temperatureR</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+			<property>environment/temperature-degc</property>
+			<value>0</value>
+		</greater-than-equals>
+	</condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>FuelTempR1</object-name>
+  <condition>
+	<greater-than-equals>
+	  <!--property>/systems/fuel/temperatureR</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+	  <property>environment/temperature-degc</property>
+	  <value>10</value>
+	</greater-than-equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>FuelTempR1.-</object-name>
+  <condition>
+	<less-than-equals>
+	  <!--property>/systems/fuel/temperatureR</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+	  <property>environment/temperature-degc</property>
+	  <value>-10</value>
+	</less-than-equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>FuelTempR1</object-name>
+  <condition>
+	<greater-than-equals>
+	  <!--property>/systems/fuel/temperatureR</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+	  <property>environment/temperature-degc</property>
+	  <value>10</value>
+	</greater-than-equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelTempR1</object-name>
+  <!--property>/systems/fuel/temperatureR</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+  <property>environment/temperature-degc</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelTempR2</object-name>
+  <!--property>/systems/fuel/temperatureR</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+  <property>environment/temperature-degc</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelTempR1.-</object-name>
+  <!--property>/systems/fuel/temperatureR</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+  <property>environment/temperature-degc</property>
+  <factor>-0.01</factor>
+  <bias>9</bias>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>FuelTempR2.-</object-name>
+  <!--property>/systems/fuel/temperatureR</property--> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+  <property>environment/temperature-degc</property>
+  <factor>-0.1</factor>
+  <bias>.9</bias>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<!-- Oil Pressure -->
+<animation>
+  <type>select</type>
+  <object-name>OilPressL1</object-name>
+  <condition>
+	<greater-than-equals>
+	  <property>engines/engine[0]/oil-pressure</property>
+	  <value>10</value>
+	</greater-than-equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>OilPressL1</object-name>
+  <property>engines/engine[0]/oil-pressure</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>OilPressL2</object-name>
+  <property>engines/engine[0]/oil-pressure</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>OilPressR1</object-name>
+  <condition>
+	<greater-than-equals>
+	  <property>engines/engine[1]/oil-pressure</property>
+	  <value>10</value>
+	</greater-than-equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>OilPressR1</object-name>
+  <property>engines/engine[1]/oil-pressure</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>OilPressR2</object-name>
+  <property>engines/engine[1]/oil-pressure</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<!-- Oil Temperature -->
+<animation>
+  <type>select</type>
+  <object-name>OilTempLOne</object-name>
+  <condition>
+	<greater-than-equals>
+	  <property>engines/engine[0]/oil-temp</property>
+	  <value>100</value>
+	</greater-than-equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>OilTempL1</object-name>
+  <condition>
+	<greater-than-equals>
+	  <property>engines/engine[0]/oil-temp</property>
+	  <value>10</value>
+	</greater-than-equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>OilTempLOne</object-name>
+  <property>engines/engine[0]/oil-temp</property>
+  <factor>0.001</factor>
+  <step>100</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>OilTempL1</object-name>
+  <property>engines/engine[0]/oil-temp</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>OilTempL2</object-name>
+  <property>engines/engine[0]/oil-temp</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>OilTempROne</object-name>
+  <condition>
+	<greater-than-equals>
+	  <property>engines/engine[1]/oil-temp</property>
+	  <value>100</value>
+	</greater-than-equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>OilTempR1</object-name>
+  <condition>
+	<greater-than>
+	  <property>engines/engine[1]/oil-temp</property>
+	  <value>10</value>
+	</greater-than>
+  </condition>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>OilTempROne</object-name>
+  <property>engines/engine[1]/oil-temp</property>
+  <factor>0.001</factor>
+  <step>100</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>OilTempR1</object-name>
+  <property>engines/engine[1]/oil-temp</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>OilTempR2</object-name>
+  <property>engines/engine[1]/oil-temp</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<!-- Oil Quantity -->
+<animation>
+  <type>select</type>
+  <object-name>OilQTYL1</object-name>
+  <condition>
+	<greater-than-equals>
+	  <property>engines/engine[0]/oil-q</property>
+	  <value>10</value>
+	</greater-than-equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>OilQTYL1</object-name>
+  <property>engines/engine[0]/oil-q</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>OilQTYL2</object-name>
+  <property>engines/engine[0]/oil-q</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>OilQTYR1</object-name>
+  <condition>
+	<greater-than-equals>
+	  <property>engines/engine[1]/oil-q</property>
+	  <value>10</value>
+	</greater-than-equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>OilQTYR1</object-name>
+  <property>engines/engine[1]/oil-q</property>
+  <factor>0.01</factor>
+  <step>10</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>textranslate</type>
+  <object-name>OilQTYR2</object-name>
+  <property>engines/engine[1]/oil-q</property>
+  <factor>0.1</factor>
+  <step>1</step>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<!-- Hydraulic Pressure -->
+<animation>
+  <type>select</type>
+  <object-name>HydPressL1</object-name>
+  <condition>
+	<greater-than-equals>
+	  <property>unused/value</property>
+	  <value>10</value>
+	</greater-than-equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>HydPressR1</object-name>
+  <condition>
+	<greater-than-equals>
+	  <property>unused/value</property>
+	  <value>10</value>
+	</greater-than-equals>
+  </condition>
+</animation>
+
+<!-- Hydraulic Quantity -->
+<animation>
+  <type>select</type>
+  <object-name>HydQTYL1</object-name>
+  <condition>
+	<greater-than-equals>
+	  <property>unused/value</property>
+	  <value>10</value>
+	</greater-than-equals>
+  </condition>
+</animation>
+
+<animation>
+  <type>select</type>
+  <object-name>HydQTYR1</object-name>
+  <condition>
+	<greater-than-equals>
+	  <property>unused/value</property>
+	  <value>10</value>
+	</greater-than-equals>
+  </condition>
+</animation>
+
+<!-- Flaps/Stats -->
+<animation>
+  <type>translate</type>
+  <object-name>FlapL</object-name>
+  <property>surface-positions/flap-pos-norm</property>
+  <interpolation>
+	<entry><ind>00000</ind><dep>0.0000</dep></entry>
+	<entry><ind>0.125</ind><dep>0.0075</dep></entry>
+	<entry><ind>0.275</ind><dep>0.0190</dep></entry>
+	<entry><ind>0.375</ind><dep>0.0255</dep></entry>
+	<entry><ind>0.700</ind><dep>0.0467</dep></entry>
+	<entry><ind>1.000</ind><dep>0.0505</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>-1</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>FlapR</object-name>
+  <property>surface-positions/flap-pos-norm</property>
+  <interpolation>
+	<entry><ind>00000</ind><dep>0.0000</dep></entry>
+	<entry><ind>0.125</ind><dep>0.0075</dep></entry>
+	<entry><ind>0.275</ind><dep>0.0190</dep></entry>
+	<entry><ind>0.375</ind><dep>0.0255</dep></entry>
+	<entry><ind>0.700</ind><dep>0.0467</dep></entry>
+	<entry><ind>1.000</ind><dep>0.0505</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>-1</z>
+  </axis>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>slatTO</object-name>
+	<condition>
+		<and>	
+			<greater-than>
+				<property>surface-positions/slat-pos-norm</property>
+				<value>0.74</value>
+			</greater-than>
+			<less-than>
+				<property>surface-positions/slat-pos-norm</property>
+				<value>0.76</value>
+			</less-than>
+			<or>
+				<greater-than>
+					<property>systems/electrical/bus/dcL</property>
+					<value>15</value>
+				</greater-than>
+				<greater-than>
+					<property>systems/electrical/bus/dcR</property>
+					<value>15</value>
+				</greater-than>
+			</or>
+		</and>
+	</condition>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>slatDISAG</object-name>
+	<condition>
+		<and>
+			<or>
+				<and>	
+					<greater-than-equals>
+						<property>surface-positions/slat-pos-norm</property>
+						<value>0.01</value>
+					</greater-than-equals>
+					<less-than-equals>
+						<property>surface-positions/slat-pos-norm</property>
+						<value>0.74</value>
+					</less-than-equals>
+				</and>
+				<and>
+					<greater-than-equals>
+						<property>surface-positions/slat-pos-norm</property>
+						<value>0.76</value>
+					</greater-than-equals>
+					<less-than-equals>
+						<property>surface-positions/slat-pos-norm</property>
+						<value>0.99</value>
+					</less-than-equals>
+				</and>
+			</or>
+			<or>
+				<greater-than>
+					<property>systems/electrical/bus/dcL</property>
+					<value>15</value>
+				</greater-than>
+				<greater-than>
+					<property>systems/electrical/bus/dcR</property>
+					<value>15</value>
+				</greater-than>
+			</or>
+		</and>
+	</condition>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>slatAUTO</object-name>
+	<condition>
+		<and>
+			<greater-than>
+				<property>unused/value</property>
+				<value>999</value>
+			</greater-than>
+			<or>
+				<greater-than>
+					<property>systems/electrical/bus/dcL</property>
+					<value>15</value>
+				</greater-than>
+				<greater-than>
+					<property>systems/electrical/bus/dcR</property>
+					<value>15</value>
+				</greater-than>
+			</or>
+		</and>
+	</condition>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>slatLAND</object-name>
+	<condition>
+		<and>
+			<greater-than>
+				<property>surface-positions/slat-pos-norm</property>
+				<value>0.99</value>
+			</greater-than>
+			<or>
+				<greater-than>
+					<property>systems/electrical/bus/dcL</property>
+					<value>15</value>
+				</greater-than>
+				<greater-than>
+					<property>systems/electrical/bus/dcR</property>
+					<value>15</value>
+				</greater-than>
+			</or>
+		</and>
+	</condition>
+</animation>
+
+</PropertyList>
+

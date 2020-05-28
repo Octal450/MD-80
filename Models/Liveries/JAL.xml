@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">Japan Airlines (JA8554)</name>
+      <texture>Liveries/JAL_fuselage.png</texture>
+    </livery>
+    <fairings>
+      <texture>Liveries/JAL_fuselage_fairing.png</texture>
+    </fairings>
+    <rudders>
+      <texture>Liveries/JAL_vstab_engines.png</texture>
+    </rudders>
+  </model>
+</sim>
+</PropertyList>

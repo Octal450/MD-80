@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<path>ai.ac</path>
+
+<animation>
+  <type>material</type>
+  <object-name>AI.Ball</object-name>
+  <object-name>AI.BankIndex</object-name>
+  <object-name>AI.BezelMask</object-name>
+  <object-name>AI.Bar.Aircraft</object-name>
+  <emission>
+    <red>0.3</red>
+    <green>0.3</green>
+    <blue>0.3</blue>
+  </emission>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>AI.BankIndex</object-name>
+  <property>instrumentation/attitude-indicator/indicated-roll-deg</property>
+  <interpolation>
+    <entry><ind>-90.0</ind><dep>-90.0</dep></entry>
+    <entry><ind> 90.0</ind><dep> 90.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>AI.Ball</object-name>
+  <property>instrumentation/attitude-indicator/indicated-roll-deg</property>
+  <interpolation>
+    <entry><ind>-90.0</ind><dep>-90.0</dep></entry>
+    <entry><ind> 90.0</ind><dep> 90.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+  <center>
+    <x-m>-0.036</x-m>
+    <y-m>0</y-m>
+    <z-m>0</z-m>
+  </center>
+</animation>
+
+<!-- Calibrated to move 15 degrees per every 10 true: -->
+<animation>
+  <type>rotate</type>
+  <object-name>AI.Ball</object-name>
+  <property>instrumentation/attitude-indicator/indicated-pitch-deg</property>
+  <interpolation>
+    <entry><ind>-90.0</ind><dep>-135.0</dep></entry>
+    <entry><ind> 90.0</ind><dep> 135.0</dep></entry>
+  </interpolation>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
+  <center>
+    <x-m>-0.036</x-m>
+    <y-m>0</y-m>
+    <z-m>0</z-m>
+  </center>
+</animation>
+
+<animation>
+  <type>translate</type>
+  <object-name>AI.Bar.Aircraft</object-name>
+  <property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+  <factor>0.001</factor>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>1</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>AI.Knob.Hor</object-name>
+  <property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+  <factor>25</factor>
+  <center>
+    <x-m>0</x-m>
+    <y-m>-0.03</y-m>
+    <z-m>-0.03</z-m>
+  </center>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+</PropertyList>

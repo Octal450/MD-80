@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<path>landing_gear_ind.ac</path>
+
+<!-- Doors -->
+<animation>
+  <type>select</type>
+  <object-name>FaceDoorOff</object-name>
+  <condition>
+	<or>
+    <equals>
+      <property>controls/gear/gear-down</property>
+      <value>0</value>
+    </equals>
+    <equals>
+      <property>controls/gear/gear-down</property>
+      <value>1</value>
+    </equals>
+	</or>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>FaceDoorOn</object-name>
+  <condition>
+	<and>
+    <greater-than>
+      <property>gear/gear[0]/position-norm</property>
+      <value>0</value>
+    </greater-than>
+		<or>
+		<greater-than>
+			<property>systems/electrical/bus/dcL</property>
+			<value>15</value>
+		</greater-than>
+		<greater-than>
+			<property>systems/electrical/bus/dcR</property>
+			<value>15</value>
+		</greater-than>
+		</or>
+	</and>
+  </condition>
+</animation>
+
+<!-- Nose -->
+<animation>
+  <type>select</type>
+  <object-name>FaceNoseGreen</object-name>
+  <condition>
+	<and>
+    <equals>
+      <property>gear/gear[0]/position-norm</property>
+      <value>1</value>
+    </equals>
+		<or>
+		<greater-than>
+			<property>systems/electrical/bus/dcL</property>
+			<value>15</value>
+		</greater-than>
+		<greater-than>
+			<property>systems/electrical/bus/dcR</property>
+			<value>15</value>
+		</greater-than>
+		</or>
+	</and>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>FaceNoseOff</object-name>
+  <condition>
+	<or>
+    <equals>
+      <property>controls/gear/gear-down</property>
+      <value>0</value>
+    </equals>
+    <equals>
+      <property>controls/gear/gear-down</property>
+      <value>1</value>
+    </equals>
+	</or>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>FaceNoseRed</object-name>
+  <condition>
+    <and>
+      <greater-than>
+        <property>gear/gear[0]/position-norm</property>
+        <value>0</value>
+      </greater-than>
+      <less-than>
+        <property>gear/gear[0]/position-norm</property>
+        <value>1</value>
+      </less-than>
+		<or>
+		<greater-than>
+			<property>systems/electrical/bus/dcL</property>
+			<value>15</value>
+		</greater-than>
+		<greater-than>
+			<property>systems/electrical/bus/dcR</property>
+			<value>15</value>
+		</greater-than>
+		</or>
+    </and>
+  </condition>
+</animation>
+
+<!-- Left -->
+<animation>
+  <type>select</type>
+  <object-name>FaceLeftGreen</object-name>
+  <condition>
+	<and>
+    <equals>
+      <property>gear/gear[1]/position-norm</property>
+      <value>1</value>
+    </equals>
+		<or>
+		<greater-than>
+			<property>systems/electrical/bus/dcL</property>
+			<value>15</value>
+		</greater-than>
+		<greater-than>
+			<property>systems/electrical/bus/dcR</property>
+			<value>15</value>
+		</greater-than>
+		</or>
+	</and>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>FaceLeftOff</object-name>
+  <condition>
+	<or>
+    <equals>
+      <property>controls/gear/gear-down</property>
+      <value>0</value>
+    </equals>
+    <equals>
+      <property>controls/gear/gear-down</property>
+      <value>1</value>
+    </equals>
+	</or>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>FaceLeftRed</object-name>
+  <condition>
+    <and>
+      <greater-than>
+        <property>gear/gear[1]/position-norm</property>
+        <value>0</value>
+      </greater-than>
+      <less-than>
+        <property>gear/gear[1]/position-norm</property>
+        <value>1</value>
+      </less-than>
+		<or>
+		<greater-than>
+			<property>systems/electrical/bus/dcL</property>
+			<value>15</value>
+		</greater-than>
+		<greater-than>
+			<property>systems/electrical/bus/dcR</property>
+			<value>15</value>
+		</greater-than>
+		</or>
+    </and>
+  </condition>
+</animation>
+
+<!-- Right -->
+<animation>
+  <type>select</type>
+  <object-name>FaceRightGreen</object-name>
+  <condition>
+	<and>
+    <equals>
+      <property>gear/gear[2]/position-norm</property>
+      <value>1</value>
+    </equals>
+		<or>
+		<greater-than>
+			<property>systems/electrical/bus/dcL</property>
+			<value>15</value>
+		</greater-than>
+		<greater-than>
+			<property>systems/electrical/bus/dcR</property>
+			<value>15</value>
+		</greater-than>
+		</or>
+	</and>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>FaceRightOff</object-name>
+  <condition>
+	<or>
+    <equals>
+      <property>controls/gear/gear-down</property>
+      <value>0</value>
+    </equals>
+    <equals>
+      <property>controls/gear/gear-down</property>
+      <value>1</value>
+    </equals>
+	</or>
+  </condition>
+</animation>
+<animation>
+  <type>select</type>
+  <object-name>FaceRightRed</object-name>
+  <condition>
+    <and>
+      <greater-than>
+        <property>gear/gear[2]/position-norm</property>
+        <value>0</value>
+      </greater-than>
+      <less-than>
+        <property>gear/gear[2]/position-norm</property>
+        <value>1</value>
+      </less-than>
+		<or>
+		<greater-than>
+			<property>systems/electrical/bus/dcL</property>
+			<value>15</value>
+		</greater-than>
+		<greater-than>
+			<property>systems/electrical/bus/dcR</property>
+			<value>15</value>
+		</greater-than>
+		</or>
+    </and>
+  </condition>
+</animation>
+
+</PropertyList>
+

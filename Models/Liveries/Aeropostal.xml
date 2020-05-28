@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">Aeropostal</name>
+      <texture>Liveries/aeropostalfuselage.rgb</texture>
+    </livery>
+    <fairings>
+      <texture>Liveries/aeropostalpanza.rgb</texture>
+    </fairings>
+    <rudders>
+      <texture>Liveries/aeropostalm.rgb</texture>
+    </rudders>
+  </model>
+</sim>
+</PropertyList>

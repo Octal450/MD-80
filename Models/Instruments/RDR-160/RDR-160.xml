@@ -1,0 +1,260 @@
+<?xml version="1.0"?>
+<!--
+Bendix King RDR-160 Weather Radar
+Syd Adams
+-->
+<PropertyList>
+
+<path>RDR160.ac</path>
+
+    <panel>
+        <name>Radar</name>
+        <path>Aircraft/MD-80/Models/Instruments/RDR-160/radar.xml</path>
+        <bottom-left>
+            <x-m>0.003</x-m>
+            <y-m>-0.050</y-m>
+            <z-m>-0.033</z-m>
+        </bottom-left>
+        <bottom-right>
+            <x-m>0.003</x-m>
+            <y-m>0.050</y-m>
+            <z-m>-0.033</z-m>
+        </bottom-right>
+        <top-left>
+            <x-m>0.003</x-m>
+            <y-m>-0.050</y-m>
+            <z-m>0.049</z-m>
+        </top-left>
+    </panel>
+
+    <animation>
+        <type>material</type>
+        <object-name>RDR160.labels</object-name>
+        <object-name>RDR160.rngup</object-name>
+        <object-name>RDR160.rngdwn</object-name>
+        <object-name>RDR160.modeup</object-name>
+        <object-name>RDR160.modedwn</object-name>
+        <object-name>RDR160.hold</object-name>
+        <object-name>RDR160.trkdwn</object-name>
+        <object-name>RDR160.trkup</object-name>
+        <object-name>RDR160.nav</object-name>
+        <object-name>RDR160.power</object-name>
+        <object-name>RDR160.tilt</object-name>
+        <emission>
+            <red>0.025</red>
+            <green>0.025</green>
+            <blue>0.025</blue>
+            <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>RDR160.brt</object-name>
+        <property>instrumentation/radar/dim</property>
+        <interpolation>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>1</ind><dep>240</dep></entry>
+        </interpolation>
+        <center>
+            <x-m>0</x-m>
+            <y-m>-0.067</y-m>
+            <z-m>0.050</z-m>
+        </center>
+        <axis>
+            <x>-1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>RDR160.tilt</object-name>
+        <property>instrumentation/radar/tilt</property>
+        <interpolation>
+            <entry><ind>-15</ind><dep>-130</dep></entry>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>15</ind><dep>125</dep></entry>
+        </interpolation>
+        <center>
+            <x-m>0</x-m>
+            <y-m>0.067</y-m>
+            <z-m>-0.045</z-m>
+        </center>
+        <axis>
+            <x>-1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>RDR160.power</object-name>
+        <property>instrumentation/radar/switch-pos</property>
+        <interpolation>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>1</ind><dep>40</dep></entry>
+            <entry><ind>2</ind><dep>80</dep></entry>
+            <entry><ind>3</ind><dep>110</dep></entry>
+        </interpolation>
+        <center>
+            <x-m>0</x-m>
+            <y-m>-0.067</y-m>
+            <z-m>-0.041</z-m>
+        </center>
+        <axis>
+            <x>-1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+
+<!--    Hotspots  -->
+
+    <animation>
+        <type>pick</type>
+        <object-name>RDR160.brt</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/radar/dim</property>
+                <step>0.05</step>
+                <min>0.0</min>
+                <max>1.0</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>RDR160.brt</object-name>
+        <action>
+            <button>1</button>
+            <repeatable>true</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/radar/dim</property>
+                <step>-0.05</step>
+                <min>0.0</min>
+                <max>1.0</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>RDR160.tilt</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/radar/tilt</property>
+                <step>5.0</step>
+                <min>-15.0</min>
+                <max>15.0</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>RDR160.tilt</object-name>
+        <action>
+            <button>1</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/radar/tilt</property>
+                <step>-5.0</step>
+                <min>-15.0</min>
+                <max>15.0</max>
+                <wrap>false</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>RDR160.power</object-name>
+        <action>
+            <button>1</button>
+            <binding>
+                <command>nasal</command>
+                <script>radar.set_switch(-1);</script>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>RDR160.power</object-name>
+        <action>
+            <button>0</button>
+            <binding>
+                <command>nasal</command>
+                <script>radar.set_switch(1);</script>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>RDR160.rngup</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>radar.set_range(1);</script>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>RDR160.rngdwn</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>radar.set_range(-1);</script>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>RDR160.modeup</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>instrumentation/radar/display-controls/data</property>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>RDR160.modedwn</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>instrumentation/radar/display-controls/pos</property>
+            </binding>
+        </action>
+    </animation>
+
+</PropertyList>
