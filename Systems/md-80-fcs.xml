@@ -550,18 +550,131 @@
 	
 	<channel name="Tiller">
 		
-		<switch name="fcs-actual/tiller/switch">
+		<switch name="/controls/gear/steering-switched">
 			<default value="/controls/flight/rudder"/>
 			<test value="0">
 				/gear/gear[0]/wow ne 1
 			</test>
-			<test logic="AND" value="/controls/flight/aileron">
-				<!--fcc/afs/enabled eq 0-->
+			<test value="/controls/gear/steering">
+				/systems/acconfig/options/seperate-tiller-axis eq 1
+			</test>
+			<test value="/controls/flight/aileron">
 				/controls/flight/aileron-drives-tiller eq 1
 			</test>
-			<!--test value="fcc/afs/yaw-cmd">
+		</switch>
+		
+		<scheduled_gain name="fcs-actual/tiller/handle-scheduled">
+			<input>/controls/gear/steering-switched</input>
+			<table>
+				<independentVar lookup="row">/velocities/groundspeed-kt</independentVar>
+				<independentVar lookup="column">/systems/acconfig/options/seperate-tiller-axis</independentVar>
+				<tableData> <!-- 0.207317 is 17/82 -->
+					      0         1
+					 0.5  0.000000  0.000000
+					 1.0  1.000000  1.000000
+					15.0  1.000000  1.000000
+					45.0  0.207317  1.000000
+				</tableData>
+			</table>
+		</scheduled_gain>
+		
+		<pure_gain name="fcs-actual/tiller/autopush-cmd-deg">
+			<input>fcs-actual/tiller/autopush-cmd</input>
+			<gain>82</gain>
+		</pure_gain>
+		
+		<!--scheduled_gain name="fcs-actual/tiller/afs-cmd-deg">
+			<input>fcc/afs/yaw-cmd</input>
+			<table>
+				<independentVar lookup="row">/velocities/groundspeed-kt</independentVar>
+				<tableData>
+					  0.5   0
+					  1.0  17
+				</tableData>
+			</table>
+		</scheduled_gain-->
+		
+		<switch name="fcs-actual/tiller/rudder-cmd-input">
+			<default value="/controls/flight/rudder"/>
+			<test value="/controls/flight/aileron">
+				/controls/flight/aileron-drives-tiller eq 1
+			</test>
+		</switch>
+		
+		<fcs_function name="fcs-actual/tiller/rudder-cmd-deg"> <!-- Combines rudder and tiller into just rudder -->
+			<function>
+				<table>
+					<independentVar lookup="row">zero</independentVar> <!-- Take advantage of the table lookup to interpolate -->
+					<independentVar lookup="column">fcs-actual/tiller/rudder-cmd-input</independentVar>
+					<independentVar lookup="table">/velocities/groundspeed-kt</independentVar>
+					<tableData breakPoint="0.5">
+						  -1.00 -0.01  0.01  1.00
+						0  0     0     0     0
+						1  0     0     0     0
+					</tableData>
+					<tableData breakPoint="1.0">
+						  -1.00 -0.01  0.01  1.00
+						0 -82    0     0     82
+						1 -82    0     0     82
+					</tableData>
+					<tableData breakPoint="15.0">
+						  -1.00 -0.01  0.01  1.00
+						0 -82    0     0     82
+						1 -82    0     0     82
+					</tableData>
+					<tableData breakPoint="45.0">
+						  -1   0  1
+						0 -17  0  17
+						1 -17  0  17
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="fcs-actual/tiller/tiller-cmd-deg">
+			<function>
+				<sum>
+					<table>
+						<independentVar lookup="row">/velocities/groundspeed-kt</independentVar>
+						<independentVar lookup="column">/controls/gear/steering</independentVar>
+						<tableData>
+							    -1.00 -0.01  0.01  1.00
+							0.5  0     0     0     0
+							1.0 -82    0     0     82
+						</tableData>
+					</table>
+					<product>
+						<property>fcs-actual/tiller/rudder-cmd-input</property>
+						<table>
+							<independentVar lookup="row">/velocities/groundspeed-kt</independentVar>
+							<tableData>
+								0.5   0
+								1.0  17
+							</tableData>
+						</table>
+					</product>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<switch name="fcs-actual/tiller/cmd-deg">
+			<default value="fcs-actual/tiller/rudder-cmd-deg"/>
+			<test value="0">
+				/gear/gear[0]/wow ne 1
+			</test>
+			<test value="fcs-actual/tiller/autopush-cmd-deg">
+				/sim/model/autopush/connected eq 1
+			</test>
+			<!--test value="fcs-actual/tiller/afs-cmd-deg">
 				fcc/afs/enabled eq 1
 			</test-->
+			<test value="fcs-actual/tiller/tiller-cmd-deg">
+				/systems/acconfig/options/seperate-tiller-axis eq 1
+			</test>
+			<clipto>
+				<min>fcs-actual/tiller/min-deg</min>
+				<max>fcs-actual/tiller/max-deg</max>
+			</clipto>
 		</switch>
 		
 		<switch name="fcs-actual/tiller/rate">
@@ -569,7 +682,7 @@
 			<test value="82">
 				/sim/model/autopush/connected eq 1
 			</test>
-			<test logic="OR" value="82">
+			<test logic="OR" value="35">
 				/systems/hydraulics/sys-l-psi ge 1500
 				/systems/hydraulics/sys-r-psi ge 1500
 			</test>
@@ -595,39 +708,8 @@
 			</test>
 		</switch>
 		
-		<fcs_function name="fcs-actual/tiller/function">
-			<function>
-				<ifthen>
-					<eq>
-						<property>/sim/model/autopush/connected</property>
-						<value>1</value>
-					</eq>
-					<product>
-						<property>fcs-actual/tiller/autopush-cmd</property>
-						<value>82</value>
-					</product>
-					<product>
-						<property>/gear/gear[0]/wow</property>
-						<table>
-							<independentVar lookup="row">/velocities/groundspeed-kt</independentVar>
-							<independentVar lookup="column">fcs-actual/tiller/switch</independentVar>
-							<tableData>
-								      -1  0   1
-								 0.5   0  0   0
-								 1.0 -82  0  82
-								15.0 -82  0  82
-								45.0 -17  0  17
-							</tableData>
-						</table>
-					</product>
-				</ifthen>
-			</function>
-			<min>fcs-actual/tiller/min-deg</min>
-			<max>fcs-actual/tiller/max-deg</max>
-		</fcs_function>
-		
 		<actuator name="fcs/steer-deg">
-			<input>fcs-actual/tiller/function</input>
+			<input>fcs-actual/tiller/cmd-deg</input>
 			<rate_limit>fcs-actual/tiller/rate</rate_limit>
 			<output>fcs/steer-pos-deg[0]</output>
 		</actuator>

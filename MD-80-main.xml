@@ -323,6 +323,7 @@
 				<throttle-lever-feedback n="0" type="double">0</throttle-lever-feedback>
 				<throttle-lever-feedback n="1" type="double">0</throttle-lever-feedback>
 			</fcs>
+			<zero type="int">0</zero>
 		</jsbsim>
 	</fdm>
 	
@@ -752,6 +753,9 @@
 	<systems n="0">
 		<acconfig n="0">
 			<autoconfig-running type="bool">0</autoconfig-running>
+			<options n="0">
+				<seperate-tiller-axis type="bool">0</seperate-tiller-axis>
+			</options>
 		</acconfig>
 	</systems>
 	
