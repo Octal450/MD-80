@@ -145,7 +145,7 @@
 	<system file="md-80-libraries"/>
 	<system file="md-80-fcs"/>
 	<system file="md-80-spoiler"/>
-	<system file="md-80-pw-engine"/>
+	<system file="md-80-pw-engine-tri"/>
 	<system file="md-80-cockpit"/>
 	
 	<flight_control name="none"/>

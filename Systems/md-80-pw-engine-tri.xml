@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-80 JT8D-217A Engine/TRI -->
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
+<system name="MD-80: PW Engine/TRI">
+	
+	<channel name="Thrust Limits">
+		
+		<fcs_function name="engine/limit/rated-thrust-n1">
+			<function>
+				<table>
+					<independentVar lookup="row">/position/altitude-ft</independentVar>
+					<independentVar lookup="column">propulsion/tat-c</independentVar>
+					<tableData>
+						      -60   -30    0     30    60
+						    0  83.2  86.7  90.0  94.2  89.8
+						10000  87.1  89.3  93.9  95.1  91.4
+						43000  87.1  87.4  90.9  95.3  93.4
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/milthrust-unmodified"> <!-- Copy of MilThrust table in engines file -->
+			<function>
+				<table>
+					<independentVar lookup="row">velocities/mach</independentVar>
+					<independentVar lookup="column">atmosphere/density-altitude</independentVar>
+					<tableData>
+						     -10000   0       10000   20000   30000   43000   50000
+						0.0   1.2600  1.0000  0.7400  0.5640  0.3920  0.2710  0.0000
+						0.2   1.1710  0.9740  0.6970  0.5360  0.3850  0.2610  0.0000
+						0.4   1.1500  0.9570  0.6920  0.5460  0.3870  0.2530  0.0000
+						0.6   1.1810  0.9410  0.7210  0.5660  0.3580  0.2180  0.0000
+						0.8   1.2290  1.0200  0.7820  0.5570  0.3040  0.1930  0.0000
+						0.9   1.2580  1.0200  0.7820  0.5220  0.2710  0.1140  0.0000
+						1.0   1.1810  0.9510  0.7210  0.4410  0.1740  0.0450  0.0000
+						1.2   0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000
+						1.4   0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<!-- Following functions fix a FGTurbine inaccuracy... rated thrust N1% should be rated thrust lbs -->
+		<!-- These calculations change it so that the rated power at sea level is at the correct N1% value. It still changes with altitude and mach as it should -->
+		<fcs_function name="engine/limit/fgturbine-thrust-lbs">
+			<function>
+				<sum>
+					<product>
+						<property>propulsion/engine/IdleThrust</property>
+						<value>20000</value>
+					</product>
+					<product>
+						<difference>
+							<value>20000</value>
+							<product>
+								<property>propulsion/engine[0]/IdleThrust</property> <!-- It doesn't matter which engine, its same for all -->
+								<value>20000</value>
+							</product>
+						</difference>
+						<property>engine/limit/milthrust-unmodified</property>
+					</product>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/rated-thrust-lbs">
+			<function>
+				<sum>
+					<product>
+						<property>propulsion/engine/IdleThrust</property>
+						<value>20000</value>
+					</product>
+					<product>
+						<product>
+							<difference>
+								<value>20000</value>
+								<product>
+									<property>propulsion/engine[0]/IdleThrust</property> <!-- It doesn't matter which engine, its same for all -->
+									<value>20000</value>
+								</product>
+							</difference>
+							<property>engine/limit/milthrust-unmodified</property>
+						</product>
+						<quotient>
+							<difference>
+								<property>engine/limit/rated-thrust-n1</property>
+								<value>25.3</value>
+							</difference>
+							<value>79.9</value>
+						</quotient>
+						<quotient>
+							<difference>
+								<property>engine/limit/rated-thrust-n1</property>
+								<value>25.3</value>
+							</difference>
+							<value>79.9</value>
+						</quotient>
+					</product>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/rated-thrust-factor"> <!-- Normalize -->
+			<function>
+				<ifthen>
+					<nq> <!-- Prevent divide by 0 -->
+						<property>engine/limit/rated-thrust-lbs</property>
+						<value>0</value>
+					</nq>
+					<quotient>
+						<property>engine/limit/fgturbine-thrust-lbs</property>
+						<property>engine/limit/rated-thrust-lbs</property>
+					</quotient>
+					<value>1</value>
+				</ifthen>
+			</function>
+		</fcs_function>
+	
+	</channel>
+	
+	<channel name="Reversers">
+		
+		
+	
+	</channel>
+	
+	<channel name="Engine Control">
+		
+		
+	
+	</channel>
+	
+	<channel name="Engine Parameters" execrate="2">
+		
+		<lag_filter name="engine/n1-actual-1">
+			<input>/engines/engine[0]/n1</input>
+			<c1>2.25</c1>
+			<output>/engines/engine[0]/n1-actual</output>
+			<output>/engines/engine[3]/n1</output>
+		</lag_filter>
+		
+		<lag_filter name="engine/n1-actual-2">
+			<input>/engines/engine[1]/n1</input>
+			<c1>2.25</c1>
+			<output>/engines/engine[1]/n1-actual</output>
+			<output>/engines/engine[4]/n1</output>
+		</lag_filter>
+		
+		<lag_filter name="engine/n2-actual-1">
+			<input>/engines/engine[0]/n2</input>
+			<c1>2.25</c1>
+			<output>/engines/engine[0]/n2-actual</output>
+			<output>/engines/engine[3]/n2</output>
+		</lag_filter>
+		
+		<lag_filter name="engine/n2-actual-2">
+			<input>/engines/engine[1]/n2</input>
+			<c1>2.25</c1>
+			<output>/engines/engine[1]/n2-actual</output>
+			<output>/engines/engine[4]/n2</output>
+		</lag_filter>
+	
+	</channel>
+
+</system>
