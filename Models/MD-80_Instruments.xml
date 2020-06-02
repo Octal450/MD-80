@@ -65,38 +65,7 @@
   <object-name>FMA_R</object-name> 
   <object-name>enginepanel</object-name> 
   <object-name>enginepanel2</object-name> 
-  <object-name>att</object-name>
-  <object-name>hsi</object-name>
-  <object-name>att_R</object-name>
-  <object-name>hsi_R</object-name>
 </animation>
-
-<animation>
-  <type>select</type>
-  <object-name>L_efis</object-name>
-  <object-name>eadi</object-name>
-  <object-name>ND_L</object-name>
-  <object-name>R_efis</object-name>
-  <object-name>eadi_R</object-name>
-  <object-name>ND_R</object-name>
-  <object-name>efisdim_L</object-name>
-  <object-name>efisdim_R</object-name>
-  <condition>
-	<property>options/retrofit</property>
-  </condition>
-</animation>
-
-<animation>
-  <type>select</type>
-  <object-name>att</object-name>
-  <object-name>hsi</object-name>
-  <object-name>att_R</object-name>
-  <object-name>hsi_R</object-name>
-  <condition>
-	<not><property>options/retrofit</property></not>
-  </condition>
-</animation>
-
 
 <!-- Captain Panel -->
 
@@ -123,14 +92,6 @@
 	<roll-deg>20</roll-deg>
   </offsets>
 </model>
-
-<animation>
-  <type>select</type>
-  <object-name>L_efis</object-name>
-  <condition>
-	<property>options/retrofit</property>
-  </condition>
-</animation>
 
 <model>
   <name>clock</name>
@@ -176,7 +137,7 @@
   </offsets>
 </model>
 
-<model>
+<!--model>
   <name>att</name>
   <path>Aircraft/MD-80/Models/Instruments/att/att1.xml</path>
   <offsets>
@@ -185,7 +146,7 @@
     <z-m>0.876</z-m>
     <pitch-deg>-12</pitch-deg>
   </offsets>
-</model>
+</model-->
 
 <model>
   <name>ND_L</name>
@@ -198,7 +159,7 @@
   </offsets>
 </model>
 
-<model>
+<!--model>
   <name>hsi</name>
   <path>Aircraft/MD-80/Models/Instruments/hsi/hsi1.xml</path>
   <offsets>
@@ -207,7 +168,7 @@
 	<z-m>0.740</z-m>
     <pitch-deg>-12</pitch-deg>
   </offsets>
-</model>
+</model-->
 
 <model>
   <name>alt</name>
@@ -562,7 +523,7 @@
   </offsets>
 </model>
 
-<model>
+<!--model>
   <name>att_R</name>
   <path>Aircraft/MD-80/Models/Instruments/att/att2.xml</path>
   <offsets>
@@ -571,7 +532,7 @@
     <z-m>0.876</z-m>
     <pitch-deg>-12</pitch-deg>
   </offsets>
-</model>
+</model-->
 
 <model>
   <name>ND_R</name>
@@ -584,7 +545,7 @@
   </offsets>
 </model>
 
-<model>
+<!--model>
   <name>hsi_R</name>
   <path>Aircraft/MD-80/Models/Instruments/hsi/hsi2.xml</path>
   <offsets>
@@ -593,7 +554,7 @@
 	<z-m>0.740</z-m>
     <pitch-deg>-12</pitch-deg>
   </offsets>
-</model>
+</model-->
 
 <model>
   <name>clock_R</name>
@@ -671,18 +632,14 @@
     <pitch-deg>-12</pitch-deg>
   </offsets>
 </model>
-
-
-<!-- Glareshield -->
-
-<model>
-  <name>fgcp</name>
-  <path>Aircraft/MD-80/Models/Instruments/fgcp.xml</path>
-</model>
-
-
+	
+	<!-- Glareshield -->
+	<model>
+		<name>fgcp</name>
+		<path>Aircraft/MD-80/Models/Instruments/fgcp.xml</path>
+	</model>
+	
 <!-- Pedestal -->
-
 <model>
   <name>comm1</name>
   <path>Aircraft/MD-80/Models/Instruments/comm1.xml</path>
@@ -759,43 +716,39 @@
     <pitch-deg>-75</pitch-deg>
   </offsets>
 </model>
-
-
-<!-- Overhead -->
-
-<model>
-  <name>pneu</name>
-  <path>Aircraft/MD-80/Models/Instruments/pneu.xml</path>
-  <offsets>
-    <x-m>2.732</x-m>
-    <y-m>-0.206</y-m>
-    <z-m>1.502</z-m>
-    <pitch-deg>63</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>apu_rpm</name>
-  <path>Aircraft/MD-80/Models/Instruments/apu_rpm.xml</path>
-  <offsets>
-    <x-m>2.937</x-m>
-    <y-m>-0.002</y-m>
-    <z-m>1.606</z-m>
-    <pitch-deg>63</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>apu_egt</name>
-  <path>Aircraft/MD-80/Models/Instruments/apu_egt.xml</path>
-  <offsets>
-    <x-m>2.937</x-m>
-    <y-m>-0.060</y-m>
-    <z-m>1.606</z-m>
-    <pitch-deg>63</pitch-deg>
-  </offsets>
-</model>
+	
+	<!-- Overhead -->
+	<model>
+		<name>pneu</name>
+		<path>Aircraft/MD-80/Models/Instruments/pneu.xml</path>
+		<offsets>
+			<x-m>2.732</x-m>
+			<y-m>-0.206</y-m>
+			<z-m>1.502</z-m>
+			<pitch-deg>63</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>apu_rpm</name>
+		<path>Aircraft/MD-80/Models/Instruments/apu_rpm.xml</path>
+		<offsets>
+			<x-m>2.937</x-m>
+			<y-m>-0.002</y-m>
+			<z-m>1.606</z-m>
+			<pitch-deg>63</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>apu_egt</name>
+		<path>Aircraft/MD-80/Models/Instruments/apu_egt.xml</path>
+		<offsets>
+			<x-m>2.937</x-m>
+			<y-m>-0.060</y-m>
+			<z-m>1.606</z-m>
+			<pitch-deg>63</pitch-deg>
+		</offsets>
+	</model>
 
 </PropertyList>
-
-

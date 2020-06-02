@@ -1,7 +1,7 @@
 AC3Db
 MATERIAL "buttonlights" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0.33 0.33 0.33  shi 32  trans 0
 MATERIAL "black" rgb 0 0 0  amb 0 0 0  emis 0 0 0  spec 0 0 0  shi 0  trans 0
-MATERIAL "bezelgrey" rgb 0.501961 0.501961 0.501961  amb 0.1 0.1 0.1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "bezelgrey" rgb 0.392157 0.392157 0.392157  amb 0.392157 0.392157 0.392157  emis 0 0 0  spec 0.392157 0.392157 0.392157  shi 64.6737  trans 0
 OBJECT world
 kids 4
 OBJECT poly
@@ -733,11 +733,10 @@ refs 4
 kids 0
 OBJECT poly
 name "ND.screenL"
-loc 0.002183 -0.00187735 -6.83644e-005
+loc 0.002183 -0.00187735 -6.83644e-05
 data 10
 ND.screenL
-texture "../screen.png"
-texrep 1.000000 1.000000
+texture "screen.png"
 crease 30.000002
 numvert 4
 0 0.0561334 -0.0560504
@@ -749,8 +748,8 @@ SURF 0x0
 mat 0
 refs 4
 0 1.00067 0.999407
-3 4.45843e-005 0.999407
-2 4.45843e-005 0.000756443
+3 4.45843e-05 0.999407
+2 4.45843e-05 0.000756443
 1 1.00067 0.000756443
 kids 0
 OBJECT poly

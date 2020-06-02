@@ -70,7 +70,7 @@
   </action>
 </animation>
 
-<animation>
+<!--animation>
   <type>rotate</type>
   <object-name>KnobPFD</object-name>
   <property>controls/lighting/pfd-norm</property>
@@ -122,7 +122,7 @@
       <wrap>false</wrap>
     </binding>
   </action>
-</animation>
+</animation-->
 
 <!--animation>
   <type>rotate</type>

@@ -1,6 +1,4 @@
-<!--
-777 Navigation display
--->
+<?xml version="1.0"?>
 
 <PropertyList>
 
@@ -9,21 +7,10 @@
         <type>select</type>
         <object-name>Power.off</object-name>
         <condition>
-            <less-than>
-				<property>systems/electrical/bus/dcR</property>
-				<value>15</value>
-            </less-than>
-        </condition>
-    </animation>
-
-    <animation>
-        <type>select</type>
-        <object-name>ND.screenR</object-name>
-        <condition>
-            <greater-than>
-				<property>systems/electrical/bus/dcR</property>
-				<value>15</value>
-            </greater-than>
+			<greater-than>
+				<property>systems/electrical/bus/unused</property>
+				<value>99999</value>
+			</greater-than>
         </condition>
     </animation>
 
@@ -35,7 +22,7 @@
 		<repeatable>false</repeatable>
 		<binding>
 			<command>nasal</command>
-			<script>MD88.showNd("fo");</script>
+			<script>libraries.showNd("fo");</script>
 		</binding>
 	</action>
 </animation>

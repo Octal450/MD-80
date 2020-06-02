@@ -242,11 +242,11 @@
 			<output>fcs-actual/elevator-l/surface-final-deg</output>
 		</lag_filter>
 		
-		<lag_filter name="fcs-actual/elevator-l/geared-tab-final-lag">
+		<pure_gain name="fcs-actual/elevator-l/geared-tab-final-gain">
 			<input>-fcs-actual/elevator-l/surface-final-lag</input>
-			<c1>20</c1>
+			<gain>1</gain>
 			<output>fcs-actual/elevator-l/geared-tab-final-deg</output>
-		</lag_filter>
+		</pure_gain>
 	
 	</channel>
 	
@@ -285,11 +285,11 @@
 			<output>fcs-actual/elevator-r/surface-final-deg</output>
 		</lag_filter>
 		
-		<lag_filter name="fcs-actual/elevator-r/geared-tab-final-lag">
+		<pure_gain name="fcs-actual/elevator-r/geared-tab-final-gain">
 			<input>-fcs-actual/elevator-r/surface-final-lag</input>
-			<c1>20</c1>
+			<gain>1</gain>
 			<output>fcs-actual/elevator-r/geared-tab-final-deg</output>
-		</lag_filter>
+		</pure_gain>
 	
 	</channel>
 	

@@ -3,52 +3,16 @@
 
 <path>eadi.ac</path>
 
-<animation>
-  <type>material</type>
-  <object-name>Face</object-name>
-  <object-name>ArtHorizon</object-name>
-  <object-name>Roll.needle</object-name>
-  <object-name>FDbars</object-name>
-  <object-name>AirplaneSymbol</object-name>
-  <object-name>GS.needle</object-name>
-  <object-name>LOC.needle</object-name>
-  <object-name>GS.scale</object-name>
-  <object-name>LOC.scale</object-name>
-  <object-name>Alttape1</object-name>
-  <object-name>INH.1</object-name>
-  <object-name>INH.2</object-name>
-  <object-name>INH.3</object-name>
-  <object-name>INH.4</object-name>
-  <object-name>INH.dec</object-name>
-  <object-name>DH.1</object-name>
-  <object-name>DH.10</object-name>
-  <object-name>DH.100</object-name>
-  <object-name>DH</object-name>
-  <object-name>DHamber.1</object-name>
-  <object-name>DHamber.10</object-name>
-  <object-name>DHamber.100</object-name>
-  <object-name>DHamber</object-name>
-  <object-name>block</object-name>
-  <object-name>FDPitch</object-name>
-  <object-name>FDRoll</object-name>
-  <emission>
-    <red>1.0</red>
-    <green>1.0</green>
-    <blue>1.0</blue>
-    <factor-prop>controls/lighting/pfd-norm</factor-prop>
-  </emission>
-</animation>
-
 	<!-- Power on/off -->
 	<animation>
 		<name>Power on/off</name>
 		<type>select</type>
 		<object-name>Off</object-name>
 		<condition>
-			<less-than>
-				<property>systems/electrical/bus/dcL</property>
-				<value>15</value>
-			</less-than>
+			<greater-than>
+				<property>systems/electrical/bus/unused</property>
+				<value>99999</value>
+			</greater-than>
 		</condition>
 	</animation>
 	
