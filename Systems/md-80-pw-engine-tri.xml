@@ -129,7 +129,55 @@
 	
 	<channel name="Engine Control">
 		
+		<!-- Engine 1 -->
+		<switch name="engine/control-1/throttle-pos">
+			<default value="/controls/engines/engine[0]/throttle"/>
+			<!--test value="0">
+				engine/reverse-1/position-norm ne 0
+			</test-->
+			<!--test logic="AND" value="engine/ats-cmd-1">
+				/it-autoflight/output/athr eq 1
+				/it-autoflight/output/clamp eq 0
+			</test-->
+		</switch>
 		
+		<switch name="engine/control-1/throttle-output">
+			<default value="engine/control-1/throttle-pos"/>
+			<!--test value="engine/reverse-1/throttle-rev">
+				engine/reverse-1/position-norm ne 0
+			</test-->
+		</switch>
+		
+		<lag_filter name="engine/control-1/throttle-fdm">
+			<input>engine/control-1/throttle-output</input>
+			<c1>1.25</c1>
+			<output>fcs/throttle-pos-norm[0]</output>
+		</lag_filter>
+		
+		<!-- Engine 2 -->
+		<switch name="engine/control-2/throttle-pos">
+			<default value="/controls/engines/engine[1]/throttle"/>
+			<!--test value="0">
+				engine/reverse-2/position-norm ne 0
+			</test-->
+			<!--test logic="AND" value="engine/ats-cmd-2">
+				/it-autoflight/output/athr eq 1
+				/it-autoflight/output/clamp eq 0
+			</test-->
+		</switch>
+		
+		<switch name="engine/control-2/throttle-output">
+			<default value="engine/control-2/throttle-pos"/>
+			<!--test value="engine/reverse-2/throttle-rev">
+				engine/reverse-2/position-norm ne 0
+			</test-->
+		</switch>
+		
+		<lag_filter name="engine/control-2/throttle-fdm">
+			<input>engine/control-2/throttle-output</input>
+			<c1>1.25</c1>
+			<output>fcs/throttle-pos-norm[1]</output>
+		</lag_filter>
 	
 	</channel>
 	

@@ -93,6 +93,30 @@
 		<output>fdm/jsbsim/inertia/weight-kg</output>
 	</filter>
 	
+	<filter>
+		<name>Gear Lever</name>
+		<type>noise-spike</type>
+		<update-interval-secs type="double">0.02</update-interval-secs>
+		<input>/controls/gear/gear-down</input>
+		<output>/controls/gear/gearlever/position-norm</output>
+		<max-rate-of-change>1.5</max-rate-of-change>
+	</filter>
+	
+	<filter> <!-- Move to Autothrust -->
+		<name>Throttle Comparator</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<max>
+					<property>/fdm/jsbsim/engine/throttle-lever[0]</property>
+					<property>/fdm/jsbsim/engine/throttle-lever[1]</property>
+				</max>
+			</expression>
+		</input>
+		<output>/fdm/jsbsim/engine/throttle-compare-max</output>
+	</filter>
+	
 	<!-- GPWS Controller -->
 	<logic>
 		<!-- Smewhat confusing : this input is not 'are the flaps in landing configration', but rather,

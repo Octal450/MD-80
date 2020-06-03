@@ -237,11 +237,13 @@
 			<engine n="0">
 				<cutoff type="bool">0</cutoff>
 				<cutoff-switch type="bool">0</cutoff-switch>
+				<reverse-cmd type="bool">0</reverse-cmd>
 				<reverse-lever type="double">0</reverse-lever>
 			</engine>
 			<engine n="1">
 				<cutoff type="bool">0</cutoff>
 				<cutoff-switch type="bool">0</cutoff-switch>
+				<reverse-cmd type="bool">0</reverse-cmd>
 				<reverse-lever type="double">0</reverse-lever>
 			</engine>
 		</engines>
@@ -428,6 +430,46 @@
 				<binding>
 					<command>nasal</command>
 					<script>libraries.fovZoom(-1);</script>
+				</binding>
+			</key>
+			<key n="127">
+				<name>DEL</name>
+				<desc>Simple Engage/Disengage reversers</desc>
+				<binding>
+					<command>nasal</command>
+					<script>systems.toggleFastRevThrust();</script>
+				</binding>
+			</key>
+			<key n="257">
+				<name>F1</name>
+				<desc>Disengage/Decrease reversers</desc>
+				<binding>
+					<command>nasal</command>
+					<script>systems.unRevThrust();</script>
+				</binding>
+			</key>
+			<key n="258">
+				<name>F2</name>
+				<desc>Engage/Increase reversers</desc>
+				<binding>
+					<command>nasal</command>
+					<script>systems.doRevThrust();</script>
+				</binding>
+			</key>
+			<key n="101">
+				<name>e</name>
+				<desc>Thrust Levers Idle</desc>
+				<binding>
+					<command>nasal</command>
+					<script>systems.doIdleThrust();</script>
+				</binding>
+			</key>
+			<key n="102">
+				<name>f</name>
+				<desc>Thrust Lever Full</desc>
+				<binding>
+					<command>nasal</command>
+					<script>systems.doFullThrust();</script>
 				</binding>
 			</key>
 			<key n="362">
@@ -761,7 +803,7 @@
 	
 	<nasal n="0">
 		<pts>
-			<file>Aircraft/MD-11/Nasal/property-tree-setup.nas</file>
+			<file>Aircraft/MD-80/Nasal/property-tree-setup.nas</file>
 		</pts>
 		<libraries>
 			<file>Aircraft/MD-80/Nasal/libraries.nas</file>
@@ -769,6 +811,9 @@
 			<file>Aircraft/MD-80/Nasal/shake.nas</file>
 			<file>Aircraft/MD-80/Nasal/zoom-views.nas</file>
 		</libraries>
+		<systems>
+			<file>Aircraft/MD-80/Nasal/Systems/master-system.nas</file>
+		</systems>
 		<itaf>
 			<file>Aircraft/MD-80/Nasal/it-autoflight.nas</file>
 		</itaf>

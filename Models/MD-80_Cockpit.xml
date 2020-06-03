@@ -347,62 +347,58 @@
     <z>0</z>
   </axis>
 </animation>
+	
+	<!-- Panel glows -->
+	<animation>
+		<type>material</type>
+		<object-name>PedestalABS</object-name>
+		<object-name>PedestalDrumFace</object-name>
+		<emission>
+			<red>0.4</red>
+			<green>0.2</green>
+			<blue>0.1</blue>
+			<factor-prop>controls/lighting/panel-norm</factor-prop>
+		</emission>
+	</animation>
+	
+	<!-- Animations -->
+	<animation>
+		<type>rotate</type>
+		<object-name>LGLever</object-name>
+		<property>controls/gear/gearlever/position-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>90</dep></entry>
+			<entry><ind>1</ind><dep> 0</dep></entry>
+		</interpolation>   
+		<center>
+			<x-m>2.175</x-m>
+			<y-m>0</y-m>
+			<z-m>0.909</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation> 
 
-
-<!-- Panel glows -->
-
-<animation>
-  <type>material</type>
-  <object-name>PedestalABS</object-name>
-  <object-name>PedestalDrumFace</object-name>
-  <emission>
-    <red>0.4</red>
-    <green>0.2</green>
-    <blue>0.1</blue>
-    <factor-prop>controls/lighting/panel-norm</factor-prop>
-  </emission>
-</animation>
-
-
-<!-- Animations -->
-
-<animation>
-  <type>rotate</type>
-  <object-name>LGLever</object-name>
-  <property>controls/gear/gear-down</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>90</dep></entry>
-    <entry><ind>1</ind><dep> 0</dep></entry>
-  </interpolation>   
-  <center>
-    <x-m>2.175</x-m>
-    <y-m>0</y-m>
-    <z-m>0.909</z-m>
-  </center>
-  <axis>
-    <x>0</x>
-    <y>-1</y>
-    <z>0</z>
-  </axis>
-</animation> 
-
-<animation>
-  <type>pick</type>
-  <object-name>LGLever</object-name>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-toggle</command>
-      <property>controls/gear/gear-down</property>
-    </binding>
-  </action>
-</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>LGLever</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/gear/gear-down</property>
+			</binding>
+		</action>
+	</animation>
 	
 	<animation>
 		<type>rotate</type>
 		<object-name>FlapLever</object-name>
-		<property>fdm/jsbsim/controls/flap-lever</property>
+		<property>fdm/jsbsim/fcs-actual/flap-lever</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>  0</dep></entry>
 			<entry><ind>1</ind><dep> 22</dep></entry>
@@ -457,161 +453,151 @@
 			</mod-up>
 		</action>
 	</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>ThrottleL</object-name>
-  <object-name>ThrottleRevL</object-name>
-  <object-name>AToffL</object-name>
-  <object-name>AToffL1</object-name>
-  <property>controls/engines/engine[0]/throttle-lever</property>
-  <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>55</dep></entry>
-  </interpolation>   
-  <center>
-    <x-m>2.616</x-m>
-    <y-m>0</y-m>
-    <z-m>0.654</z-m>
-  </center>
-  <axis>
-    <x>0.0</x>
-    <y>-1.0</y>
-    <z>0.0</z>
-  </axis>
-</animation>
-<animation>
-  <type>rotate</type>
-  <object-name>ThrottleR</object-name>
-  <object-name>ThrottleRevR</object-name>
-  <object-name>AToffR</object-name>
-  <object-name>AToffR1</object-name>
-  <property>controls/engines/engine[1]/throttle-lever</property>
-  <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>55</dep></entry>
-  </interpolation>   
-  <center>
-    <x-m>2.616</x-m>
-    <y-m>0</y-m>
-    <z-m>0.654</z-m>
-  </center>
-  <axis>
-    <x>0.0</x>
-    <y>-1.0</y>
-    <z>0.0</z>
-  </axis>
-</animation>
-
-
-<animation>
-  <type>pick</type>
-  <object-name>ThrottleL</object-name>
-  <object-name>ThrottleRevL</object-name>
-  <action>
-    <button>3</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>controls/engines/engine[0]/throttle</property>
-      <step>0.05</step>
-      <min>0</min>
-      <max>1</max>
-      <wrap>false</wrap>
-    </binding>
-  </action>
-</animation>
-<animation>
-  <type>pick</type>
-  <object-name>ThrottleL</object-name>
-  <object-name>ThrottleRevL</object-name>
-  <action>
-    <button>4</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>controls/engines/engine[0]/throttle</property>
-      <step>-0.05</step>
-      <min>0</min>
-      <max>1</max>
-      <wrap>false</wrap>
-    </binding>
-  </action>
-</animation>
-<animation>
-  <type>pick</type>
-  <object-name>ThrottleR</object-name>
-  <object-name>ThrottleRevR</object-name>
-  <action>
-    <button>3</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>controls/engines/engine[1]/throttle</property>
-      <step>0.05</step>
-      <min>0</min>
-      <max>1</max>
-      <wrap>false</wrap>
-    </binding>
-  </action>
-</animation>
-<animation>
-  <type>pick</type>
-  <object-name>ThrottleR</object-name>
-  <object-name>ThrottleRevR</object-name>
-  <action>
-    <button>4</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>controls/engines/engine[1]/throttle</property>
-      <step>-0.05</step>
-      <min>0</min>
-      <max>1</max>
-      <wrap>false</wrap>
-    </binding>
-  </action>
-</animation>
-
-
-<animation>
-  <type>rotate</type>
-  <object-name>ThrottleRevL</object-name>
-  <property>surface-positions/reverser-norm[0]</property>
-  <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>90</dep></entry>
-  </interpolation>   
-  <center>
-    <x-m>2.669</x-m>
-    <y-m>0</y-m>
-    <z-m>0.836</z-m>
-  </center>
-  <axis>
-    <x>0.0</x>
-    <y>1.0</y>
-    <z>0.0</z>
-  </axis>
-</animation> 
-<animation>
-  <type>rotate</type>
-  <object-name>ThrottleRevR</object-name>
-  <property>surface-positions/reverser-norm[1]</property>
-  <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>90</dep></entry>
-  </interpolation>   
-  <center>
-    <x-m>2.669</x-m>
-    <y-m>0</y-m>
-    <z-m>0.836</z-m>
-  </center>
-  <axis>
-    <x>0.0</x>
-    <y>1.0</y>
-    <z>0.0</z>
-  </axis>
-</animation> 
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>ThrottleL</object-name>
+		<object-name>ThrottleRevL</object-name>
+		<object-name>AToffL</object-name>
+		<object-name>AToffL1</object-name>
+		<property>fdm/jsbsim/engine/throttle-lever[0]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>1</ind><dep>55</dep></entry>
+		</interpolation>   
+		<center>
+			<x-m>2.616</x-m>
+			<y-m>0</y-m>
+			<z-m>0.654</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>-1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>ThrottleR</object-name>
+		<object-name>ThrottleRevR</object-name>
+		<object-name>AToffR</object-name>
+		<object-name>AToffR1</object-name>
+		<property>fdm/jsbsim/engine/throttle-lever[1]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>1</ind><dep>55</dep></entry>
+		</interpolation>   
+		<center>
+			<x-m>2.616</x-m>
+			<y-m>0</y-m>
+			<z-m>0.654</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>-1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ThrottleL</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[0]/throttle</property>
+				<step>0.02</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[0]/throttle</property>
+				<step>-0.02</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>ThrottleR</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[1]/throttle</property>
+				<step>0.02</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[1]/throttle</property>
+				<step>-0.02</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>ThrottleRevL</object-name>
+		<property>fdm/jsbsim/engine/reverse-lever[0]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>1</ind><dep>90</dep></entry>
+		</interpolation>   
+		<center>
+			<x-m>2.669</x-m>
+			<y-m>0</y-m>
+			<z-m>0.836</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation> 
+	<animation>
+		<type>rotate</type>
+		<object-name>ThrottleRevR</object-name>
+		<property>fdm/jsbsim/engine/reverse-lever[1]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>1</ind><dep>90</dep></entry>
+		</interpolation>   
+		<center>
+			<x-m>2.669</x-m>
+			<y-m>0</y-m>
+			<z-m>0.836</z-m>
+		</center>
+		<axis>
+			<x>0.0</x>
+			<y>1.0</y>
+			<z>0.0</z>
+		</axis>
+	</animation>
 	
 	<!-- Pitch Trim -->
     <animation>

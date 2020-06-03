@@ -17,31 +17,29 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="controls/throttle-lever[0]">
-			<!--input>controls/control-1/throttle-pos</input-->
-			<input>/controls/engines/engine[0]/throttle</input>
+		<lag_filter name="engine/throttle-lever[0]">
+			<input>engine/control-1/throttle-pos</input>
 			<c1>20</c1>
 			<output>fcs/throttle-lever-feedback[0]</output>
 		</lag_filter>
 		
-		<lag_filter name="controls/throttle-lever[1]">
-			<!--input>controls/control-2/throttle-pos</input-->
-			<input>/controls/engines/engine[1]/throttle</input>
+		<lag_filter name="engine/throttle-lever[1]">
+			<input>engine/control-2/throttle-pos</input>
 			<c1>20</c1>
 			<output>fcs/throttle-lever-feedback[1]</output>
 		</lag_filter>
 		
-		<!--lag_filter name="controls/reverse-lever[0]">
+		<lag_filter name="engine/reverse-lever[0]">
 			<input>/controls/engines/engine[0]/reverse-lever</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="controls/reverse-lever[1]">
+		<lag_filter name="engine/reverse-lever[1]">
 			<input>/controls/engines/engine[1]/reverse-lever</input>
 			<c1>20</c1>
-		</lag_filter-->
+		</lag_filter>
 		
-		<lag_filter name="controls/flap-lever">
+		<lag_filter name="fcs-actual/flap-lever">
 			<input>/controls/flight/flaps-input</input>
 			<c1>20</c1>
 		</lag_filter>

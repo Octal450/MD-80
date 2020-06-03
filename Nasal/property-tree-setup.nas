@@ -5,6 +5,13 @@
 # Usage Example: pts.Class.SubClass.node.getValue()
 
 var Controls = {
+	Engines: {
+		Engine: {
+			reverseLever: [props.globals.getNode("/controls/engines/engine[0]/reverse-lever"), props.globals.getNode("/controls/engines/engine[1]/reverse-lever")],
+			reverseLeverTemp: [0, 0],
+			throttle: [props.globals.getNode("/controls/engines/engine[0]/throttle"), props.globals.getNode("/controls/engines/engine[1]/throttle")],
+		},
+	},
 	Flight: {
 		aileronDrivesTiller: props.globals.getNode("/controls/flight/aileron-drives-tiller"),
 		autoCoordination: props.globals.getNode("/controls/flight/auto-coordination", 1),
@@ -24,6 +31,22 @@ var Controls = {
 		minimums: props.globals.getNode("/controls/switches/minimums"),
 		noSmokingSign: props.globals.getNode("/controls/switches/no-smoking-sign"),
 		seatbeltSign: props.globals.getNode("/controls/switches/seatbelt-sign"),
+	},
+};
+
+var Fdm = {
+	JSBsim: {
+		Engine: {
+			throttleLever: [props.globals.getNode("/fdm/jsbsim/engine/throttle-lever[0]"), props.globals.getNode("/fdm/jsbsim/engine/throttle-lever[1]")],
+			throttleCompareMax: props.globals.getNode("/fdm/jsbsim/engine/throttle-compare-max"),
+		},
+		Position: {
+			wow: props.globals.getNode("/fdm/jsbsim/position/wow"),
+			wowTemp: 0,
+		},
+		Propulsion: {
+			tatC: props.globals.getNode("/fdm/jsbsim/propulsion/tat-c"),
+		},
 	},
 };
 
