@@ -20,12 +20,12 @@
 		<table>
 			<independentVar lookup="row">/engines/engine[0]/n1</independentVar>
 			<tableData>
-				 28   2.9
-				 46   9.7
-				 68  15.4
-				 80  19.6
-				 94  21.4
-				103  23.6
+				 28   4.4
+				 46  14.6
+				 68  23.1
+				 80  29.4
+				 94  32.1
+				103  35.4
 			</tableData>
 		</table>
 	</function>
@@ -34,12 +34,12 @@
 		<table>
 			<independentVar lookup="row">/engines/engine[0]/n1</independentVar>
 			<tableData>
-				 28   2.9
-				 46   9.7
-				 68  15.4
-				 80  19.6
-				 94  21.4
-				103  23.6
+				 28   4.4
+				 46  14.6
+				 68  23.1
+				 80  29.4
+				 94  32.1
+				103  35.4
 			</tableData>
 		</table>
 	</function>
@@ -48,12 +48,12 @@
 		<table>
 			<independentVar lookup="row">/engines/engine[0]/n1</independentVar>
 			<tableData>
-				 28   2.9
-				 46   9.7
-				 68  15.4
-				 80  19.6
-				 94  21.4
-				103  23.6
+				 28   4.4
+				 46  14.6
+				 68  23.1
+				 80  29.4
+				 94  32.1
+				103  35.4
 			</tableData>
 		</table>
 	</function>
@@ -62,12 +62,12 @@
 		<table>
 			<independentVar lookup="row">/engines/engine[0]/n1</independentVar>
 			<tableData>
-				 28   2.9
-				 46   9.7
-				 68  15.4
-				 80  19.6
-				 94  21.4
-				103  23.6
+				 28   4.4
+				 46  14.6
+				 68  23.1
+				 80  29.4
+				 94  32.1
+				103  35.4
 			</tableData>
 		</table>
 	</function>

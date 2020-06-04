@@ -72,10 +72,10 @@
 		<type>select</type>
 		<object-name>Off</object-name>
 		<condition>
-			<less-than>
-				<property>systems/electrical/bus/dcL</property>
-				<value>15</value>
-			</less-than>
+			<greater-than>
+				<property>systems/electrical/bus/unused</property>
+				<value>99999</value>
+			</greater-than>
 		</condition>
 	</animation>
 	
@@ -1571,7 +1571,7 @@
         <condition>
             <less-than>
                 <property>it-autoflight/input/vs</property>
-                <value>0</value>
+                <value>-1</value>
             </less-than>
         </condition>
     </animation>

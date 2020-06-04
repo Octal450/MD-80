@@ -262,6 +262,7 @@
 		</gear>
 		<lighting n="0">
 			<beacon type="bool">0</beacon>
+			<digital-norm type="double">1</digital-norm>
 			<landing-light-l type="double">0</landing-light-l>
 			<landing-light-r type="double">0</landing-light-r>
 			<landing-light-n type="double">0</landing-light-n>

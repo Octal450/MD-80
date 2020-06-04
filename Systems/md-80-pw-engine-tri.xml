@@ -5,6 +5,9 @@
 
 <system name="MD-80: PW Engine/TRI">
 	
+	<property value="1">engine/epr/c1</property> <!-- Done in property rule because its easier to tune -->
+	<property value="1">engine/epr/c2</property> <!-- Done in property rule because its easier to tune -->
+	
 	<channel name="Thrust Limits">
 		
 		<fcs_function name="engine/limit/rated-thrust-n1">
@@ -118,12 +121,120 @@
 				</ifthen>
 			</function>
 		</fcs_function>
+		
+		<fcs_function name="/controls/engines/eprlim-ref"> <!-- Temporary -->
+			<function>
+				<pow>
+					<property>engine/limit/rated-thrust-n1</property>
+					<value>3.5</value>
+				</pow>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/engines/eprlim">
+			<function>
+				<sum>
+					<product>
+						<table>
+							<independentVar lookup="row">/controls/engines/eprlim-ref</independentVar>
+							<tableData>
+								   24743.1  0.00
+								   81455.7  0.03
+								11941395.7  1.00
+							</tableData>
+						</table>
+						<property>engine/epr/c1</property>
+					</product>
+					<property>engine/epr/c2</property>
+				</sum>
+			</function>
+		</fcs_function>
 	
 	</channel>
 	
 	<channel name="Reversers">
 		
+		<!-- Engine 1 -->
+		<switch name="engine/reverse-1/position-cmd">
+			<default value="0"/>
+			<test value="1">
+				/controls/engines/engine[0]/reverse-lever ge 0.25
+			</test>
+			<output>/controls/engines/engine[0]/reverse-cmd</output>
+		</switch>
 		
+		<switch name="engine/reverse-1/position-rate">
+			<default value="0"/>
+			<test logic="OR" value="0.5">
+				/systems/hydraulics/sys-l-psi ge 1500
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<actuator name="engine/reverse-1/position-norm">
+			<input>engine/reverse-1/position-cmd</input>
+			<rate_limit>engine/reverse-1/position-rate</rate_limit>
+			<output>/engines/engine[0]/reverser-pos-norm</output>
+		</actuator>
+		
+		<pure_gain name="propulsion/engine[0]/reverser-angle-rad">
+			<input>engine/reverse-1/position-norm</input>
+			<gain>3.14</gain>
+		</pure_gain>
+		
+		<switch name="engine/reverse-1/throttle-rev">
+			<default value="0"/>
+			<test value="0.69">
+				/controls/engines/engine[0]/reverse-lever eq 1
+			</test>
+			<test value="0.46">
+				/controls/engines/engine[0]/reverse-lever eq 0.75
+			</test>
+			<test value="0.23">
+				/controls/engines/engine[0]/reverse-lever eq 0.5
+			</test>
+		</switch>
+		
+		<!-- Engine 2 -->
+		<switch name="engine/reverse-2/position-cmd">
+			<default value="0"/>
+			<test value="1">
+				/controls/engines/engine[1]/reverse-lever ge 0.25
+			</test>
+			<output>/controls/engines/engine[1]/reverse-cmd</output>
+		</switch>
+		
+		<switch name="engine/reverse-2/position-rate">
+			<default value="0"/>
+			<test logic="OR" value="0.5">
+				/systems/hydraulics/sys-r-psi ge 1500
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<actuator name="engine/reverse-2/position-norm">
+			<input>engine/reverse-2/position-cmd</input>
+			<rate_limit>engine/reverse-2/position-rate</rate_limit>
+			<output>/engines/engine[1]/reverser-pos-norm</output>
+		</actuator>
+		
+		<pure_gain name="propulsion/engine[1]/reverser-angle-rad">
+			<input>engine/reverse-2/position-norm</input>
+			<gain>3.14</gain>
+		</pure_gain>
+		
+		<switch name="engine/reverse-2/throttle-rev">
+			<default value="0"/>
+			<test value="0.69">
+				/controls/engines/engine[1]/reverse-lever eq 1
+			</test>
+			<test value="0.46">
+				/controls/engines/engine[1]/reverse-lever eq 0.75
+			</test>
+			<test value="0.23">
+				/controls/engines/engine[1]/reverse-lever eq 0.5
+			</test>
+		</switch>
 	
 	</channel>
 	
@@ -132,9 +243,9 @@
 		<!-- Engine 1 -->
 		<switch name="engine/control-1/throttle-pos">
 			<default value="/controls/engines/engine[0]/throttle"/>
-			<!--test value="0">
+			<test value="0">
 				engine/reverse-1/position-norm ne 0
-			</test-->
+			</test>
 			<!--test logic="AND" value="engine/ats-cmd-1">
 				/it-autoflight/output/athr eq 1
 				/it-autoflight/output/clamp eq 0
@@ -143,9 +254,9 @@
 		
 		<switch name="engine/control-1/throttle-output">
 			<default value="engine/control-1/throttle-pos"/>
-			<!--test value="engine/reverse-1/throttle-rev">
+			<test value="engine/reverse-1/throttle-rev">
 				engine/reverse-1/position-norm ne 0
-			</test-->
+			</test>
 		</switch>
 		
 		<lag_filter name="engine/control-1/throttle-fdm">
@@ -157,9 +268,9 @@
 		<!-- Engine 2 -->
 		<switch name="engine/control-2/throttle-pos">
 			<default value="/controls/engines/engine[1]/throttle"/>
-			<!--test value="0">
+			<test value="0">
 				engine/reverse-2/position-norm ne 0
-			</test-->
+			</test>
 			<!--test logic="AND" value="engine/ats-cmd-2">
 				/it-autoflight/output/athr eq 1
 				/it-autoflight/output/clamp eq 0
@@ -168,9 +279,9 @@
 		
 		<switch name="engine/control-2/throttle-output">
 			<default value="engine/control-2/throttle-pos"/>
-			<!--test value="engine/reverse-2/throttle-rev">
+			<test value="engine/reverse-2/throttle-rev">
 				engine/reverse-2/position-norm ne 0
-			</test-->
+			</test>
 		</switch>
 		
 		<lag_filter name="engine/control-2/throttle-fdm">
@@ -196,6 +307,64 @@
 			<output>/engines/engine[1]/n1-actual</output>
 			<output>/engines/engine[4]/n1</output>
 		</lag_filter>
+		
+		<fcs_function name="engine/epr-actual-1-ref">
+			<function>
+				<pow>
+					<property>engine/n1-actual-1</property>
+					<value>3.5</value>
+				</pow>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/epr-actual-1">
+			<function>
+				<sum>
+					<product>
+						<table>
+							<independentVar lookup="row">engine/epr-actual-1-ref</independentVar>
+							<tableData>
+								   24743.1  0.00
+								   81455.7  0.03
+								11941395.7  1.00
+							</tableData>
+						</table>
+						<property>engine/epr/c1</property>
+					</product>
+					<property>engine/epr/c2</property>
+				</sum>
+			</function>
+			<output>/engines/engine[0]/epr-actual</output>
+		</fcs_function>
+		
+		<fcs_function name="engine/epr-actual-2-ref">
+			<function>
+				<pow>
+					<property>engine/n1-actual-2</property>
+					<value>3.5</value>
+				</pow>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/epr-actual-2">
+			<function>
+				<sum>
+					<product>
+						<table>
+							<independentVar lookup="row">engine/epr-actual-2-ref</independentVar>
+							<tableData>
+								   24743.1  0.00
+								   81455.7  0.03
+								11941395.7  1.00
+							</tableData>
+						</table>
+						<property>engine/epr/c1</property>
+					</product>
+					<property>engine/epr/c2</property>
+				</sum>
+			</function>
+			<output>/engines/engine[1]/epr-actual</output>
+		</fcs_function>
 		
 		<lag_filter name="engine/n2-actual-1">
 			<input>/engines/engine[0]/n2</input>
