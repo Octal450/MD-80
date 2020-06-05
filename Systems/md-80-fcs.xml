@@ -23,18 +23,26 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="fcs-actual/authority-alpha"> <!-- Guesses based on pilot info -->
+		<scheduled_gain name="fcs-actual/authority-alpha"> <!-- Guesses based on pilot info -->
+			<input>fcs-actual/authority</input>
+			<table>
+				<independentVar lookup="row">aero/alpha-deg-norm</independentVar>
+				<tableData>
+					10  1.0
+					15  0.1
+				</tableData>
+			</table>
+		</scheduled_gain>
+		
+		<fcs_function name="fcs-actual/surface-rate"> <!-- Guesses based on pilot info -->
 			<function>
-				<product>
-					<property>fcs-actual/authority</property>
-					<table>
-						<independentVar lookup="row">aero/alpha-deg-norm</independentVar>
-						<tableData>
-							10  1.0
-							15  0.1
-						</tableData>
-					</table>
-				</product>
+				<table>
+					<independentVar lookup="row">fcs-actual/authority</independentVar>
+					<tableData>
+						0  1
+						1  120
+					</tableData>
+				</table>
 			</function>
 		</fcs_function>
 		
@@ -158,11 +166,12 @@
 			</clipto>
 		</fcs_function>
 		
-		<lag_filter name="fcs-actual/aileron-l/surface-final-lag">
+		<actuator name="fcs-actual/aileron-l/surface-final-actuator">
 			<input>fcs-actual/aileron-l/surface-cmd-deg</input>
-			<c1>10</c1>
+			<rate_limit>fcs-actual/surface-rate</rate_limit>
+			<lag>15</lag>
 			<output>fcs-actual/aileron-l/surface-final-deg</output>
-		</lag_filter>
+		</actuator>
 	
 	</channel>
 	
@@ -199,11 +208,49 @@
 			</clipto>
 		</fcs_function>
 		
-		<lag_filter name="fcs-actual/aileron-r/surface-final-lag">
+		<actuator name="fcs-actual/aileron-r/surface-final-actuator">
 			<input>fcs-actual/aileron-r/surface-cmd-deg</input>
-			<c1>10</c1>
+			<rate_limit>fcs-actual/surface-rate</rate_limit>
+			<lag>15</lag>
 			<output>fcs-actual/aileron-r/surface-final-deg</output>
-		</lag_filter>
+		</actuator>
+	
+	</channel>
+	
+	<channel name="Elevator Common">
+		
+		<switch name="fcs-actual/elevator/pwr-active">
+			<default value="0"/>
+			<test logic="AND" value="1"> <!-- 0.51282 is +10 control tab defl -->
+				/systems/hydraulics/sys-l-psi ge 950
+				fcs-actual/elevator-yoke gt 0.51282
+			</test>
+		</switch>
+		
+		<switch name="fcs-actual/elevator/rate">
+			<default value="fcs-actual/surface-rate"/> <!-- For aerodynamically flown -->
+			<test logic="AND" value="80">
+				/systems/hydraulics/sys-l-psi ge 950
+				fcs-actual/elevator/pwr-active eq 1
+			</test>
+		</switch>
+		
+		<switch name="fcs-actual/elevator/lag">
+			<default value="15"/> <!-- For aerodynamically flown -->
+			<test logic="AND" value="26.5">
+				/systems/hydraulics/sys-l-psi ge 950
+				fcs-actual/elevator/pwr-active eq 1
+			</test>
+		</switch>
+		
+		<pure_gain name="fcs-actual/elevator/pwr-cmd-deg">
+			<input>fcs-actual/elevator-yoke</input>
+			<gain>22.5</gain>
+			<clipto>
+				<min>-19.5</min>
+				<max>22.5</max>
+			</clipto>
+		</pure_gain>
 	
 	</channel>
 	
@@ -221,14 +268,21 @@
 		
 		<fcs_function name="fcs-actual/elevator-l/surface-cmd-deg">
 			<function>
-				<sum>
-					<product>
-						<property>fcs-actual/elevator-l/control-tab-cmd-deg</property>
-						<value>-1</value>
-						<property>fcs-actual/authority-alpha</property>
-					</product>
-					<property>fcs-actual/elevator-l/anti-up</property>
-				</sum>
+				<ifthen>
+					<eq>
+						<property>fcs-actual/elevator/pwr-active</property>
+						<value>1</value>
+					</eq>
+					<property>fcs-actual/elevator/pwr-cmd-deg</property>
+					<sum>
+						<product>
+							<property>fcs-actual/elevator-l/control-tab-cmd-deg</property>
+							<value>-1</value>
+							<property>fcs-actual/authority-alpha</property>
+						</product>
+						<property>fcs-actual/elevator-l/anti-up</property>
+					</sum>
+				</ifthen>
 			</function>
 			<clipto>
 				<min>-22.5</min>
@@ -238,9 +292,15 @@
 		
 		<lag_filter name="fcs-actual/elevator-l/surface-final-lag">
 			<input>fcs-actual/elevator-l/surface-cmd-deg</input>
-			<c1>10</c1>
-			<output>fcs-actual/elevator-l/surface-final-deg</output>
+			<c1>fcs-actual/elevator/lag</c1>
 		</lag_filter>
+		
+		<actuator name="fcs-actual/elevator-l/surface-final-actuator">
+			<input>fcs-actual/elevator-l/surface-final-lag</input>
+			<rate_limit>fcs-actual/elevator/rate</rate_limit>
+			<!--lag>fcs-actual/elevator/lag</lag--> <!-- Doesn't work, so I put a lag filter before it -->
+			<output>fcs-actual/elevator-l/surface-final-deg</output>
+		</actuator>
 		
 		<pure_gain name="fcs-actual/elevator-l/geared-tab-final-gain">
 			<input>-fcs-actual/elevator-l/surface-final-lag</input>
@@ -264,14 +324,21 @@
 		
 		<fcs_function name="fcs-actual/elevator-r/surface-cmd-deg">
 			<function>
-				<sum>
-					<product>
-						<property>fcs-actual/elevator-r/control-tab-cmd-deg</property>
-						<value>-1</value>
-						<property>fcs-actual/authority-alpha</property>
-					</product>
-					<property>fcs-actual/elevator-r/anti-up</property>
-				</sum>
+				<ifthen>
+					<eq>
+						<property>fcs-actual/elevator/pwr-active</property>
+						<value>1</value>
+					</eq>
+					<property>fcs-actual/elevator/pwr-cmd-deg</property>
+					<sum>
+						<product>
+							<property>fcs-actual/elevator-r/control-tab-cmd-deg</property>
+							<value>-1</value>
+							<property>fcs-actual/authority-alpha</property>
+						</product>
+						<property>fcs-actual/elevator-r/anti-up</property>
+					</sum>
+				</ifthen>
 			</function>
 			<clipto>
 				<min>-22.5</min>
@@ -281,9 +348,15 @@
 		
 		<lag_filter name="fcs-actual/elevator-r/surface-final-lag">
 			<input>fcs-actual/elevator-r/surface-cmd-deg</input>
-			<c1>10</c1>
-			<output>fcs-actual/elevator-r/surface-final-deg</output>
+			<c1>fcs-actual/elevator/lag</c1>
 		</lag_filter>
+		
+		<actuator name="fcs-actual/elevator-r/surface-final-actuator">
+			<input>fcs-actual/elevator-r/surface-final-lag</input>
+			<rate_limit>fcs-actual/elevator/rate</rate_limit>
+			<!--lag>fcs-actual/elevator/lag</lag--> <!-- Doesn't work, so I put a lag filter before it -->
+			<output>fcs-actual/elevator-r/surface-final-deg</output>
+		</actuator>
 		
 		<pure_gain name="fcs-actual/elevator-r/geared-tab-final-gain">
 			<input>-fcs-actual/elevator-r/surface-final-lag</input>
@@ -379,7 +452,7 @@
 		</fcs_function>
 		
 		<switch name="fcs-actual/rudder/rate">
-			<default value="1000"/> <!-- For aerodynamically flown -->
+			<default value="fcs-actual/surface-rate"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="75">
 				/systems/hydraulics/sys-r-psi ge 950
 				/controls/flight/rudder-pwr eq 1
@@ -387,7 +460,7 @@
 		</switch>
 		
 		<switch name="fcs-actual/rudder/lag">
-			<default value="10"/>
+			<default value="15"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="25.5">
 				/systems/hydraulics/sys-r-psi ge 950
 				/controls/flight/rudder-pwr eq 1

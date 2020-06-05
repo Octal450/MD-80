@@ -17,7 +17,7 @@
 	<propulsion>
 		<engine file="jt8d-217a_1">
 			<location unit="M">
-				<x>24.002</x>
+				<x>23.902</x>
 				<y>-2.7</y>
 				<z>0.7145</z>
 			</location>
@@ -29,7 +29,7 @@
 			<feed>0</feed> <!-- 3 after fuel system -->
 			<thruster file="direct">
 				<location unit="M">
-					<x>24.002</x>
+					<x>23.902</x>
 					<y>-2.7</y>
 					<z>0.7145</z>
 				</location>
@@ -43,7 +43,7 @@
 		
 		<engine file="jt8d-217a_2">
 			<location unit="M">
-				<x>24.002</x>
+				<x>23.902</x>
 				<y>2.7</y>
 				<z>0.7145</z>
 			</location>
@@ -55,7 +55,7 @@
 			<feed>2</feed> <!-- 4 after fuel system -->
 			<thruster file="direct">
 				<location unit="M">
-					<x>24.002</x>
+					<x>23.902</x>
 					<y>2.7</y>
 					<z>0.7145</z>
 				</location>
@@ -70,7 +70,7 @@
 		<!-- Fuel Tank Capacities from FCOM -->
 		<tank type="FUEL">    <!-- Left Tank -->
 			<location unit="M">
-				<x>23.802</x>
+				<x>23.702</x>
 				<y>-5.03595</y>
 				<z>0.7145</z>
 			</location>
@@ -83,7 +83,7 @@
 		</tank>
 		<tank type="FUEL">    <!-- Center Tank -->
 			<location unit="M">
-				<x>23.802</x>
+				<x>23.702</x>
 				<y>0</y>
 				<z>0.7145</z>
 			</location>
@@ -96,7 +96,7 @@
 		</tank>
 		<tank type="FUEL">    <!-- Right Tank -->
 			<location unit="M">
-				<x>23.802</x>
+				<x>23.702</x>
 				<y>5.03595</y>
 				<z>0.7145</z>
 			</location>
@@ -109,7 +109,7 @@
 		</tank>
 		<tank type="FUEL">    <!-- Engine 1 Pipe -->
 			<location unit="M">
-				<x>23.802</x>
+				<x>23.702</x>
 				<y>0</y>
 				<z>0.7145</z>
 			</location>
@@ -120,7 +120,7 @@
 		</tank>
 		<tank type="FUEL">    <!-- Engine 2 Pipe -->
 			<location unit="M">
-				<x>23.802</x>
+				<x>23.702</x>
 				<y>0</y>
 				<z>0.7145</z>
 			</location>
@@ -131,7 +131,7 @@
 		</tank>
 		<tank type="FUEL">    <!-- APU Pipe -->
 			<location unit="M">
-				<x>23.802</x>
+				<x>23.702</x>
 				<y>0</y>
 				<z>0.7145</z>
 			</location>
