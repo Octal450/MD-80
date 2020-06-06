@@ -365,7 +365,7 @@
 								<value>1</value>
 							</not-equals>
 							<equals>
-								<property>spoilers/main-gear-and</property>
+								<property>fdm/jsbsim/spoilers/main-gear-and</property>
 								<value>1</value>
 							</equals>
 						</and>
@@ -386,7 +386,7 @@
 								<value>1</value>
 							</not-equals>
 							<not-equals>
-								<property>spoilers/main-gear-and</property>
+								<property>fdm/jsbsim/spoilers/main-gear-and</property>
 								<value>1</value>
 							</not-equals>
 						</and>
