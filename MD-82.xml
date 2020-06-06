@@ -143,6 +143,7 @@
 	</propulsion>
 	
 	<system file="md-80-libraries"/>
+	<system file="md-80-dfgs"/>
 	<system file="md-80-fcs"/>
 	<system file="md-80-spoiler"/>
 	<system file="md-80-pw-engine-tri"/>

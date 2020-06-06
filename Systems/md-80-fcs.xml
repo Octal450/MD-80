@@ -87,8 +87,8 @@
 		
 		<switch name="fcs-actual/rudder/pedal-switch">
 			<default value="/controls/flight/rudder"/>
-			<!--test value="fcc/yaw/afs-cmd">
-				fcc/yaw/autoland-switch eq 1
+			<!--test value="dfgs/yaw/afs-cmd">
+				dfgs/yaw/autoland-switch eq 1
 			</test-->
 		</switch>
 		
@@ -416,6 +416,20 @@
 	
 	<channel name="Rudder">
 		
+		<summer name="fcs-actual/rudder/input-sum">
+			<input>dfgs/rudder-output</input>
+			<input>fcs-actual/rudder/trim</input>
+			<clipto>
+				<min>-1.0</min>
+				<max>1.0</max>
+			</clipto>
+		</summer>
+		
+		<lag_filter name="fcs-actual/rudder/input-lag">
+			<input>fcs-actual/rudder/input-sum</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<fcs_function name="fcs-actual/rudder/control-tab-cmd-deg">
 			<function>
 				<ifthen>
@@ -425,7 +439,7 @@
 					</eq>
 					<value>0</value> <!-- Tab locks -->
 					<product>
-						<property>fcs-actual/rudder-pedal</property>
+						<property>fcs-actual/rudder/input-lag</property>
 						<value>-17</value>
 					</product>
 				</ifthen>
@@ -453,7 +467,7 @@
 						<value>1</value>
 					</eq>
 					<product> <!-- Hydraulic Mode -->
-						<property>fcs-actual/rudder/pedal-sum</property> <!-- Don't use the lagged version -->
+						<property>fcs-actual/rudder/input-sum</property> <!-- Don't use the lagged version -->
 						<value>17</value>
 					</product>
 					<product> <!-- Aerodynamic Mode -->
@@ -675,7 +689,7 @@
 		</pure_gain>
 		
 		<summer name="fcs-actual/tiller/afs-cmd-input">
-			<!--input>fcc/afs/yaw-cmd</input-->
+			<!--input>dfgs/afs/yaw-cmd</input-->
 			<input>fcs-actual/rudder/trim</input> <!-- 10 of 17 -->
 			<clipto>
 				<min>-1.0</min>
@@ -775,7 +789,7 @@
 				/sim/model/autopush/connected eq 1
 			</test>
 			<!--test value="fcs-actual/tiller/afs-cmd-deg">
-				fcc/afs/enabled eq 1
+				dfgs/afs/enabled eq 1
 			</test-->
 			<test value="fcs-actual/tiller/tiller-cmd-deg">
 				/systems/acconfig/options/seperate-tiller-axis eq 1

@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-80 DFGS -->
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
+<system name="MD-80: DFGS">
+	
+	<!-- Default gains for tuning -->
+	<property value="0">dfgs/yaw/yd-p-gain</property>
+	
+	<!-- AFS stuff -->
+	<property value="0">dfgs/afs/roll-cmd</property>
+	<property value="0">dfgs/afs/pitch-cmd</property>
+	<property value="0">dfgs/afs/yaw-cmd</property>
+	
+	<channel name="Libraries">
+		
+		<switch name="dfgs/afs/enabled">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/it-autoflight/output/ap1 eq 1
+				/it-autoflight/output/ap2 eq 1
+			</test>
+		</switch>
+		
+		<switch name="aero/alpha-deg-fixed">
+			<default value="0"/>
+			<test value="aero/alpha-deg">
+				gear/unit[0]/WOW eq 0
+			</test>
+		</switch>
+		
+		<lag_filter name="aero/alpha-deg-damped">
+			<input>aero/alpha-deg-fixed</input>
+			<c1>10</c1>
+		</lag_filter>
+	
+	</channel>
+	
+	<channel name="Yaw Damper Logic">
+		
+		<switch name="dfgs/yaw/gain-switch">
+			<default value="1"/>
+			<test value="1">
+				position/wow eq 1
+				/position/gear-agl-ft lt 50
+			</test>
+			<test logic="AND" value="0">
+				/controls/fctl/yd eq 1
+				dfgs/afs/enabled eq 1
+			</test>
+			<test value="0">
+				/controls/fctl/yd eq 2
+			</test>
+		</switch>
+	
+	</channel>
+	
+	<channel name="Gains">
+		
+		<fcs_function name="dfgs/yaw/yd-p-gain">
+			<function>
+				<table>
+					<independentVar lookup="row">velocities/vc-kts</independentVar>
+					<independentVar lookup="column">dfgs/yaw/gain-switch</independentVar>
+					<tableData>
+						     0    1
+						140 -7.5  0.0
+						360 -1.0  0.0
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+	
+	</channel>
+	
+	<channel name="DFGS: Yaw Axis and Yaw Damper">
+		
+		<switch name="dfgs/yaw/autoland-switch">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				dfgs/afs/enabled eq 1
+				/it-autoflight/output/lat eq 4
+			</test>
+		</switch>
+		
+		<washout_filter name="dfgs/yaw/r-washout">
+			<input>velocities/r-rad_sec</input>
+			<c1>0.5</c1>
+		</washout_filter>
+		
+		<switch name="dfgs/yaw/r-r_s-s">
+			<default value="dfgs/yaw/r-washout"/>
+			<test logic="OR" value="0">
+				dfgs/yaw/gain-switch ne 0
+				dfgs/yaw/autoland-switch eq 1
+			</test>
+		</switch>
+		
+		<pure_gain name="dfgs/yaw/yd-f">
+			<input>dfgs/yaw/r-r_s-s</input>
+			<gain>dfgs/yaw/yd-p-gain</gain>
+			<clipto>
+				<min>-0.5</min>
+				<max>0.5</max>
+			</clipto>
+		</pure_gain>
+		
+		<switch name="dfgs/yaw/afs-cmd">
+			<default value="0"/>
+			<!--test value="dfgs/afs/yaw-cmd">
+				dfgs/yaw/autoland-switch eq 1
+			</test-->
+			<test value="/controls/flight/rudder">
+				dfgs/yaw/autoland-switch eq 1
+			</test>
+		</switch>
+		
+		<switch name="dfgs/yaw/output">
+			<default value="dfgs/yaw/yd-f"/>
+			<test value="dfgs/yaw/afs-cmd"> <!-- AFS keeps working even if YD is unavail -->
+				/controls/fctl/yd eq 0
+			</test>
+		</switch>
+		
+		<summer name="dfgs/rudder-output">
+			<input>/controls/flight/rudder</input>
+			<input>dfgs/yaw/output</input>
+			<clipto>
+				<min>-1.0</min>
+				<max>1.0</max>
+			</clipto>
+		</summer>
+	
+	</channel>
+
+</system>

@@ -247,6 +247,9 @@
 				<reverse-lever type="double">0</reverse-lever>
 			</engine>
 		</engines>
+		<fctl n="0">
+			<yd type="int">2</yd>
+		</fctl>
 		<flight n="0">
 			<aileron-drives-tiller type="bool">0</aileron-drives-tiller>
 			<elevator-trim type="double">-0.35</elevator-trim>
