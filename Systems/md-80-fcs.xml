@@ -92,8 +92,27 @@
 			</test-->
 		</switch>
 		
-		<lag_filter name="fcs-actual/rudder-pedal">
+		<pure_gain name="fcs-actual/rudder/trim">
+			<input>/controls/flight/rudder-trim</input>
+			<gain>0.58823529411764705882352941176471</gain> <!-- 10/17 degrees, guess -->
+		</pure_gain>
+		
+		<summer name="fcs-actual/rudder/pedal-sum">
 			<input>fcs-actual/rudder/pedal-switch</input>
+			<input>fcs-actual/rudder/trim</input>
+			<clipto>
+				<min>-1.0</min>
+				<max>1.0</max>
+			</clipto>
+		</summer>
+		
+		<lag_filter name="fcs-actual/rudder-pedal">
+			<input>fcs-actual/rudder/pedal-sum</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="fcs-actual/rudder-trim-knob">
+			<input>/controls/flight/rudder-trim</input>
 			<c1>20</c1>
 		</lag_filter>
 	
@@ -104,7 +123,6 @@
 	They cannot ever move seperately. Thus the tab positions are averaged for each aileron
 	That makes the most sense, and allows a reasonably good simulation of jamming one side
 	-->
-	
 	<channel name="Aileron Common">
 		
 		<pure_gain name="fcs-actual/aileron-l/control-tab-cmd-deg">
@@ -244,7 +262,7 @@
 		</switch>
 		
 		<pure_gain name="fcs-actual/elevator/pwr-cmd-deg">
-			<input>fcs-actual/elevator-yoke</input>
+			<input>/controls/flight/elevator</input> <!-- Don't use the lagged version -->
 			<gain>22.5</gain>
 			<clipto>
 				<min>-19.5</min>
@@ -435,7 +453,7 @@
 						<value>1</value>
 					</eq>
 					<product> <!-- Hydraulic Mode -->
-						<property>fcs-actual/rudder-pedal</property>
+						<property>fcs-actual/rudder/pedal-sum</property> <!-- Don't use the lagged version -->
 						<value>17</value>
 					</product>
 					<product> <!-- Aerodynamic Mode -->
@@ -656,8 +674,17 @@
 			<gain>82</gain>
 		</pure_gain>
 		
-		<!--scheduled_gain name="fcs-actual/tiller/afs-cmd-deg">
-			<input>fcc/afs/yaw-cmd</input>
+		<summer name="fcs-actual/tiller/afs-cmd-input">
+			<!--input>fcc/afs/yaw-cmd</input-->
+			<input>fcs-actual/rudder/trim</input> <!-- 10 of 17 -->
+			<clipto>
+				<min>-1.0</min>
+				<max>1.0</max>
+			</clipto>
+		</summer>
+		
+		<scheduled_gain name="fcs-actual/tiller/afs-cmd-deg">
+			<input>fcs-actual/tiller/afs-cmd-input</input>
 			<table>
 				<independentVar lookup="row">/velocities/groundspeed-kt</independentVar>
 				<tableData>
@@ -665,14 +692,23 @@
 					  1.0  17
 				</tableData>
 			</table>
-		</scheduled_gain-->
+		</scheduled_gain>
 		
-		<switch name="fcs-actual/tiller/rudder-cmd-input">
+		<switch name="fcs-actual/tiller/rudder-cmd-switch">
 			<default value="/controls/flight/rudder"/>
 			<test value="/controls/flight/aileron">
 				/controls/flight/aileron-drives-tiller eq 1
 			</test>
 		</switch>
+		
+		<summer name="fcs-actual/tiller/rudder-cmd-input">
+			<input>fcs-actual/tiller/rudder-cmd-switch</input>
+			<input>fcs-actual/rudder/trim</input> <!-- 10 of 17 -->
+			<clipto>
+				<min>-1.0</min>
+				<max>1.0</max>
+			</clipto>
+		</summer>
 		
 		<fcs_function name="fcs-actual/tiller/rudder-cmd-deg"> <!-- Combines rudder and tiller into just rudder -->
 			<function>
