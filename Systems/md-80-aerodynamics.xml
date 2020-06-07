@@ -641,7 +641,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<toradians><property>fcs-actual/stabilizer/final-deg</property></toradians>
-				<value>-1.95</value>
+				<value>-1.93</value>
 			</product>
 		</function>
 	

@@ -6,17 +6,17 @@
 <mass_balance>
 	
 	<ixx unit="SLUG*FT2">546998</ixx>
-	<iyy unit="SLUG*FT2">1094654</iyy>
-	<izz unit="SLUG*FT2">926546</izz>
+	<iyy unit="SLUG*FT2">994654</iyy>
+	<izz unit="SLUG*FT2">726546</izz>
 	<ixy unit="SLUG*FT2">0</ixy>
 	<ixz unit="SLUG*FT2">0</ixz>
 	<iyz unit="SLUG*FT2">0</iyz>
 	<emptywt unit="LBS">77888</emptywt>
 	
 	<location name="CG" unit="M">
-		<x>23.702</x>
+		<x>23.802</x>
 		<y>0</y>
-		<z>0.7145</z>
+		<z>0.0014</z>
 	</location>
 	
 	<pointmass name="Crew">
@@ -31,9 +31,9 @@
 	<pointmass name="Cabin/Cargo"> <!-- Seperate later -->
 		<weight unit="LBS">22000</weight>
 		<location name="POINTMASS" unit="M"> 
-			<x>23.702</x>
+			<x>23.802</x>
 			<y>0</y>
-			<z>0.7145</z>
+			<z>0.0014</z>
 		</location>
 	</pointmass>
 

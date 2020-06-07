@@ -19,7 +19,7 @@
 			<location unit="M">
 				<x>23.902</x>
 				<y>-2.7</y>
-				<z>0.7145</z>
+				<z>0.0014</z>
 			</location>
 			<orient unit="DEG">
 				<roll>0</roll>
@@ -31,7 +31,7 @@
 				<location unit="M">
 					<x>23.902</x>
 					<y>-2.7</y>
-					<z>0.7145</z>
+					<z>0.0014</z>
 				</location>
 				<orient unit="DEG">
 					<roll>0</roll>
@@ -45,7 +45,7 @@
 			<location unit="M">
 				<x>23.902</x>
 				<y>2.7</y>
-				<z>0.7145</z>
+				<z>0.0014</z>
 			</location>
 			<orient unit="DEG">
 				<roll>0</roll>
@@ -57,7 +57,7 @@
 				<location unit="M">
 					<x>23.902</x>
 					<y>2.7</y>
-					<z>0.7145</z>
+					<z>0.0014</z>
 				</location>
 				<orient unit="DEG">
 					<roll>0</roll>
@@ -70,9 +70,9 @@
 		<!-- Fuel Tank Capacities from FCOM -->
 		<tank type="FUEL">    <!-- Left Tank -->
 			<location unit="M">
-				<x>23.702</x>
+				<x>23.802</x>
 				<y>-5.03595</y>
-				<z>0.7145</z>
+				<z>0.0014</z>
 			</location>
 			<capacity unit="LBS">9259</capacity>
 			<contents unit="LBS">6000</contents>
@@ -83,9 +83,9 @@
 		</tank>
 		<tank type="FUEL">    <!-- Center Tank -->
 			<location unit="M">
-				<x>23.702</x>
+				<x>23.802</x>
 				<y>0</y>
-				<z>0.7145</z>
+				<z>0.0014</z>
 			</location>
 			<capacity unit="LBS">20591</capacity>
 			<contents unit="LBS">0</contents>
@@ -96,9 +96,9 @@
 		</tank>
 		<tank type="FUEL">    <!-- Right Tank -->
 			<location unit="M">
-				<x>23.702</x>
+				<x>23.802</x>
 				<y>5.03595</y>
-				<z>0.7145</z>
+				<z>0.0014</z>
 			</location>
 			<capacity unit="LBS">9259</capacity>
 			<contents unit="LBS">6000</contents>
@@ -109,9 +109,9 @@
 		</tank>
 		<tank type="FUEL">    <!-- Engine 1 Pipe -->
 			<location unit="M">
-				<x>23.702</x>
+				<x>23.802</x>
 				<y>0</y>
-				<z>0.7145</z>
+				<z>0.0014</z>
 			</location>
 			<capacity unit="LBS">10</capacity>
 			<contents unit="LBS">0</contents>
@@ -120,9 +120,9 @@
 		</tank>
 		<tank type="FUEL">    <!-- Engine 2 Pipe -->
 			<location unit="M">
-				<x>23.702</x>
+				<x>23.802</x>
 				<y>0</y>
-				<z>0.7145</z>
+				<z>0.0014</z>
 			</location>
 			<capacity unit="LBS">10</capacity>
 			<contents unit="LBS">0</contents>
@@ -131,9 +131,9 @@
 		</tank>
 		<tank type="FUEL">    <!-- APU Pipe -->
 			<location unit="M">
-				<x>23.702</x>
+				<x>23.802</x>
 				<y>0</y>
-				<z>0.7145</z>
+				<z>0.0014</z>
 			</location>
 			<capacity unit="LBS">5</capacity>
 			<contents unit="LBS">0</contents>
