@@ -126,16 +126,10 @@
 				<int n="6" alias="/sim/model/lights/nav-lights"/>
 				<int n="7" alias="/controls/lighting/wing-lights"/>
 			</generic>
+			<visibility-range-nm type="int">110</visibility-range-nm>
 		</multiplay>
-		<previews>
-			<preview>
-				<type>exterior</type>
-				<splash type="bool">true</splash>
-				<path>Splash/splash1.png</path>
-			</preview>
-		</previews>
 		<startup>
-			<splash-texture>Aircraft/MD-80/Splash/SplashOld.png</splash-texture>
+			<splash-texture>Aircraft/MD-80/gui/splash/Article-8.png</splash-texture>
 		</startup>
 		<status>Pre V1.0</status>
 		<systems n="0">
