@@ -1,52 +1,53 @@
 <?xml version="1.0"?>
 
+<!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
 <PropertyList>
-
-<path>epr.ac</path>
-
-<animation>
-  <type>material</type>
-  <object-name>Face</object-name>
-  <object-name>Needle</object-name>
-  <object-name>epr-limit</object-name>
-  <emission>
-    <red>0.3</red>
-    <green>0.3</green>
-    <blue>0.3</blue>
-  </emission>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>Needle</object-name>
-  <property>engines/engine[1]/epr-actual</property>
-  <interpolation>
-    <entry><ind>  0</ind><dep>  0</dep></entry>
-    <entry><ind>0.8</ind><dep>  0</dep></entry>
-    <entry><ind>2.5</ind><dep>255</dep></entry>
-  </interpolation>
-  <axis>
-    <x>-1</x>
-    <y>0</y>
-    <z>0</z>
-  </axis>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>epr-limit</object-name>
-  <property>controls/engines/eprlim</property>
-  <interpolation>
-    <entry><ind>  0</ind><dep>  0</dep></entry>
-    <entry><ind>0.8</ind><dep>  0</dep></entry>
-    <entry><ind>2.5</ind><dep>255</dep></entry>
-  </interpolation>
-  <axis>
-    <x>-1</x>
-    <y>0</y>
-    <z>0</z>
-  </axis>
-</animation>
+	
+	<path>epr.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>Needle</object-name>
+		<object-name>epr-limit</object-name>
+		<emission>
+			<red>0.3</red>
+			<green>0.3</green>
+			<blue>0.3</blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle</object-name>
+		<property>engines/engine[1]/epr-actual</property>
+		<interpolation>
+			<entry><ind>0.8</ind><dep>  0</dep></entry>
+			<entry><ind>2.5</ind><dep>255</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>epr-limit</object-name>
+		<property>fdm/jsbsim/engine/limit/active</property>
+		<interpolation>
+			<entry><ind>0.8</ind><dep>  0</dep></entry>
+			<entry><ind>2.5</ind><dep>255</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
 </PropertyList>
 
