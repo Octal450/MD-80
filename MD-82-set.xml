@@ -14,6 +14,13 @@
 			</livery>
 			<path>Aircraft/MD-80/Models/Article-8.xml</path>
 		</model>
+		<previews>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>gui/splash/Article-8.png</path>
+			</preview>
+		</previews>
 		<rating>
 			<FDM type="int">0</FDM>
 			<systems type="int">0</systems>
