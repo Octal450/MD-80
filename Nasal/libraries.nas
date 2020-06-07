@@ -14,7 +14,7 @@ setprop("/sim/menubar/default/menu[5]/item[10]/enabled", 0);
 setprop("/sim/menubar/default/menu[5]/item[11]/enabled", 0);
 
 var systemsInit = func {
-	
+	systems.TRI.init();
 }
 
 setlistener("sim/signals/fdm-initialized", func {

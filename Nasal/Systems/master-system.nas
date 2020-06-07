@@ -79,3 +79,38 @@ var doFullThrust = func {
 	pts.Controls.Engines.Engine.throttle[0].setValue(1);
 	pts.Controls.Engines.Engine.throttle[1].setValue(1);
 }
+
+# TRI
+var TRI = {
+	pitchMode: 0,
+	Limit: {
+		active: props.globals.getNode("/fdm/jsbsim/engine/limit/active"),
+		activeMode: props.globals.getNode("/fdm/jsbsim/engine/limit/active-mode"),
+		activeModeInt: props.globals.getNode("/fdm/jsbsim/engine/limit/active-mode-int"), # 0 T/O, 1 G/A, 2 MCT, 3 CLB, 4 CRZ, 5 T/O FLX
+		#cruise: props.globals.getNode("/fdm/jsbsim/engine/limit/cruise"),
+		climb: props.globals.getNode("/fdm/jsbsim/engine/limit/climb"),
+		goAround: props.globals.getNode("/fdm/jsbsim/engine/limit/go-around"),
+		#mct: props.globals.getNode("/fdm/jsbsim/engine/limit/mct"),
+		takeoff: props.globals.getNode("/fdm/jsbsim/engine/limit/takeoff"),
+	},
+	init: func() {
+		me.Limit.activeModeInt.setValue(0);
+		me.Limit.activeMode.setValue("T/O");
+		TRItimer.start(); # Temporary
+	},
+	loop: func() { # Temporary, will be selected by cockpit panel and AFS only later
+		me.pitchMode = itaf.Text.vert.getValue();
+		if (me.pitchMode == "G/A CLB") {
+			me.Limit.activeModeInt.setValue(1);
+			me.Limit.activeMode.setValue("G/A");
+		} else if (me.pitchMode == "T/O CLB") {
+			me.Limit.activeModeInt.setValue(0);
+			me.Limit.activeMode.setValue("T/O");
+		} else {
+			me.Limit.activeModeInt.setValue(3);
+			me.Limit.activeMode.setValue("CLB");
+		}
+	},
+};
+
+var TRItimer = maketimer(0.1, TRI, TRI.loop);

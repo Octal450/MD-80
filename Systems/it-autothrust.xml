@@ -111,8 +111,8 @@
 			<Kp>0.06</Kp>
 			<Ti>9.0</Ti>
 			<Td>0.00001</Td>   
-			<u_min>0.02</u_min>  
-			<u_max>0.95</u_max>  
+			<u_min>/it-autoflight/settings/autothrottle-min</u_min>  
+			<u_max>/it-autoflight/settings/autothrottle-max</u_max>  
 		</config>
 	</pid-controller>
 	
@@ -150,8 +150,8 @@
 			<Kp>0.06</Kp>
 			<Ti>9.0</Ti>
 			<Td>0.00001</Td>  
-			<u_min>0.02</u_min>  
-			<u_max>0.95</u_max>  
+			<u_min>/it-autoflight/settings/autothrottle-min</u_min>  
+			<u_max>/it-autoflight/settings/autothrottle-max</u_max>  
 		</config>
 	</pid-controller>
 	
@@ -181,9 +181,9 @@
 					<value>RETARD</value>
 				</equals>
 			</condition>
-			<value>0.0</value>
+			<value>0</value>
 		</input>
-		<input>0.02</input>
+		<input>/it-autoflight/settings/autothrottle-min</input>
 		<output>/controls/engines/throttle-cmd-pid</output>
 	</filter>
 	
@@ -206,7 +206,7 @@
 				</and>
 			</condition>
 		</enable>
-		<input>0.95</input>
+		<input>/it-autoflight/settings/autothrottle-max</input>
 		<output>/controls/engines/throttle-cmd-pid</output>
 	</filter>
 	

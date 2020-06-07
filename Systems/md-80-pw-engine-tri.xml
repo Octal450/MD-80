@@ -8,11 +8,10 @@
 	<property value="30">engine/limit/flex-temp</property>
 	<property value="1">engine/epr/c1</property> <!-- Done in property rule because its easier to tune -->
 	<property value="1">engine/epr/c2</property> <!-- Done in property rule because its easier to tune -->
-	<property value="0">engine/limit/active-mode-int</property> <!-- 0 T/O, 1 G/A, 2 MCT, 3 CLB, 4 CRZ, 5 T/O FLX -->
 	
 	<channel name="Thrust Limits">
 		
-		<fcs_function name="engine/limit/rated-thrust-n1">
+		<fcs_function name="engine/limit/rated-thrust-n1"> <!-- Vs 98.7 -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
@@ -124,7 +123,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/limit/go-around-input">
+		<fcs_function name="engine/limit/go-around-input"> <!-- Vs 98.7 -->
 			<function>
 				<pow>
 					<table>
@@ -185,7 +184,7 @@
 			</test>
 		</switch>
 		
-		<fcs_function name="engine/limit/takeoff-input">
+		<fcs_function name="engine/limit/takeoff-input"> <!-- Vs 98.7 -->
 			<function>
 				<pow>
 					<table>
@@ -239,7 +238,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/limit/climb-input">
+		<fcs_function name="engine/limit/climb-input"> <!-- Vs 103 -->
 			<function>
 				<pow>
 					<table>
@@ -447,6 +446,7 @@
 					</tableData>
 				</table>
 			</function>
+			<output>/it-autoflight/settings/autothrottle-max</output> <!-- Temporary, integrate with ITAF -->
 		</fcs_function>
 		
 		<!-- Engine 1 -->
