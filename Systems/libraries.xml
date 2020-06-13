@@ -174,21 +174,6 @@
 		<output>/it-autoflight/input/vs-abs</output>
 	</filter>
 	
-	<filter> <!-- Move to Autothrust -->
-		<name>Throttle Comparator</name>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression>
-				<max>
-					<property>/fdm/jsbsim/engine/throttle-lever[0]</property>
-					<property>/fdm/jsbsim/engine/throttle-lever[1]</property>
-				</max>
-			</expression>
-		</input>
-		<output>/fdm/jsbsim/engine/throttle-compare-max</output>
-	</filter>
-	
 	<!-- GPWS Controller -->
 	<logic>
 		<!-- Smewhat confusing : this input is not 'are the flaps in landing configration', but rather,

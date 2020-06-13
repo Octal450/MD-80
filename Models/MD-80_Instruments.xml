@@ -212,18 +212,6 @@
   </offsets>
 </model>
 
-<model>
-  <name>altbezel</name>
-  <path>Aircraft/MD-80/Models/Instruments/stby-bezel.xml</path>
-  <offsets>
-	<x-m>2.250</x-m>
-    <y-m>-0.286</y-m>
-    <z-m>0.7635</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-
 	<!-- Center Panel -->
 	<model>
 		<name>stbyai</name>

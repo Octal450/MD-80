@@ -15,6 +15,7 @@ setprop("/sim/menubar/default/menu[5]/item[11]/enabled", 0);
 setprop("/sim/multiplay/visibility-range-nm", 110);
 
 var systemsInit = func {
+#	dfgs.ITAF.init();
 	systems.TRI.init();
 }
 

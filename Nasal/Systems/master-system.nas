@@ -83,6 +83,7 @@ var doFullThrust = func {
 # TRI
 var TRI = {
 	pitchMode: 0,
+	throttleCompareMax: props.globals.getNode("/fdm/jsbsim/engine/throttle-compare-max"),
 	Limit: {
 		active: props.globals.getNode("/fdm/jsbsim/engine/limit/active"),
 		activeMode: props.globals.getNode("/fdm/jsbsim/engine/limit/active-mode"),
@@ -96,21 +97,5 @@ var TRI = {
 	init: func() {
 		me.Limit.activeModeInt.setValue(0);
 		me.Limit.activeMode.setValue("T/O");
-		TRItimer.start(); # Temporary
-	},
-	loop: func() { # Temporary, will be selected by cockpit panel and AFS only later
-		me.pitchMode = itaf.Text.vert.getValue();
-		if (me.pitchMode == "G/A CLB") {
-			me.Limit.activeModeInt.setValue(1);
-			me.Limit.activeMode.setValue("G/A");
-		} else if (me.pitchMode == "T/O CLB") {
-			me.Limit.activeModeInt.setValue(0);
-			me.Limit.activeMode.setValue("T/O");
-		} else {
-			me.Limit.activeModeInt.setValue(3);
-			me.Limit.activeMode.setValue("CLB");
-		}
 	},
 };
-
-var TRItimer = maketimer(0.1, TRI, TRI.loop);

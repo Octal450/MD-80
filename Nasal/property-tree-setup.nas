@@ -55,6 +55,18 @@ var Gear = {
 	wow: [props.globals.getNode("/gear/gear[0]/wow"), props.globals.getNode("/gear/gear[1]/wow"), props.globals.getNode("/gear/gear[2]/wow")],
 };
 
+var Instrumentation = {
+	AirspeedIndicator: {
+		indicatedMach: props.globals.getNode("/instrumentation/airspeed-indicator/indicated-mach"),
+		indicatedSpeedKt: props.globals.getNode("/instrumentation/airspeed-indicator/indicated-speed-kt"),
+	},
+	Altimeter: {
+		oldQnh: props.globals.getNode("/instrumentation/altimeter/oldqnh"),
+		settingInhg: props.globals.getNode("/instrumentation/altimeter/setting-inhg"),
+		std: props.globals.getNode("/instrumentation/altimeter/std"),
+	},
+};
+
 var Sim = {
 	CurrentView: {
 		fieldOfView: props.globals.getNode("/sim/current-view/field-of-view", 1),
@@ -100,6 +112,9 @@ var Sim = {
 var Systems = {
 	Acconfig: {
 		autoConfigRunning: props.globals.getNode("/systems/acconfig/autoconfig-running"),
+		Options: {
+			throttleOverride: props.globals.getNode("/systems/acconfig/options/throttle-override"),
+		}
 	},
 	Shake: {
 		effect: props.globals.getNode("/systems/shake/effect"),
