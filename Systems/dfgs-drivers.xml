@@ -587,7 +587,11 @@
 				<sum>
 					<div>
 						<property>/orientation/roll-deg</property>
-						<property>/it-autoflight/config/cmd/roll-kp</property>
+						<table>
+							<property>/fdm/jsbsim/velocities/vc-kts</property>
+							<entry><ind>140</ind><dep>1.8</dep></entry>
+							<entry><ind>360</ind><dep>2.8</dep></entry>
+						</table>
 					</div>
 					<property>/it-autoflight/internal/heading-deg</property>
 				</sum>
@@ -604,7 +608,11 @@
 				<sum>
 					<div>
 						<property>/orientation/roll-deg</property>
-						<property>/it-autoflight/config/cmd/roll-kp</property>
+						<table>
+							<property>/fdm/jsbsim/velocities/vc-kts</property>
+							<entry><ind>140</ind><dep>1.8</dep></entry>
+							<entry><ind>360</ind><dep>2.8</dep></entry>
+						</table>
 					</div>
 					<property>/it-autoflight/internal/track-deg</property>
 				</sum>
@@ -660,10 +668,7 @@
 				<sum>
 					<div>
 						<property>/it-autoflight/internal/vert-speed-fpm</property>
-						<product>
-							<property>/it-autoflight/config/cmd/alt-gain</property>
-							<value>-1</value>
-						</product>
+						<value>5</value>
 					</div>
 					<property>/instrumentation/altimeter/indicated-altitude-ft</property>
 				</sum>

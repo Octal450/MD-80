@@ -46,8 +46,6 @@ kids 0
 OBJECT poly
 name "faceblock"
 loc 5.07182e-05 -0.00158378 0.000216655
-data 10
-enginepane
 texture "vsi2.png"
 crease 30.000002
 numvert 4

@@ -34,6 +34,7 @@
 		<object-name>fuelflowL</object-name>
 		<object-name>fuelflowR</object-name>
 		<object-name>fuel</object-name>
+		<object-name>tri</object-name>
 		<object-name>revthrust_indicators</object-name>
 		<object-name>fgcp</object-name>
 		<object-name>lighting_panel_L</object-name>
@@ -217,7 +218,7 @@
 		<name>stbyai</name>
 		<path>Aircraft/MD-80/Models/Instruments/ai.xml</path>
 		<offsets>
-			<x-m>2.22</x-m>
+			<x-m>2.219</x-m>
 			<y-m>-0.19</y-m>
 			<z-m>0.916</z-m>
 			<pitch-deg>-12</pitch-deg>
@@ -228,9 +229,20 @@
 		<name>stbyalt</name>
 		<path>Aircraft/MD-80/Models/Instruments/stbyalt.xml</path>
 		<offsets>
-			<x-m>2.238</x-m>
+			<x-m>2.235</x-m>
 			<y-m>-0.18</y-m>
-			<z-m>0.815</z-m>
+			<z-m>0.823</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>tri</name>
+		<path>Aircraft/MD-80/Models/Instruments/tri.xml</path>
+		<offsets>
+			<x-m>2.242</x-m>
+			<y-m>-0.097</y-m>
+			<z-m>0.813</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>

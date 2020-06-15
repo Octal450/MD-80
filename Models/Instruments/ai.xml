@@ -8,9 +8,9 @@
 	
     <animation>
 		<type>scale</type>
-		<x-offset>1.1</x-offset>
-		<y-offset>1.1</y-offset>
-		<z-offset>1.1</z-offset>
+		<x-offset>1.05</x-offset>
+		<y-offset>1.05</y-offset>
+		<z-offset>1.05</z-offset>
     </animation>
 	
 	<animation>
@@ -95,8 +95,8 @@
 		<factor>25</factor>
 		<center>
 			<x-m>0</x-m>
-			<y-m>-0.03</y-m>
-			<z-m>-0.03</z-m>
+			<y-m>0.03193</y-m>
+			<z-m>-0.03193</z-m>
 		</center>
 		<axis>
 			<x>-1</x>
