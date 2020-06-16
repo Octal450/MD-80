@@ -7,7 +7,7 @@
 # We just based it off Engine 1
 var doRevThrust = func {
 	pts.Controls.Engines.Engine.reverseLeverTemp[0] = pts.Controls.Engines.Engine.reverseLever[0].getValue();
-	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and pts.Fdm.JSBsim.Engine.throttleCompareMax.getValue() <= 0.05) {
+	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and systems.TRI.throttleCompareMax.getValue() <= 0.05) {
 		if (pts.Controls.Engines.Engine.reverseLeverTemp[0] < 0.25) {
 			pts.Controls.Engines.Engine.reverseLever[0].setValue(0.25);
 			pts.Controls.Engines.Engine.reverseLever[1].setValue(0.25);
@@ -31,7 +31,7 @@ var doRevThrust = func {
 
 var unRevThrust = func {
 	pts.Controls.Engines.Engine.reverseLeverTemp[0] = pts.Controls.Engines.Engine.reverseLever[0].getValue();
-	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and pts.Fdm.JSBsim.Engine.throttleCompareMax.getValue() <= 0.05) {
+	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and systems.TRI.throttleCompareMax.getValue() <= 0.05) {
 		if (pts.Controls.Engines.Engine.reverseLeverTemp[0] > 0.75) {
 			pts.Controls.Engines.Engine.reverseLever[0].setValue(0.75);
 			pts.Controls.Engines.Engine.reverseLever[1].setValue(0.75);
@@ -54,7 +54,7 @@ var unRevThrust = func {
 }
 
 var toggleFastRevThrust = func {
-	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and pts.Fdm.JSBsim.Engine.throttleCompareMax.getValue() <= 0.05) {
+	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and systems.TRI.throttleCompareMax.getValue() <= 0.05) {
 		if (pts.Controls.Engines.Engine.reverseLever[0].getValue() != 0) { # NOT a bool, this way it always closes even if partially open
 			pts.Controls.Engines.Engine.reverseLever[0].setValue(0);
 			pts.Controls.Engines.Engine.reverseLever[1].setValue(0);

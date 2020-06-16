@@ -1,4 +1,4 @@
-# McDonnell Douglas MD-11 Shaking
+# McDonnell Douglas MD-80 Shaking
 # Copyright (c) 2020 Josh Davidson (Octal450)
 
 var sf = 0;

@@ -38,7 +38,6 @@ var Fdm = {
 	JSBsim: {
 		Engine: {
 			throttleLever: [props.globals.getNode("/fdm/jsbsim/engine/throttle-lever[0]"), props.globals.getNode("/fdm/jsbsim/engine/throttle-lever[1]")],
-			throttleCompareMax: props.globals.getNode("/fdm/jsbsim/engine/throttle-compare-max"),
 		},
 		Position: {
 			wow: props.globals.getNode("/fdm/jsbsim/position/wow"),

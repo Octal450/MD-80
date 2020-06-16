@@ -821,6 +821,7 @@
 		</systems>
 		<dfgs>
 			<file>Aircraft/MD-80/Nasal/DFGS/DFGS.nas</file>
+			<file>Aircraft/MD-80/Nasal/DFGS/DFGS-b.nas</file>
 		</dfgs>
 		<autopush>
 			<file>Aircraft/MD-80/Nasal/Autopush/autopush.nas</file>

@@ -122,6 +122,7 @@ var Internal = {
 	lnavAdvanceNm: props.globals.initNode("/it-autoflight/internal/lnav-advance-nm", 0, "DOUBLE"),
 	minVS: props.globals.initNode("/it-autoflight/internal/min-vs", -500, "INT"),
 	maxVS: props.globals.initNode("/it-autoflight/internal/max-vs", 500, "INT"),
+	togaKts: props.globals.initNode("/it-autoflight/internal/toga-kts", 150, "INT"),
 	trk: props.globals.initNode("/it-autoflight/internal/track-deg", 0, "DOUBLE"),
 	vs: props.globals.initNode("/it-autoflight/internal/vert-speed-fpm", 0, "DOUBLE"),
 	vsTemp: 0,
@@ -176,6 +177,16 @@ var Sound = {
 	enableApOff: 0,
 };
 
+# MD-80 Custom
+var Custom = {
+	Output: {
+		ap1Avail: props.globals.initNode("/it-autoflight/output/ap1-available", 0, "BOOL"),
+		ap2Avail: props.globals.initNode("/it-autoflight/output/ap2-available", 0, "BOOL"),
+		atsAvail: props.globals.initNode("/it-autoflight/output/ats-available", 0, "BOOL"),
+		clamp: props.globals.initNode("/it-autoflight/output/clamp", 0, "BOOL"),
+	},
+};
+
 var ITAF = {
 	init: func() {
 		Input.ktsMach.setBoolValue(0);
@@ -221,6 +232,7 @@ var ITAF = {
 		Text.vert.setValue("T/O CLB");
 		loopTimer.start();
 		slowLoopTimer.start();
+		clampLoop.start();
 	},
 	loop: func() {
 		Output.latTemp = Output.lat.getValue();
@@ -818,6 +830,7 @@ var ITAF = {
 			me.setLatMode(3);
 			me.setVertMode(7);
 			Text.vert.setValue("G/A CLB");
+			systems.TRI.Limit.activeModeInt.setValue(1);
 			Input.ktsMach.setBoolValue(0);
 			me.syncIAS();
 		} else if (Gear.wow1Temp or Gear.wow2Temp) {
@@ -827,6 +840,7 @@ var ITAF = {
 			}
 			me.setVertMode(7);
 			Text.vert.setValue("T/O CLB");
+			systems.TRI.Limit.activeModeInt.setValue(0);
 		}
 	},
 	armTextCheck: func() {
@@ -950,10 +964,6 @@ setlistener("/it-autoflight/input/trk", func {
 	Misc.efis0Trk.setBoolValue(Input.trkTemp); # For Canvas Nav Display.
 	Misc.efis1Trk.setBoolValue(Input.trkTemp); # For Canvas Nav Display.
 }, 0, 0);
-
-setlistener("/sim/signals/fdm-initialized", func {
-	ITAF.init();
-});
 
 # For Canvas Nav Display.
 setlistener("/it-autoflight/input/hdg", func {

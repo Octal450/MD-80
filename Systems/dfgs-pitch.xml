@@ -688,7 +688,7 @@
 		<name>System Command: Pitch Rate</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>-0.75</gain>
+		<gain>-0.6</gain>
 		<enable>
 			<condition>
 				<or>

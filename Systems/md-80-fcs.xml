@@ -70,8 +70,15 @@
 			</function>
 		</fcs_function>
 		
+		<switch name="fcs-actual/aileron/yoke-switch">
+			<default value="/controls/flight/aileron"/>
+			<test value="dfgs/afs/roll-cmd">
+				dfgs/afs/enabled eq 1
+			</test>
+		</switch>
+		
 		<lag_filter name="fcs-actual/aileron-yoke">
-			<input>/controls/flight/aileron</input>
+			<input>fcs-actual/aileron/yoke-switch</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -80,16 +87,23 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<switch name="fcs-actual/elevator/yoke-switch">
+			<default value="/controls/flight/elevator"/>
+			<test value="dfgs/afs/pitch-cmd">
+				dfgs/afs/enabled eq 1
+			</test>
+		</switch>
+		
 		<lag_filter name="fcs-actual/elevator-yoke">
-			<input>/controls/flight/elevator</input>
+			<input>fcs-actual/elevator/yoke-switch</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<switch name="fcs-actual/rudder/pedal-switch">
 			<default value="/controls/flight/rudder"/>
-			<!--test value="dfgs/yaw/afs-cmd">
+			<test value="dfgs/yaw/afs-cmd">
 				dfgs/yaw/autoland-switch eq 1
-			</test-->
+			</test>
 		</switch>
 		
 		<pure_gain name="fcs-actual/rudder/trim">
@@ -246,7 +260,7 @@
 		</switch>
 		
 		<pure_gain name="fcs-actual/elevator/pwr-cmd-deg">
-			<input>/controls/flight/elevator</input> <!-- Don't use the lagged version -->
+			<input>fcs-actual/elevator/yoke-switch</input> <!-- Don't use the lagged version -->
 			<gain>22.5</gain>
 			<clipto>
 				<min>10</min>

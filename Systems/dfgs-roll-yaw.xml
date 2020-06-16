@@ -215,7 +215,7 @@
 		<name>System Command: Roll Rate</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>-1.2</gain>
+		<gain>-0.84</gain>
 		<enable>
 			<condition>
 				<and>
