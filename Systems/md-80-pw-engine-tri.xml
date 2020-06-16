@@ -238,6 +238,60 @@
 			</function>
 		</fcs_function>
 		
+		<fcs_function name="engine/limit/mct-input"> <!-- Climb + 2% -->
+			<function>
+				<pow>
+					<table>
+						<independentVar lookup="row">/position/altitude-ft</independentVar>
+						<independentVar lookup="column">propulsion/tat-c</independentVar>
+						<tableData>
+							      -60   -30    0     30    60
+							    0  82.1  82.1  86.6  90.6  88.9
+							10000  88.8  88.8  93.1  94.2  88.9
+							43000  92.7  93.1  92.7  93.1  88.9
+						</tableData>
+					</table>
+					<value>3.5</value>
+				</pow>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/mct-ref">
+			<function>
+				<sum>
+					<product>
+						<table>
+							<independentVar lookup="row">engine/limit/mct-input</independentVar>
+							<tableData>
+								   24743.1  0.00
+								   81455.7  0.03
+								11941395.7  1.00
+							</tableData>
+						</table>
+						<property>engine/epr/c1</property>
+					</product>
+					<property>engine/epr/c2</property>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/mct">
+			<function>
+				<quotient>
+					<integer>
+						<sum>
+							<product>
+								<property>engine/limit/mct-ref</property>
+								<value>1000</value>
+							</product>
+							<value>0.5</value> <!-- Make it round correctly -->
+						</sum>
+					</integer>
+					<value>1000</value>
+				</quotient>
+			</function>
+		</fcs_function>
+		
 		<fcs_function name="engine/limit/climb-input"> <!-- Vs 103 -->
 			<function>
 				<pow>
@@ -292,6 +346,60 @@
 			</function>
 		</fcs_function>
 		
+		<fcs_function name="engine/limit/cruise-input"> <!-- Vs 103 + 1% -->
+			<function>
+				<pow>
+					<table>
+						<independentVar lookup="row">/position/altitude-ft</independentVar>
+						<independentVar lookup="column">propulsion/tat-c</independentVar>
+						<tableData>
+							      -60   -30    0     30    60
+							    0  77.7  77.7  82.0  85.9  84.3
+							10000  84.1  84.1  88.3  89.4  84.3
+							43000  87.9  88.5  87.8  88.3  84.3
+						</tableData>
+					</table>
+					<value>3.5</value>
+				</pow>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/cruise-ref">
+			<function>
+				<sum>
+					<product>
+						<table>
+							<independentVar lookup="row">engine/limit/cruise-input</independentVar>
+							<tableData>
+								   24743.1  0.00
+								   81455.7  0.03
+								11941395.7  1.00
+							</tableData>
+						</table>
+						<property>engine/epr/c1</property>
+					</product>
+					<property>engine/epr/c2</property>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/cruise">
+			<function>
+				<quotient>
+					<integer>
+						<sum>
+							<product>
+								<property>engine/limit/cruise-ref</property>
+								<value>1000</value>
+							</product>
+							<value>0.5</value> <!-- Make it round correctly -->
+						</sum>
+					</integer>
+					<value>1000</value>
+				</quotient>
+			</function>
+		</fcs_function>
+		
 		<switch name="engine/limit/active">
 			<default value="2"/>
 			<test logic="OR" value="engine/limit/takeoff">
@@ -301,13 +409,13 @@
 			<test value="engine/limit/go-around">
 				engine/limit/active-mode-int eq 1
 			</test>
-			<test value="1">
+			<test value="engine/limit/mct">
 				engine/limit/active-mode-int eq 2
 			</test>
 			<test value="engine/limit/climb">
 				engine/limit/active-mode-int eq 3
 			</test>
-			<test value="1">
+			<test value="engine/limit/cruise">
 				engine/limit/active-mode-int eq 4
 			</test>
 		</switch>
