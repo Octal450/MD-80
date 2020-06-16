@@ -311,6 +311,19 @@
 				engine/limit/active-mode-int eq 4
 			</test>
 		</switch>
+		
+		<switch name="engine/limit/active-ind-cmd">
+			<default value="1"/> <!-- Show 1.00 in no mode without breaking stuff -->
+			<test value="engine/limit/active">
+				engine/limit/active-mode-int ge 0
+			</test>
+		</switch>
+		
+		<actuator name="engine/limit/active-ind">
+			<input>engine/limit/active-ind-cmd</input>
+			<rate_limit>1.25</rate_limit>
+			<lag>20</lag>
+		</actuator>
 	
 	</channel>
 	

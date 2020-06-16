@@ -1,12 +1,16 @@
 AC3Db
-MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
-MATERIAL "Glow" rgb 1 1 1  amb 1 1 1  emis 0.6 0.6 0.6  spec 0.5 0.5 0.5  shi 64  trans 0
-MATERIAL "exterior_medium.001" rgb 0.7 0.7 0.7  amb 0.7 0.7 0.7  emis 0 0 0  spec 0.85 0.85 0.85  shi 64  trans 0
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 64  trans 0
+MATERIAL "Glow" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 0  trans 0
+MATERIAL "Glow" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 0  trans 0
 OBJECT world
-kids 6
+kids 5
+OBJECT group
+name "EngRevL"
+loc 0.00012209 0 0.002
+kids 2
 OBJECT poly
 name "FaceEngRevL"
-loc 9.31323e-10 0 0.002
+loc -0.000122089 0 0
 data 8
 Cube.003
 texture "txt_cockpit_warnings_1.rgb"
@@ -27,7 +31,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FaceEngRevLOn"
-loc 0.000244179 0 0.002
+loc 0.000122089 0 0
 data 8
 Cube.004
 texture "txt_cockpit_warnings_1.rgb"
@@ -46,9 +50,13 @@ refs 4
 3 1 0.5
 1 1 0.75
 kids 0
+OBJECT group
+name "EngRevR"
+loc 1.748e-05 0 -0.002
+kids 2
 OBJECT poly
 name "FaceEngRevR"
-loc 2.32831e-09 0 -0.002
+loc -1.74776e-05 0 0
 data 4
 Cube
 texture "txt_cockpit_warnings_1.rgb"
@@ -69,7 +77,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FaceEngRevROn"
-loc 3.49576e-05 0 -0.002
+loc 1.74776e-05 0 0
 data 8
 Cube.001
 texture "txt_cockpit_warnings_1.rgb"
@@ -88,11 +96,200 @@ refs 4
 3 1 0.25
 1 1 0.5
 kids 0
+OBJECT group
+name "EngULL"
+loc 0.00012209 -0.0278315 0.002
+kids 2
 OBJECT poly
+name "FaceEngULL"
+loc -0.000122089 0 0
+data 8
+Cube.003
+texture "txt_cockpit_warnings_1.rgb"
+crease 30.000000
+numvert 4
+0.0125 0.0125 0.0855
+0.0125 0.0125 0.0605
+0.0125 -0.0125 0.0855
+0.0125 -0.0125 0.0605
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+0 0.5 1
+2 0.5 0.75
+3 0.75 0.75
+1 0.75 1
+kids 0
+OBJECT poly
+name "FaceEngULLOn"
+loc 0.000122089 0 0
+data 8
+Cube.004
+texture "txt_cockpit_warnings_1.rgb"
+crease 30.000000
+numvert 4
+0.0125 0.0125 0.0855
+0.0125 0.0125 0.0605
+0.0125 -0.0125 0.0855
+0.0125 -0.0125 0.0605
+numsurf 1
+SURF 0x0
+mat 1
+refs 4
+0 0.75 0.75
+2 0.75 0.5
+3 1 0.5
+1 1 0.75
+kids 0
+OBJECT group
+name "EngULR"
+loc 1.748e-05 -0.0278315 -0.002
+kids 2
+OBJECT poly
+name "FaceEngULR"
+loc -1.74776e-05 0 0
+data 4
+Cube
+texture "txt_cockpit_warnings_1.rgb"
+crease 30.000000
+numvert 4
+0.0125 0.0125 -0.0605
+0.0125 0.0125 -0.0855
+0.0125 -0.0125 -0.0605
+0.0125 -0.0125 -0.0855
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+0 0.75 1
+2 0.75 0.75
+3 1 0.75
+1 1 1
+kids 0
+OBJECT poly
+name "FaceEngULROn"
+loc 1.74776e-05 0 0
+data 8
+Cube.001
+texture "txt_cockpit_warnings_1.rgb"
+crease 30.000000
+numvert 4
+0.0125 0.0125 -0.0605
+0.0125 0.0125 -0.0855
+0.0125 -0.0125 -0.0605
+0.0125 -0.0125 -0.0855
+numsurf 1
+SURF 0x0
+mat 1
+refs 4
+0 0.75 0.5
+2 0.75 0.25
+3 1 0.25
+1 1 0.5
+kids 0
+OBJECT group
 name "Shells"
-loc 9.31323e-10 0 0.002
+loc 1.62982e-09 -0.0139157 0
+kids 4
+OBJECT poly
+name "Shell"
+loc -6.98493e-10 -0.0139157 0.002
 data 8
 Cube.002
+texture "grey.png"
+crease 30.000000
+numvert 8
+0 0.0125 0.0605
+0 0.0125 0.0855
+0 -0.0125 0.0605
+0 -0.0125 0.0855
+0.0125 0.0125 0.0855
+0.0125 0.0125 0.0605
+0.0125 -0.0125 0.0855
+0.0125 -0.0125 0.0605
+numsurf 4
+SURF 0x0
+mat 2
+refs 4
+2 0 0
+7 0 0
+6 0 0
+3 0 0
+SURF 0x0
+mat 2
+refs 4
+5 0 0
+0 0 0
+1 0 0
+4 0 0
+SURF 0x0
+mat 2
+refs 4
+4 0 0
+1 0 0
+3 0 0
+6 0 0
+SURF 0x0
+mat 2
+refs 4
+7 0 0
+2 0 0
+0 0 0
+5 0 0
+kids 0
+OBJECT poly
+name "Shell"
+loc 6.98493e-10 -0.0139157 -0.002
+data 8
+Cube.002
+texture "grey.png"
+crease 30.000000
+numvert 8
+0.0125 -0.0125 -0.0855
+0.0125 -0.0125 -0.0605
+0.0125 0.0125 -0.0855
+0.0125 0.0125 -0.0605
+0 -0.0125 -0.0605
+0 -0.0125 -0.0855
+0 0.0125 -0.0605
+0 0.0125 -0.0855
+numsurf 4
+SURF 0x0
+mat 2
+refs 4
+0 0 0
+5 0 0
+7 0 0
+2 0 0
+SURF 0x0
+mat 2
+refs 4
+3 0 0
+6 0 0
+4 0 0
+1 0 0
+SURF 0x0
+mat 2
+refs 4
+2 0 0
+7 0 0
+6 0 0
+3 0 0
+SURF 0x0
+mat 2
+refs 4
+5 0 0
+0 0 0
+1 0 0
+4 0 0
+kids 0
+OBJECT poly
+name "Shell"
+loc -6.98493e-10 0.0139157 0.002
+data 8
+Cube.002
+texture "grey.png"
 crease 30.000000
 numvert 8
 0 0.0125 0.0605
@@ -134,10 +331,11 @@ refs 4
 3 0 0
 kids 0
 OBJECT poly
-name "Shells"
-loc 2.32831e-09 0 -0.002
+name "Shell"
+loc 6.98493e-10 0.0139157 -0.002
 data 8
 Cube.002
+texture "grey.png"
 crease 30.000000
 numvert 8
 0.0125 -0.0125 -0.0855

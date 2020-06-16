@@ -37,7 +37,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>epr-limit</object-name>
-		<property>fdm/jsbsim/engine/limit/active</property>
+		<property>fdm/jsbsim/engine/limit/active-ind</property>
 		<interpolation>
 			<entry><ind>0.8</ind><dep>  0</dep></entry>
 			<entry><ind>2.5</ind><dep>255</dep></entry>

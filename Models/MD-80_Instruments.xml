@@ -238,7 +238,7 @@
 	
 	<model>
 		<name>tri</name>
-		<path>Aircraft/MD-80/Models/Instruments/tri.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/TRI/tri.xml</path>
 		<offsets>
 			<x-m>2.242</x-m>
 			<y-m>-0.097</y-m>

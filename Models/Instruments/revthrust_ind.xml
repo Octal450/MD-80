@@ -1,42 +1,92 @@
 <?xml version="1.0"?>
 
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
 <PropertyList>
+	
+	<path>revthrust_ind.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Shells</object-name>
+		<object-name>FaceEngRevL</object-name>
+		<object-name>FaceEngRevR</object-name>
+		<object-name>FaceEngULL</object-name>
+		<object-name>FaceEngULR</object-name>
+		<emission>
+			<red>0.3</red>
+			<green>0.3</green>
+			<blue>0.3</blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>FaceEngRevLOn</object-name>
+		<condition>
+			<or>
+				<greater-than-equals>
+					<property>fdm/jsbsim/engine/reverse-1/position-norm</property>
+					<value>0.95</value>
+				</greater-than-equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
 
-<path>revthrust_ind.ac</path>
+	<animation>
+		<type>select</type>
+		<object-name>FaceEngRevROn</object-name>
+		<condition>
+			<or>
+				<greater-than-equals>
+					<property>fdm/jsbsim/engine/reverse-2/position-norm</property>
+					<value>0.95</value>
+				</greater-than-equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>FaceEngULLOn</object-name>
+		<condition>
+			<or>
+				<greater-than-equals>
+					<property>fdm/jsbsim/engine/reverse-1/position-norm</property>
+					<value>0.05</value>
+				</greater-than-equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
 
-<animation>
-  <type>select</type>
-  <object-name>FaceEngRevL</object-name>
-  <condition>
-	  <not>
-		<property>controls/engines/engine[0]/reverse-cmd</property>
-	  </not>
-  </condition>
-</animation>
-<animation>
-  <type>select</type>
-  <object-name>FaceEngRevLOn</object-name>
-  <condition>
-    <property>controls/engines/engine[0]/reverse-cmd</property>
-  </condition>
-</animation>
-
-<animation>
-  <type>select</type>
-  <object-name>FaceEngRevR</object-name>
-  <condition>
-	  <not>
-		<property>controls/engines/engine[1]/reverse-cmd</property>
-	  </not>
-  </condition>
-</animation>
-<animation>
-  <type>select</type>
-  <object-name>FaceEngRevROn</object-name>
-  <condition>
-    <property>controls/engines/engine[1]/reverse-cmd</property>
-  </condition>
-</animation>
+	<animation>
+		<type>select</type>
+		<object-name>FaceEngULROn</object-name>
+		<condition>
+			<or>
+				<greater-than-equals>
+					<property>fdm/jsbsim/engine/reverse-2/position-norm</property>
+					<value>0.05</value>
+				</greater-than-equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
 
 </PropertyList>
 

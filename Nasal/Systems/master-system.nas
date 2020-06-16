@@ -87,7 +87,8 @@ var TRI = {
 	Limit: {
 		active: props.globals.getNode("/fdm/jsbsim/engine/limit/active"),
 		activeMode: props.globals.getNode("/fdm/jsbsim/engine/limit/active-mode"),
-		activeModeInt: props.globals.getNode("/fdm/jsbsim/engine/limit/active-mode-int"), # 0 T/O, 1 G/A, 2 MCT, 3 CLB, 4 CRZ, 5 T/O FLX
+		activeModeInt: props.globals.getNode("/fdm/jsbsim/engine/limit/active-mode-int"), # -1 NONE, 0 T/O, 1 G/A, 2 MCT, 3 CLB, 4 CRZ, 5 T/O FLX
+		activeModeIntTemp: 0,
 		#cruise: props.globals.getNode("/fdm/jsbsim/engine/limit/cruise"),
 		climb: props.globals.getNode("/fdm/jsbsim/engine/limit/climb"),
 		goAround: props.globals.getNode("/fdm/jsbsim/engine/limit/go-around"),
@@ -98,4 +99,26 @@ var TRI = {
 		me.Limit.activeModeInt.setValue(0);
 		me.Limit.activeMode.setValue("T/O");
 	},
+	updateTxt: func() {
+		me.Limit.activeModeIntTemp = me.Limit.activeModeInt.getValue();
+		if (me.Limit.activeModeIntTemp == -1) {
+			me.Limit.activeMode.setValue("---");
+		} else if (me.Limit.activeModeIntTemp == 0) {
+			me.Limit.activeMode.setValue("T/O");
+		} else if (me.Limit.activeModeIntTemp == 1) {
+			me.Limit.activeMode.setValue("G/A");
+		} else if (me.Limit.activeModeIntTemp == 2) {
+			me.Limit.activeMode.setValue("MCT");
+		} else if (me.Limit.activeModeIntTemp == 3) {
+			me.Limit.activeMode.setValue("CL");
+		} else if (me.Limit.activeModeIntTemp == 4) {
+			me.Limit.activeMode.setValue("CR");
+		} else if (me.Limit.activeModeIntTemp == 5) {
+			me.Limit.activeMode.setValue("FLX"); # Check
+		}
+	},
 };
+
+setlistener("/fdm/jsbsim/engine/limit/active-mode-int", func {
+	TRI.updateTxt();
+}, 0, 0);
