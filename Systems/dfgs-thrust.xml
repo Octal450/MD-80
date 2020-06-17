@@ -116,7 +116,7 @@
 		</enable>
 		<input>/instrumentation/airspeed-indicator/indicated-speed-kt</input>
 		<reference>/it-autoflight/internal/kts</reference>
-		<output>/fdm/jsbsim/engine/ats-cmd-raw</output>
+		<output>/fdm/jsbsim/engine/ats-cmd-raw-pid</output>
 		<config>
 			<Kp>0.055</Kp>
 			<Ti>9.0</Ti>
@@ -159,7 +159,7 @@
 			<property>/it-autoflight/internal/mach</property>
 			<scale>1000.0</scale>
 		</reference>
-		<output>/fdm/jsbsim/engine/ats-cmd-raw</output>
+		<output>/fdm/jsbsim/engine/ats-cmd-raw-pid</output>
 		<config>
 			<Kp>0.055</Kp>
 			<Ti>9.0</Ti>
@@ -168,6 +168,35 @@
 			<u_max>/fdm/jsbsim/engine/limit/active-norm</u_max>
 		</config>
 	</pid-controller>
+	
+	<filter>
+		<name>Speed/Mach Filter</name>
+		<debug>false</debug>
+		<type>noise-spike</type>
+		<feedback-if-disabled>true</feedback-if-disabled>
+		<initialize-to>output</initialize-to>
+		<enable>
+			<condition>
+				<and>
+					<equals>
+						<property>/it-autoflight/output/athr</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/clamp</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/thr-mode</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+		</enable>
+		<input>/fdm/jsbsim/engine/ats-cmd-raw-pid</input>
+		<output>/fdm/jsbsim/engine/ats-cmd-raw</output>
+		<max-rate-of-change>0.3</max-rate-of-change>
+	</filter>
 	
 	<filter>
 		<name>IDLE</name>
@@ -233,11 +262,31 @@
 	</filter>
 	
 	<filter>
-		<name>Thrust CMD Filter</name>
+		<name>Power Comparator</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression> <!-- EPR non-linearity makes it hard -->
+				<max>
+					<table>
+						<property>/engines/engine[0]/n1-actual</property>
+						<entry><ind> 25.3</ind><dep>0</dep></entry>
+						<entry><ind>105.2</ind><dep>1</dep></entry>
+					</table>
+					<table>
+						<property>/engines/engine[1]/n1-actual</property>
+						<entry><ind> 25.3</ind><dep>0</dep></entry>
+						<entry><ind>105.2</ind><dep>1</dep></entry>
+					</table>
+				</max>
+			</expression>
+		</input>
+		<output>/fdm/jsbsim/engine/power-compare-max-norm</output>
+	</filter>
+	
+	<pid-controller>
+		<name>IT-CONTROLLER: ATS Control</name> <!-- Simulates EPR "hunting" -->
 		<debug>false</debug>
-		<type>noise-spike</type>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
 		<enable>
 			<condition>
 				<and>
@@ -252,57 +301,37 @@
 				</and>
 			</condition>
 		</enable>
-		<input>/fdm/jsbsim/engine/ats-cmd-raw</input>
+		<input>/fdm/jsbsim/engine/power-compare-max-norm</input>
+		<reference>/fdm/jsbsim/engine/ats-cmd-raw</reference>
 		<output>/fdm/jsbsim/engine/ats-cmd</output>
-		<min>
-			<condition>
-				<equals>
-					<property>/it-autoflight/mode/thr</property>
-					<value>RETARD</value>
-				</equals>
-			</condition>
-			<value>0</value>
-		</min>
-		<min>0.15</min> <!-- Should be idle limit -->
-		<max>/fdm/jsbsim/engine/limit/active-norm</max>
-		<max-rate-of-change>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/mode/thr</property>
-						<value>RETARD</value>
-					</equals>
-					<or>
-						<equals>
-							<property>/gear/gear[1]/wow</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/gear/gear[2]/wow</property>
-							<value>1</value>
-						</equals>
-					</or>
-				</and>
-			</condition>
-			<value>0.3</value>
-		</max-rate-of-change>
-		<max-rate-of-change>
-			<condition>
-				<or>
-					<equals>
-						<property>/it-autoflight/output/thr-mode</property>
+		<config>
+			<Kp>1.2</Kp>
+			<Ti>0.6</Ti>
+			<Td>0.0</Td>
+			<u_min>
+				<expression>
+					<max>
+						<dif>
+							<property>/fdm/jsbsim/engine/power-compare-max-norm</property>
+							<value>0.1</value>
+						</dif>
+						<value>0</value>
+					</max>
+				</expression>
+			</u_min>
+			<u_max>
+				<expression>
+					<min>
+						<sum>
+							<property>/fdm/jsbsim/engine/power-compare-max-norm</property>
+							<value>0.1</value>
+						</sum>
 						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/thr-mode</property>
-						<value>2</value>
-					</equals>
-				</or>
-			</condition>
-			<value>0.05</value>
-		</max-rate-of-change>
-		<max-rate-of-change>0.3</max-rate-of-change>
-	</filter>
+					</min>
+				</expression>
+			</u_max>
+		</config>
+	</pid-controller>
 	
 	<filter>
 		<name>Throttle Comparator</name>
@@ -339,6 +368,7 @@
 		</enable>
 		<input>/fdm/jsbsim/engine/throttle-compare-max</input>
 		<output>/fdm/jsbsim/engine/ats-cmd</output>
+		<output>/fdm/jsbsim/engine/ats-cmd-raw</output>
 	</filter>
 	
 	<!-- Engine 1 -->
@@ -465,28 +495,6 @@
 		</enable>
 		<input>/fdm/jsbsim/engine/ats-cmd-2</input>
 		<output>/controls/engines/engine[1]/throttle</output>
-	</filter>
-	
-	<filter>
-		<name>PID Backdrive</name>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<enable>
-			<condition>
-				<or>
-					<not-equals>
-						<property>/it-autoflight/output/athr</property>
-						<value>1</value>
-					</not-equals>
-					<not-equals>
-						<property>/it-autoflight/output/clamp</property>
-						<value>0</value>
-					</not-equals>
-				</or>
-			</condition>
-		</enable>
-		<input>/fdm/jsbsim/engine/throttle-compare-max</input>
-		<output>/fdm/jsbsim/engine/ats-cmd</output>
 	</filter>
 
 </PropertyList>
