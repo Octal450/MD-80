@@ -421,7 +421,7 @@
 		</switch>
 		
 		<switch name="engine/limit/active-ind-cmd">
-			<default value="1"/> <!-- Show 1.00 in no mode without breaking stuff -->
+			<default value="0"/> <!-- Show minimum in no mode without breaking stuff -->
 			<test value="engine/limit/active">
 				engine/limit/active-mode-int ge 0
 			</test>

@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0"?>
 
-<!-- IT-AUTOFLIGHT Autopilot Control Dialog -->
+<!-- MD-80 Autopilot Control Dialog -->
 <!-- Copyright (c) 2020 Joshua Davidson (Octal450) -->
 
 <PropertyList>
@@ -13,7 +13,7 @@
 		<layout>hbox</layout>
 		<text>
 			<halign>left</halign>
-			<label>IT-AUTOFLIGHT System (V4.0.X)</label>
+			<label>IT-AUTOFLIGHT System (MD-80)</label>
 		</text>
 		<button>
 			<halign>right</halign>
