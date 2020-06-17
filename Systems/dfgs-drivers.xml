@@ -634,10 +634,10 @@
 				</greater-than-equals>
 			</condition>
 			<expression>
-				<dif>
+				<difference>
 					<property>/it-autoflight/internal/heading-predicted-cmd</property>
 					<value>360</value>
-				</dif>
+				</difference>
 			</expression>
 		</input>
 		<input>
@@ -684,10 +684,10 @@
 		<gain>1.0</gain>
 		<input>
 			<expression>
-				<dif>
+				<difference>
 					<property>/orientation/pitch-deg</property>
 					<property>/orientation/alpha-deg</property>
-				</dif>
+				</difference>
 			</expression>
 		</input>
 		<output>/it-autoflight/internal/fpa</output>
@@ -740,10 +740,10 @@
 		<gain>1.0</gain>
 		<input>
 			<expression>
-				<dif>
+				<difference>
 					<property>/it-autoflight/internal/target-roll-fd</property>
 					<property>/orientation/roll-deg</property>
-				</dif>
+				</difference>
 			</expression>
 		</input>
 		<output>/it-autoflight/fd/roll-bar</output>
@@ -758,10 +758,10 @@
 		<input>
 			<expression>
 				<product>
-					<dif>
+					<difference>
 						<property>/it-autoflight/internal/target-common-fpm</property>
 						<property>/it-autoflight/internal/vert-speed-fpm</property>
-					</dif>
+					</difference>
 					<table>
 						<property>/instrumentation/airspeed-indicator/indicated-mach</property> 
 						<entry><ind>0.20</ind><dep>0.004</dep></entry>

@@ -99,10 +99,10 @@
 			<Td>0.002</Td>
 			<u_min>
 				<expression>
-					<dif>
+					<difference>
 						<property>/it-autoflight/internal/vert-speed-fpm</property>
 						<value>2500</value>
-					</dif>
+					</difference>
 				</expression>
 			</u_min>
 			<u_max>
@@ -230,10 +230,10 @@
 					</equals>
 				</condition>
 				<expression>
-					<dif>
+					<difference>
 						<property>/it-autoflight/internal/vert-speed-fpm</property>
 						<value>2500</value>
-					</dif>
+					</difference>
 				</expression>
 			</u_min>
 			<u_max>
@@ -300,10 +300,10 @@
 					</equals>
 				</condition>
 				<expression>
-					<dif>
+					<difference>
 						<property>/it-autoflight/internal/vert-speed-fpm</property>
 						<value>2500</value>
-					</dif>
+					</difference>
 				</expression>
 			</u_min>
 			<u_max>
@@ -601,10 +601,10 @@
 				</condition>
 				<expression>
 					<max>
-						<dif>
+						<difference>
 							<property>/orientation/pitch-deg</property>
 							<value>5</value>
-						</dif>
+						</difference>
 						<value>-10</value>
 					</max>
 				</expression>

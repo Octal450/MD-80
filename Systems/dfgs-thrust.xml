@@ -4,7 +4,6 @@
 
 <PropertyList>
 	
-	<!-- Thrust Axis -->
 	<filter>
 		<name>KTS INPUT FILTER</name>
 		<debug>false</debug>
@@ -311,10 +310,10 @@
 			<u_min>
 				<expression>
 					<max>
-						<dif>
+						<difference>
 							<property>/fdm/jsbsim/engine/power-compare-max-norm</property>
 							<value>0.1</value>
-						</dif>
+						</difference>
 						<value>0</value>
 					</max>
 				</expression>
