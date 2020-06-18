@@ -167,12 +167,12 @@
 						<sum>
 							<product>
 								<property>engine/limit/go-around-ref</property>
-								<value>100</value>
+								<value>1000</value>
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
 						</sum>
 					</integer>
-					<value>100</value>
+					<value>1000</value>
 				</quotient>
 			</function>
 		</fcs_function>
@@ -228,12 +228,12 @@
 						<sum>
 							<product>
 								<property>engine/limit/takeoff-ref</property>
-								<value>100</value>
+								<value>1000</value>
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
 						</sum>
 					</integer>
-					<value>100</value>
+					<value>1000</value>
 				</quotient>
 			</function>
 		</fcs_function>
@@ -282,12 +282,12 @@
 						<sum>
 							<product>
 								<property>engine/limit/mct-ref</property>
-								<value>100</value>
+								<value>1000</value>
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
 						</sum>
 					</integer>
-					<value>100</value>
+					<value>1000</value>
 				</quotient>
 			</function>
 		</fcs_function>
@@ -336,12 +336,12 @@
 						<sum>
 							<product>
 								<property>engine/limit/climb-ref</property>
-								<value>100</value>
+								<value>1000</value>
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
 						</sum>
 					</integer>
-					<value>100</value>
+					<value>1000</value>
 				</quotient>
 			</function>
 		</fcs_function>
@@ -390,12 +390,12 @@
 						<sum>
 							<product>
 								<property>engine/limit/cruise-ref</property>
-								<value>100</value>
+								<value>1000</value>
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
 						</sum>
 					</integer>
-					<value>100</value>
+					<value>1000</value>
 				</quotient>
 			</function>
 		</fcs_function>
@@ -708,104 +708,6 @@
 			<output>/engines/engine[1]/n2-actual</output>
 			<output>/engines/engine[4]/n2</output>
 		</lag_filter>
-	
-	</channel>
-	
-	<channel name="Engine Gauge Extras" execrate="4">
-		
-		<fcs_function name="engine/gauge/epr-actual-1-fixed">
-			<function>
-				<sum>
-					<property>engine/epr-actual-1</property>
-					<value>0.003</value>
-				</sum>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="engine/gauge/epr-actual-1-d100">
-			<function>
-				<integer>
-					<property>engine/gauge/epr-actual-1-fixed</property>
-				</integer>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="engine/gauge/epr-actual-1-d10">
-			<function>
-				<integer>
-					<product>
-						<difference>
-							<property>engine/gauge/epr-actual-1-fixed</property>
-							<integer>
-								<property>engine/gauge/epr-actual-1-fixed</property>
-							</integer>
-						</difference>
-						<value>10</value>
-					</product>
-				</integer>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="engine/gauge/epr-actual-1-d1">
-			<function>
-				<product>
-					<fraction>
-						<product>
-							<property>engine/epr-actual-1</property> <!-- Not epr-fixed on purpose! -->
-							<value>10</value>
-						</product>
-					</fraction>
-					<value>10</value>
-				</product>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="engine/gauge/epr-actual-2-fixed">
-			<function>
-				<sum>
-					<property>engine/epr-actual-2</property>
-					<value>0.003</value>
-				</sum>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="engine/gauge/epr-actual-2-d100">
-			<function>
-				<integer>
-					<property>engine/gauge/epr-actual-2-fixed</property>
-				</integer>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="engine/gauge/epr-actual-2-d10">
-			<function>
-				<integer>
-					<product>
-						<difference>
-							<property>engine/gauge/epr-actual-2-fixed</property>
-							<integer>
-								<property>engine/gauge/epr-actual-2-fixed</property>
-							</integer>
-						</difference>
-						<value>10</value>
-					</product>
-				</integer>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="engine/gauge/epr-actual-2-d1">
-			<function>
-				<product>
-					<fraction>
-						<product>
-							<property>engine/epr-actual-2</property> <!-- Not epr-fixed on purpose! -->
-							<value>10</value>
-						</product>
-					</fraction>
-					<value>10</value>
-				</product>
-			</function>
-		</fcs_function>
 	
 	</channel>
 

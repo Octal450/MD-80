@@ -42,20 +42,20 @@
   </offsets>
  </model>
 
-<!-- Contrails -->
+	<!-- Contrails -->
 	<model>
-		<path>Aircraft/MD-80/Models/Effects/Contrail/contrail.xml</path>
+		<path>Aircraft/MD-80/Models/Effects/Contrail/contrail-eng1.xml</path>
 		<offsets>
-			<x-m>37.746</x-m>
+			<x-m>47</x-m>
 			<y-m>-2.795</y-m>
 			<z-m>0.982</z-m>
 		</offsets>
 	</model>
-	
-<model>
-		<path>Aircraft/MD-80/Models/Effects/Contrail/contrail.xml</path>
+
+	<model>
+		<path>Aircraft/MD-80/Models/Effects/Contrail/contrail-eng2.xml</path>
 		<offsets>
-			<x-m>37.146</x-m>
+			<x-m>47</x-m>
 			<y-m>2.915</y-m>
 			<z-m>0.982</z-m>
 		</offsets>

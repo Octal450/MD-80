@@ -55,5 +55,192 @@
 		</lag_filter>
 	
 	</channel>
+	
+	<channel name="Gauge Extras" execrate="4">
+		
+		<!-- EPR Gauges -->
+		<fcs_function name="engine/gauge/epr-actual-1-fixed">
+			<function>
+				<sum>
+					<property>engine/epr-actual-1</property>
+					<value>0.003</value>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/gauge/epr-actual-1-d100">
+			<function>
+				<integer>
+					<property>engine/gauge/epr-actual-1-fixed</property>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/gauge/epr-actual-1-d10">
+			<function>
+				<integer>
+					<product>
+						<difference>
+							<property>engine/gauge/epr-actual-1-fixed</property>
+							<integer>
+								<property>engine/gauge/epr-actual-1-fixed</property>
+							</integer>
+						</difference>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/gauge/epr-actual-1-d1">
+			<function>
+				<product>
+					<fraction>
+						<product>
+							<property>engine/epr-actual-1</property> <!-- Not epr-fixed on purpose! -->
+							<value>10</value>
+						</product>
+					</fraction>
+					<value>10</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/gauge/epr-actual-2-fixed">
+			<function>
+				<sum>
+					<property>engine/epr-actual-2</property>
+					<value>0.003</value>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/gauge/epr-actual-2-d100">
+			<function>
+				<integer>
+					<property>engine/gauge/epr-actual-2-fixed</property>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/gauge/epr-actual-2-d10">
+			<function>
+				<integer>
+					<product>
+						<difference>
+							<property>engine/gauge/epr-actual-2-fixed</property>
+							<integer>
+								<property>engine/gauge/epr-actual-2-fixed</property>
+							</integer>
+						</difference>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/gauge/epr-actual-2-d1">
+			<function>
+				<product>
+					<fraction>
+						<product>
+							<property>engine/epr-actual-2</property> <!-- Not epr-fixed on purpose! -->
+							<value>10</value>
+						</product>
+					</fraction>
+					<value>10</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<!-- TRI -->
+		<fcs_function name="/controls/tri/rat-fixed">
+			<function>
+				<sum>
+					<abs>
+						<property>propulsion/tat-c</property>
+					</abs>
+					<value>0.5</value> <!-- Make it round correctly -->
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/tri/rat-d10">
+			<function>
+				<integer>
+					<quotient>
+						<property>/controls/tri/rat-fixed</property>
+						<value>10</value>
+					</quotient>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/tri/rat-d1">
+			<function>
+				<integer>
+					<product>
+						<fraction>
+							<quotient>
+								<property>/controls/tri/rat-fixed</property>
+								<value>10</value>
+							</quotient>
+						</fraction>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/tri/limit-fixed">
+			<function>
+				<sum>
+					<property>engine/limit/active-ind</property>
+					<value>0.005</value> <!-- Make it round correctly -->
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/tri/limit-d100">
+			<function>
+				<integer>
+					<property>/controls/tri/limit-fixed</property>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/tri/limit-d10">
+			<function>
+				<integer>
+					<product>
+						<difference>
+							<property>/controls/tri/limit-fixed</property>
+							<integer>
+								<property>/controls/tri/limit-fixed</property>
+							</integer>
+						</difference>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/tri/limit-d1">
+			<function>
+				<integer>
+					<product>
+						<fraction>
+							<product>
+								<property>/controls/tri/limit-fixed</property>
+								<value>10</value>
+							</product>
+						</fraction>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+	
+	</channel>
 
 </system>

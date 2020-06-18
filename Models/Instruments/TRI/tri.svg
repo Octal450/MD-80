@@ -16,7 +16,7 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="tri.svg"
-   inkscape:export-filename="C:\Users\MAIN\Desktop\Aircraft\MD-80\Models\Instruments\tri.png"
+   inkscape:export-filename="C:\Users\MAIN\Desktop\Aircraft\MD-80\Models\Instruments\TRI\tri.png"
    inkscape:export-xdpi="47.416065"
    inkscape:export-ydpi="47.416065">
   <defs
@@ -28,17 +28,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="242.56848"
-     inkscape:cy="72.704004"
+     inkscape:zoom="1.979899"
+     inkscape:cx="273.82447"
+     inkscape:cy="532.44996"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:window-width="1920"
-     inkscape:window-height="1001"
+     inkscape:window-height="1011"
      inkscape:window-x="1591"
-     inkscape:window-y="1071"
+     inkscape:window-y="-9"
      inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -155,5 +155,11 @@
        sodipodi:nodetypes="ccccc"
        inkscape:export-xdpi="47.416065"
        inkscape:export-ydpi="47.416065" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 406.40882,428.98239 0,33.83757 -33.83756,-16.91879 z"
+       id="rect4147"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
   </g>
 </svg>

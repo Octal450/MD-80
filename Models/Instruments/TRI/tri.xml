@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+<!-- I'm not a great 3D modeller, but this will have to do until someone else can do better -->
 
 <PropertyList>
 	
@@ -15,6 +16,9 @@
 		<object-name>mctOff</object-name>
 		<object-name>clOff</object-name>
 		<object-name>crOff</object-name>
+		<object-name>testBtn</object-name>
+		<object-name>ratDigits</object-name>
+		<object-name>eprDigits</object-name>
 		<emission>
 			<red>0.3</red>
 			<green>0.3</green>
@@ -348,6 +352,94 @@
 		<axis>
 			<x>1</x>
 			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- Indications -->
+	<animation>
+		<type>select</type>
+		<object-name>ratPlus</object-name>
+		<condition>
+			<greater-than>
+				<property>fdm/jsbsim/propulsion/tat-c</property>
+				<value>-0.5</value>
+			</greater-than>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ratMinus</object-name>
+		<condition>
+			<less-than-equals>
+				<property>fdm/jsbsim/propulsion/tat-c</property>
+				<value>-0.5</value>
+			</less-than-equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>rat1</object-name>
+		<property>controls/tri/rat-d10</property>
+		<factor>0.0695</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>rat2</object-name>
+		<property>controls/tri/rat-d1</property>
+		<factor>0.0695</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>epr1</object-name>
+		<property>controls/tri/limit-d100</property>
+		<factor>0.0695</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>epr2</object-name>
+		<property>controls/tri/limit-d10</property>
+		<factor>0.0695</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>epr3</object-name>
+		<property>controls/tri/limit-d1</property>
+		<factor>0.0695</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
 			<z>0</z>
 		</axis>
 	</animation>
