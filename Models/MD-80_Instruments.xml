@@ -14,7 +14,6 @@
 		<object-name>eadi</object-name>
 		<object-name>alt</object-name>
 		<object-name>stbyalt</object-name>
-		<object-name>asi</object-name>
 		<object-name>vsi</object-name>
 		<object-name>ND_L</object-name>
 		<object-name>stbyai</object-name>
@@ -195,9 +194,9 @@
   <name>vsi</name>
   <path>Aircraft/MD-80/Models/Instruments/vsi.xml</path>
   <offsets>
-	<x-m>2.250</x-m>
+    <x-m>2.248</x-m>
     <y-m>-0.384</y-m>
-    <z-m>0.7635</z-m>
+    <z-m>0.765</z-m>
     <pitch-deg>-12</pitch-deg>
   </offsets>
 </model>
@@ -563,7 +562,7 @@
 
 <model>
   <name>asi_R</name>
-  <path>Aircraft/MD-80/Models/Instruments/asi2.xml</path>
+  <path>Aircraft/MD-80/Models/Instruments/asi.xml</path>
   <offsets>
     <x-m>2.226</x-m>
     <y-m>0.376</y-m>
@@ -607,11 +606,11 @@
 
 <model>
   <name>vsi_R</name>
-  <path>Aircraft/MD-80/Models/Instruments/vsi2.xml</path>
+  <path>Aircraft/MD-80/Models/Instruments/vsi.xml</path>
   <offsets>
-	<x-m>2.250</x-m>
+    <x-m>2.248</x-m>
     <y-m>0.643</y-m>
-    <z-m>0.7635</z-m>
+    <z-m>0.765</z-m>
     <pitch-deg>-12</pitch-deg>
   </offsets>
 </model>

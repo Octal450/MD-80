@@ -227,17 +227,15 @@
 		
 		<fcs_function name="/controls/tri/limit-d1">
 			<function>
-				<integer>
-					<product>
-						<fraction>
-							<product>
-								<property>/controls/tri/limit-fixed</property>
-								<value>10</value>
-							</product>
-						</fraction>
-						<value>10</value>
-					</product>
-				</integer>
+				<product>
+					<fraction>
+						<product>
+							<property>/controls/tri/limit-fixed</property>
+							<value>10</value>
+						</product>
+					</fraction>
+					<value>10</value>
+				</product>
 			</function>
 		</fcs_function>
 	
