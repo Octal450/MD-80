@@ -11,7 +11,8 @@
 		<type>material</type>
 		<object-name>Face</object-name>
 		<object-name>Needle</object-name>
-		<object-name>epr-limit</object-name>
+		<object-name>eprLimit</object-name>
+		<object-name>eprDigits</object-name>
 		<emission>
 			<red>0.3</red>
 			<green>0.3</green>
@@ -36,7 +37,7 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>epr-limit</object-name>
+		<object-name>eprLimit</object-name>
 		<property>fdm/jsbsim/engine/limit/active-ind</property>
 		<interpolation>
 			<entry><ind>0.8</ind><dep>  0</dep></entry>
@@ -48,6 +49,44 @@
 			<z>0</z>
 		</axis>
 	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>epr1</object-name>
+		<property>fdm/jsbsim/engine/gauge/epr-actual-1-d100</property>
+		<factor>0.0695</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>epr2</object-name>
+		<property>fdm/jsbsim/engine/gauge/epr-actual-1-d10</property>
+		<factor>0.0695</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>epr3</object-name>
+		<property>fdm/jsbsim/engine/gauge/epr-actual-1-d1</property>
+		<factor>0.0695</factor>
+		<step>0.01</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
 </PropertyList>
-
