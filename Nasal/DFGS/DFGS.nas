@@ -98,6 +98,7 @@ var Input = {
 	toga: props.globals.initNode("/it-autoflight/input/toga", 0, "BOOL"),
 	trk: props.globals.initNode("/it-autoflight/input/trk", 0, "BOOL"),
 	trueCourse: props.globals.initNode("/it-autoflight/input/true-course", 0, "BOOL"),
+	useNav2Radio: props.globals.initNode("/it-autoflight/input/use-nav2-radio", 0, "BOOL"),
 	vs: props.globals.initNode("/it-autoflight/input/vs", 0, "INT"),
 	vert: props.globals.initNode("/it-autoflight/input/vert", 7, "INT"),
 	vertTemp: 7,
@@ -169,7 +170,7 @@ var Setting = {
 	reducAglFt: props.globals.getNode("/it-autoflight/settings/reduc-agl-ft", 1),
 	retardAltitude: props.globals.getNode("/it-autoflight/settings/retard-ft", 1),
 	retardEnable: props.globals.getNode("/it-autoflight/settings/retard-enable", 1),
-	useNAV2Radio: props.globals.initNode("/it-autoflight/settings/use-nav2-radio", 0, "BOOL"),
+	togaSpd: props.globals.getNode("/it-autoflight/settings/togaspd", 1),
 };
 
 var Sound = {
@@ -205,6 +206,7 @@ var ITAF = {
 		Input.trueCourse.setBoolValue(0);
 		Input.toga.setBoolValue(0);
 		Input.bankLimitSW.setValue(0);
+		Input.useNav2Radio.setBoolValue(0);
 		Output.ap1.setBoolValue(0);
 		Output.ap2.setBoolValue(0);
 		Output.athr.setBoolValue(0);
@@ -217,7 +219,6 @@ var ITAF = {
 		Output.thrMode.setValue(0);
 		Output.lat.setValue(5);
 		Output.vert.setValue(7);
-		Setting.useNAV2Radio.setBoolValue(0);
 		Internal.minVS.setValue(-500);
 		Internal.maxVS.setValue(500);
 		Internal.bankLimit.setValue(30);
@@ -479,7 +480,7 @@ var ITAF = {
 		}
 		
 		# Reset system once flight complete
-		if (!Output.ap1.getBoolValue() and !Output.ap2.getBoolValue() and Gear.wow0.getBoolValue() and Velocities.groundspeedKt.getValue() < 60 and Text.vert.getValue() != "T/O CLB") {
+		if (!Output.ap1.getBoolValue() and !Output.ap2.getBoolValue() and Gear.wow0.getBoolValue() and Velocities.groundspeedKt.getValue() < 60 and Output.vert.getValue() != 7) { # Not in T/O or G/A
 			me.init();
 		}
 	},
@@ -757,7 +758,7 @@ var ITAF = {
 		}
 	},
 	checkLOC: func(t, a) {
-		Radio.radioSel = Setting.useNAV2Radio.getBoolValue();
+		Radio.radioSel = Input.useNav2Radio.getBoolValue();
 		if (Radio.inRange[Radio.radioSel].getBoolValue()) { #  # Only evaulate the rest of the condition unless we are in range
 			Radio.locDeflTemp = Radio.locDefl[Radio.radioSel].getValue();
 			Radio.signalQualityTemp = Radio.signalQuality[Radio.radioSel].getValue();
@@ -777,7 +778,7 @@ var ITAF = {
 		}
 	},
 	checkAPPR: func(t) {
-		Radio.radioSel = Setting.useNAV2Radio.getBoolValue();
+		Radio.radioSel = Input.useNav2Radio.getBoolValue();
 		if (Radio.inRange[Radio.radioSel].getBoolValue()) { #  # Only evaulate the rest of the condition unless we are in range
 			Radio.gsDeflTemp = Radio.gsDefl[Radio.radioSel].getValue();
 			if (abs(Radio.gsDeflTemp) <= 0.2 and Radio.gsDeflTemp != 0 and Output.lat.getValue()  == 2) { # Only capture if LOC is active
@@ -793,7 +794,7 @@ var ITAF = {
 		}
 	},
 	checkRadioRevision: func(l, v) { # Revert mode if signal lost
-		Radio.radioSel = Setting.useNAV2Radio.getBoolValue();
+		Radio.radioSel = Input.useNav2Radio.getBoolValue();
 		Radio.inRangeTemp = Radio.inRange[Radio.radioSel].getBoolValue();
 		if (!Radio.inRangeTemp) {
 			if (l == 4 or v == 6) {
@@ -823,16 +824,15 @@ var ITAF = {
 	takeoffGoAround: func() {
 		Output.vertTemp = Output.vert.getValue();
 		if ((Output.vertTemp == 2 or Output.vertTemp == 6) and Velocities.indicatedAirspeedKt.getValue() >= 80) {
+			me.setLatMode(3);
+			me.setVertMode(7); # Must be before kicking AP off
+			Text.vert.setValue("G/A CLB");
+			Input.ktsMach.setBoolValue(0);
+			me.syncIASGA();
 			if (Gear.wow1.getBoolValue() or Gear.wow2.getBoolValue()) {
 				me.ap1Master(0);
 				me.ap2Master(0);
 			}
-			me.setLatMode(3);
-			me.setVertMode(7);
-			Text.vert.setValue("G/A CLB");
-			systems.TRI.Limit.activeModeInt.setValue(1);
-			Input.ktsMach.setBoolValue(0);
-			me.syncIAS();
 		} else if (Gear.wow1Temp or Gear.wow2Temp) {
 			me.athrMaster(1);
 			if (Output.lat.getValue() != 5) { # Don't accidently disarm LNAV
@@ -840,7 +840,6 @@ var ITAF = {
 			}
 			me.setVertMode(7);
 			Text.vert.setValue("T/O CLB");
-			systems.TRI.Limit.activeModeInt.setValue(0);
 		}
 	},
 	armTextCheck: func() {
@@ -856,6 +855,9 @@ var ITAF = {
 	},
 	syncIAS: func() {
 		Input.ias.setValue(math.clamp(math.round(Velocities.indicatedAirspeedKt.getValue()), 100, 350));
+	},
+	syncIASGA: func() { # Same as syncIAS, except doesn't go below TogaSpd
+		Input.ias.setValue(math.clamp(math.round(Velocities.indicatedAirspeedKt.getValue()), Setting.togaSpd.getValue(), 350));
 	},
 	syncMach: func() {
 		Input.mach.setValue(math.clamp(math.round(Velocities.indicatedMach.getValue(), 0.001), 0.5, 0.9));

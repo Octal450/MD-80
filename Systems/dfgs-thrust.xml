@@ -5,13 +5,29 @@
 <PropertyList>
 	
 	<filter>
-		<name>KTS INPUT FILTER</name>
+		<name>A/THR Knots Input Filter</name>
 		<debug>false</debug>
 		<type>noise-spike</type>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
 		<input>/it-autoflight/input/spd-kts</input>
-		<output>/it-autoflight/internal/kts</output>
+		<output>/it-autoflight/internal/athr-kts</output>
+		<min>
+			<expression>
+				<difference>
+					<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+					<value>25</value>
+				</difference>
+			</expression>
+		</min>
+		<max>
+			<expression>
+				<sum>
+					<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+					<value>25</value>
+				</sum>
+			</expression>
+		</max>
 		<max-rate-of-change>
 			<condition>
 				<and>
@@ -47,13 +63,29 @@
 	</filter>
 	
 	<filter>
-		<name>MACH INPUT FILTER</name>
+		<name>A/THR Mach Input Filter</name>
 		<debug>false</debug>
 		<type>noise-spike</type>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
 		<input>/it-autoflight/input/spd-mach</input>
-		<output>/it-autoflight/internal/mach</output>
+		<output>/it-autoflight/internal/athr-mach</output>
+		<min>
+			<expression>
+				<difference>
+					<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+					<value>0.045</value>
+				</difference>
+			</expression>
+		</min>
+		<max>
+			<expression>
+				<sum>
+					<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+					<value>0.045</value>
+				</sum>
+			</expression>
+		</max>
 		<max-rate-of-change>
 			<condition>
 				<and>
@@ -83,13 +115,13 @@
 					</equals>
 				</and>
 			</condition>
-			<value>0.1</value>
+			<value>0.08</value>
 		</max-rate-of-change>
 		<max-rate-of-change>2</max-rate-of-change>
 	</filter>
 	
 	<pid-controller>
-		<name>IT-CONTROLLER: IAS THRUST</name>
+		<name>IT-CONTROLLER: Knots</name>
 		<debug>false</debug>
 		<enable>
 			<condition>
@@ -114,7 +146,7 @@
 			</condition>
 		</enable>
 		<input>/instrumentation/airspeed-indicator/indicated-speed-kt</input>
-		<reference>/it-autoflight/internal/kts</reference>
+		<reference>/it-autoflight/internal/athr-kts</reference>
 		<output>/fdm/jsbsim/engine/ats-cmd-raw-pid</output>
 		<config>
 			<Kp>0.055</Kp>
@@ -126,7 +158,7 @@
 	</pid-controller>
 	
 	<pid-controller>
-		<name>IT-CONTROLLER: MACH THRUST</name>
+		<name>IT-CONTROLLER: Mach</name>
 		<debug>false</debug>
 		<enable>
 			<condition>
@@ -152,11 +184,11 @@
 		</enable>
 		<input>
 			<property>/instrumentation/airspeed-indicator/indicated-mach</property>
-			<scale>1000.0</scale>
+			<scale>1000</scale>
 		</input>
 		<reference>
-			<property>/it-autoflight/internal/mach</property>
-			<scale>1000.0</scale>
+			<property>/it-autoflight/internal/athr-mach</property>
+			<scale>1000</scale>
 		</reference>
 		<output>/fdm/jsbsim/engine/ats-cmd-raw-pid</output>
 		<config>
@@ -198,7 +230,7 @@
 	</filter>
 	
 	<filter>
-		<name>IDLE</name>
+		<name>IT-CONTROLLER: Idle Limit</name>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -234,7 +266,7 @@
 	</filter>
 	
 	<filter>
-		<name>THR LIM</name>
+		<name>IT-CONTROLLER: Thrust Limit</name>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -284,7 +316,7 @@
 	</filter>
 	
 	<pid-controller>
-		<name>IT-CONTROLLER: ATS Control</name> <!-- Simulates EPR "hunting" -->
+		<name>System Command: Throttle</name> <!-- Simulates EPR "hunting" -->
 		<debug>false</debug>
 		<enable>
 			<condition>
@@ -333,7 +365,7 @@
 	</pid-controller>
 	
 	<filter>
-		<name>Throttle Comparator</name>
+		<name>System Command: Throttle Comparator</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
@@ -348,7 +380,7 @@
 	</filter>
 	
 	<filter>
-		<name>Thrust CMD Backdrive</name>
+		<name>System Command: Throttle Inactive Sync</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<enable>
@@ -372,7 +404,7 @@
 	
 	<!-- Engine 1 -->
 	<filter>
-		<name>Thrust Filter 1</name>
+		<name>System Command: Throttle 1 Filter</name>
 		<debug>false</debug>
 		<type>noise-spike</type>
 		<initialize-to>output</initialize-to>
@@ -412,7 +444,7 @@
 	</filter>
 	
 	<filter>
-		<name>Throttle Backdrive 1</name>
+		<name>System Command: Throttle Backdrive 1</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<enable>
@@ -435,7 +467,7 @@
 	
 	<!-- Engine 2 -->
 	<filter>
-		<name>Thrust Filter 2</name>
+		<name>System Command: Throttle 2 Filter</name>
 		<debug>false</debug>
 		<type>noise-spike</type>
 		<initialize-to>output</initialize-to>
@@ -475,7 +507,7 @@
 	</filter>
 	
 	<filter>
-		<name>Throttle Backdrive 2</name>
+		<name>System Command: Throttle Backdrive 2</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<enable>

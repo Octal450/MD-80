@@ -651,7 +651,7 @@
 			</checkbox>
 			<checkbox>
 				<label>Use NAV2 Radio</label>
-				<property>/it-autoflight/settings/use-nav2-radio</property>
+				<property>/it-autoflight/input/use-nav2-radio</property>
 				<enable>
 					<not-equals>
 						<property>/it-autoflight/output/vert</property>
