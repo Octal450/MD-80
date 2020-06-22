@@ -504,7 +504,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<toradians><property>fcs-actual/aileron-l/surface-final-deg</property></toradians>
-				<value>0.0225</value>
+				<value>0.023</value>
 			</product>
 		</function>
 		
@@ -515,7 +515,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<toradians><property>fcs-actual/aileron-r/surface-final-deg</property></toradians>
-				<value>-0.0225</value>
+				<value>-0.023</value>
 			</product>
 		</function>
 		

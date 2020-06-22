@@ -123,7 +123,7 @@
 			<function>
 				<quotient>
 					<table>
-						<independentVar lookup="row">/controls/flight/aileron</independentVar>
+						<independentVar lookup="row">fcs-actual/aileron/yoke-switch</independentVar>
 						<tableData>
 							-1.0000000 -35
 							-0.0555555   0
