@@ -467,13 +467,13 @@
 		
 		<switch name="engine/reverse-1/throttle-rev">
 			<default value="0"/>
-			<test value="0.69">
+			<test value="0.72">
 				/controls/engines/engine[0]/reverse-lever eq 1
 			</test>
-			<test value="0.46">
+			<test value="0.48">
 				/controls/engines/engine[0]/reverse-lever eq 0.75
 			</test>
-			<test value="0.23">
+			<test value="0.24">
 				/controls/engines/engine[0]/reverse-lever eq 0.5
 			</test>
 		</switch>
@@ -508,13 +508,13 @@
 		
 		<switch name="engine/reverse-2/throttle-rev">
 			<default value="0"/>
-			<test value="0.69">
+			<test value="0.72">
 				/controls/engines/engine[1]/reverse-lever eq 1
 			</test>
-			<test value="0.46">
+			<test value="0.48">
 				/controls/engines/engine[1]/reverse-lever eq 0.75
 			</test>
-			<test value="0.23">
+			<test value="0.24">
 				/controls/engines/engine[1]/reverse-lever eq 0.5
 			</test>
 		</switch>
