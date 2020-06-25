@@ -1,35 +1,51 @@
 <?xml version="1.0"?>
 
+<!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
 <PropertyList>
-
-<path>n2.ac</path>
-
-<animation>
-  <type>material</type>
-  <object-name>Face</object-name>
-  <object-name>Needle</object-name>
-<emission>
-    <red>0.3</red>
-    <green>0.3</green>
-    <blue>0.3</blue>
-
-  </emission>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>Needle</object-name>
-  <property>engines/engine[0]/n2-actual</property>
-  <interpolation>
-    <entry><ind>  0</ind><dep>  0</dep></entry>
-    <entry><ind>106</ind><dep>318</dep></entry>
-  </interpolation>
-  <axis>
-    <x>-1</x>
-    <y>0</y>
-    <z>0</z>
-  </axis>
-</animation>
+	
+	<path>n2.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>Needle</object-name>
+		<object-name>Needle2</object-name>
+		<emission>
+			<red>0.3</red>
+			<green>0.3</green>
+			<blue>0.3</blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle</object-name>
+		<property>engines/engine[0]/n2-actual</property>
+		<factor>2.7</factor> <!-- 270 degrees for 100%, so 2.7 for 1 -->
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle2</object-name>
+		<property>engines/engine[0]/n2-actual</property>
+		<factor>36</factor> <!-- 360 degrees for 10%, so 3.6 for 1 -->
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.0098</y-m>
+			<z-m>0.01214</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
 </PropertyList>
-
