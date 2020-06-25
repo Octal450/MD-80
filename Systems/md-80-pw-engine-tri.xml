@@ -93,14 +93,14 @@
 								<property>engine/limit/rated-thrust-n1</property>
 								<value>25.3</value>
 							</difference>
-							<value>79.9</value>
+							<value>76.3</value>
 						</quotient>
 						<quotient>
 							<difference>
 								<property>engine/limit/rated-thrust-n1</property>
 								<value>25.3</value>
 							</difference>
-							<value>79.9</value>
+							<value>76.3</value>
 						</quotient>
 					</product>
 				</sum>
@@ -150,7 +150,7 @@
 							<tableData>
 								   24743.1  0.00
 								   81455.7  0.03
-								11941395.7  1.00
+								10571289.8  1.00
 							</tableData>
 						</table>
 						<property>engine/epr/c1</property>
@@ -211,7 +211,7 @@
 							<tableData>
 								   24743.1  0.00
 								   81455.7  0.03
-								11941395.7  1.00
+								10571289.8  1.00
 							</tableData>
 						</table>
 						<property>engine/epr/c1</property>
@@ -265,7 +265,7 @@
 							<tableData>
 								   24743.1  0.00
 								   81455.7  0.03
-								11941395.7  1.00
+								10571289.8  1.00
 							</tableData>
 						</table>
 						<property>engine/epr/c1</property>
@@ -319,7 +319,7 @@
 							<tableData>
 								   24743.1  0.00
 								   81455.7  0.03
-								11941395.7  1.00
+								10571289.8  1.00
 							</tableData>
 						</table>
 						<property>engine/epr/c1</property>
@@ -373,7 +373,7 @@
 							<tableData>
 								   24743.1  0.00
 								   81455.7  0.03
-								11941395.7  1.00
+								10571289.8  1.00
 							</tableData>
 						</table>
 						<property>engine/epr/c1</property>
@@ -546,7 +546,7 @@
 						<tableData>
 							0.00     24743.1
 							0.03     81455.7
-							1.00  11941395.7
+							1.00  10571289.8
 						</tableData>
 					</table>
 					<quotient>
@@ -655,7 +655,7 @@
 							<tableData>
 								   24743.1  0.00
 								   81455.7  0.03
-								11941395.7  1.00
+								10571289.8  1.00
 							</tableData>
 						</table>
 						<property>engine/epr/c1</property>
@@ -684,7 +684,7 @@
 							<tableData>
 								   24743.1  0.00
 								   81455.7  0.03
-								11941395.7  1.00
+								10571289.8  1.00
 							</tableData>
 						</table>
 						<property>engine/epr/c1</property>

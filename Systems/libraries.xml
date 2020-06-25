@@ -13,8 +13,8 @@
 			<expression>
 				<table>
 					<property>/position/altitude-ft</property>
-					<entry><ind>    0</ind><dep>1.49</dep></entry>
-					<entry><ind>43000</ind><dep>1.75</dep></entry>
+					<entry><ind>    0</ind><dep>1.27</dep></entry>
+					<entry><ind>43000</ind><dep>1.59</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -30,7 +30,7 @@
 				<difference>
 					<table>
 						<property>/position/altitude-ft</property>
-						<entry><ind>    0</ind><dep>0.986</dep></entry>
+						<entry><ind>    0</ind><dep>0.994</dep></entry>
 						<entry><ind>43000</ind><dep>0.844</dep></entry>
 					</table>
 					<table>
