@@ -159,21 +159,6 @@
 		<max-rate-of-change>1.5</max-rate-of-change>
 	</filter>
 	
-	<filter>
-		<name>VS Abs</name>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<update-interval-secs type="double">0.02</update-interval-secs>
-		<input>
-			<expression>
-				<abs>
-					<property>/it-autoflight/input/vs</property>
-				</abs>
-			</expression>
-		</input>
-		<output>/it-autoflight/input/vs-abs</output>
-	</filter>
-	
 	<!-- GPWS Controller -->
 	<logic>
 		<!-- Smewhat confusing : this input is not 'are the flaps in landing configration', but rather,

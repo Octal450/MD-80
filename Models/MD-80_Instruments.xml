@@ -69,7 +69,7 @@
 
 <model>
   <name>FMA_L</name>
-  <path>Aircraft/MD-80/Models/Instruments/FMA/FMA.xml</path>
+  <path>Aircraft/MD-80/Models/Instruments/FMA/fma.xml</path>
   <offsets>
     <x-m>2.210</x-m>
     <y-m>-0.330</y-m>
@@ -483,7 +483,7 @@
 <!-- Copilot Panel -->
 <model>
   <name>FMA_R</name>
-  <path>Aircraft/MD-80/Models/Instruments/FMA/FMA2.xml</path>
+  <path>Aircraft/MD-80/Models/Instruments/FMA/fma.xml</path>
   <offsets>
     <x-m>2.210</x-m>
     <y-m>0.330</y-m>

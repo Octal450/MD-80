@@ -1,70 +1,70 @@
 <?xml version="1.0"?>
+
+<!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
 <PropertyList>
-
-<path>fgcp.ac</path>
-
-<animation>
-  <type>material</type>
-  <object-name>FGCP</object-name>
-  <emission>
-    <red>0.8</red>
-    <green>0.4</green>
-    <blue>0.2</blue>
-    <factor-prop>controls/lighting/panel-norm</factor-prop>
-  </emission>
-</animation>
-<animation>
-  <type>material</type>
-  <object-name>ATDigit1</object-name>
-  <object-name>ATDigit2</object-name>
-  <object-name>ATDigit3</object-name>
-  <object-name>HdgDigit1</object-name>
-  <object-name>HdgDigit2</object-name>
-  <object-name>HdgDigit3</object-name>
-  <object-name>AltDigit1</object-name>
-  <object-name>AltDigit2</object-name>
-  <object-name>AltDigit3</object-name>
-  <object-name>AltDigit4</object-name>
-  <object-name>AltDigit5</object-name>
-  <object-name>MachDigit1</object-name>
-  <object-name>MachDigit2</object-name>
-  <object-name>MachDigit3</object-name>
-  <object-name>Nav1Digit1</object-name>
-  <object-name>Nav1Digit2</object-name>
-  <object-name>Nav1Digit3</object-name>
-  <object-name>Nav1Digit4</object-name>
-  <object-name>Nav1Digit5</object-name>
-  <object-name>Decimal1</object-name>
-  <object-name>Nav2Digit1</object-name>
-  <object-name>Nav2Digit2</object-name>
-  <object-name>Nav2Digit3</object-name>
-  <object-name>Nav2Digit4</object-name>
-  <object-name>Nav2Digit5</object-name>
-  <object-name>Decimal2</object-name>
-  <object-name>Nav1CrsDigit1</object-name>
-  <object-name>Nav1CrsDigit2</object-name>
-  <object-name>Nav1CrsDigit3</object-name>
-  <object-name>Nav2CrsDigit1</object-name>
-  <object-name>Nav2CrsDigit2</object-name>
-  <object-name>Nav2CrsDigit3</object-name>
-	<object-name>VS.led1</object-name>
-	<object-name>VS.led2</object-name>
-	<object-name>VS.led3</object-name>
-	<object-name>VS.led4</object-name>
-	<object-name>VS.led1.001</object-name>
-	<object-name>VS.led2.001</object-name>
-	<object-name>VS.led3.001</object-name>
-	<object-name>VS.led4.001</object-name>
-  <object-name>Pitchwheel.dec</object-name>
-  <object-name>Pitchwheel.inc</object-name>
 	
-  <emission>
-    <red>0.8</red>
-    <green>0.4</green>
-    <blue>0.2</blue>
-    <factor-prop>controls/lighting/digital-norm</factor-prop>
-  </emission>
-</animation>
+	<path>fgcp.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>FGCP</object-name>
+		<emission>
+			<red>0.8</red>
+			<green>0.4</green>
+			<blue>0.2</blue>
+			<factor-prop>controls/lighting/panel-norm</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>ATDigit1</object-name>
+		<object-name>ATDigit2</object-name>
+		<object-name>ATDigit3</object-name>
+		<object-name>HdgDigit1</object-name>
+		<object-name>HdgDigit2</object-name>
+		<object-name>HdgDigit3</object-name>
+		<object-name>AltDigit1</object-name>
+		<object-name>AltDigit2</object-name>
+		<object-name>AltDigit3</object-name>
+		<object-name>AltDigit4</object-name>
+		<object-name>AltDigit5</object-name>
+		<object-name>MachDigit1</object-name>
+		<object-name>MachDigit2</object-name>
+		<object-name>MachDigit3</object-name>
+		<object-name>Nav1Digit1</object-name>
+		<object-name>Nav1Digit2</object-name>
+		<object-name>Nav1Digit3</object-name>
+		<object-name>Nav1Digit4</object-name>
+		<object-name>Nav1Digit5</object-name>
+		<object-name>Decimal1</object-name>
+		<object-name>Nav2Digit1</object-name>
+		<object-name>Nav2Digit2</object-name>
+		<object-name>Nav2Digit3</object-name>
+		<object-name>Nav2Digit4</object-name>
+		<object-name>Nav2Digit5</object-name>
+		<object-name>Decimal2</object-name>
+		<object-name>Nav1CrsDigit1</object-name>
+		<object-name>Nav1CrsDigit2</object-name>
+		<object-name>Nav1CrsDigit3</object-name>
+		<object-name>Nav2CrsDigit1</object-name>
+		<object-name>Nav2CrsDigit2</object-name>
+		<object-name>Nav2CrsDigit3</object-name>
+		<object-name>VS.led1</object-name>
+		<object-name>VS.led2</object-name>
+		<object-name>VS.led3</object-name>
+		<object-name>VS.led4</object-name>
+		<object-name>Pitchwheel.dec</object-name>
+		<object-name>Pitchwheel.inc</object-name>
+		<emission>
+			<red>0.8</red>
+			<green>0.4</green>
+			<blue>0.2</blue>
+			<factor-prop>controls/lighting/digital-norm</factor-prop>
+		</emission>
+	</animation>
 	
 <animation>
   <type>select</type>
@@ -73,10 +73,10 @@
   <object-name>ATDigit3</object-name>
   <object-name>ATKnob</object-name>
   <condition>
-    <equals>
-      <property>it-autoflight/input/kts-mach</property>
-      <value>0</value>
-    </equals>
+	<equals>
+	  <property>it-autoflight/input/kts-mach</property>
+	  <value>0</value>
+	</equals>
   </condition>
 </animation>
 <animation>
@@ -86,10 +86,10 @@
   <object-name>MachDigit3</object-name>
   <object-name>ATKnobMach</object-name>
   <condition>
-    <equals>
-      <property>it-autoflight/input/kts-mach</property>
-      <value>1</value>
-    </equals>
+	<equals>
+	  <property>it-autoflight/input/kts-mach</property>
+	  <value>1</value>
+	</equals>
   </condition>
 </animation>
 
@@ -102,9 +102,9 @@
   <factor>0.001</factor>
   <step>100</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
@@ -114,9 +114,9 @@
   <factor>0.01</factor>
   <step>10</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
@@ -126,9 +126,9 @@
   <factor>0.1</factor>
   <step>1</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 
@@ -141,9 +141,9 @@
   <factor>0.001</factor>
   <step>100</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 
@@ -154,9 +154,9 @@
   <factor>0.01</factor>
   <step>10</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 
@@ -167,9 +167,9 @@
   <factor>0.1</factor>
   <step>1</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 
@@ -179,15 +179,15 @@
   <type>select</type>
   <object-name>ATSwitchOn</object-name>
   <condition>
-    <property>it-autoflight/input/athr</property>
+	<property>it-autoflight/input/athr</property>
   </condition>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>ATSwitchOn</object-name>
   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
+	<button>0</button>
+	<repeatable>false</repeatable>
 			<binding>
 			<command>property-assign</command>
 			<property>it-autoflight/input/athr</property>
@@ -200,15 +200,15 @@
   <type>select</type>
   <object-name>ATSwitchOff</object-name>
   <condition>
-    <not><property>it-autoflight/input/athr</property></not>
+	<not><property>it-autoflight/input/athr</property></not>
   </condition>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>ATSwitchOff</object-name>
   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
+	<button>0</button>
+	<repeatable>false</repeatable>
 			<binding>
 			<command>property-assign</command>
 			<property>it-autoflight/input/athr</property>
@@ -224,8 +224,8 @@
   <object-name>APSwitchOn</object-name>
   <condition>
 	<or>
-      <property>it-autoflight/input/ap1</property>
-      <property>it-autoflight/input/ap2</property>
+	  <property>it-autoflight/input/ap1</property>
+	  <property>it-autoflight/input/ap2</property>
 	</or>
   </condition>
 </animation>
@@ -233,18 +233,18 @@
   <type>pick</type>
   <object-name>APSwitchOn</object-name>
   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
+	<button>0</button>
+	<repeatable>false</repeatable>
+	<binding>
 	<command>property-assign</command>
-        <property>it-autoflight/input/ap1</property>
+		<property>it-autoflight/input/ap1</property>
 	<value>0</value>
-    </binding>
-    <binding>
+	</binding>
+	<binding>
 	<command>property-assign</command>
-        <property>it-autoflight/input/ap2</property>
+		<property>it-autoflight/input/ap2</property>
 	<value>0</value>
-    </binding>
+	</binding>
   </action>
 </animation>
 
@@ -253,8 +253,8 @@
   <object-name>APSwitchOff</object-name>
   <condition>
 	<and>
-      <not><property>it-autoflight/input/ap1</property></not>
-      <not><property>it-autoflight/input/ap2</property></not>
+	  <not><property>it-autoflight/input/ap1</property></not>
+	  <not><property>it-autoflight/input/ap2</property></not>
 	</and>
   </condition>
 </animation>
@@ -262,13 +262,13 @@
   <type>pick</type>
   <object-name>APSwitchOff</object-name>
   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
+	<button>0</button>
+	<repeatable>false</repeatable>
+	<binding>
 	<command>property-assign</command>
-        <property>it-autoflight/input/ap1</property>
+		<property>it-autoflight/input/ap1</property>
 	<value>1</value>
-    </binding>
+	</binding>
   </action>
 </animation>
 
@@ -278,15 +278,15 @@
   <type>select</type>
   <object-name>FDSwitchOn</object-name>
   <condition>
-    <property>it-autoflight/input/fd1</property>
+	<property>it-autoflight/input/fd1</property>
   </condition>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>FDSwitchOn</object-name>
   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
+	<button>0</button>
+	<repeatable>false</repeatable>
 			<binding>
 			<command>property-assign</command>
 			<property>it-autoflight/input/fd1</property>
@@ -299,15 +299,15 @@
   <type>select</type>
   <object-name>FDSwitchOff</object-name>
   <condition>
-    <not><property>it-autoflight/input/fd1</property></not>
+	<not><property>it-autoflight/input/fd1</property></not>
   </condition>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>FDSwitchOff</object-name>
   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
+	<button>0</button>
+	<repeatable>false</repeatable>
 			<binding>
 			<command>property-assign</command>
 			<property>it-autoflight/input/fd1</property>
@@ -320,15 +320,15 @@
   <type>select</type>
   <object-name>FDSwitch2On</object-name>
   <condition>
-    <property>it-autoflight/input/fd2</property>
+	<property>it-autoflight/input/fd2</property>
   </condition>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>FDSwitch2On</object-name>
   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
+	<button>0</button>
+	<repeatable>false</repeatable>
 			<binding>
 			<command>property-assign</command>
 			<property>it-autoflight/input/fd2</property>
@@ -341,15 +341,15 @@
   <type>select</type>
   <object-name>FDSwitch2Off</object-name>
   <condition>
-    <not><property>it-autoflight/input/fd2</property></not>
+	<not><property>it-autoflight/input/fd2</property></not>
   </condition>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>FDSwitch2Off</object-name>
   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
+	<button>0</button>
+	<repeatable>false</repeatable>
 			<binding>
 			<command>property-assign</command>
 			<property>it-autoflight/input/fd2</property>
@@ -365,16 +365,16 @@
   <object-name>ATKnob</object-name>
   <property>it-autoflight/input/spd-kts</property>
   <interpolation>
-    <entry><ind>  0</ind><dep>  0</dep></entry>
-    <entry><ind>300</ind><dep>720</dep></entry>
+	<entry><ind>  0</ind><dep>  0</dep></entry>
+	<entry><ind>300</ind><dep>720</dep></entry>
   </interpolation>
   <axis>
-    <x1-m>2.498584</x1-m>
-    <y1-m>-0.107</y1-m>
-    <z1-m>1.157239</z1-m>
-    <x2-m>2.488774</x2-m>
-    <y2-m>-0.107</y2-m>
-    <z2-m>1.155154</z2-m>
+	<x1-m>2.498584</x1-m>
+	<y1-m>-0.107</y1-m>
+	<z1-m>1.157239</z1-m>
+	<x2-m>2.488774</x2-m>
+	<y2-m>-0.107</y2-m>
+	<z2-m>1.155154</z2-m>
   </axis>
 </animation>
 
@@ -382,32 +382,32 @@
   <type>pick</type>
   <object-name>ATKnob</object-name>
   <action>
-    <button>3</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>it-autoflight/input/spd-kts</property>
-      <step>1</step>
-      <min>0</min>
-      <max>330</max>
-      <wrap>false</wrap>
-    </binding>
+	<button>3</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>it-autoflight/input/spd-kts</property>
+	  <step>1</step>
+	  <min>0</min>
+	  <max>330</max>
+	  <wrap>false</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>ATKnob</object-name>
   <action>
-    <button>4</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>it-autoflight/input/spd-kts</property>
-      <step>-1</step>
-      <min>0</min>
-      <max>330</max>
-      <wrap>false</wrap>
-    </binding>
+	<button>4</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>it-autoflight/input/spd-kts</property>
+	  <step>-1</step>
+	  <min>0</min>
+	  <max>330</max>
+	  <wrap>false</wrap>
+	</binding>
   </action>
 </animation>
 
@@ -415,32 +415,32 @@
   <type>pick</type>
   <object-name>ATKnob</object-name>
   <action>
-    <button>0</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>it-autoflight/input/spd-kts</property>
-      <step>10</step>
-      <min>0</min>
-      <max>320</max>
-      <wrap>false</wrap>
-    </binding>
+	<button>0</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>it-autoflight/input/spd-kts</property>
+	  <step>10</step>
+	  <min>0</min>
+	  <max>320</max>
+	  <wrap>false</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>ATKnob</object-name>
   <action>
-    <button>1</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>it-autoflight/input/spd-kts</property>
-      <step>-10</step>
-      <min>0</min>
-      <max>320</max>
-      <wrap>false</wrap>
-    </binding>
+	<button>1</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>it-autoflight/input/spd-kts</property>
+	  <step>-10</step>
+	  <min>0</min>
+	  <max>320</max>
+	  <wrap>false</wrap>
+	</binding>
   </action>
 </animation>
 
@@ -451,76 +451,76 @@
   <object-name>ATKnobMach</object-name>
   <property>it-autoflight/input/spd-mach</property>
   <interpolation>
-    <entry><ind>   0</ind><dep>  0</dep></entry>
-    <entry><ind>0.82</ind><dep>720</dep></entry>
+	<entry><ind>   0</ind><dep>  0</dep></entry>
+	<entry><ind>0.82</ind><dep>720</dep></entry>
   </interpolation>
   <axis>
-    <x1-m>2.498584</x1-m>
-    <y1-m>-0.107</y1-m>
-    <z1-m>1.157239</z1-m>
-    <x2-m>2.488774</x2-m>
-    <y2-m>-0.107</y2-m>
-    <z2-m>1.155154</z2-m>
+	<x1-m>2.498584</x1-m>
+	<y1-m>-0.107</y1-m>
+	<z1-m>1.157239</z1-m>
+	<x2-m>2.488774</x2-m>
+	<y2-m>-0.107</y2-m>
+	<z2-m>1.155154</z2-m>
   </axis>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>ATKnobMach</object-name>
   <action>
-    <button>0</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>it-autoflight/input/spd-mach</property>
-      <step>0.01</step>
-      <min>0.60</min>
-      <max>0.92</max>
-      <wrap>false</wrap>
-    </binding>
+	<button>0</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>it-autoflight/input/spd-mach</property>
+	  <step>0.01</step>
+	  <min>0.60</min>
+	  <max>0.92</max>
+	  <wrap>false</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>ATKnobMach</object-name>
   <action>
-    <button>1</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>it-autoflight/input/spd-mach</property>
-      <step>-0.01</step>
-      <min>0.60</min>
-      <max>0.92</max>
-      <wrap>false</wrap>
-    </binding>
+	<button>1</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>it-autoflight/input/spd-mach</property>
+	  <step>-0.01</step>
+	  <min>0.60</min>
+	  <max>0.92</max>
+	  <wrap>false</wrap>
+	</binding>
   </action>
   <action>
-    <button>3</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>it-autoflight/input/spd-mach</property>
-      <step>0.001</step>
-      <min>0.60</min>
-      <max>0.92</max>
-      <wrap>false</wrap>
-    </binding>
+	<button>3</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>it-autoflight/input/spd-mach</property>
+	  <step>0.001</step>
+	  <min>0.60</min>
+	  <max>0.92</max>
+	  <wrap>false</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>ATKnobMach</object-name>
   <action>
-    <button>4</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>it-autoflight/input/spd-mach</property>
-      <step>-0.001</step>
-      <min>0.60</min>
-      <max>0.92</max>
-      <wrap>false</wrap>
-    </binding>
+	<button>4</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>it-autoflight/input/spd-mach</property>
+	  <step>-0.001</step>
+	  <min>0.60</min>
+	  <max>0.92</max>
+	  <wrap>false</wrap>
+	</binding>
   </action>
 </animation>
 
@@ -531,30 +531,30 @@
   <object-name>SwACLts</object-name>
   <property>controls/lighting/beacon</property>
   <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>50</dep></entry>
+	<entry><ind>0</ind><dep> 0</dep></entry>
+	<entry><ind>1</ind><dep>50</dep></entry>
   </interpolation>   
   <center>
-    <x-m>2.483</x-m>
-    <y-m>0</y-m>
-    <z-m>1.170</z-m>
+	<x-m>2.483</x-m>
+	<y-m>0</y-m>
+	<z-m>1.170</z-m>
   </center>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>SwACLts</object-name>
   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-toggle</command>
-      <property>controls/lighting/beacon</property>
-    </binding>
+	<button>0</button>
+	<repeatable>false</repeatable>
+	<binding>
+	  <command>property-toggle</command>
+	  <property>controls/lighting/beacon</property>
+	</binding>
   </action>
 </animation>
 
@@ -563,34 +563,34 @@
   <object-name>SwNavLts</object-name>
   <property>controls/lighting/pos-strobe</property>
   <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>0.5</ind><dep>25</dep></entry>
-    <entry><ind>1</ind><dep>50</dep></entry>
+	<entry><ind>0</ind><dep> 0</dep></entry>
+	<entry><ind>0.5</ind><dep>25</dep></entry>
+	<entry><ind>1</ind><dep>50</dep></entry>
   </interpolation>   
   <center>
-    <x-m>2.483</x-m>
-    <y-m>0</y-m>
-    <z-m>1.170</z-m>
+	<x-m>2.483</x-m>
+	<y-m>0</y-m>
+	<z-m>1.170</z-m>
   </center>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation> 
 <animation>
   <type>pick</type>
   <object-name>SwNavLts</object-name>
   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-cycle</command>
-      <property>controls/lighting/pos-strobe</property>
+	<button>0</button>
+	<repeatable>false</repeatable>
+	<binding>
+	  <command>property-cycle</command>
+	  <property>controls/lighting/pos-strobe</property>
 	  <value>0</value>
 	  <value>0.5</value>
 	  <value>1</value>
-    </binding>
+	</binding>
   </action>
 </animation>
 
@@ -599,30 +599,30 @@
   <object-name>SwFloodLtsL</object-name>
   <property>controls/lighting/floodL</property>
   <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>50</dep></entry>
+	<entry><ind>0</ind><dep> 0</dep></entry>
+	<entry><ind>1</ind><dep>50</dep></entry>
   </interpolation>   
   <center>
-    <x-m>2.48049</x-m>
-    <y-m>0.294822</y-m>
-    <z-m>1.18135</z-m>
+	<x-m>2.48049</x-m>
+	<y-m>0.294822</y-m>
+	<z-m>1.18135</z-m>
   </center>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation> 
 <animation>
   <type>pick</type>
   <object-name>SwFloodLtsL</object-name>
   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-toggle</command>
-      <property>controls/lighting/floodL</property>
-    </binding>
+	<button>0</button>
+	<repeatable>false</repeatable>
+	<binding>
+	  <command>property-toggle</command>
+	  <property>controls/lighting/floodL</property>
+	</binding>
   </action>
 </animation>
 
@@ -631,30 +631,30 @@
   <object-name>SwFloodLtsR</object-name>
   <property>controls/lighting/floodR</property>
   <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>50</dep></entry>
+	<entry><ind>0</ind><dep> 0</dep></entry>
+	<entry><ind>1</ind><dep>50</dep></entry>
   </interpolation>   
   <center>
-    <x-m>2.48049</x-m>
-    <y-m>0.3266</y-m>
-    <z-m>1.18135</z-m>
+	<x-m>2.48049</x-m>
+	<y-m>0.3266</y-m>
+	<z-m>1.18135</z-m>
   </center>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation> 
 <animation>
   <type>pick</type>
   <object-name>SwFloodLtsR</object-name>
   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-toggle</command>
-      <property>controls/lighting/floodR</property>
-    </binding>
+	<button>0</button>
+	<repeatable>false</repeatable>
+	<binding>
+	  <command>property-toggle</command>
+	  <property>controls/lighting/floodR</property>
+	</binding>
   </action>
 </animation>
 
@@ -663,34 +663,34 @@
   <object-name>SwWingLts</object-name>
   <property>controls/lighting/floodNacl</property>
   <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>0.5</ind><dep>25</dep></entry>
-    <entry><ind>1</ind><dep>50</dep></entry>
+	<entry><ind>0</ind><dep> 0</dep></entry>
+	<entry><ind>0.5</ind><dep>25</dep></entry>
+	<entry><ind>1</ind><dep>50</dep></entry>
   </interpolation>   
   <center>
-    <x-m>2.48642</x-m>
-    <y-m>0.298422</y-m>
-    <z-m>1.15342</z-m>
+	<x-m>2.48642</x-m>
+	<y-m>0.298422</y-m>
+	<z-m>1.15342</z-m>
   </center>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>SwWingLts</object-name>
   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-cycle</command>
-      <property>controls/lighting/floodNacl</property>
+	<button>0</button>
+	<repeatable>false</repeatable>
+	<binding>
+	  <command>property-cycle</command>
+	  <property>controls/lighting/floodNacl</property>
 	  <value>0</value>
 	  <value>0.5</value>
 	  <value>1</value>
-    </binding>
+	</binding>
   </action>
 </animation>
 
@@ -701,34 +701,34 @@
   <object-name>SwNoseLts</object-name>
   <property>controls/lighting/landN</property>
   <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>0.5</ind><dep>25</dep></entry>
-    <entry><ind>1</ind><dep>50</dep></entry>
+	<entry><ind>0</ind><dep> 0</dep></entry>
+	<entry><ind>0.5</ind><dep>25</dep></entry>
+	<entry><ind>1</ind><dep>50</dep></entry>
   </interpolation>   
   <center>
-    <x-m>2.483</x-m>
-    <y-m>0</y-m>
-    <z-m>1.170</z-m>
+	<x-m>2.483</x-m>
+	<y-m>0</y-m>
+	<z-m>1.170</z-m>
   </center>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>SwNoseLts</object-name>
   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-cycle</command>
-      <property>controls/lighting/landN</property>
+	<button>0</button>
+	<repeatable>false</repeatable>
+	<binding>
+	  <command>property-cycle</command>
+	  <property>controls/lighting/landN</property>
 	  <value>0</value>
 	  <value>0.5</value>
 	  <value>1</value>
-    </binding>
+	</binding>
   </action>
 </animation>
 
@@ -737,34 +737,34 @@
   <object-name>SwLdgLtsL</object-name>
   <property>controls/lighting/landL</property>
   <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>0.5</ind><dep>25</dep></entry>
-    <entry><ind>1</ind><dep>50</dep></entry>
+	<entry><ind>0</ind><dep> 0</dep></entry>
+	<entry><ind>0.5</ind><dep>25</dep></entry>
+	<entry><ind>1</ind><dep>50</dep></entry>
   </interpolation>   
   <center>
-    <x-m>2.483</x-m>
-    <y-m>0</y-m>
-    <z-m>1.170</z-m>
+	<x-m>2.483</x-m>
+	<y-m>0</y-m>
+	<z-m>1.170</z-m>
   </center>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>SwLdgLtsL</object-name>
   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-cycle</command>
-      <property>controls/lighting/landL</property>
+	<button>0</button>
+	<repeatable>false</repeatable>
+	<binding>
+	  <command>property-cycle</command>
+	  <property>controls/lighting/landL</property>
 	  <value>0</value>
 	  <value>0.5</value>
 	  <value>1</value>
-    </binding>
+	</binding>
   </action>
 </animation>
 
@@ -773,34 +773,34 @@
   <object-name>SwLdgLtsR</object-name>
   <property>controls/lighting/landR</property>
   <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>0.5</ind><dep>25</dep></entry>
-    <entry><ind>1</ind><dep>50</dep></entry>
+	<entry><ind>0</ind><dep> 0</dep></entry>
+	<entry><ind>0.5</ind><dep>25</dep></entry>
+	<entry><ind>1</ind><dep>50</dep></entry>
   </interpolation>   
   <center>
-    <x-m>2.483</x-m>
-    <y-m>0</y-m>
-    <z-m>1.170</z-m>
+	<x-m>2.483</x-m>
+	<y-m>0</y-m>
+	<z-m>1.170</z-m>
   </center>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>SwLdgLtsR</object-name>
   <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-cycle</command>
-      <property>controls/lighting/landR</property>
+	<button>0</button>
+	<repeatable>false</repeatable>
+	<binding>
+	  <command>property-cycle</command>
+	  <property>controls/lighting/landR</property>
 	  <value>0</value>
 	  <value>0.5</value>
 	  <value>1</value>
-    </binding>
+	</binding>
   </action>
 </animation>
 
@@ -813,9 +813,9 @@
   <factor>0.001</factor>
   <step>100</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
@@ -825,9 +825,9 @@
   <factor>0.01</factor>
   <step>10</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
@@ -837,9 +837,9 @@
   <factor>0.1</factor>
   <step>1</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
@@ -849,9 +849,9 @@
   <factor>0.01</factor>
   <step>10</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
@@ -861,9 +861,9 @@
   <factor>0.1</factor>
   <step>1</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 
@@ -874,48 +874,48 @@
   <object-name>Nav1Knob1</object-name>
   <property>instrumentation/nav/frequencies/selected-mhz</property>
   <interpolation>
-    <entry><ind>108</ind><dep>  0</dep></entry>
-    <entry><ind>118</ind><dep>-360</dep></entry>
+	<entry><ind>108</ind><dep>  0</dep></entry>
+	<entry><ind>118</ind><dep>-360</dep></entry>
   </interpolation>
   <axis>
-    <x1-m>2.488774</x1-m>
-    <y1-m>-0.250</y1-m>
-    <z1-m>1.155154</z1-m>
-    <x2-m>2.506381</x2-m>
-    <y2-m>-0.250</y2-m>
-    <z2-m>1.158896</z2-m>
+	<x1-m>2.488774</x1-m>
+	<y1-m>-0.250</y1-m>
+	<z1-m>1.155154</z1-m>
+	<x2-m>2.506381</x2-m>
+	<y2-m>-0.250</y2-m>
+	<z2-m>1.158896</z2-m>
   </axis>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>Nav1Knob1</object-name>
   <action>
-    <button>3</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>instrumentation/nav/frequencies/selected-mhz</property>
-      <step>1</step>
-      <min>107.95</min>
-      <max>117.95</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>3</button>
+	<repeatable>false</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>instrumentation/nav/frequencies/selected-mhz</property>
+	  <step>1</step>
+	  <min>107.95</min>
+	  <max>117.95</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>Nav1Knob1</object-name>
   <action>
-    <button>4</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>instrumentation/nav/frequencies/selected-mhz</property>
-      <step>-1</step>
-      <min>107.95</min>
-      <max>117.95</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>4</button>
+	<repeatable>false</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>instrumentation/nav/frequencies/selected-mhz</property>
+	  <step>-1</step>
+	  <min>107.95</min>
+	  <max>117.95</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
@@ -923,48 +923,48 @@
   <object-name>Nav1Knob2</object-name>
   <property>instrumentation/nav/frequencies/selected-mhz</property>
   <interpolation>
-    <entry><ind>108</ind><dep>  0</dep></entry>
-    <entry><ind>118</ind><dep>3600</dep></entry>
+	<entry><ind>108</ind><dep>  0</dep></entry>
+	<entry><ind>118</ind><dep>3600</dep></entry>
   </interpolation>
   <axis>
-    <x1-m>2.488774</x1-m>
-    <y1-m>-0.250</y1-m>
-    <z1-m>1.155154</z1-m>
-    <x2-m>2.506381</x2-m>
-    <y2-m>-0.250</y2-m>
-    <z2-m>1.158896</z2-m>
+	<x1-m>2.488774</x1-m>
+	<y1-m>-0.250</y1-m>
+	<z1-m>1.155154</z1-m>
+	<x2-m>2.506381</x2-m>
+	<y2-m>-0.250</y2-m>
+	<z2-m>1.158896</z2-m>
   </axis>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>Nav1Knob2</object-name>
   <action>
-    <button>3</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>instrumentation/nav/frequencies/selected-mhz</property>
-      <step>0.05</step>
-      <min>107.95</min>
-      <max>117.95</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>3</button>
+	<repeatable>false</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>instrumentation/nav/frequencies/selected-mhz</property>
+	  <step>0.05</step>
+	  <min>107.95</min>
+	  <max>117.95</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>Nav1Knob2</object-name>
   <action>
-    <button>4</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>instrumentation/nav/frequencies/selected-mhz</property>
-      <step>-0.05</step>
-      <min>107.95</min>
-      <max>117.95</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>4</button>
+	<repeatable>false</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>instrumentation/nav/frequencies/selected-mhz</property>
+	  <step>-0.05</step>
+	  <min>107.95</min>
+	  <max>117.95</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 
@@ -977,9 +977,9 @@
   <factor>0.001</factor>
   <step>100</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
@@ -989,9 +989,9 @@
   <factor>0.01</factor>
   <step>10</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
@@ -1001,9 +1001,9 @@
   <factor>0.1</factor>
   <step>1</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 
@@ -1014,80 +1014,80 @@
   <object-name>Nav1CrsKnob</object-name>
   <property>instrumentation/nav/radials/selected-deg</property>
   <interpolation>
-    <entry><ind>  0</ind><dep>  0</dep></entry>
-    <entry><ind>359</ind><dep>359</dep></entry>
+	<entry><ind>  0</ind><dep>  0</dep></entry>
+	<entry><ind>359</ind><dep>359</dep></entry>
   </interpolation>
   <axis>
-    <x1-m>2.498556</x1-m>
-    <y1-m>-0.191</y1-m>
-    <z1-m>1.157233</z1-m>
-    <x2-m>2.488774</x2-m>
-    <y2-m>-0.191</y2-m>
-    <z2-m>1.155154</z2-m>
+	<x1-m>2.498556</x1-m>
+	<y1-m>-0.191</y1-m>
+	<z1-m>1.157233</z1-m>
+	<x2-m>2.488774</x2-m>
+	<y2-m>-0.191</y2-m>
+	<z2-m>1.155154</z2-m>
   </axis>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>Nav1CrsKnob</object-name>
   <action>
-    <button>0</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>instrumentation/nav/radials/selected-deg</property>
-      <step>10</step>
-      <min>0</min>
-      <max>360</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>0</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>instrumentation/nav/radials/selected-deg</property>
+	  <step>10</step>
+	  <min>0</min>
+	  <max>360</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>Nav1CrsKnob</object-name>
   <action>
-    <button>1</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>instrumentation/nav/radials/selected-deg</property>
-      <step>-10</step>
-      <min>0</min>
-      <max>360</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>1</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>instrumentation/nav/radials/selected-deg</property>
+	  <step>-10</step>
+	  <min>0</min>
+	  <max>360</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>Nav1CrsKnob</object-name>
   <action>
-    <button>3</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>instrumentation/nav/radials/selected-deg</property>
-      <step>1</step>
-      <min>0</min>
-      <max>360</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>3</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>instrumentation/nav/radials/selected-deg</property>
+	  <step>1</step>
+	  <min>0</min>
+	  <max>360</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>Nav1CrsKnob</object-name>
   <action>
-    <button>4</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>instrumentation/nav/radials/selected-deg</property>
-      <step>-1</step>
-      <min>0</min>
-      <max>360</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>4</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>instrumentation/nav/radials/selected-deg</property>
+	  <step>-1</step>
+	  <min>0</min>
+	  <max>360</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 
@@ -1100,9 +1100,9 @@
   <factor>0.001</factor>
   <step>100</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
@@ -1112,9 +1112,9 @@
   <factor>0.01</factor>
   <step>10</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
@@ -1124,9 +1124,9 @@
   <factor>0.1</factor>
   <step>1</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
@@ -1136,9 +1136,9 @@
   <factor>0.01</factor>
   <step>10</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
@@ -1148,9 +1148,9 @@
   <factor>0.1</factor>
   <step>1</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 
@@ -1161,48 +1161,48 @@
   <object-name>Nav2Knob1</object-name>
   <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
   <interpolation>
-    <entry><ind>108</ind><dep>  0</dep></entry>
-    <entry><ind>118</ind><dep>-360</dep></entry>
+	<entry><ind>108</ind><dep>  0</dep></entry>
+	<entry><ind>118</ind><dep>-360</dep></entry>
   </interpolation>
   <axis>
-    <x1-m>2.488774</x1-m>
-    <y1-m>0.198</y1-m>
-    <z1-m>1.155154</z1-m>
-    <x2-m>2.506381</x2-m>
-    <y2-m>0.198</y2-m>
-    <z2-m>1.158896</z2-m>
+	<x1-m>2.488774</x1-m>
+	<y1-m>0.198</y1-m>
+	<z1-m>1.155154</z1-m>
+	<x2-m>2.506381</x2-m>
+	<y2-m>0.198</y2-m>
+	<z2-m>1.158896</z2-m>
   </axis>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>Nav2Knob1</object-name>
   <action>
-    <button>3</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-      <step>1</step>
-      <min>107.95</min>
-      <max>117.95</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>3</button>
+	<repeatable>false</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+	  <step>1</step>
+	  <min>107.95</min>
+	  <max>117.95</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>Nav2Knob1</object-name>
   <action>
-    <button>4</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-      <step>-1</step>
-      <min>107.95</min>
-      <max>117.95</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>4</button>
+	<repeatable>false</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+	  <step>-1</step>
+	  <min>107.95</min>
+	  <max>117.95</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
@@ -1210,48 +1210,48 @@
   <object-name>Nav2Knob2</object-name>
   <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
   <interpolation>
-    <entry><ind>108</ind><dep>  0</dep></entry>
-    <entry><ind>118</ind><dep>3600</dep></entry>
+	<entry><ind>108</ind><dep>  0</dep></entry>
+	<entry><ind>118</ind><dep>3600</dep></entry>
   </interpolation>
   <axis>
-    <x1-m>2.488774</x1-m>
-    <y1-m>0.198</y1-m>
-    <z1-m>1.155154</z1-m>
-    <x2-m>2.506381</x2-m>
-    <y2-m>0.198</y2-m>
-    <z2-m>1.158896</z2-m>
+	<x1-m>2.488774</x1-m>
+	<y1-m>0.198</y1-m>
+	<z1-m>1.155154</z1-m>
+	<x2-m>2.506381</x2-m>
+	<y2-m>0.198</y2-m>
+	<z2-m>1.158896</z2-m>
   </axis>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>Nav2Knob2</object-name>
   <action>
-    <button>3</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-      <step>0.05</step>
-      <min>107.95</min>
-      <max>117.95</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>3</button>
+	<repeatable>false</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+	  <step>0.05</step>
+	  <min>107.95</min>
+	  <max>117.95</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>Nav2Knob2</object-name>
   <action>
-    <button>4</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-      <step>-0.05</step>
-      <min>107.95</min>
-      <max>117.95</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>4</button>
+	<repeatable>false</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>instrumentation/nav[1]/frequencies/selected-mhz</property>
+	  <step>-0.05</step>
+	  <min>107.95</min>
+	  <max>117.95</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 
@@ -1264,9 +1264,9 @@
   <factor>0.001</factor>
   <step>100</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
@@ -1276,9 +1276,9 @@
   <factor>0.01</factor>
   <step>10</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 <animation>
@@ -1288,9 +1288,9 @@
   <factor>0.1</factor>
   <step>1</step>
   <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
+	<x>0</x>
+	<y>1</y>
+	<z>0</z>
   </axis>
 </animation>
 
@@ -1299,80 +1299,80 @@
   <object-name>Nav2CrsKnob</object-name>
   <property>instrumentation/nav[1]/radials/selected-deg</property>
   <interpolation>
-    <entry><ind>  0</ind><dep>  0</dep></entry>
-    <entry><ind>359</ind><dep>359</dep></entry>
+	<entry><ind>  0</ind><dep>  0</dep></entry>
+	<entry><ind>359</ind><dep>359</dep></entry>
   </interpolation>
   <axis>
-    <x1-m>2.499</x1-m>
-    <y1-m>0.256</y1-m>
-    <z1-m>1.157233</z1-m>
-    <x2-m>2.488774</x2-m>
-    <y2-m>0.256</y2-m>
-    <z2-m>1.155154</z2-m>
+	<x1-m>2.499</x1-m>
+	<y1-m>0.256</y1-m>
+	<z1-m>1.157233</z1-m>
+	<x2-m>2.488774</x2-m>
+	<y2-m>0.256</y2-m>
+	<z2-m>1.155154</z2-m>
   </axis>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>Nav2CrsKnob</object-name>
   <action>
-    <button>0</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>instrumentation/nav[1]/radials/selected-deg</property>
-      <step>10</step>
-      <min>0</min>
-      <max>360</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>0</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>instrumentation/nav[1]/radials/selected-deg</property>
+	  <step>10</step>
+	  <min>0</min>
+	  <max>360</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>Nav2CrsKnob</object-name>
   <action>
-    <button>1</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>instrumentation/nav[1]/radials/selected-deg</property>
-      <step>-10</step>
-      <min>0</min>
-      <max>360</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>1</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>instrumentation/nav[1]/radials/selected-deg</property>
+	  <step>-10</step>
+	  <min>0</min>
+	  <max>360</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>Nav2CrsKnob</object-name>
   <action>
-    <button>3</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>instrumentation/nav[1]/radials/selected-deg</property>
-      <step>1</step>
-      <min>0</min>
-      <max>360</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>3</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>instrumentation/nav[1]/radials/selected-deg</property>
+	  <step>1</step>
+	  <min>0</min>
+	  <max>360</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>Nav2CrsKnob</object-name>
   <action>
-    <button>4</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>instrumentation/nav[1]/radials/selected-deg</property>
-      <step>-1</step>
-      <min>0</min>
-      <max>360</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>4</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>instrumentation/nav[1]/radials/selected-deg</property>
+	  <step>-1</step>
+	  <min>0</min>
+	  <max>360</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 
@@ -1384,117 +1384,117 @@
 
 <!-- Altitude -->
 
-    <animation>
-        <type>textranslate</type>
-        <object-name>AltDigit1</object-name>
-        <property>it-autoflight/input/alt</property>
-        <factor>0.00001</factor>
-        <step>10000</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>AltDigit1</object-name>
+		<property>it-autoflight/input/alt</property>
+		<factor>0.00001</factor>
+		<step>10000</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
-    <animation>
-        <type>textranslate</type>
-        <object-name>AltDigit2</object-name>
-        <property>it-autoflight/input/alt</property>
-        <factor>0.0001</factor>
-        <step>1000</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>AltDigit2</object-name>
+		<property>it-autoflight/input/alt</property>
+		<factor>0.0001</factor>
+		<step>1000</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
-    <animation>
-        <type>textranslate</type>
-        <object-name>AltDigit3</object-name>
-        <property>it-autoflight/input/alt</property>
-        <factor>0.001</factor>
-        <step>100</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>AltDigit3</object-name>
+		<property>it-autoflight/input/alt</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
-    <animation>
-        <type>textranslate</type>
-        <object-name>AltDigit4</object-name>
-        <property>it-autoflight/input/alt</property>
-        <factor>0.01</factor>
-        <step>10</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>AltDigit4</object-name>
+		<property>it-autoflight/input/alt</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
-    <animation>
-        <type>textranslate</type>
-        <object-name>AltDigit5</object-name>
-        <property>it-autoflight/input/alt</property>
-        <factor>0.1</factor>
-        <step>1</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>AltDigit5</object-name>
+		<property>it-autoflight/input/alt</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
 
 <animation>
-        <type>rotate</type>
-        <object-name>AltKnob</object-name>
-        <property>it-autoflight/input/alt</property>
-        <factor>100</factor>
+		<type>rotate</type>
+		<object-name>AltKnob</object-name>
+		<property>it-autoflight/input/alt</property>
+		<factor>100</factor>
 <axis>
-    <x1-m>2.498584</x1-m>
-    <y1-m>0.121</y1-m>
-    <z1-m>1.157239</z1-m>
-    <x2-m>2.488774</x2-m>
-    <y2-m>0.121</y2-m>
-    <z2-m>1.155154</z2-m>
+	<x1-m>2.498584</x1-m>
+	<y1-m>0.121</y1-m>
+	<z1-m>1.157239</z1-m>
+	<x2-m>2.488774</x2-m>
+	<y2-m>0.121</y2-m>
+	<z2-m>1.155154</z2-m>
   </axis>
-    </animation>
+	</animation>
 
 <animation>
   <type>pick</type>
   <object-name>AltKnob</object-name>
   <action>
-    <button>3</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>it-autoflight/input/alt</property>
-      <step>100</step>
-      <min>0</min>
-      <max>40000</max>
-      <wrap>false</wrap>
-    </binding>
+	<button>3</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>it-autoflight/input/alt</property>
+	  <step>100</step>
+	  <min>0</min>
+	  <max>40000</max>
+	  <wrap>false</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>AltKnob</object-name>
   <action>
-    <button>4</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>it-autoflight/input/alt</property>
-      <step>-100</step>
-      <min>0</min>
-      <max>40000</max>
-      <wrap>false</wrap>
-    </binding>
+	<button>4</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>it-autoflight/input/alt</property>
+	  <step>-100</step>
+	  <min>0</min>
+	  <max>40000</max>
+	  <wrap>false</wrap>
+	</binding>
   </action>
 </animation>
 
@@ -1502,371 +1502,266 @@
   <type>pick</type>
   <object-name>AltKnob</object-name>
   <action>
-    <button>0</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>it-autoflight/input/alt</property>
-      <step>1000</step>
-      <min>0</min>
-      <max>40000</max>
-      <wrap>false</wrap>
-    </binding>
+	<button>0</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>it-autoflight/input/alt</property>
+	  <step>1000</step>
+	  <min>0</min>
+	  <max>40000</max>
+	  <wrap>false</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>AltKnob</object-name>
   <action>
-    <button>1</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>it-autoflight/input/alt</property>
-      <step>-1000</step>
-      <min>0</min>
-      <max>40000</max>
-      <wrap>false</wrap>
-    </binding>
+	<button>1</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>it-autoflight/input/alt</property>
+	  <step>-1000</step>
+	  <min>0</min>
+	  <max>40000</max>
+	  <wrap>false</wrap>
+	</binding>
   </action>
 </animation>
 
 
-    <animation>
-        <type>pick</type>
+	<animation>
+		<type>pick</type>
 	<object-name>altOff</object-name>
-        <action>
-            <button>0</button>
-	    <repeatable>true</repeatable>
-            <binding>
+		<action>
+			<button>0</button>
+		<repeatable>true</repeatable>
+			<binding>
 				<command>property-assign</command>
 				<property>it-autoflight/input/vert</property>
 				<value>0</value>
 			</binding>
-        </action>
-    </animation>
+		</action>
+	</animation>
 
-<!-- VS-->
+	<!-- VS -->
+	<animation>
+		<type>select</type>
+		<object-name>VS.ledminus</object-name>
+		<condition>
+			<and>
+				<less-than>
+					<property>it-autoflight/input/vs</property>
+					<value>0</value>
+				</less-than>
+				<greater-than>
+					<property>it-autoflight/input/vs-fma</property>
+					<value>0</value>
+				</greater-than>
+			</and>
+		</condition>
+	</animation>
 
-<animation>
-        <type>select</type>
-        <object-name>VS.ledminus</object-name>
-	<object-name>VS.led1</object-name>
-	<object-name>VS.led2</object-name>
-	<object-name>VS.led3</object-name>
-	<object-name>VS.led4</object-name>
-        <condition>
-            <less-than>
-                <property>it-autoflight/input/vs</property>
-                <value>-1</value>
-            </less-than>
-        </condition>
-    </animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>VS.led1</object-name>
+		<property>it-autoflight/input/vs-fma</property>
+		<factor>0.0001</factor>
+		<step>1000</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
-
-
-<animation>
-        <type>textranslate</type>
-        <object-name>VS.led1</object-name>
-        <property>it-autoflight/input/vs-abs</property>
-        <factor>0.0001</factor>
-        <step>1000</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>textranslate</type>
-        <object-name>VS.led2</object-name>
-        <property>it-autoflight/input/vs-abs</property>
-        <factor>0.001</factor>
-        <step>100</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
-	<!-- Keep these at 0 no matter what -->
-    <!--animation>
-        <type>textranslate</type>
-        <object-name>VS.led3</object-name>
-        <property>it-autoflight/input/vs-abs</property>
-        <factor>0.01</factor>
-        <step>10</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>textranslate</type>
-        <object-name>VS.led4</object-name>
-        <property>it-autoflight/input/vs-abs</property>
-        <factor>0.1</factor>
-        <step>1</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation-->
-
-  
-
-
-
-
-<animation>
-        <type>select</type>
-	<object-name>VS.led1.001</object-name>
-	<object-name>VS.led2.001</object-name>
-	<object-name>VS.led3.001</object-name>
-	<object-name>VS.led4.001</object-name>
-        <condition>
-            <greater-than-equals>
-                <property>it-autoflight/input/vs</property>
-                <value>0</value>
-            </greater-than-equals>
-        </condition>
-    </animation>
-
-
-
-
-<animation>
-        <type>textranslate</type>
-        <object-name>VS.led1.001</object-name>
-        <property>it-autoflight/input/vs-abs</property>
-        <factor>0.0001</factor>
-        <step>1000</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>textranslate</type>
-        <object-name>VS.led2.001</object-name>
-        <property>it-autoflight/input/vs-abs</property>
-        <factor>0.001</factor>
-        <step>100</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
-	<!-- Keep these at 0 no matter what -->
-    <!--animation>
-        <type>textranslate</type>
-        <object-name>VS.led3.001</object-name>
-        <property>it-autoflight/input/vs-abs</property>
-        <factor>0.01</factor>
-        <step>10</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
-
-    <animation>
-        <type>textranslate</type>
-        <object-name>VS.led4.001</object-name>
-        <property>it-autoflight/input/vs-abs</property>
-        <factor>0.1</factor>
-        <step>1</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation-->
-
-
-
-
-
+	<animation>
+		<type>textranslate</type>
+		<object-name>VS.led2</object-name>
+		<property>it-autoflight/input/vs-fma</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<!-- Keep led3 and led4 at 0 no matter what when its showing VS mode -->
 
  <animation>
-        <type>pick</type>
+		<type>pick</type>
 	<object-name>pitchOff</object-name>
-        <action>
-            <button>0</button>
-	    <repeatable>true</repeatable>
-            <binding>
+		<action>
+			<button>0</button>
+		<repeatable>true</repeatable>
+			<binding>
 				<command>property-assign</command>
 				<property>it-autoflight/input/vert</property>
 				<value>1</value>
 			</binding>
-        </action>
-    </animation>
+		</action>
+	</animation>
 
-    <animation>
-        <type>pick</type>
-        <object-name>Pitchwheel.dec</object-name>
+	<animation>
+		<type>pick</type>
+		<object-name>Pitchwheel.dec</object-name>
 	<object-name>Pitchwheel.inc</object-name>
-        <action>
-            <button>3</button>
-            <repeatable>true</repeatable>
-            <binding>
-                <command>property-adjust</command>
-                <property>it-autoflight/input/vs</property>
-                <step>-100</step>
-                <min>-8000</min>
-                <max>6000</max>
-            </binding>
-        </action>
-    </animation>
+		<action>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>it-autoflight/input/vs</property>
+				<step>-100</step>
+				<min>-8000</min>
+				<max>6000</max>
+			</binding>
+		</action>
+	</animation>
 
-    <animation>
-        <type>pick</type>
-        <object-name>Pitchwheel.inc</object-name>
+	<animation>
+		<type>pick</type>
+		<object-name>Pitchwheel.inc</object-name>
 	<object-name>Pitchwheel.dec</object-name>
-        <action>
-            <button>4</button>
-            <repeatable>true</repeatable>
-            <binding>
-            <command>property-adjust</command>
-            <property>it-autoflight/input/vs</property>
-            <step>100</step>
-            <min>-8000</min>
-            <max>6000</max>
-            </binding>
-        </action>
-    </animation>
+		<action>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+			<command>property-adjust</command>
+			<property>it-autoflight/input/vs</property>
+			<step>100</step>
+			<min>-8000</min>
+			<max>6000</max>
+			</binding>
+		</action>
+	</animation>
 
 
 <!--Appr-->
 
 
 <animation>
-        <type>pick</type>
+		<type>pick</type>
 	<object-name>apprOff</object-name>
-        <action>
-            <button>0</button>
-	    <repeatable>true</repeatable>
-            <binding>
+		<action>
+			<button>0</button>
+		<repeatable>true</repeatable>
+			<binding>
 				<command>property-assign</command>
 				<property>it-autoflight/input/vert</property>
 				<value>2</value>
 			</binding>
-        </action>
-    </animation>
+		</action>
+	</animation>
 	
 <!-- FLCH -->
 
-    <animation>
-        <type>pick</type>
+	<animation>
+		<type>pick</type>
 	<object-name>flchOff</object-name>
-        <action>
-            <button>0</button>
-	    <repeatable>true</repeatable>
-            <binding>
+		<action>
+			<button>0</button>
+		<repeatable>true</repeatable>
+			<binding>
 				<command>property-assign</command>
 				<property>it-autoflight/input/vert</property>
 				<value>4</value>
 			</binding>
-        </action>
-    </animation>
+		</action>
+	</animation>
 
 <!--Heading-->
 
 
-    <animation>
-        <type>textranslate</type>
-        <object-name>HdgDigit1</object-name>
-        <property>it-autoflight/input/hdg</property>
-        <factor>0.001</factor>
-        <step>100</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>HdgDigit1</object-name>
+		<property>it-autoflight/input/hdg</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
-    <animation>
-        <type>textranslate</type>
-        <object-name>HdgDigit2</object-name>
-        <property>it-autoflight/input/hdg</property>
-        <factor>0.01</factor>
-        <step>10</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>HdgDigit2</object-name>
+		<property>it-autoflight/input/hdg</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
-    <animation>
-        <type>textranslate</type>
-        <object-name>HdgDigit3</object-name>
-        <property>it-autoflight/input/hdg</property>
-        <factor>0.1</factor>
-        <step>1</step>
-        <axis>
-            <x>0</x>
-            <y>1</y>
-            <z>0</z>
-        </axis>
-    </animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>HdgDigit3</object-name>
+		<property>it-autoflight/input/hdg</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
 
 <animation>
-        <type>rotate</type>
-        <object-name>HdgKnob</object-name>
-        <object-name>hdgOff</object-name>
-        <property>it-autoflight/input/hdg</property>
-        <factor>100</factor>
+		<type>rotate</type>
+		<object-name>HdgKnob</object-name>
+		<object-name>hdgOff</object-name>
+		<property>it-autoflight/input/hdg</property>
+		<factor>100</factor>
 <axis>
-    <x1-m>2.498584</x1-m>
-    <y1-m>-0.0260</y1-m>
-    <z1-m>1.157239</z1-m>
-    <x2-m>2.488774</x2-m>
-    <y2-m>-0.0260</y2-m>
-    <z2-m>1.155154</z2-m>
+	<x1-m>2.498584</x1-m>
+	<y1-m>-0.0260</y1-m>
+	<z1-m>1.157239</z1-m>
+	<x2-m>2.488774</x2-m>
+	<y2-m>-0.0260</y2-m>
+	<z2-m>1.155154</z2-m>
   </axis>
-    </animation>
+	</animation>
 
 <animation>
   <type>pick</type>
   <object-name>HdgKnob</object-name>
   <action>
-    <button>3</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>it-autoflight/input/hdg</property>
-      <step>1</step>
-      <min>1</min>
-      <max>361</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>3</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>it-autoflight/input/hdg</property>
+	  <step>1</step>
+	  <min>1</min>
+	  <max>361</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>HdgKnob</object-name>
   <action>
-    <button>4</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>it-autoflight/input/hdg</property>
-      <step>-1</step>
-      <min>1</min>
-      <max>361</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>4</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>it-autoflight/input/hdg</property>
+	  <step>-1</step>
+	  <min>1</min>
+	  <max>361</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 
@@ -1874,112 +1769,112 @@
   <type>pick</type>
   <object-name>HdgKnob</object-name>
   <action>
-    <button>0</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>it-autoflight/input/hdg</property>
-      <step>10</step>
-      <min>1</min>
-      <max>361</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>0</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>it-autoflight/input/hdg</property>
+	  <step>10</step>
+	  <min>1</min>
+	  <max>361</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 <animation>
   <type>pick</type>
   <object-name>HdgKnob</object-name>
   <action>
-    <button>1</button>
-    <repeatable>true</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>it-autoflight/input/hdg</property>
-      <step>-10</step>
-      <min>1</min>
-      <max>361</max>
-      <wrap>true</wrap>
-    </binding>
+	<button>1</button>
+	<repeatable>true</repeatable>
+	<binding>
+	  <command>property-adjust</command>
+	  <property>it-autoflight/input/hdg</property>
+	  <step>-10</step>
+	  <min>1</min>
+	  <max>361</max>
+	  <wrap>true</wrap>
+	</binding>
   </action>
 </animation>
 
 
 <animation>
-        <type>pick</type>
+		<type>pick</type>
 	<object-name>hdgOff</object-name>
-        <action>
-            <button>0</button>
+		<action>
+			<button>0</button>
 			<repeatable>true</repeatable>
-            <binding>
+			<binding>
 				<command>property-assign</command>
 				<property>it-autoflight/input/lat</property>
 				<value>0</value>
 			</binding>
-        </action>
-    </animation>
+		</action>
+	</animation>
 
 	<!--NAV-->
 
 	<animation>
-        <type>pick</type>
+		<type>pick</type>
 	<object-name>navOff</object-name>
-        <action>
-            <button>0</button>
-	    <repeatable>true</repeatable>
-            <binding>
+		<action>
+			<button>0</button>
+		<repeatable>true</repeatable>
+			<binding>
 				<command>property-assign</command>
 				<property>it-autoflight/input/lat</property>
 				<value>1</value>
 			</binding>
-        </action>
-    </animation>
+		</action>
+	</animation>
 
 	<!--LOC-->
 	<animation>
-        <type>pick</type>
+		<type>pick</type>
 	<object-name>locButton</object-name>
-        <action>
-            <button>0</button>
-	    <repeatable>true</repeatable>
-            <binding>
+		<action>
+			<button>0</button>
+		<repeatable>true</repeatable>
+			<binding>
 				<command>property-assign</command>
 				<property>it-autoflight/input/lat</property>
 				<value>2</value>
 			</binding>
-        </action>
-    </animation>
+		</action>
+	</animation>
 	
 	<!-- IAS -->
 	
 	<animation>
-        <type>pick</type>
+		<type>pick</type>
 		<object-name>IASOff</object-name>
-        <action>
-            <button>0</button>
+		<action>
+			<button>0</button>
 			<repeatable>true</repeatable>
 				<binding>
 				<command>property-assign</command>
 				<property>it-autoflight/input/kts-mach</property>
 				<value>0</value>
 				</binding>
-        </action>
-    </animation>
+		</action>
+	</animation>
 	
 	<!-- Mach -->
 	
 	<animation>
-        <type>pick</type>
+		<type>pick</type>
 		<object-name>MachOff</object-name>
-        <action>
-            <button>0</button>
+		<action>
+			<button>0</button>
 			<repeatable>true</repeatable>
 				<binding>
 				<command>property-assign</command>
 				<property>it-autoflight/input/kts-mach</property>
 				<value>1</value>
 				</binding>
-        </action>
-    </animation>
+		</action>
+	</animation>
 
 </PropertyList>
 

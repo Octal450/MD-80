@@ -9,7 +9,7 @@ MATERIAL "Default.004" rgb 0.8 0.8 0.8  amb 1 1 1  emis 0 0 0  spec 1 1 1  shi 5
 MATERIAL "DefaultWhite.001" rgb 0 0 0  amb 0 0 0  emis 0 0 0  spec 0 0 0  shi 64  trans 0
 MATERIAL "Default.004" rgb 0.803922 0.803922 0.803922  amb 0.498039 0.498039 0.498039  emis 0 0 0  spec 0.298039 0.298039 0.298039  shi 50  trans 0
 OBJECT world
-kids 94
+kids 90
 OBJECT poly
 name "MachDigit1"
 data 8
@@ -6755,49 +6755,9 @@ refs 4
 1 0.908782 0.000779254
 kids 0
 OBJECT poly
-name "VS.led1.001"
-data 8
-Cube.024
-texture "digits.rgb"
-crease 30.000000
-numvert 4
-2.48465 1.17502 -0.01453
-2.48465 1.17502 -0.005159
-2.48197 1.18765 -0.01453
-2.48197 1.18765 -0.005159
-numsurf 1
-SURF 0x0
-mat 4
-refs 4
-0 0.987667 0.000779254
-2 0.987667 0.109471
-3 0.908782 0.109471
-1 0.908782 0.000779254
-kids 0
-OBJECT poly
 name "VS.led2"
 data 8
 Cube.021
-texture "digits.rgb"
-crease 30.000000
-numvert 4
-2.48465 1.17502 -0.0239
-2.48465 1.17502 -0.01453
-2.48197 1.18765 -0.0239
-2.48197 1.18765 -0.01453
-numsurf 1
-SURF 0x0
-mat 4
-refs 4
-0 0.987667 0.000779254
-2 0.987667 0.109471
-3 0.908782 0.109471
-1 0.908782 0.000779254
-kids 0
-OBJECT poly
-name "VS.led2.001"
-data 8
-Cube.025
 texture "digits.rgb"
 crease 30.000000
 numvert 4
@@ -6835,49 +6795,9 @@ refs 4
 1 0.908782 0.000779254
 kids 0
 OBJECT poly
-name "VS.led3.001"
-data 8
-Cube.026
-texture "digits.rgb"
-crease 30.000000
-numvert 4
-2.48465 1.17502 -0.03327
-2.48465 1.17502 -0.0239
-2.48197 1.18765 -0.03327
-2.48197 1.18765 -0.0239
-numsurf 1
-SURF 0x0
-mat 4
-refs 4
-0 0.987667 0.000779254
-2 0.987667 0.109471
-3 0.908782 0.109471
-1 0.908782 0.000779254
-kids 0
-OBJECT poly
 name "VS.led4"
 data 8
 Cube.023
-texture "digits.rgb"
-crease 30.000000
-numvert 4
-2.48465 1.17502 -0.042567
-2.48465 1.17502 -0.033197
-2.48197 1.18765 -0.042567
-2.48197 1.18765 -0.033197
-numsurf 1
-SURF 0x0
-mat 4
-refs 4
-0 0.987667 0.000779254
-2 0.987667 0.109471
-3 0.908782 0.109471
-1 0.908782 0.000779254
-kids 0
-OBJECT poly
-name "VS.led4.001"
-data 8
-Cube.027
 texture "digits.rgb"
 crease 30.000000
 numvert 4
