@@ -1,8 +1,93 @@
 AC3Db
 MATERIAL "ac3dmat1" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 128  trans 0
 MATERIAL "ac3dmat1" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 128  trans 0
+MATERIAL "buttonlights" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0.33 0.33 0.33  shi 32  trans 0
 OBJECT world
-kids 3
+kids 7
+OBJECT poly
+name "arm.screen"
+loc 0.000145533 -0.00190073 0.0193421
+data 10
+ND.screenL
+texture "screen.png"
+crease 30.000002
+numvert 4
+0 0.00855388 -0.0153482
+0 -0.012995 -0.0153482
+0 -0.012995 0.0153024
+0 0.00855388 0.0153024
+numsurf 1
+SURF 0x0
+mat 2
+refs 4
+0 1.00067 0.999407
+3 4.45843e-05 0.999407
+2 4.45843e-05 0.000756443
+1 1.00067 0.000756443
+kids 0
+OBJECT poly
+name "roll.screen"
+loc 0.000145533 -0.00190073 -0.0139899
+data 10
+ND.screenL
+texture "screen.png"
+crease 30.000002
+numvert 4
+0 0.00855388 -0.0153482
+0 -0.012995 -0.0153482
+0 -0.012995 0.0153024
+0 0.00855388 0.0153024
+numsurf 1
+SURF 0x0
+mat 2
+refs 4
+0 1.00067 0.999407
+3 4.45843e-05 0.999407
+2 4.45843e-05 0.000756443
+1 1.00067 0.000756443
+kids 0
+OBJECT poly
+name "thr.screen"
+loc 0.000145533 -0.00190073 0.0558279
+data 10
+ND.screenL
+texture "screen.png"
+crease 30.000002
+numvert 4
+0 0.00855388 -0.0182663
+0 -0.012995 -0.0182663
+0 -0.012995 0.0182118
+0 0.00855388 0.0182118
+numsurf 1
+SURF 0x0
+mat 2
+refs 4
+0 1.00067 0.999407
+3 4.45843e-05 0.999407
+2 4.45843e-05 0.000756443
+1 1.00067 0.000756443
+kids 0
+OBJECT poly
+name "pitch.screen"
+loc 0.000145533 -0.00190073 -0.050337
+data 10
+ND.screenL
+texture "screen.png"
+crease 30.000002
+numvert 4
+0 0.00855388 -0.0182663
+0 -0.012995 -0.0182663
+0 -0.012995 0.0182118
+0 0.00855388 0.0182118
+numsurf 1
+SURF 0x0
+mat 2
+refs 4
+0 1.00067 0.999407
+3 4.45843e-05 0.999407
+2 4.45843e-05 0.000756443
+1 1.00067 0.000756443
+kids 0
 OBJECT group
 name "rstBtn"
 loc 0.000663545 0.0250949 -0.0403319
