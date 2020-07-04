@@ -138,7 +138,7 @@
 		<factor>-11.25</factor>
 		<center>
 			<x-m>0</x-m>
-			<y-m>-0.10659</y-m>
+			<y-m>-0.10589</y-m>
 			<z-m>-0.01524</z-m>
 		</center>
 		<axis>
@@ -260,9 +260,9 @@
 			<entry><ind>1</ind><dep>-30</dep></entry>
 		</interpolation>
 		<center>
-			<x-m>-0.00816</x-m>
+			<x-m>-0.00815</x-m>
 			<y-m>0</y-m>
-			<z-m>-0.01847</z-m>
+			<z-m>-0.01786</z-m>
 		</center>
 		<axis>
 			<x>0</x>

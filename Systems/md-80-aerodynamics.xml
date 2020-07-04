@@ -526,7 +526,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<toradians><property>fcs/spoiler-left-deg</property></toradians>
-				<value>-0.017</value>
+				<value>-0.019</value>
 			</product>
 		</function>
 		
@@ -537,7 +537,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<toradians><property>fcs/spoiler-right-deg</property></toradians>
-				<value>0.017</value>
+				<value>0.019</value>
 			</product>
 		</function>
 		
