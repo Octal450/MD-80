@@ -643,22 +643,15 @@
 			<serviceable type="bool">true</serviceable>
 			<volume type="double">0</volume>
 		</dme>
-		<dme n="2">
-			<frequencies>
-				<selected-mhz type="double">112.8</selected-mhz>
-				<source type="string">/instrumentation/nav[2]/frequencies/selected-mhz</source>
-			</frequencies>
-			<serviceable type="bool">true</serviceable>
-			<volume type="double">0</volume>
-		</dme>
-		<dme n="3">
-			<frequencies>
-				<selected-mhz type="double">114.8</selected-mhz>
-				<source type="string">/instrumentation/nav[3]/frequencies/selected-mhz</source>
-			</frequencies>
-			<serviceable type="bool">true</serviceable>
-			<volume type="double">0</volume>
-		</dme>
+		<fgcp n="0">
+			<nav1-crs-rotate type="int">50000</nav1-crs-rotate>
+			<nav1-major-rotate type="int">50000</nav1-major-rotate>
+			<nav1-minor-rotate type="int">50000</nav1-minor-rotate>
+			<nav2-crs-rotate type="int">50000</nav2-crs-rotate>
+			<nav2-major-rotate type="int">50000</nav2-major-rotate>
+			<nav2-minor-rotate type="int">50000</nav2-minor-rotate>
+			<spd-rotate type="int">49984</spd-rotate> <!-- So the symbol is upright -->
+		</fgcp>
 		<groundradar>
 			<range type="double">1.0</range>
 		</groundradar>
@@ -701,6 +694,7 @@
 		<nav n="0">
 			<frequencies>
 				<selected-mhz type="double">111.15</selected-mhz>
+				<selected-mhz-fmt type="string">111.15</selected-mhz-fmt>
 				<standby-mhz type="double">110.95</standby-mhz>
 			</frequencies>
 			<radials>
@@ -712,35 +706,8 @@
 		<nav n="1">
 			<frequencies>
 				<selected-mhz type="double">109.55</selected-mhz>
+				<selected-mhz-fmt type="string">109.55</selected-mhz-fmt>
 				<standby-mhz type="double">110.55</standby-mhz>
-			</frequencies>
-			<radials>
-				<selected-deg type="double">360</selected-deg>
-			</radials>
-			<serviceable type="bool">true</serviceable>
-			<volume type="double">0</volume>
-		</nav>
-		<nav n="2">
-			<cdi>
-				<serviceable type="bool">true</serviceable>
-			</cdi>
-			<frequencies>
-				<selected-mhz type="double">112.8</selected-mhz>
-				<standby-mhz type="double">112.6</standby-mhz>
-			</frequencies>
-			<radials>
-				<selected-deg type="double">360</selected-deg>
-			</radials>
-			<serviceable type="bool">true</serviceable>
-			<volume type="double">0</volume>
-		</nav>
-		<nav n="3">
-			<cdi>
-				<serviceable type="bool">true</serviceable>
-			</cdi>
-			<frequencies>
-				<selected-mhz type="double">114.8</selected-mhz>
-				<standby-mhz type="double">114.6</standby-mhz>
 			</frequencies>
 			<radials>
 				<selected-deg type="double">360</selected-deg>
@@ -814,11 +781,13 @@
 		</pts>
 		<libraries>
 			<file>Aircraft/MD-80/Nasal/libraries.nas</file>
-			<file>Aircraft/MD-80/Models/Instruments/ND/ND.nas</file>
+			<file>Aircraft/MD-80/Nasal/buttons.nas</file>
 			<file>Aircraft/MD-80/Nasal/shake.nas</file>
 			<file>Aircraft/MD-80/Nasal/zoom-views.nas</file>
+			<file>Aircraft/MD-80/Models/Instruments/ND/ND.nas</file>
 		</libraries>
 		<systems>
+			<file>Aircraft/MD-80/Nasal/Systems/electrical.nas</file>
 			<file>Aircraft/MD-80/Nasal/Systems/master-system.nas</file>
 		</systems>
 		<dfgs>

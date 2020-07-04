@@ -26,16 +26,16 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
-     inkscape:cx="149.35649"
+     inkscape:cx="86.499347"
      inkscape:cy="125.62966"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:window-width="1920"
-     inkscape:window-height="1011"
+     inkscape:window-height="1001"
      inkscape:window-x="1591"
-     inkscape:window-y="-9"
+     inkscape:window-y="1071"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -45,7 +45,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -67,7 +67,7 @@
          id="tspan4146"
          x="13.060096"
          y="1319.0026"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:88.79801941px;font-family:led16sgmnt2;-inkscape-font-specification:led16sgmnt2;text-align:start;letter-spacing:8.14436913px;text-anchor:start;fill:#00ff00">ZZZZ</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:88.79801941px;font-family:led16sgmnt2;-inkscape-font-specification:led16sgmnt2;text-align:start;letter-spacing:8.14436913px;text-anchor:start;fill:#00ff00">TAK</tspan></text>
     <text
        transform="scale(1.4052076,0.71163862)"
        sodipodi:linespacing="125%"
@@ -81,6 +81,6 @@
          y="1455.007"
          x="13.060096"
          id="tspan4173"
-         sodipodi:role="line">ZZZZ</tspan></text>
+         sodipodi:role="line">OFF</tspan></text>
   </g>
 </svg>
