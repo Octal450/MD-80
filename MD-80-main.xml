@@ -644,6 +644,7 @@
 			<volume type="double">0</volume>
 		</dme>
 		<fgcp n="0">
+			<hdg-rotate type="int">49984</hdg-rotate> <!-- So the symbol is upright -->
 			<nav1-crs-rotate type="int">50000</nav1-crs-rotate>
 			<nav1-major-rotate type="int">50000</nav1-major-rotate>
 			<nav1-minor-rotate type="int">50000</nav1-minor-rotate>

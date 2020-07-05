@@ -609,7 +609,7 @@
 			<condition>
 				<greater-than-equals>
 					<property>/it-autoflight/internal/heading-predicted-cmd</property>
-					<value>359.5</value>
+					<value>360.5</value>
 				</greater-than-equals>
 			</condition>
 			<expression>
@@ -623,7 +623,7 @@
 			<condition>
 				<less-than>
 					<property>/it-autoflight/internal/heading-predicted-cmd</property>
-					<value>-0.5</value>
+					<value>0.5</value>
 				</less-than>
 			</condition>
 			<expression>

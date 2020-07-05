@@ -42,6 +42,28 @@ var APPanel = {
 			}
 		}
 	},
+	HDGPush: func() {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			dfgs.Input.lat.setValue(3);
+		}
+	},
+	HDGPull: func() {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			dfgs.Input.lat.setValue(0);
+		}
+	},
+	HDGAdjust: func(d) {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			me.hdgTemp = dfgs.Input.hdg.getValue() + d;
+			if (me.hdgTemp < 0.5) {
+				dfgs.Input.hdg.setValue(me.hdgTemp + 360);
+			} else if (me.hdgTemp >= 360.5) {
+				dfgs.Input.hdg.setValue(me.hdgTemp - 360);
+			} else {
+				dfgs.Input.hdg.setValue(me.hdgTemp);
+			}
+		}
+	},
 };
 
 var STD = func {
