@@ -217,9 +217,9 @@
 				<table>
 					<property>engines/engine[0]/n1-actual</property>
 					<entry><ind>033</ind> <dep>0.000</dep></entry>
-					<entry><ind>050</ind> <dep>0.580</dep></entry>
-					<entry><ind>062</ind> <dep>0.405</dep></entry>
-					<entry><ind>065</ind> <dep>0.137</dep></entry>
+					<entry><ind>050</ind> <dep>0.579</dep></entry>
+					<entry><ind>062</ind> <dep>0.450</dep></entry>
+					<entry><ind>065</ind> <dep>0.152</dep></entry>
 					<entry><ind>070</ind> <dep>0.000</dep></entry>
 				</table>
 			</expression>
@@ -442,9 +442,9 @@
 				<table>
 					<property>engines/engine[0]/n1-actual</property>
 					<entry><ind>033</ind> <dep>0.000</dep></entry>
-					<entry><ind>050</ind> <dep>0.580</dep></entry>
-					<entry><ind>062</ind> <dep>0.405</dep></entry>
-					<entry><ind>065</ind> <dep>0.137</dep></entry>
+					<entry><ind>050</ind> <dep>0.644</dep></entry>
+					<entry><ind>062</ind> <dep>0.450</dep></entry>
+					<entry><ind>065</ind> <dep>0.152</dep></entry>
 					<entry><ind>070</ind> <dep>0.000</dep></entry>
 				</table>
 			</expression>
