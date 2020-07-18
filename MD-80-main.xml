@@ -211,7 +211,7 @@
 		<view n="106">
 			<name>Right Mid View</name>
 			<type>lookfrom</type>
-			<internal archive="y">false</internal>
+			<internal archive="y">true</internal>
 			<config>
 				<from-model type="bool">true</from-model>
 				<x-offset-m archive="y">1.75</x-offset-m>
@@ -225,7 +225,7 @@
 		<view n="107">
 			<name>Left Aft View</name>
 			<type>lookfrom</type>
-			<internal archive="y">false</internal>
+			<internal archive="y">true</internal>
 			<config>
 				<from-model type="bool">true</from-model>
 				<x-offset-m archive="y">-1.75</x-offset-m>

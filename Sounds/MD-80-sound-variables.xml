@@ -726,7 +726,7 @@
 
 <filter>
   <type>gain</type>
-  <gain>1</gain>
+  <gain>0.7</gain>
   <input>
     <expression>
       <product>
@@ -734,8 +734,8 @@
           <product>
 			<property>sim/current-view/z-offset-m</property>
 		  </product>
-			<entry><ind>3</ind> <dep>1</dep></entry>
-			<entry><ind>4</ind> <dep>0</dep></entry>
+			<entry><ind>-5.25</ind> <dep>0</dep></entry>
+			<entry><ind>-6.25</ind> <dep>1</dep></entry>
         </table>
 		<property>sim/current-view/internal</property>
       </product>
@@ -758,8 +758,8 @@
           <product>
 			<property>sim/current-view/z-offset-m</property>
 		  </product>
-			<entry><ind>3</ind> <dep>1</dep></entry>
-			<entry><ind>5</ind> <dep>0</dep></entry>
+			<entry><ind>-5</ind> <dep>0</dep></entry>
+			<entry><ind>-6</ind> <dep>1</dep></entry>
         </table>
 		<property>sim/current-view/internal</property>
       </product>
@@ -801,11 +801,10 @@
     <expression>
       <product>
         <table>
-          <product>
-			<property>sim/current-view/z-offset-m</property>
-		  </product>
-			<entry><ind>3</ind> <dep>0</dep></entry>
-			<entry><ind>5</ind> <dep>1</dep></entry>
+            <property>sim/current-view/z-offset-m</property>
+			<entry><ind>-15.0</ind> <dep>0</dep></entry>
+			<entry><ind>-12.0</ind> <dep>1</dep></entry>
+			<entry><ind> 10.0</ind> <dep>1</dep></entry>
         </table>
 		<property>sim/current-view/internal</property>
       </product>
