@@ -345,18 +345,14 @@
 		
 		<MDA_WHN>
 			<name>MDA WHN 2</name>
-			<path>FL2070/MDA_WHN_2.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/spool.wav</path>
 			<mode>looped</mode>
-			<property>engines/engine[0]/n1</property>
+			<property>sim/current-view/internal</property>
 			<volume>
 				<property>MD80/engine/MDA_WHN_2</property>
 			</volume>
-			<volume>
-				<property>sim/current-view/internal</property>
-			</volume>
 			<pitch>
 				<property>MD80/enginep/MDA_WHN_2</property>
-				<offset>0</offset>
 			</pitch>
 		</MDA_WHN>
 		
@@ -416,6 +412,21 @@
 			</pitch>
 		</MDA_WHN>
 		
+		<MDA_REV>
+			<name>MD-80 Reverser</name>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/reverser.wav</path>
+			<mode>looped</mode>
+			<condition>
+				<property>sim/current-view/internal</property>
+			</condition>
+			<volume>
+				<property>MD80/engine/MDA_REV1</property>
+			</volume>
+			<pitch>
+				<property>MD80/enginep/MDA_REV1</property>
+			</pitch>
+		</MDA_REV>
+		
 		<!-- ENGINE 2 IDLE -->
 		
 		<MDB_WHN>
@@ -439,18 +450,14 @@
 		
 		<MDB_WHN>
 			<name>MDB WHN 2</name>
-			<path>FL2070/MDB_WHN_2.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/spool.wav</path>
 			<mode>looped</mode>
-			<property>engines/engine[1]/n1</property>
+			<property>sim/current-view/internal</property>
 			<volume>
 				<property>MD80/engine/MDB_WHN_2</property>
 			</volume>
-			<volume>
-				<property>sim/current-view/internal</property>
-			</volume>
 			<pitch>
 				<property>MD80/enginep/MDB_WHN_2</property>
-				<offset>0</offset>
 			</pitch>
 		</MDB_WHN>
 		
@@ -506,6 +513,21 @@
 				<offset>0</offset>
 			</pitch>
 		</MDB_WHN>
+		
+		<MDA_REV>
+			<name>MD-80 Reverser</name>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/reverser.wav</path>
+			<mode>looped</mode>
+			<condition>
+				<property>sim/current-view/internal</property>
+			</condition>
+			<volume>
+				<property>MD80/engine/MDA_REV2</property>
+			</volume>
+			<pitch>
+				<property>MD80/enginep/MDA_REV2</property>
+			</pitch>
+		</MDA_REV>
 		
 		<!-- COMBUSTION/THRUST ENGINE 1 -->
 		
