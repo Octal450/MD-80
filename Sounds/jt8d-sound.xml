@@ -41,6 +41,21 @@
 			</condition>
 		</wow>
 		
+		<switch>
+			<name>Flaps Lever</name>
+			<mode>once</mode>
+			<path>Aircraft/MD-80/Sounds/SASA/flaps-click.wav</path>
+			<condition>
+				<and>
+					<property>MD80/other/flaps-click</property>
+				</and>
+			</condition>
+			<volume>
+				<property>/sim/current-view/internal</property>
+				<factor>0.75</factor>
+			</volume>
+		</switch>
+		
 		<!-- AVIONICS -->
 	
 		<MDAMB>
