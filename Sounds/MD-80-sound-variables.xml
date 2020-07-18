@@ -746,6 +746,29 @@
   </output>
 </filter>
 
+<filter>
+  <type>gain</type>
+  <gain>1</gain>
+  <input>
+    <expression>
+      <product>
+        <table>
+          <product>
+			<property>/velocities/groundspeed-kt</property>
+			<value>1</value>  
+		  </product>
+            <entry><ind>001</ind>  <dep>0.00</dep></entry>
+			<entry><ind>110</ind>  <dep>1.00</dep></entry>
+			<entry><ind>130</ind>  <dep>2.00</dep></entry>
+        </table>
+      </product>
+    </expression> 
+  </input>
+  <output>
+    <prop>MD80/other/roll</prop>
+  </output>
+</filter>
+
 <!-- WIND -->
 
 <filter>

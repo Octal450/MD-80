@@ -41,6 +41,39 @@
 			</condition>
 		</wow>
 		
+		<misc>
+			<mode>looped</mode>
+			<name>Roll</name>
+			<path>Aircraft/MD-80/Sounds/SASA/ground-roll.wav</path>
+			<property>gear/gear[0]/wow</property>
+			<volume>
+				<property>MD80/other/roll</property>
+				<factor>1</factor>
+			</volume>
+		</misc>
+		
+		<misc>
+			<mode>looped</mode>
+			<name>Roll</name>
+			<path>Aircraft/MD-80/Sounds/SASA/ground-roll.wav</path>
+			<property>gear/gear[1]/wow</property>
+			<volume>
+				<property>MD80/other/roll</property>
+				<factor>1</factor>
+			</volume>
+		</misc>
+		
+		<misc>
+			<mode>looped</mode>
+			<name>Roll</name>
+			<path>Aircraft/MD-80/Sounds/SASA/ground-roll.wav</path>
+			<property>gear/gear[2]/wow</property>
+			<volume>
+				<property>MD80/other/roll</property>
+				<factor>1</factor>
+			</volume>
+		</misc>
+		
 		<switch>
 			<name>Flaps Lever</name>
 			<mode>once</mode>
@@ -51,8 +84,18 @@
 				</and>
 			</condition>
 			<volume>
-				<property>/sim/current-view/internal</property>
-				<factor>0.75</factor>
+				<property>MD80/ambience/cockpit-amb-z</property>
+			</volume>
+		</switch>
+		
+		<switch>
+			<name>Flaps Motor</name>
+			<mode>in-transit</mode>
+			<path>Aircraft/MD-80/Sounds/SASA/flaps-motor.wav</path>
+			<property>fdm/jsbsim/fcs/flap-pos-deg</property>
+			<volume>
+				<property>MD80/ambience/wind-b-z</property>
+				<factor>0.5</factor>
 			</volume>
 		</switch>
 		
