@@ -373,6 +373,32 @@
 			</pitch>
 		</MDA_WHN>
 		
+		<MDA_WHN>
+			<name>MDA Howl</name>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/howl.wav</path>
+			<mode>looped</mode>
+			<property>sim/current-view/internal</property>
+			<volume>
+				<property>MD80/engine/MDA_howl</property>
+			</volume>
+			<pitch>
+				<property>MD80/enginep/MDA_howl</property>
+			</pitch>
+		</MDA_WHN>
+		
+		<MDA_WHN>
+			<name>MDA Hum</name>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/hum.wav</path>
+			<mode>looped</mode>
+			<property>sim/current-view/internal</property>
+			<volume>
+				<property>MD80/engine/MDA_hum</property>
+			</volume>
+			<pitch>
+				<property>MD80/enginep/MDA_hum</property>
+			</pitch>
+		</MDA_WHN>
+		
 		<!-- ENGINE 1 BUZZ -->
 		
 		<MDA_WHN>
@@ -466,6 +492,32 @@
 			</volume>
 			<pitch>
 				<property>MD80/enginep/MDB_WHN_3</property>
+			</pitch>
+		</MDB_WHN>
+		
+		<MDB_WHN>
+			<name>MDB Howl</name>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/howl.wav</path>
+			<mode>looped</mode>
+			<property>sim/current-view/internal</property>
+			<volume>
+				<property>MD80/engine/MDB_howl</property>
+			</volume>
+			<pitch>
+				<property>MD80/enginep/MDB_howl</property>
+			</pitch>
+		</MDB_WHN>
+		
+		<MDB_WHN>
+			<name>MDB Hum</name>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/hum.wav</path>
+			<mode>looped</mode>
+			<property>sim/current-view/internal</property>
+			<volume>
+				<property>MD80/engine/MDB_hum</property>
+			</volume>
+			<pitch>
+				<property>MD80/enginep/MDB_hum</property>
 			</pitch>
 		</MDB_WHN>
 		
