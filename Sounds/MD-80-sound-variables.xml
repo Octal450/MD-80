@@ -240,9 +240,9 @@
 				<table>
 					<property>engines/engine[0]/n1-actual</property>
 					<entry><ind>050</ind>  <dep>0.000</dep></entry>
-					<entry><ind>060</ind>  <dep>0.600</dep></entry>
-					<entry><ind>91.4</ind> <dep>0.573</dep></entry>
-					<entry><ind>94.7</ind> <dep>0.296</dep></entry>
+					<entry><ind>060</ind>  <dep>0.650</dep></entry>
+					<entry><ind>91.4</ind> <dep>0.623</dep></entry>
+					<entry><ind>94.7</ind> <dep>0.346</dep></entry>
 					<entry><ind>100.0</ind><dep>0.066</dep></entry>
 				</table>
 			</expression>
@@ -269,94 +269,74 @@
 		</output>
 	</filter>
 
-<filter>
-  <type>gain</type>
-  <gain>1</gain>
-  <input>
-    <expression>
-      <product>
-        <table>
-          <product>
-			<property>engines/engine[0]/n1-actual</property>
-			<value>1</value>
-		  </product>
-            <entry><ind>075</ind> <dep>0.00</dep></entry>
-			<entry><ind>085</ind> <dep>0.60</dep></entry>
-			<entry><ind>100</ind> <dep>0.00</dep></entry>
-        </table>
-      </product>
-    </expression>
-  </input>
-  <output>
-    <prop>MD80/engine/MDA_WHN_4</prop>
-  </output>
-</filter>
+	<filter>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<expression>
+				<table>
+					<property>engines/engine[0]/n1-actual</property>
+					<entry><ind>080</ind> <dep>0.00</dep></entry>
+					<entry><ind>090</ind> <dep>0.70</dep></entry>
+					<entry><ind>097</ind> <dep>0.539</dep></entry>
+					<entry><ind>100</ind> <dep>0.040</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>
+			<prop>MD80/engine/MDA_WHN_4</prop>
+		</output>
+	</filter>
 
 	<filter>
-	<type>gain</type>
-	<gain>1</gain>
+		<type>gain</type>
+		<gain>1</gain>
 		<input>
-		<expression>
-			<product>
+			<expression>
 				<table>
-					<product>
 					<property>engines/engine[0]/n1-actual</property>
-					<value>1</value>
-				</product>
-					<entry><ind>075</ind> <dep>0.85</dep></entry>
-					<entry><ind>085</ind> <dep>1.00</dep></entry>
-					<entry><ind>100</ind> <dep>1.10</dep></entry>
+					<entry><ind>25.3</ind> <dep>0.25</dep></entry>
+					<entry><ind>100</ind> <dep>1.00</dep></entry>
 				</table>
-			</product>
-		</expression>
+			</expression>
 		</input>
 		<output>
 			<prop>MD80/enginep/MDA_WHN_4</prop>
 		</output>
 	</filter>
 
-<filter>
-  <type>gain</type>
-  <gain>1</gain>
-  <input>
-    <expression>
-      <product>
-        <table>
-          <product>
-			<property>engines/engine[0]/n1-actual</property>
-			<value>1</value>
-		  </product>
-			<entry><ind>085</ind> <dep>0.00</dep></entry>
-			<entry><ind>100</ind> <dep>0.80</dep></entry>
-        </table>
-      </product>
-    </expression>
-  </input>
-  <output>
-    <prop>MD80/engine/MDA_WHN_5</prop>
-  </output>
-</filter>
-
 	<filter>
-	<type>gain</type>
-	<gain>1</gain>
+		<type>gain</type>
+		<gain>1</gain>
 		<input>
-		<expression>
-			<product>
+			<expression>
 				<table>
-					<product>
 					<property>engines/engine[0]/n1-actual</property>
-					<value>1</value>
-				</product>
-					<entry><ind>085</ind> <dep>0.91</dep></entry>
-					<entry><ind>100</ind> <dep>1.00</dep></entry>
-					<entry><ind>107</ind> <dep>1.05</dep></entry>
+					<entry><ind>090</ind> <dep>0.00</dep></entry>
+					<entry><ind>95.8</ind> <dep>0.700</dep></entry>
+					<entry><ind>100</ind> <dep>0.445</dep></entry>
 				</table>
-			</product>
-		</expression>
+			</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDA_WHN_5</prop>
+			<prop>MD80/engine/MDA_WHN_5</prop>
+		</output>
+	</filter>
+	
+	<filter>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<expression>
+				<table>
+					<property>engines/engine[0]/n1-actual</property>
+					<entry><ind>25.3</ind> <dep>0.25</dep></entry>
+					<entry><ind>100</ind> <dep>1.00</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>
+			<prop>MD80/enginep/MDB_WHN_5</prop>
 		</output>
 	</filter>
 
@@ -442,9 +422,9 @@
 				<table>
 					<property>engines/engine[1]/n1-actual</property>
 					<entry><ind>050</ind>  <dep>0.000</dep></entry>
-					<entry><ind>060</ind>  <dep>0.600</dep></entry>
-					<entry><ind>91.4</ind> <dep>0.573</dep></entry>
-					<entry><ind>94.7</ind> <dep>0.296</dep></entry>
+					<entry><ind>060</ind>  <dep>0.650</dep></entry>
+					<entry><ind>91.4</ind> <dep>0.623</dep></entry>
+					<entry><ind>94.7</ind> <dep>0.346</dep></entry>
 					<entry><ind>100.0</ind><dep>0.066</dep></entry>
 				</table>
 			</expression>
@@ -471,91 +451,71 @@
 		</output>
 	</filter>
 
-<filter>
-  <type>gain</type>
-  <gain>1</gain>
-  <input>
-    <expression>
-      <product>
-        <table>
-          <product>
-			<property>engines/engine[1]/n1-actual</property>
-			<value>1</value>
-		  </product>
-            <entry><ind>075</ind> <dep>0.00</dep></entry>
-			<entry><ind>085</ind> <dep>0.60</dep></entry>
-			<entry><ind>100</ind> <dep>0.00</dep></entry>
-        </table>
-      </product>
-    </expression>
-  </input>
-  <output>
-    <prop>MD80/engine/MDB_WHN_4</prop>
-  </output>
-</filter>
+	<filter>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<expression>
+				<table>
+					<property>engines/engine[1]/n1-actual</property>
+					<entry><ind>080</ind> <dep>0.00</dep></entry>
+					<entry><ind>090</ind> <dep>0.70</dep></entry>
+					<entry><ind>097</ind> <dep>0.539</dep></entry>
+					<entry><ind>100</ind> <dep>0.040</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>
+			<prop>MD80/engine/MDB_WHN_4</prop>
+		</output>
+	</filter>
 
 	<filter>
-	<type>gain</type>
-	<gain>1</gain>
+		<type>gain</type>
+		<gain>1</gain>
 		<input>
-		<expression>
-			<product>
+			<expression>
 				<table>
-					<product>
 					<property>engines/engine[1]/n1-actual</property>
-					<value>1</value>
-				</product>
-					<entry><ind>075</ind> <dep>0.85</dep></entry>
-					<entry><ind>085</ind> <dep>1.00</dep></entry>
-					<entry><ind>100</ind> <dep>1.10</dep></entry>
+					<entry><ind>25.3</ind> <dep>0.25</dep></entry>
+					<entry><ind>100</ind> <dep>1.00</dep></entry>
 				</table>
-			</product>
-		</expression>
+			</expression>
 		</input>
 		<output>
 			<prop>MD80/enginep/MDB_WHN_4</prop>
 		</output>
 	</filter>
 
-<filter>
-  <type>gain</type>
-  <gain>1</gain>
-  <input>
-    <expression>
-      <product>
-        <table>
-          <product>
-			<property>engines/engine[1]/n1-actual</property>
-			<value>1</value>
-		  </product>
-			<entry><ind>085</ind> <dep>0.00</dep></entry>
-			<entry><ind>100</ind> <dep>0.80</dep></entry>
-        </table>
-      </product>
-    </expression>
-  </input>
-  <output>
-    <prop>MD80/engine/MDB_WHN_5</prop>
-  </output>
-</filter>
-
 	<filter>
-	<type>gain</type>
-	<gain>1</gain>
+		<type>gain</type>
+		<gain>1</gain>
 		<input>
-		<expression>
-			<product>
+			<expression>
 				<table>
-					<product>
 					<property>engines/engine[1]/n1-actual</property>
-					<value>1</value>
-				</product>
-					<entry><ind>085</ind> <dep>0.91</dep></entry>
-					<entry><ind>100</ind> <dep>1.00</dep></entry>
-					<entry><ind>107</ind> <dep>1.05</dep></entry>
+					<entry><ind>090</ind> <dep>0.00</dep></entry>
+					<entry><ind>95.8</ind> <dep>0.700</dep></entry>
+					<entry><ind>100</ind> <dep>0.445</dep></entry>
 				</table>
-			</product>
-		</expression>
+			</expression>
+		</input>
+		<output>
+			<prop>MD80/engine/MDB_WHN_5</prop>
+		</output>
+	</filter>
+	
+	<filter>
+		<type>gain</type>
+		<gain>1</gain>
+		<input>
+			<expression>
+				<table>
+					<property>engines/engine[1]/n1-actual</property>
+					<entry><ind>25.3</ind> <dep>0.25</dep></entry>
+					<entry><ind>100</ind> <dep>1.00</dep></entry>
+				</table>
+			</expression>
 		</input>
 		<output>
 			<prop>MD80/enginep/MDB_WHN_5</prop>
