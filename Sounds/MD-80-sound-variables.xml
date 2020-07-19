@@ -276,8 +276,8 @@
 			<expression>
 				<table>
 					<property>engines/engine[0]/n1-actual</property>
-					<entry><ind>075</ind> <dep>0.00</dep></entry>
-					<entry><ind>090</ind> <dep>0.70</dep></entry>
+					<entry><ind>065</ind> <dep>0.00</dep></entry>
+					<entry><ind>080</ind> <dep>0.70</dep></entry>
 					<entry><ind>097</ind> <dep>0.539</dep></entry>
 				</table>
 			</expression>
@@ -335,7 +335,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDB_WHN_5</prop>
+			<prop>MD80/enginep/MDA_WHN_5</prop>
 		</output>
 	</filter>
 	
@@ -551,8 +551,8 @@
 			<expression>
 				<table>
 					<property>engines/engine[1]/n1-actual</property>
-					<entry><ind>075</ind> <dep>0.00</dep></entry>
-					<entry><ind>090</ind> <dep>0.70</dep></entry>
+					<entry><ind>065</ind> <dep>0.00</dep></entry>
+					<entry><ind>080</ind> <dep>0.70</dep></entry>
 					<entry><ind>097</ind> <dep>0.539</dep></entry>
 				</table>
 			</expression>
