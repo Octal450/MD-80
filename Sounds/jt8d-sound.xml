@@ -335,18 +335,14 @@
 		
 		<MDA_WHN>
 			<name>MDA WHN 1</name>
-			<path>FL2070/MDA_WHN_1.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/idle.wav</path>
 			<mode>looped</mode>
-			<property>engines/engine[0]/n1</property>
+			<property>sim/current-view/internal</property>
 			<volume>
 				<property>MD80/engine/MDA_WHN_1</property>
 			</volume>
-			<volume>
-				<property>sim/current-view/internal</property>
-			</volume>
 			<pitch>
 				<property>MD80/enginep/MDA_WHN_1</property>
-				<offset>0</offset>
 			</pitch>
 		</MDA_WHN>
 		
@@ -382,7 +378,7 @@
 		
 		<MDA_WHN>
 			<name>MDA WHN 4</name>
-			<path>FL2070/MDA_WHN_4.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/buzz_low.wav</path>
 			<mode>looped</mode>
 			<property>engines/engine[0]/n1</property>
 			<volume>
@@ -402,7 +398,7 @@
 		
 		<MDA_WHN>
 			<name>MDA WHN 5</name>
-			<path>FL2070/MDA_WHN_5.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/buzz.wav</path>
 			<mode>looped</mode>
 			<property>engines/engine[0]/n1</property>
 			<volume>
@@ -436,18 +432,14 @@
 		
 		<MDB_WHN>
 			<name>MDB WHN 1</name>
-			<path>FL2070/MDB_WHN_1.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/idle.wav</path>
 			<mode>looped</mode>
-			<property>engines/engine[1]/n1</property>
+			<property>sim/current-view/internal</property>
 			<volume>
 				<property>MD80/engine/MDB_WHN_1</property>
 			</volume>
-			<volume>
-				<property>sim/current-view/internal</property>
-			</volume>
 			<pitch>
 				<property>MD80/enginep/MDB_WHN_1</property>
-				<offset>0</offset>
 			</pitch>
 		</MDB_WHN>
 		
@@ -483,7 +475,7 @@
 		
 		<MDB_WHN>
 			<name>MDB WHN 4</name>
-			<path>FL2070/MDB_WHN_4.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/buzz_low.wav</path>
 			<mode>looped</mode>
 			<property>engines/engine[1]/n1</property>
 			<volume>
@@ -500,7 +492,7 @@
 		
 		<MDB_WHN>
 			<name>MDB WHN 5</name>
-			<path>FL2070/MDB_WHN_5.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/buzz.wav</path>
 			<mode>looped</mode>
 			<property>engines/engine[1]/n1</property>
 			<volume>

@@ -295,7 +295,7 @@
 			<value>1</value>
 		  </product>
             <entry><ind>075</ind> <dep>0.00</dep></entry>
-			<entry><ind>085</ind> <dep>0.50</dep></entry>
+			<entry><ind>085</ind> <dep>0.60</dep></entry>
 			<entry><ind>100</ind> <dep>0.00</dep></entry>
         </table>
       </product>
@@ -341,7 +341,7 @@
 			<value>1</value>
 		  </product>
 			<entry><ind>085</ind> <dep>0.00</dep></entry>
-			<entry><ind>100</ind> <dep>0.60</dep></entry>
+			<entry><ind>100</ind> <dep>0.80</dep></entry>
         </table>
       </product>
     </expression>
@@ -510,7 +510,7 @@
 			<value>1</value>
 		  </product>
             <entry><ind>075</ind> <dep>0.00</dep></entry>
-			<entry><ind>085</ind> <dep>0.50</dep></entry>
+			<entry><ind>085</ind> <dep>0.60</dep></entry>
 			<entry><ind>100</ind> <dep>0.00</dep></entry>
         </table>
       </product>
@@ -556,7 +556,7 @@
 			<value>1</value>
 		  </product>
 			<entry><ind>085</ind> <dep>0.00</dep></entry>
-			<entry><ind>100</ind> <dep>0.60</dep></entry>
+			<entry><ind>100</ind> <dep>0.80</dep></entry>
         </table>
       </product>
     </expression>
