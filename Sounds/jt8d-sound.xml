@@ -399,6 +399,19 @@
 			</pitch>
 		</MDA_WHN>
 		
+		<MDA_WHN>
+			<name>MDA Hum High</name>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/hum_high.wav</path>
+			<mode>looped</mode>
+			<property>sim/current-view/internal</property>
+			<volume>
+				<property>MD80/engine/MDA_hum_high</property>
+			</volume>
+			<pitch>
+				<property>MD80/enginep/MDA_hum</property>
+			</pitch>
+		</MDA_WHN>
+		
 		<!-- ENGINE 1 BUZZ -->
 		
 		<MDA_WHN>
@@ -521,6 +534,19 @@
 			</pitch>
 		</MDB_WHN>
 		
+		<MDB_WHN>
+			<name>MDB Hum High</name>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/hum_high.wav</path>
+			<mode>looped</mode>
+			<property>sim/current-view/internal</property>
+			<volume>
+				<property>MD80/engine/MDB_hum_high</property>
+			</volume>
+			<pitch>
+				<property>MD80/enginep/MDB_hum</property>
+			</pitch>
+		</MDB_WHN>
+		
 		<!-- ENGINE 2 BUZZ -->
 		
 		<MDB_WHN>
@@ -576,18 +602,14 @@
 		
 		<MDA_CMB>
 			<name>MDA CMB 0</name>
-			<path>FL2070/MDA_CMB_1.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/rumble.wav</path>
 			<mode>looped</mode>
-			<property>engines/engine[0]/epr</property>
-			<volume>
-				<property>MD80/engine/MDA_CMB_0</property>
-			</volume>
-			<volume>
 				<property>sim/current-view/internal</property>
+			<volume>
+				<property>MD80/engine/MDA_CMB_1</property>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDA_CMB_0</property>
-				<offset>0</offset>
+				<property>MD80/enginep/MDA_CMB_1</property>
 			</pitch>
 		</MDA_CMB>
 		
@@ -595,18 +617,14 @@
 		
 		<MDB_CMB>
 			<name>MDB CMB 0</name>
-			<path>FL2070/MDB_CMB_1.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/rumble.wav</path>
 			<mode>looped</mode>
 			<property>engines/engine[1]/epr</property>
 			<volume>
 				<property>MD80/engine/MDB_CMB_1</property>
 			</volume>
-			<volume>
-				<property>sim/current-view/internal</property>
-			</volume>
 			<pitch>
 				<property>MD80/enginep/MDB_CMB_1</property>
-				<offset>0</offset>
 			</pitch>
 		</MDB_CMB>
 		
