@@ -332,8 +332,7 @@
 		</MDAMB>
 		
 		<!-- ENGINE 1 IDLE -->
-		
-		<MDA_WHN>
+		<MDB_WHN>
 			<name>MDA WHN 1</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/idle.wav</path>
 			<mode>looped</mode>
@@ -344,7 +343,7 @@
 			<pitch>
 				<property>MD80/enginep/MDA_WHN_1</property>
 			</pitch>
-		</MDA_WHN>
+		</MDB_WHN>
 		
 		<!-- ENGINE 1 SPOOL -->
 		
@@ -429,7 +428,6 @@
 		</MDA_REV>
 		
 		<!-- ENGINE 2 IDLE -->
-		
 		<MDB_WHN>
 			<name>MDB WHN 1</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/idle.wav</path>
