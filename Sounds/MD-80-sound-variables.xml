@@ -276,10 +276,9 @@
 			<expression>
 				<table>
 					<property>engines/engine[0]/n1-actual</property>
-					<entry><ind>080</ind> <dep>0.00</dep></entry>
+					<entry><ind>075</ind> <dep>0.00</dep></entry>
 					<entry><ind>090</ind> <dep>0.70</dep></entry>
 					<entry><ind>097</ind> <dep>0.539</dep></entry>
-					<entry><ind>100</ind> <dep>0.040</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -314,7 +313,7 @@
 					<property>engines/engine[0]/n1-actual</property>
 					<entry><ind>090</ind> <dep>0.00</dep></entry>
 					<entry><ind>95.8</ind> <dep>0.700</dep></entry>
-					<entry><ind>100</ind> <dep>0.445</dep></entry>
+					<entry><ind>100</ind> <dep>0.645</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -552,10 +551,9 @@
 			<expression>
 				<table>
 					<property>engines/engine[1]/n1-actual</property>
-					<entry><ind>080</ind> <dep>0.00</dep></entry>
+					<entry><ind>075</ind> <dep>0.00</dep></entry>
 					<entry><ind>090</ind> <dep>0.70</dep></entry>
 					<entry><ind>097</ind> <dep>0.539</dep></entry>
-					<entry><ind>100</ind> <dep>0.040</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -590,7 +588,7 @@
 					<property>engines/engine[1]/n1-actual</property>
 					<entry><ind>090</ind> <dep>0.00</dep></entry>
 					<entry><ind>95.8</ind> <dep>0.700</dep></entry>
-					<entry><ind>100</ind> <dep>0.445</dep></entry>
+					<entry><ind>100</ind> <dep>0.645</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -717,9 +715,9 @@
 			<expression>
 				<table>
 					<property>engines/engine[0]/n2-actual</property>
-					<entry><ind>75.4</ind> <dep>0.00</dep></entry>
-					<entry><ind>80.1</ind> <dep>0.634</dep></entry>
-					<entry><ind>84.3</ind> <dep>0.650</dep></entry>
+					<entry><ind>55.4</ind> <dep>0.00</dep></entry>
+					<entry><ind>80.1</ind> <dep>0.184</dep></entry>
+					<entry><ind>84.3</ind> <dep>0.200</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -752,9 +750,9 @@
 			<expression>
 				<table>
 					<property>engines/engine[1]/n2-actual</property>
-					<entry><ind>75.4</ind> <dep>0.00</dep></entry>
-					<entry><ind>80.1</ind> <dep>0.634</dep></entry>
-					<entry><ind>84.3</ind> <dep>0.650</dep></entry>
+					<entry><ind>55.4</ind> <dep>0.00</dep></entry>
+					<entry><ind>80.1</ind> <dep>0.184</dep></entry>
+					<entry><ind>84.3</ind> <dep>0.200</dep></entry>
 				</table>
 			</expression>
 		</input>
