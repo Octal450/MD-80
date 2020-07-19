@@ -17,27 +17,36 @@
 		<wow>
 			<mode>once</mode>
 			<name>wow0</name>
-			<path>Aircraft/MD-80/Sounds/Touch-Main.wav</path> <!-- Nose seemed to harsh -->
+			<path>Aircraft/MD-80/Sounds/SASA/Touch-Nose.wav</path>
 			<condition>
-				<property>gear/gear[0]/wow</property>
+				<and>
+					<property>gear/gear[0]/wow</property>
+					<property>/sim/current-view/internal</property>
+				</and>
 			</condition>
 		</wow>
 		
 		<wow>
 			<mode>once</mode>
 			<name>wow1</name>
-			<path>Aircraft/MD-80/Sounds/Touch-Main.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Touch-Main.wav</path>
 			<condition>
-				<property>gear/gear[1]/wow</property>
+				<and>
+					<property>gear/gear[1]/wow</property>
+					<property>/sim/current-view/internal</property>
+				</and>
 			</condition>
 		</wow>
 		
 		<wow>
 			<mode>once</mode>
 			<name>wow2</name>
-			<path>Aircraft/MD-80/Sounds/Touch-Main.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Touch-Main.wav</path>
 			<condition>
-				<property>gear/gear[2]/wow</property>
+				<and>
+					<property>gear/gear[2]/wow</property>
+					<property>/sim/current-view/internal</property>
+				</and>
 			</condition>
 		</wow>
 		
