@@ -19,11 +19,11 @@
 			<name>wow0</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Touch-Nose.wav</path>
 			<condition>
-				<and>
-					<property>gear/gear[0]/wow</property>
-					<property>/sim/current-view/internal</property>
-				</and>
+				<property>gear/gear[0]/wow</property>
 			</condition>
+			<volume>
+				<property>/sim/current-view/internal</property>
+			</volume>
 		</wow>
 		
 		<wow>
@@ -31,11 +31,11 @@
 			<name>wow1</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Touch-Main.wav</path>
 			<condition>
-				<and>
-					<property>gear/gear[1]/wow</property>
-					<property>/sim/current-view/internal</property>
-				</and>
+				<property>gear/gear[1]/wow</property>
 			</condition>
+			<volume>
+				<property>/sim/current-view/internal</property>
+			</volume>
 		</wow>
 		
 		<wow>
@@ -43,11 +43,11 @@
 			<name>wow2</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Touch-Main.wav</path>
 			<condition>
-				<and>
-					<property>gear/gear[2]/wow</property>
-					<property>/sim/current-view/internal</property>
-				</and>
+				<property>gear/gear[2]/wow</property>
 			</condition>
+			<volume>
+				<property>/sim/current-view/internal</property>
+			</volume>
 		</wow>
 		
 		<misc>
@@ -367,18 +367,14 @@
 		
 		<MDA_WHN>
 			<name>MDA WHN 3</name>
-			<path>FL2070/MDA_WHN_3.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/whine.wav</path>
 			<mode>looped</mode>
-			<property>engines/engine[0]/n1</property>
+			<property>sim/current-view/internal</property>
 			<volume>
 				<property>MD80/engine/MDA_WHN_3</property>
 			</volume>
-			<volume>
-				<property>sim/current-view/internal</property>
-			</volume>
 			<pitch>
 				<property>MD80/enginep/MDA_WHN_3</property>
-				<offset>0</offset>
 			</pitch>
 		</MDA_WHN>
 		
@@ -472,18 +468,14 @@
 		
 		<MDB_WHN>
 			<name>MDB WHN 3</name>
-			<path>FL2070/MDB_WHN_3.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/whine.wav</path>
 			<mode>looped</mode>
-			<property>engines/engine[1]/n1</property>
+			<property>sim/current-view/internal</property>
 			<volume>
 				<property>MD80/engine/MDB_WHN_3</property>
 			</volume>
-			<volume>
-				<property>sim/current-view/internal</property>
-			</volume>
 			<pitch>
 				<property>MD80/enginep/MDB_WHN_3</property>
-				<offset>0</offset>
 			</pitch>
 		</MDB_WHN>
 		
