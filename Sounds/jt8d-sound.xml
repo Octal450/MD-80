@@ -386,7 +386,7 @@
 			</pitch>
 		</MDA_WHN>
 		
-		<MDA_WHN>
+		<!--<MDA_WHN>
 			<name>MDA Hum</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/hum.wav</path>
 			<mode>looped</mode>
@@ -397,7 +397,7 @@
 			<pitch>
 				<property>MD80/enginep/MDA_hum</property>
 			</pitch>
-		</MDA_WHN>
+		</MDA_WHN>-->
 		
 		<MDA_WHN>
 			<name>MDA Hum High</name>
@@ -521,7 +521,7 @@
 			</pitch>
 		</MDB_WHN>
 		
-		<MDB_WHN>
+		<!--<MDB_WHN>
 			<name>MDB Hum</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/hum.wav</path>
 			<mode>looped</mode>
@@ -532,7 +532,7 @@
 			<pitch>
 				<property>MD80/enginep/MDB_hum</property>
 			</pitch>
-		</MDB_WHN>
+		</MDB_WHN>-->
 		
 		<MDB_WHN>
 			<name>MDB Hum High</name>
