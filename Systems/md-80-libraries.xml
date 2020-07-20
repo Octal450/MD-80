@@ -22,6 +22,22 @@
 				gear/unit[0]/WOW eq 0
 			</test>
 		</switch>
+		
+		<fcs_function name="/position/gear-agl-ft-tie">
+			<function>
+				<difference>
+					<property>/position/altitude-agl-ft</property>
+					<value>9.065</value>
+				</difference>
+			</function>
+			<output>/position/gear-agl-ft</output> <!-- So flight recorder can override it -->
+		</fcs_function>
+		
+		<pure_gain name="/position/gear-agl-m-tie">
+			<input>/position/gear-agl-ft</input>
+			<gain>0.3048</gain>
+			<output>/position/gear-agl-m</output> <!-- So flight recorder can override it -->
+		</pure_gain>
 	
 	</channel>
 	
