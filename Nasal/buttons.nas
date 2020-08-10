@@ -6,20 +6,32 @@ var variousReset = func {
 	
 }
 
-var APPanel = {
-	altTemp: 0,
-	fpaTemp: 0,
+var apPanel = {
 	hdgTemp: 0,
-	iasTemp: 0,
+	ktsTemp: 0,
 	machTemp: 0,
-	vertTemp: 0,
-	vsTemp: 0,
-	SPDPush: func() {
+	apSwitch: func() {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			if (dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue()) {
+				dfgs.ITAF.ap1Master(0);
+				dfgs.ITAF.ap2Master(0);
+			} else {
+				if (dfgs.Input.activeAp.getValue() == 2) {
+					dfgs.ITAF.ap2Master(1);
+					dfgs.ITAF.ap1Master(0);
+				} else {
+					dfgs.ITAF.ap1Master(1);
+					dfgs.ITAF.ap2Master(0);
+				}
+			}
+		}
+	},
+	spdPush: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			dfgs.Input.ktsMach.setBoolValue(!dfgs.Input.ktsMach.getBoolValue());
 		}
 	},
-	SPDAdjust: func(d) {
+	spdAdjust: func(d) {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			if (dfgs.Input.ktsMach.getBoolValue()) {
 				me.machTemp = math.round(dfgs.Input.mach.getValue() + (d * 0.001), (abs(d * 0.001))); # Kill floating point error
@@ -31,28 +43,28 @@ var APPanel = {
 					dfgs.Input.mach.setValue(me.machTemp);
 				}
 			} else {
-				me.iasTemp = dfgs.Input.ias.getValue() + d;
-				if (me.iasTemp < 100) {
-					dfgs.Input.ias.setValue(100);
-				} else if (me.iasTemp > 350) {
-					dfgs.Input.ias.setValue(350);
+				me.ktsTemp = dfgs.Input.kts.getValue() + d;
+				if (me.ktsTemp < 100) {
+					dfgs.Input.kts.setValue(100);
+				} else if (me.ktsTemp > 350) {
+					dfgs.Input.kts.setValue(350);
 				} else {
-					dfgs.Input.ias.setValue(me.iasTemp);
+					dfgs.Input.kts.setValue(me.ktsTemp);
 				}
 			}
 		}
 	},
-	HDGPush: func() {
+	hdgPush: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			dfgs.Input.lat.setValue(3);
 		}
 	},
-	HDGPull: func() {
+	hdgPull: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			dfgs.Input.lat.setValue(0);
 		}
 	},
-	HDGAdjust: func(d) {
+	hdgAdjust: func(d) {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			me.hdgTemp = dfgs.Input.hdg.getValue() + d;
 			if (me.hdgTemp < 0.5) {
@@ -65,18 +77,3 @@ var APPanel = {
 		}
 	},
 };
-
-var STD = func {
-	if (!pts.Instrumentation.Altimeter.std.getBoolValue()) {
-		pts.Instrumentation.Altimeter.oldQnh.setValue(pts.Instrumentation.Altimeter.settingInhg.getValue());
-		pts.Instrumentation.Altimeter.settingInhg.setValue(29.92);
-		pts.Instrumentation.Altimeter.std.setBoolValue(1);
-	}
-}
-
-var unSTD = func {
-	if (pts.Instrumentation.Altimeter.std.getBoolValue()) {
-		pts.Instrumentation.Altimeter.settingInhg.setValue(pts.Instrumentation.Altimeter.oldQnh.getValue());
-		pts.Instrumentation.Altimeter.std.setBoolValue(0);
-	}
-}

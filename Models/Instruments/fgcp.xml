@@ -527,7 +527,7 @@
 			</mod-up>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.APPanel.SPDPush();</script>
+				<script>libraries.apPanel.spdPush();</script>
 			</binding>
 		</action>
 		<action>
@@ -538,14 +538,14 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.APPanel.SPDAdjust(1);</script>
+				<script>libraries.apPanel.spdAdjust(1);</script>
 			</binding>
 			<binding>
 				<condition>
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.APPanel.SPDAdjust(10);</script>
+				<script>libraries.apPanel.spdAdjust(10);</script>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
@@ -564,14 +564,14 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.APPanel.SPDAdjust(-1);</script>
+				<script>libraries.apPanel.spdAdjust(-1);</script>
 			</binding>
 			<binding>
 				<condition>
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.APPanel.SPDAdjust(-10);</script>
+				<script>libraries.apPanel.spdAdjust(-10);</script>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
@@ -720,14 +720,14 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.APPanel.HDGPush();</script>
+				<script>libraries.apPanel.hdgPush();</script>
 			</binding>
 			<binding>
 				<condition>
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.APPanel.HDGPull();</script>
+				<script>libraries.apPanel.hdgPull();</script>
 			</binding>
 		</action>
 		<action>
@@ -747,7 +747,7 @@
 			</mod-up>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.APPanel.HDGPull();</script>
+				<script>libraries.apPanel.hdgPull();</script>
 			</binding>
 		</action>
 		<action>
@@ -758,14 +758,14 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.APPanel.HDGAdjust(1);</script>
+				<script>libraries.apPanel.hdgAdjust(1);</script>
 			</binding>
 			<binding>
 				<condition>
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.APPanel.HDGAdjust(10);</script>
+				<script>libraries.apPanel.hdgAdjust(10);</script>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
@@ -784,14 +784,14 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.APPanel.HDGAdjust(-1);</script>
+				<script>libraries.apPanel.hdgAdjust(-1);</script>
 			</binding>
 			<binding>
 				<condition>
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.APPanel.HDGAdjust(-10);</script>
+				<script>libraries.apPanel.hdgAdjust(-10);</script>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
@@ -802,6 +802,46 @@
 				<wrap>true</wrap>
 			</binding>
 		</action>
+	</animation>
+	
+	<!-- Autopilot Switch -->
+	<animation>
+		<type>pick</type>
+		<object-name>APSwitch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.apSwitch();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>APSwitch</object-name>
+		<property>it-autoflight/input/ap</property>
+		<expression>
+			<table>
+				<max>
+					<property>it-autoflight/output/ap1</property>
+					<property>it-autoflight/output/ap2</property>
+				</max>
+				<entry><ind>0</ind><dep> 30</dep></entry>
+				<entry><ind>1</ind><dep>-30</dep></entry>
+			</table>
+		</expression>
+		<center>
+			<x-m>-0.00815</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.01786</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
 	</animation>
 	
 	<!-- NAV2 Digits -->

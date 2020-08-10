@@ -78,6 +78,7 @@ var Velocities = {
 
 # IT-AUTOFLIGHT
 var Input = {
+	activeAp: props.globals.initNode("/it-autoflight/input/active-ap", 1, "INT"),
 	alt: props.globals.initNode("/it-autoflight/input/alt", 10000, "INT"),
 	ap1: props.globals.initNode("/it-autoflight/input/ap1", 0, "BOOL"),
 	ap2: props.globals.initNode("/it-autoflight/input/ap2", 0, "BOOL"),
@@ -200,6 +201,7 @@ var ITAF = {
 			Input.trk.setBoolValue(0);
 			Input.trueCourse.setBoolValue(0);
 			Input.useNav2Radio.setBoolValue(0);
+			Input.activeAp.setValue(1);
 		}
 		Input.ap1.setBoolValue(0);
 		Input.ap2.setBoolValue(0);
