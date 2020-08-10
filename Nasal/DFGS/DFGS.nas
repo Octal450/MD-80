@@ -138,6 +138,7 @@ var Output = {
 	apprArm: props.globals.initNode("/it-autoflight/output/appr-armed", 0, "BOOL"),
 	athr: props.globals.initNode("/it-autoflight/output/athr", 0, "BOOL"),
 	athrTemp: 0,
+	clamp: props.globals.initNode("/it-autoflight/output/clamp", 0, "BOOL"),
 	fd1: props.globals.initNode("/it-autoflight/output/fd1", 0, "BOOL"),
 	fd1Temp: 0,
 	fd2: props.globals.initNode("/it-autoflight/output/fd2", 0, "BOOL"),
@@ -177,16 +178,6 @@ var Setting = {
 var Sound = {
 	apOff: props.globals.initNode("/it-autoflight/sound/apoffsound", 0, "BOOL"),
 	enableApOff: 0,
-};
-
-# MD-80 Custom
-var Custom = {
-	Output: {
-		ap1Avail: props.globals.initNode("/it-autoflight/output/ap1-available", 0, "BOOL"),
-		ap2Avail: props.globals.initNode("/it-autoflight/output/ap2-available", 0, "BOOL"),
-		atsAvail: props.globals.initNode("/it-autoflight/output/ats-available", 0, "BOOL"),
-		clamp: props.globals.initNode("/it-autoflight/output/clamp", 0, "BOOL"),
-	},
 };
 
 var ITAF = {

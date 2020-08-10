@@ -201,7 +201,7 @@
 		<actuator name="fcs-actual/aileron-l/surface-final-actuator">
 			<input>fcs-actual/aileron-l/surface-cmd-deg</input>
 			<rate_limit>fcs-actual/surface-rate</rate_limit>
-			<lag>15</lag>
+			<lag>20</lag>
 			<output>fcs-actual/aileron-l/surface-final-deg</output>
 		</actuator>
 	
@@ -243,7 +243,7 @@
 		<actuator name="fcs-actual/aileron-r/surface-final-actuator">
 			<input>fcs-actual/aileron-r/surface-cmd-deg</input>
 			<rate_limit>fcs-actual/surface-rate</rate_limit>
-			<lag>15</lag>
+			<lag>20</lag>
 			<output>fcs-actual/aileron-r/surface-final-deg</output>
 		</actuator>
 	
@@ -290,6 +290,14 @@
 			</test>
 		</switch>
 		
+		<switch name="fcs-actual/elevator-l/anti-up-rate">
+			<default value="100000"/> <!-- So it won't blip -->
+			<test logic="AND" value="80">
+				/systems/hydraulics/sys-l-psi ge 950
+				fcs-actual/elevator/pwr-active eq 1
+			</test>
+		</switch>
+		
 		<switch name="fcs-actual/elevator-l/anti-up-input">
 			<default value="fcs-actual/elevator-l/anti-up"/>
 			<test logic="AND" value="fcs-actual/elevator/pwr-cmd-deg">
@@ -300,7 +308,7 @@
 		
 		<actuator name="fcs-actual/elevator-l/anti-up-slow">
 			<input>fcs-actual/elevator-l/anti-up-input</input>
-			<rate_limit>fcs-actual/elevator-l/rate</rate_limit>
+			<rate_limit>fcs-actual/elevator-l/anti-up-rate</rate_limit>
 			<output>fcs-actual/elevator-l/anti-up-slow-out</output>
 		</actuator>
 		
@@ -329,7 +337,7 @@
 		</fcs_function>
 		
 		<switch name="fcs-actual/elevator-l/lag">
-			<default value="15"/> <!-- For aerodynamically flown -->
+			<default value="20"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="26.5">
 				/systems/hydraulics/sys-l-psi ge 950
 				fcs-actual/elevator/pwr-active eq 1
@@ -376,6 +384,14 @@
 			</test>
 		</switch>
 		
+		<switch name="fcs-actual/elevator-r/anti-up-rate">
+			<default value="100000"/> <!-- So it won't blip -->
+			<test logic="AND" value="80"> <!-- Not a typo, left hydraulic on both -->
+				/systems/hydraulics/sys-l-psi ge 950
+				fcs-actual/elevator/pwr-active eq 1
+			</test>
+		</switch>
+		
 		<switch name="fcs-actual/elevator-r/anti-up-input">
 			<default value="fcs-actual/elevator-r/anti-up"/>
 			<test logic="AND" value="fcs-actual/elevator/pwr-cmd-deg"> <!-- Not a typo, left hydraulic on both -->
@@ -386,7 +402,7 @@
 		
 		<actuator name="fcs-actual/elevator-r/anti-up-slow">
 			<input>fcs-actual/elevator-r/anti-up-input</input>
-			<rate_limit>fcs-actual/elevator-r/rate</rate_limit>
+			<rate_limit>fcs-actual/elevator-r/anti-up-rate</rate_limit>
 			<output>fcs-actual/elevator-r/anti-up-slow-out</output>
 		</actuator>
 		
@@ -415,7 +431,7 @@
 		</fcs_function>
 		
 		<switch name="fcs-actual/elevator-r/lag">
-			<default value="15"/> <!-- For aerodynamically flown -->
+			<default value="20"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="26.5"> <!-- Not a typo, left hydraulic on both -->
 				/systems/hydraulics/sys-l-psi ge 950
 				fcs-actual/elevator/pwr-active eq 1
@@ -550,7 +566,7 @@
 		</switch>
 		
 		<switch name="fcs-actual/rudder/lag">
-			<default value="15"/> <!-- For aerodynamically flown -->
+			<default value="20"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="25.5">
 				/systems/hydraulics/sys-r-psi ge 950
 				/controls/flight/rudder-pwr eq 1

@@ -70,12 +70,12 @@ var Clamp = {
 		}
 		
 		if (pts.Systems.Acconfig.Options.throttleOverride.getValue() == "Never") {
-			if (Custom.Output.clamp.getBoolValue() != 0) {
-				Custom.Output.clamp.setBoolValue(0);
+			if (Output.clamp.getBoolValue() != 0) {
+				Output.clamp.setBoolValue(0);
 			}
 		} else {
-			if (Custom.Output.clamp.getBoolValue() != me.active) {
-				Custom.Output.clamp.setBoolValue(me.active);
+			if (Output.clamp.getBoolValue() != me.active) {
+				Output.clamp.setBoolValue(me.active);
 			}
 		}
 	},
