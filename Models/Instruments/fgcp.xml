@@ -406,7 +406,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>IASDigit1</object-name>
-		<property>it-autoflight/input/spd-kts</property>
+		<property>it-autoflight/input/kts</property>
 		<factor>0.001</factor>
 		<step>100</step>
 		<axis>
@@ -418,7 +418,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>IASDigit2</object-name>
-		<property>it-autoflight/input/spd-kts</property>
+		<property>it-autoflight/input/kts</property>
 		<factor>0.01</factor>
 		<step>10</step>
 		<axis>
@@ -430,7 +430,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>IASDigit3</object-name>
-		<property>it-autoflight/input/spd-kts</property>
+		<property>it-autoflight/input/kts</property>
 		<factor>0.1</factor>
 		<step>1</step>
 		<axis>
@@ -443,7 +443,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>MachDigit1</object-name>
-		<property>it-autoflight/input/spd-mach-x1000</property>
+		<property>it-autoflight/input/mach-x1000</property>
 		<factor>0.001</factor>
 		<step>100</step>
 		<axis>
@@ -455,7 +455,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>MachDigit2</object-name>
-		<property>it-autoflight/input/spd-mach-x1000</property>
+		<property>it-autoflight/input/mach-x1000</property>
 		<factor>0.01</factor>
 		<step>10</step>
 		<axis>
@@ -467,7 +467,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>MachDigit3</object-name>
-		<property>it-autoflight/input/spd-mach-x1000</property>
+		<property>it-autoflight/input/mach-x1000</property>
 		<factor>0.1</factor>
 		<step>1</step>
 		<axis>

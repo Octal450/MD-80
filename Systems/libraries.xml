@@ -129,15 +129,6 @@
 		<max-rate-of-change>1.5</max-rate-of-change>
 	</filter>
 	
-	<filter>
-		<name>NAV1 x1000</name>
-		<type>gain</type>
-		<gain>1000</gain>
-		<update-interval-secs type="double">0.02</update-interval-secs>
-		<input>/it-autoflight/input/spd-mach</input>
-		<output>/it-autoflight/input/spd-mach-x1000</output>
-	</filter>
-	
 	<!-- GPWS Controller -->
 	<logic>
 		<!-- Smewhat confusing : this input is not 'are the flaps in landing configration', but rather,

@@ -57,7 +57,7 @@
 			</condition>
 			<property>/it-autoflight/settings/togaspd</property>
 		</input>
-		<input>/it-autoflight/input/spd-kts</input>
+		<input>/it-autoflight/input/kts</input>
 		<output>/it-autoflight/internal/flch-kts</output>
 		<min>
 			<expression>
@@ -113,7 +113,7 @@
 		<type>noise-spike</type>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
-		<input>/it-autoflight/input/spd-mach</input>
+		<input>/it-autoflight/input/mach</input>
 		<output>/it-autoflight/internal/flch-mach</output>
 		<min>
 			<expression>
@@ -185,7 +185,7 @@
 				</floor>
 			</expression>
 		</input>
-		<output>/it-autoflight/input/spd-kts</output>
+		<output>/it-autoflight/input/kts</output>
 	</filter>
 	
 	<filter>
@@ -216,7 +216,7 @@
 				</div>
 			</expression>
 		</input>
-		<output>/it-autoflight/input/spd-mach</output>
+		<output>/it-autoflight/input/mach</output>
 	</filter>
 	
 	<filter>
@@ -482,6 +482,15 @@
 	</filter>
 	
 	<filter>
+		<name>Mach x1000</name>
+		<type>gain</type>
+		<gain>1000</gain>
+		<update-interval-secs type="double">0.02</update-interval-secs>
+		<input>/it-autoflight/input/mach</input>
+		<output>/it-autoflight/input/mach-x1000</output>
+	</filter>
+	
+	<filter>
 		<name>Nav Error Deg</name>
 		<debug>false</debug>
 		<type>gain</type>
@@ -529,7 +538,7 @@
 	</filter>
 	
 	<filter>
-		<name>NAV1 G/S FPM Calc</name>
+		<name>Nav1 G/S FPM Calc</name>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -540,7 +549,7 @@
 	</filter>
 	
 	<filter>
-		<name>NAV2 G/S FPM Calc</name>
+		<name>Nav2 G/S FPM Calc</name>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>

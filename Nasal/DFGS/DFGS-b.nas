@@ -1,11 +1,27 @@
 # McDonnell Douglas MD-80 DFGS AFS Interface
 # Copyright (c) 2020 Josh Davidson (Octal450)
 
-var FMA = { # / splits top and bottom
+var FMA = { # $ splits top and bottom
 	thr: props.globals.initNode("/instrumentation/pfd/fma/thr-mode", "", "STRING"),
 	arm: props.globals.initNode("/instrumentation/pfd/fma/arm-mode", "", "STRING"),
-	pitch: props.globals.initNode("/instrumentation/pfd/fma/pitch-mode", "TAK/OFF", "STRING"),
-	roll: props.globals.initNode("/instrumentation/pfd/fma/roll-mode", "TAK/OFF", "STRING"),
+	pitch: props.globals.initNode("/instrumentation/pfd/fma/pitch-mode", "TAK$OFF", "STRING"),
+	roll: props.globals.initNode("/instrumentation/pfd/fma/roll-mode", "TAK$OFF", "STRING"),
+};
+
+var updateFMA = {
+	pitchText: "T/O CLB",
+	rollText: "T/O",
+	roll: func() {
+		me.rollText = Text.lat.getValue();
+		
+	},
+	pitch: func() {
+		me.pitchText = Text.vert.getValue();
+		
+	},
+	arm: func() {
+		
+	},
 };
 
 var Clamp = {
