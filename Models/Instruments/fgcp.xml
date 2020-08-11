@@ -486,7 +486,7 @@
 		<center>
 			<x-m>0</x-m>
 			<y-m>-0.10589</y-m>
-			<z-m>-0.01524</z-m>
+			<z-m>-0.01786</z-m>
 		</center>
 		<axis>
 			<x>1</x>
@@ -664,8 +664,8 @@
 		<factor>-11.25</factor>
 		<center>
 			<x-m>0</x-m>
-			<y-m>-0.0205</y-m>
-			<z-m>-0.01524</z-m>
+			<y-m>-0.02043</y-m>
+			<z-m>-0.01786</z-m>
 		</center>
 		<axis>
 			<x>1</x>
@@ -799,6 +799,58 @@
 				<step>-1</step>
 				<min>0</min>
 				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<!-- Bank Limit Knob -->
+	<animation>
+		<type>rotate</type>
+		<object-name>BLimit.knob</object-name>
+		<property>it-autoflight/input/bank-limit-sw</property>
+		<interpolation>
+			<entry><ind>2</ind><dep> 70</dep></entry>
+			<entry><ind>6</ind><dep>-70</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.02043</y-m>
+			<z-m>-0.01786</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>BLimit.knob</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>it-autoflight/input/bank-limit-sw</property>
+				<step>1</step>
+				<min>2</min>
+				<max>7</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>it-autoflight/input/bank-limit-sw</property>
+				<step>-1</step>
+				<min>2</min>
+				<max>7</max>
 				<wrap>true</wrap>
 			</binding>
 		</action>

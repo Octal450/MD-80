@@ -84,7 +84,7 @@ var Input = {
 	ap2: props.globals.initNode("/it-autoflight/input/ap2", 0, "BOOL"),
 	athr: props.globals.initNode("/it-autoflight/input/athr", 0, "BOOL"),
 	altDiff: 0,
-	bankLimitSW: props.globals.initNode("/it-autoflight/input/bank-limit-sw", 0, "INT"),
+	bankLimitSW: props.globals.initNode("/it-autoflight/input/bank-limit-sw", 6, "INT"), # 30
 	bankLimitSWTemp: 0,
 	fd1: props.globals.initNode("/it-autoflight/input/fd1", 0, "BOOL"),
 	fd2: props.globals.initNode("/it-autoflight/input/fd2", 0, "BOOL"),
@@ -184,7 +184,7 @@ var ITAF = {
 	init: func(t) { # Not everything should be reset if the reset is type 1
 		if (t != 1) {
 			Input.alt.setValue(10000);
-			Input.bankLimitSW.setValue(0);
+			Input.bankLimitSW.setValue(6); # 30
 			Input.hdg.setValue(360);
 			Input.ktsMach.setBoolValue(0);
 			Input.kts.setValue(250);
