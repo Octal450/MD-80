@@ -680,7 +680,7 @@
 				<property>/it-autoflight/input/bank-limit-sw</property>
 				<step>1</step>
 				<min>0</min>
-				<max>6</max>
+				<max>4</max>
 				<live type="bool">true</live>
 				<binding>
 					<command>dialog-apply</command>
@@ -692,7 +692,7 @@
 			<layout>hbox</layout>
 			<text>
 				<halign>center</halign>
-				<label>AUTO   5     10     15     20     25     30  </label>
+				<label>10         15         20         25         30</label>
 			</text>
 		</group>
 

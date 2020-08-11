@@ -810,8 +810,8 @@
 		<object-name>BLimit.knob</object-name>
 		<property>it-autoflight/input/bank-limit-sw</property>
 		<interpolation>
-			<entry><ind>2</ind><dep> 70</dep></entry>
-			<entry><ind>6</ind><dep>-70</dep></entry>
+			<entry><ind>0</ind><dep> 70</dep></entry>
+			<entry><ind>4</ind><dep>-70</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>0</x-m>
@@ -830,27 +830,25 @@
 		<object-name>BLimit.knob</object-name>
 		<action>
 			<button>0</button>
-			<button>3</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-adjust</command>
 				<property>it-autoflight/input/bank-limit-sw</property>
 				<step>1</step>
-				<min>2</min>
-				<max>7</max>
+				<min>0</min>
+				<max>5</max>
 				<wrap>true</wrap>
 			</binding>
 		</action>
 		<action>
 			<button>1</button>
-			<button>4</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-adjust</command>
 				<property>it-autoflight/input/bank-limit-sw</property>
 				<step>-1</step>
-				<min>2</min>
-				<max>7</max>
+				<min>0</min>
+				<max>5</max>
 				<wrap>true</wrap>
 			</binding>
 		</action>
