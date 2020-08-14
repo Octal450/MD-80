@@ -29,6 +29,17 @@
 		</emission>
 	</animation>
 	
+	<animation>
+		<type>select</type>
+		<object-name>Digits</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/outputs/fgcp-power</property>
+				<value>25</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
 	<!-- NAV1 Digits -->
 	<animation>
 		<type>textranslate</type>
@@ -852,6 +863,125 @@
 				<wrap>true</wrap>
 			</binding>
 		</action>
+	</animation>
+	
+	<!-- Dash -->
+	<animation>
+		<type>select</type>
+		<object-name>VS.ledminus</object-name>
+		<condition>
+			<and>
+				<less-than>
+					<property>it-autoflight/input/vs</property>
+					<value>-0.01</value>
+				</less-than>
+				<greater-than>
+					<property>it-autoflight/input/vs-fma</property>
+					<value>0</value>
+				</greater-than>
+			</and>
+		</condition>
+	</animation>
+	
+	<!-- VS Digits -->
+	<animation>
+		<type>textranslate</type>
+		<object-name>VS.led1</object-name>
+		<property>it-autoflight/input/vs-fma</property>
+		<factor>0.0001</factor>
+		<step>1000</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>VS.led2</object-name>
+		<property>it-autoflight/input/vs-fma</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- VS Knob -->
+	<animation>
+		<type>pick</type>
+		<object-name>VS.knob</object-name>
+		<action>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<condition>
+					<not><property>devices/status/keyboard/shift</property></not>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.apPanel.vsAdjust(-1);</script>
+			</binding>
+			<binding>
+				<condition>
+					<property>devices/status/keyboard/shift</property>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.apPanel.vsAdjust(-10);</script>
+			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/fcp/vs-rotate</property>
+				<step>1</step>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<condition>
+					<not><property>devices/status/keyboard/shift</property></not>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.apPanel.vsAdjust(1);</script>
+			</binding>
+			<binding>
+				<condition>
+					<property>devices/status/keyboard/shift</property>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.apPanel.vsAdjust(10);</script>
+			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/fcp/vs-rotate</property>
+				<step>-1</step>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>VS.knob</object-name>
+		<property>instrumentation/fcp/vs-rotate</property>
+		<factor>11.25</factor>
+		<center>
+			<x-m>-0.01584</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.01432</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
 	</animation>
 	
 	<!-- Autopilot Switch -->

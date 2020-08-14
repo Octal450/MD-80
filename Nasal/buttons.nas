@@ -10,6 +10,7 @@ var apPanel = {
 	hdgTemp: 0,
 	ktsTemp: 0,
 	machTemp: 0,
+	vertTemp: 0,
 	apSwitch: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			if (dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue()) {
@@ -73,6 +74,23 @@ var apPanel = {
 				dfgs.Input.hdg.setValue(me.hdgTemp - 360);
 			} else {
 				dfgs.Input.hdg.setValue(me.hdgTemp);
+			}
+		}
+	},
+	vsAdjust: func(d) {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			me.vertTemp = dfgs.Output.vert.getValue();
+			if (me.vertTemp == 1) {
+				me.vsTemp = dfgs.Input.vs.getValue() + (d * 100);
+				if (me.vsTemp < -6000) {
+					dfgs.Input.vs.setValue(-6000);
+				} else if (me.vsTemp > 6000) {
+					dfgs.Input.vs.setValue(6000);
+				} else {
+					dfgs.Input.vs.setValue(me.vsTemp);
+				}
+			} else {
+				dfgs.Input.vert.setValue(1);
 			}
 		}
 	},
