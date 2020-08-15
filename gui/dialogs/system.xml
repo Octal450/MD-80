@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
+<PropertyList>
+	
+	<name>system</name>
+	<layout>hbox</layout>
+	<x>0</x>
+	<y>0</y>
+	
+	<text>
+		<halign>left</halign>
+		<label>Octal450 Confidential</label>
+	</text>
+	
+	<vrule/>
+	
+	<text>
+		<halign>left</halign>
+		<label>Do not leak our hard work</label>
+	</text>
+	
+	<vrule/>
+	
+	<text>
+		<halign>left</halign>
+		<label>Pre-Release Aircraft</label>
+	</text>
+
+</PropertyList>

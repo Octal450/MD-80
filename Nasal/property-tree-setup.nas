@@ -126,3 +126,5 @@ var Velocities = {
 };
 
 setprop("/systems/acconfig/property-tree-setup-loaded", 1);
+
+fgcommand("dialog-show", props.Node.new({"dialog-name": "system"}));
