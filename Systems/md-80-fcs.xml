@@ -6,8 +6,8 @@
 <system name="MD-80: FCS">
 	
 	<property value="25">/systems/electrical/trim-power</property> <!-- Fix prop -->
-	<property value="3000">/systems/hydraulics/sys-l-psi</property>
-	<property value="3000">/systems/hydraulics/sys-r-psi</property>
+	<property value="2000">/systems/hydraulics/sys-l-psi</property>
+	<property value="2000">/systems/hydraulics/sys-r-psi</property>
 	
 	<channel name="Libraries">
 		
@@ -40,6 +40,18 @@
 					<independentVar lookup="row">fcs-actual/authority</independentVar>
 					<tableData>
 						0  1
+						1  120
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="fcs-actual/rudder-rate"> <!-- Guesses based on pilot info -->
+			<function>
+				<table>
+					<independentVar lookup="row">fcs-actual/authority</independentVar>
+					<tableData>
+						0  0
 						1  120
 					</tableData>
 				</table>
@@ -558,7 +570,7 @@
 		</fcs_function>
 		
 		<switch name="fcs-actual/rudder/rate">
-			<default value="fcs-actual/surface-rate"/> <!-- For aerodynamically flown -->
+			<default value="fcs-actual/rudder-rate"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="75">
 				/systems/hydraulics/sys-r-psi ge 950
 				/controls/flight/rudder-pwr eq 1
@@ -576,7 +588,7 @@
 		<actuator name="fcs-actual/rudder/surface-final-actuator">
 			<input>fcs-actual/rudder/surface-cmd-deg</input>
 			<rate_limit>fcs-actual/rudder/rate</rate_limit>
-			<!--lag>fcs-actual/rudder/lag</lag--> <!-- Doesn't work, so I put a lag filter before it -->
+			<!--lag>fcs-actual/rudder/lag</lag--> <!-- Doesn't work, so I put a lag filter after it -->
 		</actuator>
 		
 		<lag_filter name="fcs-actual/rudder/surface-final-lag">
