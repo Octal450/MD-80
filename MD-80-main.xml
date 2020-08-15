@@ -35,9 +35,9 @@
 					<enabled type="bool">false</enabled>
 				</menu>
 				<menu n="102">
-					<label>AFS/FMS</label>
+					<label>FGCP/FMS</label>
 					<item>
-						<label>AFS Panel</label>
+						<label>FGCP Panel</label>
 						<binding>
 							<command>dialog-show</command>
 							<dialog-name>autopilot</dialog-name>
@@ -433,6 +433,27 @@
 					<value>0</value>
 				</binding>
 			</key>
+			<key n="4">
+				<name>CTRL-d</name>
+				<desc>ATS Disconnect</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						setprop("/controls/switches/ats-lever1", 1);
+						setprop("/controls/switches/ats-lever2", 1);
+						libraries.apPanel.atDisc();
+					</script>
+				</binding>
+				<mod-up>
+					<binding>
+						<command>nasal</command>
+						<script>
+							setprop("/controls/switches/ats-lever1", 0);
+							setprop("/controls/switches/ats-lever2", 0);
+						</script>
+					</binding>
+				</mod-up>
+			</key>
 			<key n="24">
 				<name>Ctrl-x</name>
 				<desc>Reset zoom to default</desc>
@@ -440,6 +461,27 @@
 					<command>nasal</command>
 					<script>libraries.fovZoom(0);</script>
 				</binding>
+			</key>
+			<key n="68">
+				<name>D</name>
+				<desc>AFS Disconnect</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						setprop("/controls/switches/ap-yoke-button1", 1);
+						setprop("/controls/switches/ap-yoke-button2", 1);
+						libraries.apPanel.apDisc();
+					</script>
+				</binding>
+				<mod-up>
+					<binding>
+						<command>nasal</command>
+						<script>
+							setprop("/controls/switches/ap-yoke-button1", 0);
+							setprop("/controls/switches/ap-yoke-button2", 0);
+						</script>
+					</binding>
+				</mod-up>
 			</key>
 			<key n="88">
 				<name>X</name>

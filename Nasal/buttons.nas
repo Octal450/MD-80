@@ -27,6 +27,23 @@ var apPanel = {
 			}
 		}
 	},
+	apDisc: func() {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			if (dfgs.Output.ap1.getBoolValue()) {
+				dfgs.ITAF.ap1Master(0);
+			}
+			if (dfgs.Output.ap2.getBoolValue()) {
+				dfgs.ITAF.ap2Master(0);
+			}
+		}
+	},
+	atDisc: func() {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			if (dfgs.Output.athr.getBoolValue()) {
+				dfgs.ITAF.athrMaster(0);
+			}
+		}
+	},
 	spdPush: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			dfgs.Input.ktsMach.setBoolValue(!dfgs.Input.ktsMach.getBoolValue());

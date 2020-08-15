@@ -101,24 +101,18 @@
     <button>0</button>
     <repeatable>false</repeatable>
 	<binding>
-		<command>property-assign</command>
-		<property>it-autoflight/input/ap1</property>
-		<value>0</value>
-	</binding>
-	<binding>
-		<command>property-assign</command>
-		<property>it-autoflight/input/ap2</property>
-		<value>0</value>
+		<command>nasal</command>
+		<script>libraries.apPanel.apDisc();</script>
 	</binding>
     <binding>
         <command>property-assign</command>
-        <property>controls/flight/apoff</property>
+        <property>controls/switches/ap-yoke-button1</property>
         <value>1</value>
     </binding>
     <mod-up>
         <binding>
             <command>property-assign</command>
-            <property>controls/flight/apoff</property>
+            <property>controls/switches/ap-yoke-button1</property>
             <value>0</value>
         </binding>
     </mod-up>
@@ -128,7 +122,7 @@
 <animation>
   <type>translate</type>
   <object-name>apoff</object-name>
-  <property>controls/flight/apoff</property>
+  <property>controls/switches/ap-yoke-button1</property>
   <interpolation>
     <entry><ind>0</ind><dep>-0.001</dep></entry>
     <entry><ind>1</ind><dep> 0.001</dep></entry>
@@ -147,24 +141,18 @@
     <button>0</button>
     <repeatable>false</repeatable>
 	<binding>
-		<command>property-assign</command>
-		<property>it-autoflight/input/ap1</property>
-		<value>0</value>
-	</binding>
-	<binding>
-		<command>property-assign</command>
-		<property>it-autoflight/input/ap2</property>
-		<value>0</value>
+		<command>nasal</command>
+		<script>libraries.apPanel.apDisc();</script>
 	</binding>
     <binding>
         <command>property-assign</command>
-        <property>controls/flight/apoff2</property>
+        <property>controls/switches/ap-yoke-button2</property>
         <value>1</value>
     </binding>
     <mod-up>
         <binding>
             <command>property-assign</command>
-            <property>controls/flight/apoff2</property>
+            <property>controls/switches/ap-yoke-button2</property>
             <value>0</value>
         </binding>
     </mod-up>
@@ -174,7 +162,7 @@
 <animation>
   <type>translate</type>
   <object-name>apoff2</object-name>
-  <property>controls/flight/apoff2</property>
+  <property>controls/switches/ap-yoke-button2</property>
   <interpolation>
     <entry><ind>0</ind><dep>-0.001</dep></entry>
     <entry><ind>1</ind><dep> 0.001</dep></entry>
@@ -272,19 +260,18 @@
     <button>0</button>
     <repeatable>false</repeatable>
     <binding>
-      <command>property-assign</command>
-      <property>it-autoflight/input/athr</property>
-	  <value>0</value>
+      <command>nasal</command>
+      <script>libraries.apPanel.atDisc();</script>
     </binding>
     <binding>
         <command>property-assign</command>
-        <property>controls/flight/atoff</property>
+        <property>controls/switches/ats-lever1</property>
         <value>1</value>
     </binding>
     <mod-up>
         <binding>
             <command>property-assign</command>
-            <property>controls/flight/atoff</property>
+            <property>controls/switches/ats-lever1</property>
             <value>0</value>
         </binding>
     </mod-up>
@@ -294,7 +281,7 @@
 <animation>
   <type>translate</type>
   <object-name>AToffL</object-name>
-  <property>controls/flight/atoff</property>
+  <property>controls/switches/ats-lever1</property>
   <interpolation>
     <entry><ind>0</ind><dep>    0</dep></entry>
     <entry><ind>1</ind><dep>0.002</dep></entry>
@@ -314,19 +301,18 @@
     <button>0</button>
     <repeatable>false</repeatable>
     <binding>
-      <command>property-assign</command>
-      <property>it-autoflight/input/athr</property>
-	  <value>0</value>
+      <command>nasal</command>
+      <script>libraries.apPanel.atDisc();</script>
     </binding>
     <binding>
         <command>property-assign</command>
-        <property>controls/flight/atoff2</property>
+        <property>controls/switches/ats-lever2</property>
         <value>1</value>
     </binding>
     <mod-up>
         <binding>
             <command>property-assign</command>
-            <property>controls/flight/atoff2</property>
+            <property>controls/switches/ats-lever2</property>
             <value>0</value>
         </binding>
     </mod-up>
@@ -336,7 +322,7 @@
 <animation>
   <type>translate</type>
   <object-name>AToffR</object-name>
-  <property>controls/flight/atoff2</property>
+  <property>controls/switches/ats-lever2</property>
   <interpolation>
     <entry><ind>0</ind><dep>     0</dep></entry>
     <entry><ind>1</ind><dep>-0.002</dep></entry>

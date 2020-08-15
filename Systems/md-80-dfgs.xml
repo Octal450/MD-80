@@ -8,7 +8,7 @@
 	<!-- Default gains for tuning -->
 	<property value="0">dfgs/yaw/yd-p-gain</property>
 	
-	<!-- AFS stuff -->
+	<!-- DFGS stuff -->
 	<property value="0">dfgs/afs/roll-cmd</property>
 	<property value="0">dfgs/afs/pitch-cmd</property>
 	<property value="0">dfgs/afs/yaw-cmd</property>
