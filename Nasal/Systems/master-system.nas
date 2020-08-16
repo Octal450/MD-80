@@ -89,10 +89,10 @@ var TRI = {
 		activeMode: props.globals.getNode("/fdm/jsbsim/engine/limit/active-mode"),
 		activeModeInt: props.globals.getNode("/fdm/jsbsim/engine/limit/active-mode-int"), # -1 NONE, 0 T/O, 1 G/A, 2 MCT, 3 CLB, 4 CRZ, 5 T/O FLX
 		activeModeIntTemp: 0,
-		#cruise: props.globals.getNode("/fdm/jsbsim/engine/limit/cruise"),
+		cruise: props.globals.getNode("/fdm/jsbsim/engine/limit/cruise"),
 		climb: props.globals.getNode("/fdm/jsbsim/engine/limit/climb"),
 		goAround: props.globals.getNode("/fdm/jsbsim/engine/limit/go-around"),
-		#mct: props.globals.getNode("/fdm/jsbsim/engine/limit/mct"),
+		mct: props.globals.getNode("/fdm/jsbsim/engine/limit/mct"),
 		takeoff: props.globals.getNode("/fdm/jsbsim/engine/limit/takeoff"),
 	},
 	init: func() {
