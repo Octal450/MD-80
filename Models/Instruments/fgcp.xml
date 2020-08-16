@@ -9,13 +9,14 @@
 	
 	<animation>
 		<type>material</type>
+		<object-name>Alt.knob</object-name>
 		<object-name>APSelector</object-name>
 		<object-name>APSwitch</object-name>
 		<object-name>ATSwitch</object-name>
 		<object-name>BLimit.knob</object-name>
 		<object-name>EprLim</object-name>
 		<object-name>FGCP</object-name>
-		<object-name>HDG.knob</object-name>
+		<object-name>Hdg.knob</object-name>
 		<object-name>MachSel</object-name>
 		<object-name>Nav1CrsKnob</object-name>
 		<object-name>Nav1Knob1</object-name>
@@ -24,7 +25,7 @@
 		<object-name>Nav2Knob1</object-name>
 		<object-name>Nav2Knob2</object-name>
 		<object-name>Pitch.knob</object-name>
-		<object-name>SPD.knob</object-name>
+		<object-name>Spd.knob</object-name>
 		<object-name>SpdSel</object-name>
 		<object-name>SwACLts</object-name>
 		<object-name>SwFloodLtsL</object-name>
@@ -515,7 +516,7 @@
 	<!-- Speed Knob -->
 	<animation>
 		<type>rotate</type>
-		<object-name>SPD.knob</object-name>
+		<object-name>Spd.knob</object-name>
 		<property>instrumentation/fgcp/spd-rotate</property>
 		<factor>-11.25</factor>
 		<center>
@@ -532,7 +533,7 @@
 	
 	<animation>
 		<type>translate</type>
-		<object-name>SPD.knob</object-name>
+		<object-name>Spd.knob</object-name>
 		<property>instrumentation/fgcp/spd-translate</property>
 		<factor>0.003</factor>
 		<axis>
@@ -544,7 +545,7 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>SPD.knob</object-name>
+		<object-name>Spd.knob</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -694,7 +695,7 @@
 	<!-- Heading Knob -->
 	<animation>
 		<type>rotate</type>
-		<object-name>HDG.knob</object-name>
+		<object-name>Hdg.knob</object-name>
 		<property>instrumentation/fgcp/hdg-rotate</property>
 		<factor>-11.25</factor>
 		<center>
@@ -711,7 +712,7 @@
 	
 	<animation>
 		<type>translate</type>
-		<object-name>HDG.knob</object-name>
+		<object-name>Hdg.knob</object-name>
 		<property>instrumentation/fgcp/hdg-translate</property>
 		<factor>0.003</factor>
 		<axis>
@@ -723,7 +724,7 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>HDG.knob</object-name>
+		<object-name>Hdg.knob</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -1089,6 +1090,154 @@
 		</axis>
 	</animation>
 	
+	<!-- Altitude Knob -->
+	<animation>
+		<type>rotate</type>
+		<object-name>Alt.knob</object-name>
+		<property>instrumentation/fgcp/alt-rotate</property>
+		<factor>-11.25</factor>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.12544</y-m>
+			<z-m>-0.01539</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>Alt.knob</object-name>
+		<property>instrumentation/fgcp/alt-translate</property>
+		<factor>0.003</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>Alt.knob</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<not><property>devices/status/keyboard/shift</property></not>
+				</condition>
+				<command>property-assign</command>
+				<property>instrumentation/fgcp/alt-translate</property>
+				<value>-1</value>
+			</binding>
+			<binding>
+				<condition>
+					<property>devices/status/keyboard/shift</property>
+				</condition>
+				<command>property-assign</command>
+				<property>instrumentation/fgcp/alt-translate</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>instrumentation/fgcp/alt-translate</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+			<binding>
+				<condition>
+					<not><property>devices/status/keyboard/shift</property></not>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.apPanel.altPush();</script>
+			</binding>
+			<binding>
+				<condition>
+					<property>devices/status/keyboard/shift</property>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.apPanel.altPull();</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/fgcp/alt-translate</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>instrumentation/fgcp/alt-translate</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.altPull();</script>
+			</binding>
+		</action>
+		<action>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<condition>
+					<not><property>devices/status/keyboard/shift</property></not>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.apPanel.altAdjust(1);</script>
+			</binding>
+			<binding>
+				<condition>
+					<property>devices/status/keyboard/shift</property>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.apPanel.altAdjust(10);</script>
+			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/fgcp/alt-rotate</property>
+				<step>1</step>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<condition>
+					<not><property>devices/status/keyboard/shift</property></not>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.apPanel.altAdjust(-1);</script>
+			</binding>
+			<binding>
+				<condition>
+					<property>devices/status/keyboard/shift</property>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.apPanel.altAdjust(-10);</script>
+			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/fgcp/alt-rotate</property>
+				<step>-1</step>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+	</animation>
+	
 	<!-- First Digit -->
 	<animation>
 		<type>select</type>
@@ -1108,6 +1257,18 @@
 			<greater-than-equals>
 				<property>it-autoflight/input/alt</property>
 				<value>10000</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<!-- Second Digit -->
+	<animation>
+		<type>select</type>
+		<object-name>AltDigit2</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>it-autoflight/input/alt</property>
+				<value>1000</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
