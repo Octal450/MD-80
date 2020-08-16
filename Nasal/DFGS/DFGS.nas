@@ -397,6 +397,14 @@ var ITAF = {
 			Output.thrMode.setValue(0);
 			Text.thr.setValue("THRUST");
 		}
+		
+		# Trip system off
+		if (Output.ap1Temp == 1 or Output.ap2Temp == 1) { 
+			if (abs(Controls.aileron.getValue()) >= 0.2 or abs(Controls.elevator.getValue()) >= 0.2) {
+				me.ap1Master(0);
+				me.ap2Master(0);
+			}
+		}
 	},
 	slowLoop: func() {
 		Input.bankLimitSWTemp = Input.bankLimitSW.getValue();

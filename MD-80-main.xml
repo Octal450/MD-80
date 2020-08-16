@@ -698,6 +698,7 @@
 			<nav2-major-rotate type="int">50000</nav2-major-rotate>
 			<nav2-minor-rotate type="int">50000</nav2-minor-rotate>
 			<spd-rotate type="int">49984</spd-rotate> <!-- So the symbol is upright -->
+			<vs-rotate type="int">50000</vs-rotate> <!-- So the symbol is upright -->
 		</fgcp>
 		<groundradar>
 			<range type="double">1.0</range>

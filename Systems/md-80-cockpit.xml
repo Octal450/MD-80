@@ -56,6 +56,15 @@
 	
 	</channel>
 	
+	<channel name="Animations Execrate 4" execrate="4">
+		
+		<lag_filter name="/it-autoflight/input/active-ap-lag">
+			<input>/it-autoflight/input/active-ap</input>
+			<c1>20</c1>
+		</lag_filter>
+	
+	</channel>
+	
 	<channel name="Gauge Extras" execrate="4">
 		
 		<!-- EPR Gauges -->

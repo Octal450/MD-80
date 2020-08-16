@@ -9,7 +9,31 @@
 	
 	<animation>
 		<type>material</type>
+		<object-name>APSelector</object-name>
+		<object-name>APSwitch</object-name>
+		<object-name>ATSwitch</object-name>
+		<object-name>BLimit.knob</object-name>
+		<object-name>EprLim</object-name>
 		<object-name>FGCP</object-name>
+		<object-name>HDG.knob</object-name>
+		<object-name>MachSel</object-name>
+		<object-name>Nav1CrsKnob</object-name>
+		<object-name>Nav1Knob1</object-name>
+		<object-name>Nav1Knob2</object-name>
+		<object-name>Nav2CrsKnob</object-name>
+		<object-name>Nav2Knob1</object-name>
+		<object-name>Nav2Knob2</object-name>
+		<object-name>SPD.knob</object-name>
+		<object-name>SpdSel</object-name>
+		<object-name>SwACLts</object-name>
+		<object-name>SwFloodLtsL</object-name>
+		<object-name>SwFloodLtsR</object-name>
+		<object-name>SwLdgLtsL</object-name>
+		<object-name>SwLdgLtsR</object-name>
+		<object-name>SwNavLts</object-name>
+		<object-name>SwNoseLts</object-name>
+		<object-name>SwWingLts</object-name>
+		<object-name>VS.knob</object-name>
 		<emission>
 			<red>0.8</red>
 			<green>0.4</green>
@@ -868,7 +892,7 @@
 	<!-- Dash -->
 	<animation>
 		<type>select</type>
-		<object-name>VS.ledminus</object-name>
+		<object-name>VSDigitMinus</object-name>
 		<condition>
 			<and>
 				<less-than>
@@ -886,7 +910,7 @@
 	<!-- VS Digits -->
 	<animation>
 		<type>textranslate</type>
-		<object-name>VS.led1</object-name>
+		<object-name>VSDigit1</object-name>
 		<property>it-autoflight/input/vs-fma</property>
 		<factor>0.0001</factor>
 		<step>1000</step>
@@ -898,7 +922,7 @@
 	</animation>
 	<animation>
 		<type>textranslate</type>
-		<object-name>VS.led2</object-name>
+		<object-name>VSDigit2</object-name>
 		<property>it-autoflight/input/vs-fma</property>
 		<factor>0.001</factor>
 		<step>100</step>
@@ -932,7 +956,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/fcp/vs-rotate</property>
+				<property>instrumentation/fgcp/vs-rotate</property>
 				<step>1</step>
 				<min>0</min>
 				<max>100000</max>
@@ -958,7 +982,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/fcp/vs-rotate</property>
+				<property>instrumentation/fgcp/vs-rotate</property>
 				<step>-1</step>
 				<min>0</min>
 				<max>100000</max>
@@ -970,7 +994,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>VS.knob</object-name>
-		<property>instrumentation/fcp/vs-rotate</property>
+		<property>instrumentation/fgcp/vs-rotate</property>
 		<factor>11.25</factor>
 		<center>
 			<x-m>-0.01584</x-m>
@@ -1001,7 +1025,6 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>APSwitch</object-name>
-		<property>it-autoflight/input/ap</property>
 		<expression>
 			<table>
 				<max>
@@ -1017,6 +1040,133 @@
 			<y-m>0</y-m>
 			<z-m>-0.01786</z-m>
 		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- Autopilot Selector -->
+	<animation>
+		<type>pick</type>
+		<object-name>APSelector</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.apDisc();</script>
+			</binding>
+			<binding>
+				<command>property-cycle</command>
+				<property>it-autoflight/input/active-ap</property>
+				<value>1</value>
+				<value>2</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>APSelector</object-name>
+		<expression>
+			<table>
+				<property>it-autoflight/input/active-ap-lag</property>
+				<entry><ind>1</ind><dep>-25</dep></entry>
+				<entry><ind>2</ind><dep> 25</dep></entry>
+			</table>
+		</expression>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.08412</y-m>
+			<z-m>-0.01786</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- First Digit -->
+	<animation>
+		<type>select</type>
+		<object-name>AltDigitMinus</object-name>
+		<condition>
+			<less-than>
+				<property>it-autoflight/input/alt</property>
+				<value>10000</value>
+			</less-than>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>AltDigit1</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>it-autoflight/input/alt</property>
+				<value>10000</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<!-- Altitude Digits -->
+	<animation>
+		<type>textranslate</type>
+		<object-name>AltDigit1</object-name>
+		<property>it-autoflight/input/alt</property>
+		<factor>0.00001</factor>
+		<step>10000</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>AltDigit2</object-name>
+		<property>it-autoflight/input/alt</property>
+		<factor>0.0001</factor>
+		<step>1000</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>AltDigit3</object-name>
+		<property>it-autoflight/input/alt</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>AltDigit4</object-name>
+		<property>it-autoflight/input/alt</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>AltDigit5</object-name>
+		<property>it-autoflight/input/alt</property>
+		<factor>0.1</factor>
+		<step>1</step>
 		<axis>
 			<x>0</x>
 			<y>1</y>
