@@ -6,6 +6,7 @@
 <system name="MD-80: PW Engine/TRI"> <!-- Limits vs 98.7 -->
 	
 	<property value="30">engine/limit/flex-temp</property>
+	<property value="1">engine/limit/idle</property>
 	<property value="1">engine/epr/c1</property> <!-- Done in property rule because its easier to tune -->
 	<property value="1">engine/epr/c2</property> <!-- Done in property rule because its easier to tune -->
 	
@@ -561,6 +562,52 @@
 			<function>
 				<table>
 					<independentVar lookup="row">engine/limit/active-norm-input</independentVar>
+					<tableData>
+						 25.3  0
+						105.2  1
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/idle-norm-ref"> <!-- Opposite of EPR Calc -->
+			<function>
+				<quotient>
+					<difference>
+						<property>engine/limit/idle</property>
+						<property>engine/epr/c2</property>
+					</difference>
+					<max> <!-- Prevent divide by 0 -->
+						<property>engine/epr/c1</property>
+						<value>0.001</value>
+					</max>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/idle-norm-input"> <!-- Opposite of EPR Calc -->
+			<function>
+				<pow>
+					<table>
+						<independentVar lookup="row">engine/limit/idle-norm-ref</independentVar>
+						<tableData>
+							0.00     24743.1
+							0.03     81455.7
+							1.00  10571289.8
+						</tableData>
+					</table>
+					<quotient>
+						<value>1</value>
+						<value>3.5</value>
+					</quotient>
+				</pow>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/idle-norm">
+			<function>
+				<table>
+					<independentVar lookup="row">engine/limit/idle-norm-input</independentVar>
 					<tableData>
 						 25.3  0
 						105.2  1

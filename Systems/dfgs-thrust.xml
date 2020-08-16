@@ -152,7 +152,7 @@
 			<Kp>0.055</Kp>
 			<Ti>9.0</Ti>
 			<Td>0.00001</Td>
-			<u_min>0.15</u_min> <!-- Should be idle limit -->
+			<u_min>/fdm/jsbsim/engine/limit/idle-norm</u_min>
 			<u_max>/fdm/jsbsim/engine/limit/active-norm</u_max>
 		</config>
 	</pid-controller>
@@ -195,7 +195,7 @@
 			<Kp>0.055</Kp>
 			<Ti>9.0</Ti>
 			<Td>0.00001</Td>
-			<u_min>0.15</u_min> <!-- Should be idle limit -->
+			<u_min>/fdm/jsbsim/engine/limit/idle-norm</u_min>
 			<u_max>/fdm/jsbsim/engine/limit/active-norm</u_max>
 		</config>
 	</pid-controller>
@@ -261,7 +261,7 @@
 			</condition>
 			<value>0</value>
 		</input>
-		<input>0.15</input> <!-- Should be idle limit -->
+		<input>/fdm/jsbsim/engine/limit/idle-norm</input>
 		<output>/fdm/jsbsim/engine/ats-cmd-raw</output>
 	</filter>
 	

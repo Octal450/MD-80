@@ -23,6 +23,7 @@
 		<object-name>Nav2CrsKnob</object-name>
 		<object-name>Nav2Knob1</object-name>
 		<object-name>Nav2Knob2</object-name>
+		<object-name>Pitch.knob</object-name>
 		<object-name>SPD.knob</object-name>
 		<object-name>SpdSel</object-name>
 		<object-name>SwACLts</object-name>
@@ -33,7 +34,6 @@
 		<object-name>SwNavLts</object-name>
 		<object-name>SwNoseLts</object-name>
 		<object-name>SwWingLts</object-name>
-		<object-name>VS.knob</object-name>
 		<emission>
 			<red>0.8</red>
 			<green>0.4</green>
@@ -936,7 +936,7 @@
 	<!-- VS Knob -->
 	<animation>
 		<type>pick</type>
-		<object-name>VS.knob</object-name>
+		<object-name>Pitch.knob</object-name>
 		<action>
 			<button>3</button>
 			<repeatable>true</repeatable>
@@ -993,7 +993,7 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>VS.knob</object-name>
+		<object-name>Pitch.knob</object-name>
 		<property>instrumentation/fgcp/vs-rotate</property>
 		<factor>11.25</factor>
 		<center>
