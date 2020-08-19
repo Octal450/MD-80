@@ -639,8 +639,8 @@
 		<object-name>ATSwitch</object-name>
 		<property>it-autoflight/input/athr</property>
 		<interpolation>
-			<entry><ind>0</ind><dep> 30</dep></entry>
-			<entry><ind>1</ind><dep>-30</dep></entry>
+			<entry><ind>0</ind><dep> 25</dep></entry>
+			<entry><ind>1</ind><dep>-25</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.00815</x-m>
@@ -1032,8 +1032,8 @@
 					<property>it-autoflight/output/ap1</property>
 					<property>it-autoflight/output/ap2</property>
 				</max>
-				<entry><ind>0</ind><dep> 30</dep></entry>
-				<entry><ind>1</ind><dep>-30</dep></entry>
+				<entry><ind>0</ind><dep> 25</dep></entry>
+				<entry><ind>1</ind><dep>-25</dep></entry>
 			</table>
 		</expression>
 		<center>
