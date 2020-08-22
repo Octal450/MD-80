@@ -7,7 +7,7 @@
 	
 	<path>fgcp.ac</path>
 	
-	<animation>
+	<!--animation>
 		<type>material</type>
 		<object-name>Alt.knob</object-name>
 		<object-name>APSelector</object-name>
@@ -39,11 +39,22 @@
 			<red>0.8</red>
 			<green>0.4</green>
 			<blue>0.2</blue>
-			<factor-prop>controls/lighting/panel-norm</factor-prop>
+			<factor-prop>controls/lighting/flood-norm</factor-prop>
 		</emission>
-	</animation>
+	</animation-->
 	
-	<animation>
+	<!--animation>
+		<type>material</type>
+		<object-name>FGCP_labels</object-name>
+		<emission>
+			<red>0.8</red>
+			<green>0.4</green>
+			<blue>0.2</blue>
+			<factor-prop>controls/lighting/integrity-norm</factor-prop>
+		</emission>
+	</animation-->
+	
+	<!--animation>
 		<type>material</type>
 		<object-name>Digits</object-name>
 		<emission>
@@ -52,7 +63,7 @@
 			<blue>0.2</blue>
 			<factor-prop>controls/lighting/digital-norm</factor-prop>
 		</emission>
-	</animation>
+	</animation-->
 	
 	<animation>
 		<type>select</type>
@@ -412,6 +423,73 @@
 		</action>
 	</animation>
 	
+	<!-- Flight Director Switches -->
+	<animation>
+		<type>pick</type>
+		<object-name>FD1Switch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>it-autoflight/input/fd1</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>FD1Switch</object-name>
+		<property>it-autoflight/input/fd1</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 30</dep></entry>
+			<entry><ind>1</ind><dep>-30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.00682</x-m>
+			<y-m>0</y-m>
+			<z-m>0.00463</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>FD2Switch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>it-autoflight/input/fd2</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>FD2Switch</object-name>
+		<property>it-autoflight/input/fd2</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 30</dep></entry>
+			<entry><ind>1</ind><dep>-30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.00682</x-m>
+			<y-m>0</y-m>
+			<z-m>0.00463</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
 	<!--  Speed Digits -->
 	<animation>
 		<type>select</type>
@@ -521,7 +599,7 @@
 		<factor>-11.25</factor>
 		<center>
 			<x-m>0</x-m>
-			<y-m>-0.10589</y-m>
+			<y-m>-0.10913</y-m>
 			<z-m>-0.01786</z-m>
 		</center>
 		<axis>
@@ -700,7 +778,7 @@
 		<factor>-11.25</factor>
 		<center>
 			<x-m>0</x-m>
-			<y-m>-0.02043</y-m>
+			<y-m>-0.02367</y-m>
 			<z-m>-0.01786</z-m>
 		</center>
 		<axis>
@@ -851,7 +929,7 @@
 		</interpolation>
 		<center>
 			<x-m>0</x-m>
-			<y-m>-0.02043</y-m>
+			<y-m>-0.02367</y-m>
 			<z-m>-0.01786</z-m>
 		</center>
 		<axis>
@@ -1098,7 +1176,7 @@
 		<factor>-11.25</factor>
 		<center>
 			<x-m>0</x-m>
-			<y-m>0.12544</y-m>
+			<y-m>0.1222</y-m>
 			<z-m>-0.01539</z-m>
 		</center>
 		<axis>
