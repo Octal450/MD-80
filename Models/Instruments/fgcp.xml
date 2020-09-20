@@ -490,6 +490,46 @@
 		</axis>
 	</animation>
 	
+	<!-- Speed Buttons -->
+	<animation>
+		<type>pick</type>
+		<object-name>SpdSel</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.spd();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>MachSel</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.mach();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>EprLimSel</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.eprLim();</script>
+			</binding>
+		</action>
+	</animation>
+	
 	<!--  Speed Digits -->
 	<animation>
 		<type>select</type>
@@ -1127,6 +1167,46 @@
 		</axis>
 	</animation>
 	
+	<!-- Vertical Buttons -->
+	<animation>
+		<type>pick</type>
+		<object-name>VertSpdSel</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.vertSpd();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>IasMachSel</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.iasMach();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>AltHoldSel</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.altHold();</script>
+			</binding>
+		</action>
+	</animation>
+	
 	<!-- Autopilot Switch -->
 	<animation>
 		<type>pick</type>
@@ -1198,7 +1278,7 @@
 		</expression>
 		<center>
 			<x-m>0</x-m>
-			<y-m>0.08412</y-m>
+			<y-m>0.08068</y-m>
 			<z-m>-0.01786</z-m>
 		</center>
 		<axis>

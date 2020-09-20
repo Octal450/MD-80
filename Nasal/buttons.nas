@@ -72,6 +72,32 @@ var apPanel = {
 			}
 		}
 	},
+	spd: func() {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			me.vertTemp = dfgs.Output.vert.getValue();
+			dfgs.Input.ktsMach.setBoolValue(0);
+			if (me.vertTemp == 4 or me.vertTemp == 7) {
+				dfgs.Input.vert.setValue(1);
+			}
+		}
+	},
+	mach: func() {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			me.vertTemp = dfgs.Output.vert.getValue();
+			dfgs.Input.ktsMach.setBoolValue(1);
+			if (me.vertTemp == 4 or me.vertTemp == 7) {
+				dfgs.Input.vert.setValue(1);
+			}
+		}
+	},
+	eprLim: func() {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			me.vertTemp = dfgs.Output.vert.getValue();
+			if (me.vertTemp != 4 and me.vertTemp != 7) {
+				dfgs.Input.vert.setValue(4);
+			}
+		}
+	},
 	hdgPush: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			dfgs.Input.lat.setValue(3);
@@ -161,6 +187,25 @@ var apPanel = {
 			} else {
 				dfgs.Input.alt.setValue(me.altTemp);
 			}
+		}
+	},
+	vertSpd: func() {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			dfgs.Input.vert.setValue(1);
+		}
+	},
+	iasMach: func() {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			if (dfgs.Output.vert.getValue() == 4) {
+				dfgs.Input.ktsMach.setBoolValue(!dfgs.Input.ktsMach.getBoolValue());
+			} else {
+				dfgs.Input.vert.setValue(4);
+			}
+		}
+	},
+	altHold: func() {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			dfgs.Input.vert.setValue(0);
 		}
 	},
 };
