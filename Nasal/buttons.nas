@@ -94,6 +94,21 @@ var apPanel = {
 			}
 		}
 	},
+	nav: func() {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			dfgs.Input.lat.setValue(1);
+		}
+	},
+	vorLoc: func() {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			dfgs.Input.lat.setValue(2);
+		}
+	},
+	ils: func() {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			dfgs.Input.vert.setValue(2);
+		}
+	},
 	vsAdjust: func(d) {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			me.vertTemp = dfgs.Output.vert.getValue();

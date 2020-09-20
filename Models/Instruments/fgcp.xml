@@ -43,7 +43,7 @@
 		</emission>
 	</animation-->
 	
-	<!--animation>
+	<animation>
 		<type>material</type>
 		<object-name>FGCP_labels</object-name>
 		<emission>
@@ -52,7 +52,7 @@
 			<blue>0.2</blue>
 			<factor-prop>controls/lighting/integrity-norm</factor-prop>
 		</emission>
-	</animation-->
+	</animation>
 	
 	<!--animation>
 		<type>material</type>
@@ -730,6 +730,46 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
+	</animation>
+	
+	<!-- Lateral Buttons -->
+	<animation>
+		<type>pick</type>
+		<object-name>NavSel</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.nav();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>VorLocSel</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.vorLoc();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>IlsSel</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.ils();</script>
+			</binding>
+		</action>
 	</animation>
 	
 	<!-- Heading Digits -->
