@@ -32,7 +32,20 @@
 				</menu>
 				<menu n="101">
 					<label>System</label>
-					<enabled type="bool">false</enabled>
+					<item> <!-- Temporary in case you shut down by accident as VC startup doesn't work yet -->
+						<label>Magic Startup</label>
+						<binding>
+							<command>nasal</command>
+							<script>
+								setprop("/controls/engines/engine[0]/cutoff", 0);
+								setprop("/controls/engines/engine[1]/cutoff", 0);
+								setprop("/controls/engines/engine[0]/starter", 0);
+								setprop("/controls/engines/engine[1]/starter", 0);
+								setprop("/fdm/jsbsim/propulsion/set-running", 0);
+								setprop("/fdm/jsbsim/propulsion/set-running", 1);
+							</script>
+						</binding>
+					</item>
 				</menu>
 				<menu n="102">
 					<label>FGCP/FMS</label>
