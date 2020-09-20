@@ -167,7 +167,6 @@ var Setting = {
 	autolandWithoutAp: props.globals.getNode("/it-autoflight/settings/autoland-without-ap", 1),
 	autolandWithoutApTemp: 0,
 	disableFinal: props.globals.getNode("/it-autoflight/settings/disable-final", 1),
-	latAglFt: props.globals.getNode("/it-autoflight/settings/lat-agl-ft", 1),
 	landingFlap: props.globals.getNode("/it-autoflight/settings/land-flap", 1),
 	reducAglFt: props.globals.getNode("/it-autoflight/settings/reduc-agl-ft", 1),
 	retardAltitude: props.globals.getNode("/it-autoflight/settings/retard-ft", 1),
@@ -271,11 +270,13 @@ var ITAF = {
 			if (Input.hdg.getValue() == Internal.hdgHldValue and abs(Internal.hdgErrorDeg.getValue()) <= 2.5) {
 				if (Output.hdgInHldTemp != 1) {
 					Output.hdgInHld.setBoolValue(1);
+					updateFMA.roll();
 				}
 			} else if (Input.hdg.getValue() != Internal.hdgHldValue) {
 				Internal.hdgHldValue = Input.hdg.getValue();
 				if (Output.hdgInHldTemp != 0 and abs(Internal.hdgErrorDeg.getValue()) > 2.5) {
 					Output.hdgInHld.setBoolValue(0);
+					updateFMA.roll();
 				}
 			}
 		} else {
@@ -299,31 +300,40 @@ var ITAF = {
 			me.checkAppr(1);
 		}
 		
-		# Autoland Logic
+		# Autoland Logic - Needs rewrite to seperate ILS and AUTO LAND modes
+		#if (Output.latTemp == 2) {
+		#	if (Position.gearAglFtTemp <= 150) {
+		#		if (Output.ap1Temp or Output.ap2Temp or Setting.autolandWithoutApTemp) {
+		#			me.setLatMode(4);
+		#		}
+		#	}
+		#}
+		#if (Output.vertTemp == 2) {
+		#	if (Position.gearAglFtTemp <= 100 and Position.gearAglFtTemp >= 5) {
+		#		if (Output.ap1Temp or Output.ap2Temp or Setting.autolandWithoutApTemp) {
+		#			me.setVertMode(6);
+		#		}
+		#	}
+		#} else if (Output.vertTemp == 6) {
+		#	if (!Output.ap1Temp and !Output.ap2Temp and !Setting.autolandWithoutApTemp) {
+		#		me.activateLoc();
+		#		me.activateGs();
+		#	} else {
+		#		if (Position.gearAglFtTemp <= 50 and Position.gearAglFtTemp >= 5 and Text.vert.getValue() != "FLARE") {
+		#			me.updateVertText("FLARE");
+		#		}
+		#		if (Gear.wow1Temp and Gear.wow2Temp and Text.vert.getValue() != "ROLLOUT") {
+		#			me.updateLatText("RLOU");
+		#			me.updateVertText("ROLLOUT");
+		#		}
+		#	}
+		#}
+		# Kill A/P as Autoland doesn't work right now
 		if (Output.latTemp == 2) {
-			if (Position.gearAglFtTemp <= 150) {
-				if (Output.ap1Temp or Output.ap2Temp or Setting.autolandWithoutApTemp) {
-					me.setLatMode(4);
-				}
-			}
-		}
-		if (Output.vertTemp == 2) {
-			if (Position.gearAglFtTemp <= 100 and Position.gearAglFtTemp >= 5) {
-				if (Output.ap1Temp or Output.ap2Temp or Setting.autolandWithoutApTemp) {
-					me.setVertMode(6);
-				}
-			}
-		} else if (Output.vertTemp == 6) {
-			if (!Output.ap1Temp and !Output.ap2Temp and !Setting.autolandWithoutApTemp) {
-				me.activateLoc();
-				me.activateGs();
-			} else {
-				if (Position.gearAglFtTemp <= 50 and Position.gearAglFtTemp >= 5 and Text.vert.getValue() != "FLARE") {
-					me.updateVertText("FLARE");
-				}
-				if (Gear.wow1Temp and Gear.wow2Temp and Text.vert.getValue() != "ROLLOUT") {
-					me.updateLatText("RLOU");
-					me.updateVertText("ROLLOUT");
+			if (Position.gearAglFtTemp <= 100) {
+				if (Output.ap1Temp or Output.ap2Temp) {
+					me.ap1Master(0);
+					me.ap2Master(0);
 				}
 			}
 		}
@@ -720,7 +730,7 @@ var ITAF = {
 		}
 	},
 	checkLnav: func(t) {
-		if (FPLN.num.getValue() > 0 and FPLN.active.getBoolValue() and Position.gearAglFt.getValue() >= Setting.latAglFt.getValue()) {
+		if (FPLN.num.getValue() > 0 and FPLN.active.getBoolValue() and Position.gearAglFt.getValue() >= 150) {
 			me.activateLnav();
 		} else if (FPLN.active.getBoolValue() and Output.lat.getValue() != 1 and t != 1) {
 			me.updateLnavArm(1);

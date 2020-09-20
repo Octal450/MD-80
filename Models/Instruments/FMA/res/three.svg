@@ -25,17 +25,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="149.35649"
-     inkscape:cy="125.62966"
+     inkscape:zoom="1.4"
+     inkscape:cx="235.30146"
+     inkscape:cy="37.560932"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
-     inkscape:window-width="1920"
-     inkscape:window-height="1001"
-     inkscape:window-x="1591"
-     inkscape:window-y="1071"
+     inkscape:window-width="1536"
+     inkscape:window-height="801"
+     inkscape:window-x="1592"
+     inkscape:window-y="1072"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -45,7 +45,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -56,30 +56,30 @@
      transform="translate(0,-872.36215)">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:57.56208038px;line-height:125%;font-family:sans-serif;letter-spacing:8.14436913px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="20.509192"
-       y="1319.002"
+       style="font-style:normal;font-weight:normal;font-size:63.02615738px;line-height:125%;font-family:sans-serif;letter-spacing:8.91747284px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="17.518425"
+       y="1444.2081"
        id="Line1"
        sodipodi:linespacing="125%"
-       transform="scale(1.4052062,0.71163931)"
+       transform="scale(1.5385953,0.64994348)"
        inkscape:label="#text4144"><tspan
          sodipodi:role="line"
          id="tspan4146"
-         x="20.509192"
-         y="1319.002"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:88.79801941px;font-family:led16sgmnt2;-inkscape-font-specification:led16sgmnt2;text-align:start;letter-spacing:8.14436913px;text-anchor:start;fill:#00ff00">ZZZ</tspan></text>
+         x="17.518425"
+         y="1444.2081"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:97.22716522px;font-family:led16sgmnt2;-inkscape-font-specification:led16sgmnt2;text-align:start;letter-spacing:8.91747284px;text-anchor:start;fill:#00ff00">ZZZ</tspan></text>
     <text
-       transform="scale(1.4052062,0.71163931)"
+       transform="scale(1.5385953,0.64994348)"
        sodipodi:linespacing="125%"
        id="Line2"
-       y="1455.0062"
-       x="20.509192"
-       style="font-style:normal;font-weight:normal;font-size:57.56208038px;line-height:125%;font-family:sans-serif;letter-spacing:8.14436913px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       y="1593.1227"
+       x="17.518425"
+       style="font-style:normal;font-weight:normal;font-size:63.02615738px;line-height:125%;font-family:sans-serif;letter-spacing:8.91747284px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"
        inkscape:label="#text4171"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:88.79801941px;font-family:led16sgmnt2;-inkscape-font-specification:led16sgmnt2;text-align:start;letter-spacing:8.14436913px;text-anchor:start;fill:#00ff00"
-         y="1455.0062"
-         x="20.509192"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:97.22716522px;font-family:led16sgmnt2;-inkscape-font-specification:led16sgmnt2;text-align:start;letter-spacing:8.91747284px;text-anchor:start;fill:#00ff00"
+         y="1593.1227"
+         x="17.518425"
          id="tspan4173"
          sodipodi:role="line">ZZZ</tspan></text>
   </g>

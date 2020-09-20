@@ -802,7 +802,6 @@
 			<disable-final>0</disable-final> <!-- Disable the Final Controllers, for custom FCS integration -->
 			<land-enable>1</land-enable> <!-- Enable/Disable Autoland -->
 			<land-flap>0.68</land-flap> <!-- Minimum Flap used for Landing -->
-			<lat-agl-ft>50</lat-agl-ft> <!-- AGL when LNAV becomes active if armed -->
 			<reduc-agl-ft>1500</reduc-agl-ft> <!-- AGL when T/O CLB changes to SPD CLB (FLCH), set to 0 to disable -->
 			<retard-enable>1</retard-enable> <!-- AGL to Thrust Retard -->
 			<retard-ft>50</retard-ft> <!-- Enable Thrust Retard -->
@@ -869,6 +868,9 @@
 		<autopush_route>
 			<file>Aircraft/MD-80/Nasal/Autopush/route.nas</file>
 		</autopush_route>
+		<canvas_fma>
+			<file>Aircraft/MD-80/Models/Instruments/FMA/fma.nas</file>
+		</canvas_fma>
 	</nasal>
 
 </PropertyList>

@@ -4,5 +4,6 @@
 var ELEC = {
 	Generic: {
 		fgcpPower: props.globals.initNode("/systems/electrical/outputs/fgcp-power", 0, "DOUBLE"),
+		fmaPower: props.globals.initNode("/systems/electrical/outputs/fma-power", 0, "DOUBLE"),
 	},
 };
