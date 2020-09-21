@@ -127,7 +127,7 @@ var Clamp = {
 		
 		if (me.triMode == 0 or me.triMode == 5) {
 			if (me.pitchText == "T/O CLB") {
-				if (Output.athr.getBoolValue() and pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() < 80) {
+				if (Output.athr.getBoolValue() and pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() < 60) {
 					me.active = 0;
 				} else {
 					me.active = 1;
