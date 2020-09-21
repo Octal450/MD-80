@@ -1048,7 +1048,23 @@
 		</action>
 	</animation>
 	
-	<!-- Dash -->
+	<!-- Pitch Mode: VS -->
+	<animation>
+		<type>select</type>
+		<object-name>PitchModeVS</object-name>
+		<object-name>VSDigit1</object-name>
+		<object-name>VSDigit2</object-name>
+		<object-name>VSDigit3</object-name>
+		<object-name>VSDigit4</object-name>
+		<object-name>VSDigitMinus</object-name>
+		<condition>
+			<not-equals>
+				<property>it-autoflight/output/vert</property>
+				<value>4</value>
+			</not-equals>
+		</condition>
+	</animation>
+	
 	<animation>
 		<type>select</type>
 		<object-name>VSDigitMinus</object-name>
@@ -1066,7 +1082,6 @@
 		</condition>
 	</animation>
 	
-	<!-- VS Digits -->
 	<animation>
 		<type>textranslate</type>
 		<object-name>VSDigit1</object-name>
@@ -1092,7 +1107,124 @@
 		</axis>
 	</animation>
 	
-	<!-- VS Knob -->
+	<!-- Pitch Mode: IAS -->
+	<animation>
+		<type>select</type>
+		<object-name>PitchModeIAS</object-name>
+		<object-name>IASFDigit1</object-name>
+		<object-name>IASFDigit2</object-name>
+		<object-name>IASFDigit3</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>it-autoflight/output/vert</property>
+					<value>4</value>
+				</equals>
+				<not-equals>
+					<property>it-autoflight/input/kts-mach-flch</property>
+					<value>1</value>
+				</not-equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>IASFDigit1</object-name>
+		<property>it-autoflight/input/kts-flch</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>IASFDigit2</object-name>
+		<property>it-autoflight/input/kts-flch</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>IASFDigit3</object-name>
+		<property>it-autoflight/input/kts-flch</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- Pitch Mode: Mach -->
+	<animation>
+		<type>select</type>
+		<object-name>PitchModeMach</object-name>
+		<object-name>MachFDigit1</object-name>
+		<object-name>MachFDigit2</object-name>
+		<object-name>MachFDigit3</object-name>
+		<object-name>MachFDecimal</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>it-autoflight/output/vert</property>
+					<value>4</value>
+				</equals>
+				<equals>
+					<property>it-autoflight/input/kts-mach-flch</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>MachFDigit1</object-name>
+		<property>it-autoflight/input/mach-flch-x1000</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>MachFDigit2</object-name>
+		<property>it-autoflight/input/mach-flch-x1000</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>MachFDigit3</object-name>
+		<property>it-autoflight/input/mach-flch-x1000</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- Pitch Knob -->
 	<animation>
 		<type>pick</type>
 		<object-name>Pitch.knob</object-name>

@@ -9,7 +9,9 @@ var variousReset = func {
 var apPanel = {
 	hdgTemp: 0,
 	ktsTemp: 0,
+	ktsFlchTemp: 0,
 	machTemp: 0,
+	machFlchTemp: 0,
 	vertTemp: 0,
 	apSwitch: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
@@ -135,7 +137,7 @@ var apPanel = {
 			dfgs.Input.vert.setValue(2);
 		}
 	},
-	vsAdjust: func(d) {
+	vsAdjust: func(d) { # Called the pitch wheel this so that one binding works on many planes
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			me.vertTemp = dfgs.Output.vert.getValue();
 			if (me.vertTemp == 1) {
@@ -146,6 +148,26 @@ var apPanel = {
 					dfgs.Input.vs.setValue(6000);
 				} else {
 					dfgs.Input.vs.setValue(me.vsTemp);
+				}
+			} else if (me.vertTemp == 4) {
+				if (dfgs.Input.ktsMachFlch.getBoolValue()) {
+					me.machFlchTemp = math.round(dfgs.Input.machFlch.getValue() + (d * -0.001), (abs(d * 0.001))); # Kill floating point error
+					if (me.machFlchTemp < 0.50) {
+						dfgs.Input.machFlch.setValue(0.50);
+					} else if (me.machFlchTemp > 0.82) {
+						dfgs.Input.machFlch.setValue(0.82);
+					} else {
+						dfgs.Input.machFlch.setValue(me.machFlchTemp);
+					}
+				} else {
+					me.ktsFlchTemp = dfgs.Input.ktsFlch.getValue() + (d * -1);
+					if (me.ktsFlchTemp < 100) {
+						dfgs.Input.ktsFlch.setValue(100);
+					} else if (me.ktsFlchTemp > 350) {
+						dfgs.Input.ktsFlch.setValue(350);
+					} else {
+						dfgs.Input.ktsFlch.setValue(me.ktsFlchTemp);
+					}
 				}
 			} else {
 				dfgs.Input.vert.setValue(1);
@@ -197,8 +219,17 @@ var apPanel = {
 	iasMach: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			if (dfgs.Output.vert.getValue() == 4) {
-				dfgs.Input.ktsMach.setBoolValue(!dfgs.Input.ktsMach.getBoolValue());
+				if (dfgs.Velocities.indicatedMach.getValue() >= 0.4995) {
+					dfgs.Input.ktsMachFlch.setBoolValue(!dfgs.Input.ktsMachFlch.getBoolValue());
+				} else {
+					dfgs.Input.ktsMachFlch.setBoolValue(0);
+				}
 			} else {
+				if (dfgs.Position.indicatedAltitudeFt.getValue() >= 26995 and dfgs.Velocities.indicatedMach.getValue() >= 0.4995) {
+					dfgs.Input.ktsMachFlch.setBoolValue(1);
+				} else {
+					dfgs.Input.ktsMachFlch.setBoolValue(0);
+				}
 				dfgs.Input.vert.setValue(4);
 			}
 		}

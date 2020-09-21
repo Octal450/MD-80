@@ -92,11 +92,14 @@ var Input = {
 	fpaAbs: props.globals.initNode("/it-autoflight/input/fpa-abs", 0, "DOUBLE"), # Set by property rule
 	hdg: props.globals.initNode("/it-autoflight/input/hdg", 0, "INT"),
 	hdgCalc: 0,
-	kts: props.globals.initNode("/it-autoflight/input/kts", 250, "INT"),
+	kts: props.globals.initNode("/it-autoflight/input/kts", 100, "INT"),
+	ktsFlch: props.globals.initNode("/it-autoflight/input/kts-flch", 100, "INT"),
 	ktsMach: props.globals.initNode("/it-autoflight/input/kts-mach", 0, "BOOL"),
+	ktsMachFlch: props.globals.initNode("/it-autoflight/input/kts-mach-flch", 0, "BOOL"),
 	lat: props.globals.initNode("/it-autoflight/input/lat", 5, "INT"),
 	latTemp: 5,
 	mach: props.globals.initNode("/it-autoflight/input/mach", 0.5, "DOUBLE"),
+	machFlch: props.globals.initNode("/it-autoflight/input/mach-flch", 0.5, "DOUBLE"),
 	toga: props.globals.initNode("/it-autoflight/input/toga", 0, "BOOL"),
 	trk: props.globals.initNode("/it-autoflight/input/trk", 0, "BOOL"),
 	trueCourse: props.globals.initNode("/it-autoflight/input/true-course", 0, "BOOL"),
@@ -168,7 +171,6 @@ var Setting = {
 	autolandWithoutApTemp: 0,
 	disableFinal: props.globals.getNode("/it-autoflight/settings/disable-final", 1),
 	landingFlap: props.globals.getNode("/it-autoflight/settings/land-flap", 1),
-	reducAglFt: props.globals.getNode("/it-autoflight/settings/reduc-agl-ft", 1),
 	retardAltitude: props.globals.getNode("/it-autoflight/settings/retard-ft", 1),
 	retardEnable: props.globals.getNode("/it-autoflight/settings/retard-enable", 1),
 	togaSpd: props.globals.getNode("/it-autoflight/settings/togaspd", 1),
@@ -186,8 +188,11 @@ var ITAF = {
 			Input.bankLimitSW.setValue(4); # 30
 			Input.hdg.setValue(360);
 			Input.ktsMach.setBoolValue(0);
-			Input.kts.setValue(250);
+			Input.ktsMachFlch.setBoolValue(0);
+			Input.kts.setValue(100);
+			Input.ktsFlch.setValue(100);
 			Input.mach.setValue(0.5);
+			Input.machFlch.setValue(0.5);
 			Input.trk.setBoolValue(0);
 			Input.trueCourse.setBoolValue(0);
 			Input.useNav2Radio.setBoolValue(0);
@@ -236,19 +241,16 @@ var ITAF = {
 		Output.vertTemp = Output.vert.getValue();
 		Output.ap1Temp = Output.ap1.getBoolValue();
 		Output.ap2Temp = Output.ap2.getBoolValue();
-		Setting.autolandWithoutApTemp = Setting.autolandWithoutAp.getBoolValue();
 		
 		# Kill Autoland if the system should not autoland without AP, and AP is off
-		if (Setting.autolandWithoutApTemp) { # Only evaluate the rest if this setting is on
-			if (!Output.ap1Temp and !Output.ap2Temp) {
-				if (Output.latTemp == 4) {
-					me.activateLoc();
-				}
-				if (Output.vertTemp == 6) {
-					me.activateGs();
-				}
-			}
-		}
+		#if (!Output.ap1Temp and !Output.ap2Temp) {
+		#	if (Output.latTemp == 4) {
+		#		me.activateLoc();
+		#	}
+		#	if (Output.vertTemp == 6) {
+		#		me.activateGs();
+		#	}
+		#}
 		
 		# VOR/ILS Revision
 		if (Output.latTemp == 2 or Output.latTemp == 4 or Output.vertTemp == 2 or Output.vertTemp == 6) {
@@ -338,11 +340,6 @@ var ITAF = {
 			}
 		}
 		
-		# FLCH Engagement
-		if (Text.vertTemp == "T/O CLB") {
-			me.checkFlch(Setting.reducAglFt.getValue());
-		}
-		
 		# Altitude Capture/Sync Logic
 		if (Output.vertTemp != 0) {
 			Internal.alt.setValue(Input.alt.getValue());
@@ -377,12 +374,6 @@ var ITAF = {
 				me.athrMaster(0);
 				setprop("/controls/engines/engine[0]/throttle", 0);
 				setprop("/controls/engines/engine[1]/throttle", 0);
-				setprop("/controls/engines/engine[2]/throttle", 0);
-				setprop("/controls/engines/engine[3]/throttle", 0);
-				setprop("/controls/engines/engine[4]/throttle", 0);
-				setprop("/controls/engines/engine[5]/throttle", 0);
-				setprop("/controls/engines/engine[6]/throttle", 0);
-				setprop("/controls/engines/engine[7]/throttle", 0);
 			}
 		} else if (Output.vertTemp == 4) {
 			if (Internal.altTemp >= Position.indicatedAltitudeFtTemp) {
@@ -636,7 +627,7 @@ var ITAF = {
 			Output.vert.setValue(0);
 			me.resetClimbRateLim();
 			me.updateVertText("ALT HLD");
-			me.syncALT();
+			me.syncAlt();
 		} else if (n == 1) { # V/S
 			if (abs(Input.altDiff) >= 25) {
 				Internal.flchActive = 0;
@@ -668,6 +659,11 @@ var ITAF = {
 				}
 				Internal.altCaptureActive = 0;
 				Output.vert.setValue(4);
+				if (Input.ktsMachFlch.getBoolValue()) {
+					me.syncMachFlch();
+				} else {
+					me.syncKtsFlch();
+				}
 				Internal.flchActive = 1;
 			} else { # ALT CAP
 				Internal.flchActive = 0;
@@ -734,11 +730,6 @@ var ITAF = {
 			me.activateLnav();
 		} else if (FPLN.active.getBoolValue() and Output.lat.getValue() != 1 and t != 1) {
 			me.updateLnavArm(1);
-		}
-	},
-	checkFlch: func(a) {
-		if (Position.gearAglFt.getValue() >= a and a != 0) {
-			me.setVertMode(4);
 		}
 	},
 	checkLoc: func(t) {
@@ -825,16 +816,22 @@ var ITAF = {
 	syncKts: func() {
 		Input.kts.setValue(math.clamp(math.round(Velocities.indicatedAirspeedKt.getValue()), 100, 350));
 	},
+	syncKtsFlch: func() {
+		Input.ktsFlch.setValue(math.clamp(math.round(Velocities.indicatedAirspeedKt.getValue()), 100, 350));
+	},
 	syncKtsGa: func() { # Same as syncKts, except doesn't go below TogaSpd
 		Input.kts.setValue(math.clamp(math.round(Velocities.indicatedAirspeedKt.getValue()), Setting.togaSpd.getValue(), 350));
 	},
 	syncMach: func() {
 		Input.mach.setValue(math.clamp(math.round(Velocities.indicatedMach.getValue(), 0.001), 0.5, 0.82));
 	},
+	syncMachFlch: func() {
+		Input.machFlch.setValue(math.clamp(math.round(Velocities.indicatedMach.getValue(), 0.001), 0.5, 0.82));
+	},
 	syncHdg: func() {
 		Input.hdg.setValue(math.round(Internal.hdgPredicted.getValue())); # Switches to track automatically
 	},
-	syncALT: func() {
+	syncAlt: func() {
 		Input.alt.setValue(math.clamp(math.round(Internal.altPredicted.getValue(), 100), 0, 50000));
 		Internal.alt.setValue(math.clamp(math.round(Internal.altPredicted.getValue(), 100), 0, 50000));
 	},
@@ -907,6 +904,14 @@ setlistener("/it-autoflight/input/kts-mach", func {
 		ITAF.syncMach();
 	} else {
 		ITAF.syncKts();
+	}
+}, 0, 0);
+
+setlistener("/it-autoflight/input/kts-mach-flch", func {
+	if (Input.ktsMachFlch.getBoolValue()) {
+		ITAF.syncMachFlch();
+	} else {
+		ITAF.syncKtsFlch();
 	}
 }, 0, 0);
 

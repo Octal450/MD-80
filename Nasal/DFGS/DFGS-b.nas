@@ -45,7 +45,7 @@ var updateFMA = {
 	pitch: func() {
 		me.pitchText = Text.vert.getValue();
 		if (me.pitchText == "SPD CLB") {
-			if (Input.ktsMach.getBoolValue()) {
+			if (Input.ktsMachFlch.getBoolValue()) {
 				FMA.pitchA.setValue("MACH");
 				FMA.pitchB.setValue("");
 			} else {
@@ -53,7 +53,7 @@ var updateFMA = {
 				FMA.pitchB.setValue("");
 			}
 		} else if (me.pitchText == "SPD DES") {
-			if (Input.ktsMach.getBoolValue()) {
+			if (Input.ktsMachFlch.getBoolValue()) {
 				FMA.pitchA.setValue("MACH");
 				FMA.pitchB.setValue("");
 			} else {
@@ -109,7 +109,7 @@ var updateFMA = {
 	},
 };
 
-setlistener("/it-autoflight/input/kts-mach", func {
+setlistener("/it-autoflight/input/kts-mach-flch", func {
 	updateFMA.pitch();
 }, 0, 0);
 

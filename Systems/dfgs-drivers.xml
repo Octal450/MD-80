@@ -43,127 +43,6 @@
 	
 	<!-- Autopilot Helpers/Calculators -->
 	<filter>
-		<name>Knots Input Filter</name>
-		<debug>false</debug>
-		<type>noise-spike</type>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
-		<input>
-			<condition>
-				<equals>
-					<property>/it-autoflight/mode/vert</property>
-					<value>T/O CLB</value>
-				</equals>
-			</condition>
-			<property>/it-autoflight/settings/togaspd</property>
-		</input>
-		<input>/it-autoflight/input/kts</input>
-		<output>/it-autoflight/internal/flch-kts</output>
-		<min>
-			<expression>
-				<difference>
-					<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-					<value>25</value>
-				</difference>
-			</expression>
-		</min>
-		<max>
-			<expression>
-				<sum>
-					<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-					<value>25</value>
-				</sum>
-			</expression>
-		</max>
-		<max-rate-of-change>
-			<condition>
-				<and>
-					<or>
-						<equals>
-							<property>/it-autoflight/output/vert</property>
-							<value>4</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/vert</property>
-							<value>7</value>
-						</equals>
-					</or>
-					<equals>
-						<property>/it-autoflight/input/kts-mach</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[1]/wow</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[2]/wow</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<value>5</value>
-		</max-rate-of-change>
-		<max-rate-of-change>100</max-rate-of-change>
-	</filter>
-	
-	<filter>
-		<name>Mach Input Filter</name>
-		<debug>false</debug>
-		<type>noise-spike</type>
-		<feedback-if-disabled>true</feedback-if-disabled>
-		<initialize-to>output</initialize-to>
-		<input>/it-autoflight/input/mach</input>
-		<output>/it-autoflight/internal/flch-mach</output>
-		<min>
-			<expression>
-				<difference>
-					<property>/instrumentation/airspeed-indicator/indicated-mach</property>
-					<value>0.045</value>
-				</difference>
-			</expression>
-		</min>
-		<max>
-			<expression>
-				<sum>
-					<property>/instrumentation/airspeed-indicator/indicated-mach</property>
-					<value>0.045</value>
-				</sum>
-			</expression>
-		</max>
-		<max-rate-of-change>
-			<condition>
-				<and>
-					<or>
-						<equals>
-							<property>/it-autoflight/output/vert</property>
-							<value>4</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/vert</property>
-							<value>7</value>
-						</equals>
-					</or>
-					<equals>
-						<property>/it-autoflight/input/kts-mach</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[1]/wow</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[2]/wow</property>
-						<value>0</value>
-					</equals>
-				</and>
-			</condition>
-			<value>0.04</value>
-		</max-rate-of-change>
-		<max-rate-of-change>1</max-rate-of-change>
-	</filter>
-	
-	<filter>
 		<name>Knots Sync</name>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -217,6 +96,195 @@
 			</expression>
 		</input>
 		<output>/it-autoflight/input/mach</output>
+	</filter>
+	
+	<filter>
+		<name>Knots FLCH Sync</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<enable>
+			<condition>
+				<or>
+					<not-equals>
+						<property>/it-autoflight/output/vert</property>
+						<value>4</value>
+					</not-equals>
+					<equals>
+						<property>/it-autoflight/input/kts-mach-flch</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</condition>
+		</enable>
+		<input>
+			<expression>
+				<floor>
+					<sum>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</expression>
+		</input>
+		<output>/it-autoflight/input/kts-flch</output>
+	</filter>
+	
+	<filter>
+		<name>Mach FLCH Sync</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<enable>
+			<condition>
+				<or>
+					<not-equals>
+						<property>/it-autoflight/output/vert</property>
+						<value>4</value>
+					</not-equals>
+					<equals>
+						<property>/it-autoflight/input/kts-mach-flch</property>
+						<value>0</value>
+					</equals>
+				</or>
+			</condition>
+		</enable>
+		<input>
+			<expression>
+				<div>
+					<floor>
+						<sum>
+							<product>
+								<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+								<value>1000</value>
+							</product>
+							<value>0.5</value>
+						</sum>
+					</floor>
+					<value>1000</value>
+				</div>
+			</expression>
+		</input>
+		<output>/it-autoflight/input/mach-flch</output>
+	</filter>
+	
+	<filter>
+		<name>Knots Input Filter</name>
+		<debug>false</debug>
+		<type>noise-spike</type>
+		<feedback-if-disabled>true</feedback-if-disabled>
+		<initialize-to>output</initialize-to>
+		<input>
+			<condition>
+				<equals>
+					<property>/it-autoflight/mode/vert</property>
+					<value>T/O CLB</value>
+				</equals>
+			</condition>
+			<property>/it-autoflight/settings/togaspd</property>
+		</input>
+		<input>/it-autoflight/input/kts-flch</input>
+		<output>/it-autoflight/internal/flch-kts</output>
+		<min>
+			<expression>
+				<difference>
+					<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+					<value>25</value>
+				</difference>
+			</expression>
+		</min>
+		<max>
+			<expression>
+				<sum>
+					<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+					<value>25</value>
+				</sum>
+			</expression>
+		</max>
+		<max-rate-of-change>
+			<condition>
+				<and>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/vert</property>
+							<value>4</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/vert</property>
+							<value>7</value>
+						</equals>
+					</or>
+					<equals>
+						<property>/it-autoflight/input/kts-mach-flch</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+			<value>5</value>
+		</max-rate-of-change>
+		<max-rate-of-change>100</max-rate-of-change>
+	</filter>
+	
+	<filter>
+		<name>Mach Input Filter</name>
+		<debug>false</debug>
+		<type>noise-spike</type>
+		<feedback-if-disabled>true</feedback-if-disabled>
+		<initialize-to>output</initialize-to>
+		<input>/it-autoflight/input/mach-flch</input>
+		<output>/it-autoflight/internal/flch-mach</output>
+		<min>
+			<expression>
+				<difference>
+					<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+					<value>0.045</value>
+				</difference>
+			</expression>
+		</min>
+		<max>
+			<expression>
+				<sum>
+					<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+					<value>0.045</value>
+				</sum>
+			</expression>
+		</max>
+		<max-rate-of-change>
+			<condition>
+				<and>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/vert</property>
+							<value>4</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/vert</property>
+							<value>7</value>
+						</equals>
+					</or>
+					<equals>
+						<property>/it-autoflight/input/kts-mach-flch</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+			<value>0.04</value>
+		</max-rate-of-change>
+		<max-rate-of-change>1</max-rate-of-change>
 	</filter>
 	
 	<filter>
@@ -512,6 +580,15 @@
 		<update-interval-secs type="double">0.02</update-interval-secs>
 		<input>/it-autoflight/input/mach</input>
 		<output>/it-autoflight/input/mach-x1000</output>
+	</filter>
+	
+	<filter>
+		<name>Mach FLCH x1000</name>
+		<type>gain</type>
+		<gain>1000</gain>
+		<update-interval-secs type="double">0.02</update-interval-secs>
+		<input>/it-autoflight/input/mach-flch</input>
+		<output>/it-autoflight/input/mach-flch-x1000</output>
 	</filter>
 	
 	<filter>
