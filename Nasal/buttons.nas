@@ -94,10 +94,7 @@ var apPanel = {
 	},
 	eprLim: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
-			me.vertTemp = dfgs.Output.vert.getValue();
-			if (me.vertTemp != 4 and me.vertTemp != 7) {
-				dfgs.Input.vert.setValue(4);
-			}
+			
 		}
 	},
 	hdgPush: func() {
