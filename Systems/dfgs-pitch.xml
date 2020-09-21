@@ -70,10 +70,16 @@
 		</enable>
 		<input>
 			<condition>
-				<equals>
-					<property>/it-autoflight/input/kts-mach-flch</property>
-					<value>0</value>
-				</equals>
+				<or>
+					<equals>
+						<property>/it-autoflight/input/kts-mach-flch</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/vert</property>
+						<value>7</value>
+					</equals>
+				</or>
 			</condition>
 			<property>/it-autoflight/internal/kts-predicted-15</property>
 		</input>
@@ -89,10 +95,16 @@
 		</input>
 		<reference>
 			<condition>
-				<equals>
-					<property>/it-autoflight/input/kts-mach-flch</property>
-					<value>0</value>
-				</equals>
+				<or>
+					<equals>
+						<property>/it-autoflight/input/kts-mach-flch</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/vert</property>
+						<value>7</value>
+					</equals>
+				</or>
 			</condition>
 			<property>/it-autoflight/internal/flch-kts</property>
 		</reference>

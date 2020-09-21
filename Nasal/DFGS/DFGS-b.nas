@@ -13,7 +13,6 @@ var FMA = { # $ splits top and bottom
 };
 
 var updateFMA = {
-	pitchMode: 7,
 	pitchText: "T/O CLB",
 	rollText: "T/O",
 	roll: func() {
@@ -89,8 +88,7 @@ var updateFMA = {
 			FMA.pitchB.setValue("OUT");
 		}
 		# Arm of ALT
-		me.pitchMode = Output.vert.getValue(); # Should be switched to if the altitude is armed but that logic doesn't exist yet
-		if (me.pitchMode != 0 and me.pitchMode != 2 and me.pitchMode != 6) {
+		if (me.pitchText != "ALT HLD" and me.pitchText != "ALT CAP" and me.pitchText != "G/S" and me.pitchText != "FLARE" and me.pitchText != "ROLLOUT") { # Change to if alt is armed later
 			FMA.armB.setValue("ALT");
 		} else {
 			FMA.armB.setValue("");

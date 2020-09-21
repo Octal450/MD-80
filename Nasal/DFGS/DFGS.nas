@@ -694,6 +694,7 @@ var ITAF = {
 			Internal.altCaptureActive = 0;
 			me.updateApprArm(0);
 			Output.vert.setValue(7);
+			Input.ktsMachFlch.setBoolValue(0);
 		}
 	},
 	activateLnav: func() {
@@ -798,7 +799,7 @@ var ITAF = {
 			me.setLatMode(3);
 			me.setVertMode(7); # Must be before kicking AP off
 			me.updateVertText("G/A CLB");
-			Input.ktsMach.setBoolValue(0);
+			Input.ktsMachFlch.setBoolValue(0);
 			me.syncKtsGa();
 			if (Gear.wow1.getBoolValue() or Gear.wow2.getBoolValue()) {
 				me.ap1Master(0);
@@ -908,10 +909,16 @@ setlistener("/it-autoflight/input/kts-mach", func {
 }, 0, 0);
 
 setlistener("/it-autoflight/input/kts-mach-flch", func {
-	if (Input.ktsMachFlch.getBoolValue()) {
-		ITAF.syncMachFlch();
+	if (Output.vert.getValue() == 7) { # Mach is not allowed in Mode 7, and don't sync
+		if (Input.ktsMachFlch.getBoolValue()) {
+			Input.ktsMachFlch.setBoolValue(0);
+		}
 	} else {
-		ITAF.syncKtsFlch();
+		if (Input.ktsMachFlch.getBoolValue()) {
+			ITAF.syncMachFlch();
+		} else {
+			ITAF.syncKtsFlch();
+		}
 	}
 }, 0, 0);
 

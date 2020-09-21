@@ -203,19 +203,21 @@
 			<condition>
 				<and>
 					<or>
-						<equals>
-							<property>/it-autoflight/output/vert</property>
-							<value>4</value>
-						</equals>
+						<and>
+							<equals>
+								<property>/it-autoflight/output/vert</property>
+								<value>4</value>
+							</equals>
+							<equals>
+								<property>/it-autoflight/input/kts-mach-flch</property>
+								<value>0</value>
+							</equals>
+						</and>
 						<equals>
 							<property>/it-autoflight/output/vert</property>
 							<value>7</value>
 						</equals>
 					</or>
-					<equals>
-						<property>/it-autoflight/input/kts-mach-flch</property>
-						<value>0</value>
-					</equals>
 					<equals>
 						<property>/gear/gear[1]/wow</property>
 						<value>0</value>
@@ -258,16 +260,10 @@
 		<max-rate-of-change>
 			<condition>
 				<and>
-					<or>
-						<equals>
-							<property>/it-autoflight/output/vert</property>
-							<value>4</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/vert</property>
-							<value>7</value>
-						</equals>
-					</or>
+					<equals>
+						<property>/it-autoflight/output/vert</property>
+						<value>4</value>
+					</equals>
 					<equals>
 						<property>/it-autoflight/input/kts-mach-flch</property>
 						<value>1</value>
