@@ -892,10 +892,7 @@
 			<legend>VNAV</legend>
 			<pref-width>80</pref-width>
 			<enable>
-				<equals>
-					<property>/it-autoflight/input/kts-mach</property>
-					<value>1</value>
-				</equals>
+				<property>/systems/unused/unused-button</property>
 			</enable>
 			<binding>
 				<command>nasal</command>
