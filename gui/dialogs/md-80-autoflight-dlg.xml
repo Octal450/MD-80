@@ -862,9 +862,8 @@
 			<legend>ALT HOLD</legend>
 			<pref-width>80</pref-width>
 			<binding>
-				<command>property-assign</command>
-				<property>/systems/unused/unused-button</property>
-				<value>0</value>
+				<command>nasal</command>
+				<script>libraries.apPanel.altHold();</script>
 			</binding>
 		</button>
 	</group>
