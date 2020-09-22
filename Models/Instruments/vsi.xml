@@ -20,7 +20,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>VSI.needle</object-name>
-		<property>/instrumentation/vertical-speed-indicator/indicated-speed-fpm</property>
+		<property>instrumentation/vertical-speed-indicator/vert-speed-fpm</property>
 		<interpolation>
 			<entry><ind>-6000</ind><dep>-170</dep></entry>
 			<entry><ind>-4000</ind><dep>-130</dep></entry>

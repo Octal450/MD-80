@@ -111,16 +111,12 @@ setlistener("/it-autoflight/input/kts-mach-flch", func {
 	updateFMA.pitch();
 }, 0, 0);
 
-var Clamp = {
+var Clamp = { # To be removed
 	active: 0,
 	pitchText: "T/O CLB",
-	stopCheck: 0,
-	stopThrottleReset: 0,
-	throttleMax: 0,
 	triMode: 0,
-	loop: func() { # Conflicts should put it into clamp too, but I'm not quite sure how I want to do that yet
+	loop: func() {
 		me.pitchText = Text.vert.getValue();
-		me.throttleMax = systems.TRI.throttleCompareMax.getValue();
 		me.triMode = systems.TRI.Limit.activeModeInt.getValue();
 		
 		if (me.triMode == 0 or me.triMode == 5) {
@@ -140,30 +136,13 @@ var Clamp = {
 				me.active = 1;
 			}
 		} else if (me.pitchText == "SPD DES") {
-			if (me.throttleMax <= 0.105) {
-				me.stopCheck = 1;
-				me.active = 1;
-				if (me.stopThrottleReset != 1) {
-					me.stopThrottleReset = 1;
-				}
-			} else if (me.stopCheck != 1) {
-				me.stopThrottleReset = 0;
-				me.active = 0;
-			}
+			me.active = 1;
 		} else {
-			me.stopCheck = 0;
-			me.stopThrottleReset = 0;
 			me.active = 0;
 		}
 		
-		if (pts.Systems.Acconfig.Options.throttleOverride.getValue() == "Never") {
-			if (Output.clamp.getBoolValue() != 0) {
-				Output.clamp.setBoolValue(0);
-			}
-		} else {
-			if (Output.clamp.getBoolValue() != me.active) {
-				Output.clamp.setBoolValue(me.active);
-			}
+		if (Output.clamp.getBoolValue() != me.active) {
+			Output.clamp.setBoolValue(me.active);
 		}
 	},
 };

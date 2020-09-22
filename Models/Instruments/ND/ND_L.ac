@@ -1,5 +1,5 @@
 AC3Db
-MATERIAL "buttonlights" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0.33 0.33 0.33  shi 32  trans 0
+MATERIAL "buttonlights" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 32  trans 0
 MATERIAL "black" rgb 0 0 0  amb 0 0 0  emis 0 0 0  spec 0 0 0  shi 0  trans 0
 MATERIAL "bezelgrey" rgb 0.392157 0.392157 0.392157  amb 0.392157 0.392157 0.392157  emis 0 0 0  spec 0.392157 0.392157 0.392157  shi 64.6737  trans 0
 OBJECT world

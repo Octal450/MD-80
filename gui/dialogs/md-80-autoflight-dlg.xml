@@ -85,7 +85,7 @@
 		<text>
 			<row>0</row>
 			<col>0</col>
-			<label>[A/T]</label>
+			<label>[ATS]</label>
 			<visible>
 				<equals>
 					<property>/it-autoflight/output/athr</property>
@@ -183,6 +183,12 @@
 			<col>0</col>
 			<border>1</border>
 			<label>99999</label>
+			<visible>
+				<equals>
+					<property>/it-autoflight/output/athr</property>
+					<value>1</value>
+				</equals>
+			</visible>
 			<valign>center</valign>
 			<property>/instrumentation/pfd/fma/thr-mode-a</property>
 			<live>1</live>
@@ -198,6 +204,26 @@
 			<col>2</col>
 			<border>1</border>
 			<label>9999</label>
+			<visible>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/fd1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/fd2</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</visible>
 			<valign>center</valign>
 			<property>/instrumentation/pfd/fma/arm-mode-a</property>
 			<live>1</live>
@@ -213,6 +239,26 @@
 			<col>4</col>
 			<border>1</border>
 			<label>9999</label>
+			<visible>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/fd1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/fd2</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</visible>
 			<valign>center</valign>
 			<property>/instrumentation/pfd/fma/roll-mode-a</property>
 			<live>1</live>
@@ -228,6 +274,26 @@
 			<col>6</col>
 			<border>1</border>
 			<label>9999999</label>
+			<visible>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/fd1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/fd2</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</visible>
 			<valign>center</valign>
 			<property>/instrumentation/pfd/fma/pitch-mode-a</property>
 			<live>1</live>
@@ -237,6 +303,12 @@
 			<col>0</col>
 			<border>1</border>
 			<label>99999</label>
+			<visible>
+				<equals>
+					<property>/it-autoflight/output/athr</property>
+					<value>1</value>
+				</equals>
+			</visible>
 			<valign>center</valign>
 			<property>/instrumentation/pfd/fma/thr-mode-b</property>
 			<live>1</live>
@@ -252,6 +324,26 @@
 			<col>2</col>
 			<border>1</border>
 			<label>9999</label>
+			<visible>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/fd1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/fd2</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</visible>
 			<valign>center</valign>
 			<property>/instrumentation/pfd/fma/arm-mode-b</property>
 			<live>1</live>
@@ -267,6 +359,26 @@
 			<col>4</col>
 			<border>1</border>
 			<label>9999</label>
+			<visible>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/fd1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/fd2</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</visible>
 			<valign>center</valign>
 			<property>/instrumentation/pfd/fma/roll-mode-b</property>
 			<live>1</live>
@@ -282,6 +394,26 @@
 			<col>6</col>
 			<border>1</border>
 			<label>9999999</label>
+			<visible>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/fd1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/fd2</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap1</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/ap2</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</visible>
 			<valign>center</valign>
 			<property>/instrumentation/pfd/fma/pitch-mode-b</property>
 			<live>1</live>
