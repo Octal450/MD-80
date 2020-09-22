@@ -108,10 +108,7 @@
 		
 		<switch name="dfgs/yaw/afs-cmd">
 			<default value="0"/>
-			<!--test value="dfgs/afs/yaw-cmd">
-				dfgs/yaw/autoland-switch eq 1
-			</test-->
-			<test value="/controls/flight/rudder">
+			<test value="dfgs/afs/yaw-cmd">
 				dfgs/yaw/autoland-switch eq 1
 			</test>
 		</switch>
