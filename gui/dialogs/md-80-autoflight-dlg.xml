@@ -4,13 +4,14 @@
 <!-- Copyright (c) 2020 Joshua Davidson (Octal450) -->
 
 <PropertyList>
-
+	
 	<name>autopilot</name>
 	<layout>vbox</layout>
 	<pref-width>260</pref-width>
-
+	
 	<group>
 		<layout>hbox</layout>
+		
 		<text>
 			<halign>left</halign>
 			<label>IT-AUTOFLIGHT System (MD-80)</label>
@@ -23,6 +24,530 @@
 			<key>Esc</key>
 			<binding>
 				<command>dialog-close</command>
+			</binding>
+		</button>
+	</group>
+	
+	<group>
+		<layout>hbox</layout>
+		
+		<button>
+			<legend>ATS</legend>
+			<pref-width>40</pref-width>
+			<binding>
+				<command>property-toggle</command>
+				<property>/it-autoflight/input/athr</property>
+			</binding>
+		</button>
+		<button>
+			<legend>AP</legend>
+			<pref-width>40</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.apSwitch();</script>
+			</binding>
+		</button>
+		<button>
+			<legend>1-2</legend>
+			<pref-width>40</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.apDisc();</script>
+			</binding>
+			<binding>
+				<command>property-cycle</command>
+				<property>it-autoflight/input/active-ap</property>
+				<value>1</value>
+				<value>2</value>
+			</binding>
+		</button>
+		<button>
+			<legend>FD1</legend>
+			<pref-width>40</pref-width>
+			<binding>
+				<command>property-toggle</command>
+				<property>/it-autoflight/input/fd1</property>
+			</binding>
+		</button>
+		<button>
+			<legend>FD2</legend>
+			<pref-width>40</pref-width>
+			<binding>
+				<command>property-toggle</command>
+				<property>/it-autoflight/input/fd2</property>
+			</binding>
+		</button>
+	</group>
+	
+	<group>
+		<layout>table</layout>
+		
+		<text>
+			<row>0</row>
+			<col>0</col>
+			<label>[A/T]</label>
+			<visible>
+				<equals>
+					<property>/it-autoflight/output/athr</property>
+					<value>1</value>
+				</equals>
+			</visible>
+		</text>
+		<text>
+			<row>0</row>
+			<col>1</col>
+			<label>[AP1]</label>
+			<visible>
+				<equals>
+					<property>/it-autoflight/output/ap1</property>
+					<value>1</value>
+				</equals>
+			</visible>
+		</text>
+		<text>
+			<row>0</row>
+			<col>1</col>
+			<label>[AP2]</label>
+			<visible>
+				<equals>
+					<property>/it-autoflight/output/ap2</property>
+					<value>1</value>
+				</equals>
+			</visible>
+		</text>
+		<text>
+			<row>0</row>
+			<col>2</col>
+			<label>  [1] </label>
+			<visible>
+				<equals>
+					<property>/it-autoflight/input/active-ap</property>
+					<value>1</value>
+				</equals>
+			</visible>
+		</text>
+		<text>
+			<row>0</row>
+			<col>2</col>
+			<label>  [2] </label>
+			<visible>
+				<equals>
+					<property>/it-autoflight/input/active-ap</property>
+					<value>2</value>
+				</equals>
+			</visible>
+		</text>
+		<text>
+			<row>0</row>
+			<col>3</col>
+			<label>[FD1]</label>
+			<visible>
+				<equals>
+					<property>/it-autoflight/output/fd1</property>
+					<value>1</value>
+				</equals>
+			</visible>
+		</text>
+		<text>
+			<row>0</row>
+			<col>4</col>
+			<label>[FD2]</label>
+			<visible>
+				<equals>
+					<property>/it-autoflight/output/fd2</property>
+					<value>1</value>
+				</equals>
+			</visible>
+		</text>
+	</group>
+	
+	<group>
+		<layout>hbox</layout>
+		
+		<hrule>
+			<stretch>true</stretch>
+		</hrule>
+		<text>
+			<label>Flight Modes</label>
+		</text>
+		<hrule>
+			<stretch>true</stretch>
+		</hrule>
+	</group>
+	
+	<group>
+		<layout>table</layout>
+		
+		<text>
+			<row>0</row>
+			<col>0</col>
+			<border>1</border>
+			<label>99999</label>
+			<valign>center</valign>
+			<property>/instrumentation/pfd/fma/thr-mode-a</property>
+			<live>1</live>
+		</text>
+		
+		<vrule>
+			<row>0</row>
+			<col>1</col>
+		</vrule>
+		
+		<text>
+			<row>0</row>
+			<col>2</col>
+			<border>1</border>
+			<label>9999</label>
+			<valign>center</valign>
+			<property>/instrumentation/pfd/fma/arm-mode-a</property>
+			<live>1</live>
+		</text>
+		
+		<vrule>
+			<row>0</row>
+			<col>3</col>
+		</vrule>
+		
+		<text>
+			<row>0</row>
+			<col>4</col>
+			<border>1</border>
+			<label>9999</label>
+			<valign>center</valign>
+			<property>/instrumentation/pfd/fma/roll-mode-a</property>
+			<live>1</live>
+		</text>
+		
+		<vrule>
+			<row>0</row>
+			<col>5</col>
+		</vrule>
+		
+		<text>
+			<row>0</row>
+			<col>6</col>
+			<border>1</border>
+			<label>9999999</label>
+			<valign>center</valign>
+			<property>/instrumentation/pfd/fma/pitch-mode-a</property>
+			<live>1</live>
+		</text>
+		<text>
+			<row>1</row>
+			<col>0</col>
+			<border>1</border>
+			<label>99999</label>
+			<valign>center</valign>
+			<property>/instrumentation/pfd/fma/thr-mode-b</property>
+			<live>1</live>
+		</text>
+		
+		<vrule>
+			<row>1</row>
+			<col>1</col>
+		</vrule>
+		
+		<text>
+			<row>1</row>
+			<col>2</col>
+			<border>1</border>
+			<label>9999</label>
+			<valign>center</valign>
+			<property>/instrumentation/pfd/fma/arm-mode-b</property>
+			<live>1</live>
+		</text>
+		
+		<vrule>
+			<row>1</row>
+			<col>3</col>
+		</vrule>
+		
+		<text>
+			<row>1</row>
+			<col>4</col>
+			<border>1</border>
+			<label>9999</label>
+			<valign>center</valign>
+			<property>/instrumentation/pfd/fma/roll-mode-b</property>
+			<live>1</live>
+		</text>
+		
+		<vrule>
+			<row>1</row>
+			<col>5</col>
+		</vrule>
+		
+		<text>
+			<row>1</row>
+			<col>6</col>
+			<border>1</border>
+			<label>9999999</label>
+			<valign>center</valign>
+			<property>/instrumentation/pfd/fma/pitch-mode-b</property>
+			<live>1</live>
+		</text>
+	</group>
+	
+	<group>
+		<layout>hbox</layout>
+		
+		<hrule>
+			<stretch>true</stretch>
+		</hrule>
+		<text>
+			<label>Thrust Mode</label>
+		</text>
+		<hrule>
+			<stretch>true</stretch>
+		</hrule>
+	</group>
+	
+	<group>
+		<layout>hbox</layout>
+		
+		<button>
+			<legend>Push</legend>
+			<pref-width>80</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.spdPush();</script>
+			</binding>
+		</button>
+		<button>
+			<legend>SPD SEL</legend>
+			<pref-width>75</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.spd();</script>
+			</binding>
+		</button>
+		<button>
+			<legend>MACH SEL</legend>
+			<pref-width>75</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.mach();</script>
+			</binding>
+		</button>
+	</group>
+	<group>
+		<layout>hbox</layout>
+		
+		<button>
+			<legend>ATS Off</legend>
+			<pref-width>80</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.atDisc();</script>
+			</binding>
+		</button>
+		<button>
+			<legend>EPR LIM</legend>
+			<pref-width>75</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.eprLim();</script>
+			</binding>
+		</button>
+		<button>
+			<legend>FMS OVRD</legend>
+			<pref-width>75</pref-width>
+			<enable>
+				<property>/systems/unused/unused-button</property>
+			</enable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.fmsOvrd();</script>
+			</binding>
+		</button>
+	</group>
+	
+	<group>
+		<layout>table</layout>
+		
+		<text>
+			<row>0</row>
+			<col>0</col>
+			<label>SPD:  </label>
+		</text>
+		
+		<button>
+			<row>0</row>
+			<col>1</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;&lt;</legend>
+			<enable>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>0</value>
+				</equals>
+			</enable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.spdAdjust(-10);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>2</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;</legend>
+			<enable>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>0</value>
+				</equals>
+			</enable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.spdAdjust(-1);</script>
+			</binding>
+		</button>
+
+		<input>
+			<row>0</row>
+			<col>3</col>
+			<pref-width>50</pref-width>
+			<property>/it-autoflight/input/kts</property>
+			<live>true</live>
+			<enable>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>0</value>
+				</equals>
+			</enable>
+		</input>
+		
+		<button>
+			<row>0</row>
+			<col>4</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;</legend>
+			<enable>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>0</value>
+				</equals>
+			</enable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.spdAdjust(1);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>5</col>
+			<halign>left</halign>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;&gt;</legend>
+			<enable>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>0</value>
+				</equals>
+			</enable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.spdAdjust(10);</script>
+			</binding>
+		</button>
+	</group>
+	
+	<group>
+		<layout>table</layout>
+		
+		<text>
+			<row>0</row>
+			<col>0</col>
+			<label>Mach:</label>
+		</text>
+		
+		<button>
+			<row>0</row>
+			<col>1</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;&lt;</legend>
+			<enable>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>1</value>
+				</equals>
+			</enable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.spdAdjust(-10);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>2</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;</legend>
+			<enable>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>1</value>
+				</equals>
+			</enable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.spdAdjust(-1);</script>
+			</binding>
+		</button>
+
+		<input>
+			<row>0</row>
+			<col>3</col>
+			<pref-width>50</pref-width>
+			<property>/it-autoflight/input/mach</property>
+			<live>true</live>
+			<enable>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>1</value>
+				</equals>
+			</enable>
+		</input>
+		
+		<button>
+			<row>0</row>
+			<col>4</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;</legend>
+			<enable>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>1</value>
+				</equals>
+			</enable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.spdAdjust(1);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>5</col>
+			<halign>left</halign>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;&gt;</legend>
+			<enable>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>1</value>
+				</equals>
+			</enable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.spdAdjust(10);</script>
 			</binding>
 		</button>
 	</group>
