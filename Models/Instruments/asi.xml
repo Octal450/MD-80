@@ -55,7 +55,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>Mach1</object-name>
-  <property>velocities/mach</property>
+  <property>instrumentation/airspeed-indicator/indicated-mach</property>
   <factor>1.0</factor>
   <step>0.1</step>
   <axis>
@@ -68,7 +68,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>Mach2</object-name>
-  <property>velocities/mach</property>
+  <property>instrumentation/airspeed-indicator/indicated-mach</property>
   <factor>10</factor>
   <step>.01</step>
   <axis>

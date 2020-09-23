@@ -106,8 +106,25 @@
 			</test>
 		</switch>
 		
-		<lag_filter name="fcs-actual/elevator-yoke">
+		<scheduled_gain name="dfgs/mach-trim/output-final">
+			<input>dfgs/mach-trim/output</input>
+			<table>
+				<independentVar lookup="row">fcs-actual/elevator/yoke-switch</independentVar>
+				<tableData>
+					  -1  0
+					   0  1
+					   1  0
+				</tableData>
+			</table>
+		</scheduled_gain>
+		
+		<summer name="fcs-actual/elevator/yoke-sum">
 			<input>fcs-actual/elevator/yoke-switch</input>
+			<input>dfgs/mach-trim/output-final</input>
+		</summer>
+		
+		<lag_filter name="fcs-actual/elevator-yoke">
+			<input>fcs-actual/elevator/yoke-sum</input>
 			<c1>20</c1>
 		</lag_filter>
 		

@@ -777,5 +777,20 @@
 			</expression>
 		</max-rate-of-change>
 	</filter>
+	
+	<filter>
+		<name>Mach Trim</name>
+		<type>gain</type>
+		<input>
+			<expression>
+				<table>
+					<abs><property>/velocities/mach</property></abs>
+					<entry><ind>0.80</ind><dep> 0.0</dep></entry>
+					<entry><ind>0.85</ind><dep>-0.1</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/fdm/jsbsim/dfgs/mach-trim/output</output>
+	</filter>
 
 </PropertyList>
