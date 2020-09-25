@@ -1,19 +1,35 @@
 <?xml version="1.0"?>
 
-<PropertyList>
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
 
-<path>ND_R.ac</path>
-<animation>
-	<type>pick</type>
-	<object-name>ND.screenR</object-name>
-	<action>
-		<button>0</button>
-		<repeatable>false</repeatable>
-		<binding>
-			<command>nasal</command>
-			<script>libraries.showNd("fo");</script>
-		</binding>
-	</action>
-</animation>
+<PropertyList>
+	
+	<path>ND_R.ac</path>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>ND.screenR</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.showNd("fo");</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<effect>
+		<inherits-from>Aircraft/MD-80/Models/Effects/displays/lcd</inherits-from>
+		<parameters>
+			<inner-angle type="float">90</inner-angle> <!-- 0-90, use 90 for LED or plasma display-->
+			<outer-angle type="float">90</outer-angle> <!-- 0-90, but greater than inner -->
+			<black-angle type="float">90</black-angle> <!-- 0-90, but greater than outer -->
+			<dirt-factor>0</dirt-factor>
+			<contrast type="float">0.85</contrast>
+		</parameters>
+		<object-name>ND.screenR</object-name>
+		<object-name>ND.borderR</object-name>
+	</effect>
 
 </PropertyList>

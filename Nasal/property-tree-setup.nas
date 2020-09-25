@@ -66,6 +66,11 @@ var Instrumentation = {
 	},
 };
 
+var Orientation = {
+	pitchDeg: props.globals.getNode("/orientation/pitch-deg"),
+	rollDeg: props.globals.getNode("/orientation/roll-deg"),
+};
+
 var Sim = {
 	CurrentView: {
 		fieldOfView: props.globals.getNode("/sim/current-view/field-of-view", 1),
@@ -111,6 +116,9 @@ var Sim = {
 var Systems = {
 	Acconfig: {
 		autoConfigRunning: props.globals.getNode("/systems/acconfig/autoconfig-running"),
+		Options: {
+			pfdRate: props.globals.getNode("/systems/acconfig/options/pfd-rate"),
+		}
 	},
 	Shake: {
 		effect: props.globals.getNode("/systems/shake/effect"),

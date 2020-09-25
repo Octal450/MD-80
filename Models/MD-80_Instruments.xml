@@ -11,7 +11,7 @@
 		<object-name>clock</object-name>
 		<object-name>asi</object-name>
 		<object-name>rmi</object-name>
-		<object-name>eadi</object-name>
+		<object-name>pfd1</object-name>
 		<object-name>alt</object-name>
 		<object-name>stbyalt</object-name>
 		<object-name>vsi</object-name>
@@ -39,7 +39,7 @@
 		<object-name>lighting_panel_L</object-name>
 		<object-name>lighting_panel_R</object-name>
 		<object-name>lighting_panel_P</object-name>
-		<object-name>eadi_R</object-name>
+		<object-name>pfd2</object-name>
 		<object-name>ND_R</object-name>
 		<object-name>alt_R</object-name>
 		<object-name>asi_R</object-name>
@@ -125,8 +125,8 @@
 </model>
 
 <model>
-  <name>eadi</name>
-  <path>Aircraft/MD-80/Models/Instruments/eadi.xml</path>
+  <name>pfd1</name>
+  <path>Aircraft/MD-80/Models/Instruments/PFD/PFD1.xml</path>
   <offsets>
     <x-m>2.225</x-m>
     <y-m>-0.513</y-m>
@@ -506,8 +506,8 @@
 </model>
 
 <model>
-  <name>eadi_R</name>
-  <path>Aircraft/MD-80/Models/Instruments/eadi2.xml</path>
+  <name>pfd2</name>
+  <path>Aircraft/MD-80/Models/Instruments/PFD/PFD2.xml</path>
   <offsets>
     <x-m>2.225</x-m>
     <y-m>0.513</y-m>

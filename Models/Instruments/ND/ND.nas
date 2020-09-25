@@ -94,7 +94,7 @@ var showNd = func(pilot='cpt') {
     if(getprop("sim/instrument-options/canvas-popup-enable"))
     {
         # The optional second arguments enables creating a window decoration
-        var dlg = canvas.Window.new([512, 512], "dialog");
+        var dlg = canvas.Window.new([512, 400], "dialog");
         dlg.setCanvas( nd_display[pilot] );
     }
 }

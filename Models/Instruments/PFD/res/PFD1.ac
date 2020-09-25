@@ -1853,7 +1853,7 @@ refs 4
 8 0 1
 kids 0
 OBJECT poly
-name "ND.screenL"
+name "pfd1.screen"
 loc 0.00489761 -0.131417 -0.0642298
 texture "screen.png"
 crease 30.000000
@@ -1872,7 +1872,7 @@ refs 4
 1 1.00067 0.000756443
 kids 0
 OBJECT poly
-name "ND.borderL"
+name "pfd1.border"
 loc 0.00489761 -0.128718 -0.0644015
 texture "screen.png"
 crease 45.000000

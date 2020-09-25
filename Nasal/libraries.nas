@@ -21,6 +21,7 @@ var systemsInit = func() {
 
 setlistener("sim/signals/fdm-initialized", func() {
 	systemsInit();
+	canvas_pfd.init();
 	canvas_fma.init();
 });
 
