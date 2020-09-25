@@ -178,7 +178,7 @@ var canvasRollR = {
 	},
 };
 
-setlistener("sim/signals/fdm-initialized", func {
+var init = func() {
 	armLDisplay = canvas.new({
 		"name": "armL",
 		"size": [256, 180],
@@ -239,8 +239,8 @@ setlistener("sim/signals/fdm-initialized", func {
 	
 	canvasBase.setup();
 	fmaUpdate.start();
-});
+}
 
-var fmaUpdate = maketimer(0.25, func {
+var fmaUpdate = maketimer(0.25, func() {
 	canvasBase.update();
 });

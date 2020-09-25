@@ -5,7 +5,7 @@
 # Don't want to change the bindings yet
 # Intentionally not using + or -, floating point error would be BAD
 # We just based it off Engine 1
-var doRevThrust = func {
+var doRevThrust = func() {
 	pts.Controls.Engines.Engine.reverseLeverTemp[0] = pts.Controls.Engines.Engine.reverseLever[0].getValue();
 	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and systems.TRI.throttleCompareMax.getValue() <= 0.05) {
 		if (pts.Controls.Engines.Engine.reverseLeverTemp[0] < 0.25) {
@@ -29,7 +29,7 @@ var doRevThrust = func {
 	}
 }
 
-var unRevThrust = func {
+var unRevThrust = func() {
 	pts.Controls.Engines.Engine.reverseLeverTemp[0] = pts.Controls.Engines.Engine.reverseLever[0].getValue();
 	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and systems.TRI.throttleCompareMax.getValue() <= 0.05) {
 		if (pts.Controls.Engines.Engine.reverseLeverTemp[0] > 0.75) {
@@ -53,7 +53,7 @@ var unRevThrust = func {
 	}
 }
 
-var toggleFastRevThrust = func {
+var toggleFastRevThrust = func() {
 	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and systems.TRI.throttleCompareMax.getValue() <= 0.05) {
 		if (pts.Controls.Engines.Engine.reverseLever[0].getValue() != 0) { # NOT a bool, this way it always closes even if partially open
 			pts.Controls.Engines.Engine.reverseLever[0].setValue(0);
@@ -70,12 +70,12 @@ var toggleFastRevThrust = func {
 	}
 }
 
-var doIdleThrust = func {
+var doIdleThrust = func() {
 	pts.Controls.Engines.Engine.throttle[0].setValue(0);
 	pts.Controls.Engines.Engine.throttle[1].setValue(0);
 }
 
-var doFullThrust = func {
+var doFullThrust = func() {
 	pts.Controls.Engines.Engine.throttle[0].setValue(1);
 	pts.Controls.Engines.Engine.throttle[1].setValue(1);
 }
@@ -119,6 +119,6 @@ var TRI = {
 	},
 };
 
-setlistener("/fdm/jsbsim/engine/limit/active-mode-int", func {
+setlistener("/fdm/jsbsim/engine/limit/active-mode-int", func() {
 	TRI.updateTxt();
 }, 0, 0);

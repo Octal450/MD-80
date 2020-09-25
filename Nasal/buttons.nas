@@ -2,7 +2,7 @@
 # Copyright (c) 2020 Josh Davidson (Octal450)
 
 # Resets buttons to the default values
-var variousReset = func {
+var variousReset = func() {
 	
 }
 

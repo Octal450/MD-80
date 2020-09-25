@@ -1,7 +1,7 @@
 # McDonnell Douglas MD-80 DFGS AFS Interface
 # Copyright (c) 2020 Josh Davidson (Octal450)
 
-var FMA = { # $ splits top and bottom
+var FMA = {
 	thrA: props.globals.initNode("/instrumentation/pfd/fma/thr-mode-a", "", "STRING"),
 	thrB: props.globals.initNode("/instrumentation/pfd/fma/thr-mode-b", "", "STRING"),
 	armA: props.globals.initNode("/instrumentation/pfd/fma/arm-mode-a", "", "STRING"),
@@ -107,7 +107,7 @@ var updateFMA = {
 	},
 };
 
-setlistener("/it-autoflight/input/kts-mach-flch", func {
+setlistener("/it-autoflight/input/kts-mach-flch", func() {
 	updateFMA.pitch();
 }, 0, 0);
 
