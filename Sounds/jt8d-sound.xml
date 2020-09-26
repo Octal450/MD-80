@@ -54,7 +54,12 @@
 			<mode>looped</mode>
 			<name>Roll</name>
 			<path>Aircraft/MD-80/Sounds/SASA/ground-roll.wav</path>
-			<property>gear/gear[0]/wow</property>
+			<condition>
+				<and>
+					<property>gear/gear[0]/wow</property>
+					<property>/sim/current-view/internal</property>
+				</and>
+			</condition>
 			<volume>
 				<property>MD80/other/roll</property>
 				<factor>1</factor>
@@ -65,7 +70,12 @@
 			<mode>looped</mode>
 			<name>Roll</name>
 			<path>Aircraft/MD-80/Sounds/SASA/ground-roll.wav</path>
-			<property>gear/gear[1]/wow</property>
+			<condition>
+				<and>
+					<property>gear/gear[1]/wow</property>
+					<property>/sim/current-view/internal</property>
+				</and>
+			</condition>
 			<volume>
 				<property>MD80/other/roll</property>
 				<factor>1</factor>
@@ -76,7 +86,12 @@
 			<mode>looped</mode>
 			<name>Roll</name>
 			<path>Aircraft/MD-80/Sounds/SASA/ground-roll.wav</path>
-			<property>gear/gear[2]/wow</property>
+			<condition>
+				<and>
+					<property>gear/gear[2]/wow</property>
+					<property>/sim/current-view/internal</property>
+				</and>
+			</condition>
 			<volume>
 				<property>MD80/other/roll</property>
 				<factor>1</factor>
