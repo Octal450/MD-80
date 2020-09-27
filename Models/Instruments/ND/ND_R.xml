@@ -29,7 +29,6 @@
 			<contrast type="float">0.85</contrast>
 		</parameters>
 		<object-name>ND.screenR</object-name>
-		<object-name>ND.borderR</object-name>
 	</effect>
 
 </PropertyList>

@@ -29,7 +29,6 @@
 			<contrast type="float">0.85</contrast>
 		</parameters>
 		<object-name>pfd2.screen</object-name>
-		<object-name>pfd2.border</object-name>
 	</effect>
 
 </PropertyList>
