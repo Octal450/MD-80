@@ -6,11 +6,18 @@ var pfd1Display = nil;
 var pfd2Display = nil;
 var pfd1 = nil;
 var pfd2 = nil;
+setprop("test1", 0);
+setprop("test2", 0);
 
 var Value = {
 	Ai: {
 		pitch: 0,
 		roll: 0,
+	},
+	Nav: {
+		gsInRange: [0, 0],
+		inRange: [0, 0],
+		signalQuality: [0, 0],
 	},
 };
 
@@ -55,7 +62,7 @@ var canvasBase = {
 		return me;
 	},
 	getKeys: func() {
-		return ["AI_center", "AI_background", "AI_scale", "FD_pitch", "FD_roll"];
+		return ["AI_center", "AI_background", "AI_scale", "FD_pitch", "FD_roll", "LOC_pointer", "LOC_scale", "LOC_no", "GS_no", "FS_pointer"];
 	},
 	setup: func() {
 	},
@@ -64,6 +71,9 @@ var canvasBase = {
 		pfd2.update();
 	},
 	updateBase: func() {
+		# Fast Slow
+		me["FS_pointer"].setTranslation(0, pts.Instrumentation.Pfd.fastSlow.getValue() * 13.1);
+		
 		# AI
 		Value.Ai.pitch = pts.Orientation.pitchDeg.getValue();
 		Value.Ai.roll = pts.Orientation.rollDeg.getValue();
@@ -99,6 +109,32 @@ var canvasPfd1 = {
 			me["FD_roll"].hide();
 		}
 		
+		# ILS
+		Value.Nav.inRange[0] = pts.Instrumentation.Nav.inRange[0].getBoolValue();
+		Value.Nav.signalQuality[0] = pts.Instrumentation.Nav.signalQualityNorm[0].getValue();
+		if (Value.Nav.inRange[0] and Value.Nav.signalQuality[0] > 0.99) {
+			me["LOC_pointer"].show();
+			me["LOC_pointer"].setTranslation(pts.Instrumentation.Nav.headingNeedleDeflectionNorm[0].getValue() * 156, 0);
+			me["LOC_no"].hide();
+			me["LOC_scale"].show();
+		} else {
+			me["LOC_pointer"].hide();
+			me["LOC_no"].show();
+			me["LOC_scale"].hide();
+		}
+		
+		Value.Nav.gsInRange[0] = pts.Instrumentation.Nav.gsInRange[0].getBoolValue();
+		#if (Value.Nav.inRange[0] and Value.Nav.signalQuality[0] > 0.99) {
+		#	me["GS_no"].hide();
+		#	me["GS_pointer"].show;
+		#	me["GS_pointer"].setTranslation(0, needle * factor);
+		#	me["GS_scale"].show();
+		#} else {
+		#	me["GS_no"].show();
+		#	me["GS_pointer"].hide();
+		#	me["GS_scale"].hide();
+		#}
+		
 		me.updateBase();
 	},
 };
@@ -122,6 +158,20 @@ var canvasPfd2 = {
 		} else {
 			me["FD_pitch"].hide();
 			me["FD_roll"].hide();
+		}
+		
+		# ILS
+		Value.Nav.inRange[1] = pts.Instrumentation.Nav.inRange[1].getBoolValue();
+		Value.Nav.signalQuality[1] = pts.Instrumentation.Nav.signalQualityNorm[1].getValue();
+		if (Value.Nav.inRange[1] and Value.Nav.signalQuality[1] > 0.99) {
+			me["LOC_pointer"].show();
+			me["LOC_pointer"].setTranslation(pts.Instrumentation.Nav.headingNeedleDeflectionNorm[1].getValue() * 156, 0);
+			me["LOC_no"].hide();
+			me["LOC_scale"].show();
+		} else {
+			me["LOC_pointer"].hide();
+			me["LOC_no"].show();
+			me["LOC_scale"].hide();
 		}
 		
 		me.updateBase();
