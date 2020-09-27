@@ -65,6 +65,23 @@
 					</item>
 				</menu>
 				<menu n="103">
+					<label>DU</label>
+					<item>
+						<label>Captain's PFD</label>
+						<binding>
+							<command>nasal</command>
+							<script>canvas_pfd.showPfd1();</script>
+						</binding>
+					</item>
+					<item>
+						<label>First Officer's PFD</label>
+						<binding>
+							<command>nasal</command>
+							<script>canvas_pfd.showPfd2();</script>
+						</binding>
+					</item>
+				</menu>
+				<menu n="104">
 					<label>Utilities</label>
 					<item>
 						<label>Select Livery</label>
