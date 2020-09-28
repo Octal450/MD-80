@@ -61,7 +61,7 @@
 				</and>
 			</condition>
 			<volume>
-				<property>MD80/other/roll</property>
+				<property>/MD80/other/roll</property>
 				<factor>1</factor>
 			</volume>
 		</misc>
@@ -77,7 +77,7 @@
 				</and>
 			</condition>
 			<volume>
-				<property>MD80/other/roll</property>
+				<property>/MD80/other/roll</property>
 				<factor>1</factor>
 			</volume>
 		</misc>
@@ -93,7 +93,7 @@
 				</and>
 			</condition>
 			<volume>
-				<property>MD80/other/roll</property>
+				<property>/MD80/other/roll</property>
 				<factor>1</factor>
 			</volume>
 		</misc>
@@ -103,22 +103,17 @@
 			<mode>once</mode>
 			<path>Aircraft/MD-80/Sounds/SASA/flaps-click.wav</path>
 			<condition>
-				<and>
-					<property>MD80/other/flaps-click</property>
-				</and>
+				<property>/sim/sound/flaps-click</property>
 			</condition>
-			<volume>
-				<property>MD80/ambience/cockpit-amb-z</property>
-			</volume>
 		</switch>
 		
 		<switch>
 			<name>Flaps Motor</name>
 			<mode>in-transit</mode>
 			<path>Aircraft/MD-80/Sounds/SASA/flaps-motor.wav</path>
-			<property>fdm/jsbsim/fcs/flap-pos-deg</property>
+			<property>/fdm/jsbsim/fcs/flap-pos-deg</property>
 			<volume>
-				<property>MD80/ambience/wind-b-z</property>
+				<property>/MD80/ambience/wind-b-z</property>
 				<factor>0.5</factor>
 			</volume>
 		</switch>
@@ -127,7 +122,7 @@
 			<name>Gear</name>
 			<mode>in-transit</mode>
 			<path>Aircraft/MD-80/Sounds/SASA/gear.wav</path>
-			<property>gear/gear[0]/position-norm</property>
+			<property>/gear/gear[0]/position-norm</property>
 			<volume>
 				<property>/sim/current-view/internal</property>
 			</volume>
@@ -157,7 +152,7 @@
 			</condition>
 			<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/ambience/cockpit-amb-z</property>
+				<property>/MD80/ambience/cockpit-amb-z</property>
 			</volume>
 		</MDAMB>
 		
@@ -169,7 +164,7 @@
 			<mode>looped</mode>
 			<property>/sim/current-view/internal</property>
 			<volume>
-				<property>MD80/ambience/wind-b-z</property>
+				<property>/MD80/ambience/wind-b-z</property>
 				<factor>0.5</factor>
 			</volume>
 		</MDAMB>
@@ -180,7 +175,7 @@
 			<mode>looped</mode>
 			<property>/sim/current-view/internal</property>
 			<volume>
-				<property>MD80/ambience/wind-b-z</property>
+				<property>/MD80/ambience/wind-b-z</property>
 				<factor>0.2</factor>
 			</volume>
 		</MDAMB>
@@ -326,10 +321,10 @@
 			<mode>looped</mode>
 			<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/ambience/wind-f-z</property>
+				<property>/MD80/ambience/wind-f-z</property>
 			</volume>
 			<volume>
-				<property>MD80/ambience/wind-f-s</property>
+				<property>/MD80/ambience/wind-f-s</property>
 			</volume>
 		</MDAMB>
 		
@@ -339,10 +334,10 @@
 			<mode>looped</mode>
 			<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/ambience/wind-b-z</property>
+				<property>/MD80/ambience/wind-b-z</property>
 			</volume>
 			<volume>
-				<property>MD80/ambience/wind-b-s</property>
+				<property>/MD80/ambience/wind-b-s</property>
 			</volume>
 		</MDAMB>
 		
@@ -353,11 +348,11 @@
 			<mode>looped</mode>
 			<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/engine/MDA_WHN_1</property>
+				<property>/MD80/engine/MDA_WHN_1</property>
 				<factor>0.8</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDA_WHN_1</property>
+				<property>/MD80/enginep/MDA_WHN_1</property>
 			</pitch>
 		</MDB_WHN>
 		
@@ -369,11 +364,11 @@
 			<mode>looped</mode>
 			<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/engine/MDA_WHN_2</property>
+				<property>/MD80/engine/MDA_WHN_2</property>
 				<factor>0.8</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDA_WHN_2</property>
+				<property>/MD80/enginep/MDA_WHN_2</property>
 			</pitch>
 		</MDA_WHN>
 		
@@ -383,11 +378,11 @@
 			<mode>looped</mode>
 			<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/engine/MDA_WHN_3</property>
+				<property>/MD80/engine/MDA_WHN_3</property>
 				<factor>0.8</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDA_WHN_3</property>
+				<property>/MD80/enginep/MDA_WHN_3</property>
 			</pitch>
 		</MDA_WHN>
 		
@@ -397,11 +392,11 @@
 			<mode>looped</mode>
 			<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/engine/MDA_howl</property>
+				<property>/MD80/engine/MDA_howl</property>
 				<factor>0.45</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDA_howl</property>
+				<property>/MD80/enginep/MDA_howl</property>
 			</pitch>
 		</MDA_WHN>
 		
@@ -411,10 +406,10 @@
 			<mode>looped</mode>
 			<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/engine/MDA_hum</property>
+				<property>/MD80/engine/MDA_hum</property>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDA_hum</property>
+				<property>/MD80/enginep/MDA_hum</property>
 			</pitch>
 		</MDA_WHN>-->
 		
@@ -424,11 +419,11 @@
 			<mode>looped</mode>
 			<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/engine/MDA_hum_high</property>
+				<property>/MD80/engine/MDA_hum_high</property>
 				<factor>0.8</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDA_hum</property>
+				<property>/MD80/enginep/MDA_hum</property>
 			</pitch>
 		</MDA_WHN>
 		
@@ -440,7 +435,7 @@
 			<mode>looped</mode>
 			<property>engines/engine[0]/n1</property>
 			<volume>
-				<property>MD80/engine/MDA_WHN_4</property>
+				<property>/MD80/engine/MDA_WHN_4</property>
 			</volume>
 			<volume>
 				<property>sim/current-view/internal</property>
@@ -450,7 +445,7 @@
 				<factor>0.8</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDA_WHN_4</property>
+				<property>/MD80/enginep/MDA_WHN_4</property>
 				<offset>0</offset>
 			</pitch>
 		</MDA_WHN>
@@ -461,11 +456,11 @@
 			<mode>looped</mode>
 			<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/engine/MDA_WHN_5</property>
+				<property>/MD80/engine/MDA_WHN_5</property>
 				<factor>0.8</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDA_WHN_5</property>
+				<property>/MD80/enginep/MDA_WHN_5</property>
 			</pitch>
 		</MDA_WHN>
 		
@@ -477,11 +472,11 @@
 				<property>sim/current-view/internal</property>
 			</condition>
 			<volume>
-				<property>MD80/engine/MDA_REV1</property>
+				<property>/MD80/engine/MDA_REV1</property>
 				<factor>0.8</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDA_REV1</property>
+				<property>/MD80/enginep/MDA_REV1</property>
 			</pitch>
 		</MDA_REV>
 		
@@ -492,11 +487,11 @@
 			<mode>looped</mode>
 			<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/engine/MDB_WHN_1</property>
+				<property>/MD80/engine/MDB_WHN_1</property>
 				<factor>0.8</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDB_WHN_1</property>
+				<property>/MD80/enginep/MDB_WHN_1</property>
 			</pitch>
 		</MDB_WHN>
 		
@@ -508,11 +503,11 @@
 			<mode>looped</mode>
 			<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/engine/MDB_WHN_2</property>
+				<property>/MD80/engine/MDB_WHN_2</property>
 				<factor>0.8</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDB_WHN_2</property>
+				<property>/MD80/enginep/MDB_WHN_2</property>
 			</pitch>
 		</MDB_WHN>
 		
@@ -522,11 +517,11 @@
 			<mode>looped</mode>
 			<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/engine/MDB_WHN_3</property>
+				<property>/MD80/engine/MDB_WHN_3</property>
 				<factor>0.8</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDB_WHN_3</property>
+				<property>/MD80/enginep/MDB_WHN_3</property>
 			</pitch>
 		</MDB_WHN>
 		
@@ -536,11 +531,11 @@
 			<mode>looped</mode>
 			<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/engine/MDB_howl</property>
+				<property>/MD80/engine/MDB_howl</property>
 				<factor>0.45</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDB_howl</property>
+				<property>/MD80/enginep/MDB_howl</property>
 			</pitch>
 		</MDB_WHN>
 		
@@ -550,10 +545,10 @@
 			<mode>looped</mode>
 			<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/engine/MDB_hum</property>
+				<property>/MD80/engine/MDB_hum</property>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDB_hum</property>
+				<property>/MD80/enginep/MDB_hum</property>
 			</pitch>
 		</MDB_WHN>-->
 		
@@ -563,11 +558,11 @@
 			<mode>looped</mode>
 			<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/engine/MDB_hum_high</property>
+				<property>/MD80/engine/MDB_hum_high</property>
 				<factor>0.8</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDB_hum</property>
+				<property>/MD80/enginep/MDB_hum</property>
 			</pitch>
 		</MDB_WHN>
 		
@@ -579,11 +574,11 @@
 			<mode>looped</mode>
 				<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/engine/MDB_WHN_4</property>
+				<property>/MD80/engine/MDB_WHN_4</property>
 				<factor>0.8</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDB_WHN_4</property>
+				<property>/MD80/enginep/MDB_WHN_4</property>
 			</pitch>
 		</MDB_WHN>
 		
@@ -593,11 +588,11 @@
 			<mode>looped</mode>
 				<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/engine/MDB_WHN_5</property>
+				<property>/MD80/engine/MDB_WHN_5</property>
 				<factor>0.8</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDB_WHN_5</property>
+				<property>/MD80/enginep/MDB_WHN_5</property>
 			</pitch>
 		</MDB_WHN>
 		
@@ -609,11 +604,11 @@
 				<property>sim/current-view/internal</property>
 			</condition>
 			<volume>
-				<property>MD80/engine/MDA_REV2</property>
+				<property>/MD80/engine/MDA_REV2</property>
 				<factor>0.8</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDA_REV2</property>
+				<property>/MD80/enginep/MDA_REV2</property>
 			</pitch>
 		</MDA_REV>
 		
@@ -625,11 +620,11 @@
 			<mode>looped</mode>
 				<property>sim/current-view/internal</property>
 			<volume>
-				<property>MD80/engine/MDA_CMB_1</property>
+				<property>/MD80/engine/MDA_CMB_1</property>
 				<factor>0.6</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDA_CMB_1</property>
+				<property>/MD80/enginep/MDA_CMB_1</property>
 			</pitch>
 		</MDA_CMB>
 		
@@ -641,11 +636,11 @@
 			<mode>looped</mode>
 			<property>engines/engine[1]/epr</property>
 			<volume>
-				<property>MD80/engine/MDB_CMB_1</property>
+				<property>/MD80/engine/MDB_CMB_1</property>
 				<factor>0.6</factor>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDB_CMB_1</property>
+				<property>/MD80/enginep/MDB_CMB_1</property>
 			</pitch>
 		</MDB_CMB>
 		
@@ -692,13 +687,13 @@
 			<mode>looped</mode>
 			<property>engines/engine[0]/n1</property>
 			<volume>
-				<property>MD80/engine/MDA_WHN_1</property>
+				<property>/MD80/engine/MDA_WHN_1</property>
 			</volume>
 			<volume>
 				<property>sim/current-view/external</property>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDA_WHN_1</property>
+				<property>/MD80/enginep/MDA_WHN_1</property>
 				<offset>0</offset>
 			</pitch>
 		</MDA_WHN>
@@ -711,13 +706,13 @@
 			<mode>looped</mode>
 			<property>engines/engine[0]/n1</property>
 			<volume>
-				<property>MD80/engine/MDA_WHN_2</property>
+				<property>/MD80/engine/MDA_WHN_2</property>
 			</volume>
 			<volume>
 				<property>sim/current-view/external</property>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDA_WHN_2</property>
+				<property>/MD80/enginep/MDA_WHN_2</property>
 				<offset>0</offset>
 			</pitch>
 			<orientation>
@@ -734,13 +729,13 @@
 			<mode>looped</mode>
 			<property>engines/engine[0]/n1</property>
 			<volume>
-				<property>MD80/engine/MDA_WHN_3</property>
+				<property>/MD80/engine/MDA_WHN_3</property>
 			</volume>
 			<volume>
 				<property>sim/current-view/external</property>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDA_WHN_3</property>
+				<property>/MD80/enginep/MDA_WHN_3</property>
 				<offset>0</offset>
 			</pitch>
 			<orientation>
@@ -759,7 +754,7 @@
 			<mode>looped</mode>
 			<property>engines/engine[0]/n1</property>
 			<volume>
-				<property>MD80/engine/MDA_WHN_4</property>
+				<property>/MD80/engine/MDA_WHN_4</property>
 			</volume>
 			<volume>
 				<property>sim/current-view/external</property>
@@ -768,7 +763,7 @@
 				<property>sim/current-view/external</property>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDA_WHN_4</property>
+				<property>/MD80/enginep/MDA_WHN_4</property>
 				<offset>0</offset>
 			</pitch>
 			<orientation>
@@ -785,13 +780,13 @@
 			<mode>looped</mode>
 			<property>engines/engine[0]/n1</property>
 			<volume>
-				<property>MD80/engine/MDA_WHN_5</property>
+				<property>/MD80/engine/MDA_WHN_5</property>
 			</volume>
 			<volume>
 				<property>sim/current-view/external</property>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDA_WHN_5</property>
+				<property>/MD80/enginep/MDA_WHN_5</property>
 				<offset>0</offset>
 			</pitch>
 			<orientation>
@@ -810,13 +805,13 @@
 			<mode>looped</mode>
 			<property>engines/engine[1]/n1</property>
 			<volume>
-				<property>MD80/engine/MDB_WHN_1</property>
+				<property>/MD80/engine/MDB_WHN_1</property>
 			</volume>
 			<volume>
 				<property>sim/current-view/external</property>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDB_WHN_1</property>
+				<property>/MD80/enginep/MDB_WHN_1</property>
 				<offset>0</offset>
 			</pitch>
 		</MDB_WHN>
@@ -829,13 +824,13 @@
 			<mode>looped</mode>
 			<property>engines/engine[1]/n1</property>
 			<volume>
-				<property>MD80/engine/MDB_WHN_2</property>
+				<property>/MD80/engine/MDB_WHN_2</property>
 			</volume>
 			<volume>
 				<property>sim/current-view/external</property>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDB_WHN_2</property>
+				<property>/MD80/enginep/MDB_WHN_2</property>
 				<offset>0</offset>
 			</pitch>
 			<orientation>
@@ -852,13 +847,13 @@
 			<mode>looped</mode>
 			<property>engines/engine[1]/n1</property>
 			<volume>
-				<property>MD80/engine/MDB_WHN_3</property>
+				<property>/MD80/engine/MDB_WHN_3</property>
 			</volume>
 			<volume>
 				<property>sim/current-view/external</property>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDB_WHN_3</property>
+				<property>/MD80/enginep/MDB_WHN_3</property>
 				<offset>0</offset>
 			</pitch>
 			<orientation>
@@ -877,13 +872,13 @@
 			<mode>looped</mode>
 			<property>engines/engine[1]/n1</property>
 			<volume>
-				<property>MD80/engine/MDB_WHN_4</property>
+				<property>/MD80/engine/MDB_WHN_4</property>
 			</volume>
 			<volume>
 				<property>sim/current-view/external</property>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDB_WHN_4</property>
+				<property>/MD80/enginep/MDB_WHN_4</property>
 				<offset>0</offset>
 			</pitch>
 			<orientation>
@@ -900,13 +895,13 @@
 			<mode>looped</mode>
 			<property>engines/engine[1]/n1</property>
 			<volume>
-				<property>MD80/engine/MDB_WHN_5</property>
+				<property>/MD80/engine/MDB_WHN_5</property>
 			</volume>
 			<volume>
 				<property>sim/current-view/external</property>
 			</volume>
 			<pitch>
-				<property>MD80/enginep/MDB_WHN_5</property>
+				<property>/MD80/enginep/MDB_WHN_5</property>
 				<offset>0</offset>
 			</pitch>
 			<orientation>

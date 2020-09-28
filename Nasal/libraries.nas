@@ -273,23 +273,15 @@ var Sound = {
 	},
 };
 
-var flaps_click = props.globals.getNode("/MD80/other/flaps-click", 1);
-
-setlistener("/controls/flight/flaps", func() {
-	if (flaps_click.getBoolValue()) {
+setlistener("/controls/flight/flaps-input", func() {
+	if (pts.Sim.Sound.flapsClick.getBoolValue()) {
 		return;
 	}
-	flaps_click.setBoolValue(1);
-}, 0, 0);
-
-setlistener("/MD80/other/flaps-click", func() {
-	if (!flaps_click.getBoolValue()) {
-		return;
-	}
+	pts.Sim.Sound.flapsClick.setBoolValue(1);
 	settimer(func() {
-		flaps_click.setBoolValue(0);
+		pts.Sim.Sound.flapsClick.setBoolValue(0);
 	}, 0.4);
-});
+}, 0, 0);
 
 setlistener("/controls/switches/seatbelt-sign-status", func() {
 	if (pts.Sim.Sound.seatbeltSign.getBoolValue()) {
