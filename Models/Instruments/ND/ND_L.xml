@@ -30,5 +30,26 @@
 		</parameters>
 		<object-name>ND.screenL</object-name>
 	</effect>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>SlipBall</object-name>
+		<property>instrumentation/pfd/slip-skid</property>
+		<interpolation>
+			<entry><ind>-15</ind><dep>-5.9</dep></entry>
+			<entry><ind>  0</ind><dep> 0.0</dep></entry>
+			<entry><ind> 15</ind><dep> 5.9</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0.055</z-m>
+		</center>
+	</animation>
 
 </PropertyList>

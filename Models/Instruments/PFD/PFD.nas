@@ -62,7 +62,7 @@ var canvasBase = {
 		return me;
 	},
 	getKeys: func() {
-		return ["AI_center", "AI_background", "AI_scale", "FD_pitch", "FD_roll", "LOC_pointer", "LOC_scale", "LOC_no", "GS_no", "FS_pointer"];
+		return ["AI_center", "AI_background", "AI_scale", "FD_pitch", "FD_roll", "LOC_pointer", "LOC_scale", "LOC_no", "GS_pointer", "GS_scale", "GS_no", "FS_pointer"];
 	},
 	setup: func() {
 	},
@@ -102,8 +102,8 @@ var canvasPfd1 = {
 			me["FD_pitch"].show();
 			me["FD_roll"].show();
 			
-			me["FD_pitch"].setTranslation(0, -dfgs.Fd.pitchBar.getValue() * 4.2);
-			me["FD_roll"].setTranslation(dfgs.Fd.rollBar.getValue() * 2.5, 0);
+			me["FD_pitch"].setTranslation(0, -dfgs.Fd.pitchBar.getValue() * 4.3);
+			me["FD_roll"].setTranslation(dfgs.Fd.rollBar.getValue() * 2.6, 0);
 		} else {
 			me["FD_pitch"].hide();
 			me["FD_roll"].hide();
@@ -124,16 +124,16 @@ var canvasPfd1 = {
 		}
 		
 		Value.Nav.gsInRange[0] = pts.Instrumentation.Nav.gsInRange[0].getBoolValue();
-		#if (Value.Nav.inRange[0] and Value.Nav.signalQuality[0] > 0.99) {
-		#	me["GS_no"].hide();
-		#	me["GS_pointer"].show;
-		#	me["GS_pointer"].setTranslation(0, needle * factor);
-		#	me["GS_scale"].show();
-		#} else {
-		#	me["GS_no"].show();
-		#	me["GS_pointer"].hide();
-		#	me["GS_scale"].hide();
-		#}
+		if (Value.Nav.inRange[0] and Value.Nav.signalQuality[0] > 0.99 and pts.Instrumentation.Nav.hasGs[0].getBoolValue()) {
+			me["GS_pointer"].show();
+			me["GS_pointer"].setTranslation(0, pts.Instrumentation.Nav.gsNeedleDeflectionNorm[0].getValue() * -148);
+			me["GS_no"].hide();
+			me["GS_scale"].show();
+		} else {
+			me["GS_pointer"].hide();
+			me["GS_no"].show();
+			me["GS_scale"].hide();
+		}
 		
 		me.updateBase();
 	},
@@ -153,8 +153,8 @@ var canvasPfd2 = {
 			me["FD_pitch"].show();
 			me["FD_roll"].show();
 			
-			me["FD_pitch"].setTranslation(0, -dfgs.Fd.pitchBar.getValue() * 4.2);
-			me["FD_roll"].setTranslation(dfgs.Fd.rollBar.getValue() * 2.5, 0);
+			me["FD_pitch"].setTranslation(0, -dfgs.Fd.pitchBar.getValue() * 4.3);
+			me["FD_roll"].setTranslation(dfgs.Fd.rollBar.getValue() * 2.6, 0);
 		} else {
 			me["FD_pitch"].hide();
 			me["FD_roll"].hide();
@@ -172,6 +172,18 @@ var canvasPfd2 = {
 			me["LOC_pointer"].hide();
 			me["LOC_no"].show();
 			me["LOC_scale"].hide();
+		}
+		
+		Value.Nav.gsInRange[1] = pts.Instrumentation.Nav.gsInRange[1].getBoolValue();
+		if (Value.Nav.inRange[1] and Value.Nav.signalQuality[1] > 0.99 and pts.Instrumentation.Nav.hasGs[1].getBoolValue()) {
+			me["GS_pointer"].show();
+			me["GS_pointer"].setTranslation(0, pts.Instrumentation.Nav.gsNeedleDeflectionNorm[1].getValue() * -148);
+			me["GS_no"].hide();
+			me["GS_scale"].show();
+		} else {
+			me["GS_pointer"].hide();
+			me["GS_no"].show();
+			me["GS_scale"].hide();
 		}
 		
 		me.updateBase();
