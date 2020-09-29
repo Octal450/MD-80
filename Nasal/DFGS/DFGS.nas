@@ -497,12 +497,6 @@ var ITAF = {
 		}
 	},
 	apOffFunction: func() {
-		if (!Output.ap1.getBoolValue() and !Output.ap2.getBoolValue()) { # Only do if both APs are off
-			if (!Setting.disableFinal.getBoolValue()) {
-				Controls.aileron.setValue(0);
-				Controls.elevator.setValue(0);
-				Controls.rudder.setValue(0);
-			}
 			if (Text.vert.getValue() == "ROLLOUT") {
 				me.init(1);
 			}
