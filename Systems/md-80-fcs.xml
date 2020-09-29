@@ -28,8 +28,8 @@
 			<table>
 				<independentVar lookup="row">aero/alpha-deg-norm</independentVar>
 				<tableData>
-					10  1.0
-					15  0.1
+					10  1.00
+					15  0.25
 				</tableData>
 			</table>
 		</scheduled_gain>
