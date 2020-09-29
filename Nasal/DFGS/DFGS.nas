@@ -129,7 +129,7 @@ var Internal = {
 	flchActive: 0,
 	fpa: props.globals.initNode("/it-autoflight/internal/fpa", 0, "DOUBLE"),
 	hdgErrorDeg: props.globals.initNode("/it-autoflight/internal/heading-error-deg", 0, "DOUBLE"),
-	hdgHldValue: 360,
+	hdgHldTarget: props.globals.initNode("/it-autoflight/internal/hdg-hld-target", 360, "INT"),
 	hdgPredicted: props.globals.initNode("/it-autoflight/internal/heading-predicted", 0, "DOUBLE"),
 	lnavAdvanceNm: props.globals.initNode("/it-autoflight/internal/lnav-advance-nm", 0, "DOUBLE"),
 	minVs: props.globals.initNode("/it-autoflight/internal/min-vs", -500, "INT"),
@@ -153,7 +153,6 @@ var Output = {
 	fd2: props.globals.initNode("/it-autoflight/output/fd2", 0, "BOOL"),
 	fd2Temp: 0,
 	hdgInHld: props.globals.initNode("/it-autoflight/output/hdg-in-hld", 0, "BOOL"),
-	hdgInHldTemp: 0,
 	lat: props.globals.initNode("/it-autoflight/output/lat", 5, "INT"),
 	latTemp: 5,
 	lnavArm: props.globals.initNode("/it-autoflight/output/lnav-armed", 0, "BOOL"),
@@ -270,27 +269,6 @@ var ITAF = {
 		Position.gearAglFtTemp = Position.gearAglFt.getValue();
 		Internal.vsTemp = Internal.vs.getValue();
 		Position.indicatedAltitudeFtTemp = Position.indicatedAltitudeFt.getValue();
-		Output.hdgInHldTemp = Output.hdgInHld.getBoolValue();
-		
-		# HDG HLD logic
-		if (Output.latTemp == 0) {
-			if (Input.hdg.getValue() == Internal.hdgHldValue and abs(Internal.hdgErrorDeg.getValue()) <= 2.5) {
-				if (Output.hdgInHldTemp != 1) {
-					Output.hdgInHld.setBoolValue(1);
-					updateFMA.roll();
-				}
-			} else if (Input.hdg.getValue() != Internal.hdgHldValue) {
-				Internal.hdgHldValue = Input.hdg.getValue();
-				if (Output.hdgInHldTemp != 0 and abs(Internal.hdgErrorDeg.getValue()) > 2.5) {
-					Output.hdgInHld.setBoolValue(0);
-					updateFMA.roll();
-				}
-			}
-		} else {
-			if (Output.hdgInHldTemp != 0) {
-				Output.hdgInHld.setBoolValue(0);
-			}
-		}
 		
 		# LNAV Engagement
 		if (Output.lnavArm.getBoolValue()) {
@@ -573,6 +551,7 @@ var ITAF = {
 			me.updateLnavArm(0);
 			me.updateLocArm(0);
 			me.updateApprArm(0);
+			Output.hdgInHld.setBoolValue(0);
 			Output.lat.setValue(0);
 			me.updateLatText("HDG");
 			if (Output.vertTemp == 2 or Output.vertTemp == 6) { # Also cancel G/S or FLARE if active
@@ -589,11 +568,10 @@ var ITAF = {
 			me.updateLnavArm(0);
 			me.updateLocArm(0);
 			me.updateApprArm(0);
-			me.syncHdg();
+			Internal.hdgHldTarget.setValue(math.round(Internal.hdgPredicted.getValue())); # Switches to track automatically
+			Output.hdgInHld.setBoolValue(1);
 			Output.lat.setValue(0);
 			me.updateLatText("HDG");
-			Internal.hdgHldValue = Input.hdg.getValue();
-			Output.hdgInHld.setBoolValue(1);
 			if (Output.vertTemp == 2 or Output.vertTemp == 6) { # Also cancel G/S or FLARE if active
 				me.setVertMode(1);
 			}
@@ -951,25 +929,30 @@ setlistener("/it-autoflight/input/vert", func() {
 
 setlistener("/it-autoflight/input/trk", func() {
 	Input.trkTemp = Input.trk.getBoolValue();
+	Internal.driftAngleTemp = math.round(Internal.driftAngle.getValue());
+	
 	if (Input.trkTemp) {
-		Input.hdgCalc = Input.hdg.getValue() + math.round(Internal.driftAngle.getValue());
-		if (Input.hdgCalc > 360) { # It's rounded, so this is ok. Otherwise do >= 360.5
-			Input.hdgCalc = Input.hdgCalc - 360;
-		} else if (Input.hdgCalc < 1) { # It's rounded, so this is ok. Otherwise do < 0.5
-			Input.hdgCalc = Input.hdgCalc + 360;
-		}
-		Input.hdg.setValue(Input.hdgCalc);
-		Custom.hdgSel.setValue(Input.hdgCalc);
+		Input.hdgCalc = Input.hdg.getValue() + Internal.driftAngleTemp;
+		Input.hdgHldCalc = Internal.hdgHldTarget.getValue() + Internal.driftAngleTemp;
 	} else {
-		Input.hdgCalc = Input.hdg.getValue() - math.round(Internal.driftAngle.getValue());
-		if (Input.hdgCalc > 360) { # It's rounded, so this is ok. Otherwise do >= 360.5
-			Input.hdgCalc = Input.hdgCalc - 360;
-		} else if (Input.hdgCalc < 1) { # It's rounded, so this is ok. Otherwise do < 0.5
-			Input.hdgCalc = Input.hdgCalc + 360;
-		}
-		Input.hdg.setValue(Input.hdgCalc);
-		Custom.hdgSel.setValue(Input.hdgCalc);
+		Input.hdgCalc = Input.hdg.getValue() - Internal.driftAngleTemp;
+		Input.hdgHldCalc = Internal.hdgHldTarget.getValue() - Internal.driftAngleTemp;
 	}
+	
+	if (Input.hdgCalc > 360) { # It's rounded, so this is ok. Otherwise do >= 360.5
+		Input.hdgCalc = Input.hdgCalc - 360;
+	} else if (Input.hdgCalc < 1) { # It's rounded, so this is ok. Otherwise do < 0.5
+		Input.hdgCalc = Input.hdgCalc + 360;
+	}
+	if (Input.hdgHldCalc > 360) { # It's rounded, so this is ok. Otherwise do >= 360.5
+		Input.hdgHldCalc = Input.hdgHldCalc - 360;
+	} else if (Input.hdgHldCalc < 1) { # It's rounded, so this is ok. Otherwise do < 0.5
+		Input.hdgHldCalc = Input.hdgHldCalc + 360;
+	}
+	
+	Input.hdg.setValue(Input.hdgCalc);
+	Internal.hdgHldTarget.setValue(Input.hdgHldCalc);
+	
 	Misc.efis0Trk.setBoolValue(Input.trkTemp); # For Canvas Nav Display.
 	Misc.efis1Trk.setBoolValue(Input.trkTemp); # For Canvas Nav Display.
 }, 0, 0);

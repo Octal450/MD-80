@@ -875,7 +875,6 @@
 		<dfgs>
 			<file>Aircraft/MD-80/Nasal/DFGS/DFGS.nas</file>
 			<file>Aircraft/MD-80/Nasal/DFGS/DFGS-b.nas</file>
-			<file>Aircraft/MD-80/Nasal/DFGS/ATS.nas</file>
 		</dfgs>
 		<canvas_pfd>
 			<file>Aircraft/MD-80/Models/Instruments/PFD/pfd.nas</file>

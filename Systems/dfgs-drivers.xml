@@ -218,6 +218,24 @@
 							<value>7</value>
 						</equals>
 					</or>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/fd1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/fd2</property>
+							<value>1</value>
+						</equals>
+					</or>
 					<equals>
 						<property>/gear/gear[1]/wow</property>
 						<value>0</value>
@@ -268,6 +286,24 @@
 						<property>/it-autoflight/input/kts-mach-flch</property>
 						<value>1</value>
 					</equals>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/fd1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/fd2</property>
+							<value>1</value>
+						</equals>
+					</or>
 					<equals>
 						<property>/gear/gear[1]/wow</property>
 						<value>0</value>
@@ -354,6 +390,23 @@
 	</filter>
 	
 	<filter>
+		<name>Heading Input Switcher</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<equals>
+					<property>/it-autoflight/output/hdg-in-hld</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<property>/it-autoflight/internal/hdg-hld-target</property>
+		</input>
+		<input>/it-autoflight/input/hdg</input>
+		<output>/it-autoflight/internal/hdg-target</output>
+	</filter>
+	
+	<filter>
 		<name>Heading Error Deg</name>
 		<debug>false</debug>
 		<type>gain</type>
@@ -371,7 +424,7 @@
 					</equals>
 				</and>
 			</condition>
-			<property>/it-autoflight/input/hdg</property>
+			<property>/it-autoflight/internal/hdg-target</property>
 			<offset>
 				<property>/it-autoflight/internal/heading-deg</property>
 				<scale>-1.0</scale>
@@ -390,7 +443,7 @@
 					</equals>
 				</and>
 			</condition>
-			<property>/it-autoflight/input/hdg</property>
+			<property>/it-autoflight/internal/hdg-target</property>
 			<offset>
 				<property>/it-autoflight/internal/track-deg</property>
 				<scale>-1.0</scale>
