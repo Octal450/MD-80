@@ -173,7 +173,6 @@ var Setting = {
 	autoBankMaxDeg: props.globals.getNode("/it-autoflight/settings/auto-bank-max-deg", 1),
 	autolandWithoutAp: props.globals.getNode("/it-autoflight/settings/autoland-without-ap", 1),
 	autolandWithoutApTemp: 0,
-	disableFinal: props.globals.getNode("/it-autoflight/settings/disable-final", 1),
 	landingFlap: props.globals.getNode("/it-autoflight/settings/land-flap", 1),
 	retardAltitude: props.globals.getNode("/it-autoflight/settings/retard-ft", 1),
 	retardEnable: props.globals.getNode("/it-autoflight/settings/retard-enable", 1),
@@ -497,6 +496,7 @@ var ITAF = {
 		}
 	},
 	apOffFunction: func() {
+		if (!Output.ap1.getBoolValue() and !Output.ap2.getBoolValue()) { # Only do if both APs are off
 			if (Text.vert.getValue() == "ROLLOUT") {
 				me.init(1);
 			}
