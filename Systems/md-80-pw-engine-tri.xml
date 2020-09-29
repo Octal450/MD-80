@@ -742,7 +742,7 @@
 			<output>/engines/engine[1]/epr-actual</output>
 		</fcs_function>
 		
-		<fcs_function name="fadec/egt-cmd-1">
+		<fcs_function name="engine/egt-cmd-1">
 			<function>
 				<sum>
 					<property>propulsion/tat-c</property>
@@ -769,13 +769,13 @@
 			</function>
 		</fcs_function>
 		
-		<lag_filter name="fadec/egt-actual-1">
-			<input>fadec/egt-cmd-1</input>
+		<lag_filter name="engine/egt-actual-1">
+			<input>engine/egt-cmd-1</input>
 			<c1>0.35</c1>
 			<output>/engines/engine[0]/egt-actual</output>
 		</lag_filter>
 		
-		<fcs_function name="fadec/egt-cmd-2">
+		<fcs_function name="engine/egt-cmd-2">
 			<function>
 				<sum>
 					<property>propulsion/tat-c</property>
@@ -802,8 +802,8 @@
 			</function>
 		</fcs_function>
 		
-		<lag_filter name="fadec/egt-actual-2">
-			<input>fadec/egt-cmd-2</input>
+		<lag_filter name="engine/egt-actual-2">
+			<input>engine/egt-cmd-2</input>
 			<c1>0.35</c1>
 			<output>/engines/engine[1]/egt-actual</output>
 		</lag_filter>
