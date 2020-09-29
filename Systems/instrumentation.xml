@@ -92,5 +92,28 @@
 		<output>/instrumentation/pfd/slip-skid</output>
 		<filter-time>0.16</filter-time>
 	</filter>
+	
+	<filter>
+		<name>Mach Indicator</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<div>
+					<floor>
+						<sum>
+							<product>
+								<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+								<value>100</value>
+							</product>
+							<value>0.5</value>
+						</sum>
+					</floor>
+					<value>100</value>
+				</div>
+			</expression>
+		</input>
+		<output>/instrumentation/airspeed-indicator/indicated-mach-fix</output>
+	</filter>
 
 </PropertyList>
