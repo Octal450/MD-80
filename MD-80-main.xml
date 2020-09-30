@@ -777,6 +777,7 @@
 			<frequencies>
 				<selected-mhz type="double">111.15</selected-mhz>
 				<selected-mhz-fmt type="string">111.15</selected-mhz-fmt>
+				<selected-mhz-fmt-x100 type="int">11115</selected-mhz-fmt-x100>
 				<standby-mhz type="double">110.95</standby-mhz>
 			</frequencies>
 			<radials>
@@ -789,6 +790,7 @@
 			<frequencies>
 				<selected-mhz type="double">109.55</selected-mhz>
 				<selected-mhz-fmt type="string">109.55</selected-mhz-fmt>
+				<selected-mhz-fmt-x100 type="int">10955</selected-mhz-fmt-x100>
 				<standby-mhz type="double">110.55</standby-mhz>
 			</frequencies>
 			<radials>

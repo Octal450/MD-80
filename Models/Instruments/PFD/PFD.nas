@@ -15,6 +15,11 @@ var Value = {
 		roll: 0,
 	},
 	Nav: {
+		Freq: {
+			selected: [0, 0],
+			selectedInteger: [0, 0],
+			selectedDecimal: [0, 0],
+		},
 		gsInRange: [0, 0],
 		inRange: [0, 0],
 		signalQuality: [0, 0],
@@ -62,7 +67,7 @@ var canvasBase = {
 		return me;
 	},
 	getKeys: func() {
-		return ["AI_center", "AI_background", "AI_scale", "FD_pitch", "FD_roll", "LOC_pointer", "LOC_scale", "LOC_no", "GS_pointer", "GS_scale", "GS_no", "FS_pointer"];
+		return ["AI_center", "AI_background", "AI_scale", "FD_pitch", "FD_roll", "ILS_group", "LOC_pointer", "LOC_scale", "LOC_no", "GS_pointer", "GS_scale", "GS_no", "FS_pointer"];
 	},
 	setup: func() {
 	},
@@ -110,6 +115,16 @@ var canvasPfd1 = {
 		}
 		
 		# ILS
+		Value.Nav.Freq.selected[0] = pts.Instrumentation.Nav.Frequencies.selectedMhzFmtX100[0].getValue();
+		Value.Nav.Freq.selectedDecimal[0] = right("" ~ Value.Nav.Freq.selected[0], 2);
+		Value.Nav.Freq.selectedInteger[0] = math.floor(Value.Nav.Freq.selected[0]);
+		
+		if (Value.Nav.Freq.selectedInteger[0] < 11200 and (Value.Nav.Freq.selectedDecimal[0] == 10 or Value.Nav.Freq.selectedDecimal[0] == 15 or Value.Nav.Freq.selectedDecimal[0] == 30 or Value.Nav.Freq.selectedDecimal[0] == 35 or Value.Nav.Freq.selectedDecimal[0] == 50 or Value.Nav.Freq.selectedDecimal[0] == 55 or Value.Nav.Freq.selectedDecimal[0] == 70 or Value.Nav.Freq.selectedDecimal[0] == 75 or Value.Nav.Freq.selectedDecimal[0] == 90 or Value.Nav.Freq.selectedDecimal[0] == 95)) {
+			me["ILS_group"].show();
+		} else {
+			me["ILS_group"].hide();
+		}
+		
 		Value.Nav.inRange[0] = pts.Instrumentation.Nav.inRange[0].getBoolValue();
 		Value.Nav.signalQuality[0] = pts.Instrumentation.Nav.signalQualityNorm[0].getValue();
 		if (Value.Nav.inRange[0] and Value.Nav.signalQuality[0] > 0.99) {
@@ -161,6 +176,16 @@ var canvasPfd2 = {
 		}
 		
 		# ILS
+		Value.Nav.Freq.selected[1] = pts.Instrumentation.Nav.Frequencies.selectedMhzFmtX100[1].getValue();
+		Value.Nav.Freq.selectedDecimal[1] = right("" ~ Value.Nav.Freq.selected[1], 2);
+		Value.Nav.Freq.selectedInteger[1] = math.floor(Value.Nav.Freq.selected[1]);
+		
+		if (Value.Nav.Freq.selectedInteger[1] < 11200 and (Value.Nav.Freq.selectedDecimal[1] == 10 or Value.Nav.Freq.selectedDecimal[1] == 15 or Value.Nav.Freq.selectedDecimal[1] == 30 or Value.Nav.Freq.selectedDecimal[1] == 35 or Value.Nav.Freq.selectedDecimal[1] == 50 or Value.Nav.Freq.selectedDecimal[1] == 55 or Value.Nav.Freq.selectedDecimal[1] == 70 or Value.Nav.Freq.selectedDecimal[1] == 75 or Value.Nav.Freq.selectedDecimal[1] == 90 or Value.Nav.Freq.selectedDecimal[1] == 95)) {
+			me["ILS_group"].show();
+		} else {
+			me["ILS_group"].hide();
+		}
+		
 		Value.Nav.inRange[1] = pts.Instrumentation.Nav.inRange[1].getBoolValue();
 		Value.Nav.signalQuality[1] = pts.Instrumentation.Nav.signalQualityNorm[1].getValue();
 		if (Value.Nav.inRange[1] and Value.Nav.signalQuality[1] > 0.99) {
