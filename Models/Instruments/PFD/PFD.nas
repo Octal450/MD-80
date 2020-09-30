@@ -1,6 +1,5 @@
-# McDonnell Douglas MD-11 PFD
+# McDonnell Douglas MD-80 PFD
 # Copyright (c) 2020 Josh Davidson (Octal450)
-# TODO: Add slow update loop
 
 var pfd1Display = nil;
 var pfd2Display = nil;
