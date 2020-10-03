@@ -68,8 +68,6 @@ var canvasBase = {
 	getKeys: func() {
 		return ["AI_center", "AI_background", "AI_scale", "FD_pitch", "FD_roll", "ILS_group", "LOC_pointer", "LOC_scale", "LOC_no", "GS_pointer", "GS_scale", "GS_no", "FS_pointer"];
 	},
-	setup: func() {
-	},
 	update: func() {
 		pfd1.update();
 		pfd2.update();
@@ -98,8 +96,6 @@ var canvasPfd1 = {
 		m.init(canvas_group, file);
 		
 		return m;
-	},
-	setup: func() {		
 	},
 	update: func() {
 		if (dfgs.Output.fd1.getBoolValue()) {
@@ -138,7 +134,7 @@ var canvasPfd1 = {
 		}
 		
 		Value.Nav.gsInRange[0] = pts.Instrumentation.Nav.gsInRange[0].getBoolValue();
-		if (Value.Nav.inRange[0] and Value.Nav.signalQuality[0] > 0.99 and pts.Instrumentation.Nav.hasGs[0].getBoolValue()) {
+		if (Value.Nav.gsInRange[0] and Value.Nav.signalQuality[0] > 0.99 and pts.Instrumentation.Nav.hasGs[0].getBoolValue()) {
 			me["GS_pointer"].show();
 			me["GS_pointer"].setTranslation(0, pts.Instrumentation.Nav.gsNeedleDeflectionNorm[0].getValue() * -148);
 			me["GS_no"].hide();
@@ -159,8 +155,6 @@ var canvasPfd2 = {
 		m.init(canvas_group, file);
 		
 		return m;
-	},
-	setup: func() {
 	},
 	update: func() {
 		if (dfgs.Output.fd2.getBoolValue()) {
@@ -199,7 +193,7 @@ var canvasPfd2 = {
 		}
 		
 		Value.Nav.gsInRange[1] = pts.Instrumentation.Nav.gsInRange[1].getBoolValue();
-		if (Value.Nav.inRange[1] and Value.Nav.signalQuality[1] > 0.99 and pts.Instrumentation.Nav.hasGs[1].getBoolValue()) {
+		if (Value.Nav.gsInRange[1] and Value.Nav.signalQuality[1] > 0.99 and pts.Instrumentation.Nav.hasGs[1].getBoolValue()) {
 			me["GS_pointer"].show();
 			me["GS_pointer"].setTranslation(0, pts.Instrumentation.Nav.gsNeedleDeflectionNorm[1].getValue() * -148);
 			me["GS_no"].hide();
@@ -237,8 +231,8 @@ var init = func() {
 	pfd1 = canvasPfd1.new(pfd1Group, "Aircraft/MD-80/Models/Instruments/PFD/res/PFD.svg");
 	pfd2 = canvasPfd2.new(pfd2Group, "Aircraft/MD-80/Models/Instruments/PFD/res/PFD.svg");
 	
-	canvasBase.setup();
 	pfdUpdate.start();
+	
 	if (pts.Systems.Acconfig.Options.pfdRate.getValue() > 1) {
 		rateApply();
 	}
