@@ -15,8 +15,8 @@ var rollR = nil;
 var rollRDisplay = nil;
 
 var Modes = { # 0 thrust, 1 arm, 2 roll, 3 pitch
-	Line1: [nil, dfgs.FMA.armA, dfgs.FMA.rollA, dfgs.FMA.pitchA],
-	Line2: [nil, dfgs.FMA.armB, dfgs.FMA.rollB, dfgs.FMA.pitchB],
+	Line1: [nil, dfgs.Fma.armA, dfgs.Fma.rollA, dfgs.Fma.pitchA],
+	Line2: [nil, dfgs.Fma.armB, dfgs.Fma.rollB, dfgs.Fma.pitchB],
 };
 
 var Value = {

@@ -232,7 +232,7 @@ var ITAF = {
 		Internal.alt.setValue(10000);
 		Internal.altCaptureActive = 0;
 		Text.thr.setValue("PITCH");
-		updateFMA.arm();
+		updateFma.arm();
 		me.updateLatText("T/O");
 		me.updateVertText("T/O CLB");
 		loopTimer.start();
@@ -830,23 +830,23 @@ var ITAF = {
 	# Custom Stuff Below
 	updateLatText: func(t) {
 		Text.lat.setValue(t);
-		updateFMA.roll();
+		updateFma.roll();
 	},
 	updateVertText: func(t) {
 		Text.vert.setValue(t);
-		updateFMA.pitch();
+		updateFma.pitch();
 	},
 	updateLnavArm: func(n) {
 		Output.lnavArm.setBoolValue(n);
-		updateFMA.arm();
+		updateFma.arm();
 	},
 	updateLocArm: func(n) {
 		Output.locArm.setBoolValue(n);
-		updateFMA.arm();
+		updateFma.arm();
 	},
 	updateApprArm: func(n) {
 		Output.apprArm.setBoolValue(n);
-		updateFMA.arm();
+		updateFma.arm();
 	},
 };
 
