@@ -650,16 +650,17 @@ var ITAF = {
 		}
 	},
 	updateThrustMode: func() {
+		Output.vertTemp = Output.vert.getValue();
 		if (Output.athr.getBoolValue() and Output.vertTemp != 7 and Setting.retardEnable.getBoolValue() and Position.gearAglFt.getValue() <= Setting.retardAltitude.getValue() and Misc.flapNorm.getValue() >= Setting.landingFlap.getValue() - 0.001) {
 			Output.thrMode.setValue(1);
 			Text.thr.setValue("RETARD");
-			if (Gear.wow1Temp or Gear.wow2Temp) { # Disconnect A/THR on either main gear touch
+			if (Gear.wow1.getBoolValue() or Gear.wow2.getBoolValue()) { # Disconnect A/THR on either main gear touch
 				me.athrMaster(0);
 				setprop("/controls/engines/engine[0]/throttle", 0);
 				setprop("/controls/engines/engine[1]/throttle", 0);
 			}
 		} else if (Output.vertTemp == 4) {
-			if (Internal.altTemp >= Position.indicatedAltitudeFtTemp) {
+			if (Internal.alt.getValue() >= Position.indicatedAltitudeFt.getValue()) {
 				Output.thrMode.setValue(2);
 				Text.thr.setValue("PITCH");
 				if (Internal.flchActive and Text.vert.getValue() != "SPD CLB") { # Set before mode change to prevent it from overwriting by mistake
