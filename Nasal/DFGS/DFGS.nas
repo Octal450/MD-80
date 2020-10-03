@@ -349,35 +349,7 @@ var ITAF = {
 		}
 		
 		# Thrust Mode Selector
-		if (Output.athr.getBoolValue() and Output.vertTemp != 7 and Setting.retardEnable.getBoolValue() and Position.gearAglFt.getValue() <= Setting.retardAltitude.getValue() and Misc.flapNorm.getValue() >= Setting.landingFlap.getValue() - 0.001) {
-			Output.thrMode.setValue(1);
-			Text.thr.setValue("RETARD");
-			if (Gear.wow1Temp or Gear.wow2Temp) { # Disconnect A/THR on either main gear touch
-				me.athrMaster(0);
-				setprop("/controls/engines/engine[0]/throttle", 0);
-				setprop("/controls/engines/engine[1]/throttle", 0);
-			}
-		} else if (Output.vertTemp == 4) {
-			if (Internal.altTemp >= Position.indicatedAltitudeFtTemp) {
-				Output.thrMode.setValue(2);
-				Text.thr.setValue("PITCH");
-				if (Internal.flchActive and Text.vert.getValue() != "SPD CLB") { # Set before mode change to prevent it from overwriting by mistake
-					me.updateVertText("SPD CLB");
-				}
-			} else {
-				Output.thrMode.setValue(1);
-				Text.thr.setValue("PITCH");
-				if (Internal.flchActive and Text.vert.getValue() != "SPD DES") { # Set before mode change to prevent it from overwriting by mistake
-					me.updateVertText("SPD DES");
-				}
-			}
-		} else if (Output.vertTemp == 7) {
-			Output.thrMode.setValue(2);
-			Text.thr.setValue("PITCH");
-		} else {
-			Output.thrMode.setValue(0);
-			Text.thr.setValue("THRUST");
-		}
+		me.updateThrustMode();
 		
 		# Trip system off
 		if (Output.ap1Temp == 1 or Output.ap2Temp == 1) { 
@@ -605,6 +577,7 @@ var ITAF = {
 			me.resetClimbRateLim();
 			me.updateVertText("ALT HLD");
 			me.syncAlt();
+			me.updateThrustMode();
 		} else if (n == 1) { # V/S
 			if (abs(Input.altDiff) >= 25) {
 				Internal.flchActive = 0;
@@ -613,6 +586,7 @@ var ITAF = {
 				Output.vert.setValue(1);
 				me.updateVertText("V/S");
 				me.syncVs();
+				me.updateThrustMode();
 			} else {
 				me.updateApprArm(0);
 			}
@@ -626,28 +600,26 @@ var ITAF = {
 			me.setClimbRateLim();
 			Internal.altCaptureActive = 1;
 			me.updateVertText("ALT CAP");
+			me.updateThrustMode();
 		} else if (n == 4) { # FLCH
 			me.updateApprArm(0);
 			if (abs(Input.altDiff) >= 125) { # SPD CLB or SPD DES
-				if (Input.alt.getValue() >= Position.indicatedAltitudeFt.getValue()) { # Usually set Thrust Mode Selector, but we do it now due to timer lag
-					me.updateVertText("SPD CLB");
-				} else {
-					me.updateVertText("SPD DES");
-				}
 				Internal.altCaptureActive = 0;
 				Output.vert.setValue(4);
+				Internal.flchActive = 1;
+				me.updateThrustMode();
 				if (Input.ktsMachFlch.getBoolValue()) {
 					me.syncMachFlch();
 				} else {
 					me.syncKtsFlch();
 				}
-				Internal.flchActive = 1;
 			} else { # ALT CAP
 				Internal.flchActive = 0;
 				Internal.alt.setValue(Input.alt.getValue());
 				Internal.altCaptureActive = 1;
 				Output.vert.setValue(0);
 				me.updateVertText("ALT CAP");
+				me.updateThrustMode();
 			}
 		} else if (n == 5) { # FPA
 			if (abs(Input.altDiff) >= 25) {
@@ -657,6 +629,7 @@ var ITAF = {
 				Output.vert.setValue(5);
 				me.updateVertText("FPA");
 				me.syncFpa();
+				me.updateThrustMode();
 			} else {
 				me.updateApprArm(0);
 			}
@@ -666,12 +639,45 @@ var ITAF = {
 			me.updateApprArm(0);
 			Output.vert.setValue(6);
 			me.updateVertText("G/S");
+			me.updateThrustMode();
 		} else if (n == 7) { # T/O CLB or G/A CLB, text is set by TOGA selector
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
 			me.updateApprArm(0);
 			Output.vert.setValue(7);
+			me.updateThrustMode();
 			Input.ktsMachFlch.setBoolValue(0);
+		}
+	},
+	updateThrustMode: func() {
+		if (Output.athr.getBoolValue() and Output.vertTemp != 7 and Setting.retardEnable.getBoolValue() and Position.gearAglFt.getValue() <= Setting.retardAltitude.getValue() and Misc.flapNorm.getValue() >= Setting.landingFlap.getValue() - 0.001) {
+			Output.thrMode.setValue(1);
+			Text.thr.setValue("RETARD");
+			if (Gear.wow1Temp or Gear.wow2Temp) { # Disconnect A/THR on either main gear touch
+				me.athrMaster(0);
+				setprop("/controls/engines/engine[0]/throttle", 0);
+				setprop("/controls/engines/engine[1]/throttle", 0);
+			}
+		} else if (Output.vertTemp == 4) {
+			if (Internal.altTemp >= Position.indicatedAltitudeFtTemp) {
+				Output.thrMode.setValue(2);
+				Text.thr.setValue("PITCH");
+				if (Internal.flchActive and Text.vert.getValue() != "SPD CLB") { # Set before mode change to prevent it from overwriting by mistake
+					me.updateVertText("SPD CLB");
+				}
+			} else {
+				Output.thrMode.setValue(1);
+				Text.thr.setValue("PITCH");
+				if (Internal.flchActive and Text.vert.getValue() != "SPD DES") { # Set before mode change to prevent it from overwriting by mistake
+					me.updateVertText("SPD DES");
+				}
+			}
+		} else if (Output.vertTemp == 7) {
+			Output.thrMode.setValue(2);
+			Text.thr.setValue("PITCH");
+		} else {
+			Output.thrMode.setValue(0);
+			Text.thr.setValue("THRUST");
 		}
 	},
 	activateLnav: func() {
@@ -701,6 +707,7 @@ var ITAF = {
 			me.updateApprArm(0);
 			Output.vert.setValue(2);
 			me.updateVertText("G/S");
+			me.updateThrustMode();
 		}
 	},
 	checkLnav: func(t) {
