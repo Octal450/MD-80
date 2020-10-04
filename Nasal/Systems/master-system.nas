@@ -105,6 +105,7 @@ var TRI = {
 			me.Limit.activeMode.setValue("---");
 		} else if (me.Limit.activeModeIntTemp == 0) {
 			me.Limit.activeMode.setValue("T/O");
+			dfgs.Athr.toCheck();
 		} else if (me.Limit.activeModeIntTemp == 1) {
 			me.Limit.activeMode.setValue("G/A");
 		} else if (me.Limit.activeModeIntTemp == 2) {
@@ -114,8 +115,10 @@ var TRI = {
 		} else if (me.Limit.activeModeIntTemp == 4) {
 			me.Limit.activeMode.setValue("CR");
 		} else if (me.Limit.activeModeIntTemp == 5) {
-			me.Limit.activeMode.setValue("FLX"); # Check
+			me.Limit.activeMode.setValue("T/O"); # Check
+			dfgs.Athr.toCheck();
 		}
+		dfgs.updateFma.thr();
 	},
 };
 

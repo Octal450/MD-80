@@ -78,6 +78,7 @@ var apPanel = {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			me.vertTemp = dfgs.Output.vert.getValue();
 			dfgs.Input.ktsMach.setBoolValue(0);
+			dfgs.Athr.updateMode(0); # Thrust
 			if (me.vertTemp == 4 or me.vertTemp == 7) {
 				dfgs.Input.vert.setValue(1);
 			}
@@ -87,6 +88,7 @@ var apPanel = {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			me.vertTemp = dfgs.Output.vert.getValue();
 			dfgs.Input.ktsMach.setBoolValue(1);
+			dfgs.Athr.updateMode(0); # Thrust
 			if (me.vertTemp == 4 or me.vertTemp == 7) {
 				dfgs.Input.vert.setValue(1);
 			}
@@ -94,7 +96,7 @@ var apPanel = {
 	},
 	eprLim: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
-			
+			dfgs.Athr.updateMode(2); # EPR Limit
 		}
 	},
 	hdgPush: func() {

@@ -158,8 +158,8 @@ var Output = {
 	latTemp: 0,
 	lnavArm: props.globals.initNode("/it-autoflight/output/lnav-armed", 0, "BOOL"),
 	locArm: props.globals.initNode("/it-autoflight/output/loc-armed", 0, "BOOL"),
-	thrMode: props.globals.initNode("/it-autoflight/output/thr-mode", 0, "INT"),
-	thrModeTemp: 0,
+	thrMode: props.globals.initNode("/it-autoflight/output/thr-mode", 3, "INT"),
+	thrModeTemp: 3,
 	vert: props.globals.initNode("/it-autoflight/output/vert", 0, "INT"),
 	vertTemp: 0,
 };
@@ -231,7 +231,6 @@ var ITAF = {
 		updateFma.arm();
 		me.updateLatText("HDG");
 		me.updateVertText("ALT HLD");
-		Athr.init();
 		loopTimer.start();
 		slowLoopTimer.start();
 	},
