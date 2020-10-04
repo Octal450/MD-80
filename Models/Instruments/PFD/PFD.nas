@@ -69,7 +69,7 @@ var canvasBase = {
 		return me;
 	},
 	getKeys: func() {
-		return ["AI_center", "AI_background", "AI_scale", "AI_bank", "FD_pitch", "FD_roll", "ILS_group", "LOC_pointer", "LOC_scale", "LOC_no", "GS_pointer", "GS_scale", "GS_no", "FS_pointer", "RA_bars"];
+		return ["AI_center", "AI_background", "AI_scale", "AI_bank", "FD_pitch", "FD_roll", "ILS_group", "LOC_pointer", "LOC_scale", "LOC_no", "GS_pointer", "GS_scale", "GS_no", "FS_pointer", "RA_bars", "RA_scale"];
 	},
 	update: func() {
 		pfd1.update();
@@ -97,8 +97,11 @@ var canvasBase = {
 		Value.Ra.agl = pts.Position.gearAglFt.getValue();
 		if (Value.Ra.agl <= 3000) {
 			me["RA_bars"].show();
+			me["RA_scale"].setTranslation(0, math.clamp(Value.Ra.agl, 0, 3100) * 2.079);
+			me["RA_scale"].show();
 		} else {
 			me["RA_bars"].hide();
+			me["RA_scale"].hide();
 		}
 	},
 };
