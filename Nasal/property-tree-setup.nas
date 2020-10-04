@@ -86,6 +86,10 @@ var Orientation = {
 	rollDeg: props.globals.getNode("/orientation/roll-deg"),
 };
 
+var Position = {
+	gearAglFt: props.globals.getNode("/position/gear-agl-ft"),
+};
+
 var Sim = {
 	CurrentView: {
 		fieldOfView: props.globals.getNode("/sim/current-view/field-of-view", 1),
