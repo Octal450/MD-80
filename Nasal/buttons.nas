@@ -173,12 +173,15 @@ var apPanel = {
 	},
 	altPush: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
-			
+			dfgs.Input.altArmed.setBoolValue(0);
 		}
 	},
 	altPull: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
-			
+			me.vertTemp = dfgs.Output.vert.getValue();
+			if (me.vertTemp != 0 and me.vertTemp != 2 and me.vertTemp != 6) {
+				dfgs.Input.altArmed.setBoolValue(1);
+			}
 		}
 	},
 	altAdjust: func(d) {

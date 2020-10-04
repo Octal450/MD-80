@@ -43,15 +43,7 @@ var updateFma = {
 	},
 	pitch: func() {
 		me.pitchText = Text.vert.getValue();
-		if (me.pitchText == "SPD CLB") {
-			if (Input.ktsMachFlch.getBoolValue()) {
-				Fma.pitchA.setValue("MACH");
-				Fma.pitchB.setValue("");
-			} else {
-				Fma.pitchA.setValue("IAS");
-				Fma.pitchB.setValue("");
-			}
-		} else if (me.pitchText == "SPD DES") {
+		if (me.pitchText == "FLCH") { # Replaces SPD CLB/DES from ITAF Core
 			if (Input.ktsMachFlch.getBoolValue()) {
 				Fma.pitchA.setValue("MACH");
 				Fma.pitchB.setValue("");
@@ -87,12 +79,6 @@ var updateFma = {
 			Fma.pitchA.setValue("ROL");
 			Fma.pitchB.setValue("OUT");
 		}
-		# Arm of ALT
-		if (me.pitchText != "ALT HLD" and me.pitchText != "ALT CAP" and me.pitchText != "G/S" and me.pitchText != "FLARE" and me.pitchText != "ROLLOUT") { # Change to if alt is armed later
-			Fma.armB.setValue("ALT");
-		} else {
-			Fma.armB.setValue("");
-		}
 	},
 	arm: func() {
 		if (Output.apprArm.getBoolValue()) {
@@ -111,40 +97,21 @@ setlistener("/it-autoflight/input/kts-mach-flch", func() {
 	updateFma.pitch();
 }, 0, 0);
 
-var Clamp = { # To be removed
-	active: 0,
-	pitchText: "T/O CLB",
-	triMode: 0,
-	loop: func() {
-		me.pitchText = Text.vert.getValue();
-		me.triMode = systems.TRI.Limit.activeModeInt.getValue();
-		
-		if (me.triMode == 0 or me.triMode == 5) {
-			if (me.pitchText == "T/O CLB") {
-				if (Output.athr.getBoolValue() and pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() < 60) {
-					me.active = 0;
-				} else {
-					me.active = 1;
-				}
-			} else {
-				me.active = 1;
-			}
-		} else if (me.triMode == 1) {
-			if (me.pitchText == "G/A CLB") {
-				me.active = 0;
-			} else {
-				me.active = 1;
-			}
-		} else if (me.pitchText == "SPD DES") {
-			me.active = 1;
-		} else {
-			me.active = 0;
-		}
-		
-		if (Output.clamp.getBoolValue() != me.active) {
-			Output.clamp.setBoolValue(me.active);
-		}
+setlistener("/it-autoflight/input/alt-armed", func() {
+	# Arm of ALT
+	if (Input.altArmed.getBoolValue()) {
+		Fma.armB.setValue("ALT");
+	} else {
+		Fma.armB.setValue("");
+	}
+}, 0, 0);
+
+# Seperated the Autothrottle from ITAF because its very different from the ITAF base. So we do it here!
+var Athr = {
+	init: func() {
+		Output.thrMode.setValue(0);
+	},
+	updateMode: func() {
+		Output.thrMode.setValue(0);
 	},
 };
-
-var clampLoop = maketimer(0.05, Clamp, Clamp.loop);
