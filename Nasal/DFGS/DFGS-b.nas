@@ -2,19 +2,20 @@
 # Copyright (c) 2020 Josh Davidson (Octal450)
 
 var Fma = {
-	thrA: props.globals.initNode("/instrumentation/pfd/fma/thr-mode-a", "", "STRING"),
-	thrB: props.globals.initNode("/instrumentation/pfd/fma/thr-mode-b", "", "STRING"),
-	armA: props.globals.initNode("/instrumentation/pfd/fma/arm-mode-a", "", "STRING"),
-	armB: props.globals.initNode("/instrumentation/pfd/fma/arm-mode-b", "", "STRING"),
-	pitchA: props.globals.initNode("/instrumentation/pfd/fma/pitch-mode-a", "TAK", "STRING"),
-	pitchB: props.globals.initNode("/instrumentation/pfd/fma/pitch-mode-b", "OFF", "STRING"),
-	rollA: props.globals.initNode("/instrumentation/pfd/fma/roll-mode-a", "TAK", "STRING"),
-	rollB: props.globals.initNode("/instrumentation/pfd/fma/roll-mode-b", "OFF", "STRING"),
+	thrA: props.globals.initNode("/instrumentation/fma/thr-mode-a", "", "STRING"),
+	thrB: props.globals.initNode("/instrumentation/fma/thr-mode-b", "", "STRING"),
+	armA: props.globals.initNode("/instrumentation/fma/arm-mode-a", "", "STRING"),
+	armB: props.globals.initNode("/instrumentation/fma/arm-mode-b", "", "STRING"),
+	pitchA: props.globals.initNode("/instrumentation/fma/pitch-mode-a", "TAK", "STRING"),
+	pitchB: props.globals.initNode("/instrumentation/fma/pitch-mode-b", "OFF", "STRING"),
+	rollA: props.globals.initNode("/instrumentation/fma/roll-mode-a", "TAK", "STRING"),
+	rollB: props.globals.initNode("/instrumentation/fma/roll-mode-b", "OFF", "STRING"),
 };
 
 var updateFma = {
 	pitchText: "T/O CLB",
 	rollText: "T/O",
+	thrTemp: 0,
 	roll: func() {
 		me.rollText = Text.lat.getValue();
 		if (me.rollText == "HDG") {
@@ -91,7 +92,32 @@ var updateFma = {
 			Fma.armA.setValue("");
 		}
 	},
+	thr: func() {
+		me.thrTemp = Output.thrMode.getValue();
+		if (me.thrTemp == 3) {
+			Fma.thrA.setValue("CLMP");
+			Fma.thrB.setValue("");
+		} else if (me.thrTemp == 2) {
+			Fma.thrA.setValue("EPR");
+			Fma.thrB.setValue(""); # TODO current limit here
+		} else if (me.thrTemp == 1) {
+			Fma.thrA.setValue("RETD");
+			Fma.thrB.setValue("");
+		} else if (me.thrTemp == 0) {
+			if (Input.ktsMach.getBoolValue()) {
+				Fma.thrA.setValue("MACH");
+				Fma.thrB.setValue(sprintf("%3.0f", dfgs.Input.mach.getValue() * 1000));
+			} else {
+				Fma.thrA.setValue("SPD");
+				Fma.thrB.setValue(sprintf("%3.0f", dfgs.Input.kts.getValue()));
+			}
+		}
+	},
 };
+
+setlistener("/it-autoflight/input/kts-mach", func() {
+	updateFma.thr();
+}, 0, 0);
 
 setlistener("/it-autoflight/input/kts-mach-flch", func() {
 	updateFma.pitch();
@@ -111,7 +137,18 @@ var Athr = {
 	init: func() {
 		Output.thrMode.setValue(0);
 	},
-	updateMode: func() {
-		Output.thrMode.setValue(0);
+	loop: func() {
+		Output.thrModeTemp = Output.thrMode.getValue();
+		if (Output.thrModeTemp == 0) { # Update it as the updateFma only does it once
+			if (Input.ktsMach.getBoolValue()) {
+				Fma.thrB.setValue(sprintf("%3.0f", dfgs.Input.mach.getValue() * 1000));
+			} else {
+				Fma.thrB.setValue(sprintf("%3.0f", dfgs.Input.kts.getValue()));
+			}
+		}
+	},
+	updateMode: func(n) {
+		Output.thrMode.setValue(n);
+		updateFma.thr();
 	},
 };

@@ -159,6 +159,7 @@ var Output = {
 	lnavArm: props.globals.initNode("/it-autoflight/output/lnav-armed", 0, "BOOL"),
 	locArm: props.globals.initNode("/it-autoflight/output/loc-armed", 0, "BOOL"),
 	thrMode: props.globals.initNode("/it-autoflight/output/thr-mode", 0, "INT"),
+	thrModeTemp: 0,
 	vert: props.globals.initNode("/it-autoflight/output/vert", 0, "INT"),
 	vertTemp: 0,
 };
@@ -171,11 +172,6 @@ var Text = {
 
 var Setting = {
 	autoBankMaxDeg: props.globals.getNode("/it-autoflight/settings/auto-bank-max-deg", 1),
-	autolandWithoutAp: props.globals.getNode("/it-autoflight/settings/autoland-without-ap", 1),
-	autolandWithoutApTemp: 0,
-	landingFlap: props.globals.getNode("/it-autoflight/settings/land-flap", 1),
-	retardAltitude: props.globals.getNode("/it-autoflight/settings/retard-ft", 1),
-	retardEnable: props.globals.getNode("/it-autoflight/settings/retard-enable", 1),
 	togaSpd: props.globals.getNode("/it-autoflight/settings/togaspd", 1),
 };
 
@@ -231,9 +227,10 @@ var ITAF = {
 		Internal.maxVs.setValue(500);
 		Internal.alt.setValue(10000);
 		Internal.altCaptureActive = 0;
+		updateFma.thr();
 		updateFma.arm();
-		me.updateLatText("T/O");
-		me.updateVertText("T/O CLB");
+		me.updateLatText("HDG");
+		me.updateVertText("ALT HLD");
 		Athr.init();
 		loopTimer.start();
 		slowLoopTimer.start();
@@ -350,6 +347,9 @@ var ITAF = {
 				me.updateVertText("ALT HLD");
 			}
 		}
+		
+		# Autothrottle Update
+		Athr.loop();
 		
 		# Trip system off
 		if (Output.ap1Temp == 1 or Output.ap2Temp == 1) { 
@@ -593,7 +593,7 @@ var ITAF = {
 			me.resetClimbRateLim();
 			me.updateVertText("ALT HLD");
 			me.syncAlt();
-			me.updateThrustMode();
+			Athr.updateMode(0); # Thrust
 		} else if (n == 1) { # V/S
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
@@ -601,7 +601,7 @@ var ITAF = {
 			Output.vert.setValue(1);
 			me.updateVertText("V/S");
 			me.syncVs();
-			me.updateThrustMode();
+			Athr.updateMode(0); # Thrust
 		} else if (n == 2) { # G/S
 			me.updateLnavArm(0);
 			me.checkLoc(0);
@@ -613,14 +613,14 @@ var ITAF = {
 			me.setClimbRateLim();
 			Internal.altCaptureActive = 1;
 			me.updateVertText("ALT CAP");
-			me.updateThrustMode();
+			Athr.updateMode(0); # Thrust
 		} else if (n == 4) { # FLCH
 			me.updateApprArm(0);
 			Internal.altCaptureActive = 0;
 			Output.vert.setValue(4);
 			me.updateVertText("FLCH");
 			Internal.flchActive = 1;
-			me.updateThrustMode();
+			Athr.updateMode(3); # Clamp
 			if (Input.ktsMachFlch.getBoolValue()) {
 				me.syncMachFlch();
 			} else {
@@ -633,7 +633,7 @@ var ITAF = {
 			Output.vert.setValue(5);
 			me.updateVertText("FPA");
 			me.syncFpa();
-			me.updateThrustMode();
+			Athr.updateMode(0); # Thrust
 		} else if (n == 6) { # FLARE/ROLLOUT
 			Input.altArmed.setBoolValue(0);
 			Internal.flchActive = 0;
@@ -641,18 +641,15 @@ var ITAF = {
 			me.updateApprArm(0);
 			Output.vert.setValue(6);
 			me.updateVertText("G/S");
-			me.updateThrustMode();
+			Athr.updateMode(0); # Thrust
 		} else if (n == 7) { # T/O CLB or G/A CLB, text is set by TOGA selector
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
 			me.updateApprArm(0);
 			Output.vert.setValue(7);
-			me.updateThrustMode();
+			Athr.updateMode(3); # Clamp
 			Input.ktsMachFlch.setBoolValue(0);
 		}
-	},
-	updateThrustMode: func() {
-		Athr.updateMode();
 	},
 	activateLnav: func() {
 		if (Output.lat.getValue() != 1) {
@@ -682,7 +679,7 @@ var ITAF = {
 			me.updateApprArm(0);
 			Output.vert.setValue(2);
 			me.updateVertText("G/S");
-			me.updateThrustMode();
+			Athr.updateMode(0); # Thrust
 		}
 	},
 	checkLnav: func(t) {

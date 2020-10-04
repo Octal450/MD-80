@@ -36,10 +36,6 @@
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/output/clamp</property>
-						<value>0</value>
-					</equals>
-					<equals>
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>0</value>
 					</equals>
@@ -94,10 +90,6 @@
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/output/clamp</property>
-						<value>0</value>
-					</equals>
-					<equals>
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>0</value>
 					</equals>
@@ -131,10 +123,6 @@
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/output/clamp</property>
-						<value>0</value>
-					</equals>
-					<equals>
 						<property>/it-autoflight/input/kts-mach</property>
 						<value>0</value>
 					</equals>
@@ -166,10 +154,6 @@
 					<equals>
 						<property>/it-autoflight/output/athr</property>
 						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/clamp</property>
-						<value>0</value>
 					</equals>
 					<equals>
 						<property>/it-autoflight/input/kts-mach</property>
@@ -214,10 +198,6 @@
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/output/clamp</property>
-						<value>0</value>
-					</equals>
-					<equals>
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>0</value>
 					</equals>
@@ -242,26 +222,13 @@
 						<value>1</value>
 					</equals>
 					<equals>
-						<property>/it-autoflight/output/clamp</property>
-						<value>0</value>
-					</equals>
-					<equals>
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>1</value>
 					</equals>
 				</and>
 			</condition>
 		</enable>
-		<input>
-			<condition>
-				<equals>
-					<property>/it-autoflight/mode/thr</property>
-					<value>RETARD</value>
-				</equals>
-			</condition>
-			<value>0</value>
-		</input>
-		<input>/fdm/jsbsim/engine/limit/idle-norm</input>
+		<input>0</input>
 		<output>/fdm/jsbsim/engine/ats-cmd-raw</output>
 	</filter>
 	
@@ -276,10 +243,6 @@
 					<equals>
 						<property>/it-autoflight/output/athr</property>
 						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/clamp</property>
-						<value>0</value>
 					</equals>
 					<equals>
 						<property>/it-autoflight/output/thr-mode</property>
@@ -325,10 +288,10 @@
 						<property>/it-autoflight/output/athr</property>
 						<value>1</value>
 					</equals>
-					<equals>
-						<property>/it-autoflight/output/clamp</property>
-						<value>0</value>
-					</equals>
+					<not-equals>
+						<property>/it-autoflight/output/thr-mode</property>
+						<value>3</value> <!-- Clamp -->
+					</not-equals>
 				</and>
 			</condition>
 		</enable>
@@ -390,10 +353,10 @@
 						<property>/it-autoflight/output/athr</property>
 						<value>1</value>
 					</not-equals>
-					<not-equals>
-						<property>/it-autoflight/output/clamp</property>
-						<value>0</value>
-					</not-equals>
+					<equals>
+						<property>/it-autoflight/output/thr-mode</property>
+						<value>3</value> <!-- Clamp -->
+					</equals>
 				</or>
 			</condition>
 		</enable>
@@ -415,10 +378,10 @@
 						<property>/it-autoflight/output/athr</property>
 						<value>1</value>
 					</equals>
-					<equals>
-						<property>/it-autoflight/output/clamp</property>
-						<value>0</value>
-					</equals>
+					<not-equals>
+						<property>/it-autoflight/output/thr-mode</property>
+						<value>3</value> <!-- Clamp -->
+					</not-equals>
 				</and>
 			</condition>
 			<property>/fdm/jsbsim/engine/ats-cmd</property>
@@ -432,10 +395,10 @@
 						<property>/it-autoflight/output/athr</property>
 						<value>1</value>
 					</equals>
-					<equals>
-						<property>/it-autoflight/output/clamp</property>
-						<value>0</value>
-					</equals>
+					<not-equals>
+						<property>/it-autoflight/output/thr-mode</property>
+						<value>3</value> <!-- Clamp -->
+					</not-equals>
 				</and>
 			</condition>
 			<value>0.3</value>
@@ -454,10 +417,10 @@
 						<property>/it-autoflight/output/athr</property>
 						<value>1</value>
 					</equals>
-					<equals>
-						<property>/it-autoflight/output/clamp</property>
-						<value>0</value>
-					</equals>
+					<not-equals>
+						<property>/it-autoflight/output/thr-mode</property>
+						<value>3</value> <!-- Clamp -->
+					</not-equals>
 				</and>
 			</condition>
 		</enable>
@@ -478,10 +441,10 @@
 						<property>/it-autoflight/output/athr</property>
 						<value>1</value>
 					</equals>
-					<equals>
-						<property>/it-autoflight/output/clamp</property>
-						<value>0</value>
-					</equals>
+					<not-equals>
+						<property>/it-autoflight/output/thr-mode</property>
+						<value>3</value> <!-- Clamp -->
+					</not-equals>
 				</and>
 			</condition>
 			<property>/fdm/jsbsim/engine/ats-cmd</property>
@@ -495,10 +458,10 @@
 						<property>/it-autoflight/output/athr</property>
 						<value>1</value>
 					</equals>
-					<equals>
-						<property>/it-autoflight/output/clamp</property>
-						<value>0</value>
-					</equals>
+					<not-equals>
+						<property>/it-autoflight/output/thr-mode</property>
+						<value>3</value> <!-- Clamp -->
+					</not-equals>
 				</and>
 			</condition>
 			<value>0.3</value>
@@ -517,10 +480,10 @@
 						<property>/it-autoflight/output/athr</property>
 						<value>1</value>
 					</equals>
-					<equals>
-						<property>/it-autoflight/output/clamp</property>
-						<value>0</value>
-					</equals>
+					<not-equals>
+						<property>/it-autoflight/output/thr-mode</property>
+						<value>3</value> <!-- Clamp -->
+					</not-equals>
 				</and>
 			</condition>
 		</enable>

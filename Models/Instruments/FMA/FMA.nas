@@ -13,10 +13,14 @@ var rollL = nil;
 var rollLDisplay = nil;
 var rollR = nil;
 var rollRDisplay = nil;
+var thrL = nil;
+var thrLDisplay = nil;
+var thrR = nil;
+var thrRDisplay = nil;
 
 var Modes = { # 0 thrust, 1 arm, 2 roll, 3 pitch
-	Line1: [nil, dfgs.Fma.armA, dfgs.Fma.rollA, dfgs.Fma.pitchA],
-	Line2: [nil, dfgs.Fma.armB, dfgs.Fma.rollB, dfgs.Fma.pitchB],
+	Line1: [dfgs.Fma.thrA, dfgs.Fma.armA, dfgs.Fma.rollA, dfgs.Fma.pitchA],
+	Line2: [dfgs.Fma.thrB, dfgs.Fma.armB, dfgs.Fma.rollB, dfgs.Fma.pitchB],
 };
 
 var Value = {
@@ -49,29 +53,49 @@ var canvasBase = {
 	},
 	update: func() {
 		Value.apOn = dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue();
-		if (systems.ELEC.Generic.fmaPower.getValue() >= 25 and (dfgs.Output.fd1.getBoolValue() or Value.apOn)) {
-			armL.page.show();
-			pitchL.page.show();
-			rollL.page.show();
-			armL.update();
-			pitchL.update();
-			rollL.update();
+		if (systems.ELEC.Generic.fmaPower.getValue() >= 25) {
+			if (dfgs.Output.athr.getBoolValue()) {
+				thrL.update();
+				thrL.page.show();
+				thrR.update();
+				thrR.page.show();
+			} else {
+				thrL.page.hide();
+				thrR.page.hide();
+			}
+			if (dfgs.Output.fd1.getBoolValue() or Value.apOn) {
+				armL.update();
+				armL.page.show();
+				pitchL.update();
+				pitchL.page.show();
+				rollL.update();
+				rollL.page.show();
+			} else {
+				armL.page.hide();
+				pitchL.page.hide();
+				rollL.page.hide();
+			}
+			if (dfgs.Output.fd2.getBoolValue() or Value.apOn) {
+				armR.update();
+				armR.page.show();
+				pitchR.update();
+				pitchR.page.show();
+				rollR.update();
+				rollR.page.show();
+			} else {
+				armR.page.hide();
+				pitchR.page.hide();
+				rollR.page.hide();
+			}
 		} else {
 			armL.page.hide();
-			pitchL.page.hide();
-			rollL.page.hide();
-		}
-		if (systems.ELEC.Generic.fmaPower.getValue() >= 25 and (dfgs.Output.fd2.getBoolValue() or Value.apOn)) {
-			armR.page.show();
-			pitchR.page.show();
-			rollR.page.show();
-			armR.update();
-			pitchR.update();
-			rollR.update();
-		} else {
 			armR.page.hide();
+			pitchL.page.hide();
 			pitchR.page.hide();
+			rollL.page.hide();
 			rollR.page.hide();
+			thrL.page.hide();
+			thrR.page.hide();
 		}
 	},
 	updateCommon: func(w) { # w is window, 0 thrust, 1 arm, 2 roll, 3 pitch
@@ -178,6 +202,36 @@ var canvasRollR = {
 	},
 };
 
+var canvasThrL = {
+	new: func(canvas_group, file) {
+		var m = {parents: [canvasThrL, canvasBase]};
+		m.init(canvas_group, file);
+
+		return m;
+	},
+	getKeys: func() {
+		return ["Line1", "Line2"];
+	},
+	update: func() {
+		me.updateCommon(0);
+	},
+};
+
+var canvasThrR = {
+	new: func(canvas_group, file) {
+		var m = {parents: [canvasThrR, canvasBase]};
+		m.init(canvas_group, file);
+
+		return m;
+	},
+	getKeys: func() {
+		return ["Line1", "Line2"];
+	},
+	update: func() {
+		me.updateCommon(0);
+	},
+};
+
 var init = func() {
 	armLDisplay = canvas.new({
 		"name": "armL",
@@ -186,7 +240,7 @@ var init = func() {
 		"mipmapping": 1
 	});
 	armRDisplay = canvas.new({
-		"name": "armL",
+		"name": "armR",
 		"size": [256, 180],
 		"view": [256, 180],
 		"mipmapping": 1
@@ -198,7 +252,7 @@ var init = func() {
 		"mipmapping": 1
 	});
 	pitchRDisplay = canvas.new({
-		"name": "pitchL",
+		"name": "pitchR",
 		"size": [305, 180],
 		"view": [305, 180],
 		"mipmapping": 1
@@ -210,9 +264,21 @@ var init = func() {
 		"mipmapping": 1
 	});
 	rollRDisplay = canvas.new({
-		"name": "rollL",
+		"name": "rollR",
 		"size": [256, 180],
 		"view": [256, 180],
+		"mipmapping": 1
+	});
+	thrLDisplay = canvas.new({
+		"name": "thrL",
+		"size": [305, 180],
+		"view": [305, 180],
+		"mipmapping": 1
+	});
+	thrRDisplay = canvas.new({
+		"name": "thrR",
+		"size": [305, 180],
+		"view": [305, 180],
 		"mipmapping": 1
 	});
 	
@@ -222,6 +288,8 @@ var init = func() {
 	pitchRDisplay.addPlacement({"node": "pitch2.screen"});
 	rollLDisplay.addPlacement({"node": "roll1.screen"});
 	rollRDisplay.addPlacement({"node": "roll2.screen"});
+	thrLDisplay.addPlacement({"node": "thr1.screen"});
+	thrRDisplay.addPlacement({"node": "thr2.screen"});
 	
 	var armLGroup = armLDisplay.createGroup();
 	var armRGroup = armRDisplay.createGroup();
@@ -229,6 +297,8 @@ var init = func() {
 	var pitchRGroup = pitchRDisplay.createGroup();
 	var rollLGroup = rollLDisplay.createGroup();
 	var rollRGroup = rollRDisplay.createGroup();
+	var thrLGroup = thrLDisplay.createGroup();
+	var thrRGroup = thrRDisplay.createGroup();
 	
 	armL = canvasArmL.new(armLGroup, "Aircraft/MD-80/Models/Instruments/FMA/res/three.svg");
 	armR = canvasArmR.new(armRGroup, "Aircraft/MD-80/Models/Instruments/FMA/res/three.svg");
@@ -236,6 +306,8 @@ var init = func() {
 	pitchR = canvasPitchR.new(pitchRGroup, "Aircraft/MD-80/Models/Instruments/FMA/res/four.svg");
 	rollL = canvasRollL.new(rollLGroup, "Aircraft/MD-80/Models/Instruments/FMA/res/three.svg");
 	rollR = canvasRollR.new(rollRGroup, "Aircraft/MD-80/Models/Instruments/FMA/res/three.svg");
+	thrL = canvasThrL.new(thrLGroup, "Aircraft/MD-80/Models/Instruments/FMA/res/four.svg");
+	thrR = canvasThrR.new(thrRGroup, "Aircraft/MD-80/Models/Instruments/FMA/res/four.svg");
 	
 	canvasBase.setup();
 	fmaUpdate.start();

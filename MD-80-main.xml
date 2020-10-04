@@ -816,16 +816,11 @@
 	</instrumentation>
 	
 	<it-autoflight> <!-- Will be removed -->
+		<output n="0">
+			<thr-mode type="int">0</thr-mode>
+		</output>
 		<settings>
-			<autoland-without-ap>0</autoland-without-ap> <!-- Engage LAND and FLARE Modes even if the AP is off -->
 			<auto-bank-max-deg>30</auto-bank-max-deg> <!-- Maximum Auto Bank Limit -->
-			<autothrottle-max>0.95</autothrottle-max> <!-- Thrust Max Limit Normalized -->
-			<autothrottle-min>0.15</autothrottle-min> <!-- Thrust Low Limit Normalized -->
-			<disable-final>0</disable-final> <!-- Disable the Final Controllers, for custom FCS integration -->
-			<land-enable>1</land-enable> <!-- Enable/Disable Autoland -->
-			<land-flap>0.68</land-flap> <!-- Minimum Flap used for Landing -->
-			<retard-enable>1</retard-enable> <!-- AGL to Thrust Retard -->
-			<retard-ft>50</retard-ft> <!-- Enable Thrust Retard -->
 			<togaspd>150</togaspd> <!-- V2 + 10kts -->
 		</settings>
 	</it-autoflight>

@@ -190,7 +190,7 @@
 				</equals>
 			</visible>
 			<valign>center</valign>
-			<property>/instrumentation/pfd/fma/thr-mode-a</property>
+			<property>/instrumentation/fma/thr-mode-a</property>
 			<live>1</live>
 		</text>
 		
@@ -225,7 +225,7 @@
 				</or>
 			</visible>
 			<valign>center</valign>
-			<property>/instrumentation/pfd/fma/arm-mode-a</property>
+			<property>/instrumentation/fma/arm-mode-a</property>
 			<live>1</live>
 		</text>
 		
@@ -260,7 +260,7 @@
 				</or>
 			</visible>
 			<valign>center</valign>
-			<property>/instrumentation/pfd/fma/roll-mode-a</property>
+			<property>/instrumentation/fma/roll-mode-a</property>
 			<live>1</live>
 		</text>
 		
@@ -295,7 +295,7 @@
 				</or>
 			</visible>
 			<valign>center</valign>
-			<property>/instrumentation/pfd/fma/pitch-mode-a</property>
+			<property>/instrumentation/fma/pitch-mode-a</property>
 			<live>1</live>
 		</text>
 		<text>
@@ -310,7 +310,7 @@
 				</equals>
 			</visible>
 			<valign>center</valign>
-			<property>/instrumentation/pfd/fma/thr-mode-b</property>
+			<property>/instrumentation/fma/thr-mode-b</property>
 			<live>1</live>
 		</text>
 		
@@ -345,7 +345,7 @@
 				</or>
 			</visible>
 			<valign>center</valign>
-			<property>/instrumentation/pfd/fma/arm-mode-b</property>
+			<property>/instrumentation/fma/arm-mode-b</property>
 			<live>1</live>
 		</text>
 		
@@ -380,7 +380,7 @@
 				</or>
 			</visible>
 			<valign>center</valign>
-			<property>/instrumentation/pfd/fma/roll-mode-b</property>
+			<property>/instrumentation/fma/roll-mode-b</property>
 			<live>1</live>
 		</text>
 		
@@ -415,7 +415,7 @@
 				</or>
 			</visible>
 			<valign>center</valign>
-			<property>/instrumentation/pfd/fma/pitch-mode-b</property>
+			<property>/instrumentation/fma/pitch-mode-b</property>
 			<live>1</live>
 		</text>
 	</group>
