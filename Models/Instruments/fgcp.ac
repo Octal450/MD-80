@@ -2,7 +2,28 @@ AC3Db
 MATERIAL "Matte.002" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 64  trans 0
 MATERIAL "emit.002" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 64  trans 0
 OBJECT world
-kids 41
+kids 42
+OBJECT poly
+name "AltDigitMinus"
+loc 0 -0.00272476 0
+data 9
+Plane.003
+texture "digits.png"
+crease 30.000000
+numvert 4
+-0.00548 0.00934 -0.09747
+-0.00548 0.00934 -0.09347
+-0.00518 0.01076 -0.09747
+-0.00519 0.01074 -0.09347
+numsurf 1
+SURF 0x0
+mat 1
+refs 4
+0 0.970385 0.191336
+2 0.957985 0.191336
+3 0.958151 0.157193
+1 0.970385 0.157193
+kids 0
 OBJECT group
 name "Alt.knob"
 kids 2
