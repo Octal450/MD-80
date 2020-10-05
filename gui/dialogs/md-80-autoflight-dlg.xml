@@ -1309,5 +1309,30 @@
 			</binding>
 		</button>
 	</group>
+	
+	<group>
+		<layout>hbox</layout>
+		
+		<hrule>
+			<stretch>true</stretch>
+		</hrule>
+		<text>
+			<label>TOGA</label>
+		</text>
+		<hrule>
+			<stretch>true</stretch>
+		</hrule>
+	</group>
+	
+	<button>
+		<halign>center</halign>
+		<pref-width>250</pref-width>
+		<pref-height>20</pref-height>
+		<legend>TOGA BUTTONS</legend>
+		<binding>
+			<command>nasal</command>
+			<script>libraries.apPanel.toga();</script>
+		</binding>
+	</button>
 
 </PropertyList>

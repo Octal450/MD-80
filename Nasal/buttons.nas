@@ -241,4 +241,9 @@ var apPanel = {
 			dfgs.Input.vert.setValue(0);
 		}
 	},
+	toga: func() {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			dfgs.Input.toga.setValue(1);
+		}
+	},
 };

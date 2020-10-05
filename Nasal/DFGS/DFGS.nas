@@ -760,7 +760,6 @@ var ITAF = {
 				me.ap2Master(0);
 			}
 		} else if (Gear.wow1Temp or Gear.wow2Temp) {
-			me.athrMaster(1);
 			if (Output.lat.getValue() != 5) { # Don't accidently disarm LNAV
 				me.setLatMode(5);
 			}
