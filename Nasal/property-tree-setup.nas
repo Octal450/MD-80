@@ -1,4 +1,4 @@
-# McDonnell Douglas MD-80 Property Tree Setup
+ # McDonnell Douglas MD-80 Property Tree Setup
 # Copyright (c) 2020 Josh Davidson (Octal450)
 # Nodes organized like property tree, except when lots of identical (example: Gear wow), where vectors are used to make it easier
 # Anything that says Temp is set by another file to avoid multiple getValue calls
@@ -131,6 +131,10 @@ var Sim = {
 			defaultFieldOfViewDeg: props.globals.getNode("/sim/view/config/default-field-of-view-deg", 1),
 		},
 	},
+};
+
+var SurfacePositions = {
+	flapPosNorm: props.globals.getNode("/surface-positions/flap-pos-norm", 1)
 };
 
 var Systems = {

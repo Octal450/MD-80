@@ -134,14 +134,12 @@ setlistener("/it-autoflight/input/alt-armed", func() {
 
 # Seperated the Autothrottle from ITAF because its very different from the ITAF base. So we do it here!
 var Athr = {
+	retard: 0,
 	triMode: 0,
 	loop: func() {
 		me.triMode = systems.TRI.Limit.activeModeInt.getValue();
 		Output.thrModeTemp = Output.thrMode.getValue();
-		
-		if (me.triMode == 0 or me.triMode == 5) {
-			me.toCheck();
-		}
+		me.retard = Output.athr.getBoolValue() and Output.vert.getValue() != 7 and pts.Position.gearAglFt.getValue() <= 50 and pts.SurfacePositions.flapPosNorm.getValue() >= 0.679 and me.triMode != 0 and me.triMode != 1 and me.triMode != 5;
 		
 		if (Output.thrModeTemp == 0) { # Update it as the updateFma only does it once
 			if (Input.ktsMach.getBoolValue()) {
@@ -150,13 +148,27 @@ var Athr = {
 				Fma.thrB.setValue(sprintf("%3.0f", dfgs.Input.kts.getValue()));
 			}
 		}
+		
+		if (me.triMode == 0 or me.triMode == 5) {
+			me.toCheck();
+		} else if (me.retard) {
+			if (Output.thrMode.getValue() != 1) {
+				Output.thrMode.setValue(1);
+				updateFma.thr();
+			}
+			if (pts.Fdm.JSBsim.Position.wow.getBoolValue()) {
+				if (Output.athr.getBoolValue()) {
+					ITAF.athrMaster(0);
+				}
+			}
+		}
 	},
 	updateMode: func(n) { # 0 Thrust, 1 Retard, 2 EPR Limit, 3 Clamp
 		me.triMode = systems.TRI.Limit.activeModeInt.getValue();
 		
 		if (me.triMode == 0 or me.triMode == 5) {
 			me.toCheck();
-		} else {
+		} else if (!me.retard) {
 			Output.thrMode.setValue(n);
 		}
 		updateFma.thr();

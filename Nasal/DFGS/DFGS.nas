@@ -45,7 +45,6 @@ var Gear = {
 var Misc = {
 	efis0Trk: props.globals.getNode("/instrumentation/efis[0]/hdg-trk-selected", 1),
 	efis1Trk: props.globals.getNode("/instrumentation/efis[1]/hdg-trk-selected", 1),
-	flapNorm: props.globals.getNode("/surface-positions/flap-pos-norm", 1),
 };
 
 var Position = {

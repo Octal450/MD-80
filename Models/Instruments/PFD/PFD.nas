@@ -69,7 +69,7 @@ var canvasBase = {
 		return me;
 	},
 	getKeys: func() {
-		return ["AI_center", "AI_background", "AI_scale", "AI_bank", "FD_pitch", "FD_roll", "ILS_group", "LOC_pointer", "LOC_scale", "LOC_no", "GS_pointer", "GS_scale", "GS_no", "FS_pointer", "RA_bars", "RA_scale"];
+		return ["AI_center", "AI_background", "AI_scale", "AI_bank", "FD_pitch", "FD_roll", "ILS_group", "LOC_pointer", "LOC_scale", "LOC_no", "GS_pointer", "GS_scale", "GS_no", "FS_scale", "FS_pointer", "RA_bars", "RA_scale"];
 	},
 	update: func() {
 		pfd1.update();
@@ -77,7 +77,12 @@ var canvasBase = {
 	},
 	updateBase: func() {
 		# Fast Slow
-		me["FS_pointer"].setTranslation(0, pts.Instrumentation.Pfd.fastSlow.getValue() * 13.1);
+		if (dfgs.Fma.thrA.getValue() == "RETD") {
+			me["FS_scale"].hide();
+		} else {
+			me["FS_pointer"].setTranslation(0, pts.Instrumentation.Pfd.fastSlow.getValue() * 13.1);
+			me["FS_scale"].show();
+		}
 		
 		# AI
 		Value.Ai.pitch = pts.Orientation.pitchDeg.getValue();
