@@ -163,7 +163,7 @@ var Athr = {
 			}
 		}
 	},
-	updateMode: func(n) { # 0 Thrust, 1 Retard, 2 EPR Limit, 3 Clamp
+	setMode: func(n) { # 0 Thrust, 1 Retard, 2 EPR Limit, 3 Clamp
 		me.triMode = systems.TRI.Limit.activeModeInt.getValue();
 		
 		if (me.triMode == 0 or me.triMode == 5) {

@@ -591,7 +591,7 @@ var ITAF = {
 			me.resetClimbRateLim();
 			me.updateVertText("ALT HLD");
 			me.syncAlt();
-			Athr.updateMode(0); # Thrust
+			Athr.setMode(0); # Thrust
 		} else if (n == 1) { # V/S
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
@@ -599,7 +599,7 @@ var ITAF = {
 			Output.vert.setValue(1);
 			me.updateVertText("V/S");
 			me.syncVs();
-			Athr.updateMode(0); # Thrust
+			Athr.setMode(0); # Thrust
 		} else if (n == 2) { # G/S
 			me.updateLnavArm(0);
 			me.checkLoc(0);
@@ -611,14 +611,14 @@ var ITAF = {
 			me.setClimbRateLim();
 			Internal.altCaptureActive = 1;
 			me.updateVertText("ALT CAP");
-			Athr.updateMode(0); # Thrust
+			Athr.setMode(0); # Thrust
 		} else if (n == 4) { # FLCH
 			me.updateApprArm(0);
 			Internal.altCaptureActive = 0;
 			Output.vert.setValue(4);
 			me.updateVertText("FLCH");
 			Internal.flchActive = 1;
-			Athr.updateMode(3); # Clamp
+			Athr.setMode(3); # Clamp
 			if (Input.ktsMachFlch.getBoolValue()) {
 				me.syncMachFlch();
 			} else {
@@ -631,7 +631,7 @@ var ITAF = {
 			Output.vert.setValue(5);
 			me.updateVertText("FPA");
 			me.syncFpa();
-			Athr.updateMode(0); # Thrust
+			Athr.setMode(0); # Thrust
 		} else if (n == 6) { # FLARE/ROLLOUT
 			Input.altArmed.setBoolValue(0);
 			Internal.flchActive = 0;
@@ -639,13 +639,13 @@ var ITAF = {
 			me.updateApprArm(0);
 			Output.vert.setValue(6);
 			me.updateVertText("G/S");
-			Athr.updateMode(0); # Thrust
+			Athr.setMode(0); # Thrust
 		} else if (n == 7) { # T/O CLB or G/A CLB, text is set by TOGA selector
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
 			me.updateApprArm(0);
 			Output.vert.setValue(7);
-			Athr.updateMode(3); # Clamp
+			Athr.setMode(3); # Clamp
 			Input.ktsMachFlch.setBoolValue(0);
 		}
 	},
@@ -677,7 +677,7 @@ var ITAF = {
 			me.updateApprArm(0);
 			Output.vert.setValue(2);
 			me.updateVertText("G/S");
-			Athr.updateMode(0); # Thrust
+			Athr.setMode(0); # Thrust
 		}
 	},
 	checkLnav: func(t) {
