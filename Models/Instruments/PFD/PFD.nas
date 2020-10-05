@@ -5,8 +5,6 @@ var pfd1Display = nil;
 var pfd2Display = nil;
 var pfd1 = nil;
 var pfd2 = nil;
-setprop("test1", 0);
-setprop("test2", 0);
 
 var Value = {
 	Ai: {
