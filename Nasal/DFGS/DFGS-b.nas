@@ -174,7 +174,7 @@ var Athr = {
 		updateFma.thr();
 	},
 	toCheck: func() {
-		if (pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() < 60 and pts.Fdm.JSBsim.Position.wow.getBoolValue()) {
+		if (pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() < 60 and pts.Fdm.JSBsim.Position.wow.getBoolValue() and Output.vert.getValue() == 7) {
 			if (Output.thrMode.getValue() != 2) {
 				Output.thrMode.setValue(2);
 				updateFma.thr();
