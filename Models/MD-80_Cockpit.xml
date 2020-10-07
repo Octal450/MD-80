@@ -20,319 +20,384 @@
 		</axis>
 	</animation>
 	
-<!-- Lights -->
-
-<animation>
-  <type>material</type>
-  <object-name>AirVents</object-name>
-  <object-name>CDUCasings</object-name>
-  <object-name>CDUs</object-name>
-  <object-name>FDFloorCarpet</object-name>
-  <object-name>FDFloorMetal</object-name>
-  <object-name>FDFlorrMetal2</object-name>
-  <object-name>FlapLever</object-name>
-  <object-name>FlapLever.002</object-name>
-  <object-name>FlapLever.003</object-name>
-  <object-name>FlightDeck</object-name>
-  <object-name>FlightDeckBulkhead</object-name>
-  <object-name>FlightDeckDoor</object-name>
-  <object-name>FuelCutoffL</object-name>
-  <object-name>FuelCutoffR</object-name>
-  <object-name>GlareShield</object-name>
-  <object-name>KnobABS</object-name>
-  <object-name>Lamp</object-name>
-  <object-name>LampABS</object-name>
-  <!--object-name>LampABSon</object-name-->
-  <object-name>LGLever</object-name>
-  <object-name>Moulding</object-name>
-  <object-name>Moulding.001</object-name>
-  <object-name>PanelMainC</object-name>
-  <object-name>PanelMainD</object-name>
-  <object-name>PanelMainL</object-name>
-  <object-name>PanelMainR</object-name>
-  <object-name>PedalCover</object-name>
-  <object-name>PedalL</object-name>
-  <object-name>PedalR</object-name>
-  <object-name>PedalRodL</object-name>
-  <object-name>PedalRodR</object-name>
-  <object-name>PedestalABS</object-name>
-  <object-name>PedestalBase</object-name>
-	<object-name>PedestalBase_0</object-name>
-	<object-name>PedestalBase_1</object-name>
-	<object-name>PedestalDrum</object-name>
-	<object-name>PedestalDrumFace</object-name>
-	<object-name>PneuLeverL</object-name>
-	<object-name>PneuLeverR</object-name>
-	<object-name>SeatCP</object-name>
-	<object-name>SeatCushionsCP</object-name>
-  <object-name>SeatCushionsP</object-name>
-  <object-name>SeatP</object-name>
-  <object-name>SpdBrakeLever</object-name>
-  <object-name>SwABS</object-name>
-<object-name>ThrottleL</object-name>
-  <object-name>ThrottleR</object-name>
-<object-name>ThrottleRevL</object-name>
-<object-name>ThrottleRevR</object-name>
-<object-name>XfeedLever</object-name>
-<object-name>YokeBase</object-name>
-<object-name>YokeColL</object-name>
-<object-name>YokeColR</object-name>
-<object-name>YokeL</object-name>
-<object-name>YokeR</object-name>
-<object-name>PitchTrim</object-name>
-<object-name>AToffL</object-name>
-<object-name>AToffR</object-name>
-<object-name>AToffL1</object-name>
-<object-name>AToffR1</object-name>
+	<!-- Lights -->
+	<animation>
+		<type>material</type>
+		<object-name>AirVents</object-name>
+		<object-name>CDUCasings</object-name>
+		<object-name>CDUs</object-name>
+		<object-name>FDFloorCarpet</object-name>
+		<object-name>FDFloorMetal</object-name>
+		<object-name>FDFlorrMetal2</object-name>
+		<object-name>FlapLever</object-name>
+		<object-name>FlapLever.002</object-name>
+		<object-name>FlapLever.003</object-name>
+		<object-name>FlightDeck</object-name>
+		<object-name>FlightDeckBulkhead</object-name>
+		<object-name>FlightDeckDoor</object-name>
+		<object-name>FuelCutoffL</object-name>
+		<object-name>FuelCutoffR</object-name>
+		<object-name>GlareShield</object-name>
+		<object-name>KnobABS</object-name>
+		<object-name>Lamp</object-name>
+		<object-name>LampABS</object-name>
+		<!--object-name>LampABSon</object-name-->
+		<object-name>LGLever</object-name>
+		<object-name>Moulding</object-name>
+		<object-name>Moulding.001</object-name>
+		<object-name>PanelMainC</object-name>
+		<object-name>PanelMainD</object-name>
+		<object-name>PanelMainL</object-name>
+		<object-name>PanelMainR</object-name>
+		<object-name>PedalCover</object-name>
+		<object-name>PedalL</object-name>
+		<object-name>PedalR</object-name>
+		<object-name>PedalRodL</object-name>
+		<object-name>PedalRodR</object-name>
+		<object-name>PedestalABS</object-name>
+		<object-name>PedestalBase</object-name>
+		<object-name>PedestalBase_0</object-name>
+		<object-name>PedestalBase_1</object-name>
+		<object-name>PedestalDrum</object-name>
+		<object-name>PedestalDrumFace</object-name>
+		<object-name>PneuLeverL</object-name>
+		<object-name>PneuLeverR</object-name>
+		<object-name>SeatCP</object-name>
+		<object-name>SeatCushionsCP</object-name>
+		<object-name>SeatCushionsP</object-name>
+		<object-name>SeatP</object-name>
+		<object-name>SpdBrakeLever</object-name>
+		<object-name>SwABS</object-name>
+		<object-name>ThrottleL</object-name>
+		<object-name>ThrottleR</object-name>
+		<object-name>ThrottleRevL</object-name>
+		<object-name>ThrottleRevR</object-name>
+		<object-name>XfeedLever</object-name>
+		<object-name>YokeBase</object-name>
+		<object-name>YokeColL</object-name>
+		<object-name>YokeColR</object-name>
+		<object-name>YokeL</object-name>
+		<object-name>YokeR</object-name>
+		<object-name>PitchTrim</object-name>
+		<object-name>AToffL</object-name>
+		<object-name>AToffR</object-name>
+		<object-name>TogaL</object-name>
+		<object-name>TogaR</object-name>
+		<emission>
+			<red>0.6</red>
+			<green>0.6</green>
+			<blue>0.6</blue>
+			<factor-prop>controls/lighting/panel-norm</factor-prop>
+		</emission>
+	</animation>
 	
-  <emission>
-    <red>0.6</red>
-    <green>0.6</green>
-    <blue>0.6</blue>
-    <factor-prop>controls/lighting/panel-norm</factor-prop>
-  </emission>
-</animation>
+	<!-- Autopilot Disc -->
+	<animation>
+		<type>pick</type>
+		<object-name>apoff</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.apDisc();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/switches/ap-yoke-button1</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/switches/ap-yoke-button1</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>apoff</object-name>
+		<property>controls/switches/ap-yoke-button1</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-0.001</dep></entry>
+			<entry><ind>1</ind><dep> 0.001</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>apoff2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.apDisc();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/switches/ap-yoke-button2</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+				<command>property-assign</command>
+					<property>controls/switches/ap-yoke-button2</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
 
+	<animation>
+		<type>translate</type>
+		<object-name>apoff2</object-name>
+		<property>controls/switches/ap-yoke-button2</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-0.001</dep></entry>
+			<entry><ind>1</ind><dep> 0.001</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>apoff2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.apDisc();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/switches/ap-yoke-button2</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+				<command>property-assign</command>
+					<property>controls/switches/ap-yoke-button2</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
 
-<animation>
-  <type>pick</type>
-  <object-name>apoff</object-name>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-	<binding>
-		<command>nasal</command>
-		<script>libraries.apPanel.apDisc();</script>
-	</binding>
-    <binding>
-        <command>property-assign</command>
-        <property>controls/switches/ap-yoke-button1</property>
-        <value>1</value>
-    </binding>
-    <mod-up>
-        <binding>
-            <command>property-assign</command>
-            <property>controls/switches/ap-yoke-button1</property>
-            <value>0</value>
-        </binding>
-    </mod-up>
-  </action>
-</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>apoff2</object-name>
+		<property>controls/switches/ap-yoke-button2</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-0.001</dep></entry>
+			<entry><ind>1</ind><dep> 0.001</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- ATS Disc -->
+	<animation>
+		<type>pick</type>
+		<object-name>AToffL</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.atDisc();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/switches/ats-lever1</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/switches/ats-lever1</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
 
-<animation>
-  <type>translate</type>
-  <object-name>apoff</object-name>
-  <property>controls/switches/ap-yoke-button1</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>-0.001</dep></entry>
-    <entry><ind>1</ind><dep> 0.001</dep></entry>
-  </interpolation>
-  <axis>
-    <x>-1</x>
-    <y>0</y>
-    <z>0</z>
-  </axis>
-</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>AToffL</object-name>
+		<property>controls/switches/ats-lever1</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0.000</dep></entry>
+			<entry><ind>1</ind><dep>0.002</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
-<animation>
-  <type>pick</type>
-  <object-name>apoff2</object-name>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-	<binding>
-		<command>nasal</command>
-		<script>libraries.apPanel.apDisc();</script>
-	</binding>
-    <binding>
-        <command>property-assign</command>
-        <property>controls/switches/ap-yoke-button2</property>
-        <value>1</value>
-    </binding>
-    <mod-up>
-        <binding>
-            <command>property-assign</command>
-            <property>controls/switches/ap-yoke-button2</property>
-            <value>0</value>
-        </binding>
-    </mod-up>
-  </action>
-</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>AToffR</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.atDisc();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/switches/ats-lever2</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/switches/ats-lever2</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
 
-<animation>
-  <type>translate</type>
-  <object-name>apoff2</object-name>
-  <property>controls/switches/ap-yoke-button2</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>-0.001</dep></entry>
-    <entry><ind>1</ind><dep> 0.001</dep></entry>
-  </interpolation>
-  <axis>
-    <x>-1</x>
-    <y>0</y>
-    <z>0</z>
-  </axis>
-</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>AToffR</object-name>
+		<property>controls/switches/ats-lever2</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 0.000</dep></entry>
+			<entry><ind>1</ind><dep>-0.002</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- TOGA buttons -->
+	<animation>
+		<type>pick</type>
+		<object-name>TogaL</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.toga();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/switches/toga-btn1</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/switches/toga-btn1</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
 
+	<animation>
+		<type>translate</type>
+		<object-name>TogaL</object-name>
+		<property>controls/switches/toga-btn1</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0.000</dep></entry>
+			<entry><ind>1</ind><dep>0.002</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>TogaR</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.toga();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/switches/toga-btn2</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/switches/toga-btn2</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
 
+	<animation>
+		<type>translate</type>
+		<object-name>TogaR</object-name>
+		<property>controls/switches/toga-btn2</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0.000</dep></entry>
+			<entry><ind>1</ind><dep>0.002</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- Sub-Model Imports -->
+	<model>
+		<name>OverheadPanel</name>
+		<path>Aircraft/MD-80/Models/MD-80_Overhead.xml</path>
+	</model>
 
-<!-- Sub-Model Imports -->
-
-<model>
-  <name>OverheadPanel</name>
-  <path>Aircraft/MD-80/Models/MD-80_Overhead.xml</path>
-</model>
-
-<model>
-  <name>Instruments</name>
-  <path>Aircraft/MD-80/Models/MD-80_Instruments.xml</path>
-</model>
-
-
-<!-- Level Of Detail -->
-
-<animation>
-  <type>range</type>
-  <object-name>Instruments</object-name>
-  <min-m>0</min-m>
-  <max-m>5</max-m>
-</animation>
-<animation>
-  <type>range</type>
-  <object-name>OverheadPanel</object-name>
-  <min-m>0</min-m>
-  <max-m>5</max-m>
-</animation>
-
-
-<animation>
-  <type>noshadow</type>
-  <object-name>SeatCushionsCP</object-name>
-  <object-name>SeatCushionsP</object-name>
-  <object-name>SeatCP</object-name>
-  <object-name>SeatP</object-name>
-  <object-name>PanelMainC</object-name>
-  <object-name>PanelMainL</object-name>
-  <object-name>PanelMainR</object-name>
-  <object-name>PanelMainD</object-name>
-  <object-name>FlightDeck</object-name>
-  <object-name>FDFloorFwd</object-name>
-  <object-name>FDFloorMetal</object-name>
-  <object-name>FDFloorCarpet</object-name>
-  <object-name>FlightDeckBulkhead</object-name>
-  <object-name>LGLever</object-name>
-  <object-name>FlapLever</object-name>
-  <object-name>ThrottleL</object-name>
-  <object-name>ThrottleR</object-name>
-  <object-name>ThrottleRevL</object-name>
-  <object-name>ThrottleRevL</object-name>
-  <object-name>YokeL</object-name>
-  <object-name>YokeR</object-name>
-  <object-name>YokeTrimL</object-name>
-  <object-name>YokeTrimR</object-name>
-  <object-name>YokeColL</object-name>
-  <object-name>YokeColR</object-name>
-  <object-name>YokeBase</object-name>
-  <object-name>XfeedLever</object-name>
-  <object-name>FuelCutoffL</object-name>
-  <object-name>FuelCutoffR</object-name>
-  <object-name>PneuLeverL</object-name>
-  <object-name>PneuLeverR</object-name>
-  <object-name>SwABS</object-name>
-  <object-name>KnobABS</object-name>
-  <object-name>LampABS</object-name>
-  <object-name>LampABSon</object-name>
-  <object-name>apoff</object-name>
-  <object-name>apoff2</object-name>
-  <object-name>PitchTrim</object-name>
-  <object-name>AToffL</object-name>
-  <object-name>AToffR</object-name>
-  <object-name>AToffL1</object-name>
-  <object-name>AToffR1</object-name>
-</animation>
-
-<!-- Throttle AT Off -->
-<animation>
-  <type>pick</type>
-  <object-name>AToffL</object-name>
-  <object-name>AToffL1</object-name>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>libraries.apPanel.atDisc();</script>
-    </binding>
-    <binding>
-        <command>property-assign</command>
-        <property>controls/switches/ats-lever1</property>
-        <value>1</value>
-    </binding>
-    <mod-up>
-        <binding>
-            <command>property-assign</command>
-            <property>controls/switches/ats-lever1</property>
-            <value>0</value>
-        </binding>
-    </mod-up>
-  </action>
-</animation>
-
-<animation>
-  <type>translate</type>
-  <object-name>AToffL</object-name>
-  <property>controls/switches/ats-lever1</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>    0</dep></entry>
-    <entry><ind>1</ind><dep>0.002</dep></entry>
-  </interpolation>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-
-<animation>
-  <type>pick</type>
-  <object-name>AToffR</object-name>
-  <object-name>AToffR1</object-name>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>libraries.apPanel.atDisc();</script>
-    </binding>
-    <binding>
-        <command>property-assign</command>
-        <property>controls/switches/ats-lever2</property>
-        <value>1</value>
-    </binding>
-    <mod-up>
-        <binding>
-            <command>property-assign</command>
-            <property>controls/switches/ats-lever2</property>
-            <value>0</value>
-        </binding>
-    </mod-up>
-  </action>
-</animation>
-
-<animation>
-  <type>translate</type>
-  <object-name>AToffR</object-name>
-  <property>controls/switches/ats-lever2</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>     0</dep></entry>
-    <entry><ind>1</ind><dep>-0.002</dep></entry>
-  </interpolation>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
+	<model>
+		<name>Instruments</name>
+		<path>Aircraft/MD-80/Models/MD-80_Instruments.xml</path>
+	</model>
+	
+	<!-- Level Of Detail -->
+	<animation>
+		<type>range</type>
+		<object-name>Instruments</object-name>
+		<min-m>0</min-m>
+		<max-m>5</max-m>
+	</animation>
+	<animation>
+		<type>range</type>
+		<object-name>OverheadPanel</object-name>
+		<min-m>0</min-m>
+		<max-m>5</max-m>
+	</animation>
 	
 	<!-- Panel glows -->
 	<animation>
@@ -445,7 +510,7 @@
 		<object-name>ThrottleL</object-name>
 		<object-name>ThrottleRevL</object-name>
 		<object-name>AToffL</object-name>
-		<object-name>AToffL1</object-name>
+		<object-name>TogaL</object-name>
 		<property>fdm/jsbsim/engine/throttle-lever[0]</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
@@ -467,7 +532,7 @@
 		<object-name>ThrottleR</object-name>
 		<object-name>ThrottleRevR</object-name>
 		<object-name>AToffR</object-name>
-		<object-name>AToffR1</object-name>
+		<object-name>TogaR</object-name>
 		<property>fdm/jsbsim/engine/throttle-lever[1]</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
