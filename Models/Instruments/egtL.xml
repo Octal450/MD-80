@@ -1,38 +1,39 @@
 <?xml version="1.0"?>
 
+<!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
 <PropertyList>
-
-<path>egt.ac</path>
-
-<animation>
-  <type>material</type>
-  <object-name>Face</object-name>
-  <object-name>Needle</object-name>
-<emission>
-    <red>0.3</red>
-    <green>0.3</green>
-    <blue>0.3</blue>
-
-  </emission>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>Needle</object-name>
-  <property>engines/engine[0]/egt-actual</property>
-  <interpolation>
-    <entry><ind>  0</ind><dep>  0</dep></entry>
-    <entry><ind>300</ind><dep> 60</dep></entry>
-    <entry><ind>350</ind><dep> 72</dep></entry>
-    <entry><ind>400</ind><dep> 95</dep></entry>
-    <entry><ind>800</ind><dep>275</dep></entry>
-  </interpolation>
-  <axis>
-    <x>-1</x>
-    <y>0</y>
-    <z>0</z>
-  </axis>
-</animation>
+	
+	<path>egt.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>Needle</object-name>
+		<emission>
+			<red>0.3</red>
+			<green>0.3</green>
+			<blue>0.3</blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle</object-name>
+		<property>engines/engine[0]/egt-actual</property>
+		<interpolation>
+			<entry><ind>  0</ind><dep>-45.0</dep></entry>
+			<entry><ind>300</ind><dep>  0.0</dep></entry>
+			<entry><ind>350</ind><dep>  7.5</dep></entry>
+			<entry><ind>400</ind><dep> 22.5</dep></entry>
+			<entry><ind>800</ind><dep>202.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
 </PropertyList>
-

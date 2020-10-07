@@ -616,7 +616,7 @@ OBJECT poly
 name "Face"
 data 12
 Cylinder.048
-texture "n1.rgb"
+texture "n1.jpg"
 crease 30.000000
 numvert 9
 0.000122 0.019477 -0.019477

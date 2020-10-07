@@ -553,6 +553,7 @@
 	<animation>
 		<type>pick</type>
 		<object-name>ThrottleL</object-name>
+		<object-name>ThrottleRevL</object-name>
 		<action>
 			<button>0</button>
 			<button>3</button>
@@ -583,6 +584,7 @@
 	<animation>
 		<type>pick</type>
 		<object-name>ThrottleR</object-name>
+		<object-name>ThrottleRevR</object-name>
 		<action>
 			<button>0</button>
 			<button>3</button>

@@ -1425,7 +1425,7 @@ name "Face"
 loc 0.000390647 0 0
 data 12
 Cylinder.048
-texture "epr.rgb"
+texture "epr.jpg"
 crease 30.000000
 numvert 9
 0.0001098 0.0175293 -0.0175293
