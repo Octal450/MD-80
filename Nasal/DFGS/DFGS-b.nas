@@ -104,13 +104,7 @@ var updateFma = {
 			Fma.thrA.setValue("RETD");
 			Fma.thrB.setValue("");
 		} else if (me.thrTemp == 0) {
-			if (Input.ktsMach.getBoolValue()) {
-				Fma.thrA.setValue("MACH");
-				Fma.thrB.setValue(sprintf("%3.0f", dfgs.Input.mach.getValue() * 1000));
-			} else {
-				Fma.thrA.setValue("SPD");
-				Fma.thrB.setValue(sprintf("%3.0f", dfgs.Input.kts.getValue()));
-			}
+			Athr.modeZeroCheck(); # Handled there cause its complicated...
 		}
 	},
 };
@@ -142,11 +136,7 @@ var Athr = {
 		me.retard = Output.athr.getBoolValue() and Output.vert.getValue() != 7 and pts.Position.gearAglFt.getValue() <= 50 and pts.SurfacePositions.flapPosNorm.getValue() >= 0.679 and me.triMode != 0 and me.triMode != 1 and me.triMode != 5;
 		
 		if (Output.thrModeTemp == 0) { # Update it as the updateFma only does it once
-			if (Input.ktsMach.getBoolValue()) {
-				Fma.thrB.setValue(sprintf("%3.0f", dfgs.Input.mach.getValue() * 1000));
-			} else {
-				Fma.thrB.setValue(sprintf("%3.0f", dfgs.Input.kts.getValue()));
-			}
+			me.modeZeroCheck();
 		}
 		
 		if (me.triMode == 0 or me.triMode == 5) {
@@ -160,6 +150,20 @@ var Athr = {
 				if (Output.athr.getBoolValue()) {
 					ITAF.athrMaster(0);
 				}
+			}
+		}
+	},
+	modeZeroCheck: func() {
+		if (pts.Fdm.JSBsim.Engine.atsCmdRawPid.getValue() <= systems.TRI.Limit.idleNorm.getValue() + 0.005) {
+			Fma.thrA.setValue("LOW");
+			Fma.thrB.setValue("LIM");
+		} else {
+			if (Input.ktsMach.getBoolValue()) {
+				Fma.thrA.setValue("MACH");
+				Fma.thrB.setValue(sprintf("%3.0f", dfgs.Input.mach.getValue() * 1000));
+			} else {
+				Fma.thrA.setValue("SPD");
+				Fma.thrB.setValue(sprintf("%3.0f", dfgs.Input.kts.getValue()));
 			}
 		}
 	},

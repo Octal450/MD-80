@@ -12,6 +12,15 @@
 		<input>/instrumentation/airspeed-indicator/indicated-speed-kt</input>
 		<reference>
 			<condition>
+				<equals>
+					<property>/it-autoflight/mode/vert</property>
+					<value>T/O CLB</value>
+				</equals>
+			</condition>
+			<property>/it-autoflight/settings/togaspd</property>
+		</reference>
+		<reference>
+			<condition>
 				<and>
 					<equals>
 						<property>/it-autoflight/output/vert</property>
