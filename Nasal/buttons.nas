@@ -133,7 +133,16 @@ var apPanel = {
 	},
 	ils: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			dfgs.Input.autoLand.setBoolValue(0);
 			dfgs.Input.vert.setValue(2);
+		}
+	},
+	autoLand: func() {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+			me.vertTemp = dfgs.Output.vert.getValue();
+			if (me.vertTemp == 2 or me.vertTemp == 6) {
+				dfgs.Input.autoLand.setBoolValue(1);
+			}
 		}
 	},
 	vsAdjust: func(d) { # Called the pitch wheel this so that one binding works on many planes

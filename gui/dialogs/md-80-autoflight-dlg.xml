@@ -750,9 +750,6 @@
 		<button>
 			<legend>AUTO LAND</legend>
 			<pref-width>80</pref-width>
-			<enable>
-				<property>/systems/unused/unused-button</property>
-			</enable>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apPanel.autoLand();</script>

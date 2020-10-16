@@ -280,6 +280,34 @@ var ITAF = {
 			me.checkAppr(1);
 		}
 		
+		# Autoland Logic
+		Input.autoLandTemp = Input.autoLand.getBoolValue();
+		if (Output.ap1Temp or Output.ap2Temp) {
+			if ((Output.vertTemp == 2 or Output.vertTemp == 6) and Input.autoLandTemp) {
+				Radio.radioSel = Input.activeAp.getValue() - 1;
+				Radio.locDeflTemp = Radio.locDefl[Radio.radioSel].getValue();
+				Radio.signalQualityTemp = Radio.signalQuality[Radio.radioSel].getValue();
+				Internal.canAutoland = (abs(Radio.locDeflTemp) <= 0.1 and Radio.locDeflTemp != 0 and Radio.signalQualityTemp >= 0.99) or Gear.wow0.getBoolValue();
+			} else {
+				Internal.canAutoland = 0;
+			}
+		} else {
+			Internal.canAutoland = 0;
+			if (Input.autoLandTemp) {
+				Input.autoLand.setBoolValue(0);
+			}
+		}
+		
+		if (Internal.canAutoland) {
+			
+		} else {
+			if (Output.vertTemp == 2) {
+				if (Position.gearAglFtTemp <= 100 and Position.gearAglFtTemp >= 5) {
+					me.updateVertText("NO FLARE");
+				}
+			}
+		}
+		
 		# Altitude Capture/Sync Logic
 		if (Output.vertTemp != 0) {
 			Internal.alt.setValue(Input.alt.getValue());
@@ -318,24 +346,6 @@ var ITAF = {
 			if (abs(Controls.aileron.getValue()) >= 0.2 or abs(Controls.elevator.getValue()) >= 0.2) {
 				me.ap1Master(0);
 				me.ap2Master(0);
-			}
-		}
-		
-		# Autoland Logic
-		Input.autoLandTemp = Input.autoLand.getBoolValue();
-		if (Output.ap1Temp or Output.ap2Temp) {
-			if ((Output.vertTemp == 2 or Output.vertTemp == 6) and Input.autoLandTemp) {
-				Radio.radioSel = Input.activeAp.getValue() - 1;
-				Radio.locDeflTemp = Radio.locDefl[Radio.radioSel].getValue();
-				Radio.signalQualityTemp = Radio.signalQuality[Radio.radioSel].getValue();
-				Internal.canAutoland = (abs(Radio.locDeflTemp) <= 0.1 and Radio.locDeflTemp != 0 and Radio.signalQualityTemp >= 0.99) or Gear.wow0.getBoolValue();
-			} else {
-				Internal.canAutoland = 0;
-			}
-		} else {
-			Internal.canAutoland = 0;
-			if (Input.autoLandTemp) {
-				Input.autoLand.setBoolValue(0);
 			}
 		}
 	},

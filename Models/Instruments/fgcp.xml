@@ -812,6 +812,19 @@
 		</action>
 	</animation>
 	
+	<animation>
+		<type>pick</type>
+		<object-name>AutoLandSel</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.autoLand();</script>
+			</binding>
+		</action>
+	</animation>
+	
 	<!-- Heading Digits -->
 	<animation>
 		<type>textranslate</type>

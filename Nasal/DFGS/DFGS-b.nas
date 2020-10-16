@@ -73,6 +73,9 @@ var updateFma = {
 		} else if (me.pitchText == "FPA") {
 			Fma.pitchA.setValue("");
 			Fma.pitchB.setValue("");
+		} else if (me.pitchText == "NO FLARE") {
+			Fma.pitchA.setValue("NO");
+			Fma.pitchB.setValue("FLAR");
 		} else if (me.pitchText == "FLARE") {
 			Fma.pitchA.setValue("FLAR");
 			Fma.pitchB.setValue("");
@@ -172,7 +175,7 @@ var Athr = {
 		
 		if (me.triMode == 0 or me.triMode == 5) {
 			me.toCheck();
-		} else if (!me.retard) {
+		} else if (!me.retard or dfgs.Output.vert.getValue() == 7) {
 			Output.thrMode.setValue(n);
 		}
 		updateFma.thr();
