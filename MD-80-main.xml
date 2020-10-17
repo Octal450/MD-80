@@ -874,10 +874,10 @@
 			<file>Aircraft/MD-80/Nasal/DFGS/DFGS-b.nas</file>
 		</dfgs>
 		<canvas_pfd>
-			<file>Aircraft/MD-80/Models/Instruments/PFD/pfd.nas</file>
+			<file>Aircraft/MD-80/Models/Instruments/PFD/PFD.nas</file>
 		</canvas_pfd>
 		<canvas_fma>
-			<file>Aircraft/MD-80/Models/Instruments/FMA/fma.nas</file>
+			<file>Aircraft/MD-80/Models/Instruments/FMA/FMA.nas</file>
 		</canvas_fma>
 		<autopush>
 			<file>Aircraft/MD-80/Nasal/Autopush/autopush.nas</file>
