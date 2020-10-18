@@ -199,7 +199,7 @@ var ITAF = {
 		}
 		Input.ap1.setBoolValue(0);
 		Input.ap2.setBoolValue(0);
-		Input.autoLand.setBoolValue(0);
+		me.updateAutoLand(0);
 		Input.athr.setBoolValue(0);
 		if (t != 1) {
 			Input.fd1.setBoolValue(0);
@@ -240,16 +240,6 @@ var ITAF = {
 		Output.vertTemp = Output.vert.getValue();
 		Output.ap1Temp = Output.ap1.getBoolValue();
 		Output.ap2Temp = Output.ap2.getBoolValue();
-		
-		# Kill Autoland if the system should not autoland without AP, and AP is off
-		#if (!Output.ap1Temp and !Output.ap2Temp) {
-		#	if (Output.latTemp == 4) {
-		#		me.activateLoc();
-		#	}
-		#	if (Output.vertTemp == 6) {
-		#		me.activateGs();
-		#	}
-		#}
 		
 		# VOR/ILS Revision
 		if (Output.latTemp == 2 or Output.latTemp == 4 or Output.vertTemp == 2 or Output.vertTemp == 6) {
@@ -294,17 +284,47 @@ var ITAF = {
 		} else {
 			Internal.canAutoland = 0;
 			if (Input.autoLandTemp) {
-				Input.autoLand.setBoolValue(0);
+				me.updateAutoLand(0);
 			}
 		}
 		
 		if (Internal.canAutoland) {
-			
+			if (Output.vertTemp == 2) {
+				if (Position.gearAglFtTemp <= 1500 and Position.gearAglFtTemp >= 5) {
+					if (Output.latTemp != 4 and Text.lat.getValue() != "LAND") {
+						me.updateLatText("LAND");
+						print("e");
+					}
+					if (Text.vert.getValue() != "LAND") {
+						me.updateVertText("LAND");
+					}
+				}
+				if (Position.gearAglFtTemp <= 100 and Position.gearAglFtTemp >= 5) {
+					me.setVertMode(6);
+				}
+			} else if (Output.vertTemp == 6) {
+				if (Position.gearAglFtTemp <= 50 and Position.gearAglFtTemp >= 5 and Text.vert.getValue() != "FLARE") {
+					me.updateVertText("FLARE");
+				}
+				if (Gear.wow1Temp and Gear.wow2Temp and Text.vert.getValue() != "ROLLOUT") {
+					me.updateLatText("RLOU");
+					me.updateVertText("ROLLOUT");
+				}
+			}
+			if (Output.latTemp == 2) { # After pitch or else the cockpit indications will be wonky
+				if (Position.gearAglFtTemp <= 150) {
+					me.setLatMode(4);
+				}
+			}
 		} else {
 			if (Output.vertTemp == 2) {
 				if (Position.gearAglFtTemp <= 100 and Position.gearAglFtTemp >= 5) {
 					me.updateVertText("NO FLARE");
 				}
+			}
+			if (Output.latTemp == 4 or Output.vertTemp == 6) {
+				me.activateLoc();
+				me.activateGs();
 			}
 		}
 		
@@ -572,7 +592,7 @@ var ITAF = {
 			me.updateVertText("ALT HLD");
 			me.syncAlt();
 			Athr.setMode(0); # Thrust
-			Input.autoLand.setBoolValue(0);
+			me.updateAutoLand(0);
 		} else if (n == 1) { # V/S
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
@@ -581,7 +601,7 @@ var ITAF = {
 			me.updateVertText("V/S");
 			me.syncVs();
 			Athr.setMode(0); # Thrust
-			Input.autoLand.setBoolValue(0);
+			me.updateAutoLand(0);
 		} else if (n == 2) { # G/S
 			me.updateLnavArm(0);
 			me.checkLoc(0);
@@ -594,7 +614,7 @@ var ITAF = {
 			Internal.altCaptureActive = 1;
 			me.updateVertText("ALT CAP");
 			Athr.setMode(0); # Thrust
-			Input.autoLand.setBoolValue(0);
+			me.updateAutoLand(0);
 		} else if (n == 4) { # FLCH
 			me.updateApprArm(0);
 			Internal.altCaptureActive = 0;
@@ -607,7 +627,7 @@ var ITAF = {
 			} else {
 				me.syncKtsFlch();
 			}
-			Input.autoLand.setBoolValue(0);
+			me.updateAutoLand(0);
 		} else if (n == 5) { # FPA
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
@@ -616,14 +636,14 @@ var ITAF = {
 			me.updateVertText("FPA");
 			me.syncFpa();
 			Athr.setMode(0); # Thrust
-			Input.autoLand.setBoolValue(0);
+			me.updateAutoLand(0);
 		} else if (n == 6) { # FLARE/ROLLOUT
 			Input.altArmed.setBoolValue(0);
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
 			me.updateApprArm(0);
 			Output.vert.setValue(6);
-			me.updateVertText("G/S");
+			me.updateVertText("LAND");
 			Athr.setMode(0); # Thrust
 		} else if (n == 7) { # T/O CLB or G/A CLB, text is set by TOGA selector
 			Internal.flchActive = 0;
@@ -632,7 +652,7 @@ var ITAF = {
 			Output.vert.setValue(7);
 			Athr.setMode(3); # Clamp
 			Input.ktsMachFlch.setBoolValue(0);
-			Input.autoLand.setBoolValue(0);
+			me.updateAutoLand(0);
 		}
 	},
 	activateLnav: func() {
@@ -800,6 +820,18 @@ var ITAF = {
 	},
 	updateApprArm: func(n) {
 		Output.apprArm.setBoolValue(n);
+		updateFma.arm();
+	},
+	updateAutoLand: func(n) {
+		Input.autoLand.setBoolValue(n);
+		if (n == 0) {
+			if (Text.lat.getValue() == "LAND") {
+				me.updateLatText("LOC");
+			}
+			if (Text.vert.getValue() == "LAND") {
+				me.updateVertText("G/S");
+			}
+		}
 		updateFma.arm();
 	},
 };

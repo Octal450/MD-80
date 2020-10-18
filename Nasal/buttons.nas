@@ -133,7 +133,7 @@ var apPanel = {
 	},
 	ils: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
-			dfgs.Input.autoLand.setBoolValue(0);
+			dfgs.ITAF.updateAutoLand(0);
 			dfgs.Input.vert.setValue(2);
 		}
 	},
@@ -141,7 +141,7 @@ var apPanel = {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			me.vertTemp = dfgs.Output.vert.getValue();
 			if (me.vertTemp == 2 or me.vertTemp == 6) {
-				dfgs.Input.autoLand.setBoolValue(1);
+				dfgs.ITAF.updateAutoLand(1);
 			}
 		}
 	},

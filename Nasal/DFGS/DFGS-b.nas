@@ -31,6 +31,9 @@ var updateFma = {
 		} else if (me.rollText == "LOC") { # Needs logic for AUT LND
 			Fma.rollA.setValue("LOC");
 			Fma.rollB.setValue("TRK"); # Needs logic for CAP/TRK
+		} else if (me.rollText == "LAND") {
+			Fma.rollA.setValue("AUT");
+			Fma.rollB.setValue("LND");
 		} else if (me.rollText == "ALGN") {
 			Fma.rollA.setValue("ALN");
 			Fma.rollB.setValue("");
@@ -73,6 +76,10 @@ var updateFma = {
 		} else if (me.pitchText == "FPA") {
 			Fma.pitchA.setValue("");
 			Fma.pitchB.setValue("");
+		} else if (me.pitchText == "LAND") {
+			Fma.pitchA.setValue("AUT");
+			Fma.pitchB.setValue("LND");
+			me.arm(); # Clear LND
 		} else if (me.pitchText == "NO FLARE") {
 			Fma.pitchA.setValue("NO");
 			Fma.pitchB.setValue("FLAR");
@@ -85,7 +92,9 @@ var updateFma = {
 		}
 	},
 	arm: func() {
-		if (Output.apprArm.getBoolValue()) {
+		if (Input.autoLand.getBoolValue() and Text.vert.getValue() != "LAND") {
+			Fma.armA.setValue("LND");
+		} else if (Output.apprArm.getBoolValue()) {
 			Fma.armA.setValue("ILS");
 		} else if (Output.locArm.getBoolValue()) {
 			Fma.armA.setValue("LOC");

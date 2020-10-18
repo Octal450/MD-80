@@ -130,7 +130,7 @@
 		
 		<switch name="fcs-actual/rudder/pedal-switch">
 			<default value="/controls/flight/rudder"/>
-			<test value="dfgs/yaw/afs-cmd">
+			<test value="dfgs/afs/yaw-cmd">
 				dfgs/yaw/autoland-switch eq 1
 			</test>
 		</switch>
