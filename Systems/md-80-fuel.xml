@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-80 Fuel System -->
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
+<system name="MD-80: Fuel">
+	
+	<channel name="Main Fuel Logic" execrate="8">
+		
+		<!-- Tank Pumps -->
+		<switch name="/systems/fuel/aft-pump-l">
+			<default value="0"/>
+			<test logic="AND" value="1"> <!-- Power source is guess, unknown -->
+				/systems/electrical/bus/ac-l ge 110
+				/controls/fuel/switches/pump-aft-l eq 1
+				/systems/failures/fuel/pumps-l ne 1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/fuel/aft-pump-l-psi-cmd">
+			<input>/systems/fuel/aft-pump-l</input>
+			<gain>15</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/fuel/aft-pump-l-psi">
+			<input>/systems/fuel/aft-pump-l-psi-cmd</input>
+			<rate_limit sense="incr">5</rate_limit>
+			<rate_limit sense="decr">10</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/fuel/fwd-pump-l">
+			<default value="0"/>
+			<test logic="AND" value="1"> <!-- Power source is guess, unknown -->
+				/systems/electrical/bus/ac-l ge 110
+				/controls/fuel/switches/pump-fwd-l eq 1
+				/systems/failures/fuel/pumps-l ne 1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/fuel/fwd-pump-l-psi-cmd">
+			<input>/systems/fuel/fwd-pump-l</input>
+			<gain>15</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/fuel/fwd-pump-l-psi">
+			<input>/systems/fuel/fwd-pump-l-psi-cmd</input>
+			<rate_limit sense="incr">5</rate_limit>
+			<rate_limit sense="decr">10</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/fuel/aft-pump-c">
+			<default value="0"/>
+			<test logic="AND" value="1"> <!-- Power source is guess, unknown -->
+				/systems/electrical/bus/ac-l ge 110
+				/controls/fuel/switches/pump-aft-c eq 1
+				/systems/failures/fuel/pumps-c ne 1
+			</test>
+			<test logic="AND" value="1"> <!-- Power source is guess, unknown -->
+				/systems/electrical/bus/ac-r ge 110
+				/controls/fuel/switches/pump-aft-c eq 1
+				/systems/failures/fuel/pumps-c ne 1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/fuel/aft-pump-c-psi-cmd">
+			<input>/systems/fuel/aft-pump-c</input>
+			<gain>15</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/fuel/aft-pump-c-psi">
+			<input>/systems/fuel/aft-pump-c-psi-cmd</input>
+			<rate_limit sense="incr">5</rate_limit>
+			<rate_limit sense="decr">10</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/fuel/fwd-pump-c">
+			<default value="0"/>
+			<test logic="AND" value="1"> <!-- Power source is guess, unknown -->
+				/systems/electrical/bus/ac-l ge 110
+				/controls/fuel/switches/pump-fwd-c eq 1
+				/systems/failures/fuel/pumps-c ne 1
+			</test>
+			<test logic="AND" value="1"> <!-- Power source is guess, unknown -->
+				/systems/electrical/bus/ac-r ge 110
+				/controls/fuel/switches/pump-fwd-c eq 1
+				/systems/failures/fuel/pumps-c ne 1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/fuel/fwd-pump-c-psi-cmd">
+			<input>/systems/fuel/fwd-pump-c</input>
+			<gain>15</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/fuel/fwd-pump-c-psi">
+			<input>/systems/fuel/fwd-pump-c-psi-cmd</input>
+			<rate_limit sense="incr">5</rate_limit>
+			<rate_limit sense="decr">10</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/fuel/aft-pump-r">
+			<default value="0"/>
+			<test logic="AND" value="1"> <!-- Power source is guess, unknown -->
+				/systems/electrical/bus/ac-r ge 110
+				/controls/fuel/switches/pump-aft-r eq 1
+				/systems/failures/fuel/pumps-r ne 1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/fuel/aft-pump-r-psi-cmd">
+			<input>/systems/fuel/aft-pump-r</input>
+			<gain>15</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/fuel/aft-pump-r-psi">
+			<input>/systems/fuel/aft-pump-r-psi-cmd</input>
+			<rate_limit sense="incr">5</rate_limit>
+			<rate_limit sense="decr">10</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/fuel/fwd-pump-r">
+			<default value="0"/>
+			<test logic="AND" value="1"> <!-- Power source is guess, unknown -->
+				/systems/electrical/bus/ac-r ge 110
+				/controls/fuel/switches/pump-fwd-r eq 1
+				/systems/failures/fuel/pumps-r ne 1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/fuel/fwd-pump-r-psi-cmd">
+			<input>/systems/fuel/fwd-pump-r</input>
+			<gain>15</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/fuel/fwd-pump-r-psi">
+			<input>/systems/fuel/fwd-pump-r-psi-cmd</input>
+			<rate_limit sense="incr">5</rate_limit>
+			<rate_limit sense="decr">10</rate_limit>
+		</actuator>
+		
+		<!-- Tank Feed Demand -->
+		<!-- No gravity feed since the -80s engines are up from the wing -->
+		<switch name="/systems/fuel/feed-l">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/fuel/aft-pump-l eq 1
+				/systems/fuel/fwd-pump-l eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/fuel/feed-c">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/fuel/aft-pump-c eq 1
+				/systems/fuel/fwd-pump-c eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/fuel/feed-r">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/fuel/aft-pump-r eq 1
+				/systems/fuel/fwd-pump-r eq 1
+			</test>
+		</switch>
+	
+	</channel>
+	
+	<!--
+		0 - Tank Left
+		1 - Tank Center
+		2 - Tank Right
+		3 - Engine 1 Pipe
+		4 - Engine 2 Pipe
+		5 - APU Pipe
+	-->
+	
+	<channel name="JSB Fuel System">
+		
+		<switch name="/systems/fuel/center-feeding">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/fuel/feed-c eq 1
+				propulsion/tank[1]/contents-lbs gt 10
+			</test>
+		</switch>
+		
+		<!-- Main Tanks to Engine 1 Pipe -->
+		<switch name="/systems/fuel/internal/tank-c-eng-1">
+			<default value="0"/>
+			<test logic="AND" value="9">
+				/systems/fuel/center-feeding eq 1
+				propulsion/tank[3]/contents-lbs lt 9
+			</test>
+		</switch>
+		
+		<switch name="/systems/fuel/internal/tank-l-eng-1">
+			<default value="0"/>
+			<test logic="AND" value="9">
+				/systems/fuel/feed-l eq 1
+				/systems/fuel/center-feeding ne 1
+				propulsion/tank[0]/contents-lbs gt 10
+				propulsion/tank[3]/contents-lbs lt 9
+			</test>
+		</switch>
+		
+		<switch name="/systems/fuel/internal/tank-r-eng-1">
+			<default value="0"/>
+			<test logic="AND" value="9">
+				/systems/fuel/feed-r eq 1
+				/controls/fuel/switches/x-feed eq 1
+				/systems/fuel/center-feeding ne 1
+				propulsion/tank[2]/contents-lbs gt 10
+				propulsion/tank[3]/contents-lbs lt 9
+			</test>
+		</switch>
+		
+		<!-- Main Tanks to Engine 2 Pipe -->
+		<switch name="/systems/fuel/internal/tank-c-eng-2">
+			<default value="0"/>
+			<test logic="AND" value="9">
+				/systems/fuel/center-feeding eq 1
+				propulsion/tank[4]/contents-lbs lt 9
+			</test>
+		</switch>
+		
+		<switch name="/systems/fuel/internal/tank-l-eng-2">
+			<default value="0"/>
+			<test logic="AND" value="9">
+				/systems/fuel/feed-l eq 1
+				/controls/fuel/switches/x-feed eq 1
+				/systems/fuel/center-feeding ne 1
+				propulsion/tank[0]/contents-lbs gt 10
+				propulsion/tank[4]/contents-lbs lt 9
+			</test>
+		</switch>
+		
+		<switch name="/systems/fuel/internal/tank-r-eng-2">
+			<default value="0"/>
+			<test logic="AND" value="9">
+				/systems/fuel/feed-r eq 1
+				/systems/fuel/center-feeding ne 1
+				propulsion/tank[2]/contents-lbs gt 10
+				propulsion/tank[4]/contents-lbs lt 9
+			</test>
+		</switch>
+		
+		<!-- Tank Final Flow Rates -->
+		<summer name="/systems/fuel/internal/tank-l-flow-rate">
+			<input>-/systems/fuel/internal/tank-l-eng-1</input>
+			<input>-/systems/fuel/internal/tank-l-eng-2</input>
+			<output>propulsion/tank[0]/external-flow-rate-pps</output>
+		</summer>
+		
+		<summer name="/systems/fuel/internal/tank-c-flow-rate">
+			<input>-/systems/fuel/internal/tank-c-eng-1</input>
+			<input>-/systems/fuel/internal/tank-c-eng-2</input>
+			<output>propulsion/tank[1]/external-flow-rate-pps</output>
+		</summer>
+		
+		<summer name="/systems/fuel/internal/tank-r-flow-rate">
+			<input>-/systems/fuel/internal/tank-r-eng-1</input>
+			<input>-/systems/fuel/internal/tank-r-eng-2</input>
+			<output>propulsion/tank[2]/external-flow-rate-pps</output>
+		</summer>
+		
+		<!-- Pipe Final Flow Rates -->
+		<summer name="/systems/fuel/internal/eng-1-flow-rate">
+			<input>/systems/fuel/internal/tank-l-eng-1</input>
+			<input>/systems/fuel/internal/tank-r-eng-1</input>
+			<input>/systems/fuel/internal/tank-c-eng-1</input>
+			<output>propulsion/tank[3]/external-flow-rate-pps</output>
+		</summer>
+		
+		<summer name="/systems/fuel/internal/eng-2-flow-rate">
+			<input>/systems/fuel/internal/tank-c-eng-2</input>
+			<input>/systems/fuel/internal/tank-l-eng-2</input>
+			<input>/systems/fuel/internal/tank-r-eng-2</input>
+			<output>propulsion/tank[4]/external-flow-rate-pps</output>
+		</summer>
+	
+	</channel>
+
+</system>

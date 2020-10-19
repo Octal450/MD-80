@@ -37,12 +37,20 @@
 						<binding>
 							<command>nasal</command>
 							<script>
-								setprop("/controls/engines/engine[0]/cutoff", 0);
-								setprop("/controls/engines/engine[1]/cutoff", 0);
-								setprop("/controls/engines/engine[0]/starter", 0);
-								setprop("/controls/engines/engine[1]/starter", 0);
-								setprop("/fdm/jsbsim/propulsion/set-running", 0);
-								setprop("/fdm/jsbsim/propulsion/set-running", 1);
+								setprop("/controls/fuel/switches/pump-aft-l", 1);
+								setprop("/controls/fuel/switches/pump-aft-r", 1);
+								setprop("/controls/fuel/switches/pump-fwd-l", 1);
+								setprop("/controls/fuel/switches/pump-fwd-r", 1);
+								settimer(func() {
+									setprop("/controls/engines/engine[0]/cutoff", 0);
+									setprop("/controls/engines/engine[1]/cutoff", 0);
+									setprop("/controls/engines/engine[0]/starter", 0);
+									setprop("/controls/engines/engine[1]/starter", 0);
+									setprop("/fdm/jsbsim/propulsion/set-running", 0);
+									setprop("/fdm/jsbsim/propulsion/set-running", 1);
+									setprop("/engines/engine[0]/state", 3);
+									setprop("/engines/engine[1]/state", 3);
+								}, 0.5);
 							</script>
 						</binding>
 					</item>
@@ -285,14 +293,14 @@
 	<controls n="0">
 		<engines n="0">
 			<engine n="0">
-				<cutoff type="bool">0</cutoff>
-				<cutoff-switch type="bool">0</cutoff-switch>
+				<cutoff type="bool">1</cutoff>
+				<cutoff-switch type="bool">1</cutoff-switch>
 				<reverse-cmd type="bool">0</reverse-cmd>
 				<reverse-lever type="double">0</reverse-lever>
 			</engine>
 			<engine n="1">
-				<cutoff type="bool">0</cutoff>
-				<cutoff-switch type="bool">0</cutoff-switch>
+				<cutoff type="bool">1</cutoff>
+				<cutoff-switch type="bool">1</cutoff-switch>
 				<reverse-cmd type="bool">0</reverse-cmd>
 				<reverse-lever type="double">0</reverse-lever>
 			</engine>
@@ -308,6 +316,17 @@
 			<rudder-pwr type="bool">1</rudder-pwr>
 			<speedbrake-arm type="bool">0</speedbrake-arm>
 		</flight>
+		<fuel n="0">
+			<switches n="0">
+				<pump-aft-c type="bool">0</pump-aft-c>
+				<pump-aft-l type="bool">0</pump-aft-l>
+				<pump-aft-r type="bool">0</pump-aft-r>
+				<pump-fwd-c type="bool">0</pump-fwd-c>
+				<pump-fwd-l type="bool">0</pump-fwd-l>
+				<pump-fwd-r type="bool">0</pump-fwd-r>
+				<x-feed type="bool">0</x-feed>
+			</switches>
+		</fuel>
 		<gear n="0">
 			<brake-parking type="bool">0</brake-parking>
 			<tiller-cmd-norm type="double">0</tiller-cmd-norm>
@@ -352,8 +371,8 @@
 			<n2-actual type="double">0</n2-actual>
 			<on-fire type="bool">0</on-fire>
 			<reverser-pos-norm type="double">0</reverser-pos-norm>
-			<running type="bool">1</running>
-			<state type="int">3</state>
+			<running type="bool">0</running>
+			<state type="int">0</state>
 		</engine>
 		<engine n="1">
 			<egt-actual type="double">0</egt-actual>
@@ -366,8 +385,8 @@
 			<n2-actual type="double">0</n2-actual>
 			<on-fire type="bool">0</on-fire>
 			<reverser-pos-norm type="double">0</reverser-pos-norm>
-			<running type="bool">1</running>
-			<state type="int">3</state>
+			<running type="bool">0</running>
+			<state type="int">0</state>
 		</engine>
 	</engines>
 	
@@ -859,6 +878,14 @@
 				<seperate-tiller-axis type="bool">0</seperate-tiller-axis>
 			</options>
 		</acconfig>
+		<failures n="0">
+			<fuel n="0">
+				<pump-start type="bool">0</pump-start>
+				<pumps-c type="bool">0</pumps-c>
+				<pumps-l type="bool">0</pumps-l>
+				<pumps-r type="bool">0</pumps-r>
+			</fuel>
+		</failures>
 	</systems>
 	
 	<nasal n="0">

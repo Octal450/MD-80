@@ -26,7 +26,7 @@
 				<pitch>2.2</pitch>
 				<yaw>0</yaw>
 			</orient>
-			<feed>0</feed> <!-- 3 after fuel system -->
+			<feed>3</feed>
 			<thruster file="direct">
 				<location unit="M">
 					<x>23.902</x>
@@ -52,7 +52,7 @@
 				<pitch>2.2</pitch>
 				<yaw>0</yaw>
 			</orient>
-			<feed>2</feed> <!-- 4 after fuel system -->
+			<feed>4</feed>
 			<thruster file="direct">
 				<location unit="M">
 					<x>23.902</x>
@@ -144,8 +144,8 @@
 	
 	<system file="md-80-libraries"/>
 	<system file="md-80-electrical"/>
-	<!--system file="md-80-fuel"/>
-	<system file="md-80-hydraulics"/>
+	<system file="md-80-fuel"/>
+	<!--system file="md-80-hydraulics"/>
 	<system file="md-80-pneumatics"/-->
 	<system file="md-80-dfgs"/>
 	<system file="md-80-fcs"/>

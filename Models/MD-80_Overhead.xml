@@ -653,7 +653,7 @@
 <animation>
   <type>rotate</type>
   <object-name>SwPumpLaft</object-name>
-  <property>controls/fuel/switches/left-aft</property>
+  <property>controls/fuel/switches/pump-aft-l</property>
   <interpolation>
     <entry><ind>0</ind><dep> 0</dep></entry>
     <entry><ind>1</ind><dep>50</dep></entry>
@@ -677,7 +677,7 @@
     <repeatable>false</repeatable>
     <binding>
       <command>property-toggle</command>
-      <property>controls/fuel/switches/left-aft</property>
+      <property>controls/fuel/switches/pump-aft-l</property>
     </binding>
   </action>
 </animation>
@@ -685,7 +685,7 @@
 <animation>
   <type>rotate</type>
   <object-name>SwPumpLfwd</object-name>
-  <property>controls/fuel/switches/left-fwd</property>
+  <property>controls/fuel/switches/pump-fwd-l</property>
   <interpolation>
     <entry><ind>0</ind><dep> 0</dep></entry>
     <entry><ind>1</ind><dep>50</dep></entry>
@@ -709,20 +709,15 @@
     <repeatable>false</repeatable>
     <binding>
       <command>property-toggle</command>
-      <property>controls/fuel/switches/left-fwd</property>
+      <property>controls/fuel/switches/pump-fwd-l</property>
     </binding>
-    <binding>
-	 <command>property-assign</command>
-	 <property>systems/fuel/tank[0]/fuel-press</property>
-	 <value>1</value>
-     </binding>
   </action>
 </animation>
 
 <animation>
   <type>rotate</type>
   <object-name>SwPumpRaft</object-name>
-  <property>controls/fuel/switches/right-aft</property>
+  <property>controls/fuel/switches/pump-aft-r</property>
   <interpolation>
     <entry><ind>0</ind><dep> 0</dep></entry>
     <entry><ind>1</ind><dep>50</dep></entry>
@@ -746,7 +741,7 @@
     <repeatable>false</repeatable>
     <binding>
       <command>property-toggle</command>
-      <property>controls/fuel/switches/right-aft</property>
+      <property>controls/fuel/switches/pump-aft-r</property>
     </binding>
   </action>
 </animation>
@@ -754,7 +749,7 @@
 <animation>
   <type>rotate</type>
   <object-name>SwPumpRfwd</object-name>
-  <property>controls/fuel/switches/right-fwd</property>
+  <property>controls/fuel/switches/pump-fwd-r</property>
   <interpolation>
     <entry><ind>0</ind><dep> 0</dep></entry>
     <entry><ind>1</ind><dep>50</dep></entry>
@@ -778,20 +773,15 @@
     <repeatable>false</repeatable>
     <binding>
       <command>property-toggle</command>
-      <property>controls/fuel/switches/right-fwd</property>
+      <property>controls/fuel/switches/pump-fwd-r</property>
     </binding>
-    <binding>
-	 <command>property-assign</command>
-	 <property>systems/fuel/tank[1]/fuel-press</property>
-	 <value>1</value>
-     </binding>
   </action>
 </animation>
 
 <animation>
   <type>rotate</type>
   <object-name>SwPumpCaft</object-name>
-  <property>controls/fuel/switches/center-aft</property>
+  <property>controls/fuel/switches/pump-aft-c</property>
   <interpolation>
     <entry><ind>0</ind><dep> 0</dep></entry>
     <entry><ind>1</ind><dep>50</dep></entry>
@@ -815,7 +805,7 @@
     <repeatable>false</repeatable>
     <binding>
       <command>property-toggle</command>
-      <property>controls/fuel/switches/center-aft</property>
+      <property>controls/fuel/switches/pump-aft-c</property>
     </binding>
   </action>
 </animation>
@@ -823,7 +813,7 @@
 <animation>
   <type>rotate</type>
   <object-name>SwPumpCfwd</object-name>
-  <property>controls/fuel/switches/center-fwd</property>
+  <property>controls/fuel/switches/pump-fwd-c</property>
   <interpolation>
     <entry><ind>0</ind><dep> 0</dep></entry>
     <entry><ind>1</ind><dep>50</dep></entry>
@@ -847,11 +837,9 @@
     <repeatable>false</repeatable>
     <binding>
       <command>property-toggle</command>
-      <property>controls/fuel/switches/center-fwd</property>
+      <property>controls/fuel/switches/pump-fwd-c</property>
     </binding>
   </action>
 </animation>
 
 </PropertyList>
-
-
