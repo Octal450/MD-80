@@ -7,6 +7,7 @@
 	
 	<property value="0">ice/wing</property>
 	<property value="0">tune</property>
+	<property value="0">tune1</property>
 	
 	<function name="aero/function/kCLge">
 		<description>Lift factor due to ground effect</description>
@@ -116,10 +117,10 @@
 					<independentVar lookup="row">fcs/flap-pos-deg</independentVar>
 					<tableData>
 						 0  0.0000
-						11  0.1610
-						15  0.2227
-						28  0.3865
-						40  0.5884
+						11  0.1706
+						15  0.2276
+						28  0.4951
+						40  0.6701
 					</tableData>
 				</table>
 			</product>
@@ -135,8 +136,8 @@
 					<independentVar lookup="row">fcs/slat-pos-deg</independentVar>
 					<tableData>
 						 0  0.0000
-						10  0.1445
-						20  0.2036
+						10  0.1394
+						20  0.2612
 					</tableData>
 				</table>
 			</product>
