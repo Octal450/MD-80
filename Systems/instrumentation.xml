@@ -103,26 +103,23 @@
 	</filter>
 	
 	<filter>
-		<name>Mach Indicator</name>
+		<name>Mach x1000 Indicator</name>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input>
+		<input> <!-- Fix when you add 3 digits to the ASI, right now only 2 -->
 			<expression>
-				<div>
-					<floor>
-						<sum>
-							<product>
-								<property>/instrumentation/airspeed-indicator/indicated-mach</property>
-								<value>100</value>
-							</product>
-							<value>0.5</value>
-						</sum>
-					</floor>
-					<value>100</value>
-				</div>
+				<floor>
+					<sum>
+						<product>
+							<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+							<value>100</value>
+						</product>
+						<value>0.5</value>
+					</sum>
+				</floor>
 			</expression>
 		</input>
-		<output>/instrumentation/airspeed-indicator/indicated-mach-fix</output>
+		<output>/instrumentation/airspeed-indicator/indicated-mach-x1000</output>
 	</filter>
 	
 	<filter>

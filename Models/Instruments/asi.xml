@@ -42,9 +42,9 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>Mach1</object-name>
-		<property>instrumentation/airspeed-indicator/indicated-mach-fix</property>
-		<factor>1</factor>
-		<step>0.1</step>
+		<property>instrumentation/airspeed-indicator/indicated-mach-x1000</property>
+		<factor>0.01</factor>
+		<step>10</step>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -55,9 +55,9 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>Mach2</object-name>
-		<property>instrumentation/airspeed-indicator/indicated-mach-fix</property>
-		<factor>10</factor>
-		<step>0.01</step>
+		<property>instrumentation/airspeed-indicator/indicated-mach-x1000</property>
+		<factor>0.1</factor>
+		<step>1</step>
 		<axis>
 			<x>0</x>
 			<y>1</y>
