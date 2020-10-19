@@ -799,6 +799,14 @@
 			<serviceable type="bool">true</serviceable>
 			<volume type="double">0</volume>
 		</nav>
+		<rmi n="0">
+			<vor-adf-1 type="bool">1</vor-adf-1>
+			<vor-adf-2 type="bool">1</vor-adf-2>
+		</rmi>
+		<rmi n="1">
+			<vor-adf-1 type="bool">1</vor-adf-1>
+			<vor-adf-2 type="bool">1</vor-adf-2>
+		</rmi>
 		<tcas>
 			<inputs>
 				<mode type="int">3</mode>

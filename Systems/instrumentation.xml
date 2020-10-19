@@ -137,5 +137,219 @@
 		<input>instrumentation/nav[1]/frequencies/selected-mhz-fmt</input>
 		<output>/instrumentation/nav[1]/frequencies/selected-mhz-fmt-x100</output>
 	</filter>
+	
+	<!-- RMI -->
+	<filter>
+		<name>RMI 1 Heading</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<enable>
+			<condition>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/dc-l</property>
+					<value>25</value>
+				</greater-than-equals>
+			</condition>
+		</enable>
+		<input>/orientation/heading-magnetic-deg</input>
+		<output>/instrumentation/rmi[0]/heading</output>
+	</filter>
+	
+	<filter>
+		<name>RMI 1 Needle 1</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<less-than>
+					<property>/systems/electrical/bus/dc-l</property>
+					<value>25</value>
+				</less-than>
+			</condition>
+			<value>0</value>
+		</input>
+		<input>
+			<condition>
+				<property>/instrumentation/rmi[0]/vor-adf-1</property>
+			</condition>
+			<property>/instrumentation/nav[0]/heading-deg</property>
+			<offset>
+				<property>/orientation/heading-deg</property>
+				<scale>-1.0</scale>
+			</offset>
+		</input>
+		<input>/instrumentation/adf[0]/indicated-bearing-deg</input>
+		<output>/instrumentation/rmi[0]/needle-1</output>
+		<period>
+			<min>-180</min>
+			<max>180</max>
+		</period>
+	</filter>
+	
+	<filter>
+		<name>RMI 1 Needle 2</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<less-than>
+					<property>/systems/electrical/bus/dc-l</property>
+					<value>25</value>
+				</less-than>
+			</condition>
+			<value>0</value>
+		</input>
+		<input>
+			<condition>
+				<property>/instrumentation/rmi[0]/vor-adf-2</property>
+			</condition>
+			<property>/instrumentation/nav[1]/heading-deg</property>
+			<offset>
+				<property>/orientation/heading-deg</property>
+				<scale>-1.0</scale>
+			</offset>
+		</input>
+		<input>/instrumentation/adf[1]/indicated-bearing-deg</input>
+		<output>/instrumentation/rmi[0]/needle-2</output>
+		<period>
+			<min>-180</min>
+			<max>180</max>
+		</period>
+	</filter>
+	
+	<filter>
+		<name>RMI 1 Heading</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<enable>
+			<condition>
+				<greater-than-equals>
+					<property>/systems/electrical/bus/dc-r</property>
+					<value>25</value>
+				</greater-than-equals>
+			</condition>
+		</enable>
+		<input>/orientation/heading-magnetic-deg</input>
+		<output>/instrumentation/rmi[1]/heading</output>
+	</filter>
+	
+	<filter>
+		<name>RMI 1 Needle 1</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<less-than>
+					<property>/systems/electrical/bus/dc-r</property>
+					<value>25</value>
+				</less-than>
+			</condition>
+			<value>0</value>
+		</input>
+		<input>
+			<condition>
+				<property>/instrumentation/rmi[1]/vor-adf-1</property>
+			</condition>
+			<property>/instrumentation/nav[0]/heading-deg</property>
+			<offset>
+				<property>/orientation/heading-deg</property>
+				<scale>-1.0</scale>
+			</offset>
+		</input>
+		<input>/instrumentation/adf[0]/indicated-bearing-deg</input>
+		<output>/instrumentation/rmi[1]/needle-1</output>
+		<period>
+			<min>-180</min>
+			<max>180</max>
+		</period>
+	</filter>
+	
+	<filter>
+		<name>RMI 1 Needle 2</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<less-than>
+					<property>/systems/electrical/bus/dc-r</property>
+					<value>25</value>
+				</less-than>
+			</condition>
+			<value>0</value>
+		</input>
+		<input>
+			<condition>
+				<property>/instrumentation/rmi[1]/vor-adf-2</property>
+			</condition>
+			<property>/instrumentation/nav[1]/heading-deg</property>
+			<offset>
+				<property>/orientation/heading-deg</property>
+				<scale>-1.0</scale>
+			</offset>
+		</input>
+		<input>/instrumentation/adf[1]/indicated-bearing-deg</input>
+		<output>/instrumentation/rmi[1]/needle-2</output>
+		<period>
+			<min>-180</min>
+			<max>180</max>
+		</period>
+	</filter>
+	
+	<!-- ND DME -->
+	<filter>
+		<name>ND 1 VOR ADF 1</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<property>/instrumentation/rmi[0]/vor-adf-1</property>
+			</condition>
+			<value>1</value>
+		</input>
+		<input>-1</input>
+		<output>/instrumentation/efis[0]/inputs/lh-vor-adf</output>
+	</filter>
+	
+	<filter>
+		<name>ND 1 VOR ADF 2</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<property>/instrumentation/rmi[0]/vor-adf-2</property>
+			</condition>
+			<value>1</value>
+		</input>
+		<input>-1</input>
+		<output>/instrumentation/efis[0]/inputs/rh-vor-adf</output>
+	</filter>
+	
+	<filter>
+		<name>ND 1 VOR ADF 1</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<property>/instrumentation/rmi[1]/vor-adf-1</property>
+			</condition>
+			<value>1</value>
+		</input>
+		<input>-1</input>
+		<output>/instrumentation/efis[1]/inputs/lh-vor-adf</output>
+	</filter>
+	
+	<filter>
+		<name>ND 2 VOR ADF 2</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<property>/instrumentation/rmi[1]/vor-adf-2</property>
+			</condition>
+			<value>1</value>
+		</input>
+		<input>-1</input>
+		<output>/instrumentation/efis[1]/inputs/rh-vor-adf</output>
+	</filter>
 
 </PropertyList>

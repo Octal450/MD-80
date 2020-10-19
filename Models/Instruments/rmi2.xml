@@ -1,122 +1,124 @@
 <?xml version="1.0"?>
 
+<!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
 <PropertyList>
-
-<path>rmi.ac</path>
-
-<animation>
-  <type>material</type>
-  <object-name>Face</object-name>
-  <object-name>CompassPoints</object-name>
-  <object-name>Needle1</object-name>
-  <object-name>Needle2</object-name>
-  <object-name>Legend</object-name>
-  <object-name>Knob1</object-name>
-  <object-name>Knob2</object-name>
-<emission>
-    <red>0.3</red>
-    <green>0.3</green>
-    <blue>0.3</blue>
-
-  </emission>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>Face</object-name>
-  <property>orientation/heading-magnetic-deg</property>
-  <factor>-1</factor>
-  <axis>
-    <x>-1</x>
-    <y>0</y>
-    <z>0</z>
-  </axis>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>Needle1</object-name>
-  <property>instrumentation/rmi-needle[0]/value</property>
-  <axis>
-    <x>-1</x>
-    <y>0</y>
-    <z>0</z>
-  </axis>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>Needle2</object-name>
-  <property>instrumentation/rmi-needle[1]/value</property>
-  <axis>
-    <x>-1</x>
-    <y>0</y>
-    <z>0</z>
-  </axis>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>Knob1</object-name>
-  <property>instrumentation/rmi-needle[0]/mode</property>
-  <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>90</dep></entry>
-  </interpolation>   
-  <center>
-    <x-m>0</x-m>
-    <y-m>-0.0325</y-m>
-    <z-m>-0.0325</z-m>
-  </center>
-  <axis>
-    <x>-1</x>
-    <y>0</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>pick</type>
-  <object-name>Knob1</object-name>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-toggle</command>
-      <property>instrumentation/rmi-needle[0]/mode</property>
-    </binding>
-  </action>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>Knob2</object-name>
-  <property>instrumentation/rmi-needle[1]/mode</property>
-  <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>90</dep></entry>
-  </interpolation>   
-  <center>
-    <x-m>0</x-m>
-    <y-m>0.0325</y-m>
-    <z-m>-0.0325</z-m>
-  </center>
-  <axis>
-    <x>1</x>
-    <y>0</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>pick</type>
-  <object-name>Knob2</object-name>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-toggle</command>
-      <property>instrumentation/rmi-needle[1]/mode</property>
-    </binding>
-  </action>
-</animation>
+	
+	<path>rmi.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>CompassPoints</object-name>
+		<object-name>Needle1</object-name>
+		<object-name>Needle2</object-name>
+		<object-name>Legend</object-name>
+		<object-name>Knob1</object-name>
+		<object-name>Knob2</object-name>
+		<emission>
+			<red>0.3</red>
+			<green>0.3</green>
+			<blue>0.3</blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Face</object-name>
+		<property>instrumentation/rmi[1]/heading</property>
+		<factor>-1</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle1</object-name>
+		<property>instrumentation/rmi[1]/needle-1</property>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle2</object-name>
+		<property>instrumentation/rmi[1]/needle-2</property>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Knob1</object-name>
+		<property>instrumentation/rmi[1]/vor-adf-1</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>120</dep></entry>
+			<entry><ind>1</ind><dep>-30</dep></entry>
+		</interpolation>   
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.0325</y-m>
+			<z-m>-0.0325</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>Knob1</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/rmi[1]/vor-adf-1</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Knob2</object-name>
+		<property>instrumentation/rmi[1]/vor-adf-2</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>120</dep></entry>
+			<entry><ind>1</ind><dep>-30</dep></entry>
+		</interpolation>   
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.0325</y-m>
+			<z-m>-0.0325</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>Knob2</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>instrumentation/rmi[1]/vor-adf-2</property>
+			</binding>
+		</action>
+	</animation>
 
 </PropertyList>
