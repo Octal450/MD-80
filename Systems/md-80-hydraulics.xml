@@ -94,8 +94,37 @@
 			</test>
 		</switch>
 		
+		<fcs_function name="/systems/hydraulics/sys-l-pre-psi-cmd">
+			<function>
+				<ifthen>
+					<ge>
+						<property>/systems/hydraulics/sys-l-qty</property>
+						<value>1.0</value>
+					</ge>
+					<property>/systems/hydraulics/l-pump-psi</property>
+					<value>40</value>
+				</ifthen>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/hydraulics/sys-l-psi-cmd">
+			<function>
+				<ifthen>
+					<ge>
+						<property>/systems/hydraulics/sys-l-qty</property>
+						<value>1.0</value>
+					</ge>
+					<max>
+						<property>/systems/hydraulics/sys-l-pre-psi-cmd</property>
+						<property>/systems/hydraulics/trans-sys-r-to-sys-l</property>
+					</max>
+					<value>40</value>
+				</ifthen>
+			</function>
+		</fcs_function>
+		
 		<actuator name="/systems/hydraulics/sys-l-psi">
-			<input>/systems/hydraulics/l-pump-psi</input>
+			<input>/systems/hydraulics/sys-l-psi-cmd</input>
 			<rate_limit sense="incr">/systems/hydraulics/sys-incr-rate</rate_limit>
 			<rate_limit sense="decr">/systems/hydraulics/sys-decr-rate</rate_limit>
 			<output>/systems/hydraulics/sys-l-psi-debug</output>
@@ -130,12 +159,66 @@
 			</test>
 		</switch>
 		
+		<fcs_function name="/systems/hydraulics/sys-r-pre-psi-cmd">
+			<function>
+				<ifthen>
+					<ge>
+						<property>/systems/hydraulics/sys-r-qty</property>
+						<value>1.0</value>
+					</ge>
+					<max>
+						<property>/systems/hydraulics/r-pump-psi</property>
+						<!--property>/systems/hydraulics/aux-pump-psi</property--> <!-- Aux Pump -->
+					</max>
+					<value>40</value>
+				</ifthen>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/hydraulics/sys-r-psi-cmd">
+			<function>
+				<ifthen>
+					<ge>
+						<property>/systems/hydraulics/sys-r-qty</property>
+						<value>1.0</value>
+					</ge>
+					<max>
+						<property>/systems/hydraulics/sys-r-pre-psi-cmd</property>
+						<property>/systems/hydraulics/trans-sys-l-to-sys-r</property>
+					</max>
+					<value>40</value>
+				</ifthen>
+			</function>
+		</fcs_function>
+		
 		<actuator name="/systems/hydraulics/sys-r-psi">
-			<input>/systems/hydraulics/r-pump-psi</input>
+			<input>/systems/hydraulics/sys-r-psi-cmd</input>
 			<rate_limit sense="incr">/systems/hydraulics/sys-incr-rate</rate_limit>
 			<rate_limit sense="decr">/systems/hydraulics/sys-decr-rate</rate_limit>
 			<output>/systems/hydraulics/sys-r-psi-debug</output>
 		</actuator>
+		
+		<!-- Trans Pump -->
+		<actuator name="/systems/hydraulics/trans-valve">
+			<input>/controls/hydraulics/switches/trans</input>
+			<rate_limit>0.333</rate_limit> <!-- 3 seconds -->
+		</actuator>
+		
+		<switch name="/systems/hydraulics/trans-sys-l-to-sys-r">
+			<default value="0"/>
+			<test logic="AND" value="/systems/hydraulics/sys-l-pre-psi-cmd">
+				/systems/hydraulics/trans-valve eq 1
+				/systems/failures/hydraulics/trans ne 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/hydraulics/trans-sys-r-to-sys-l">
+			<default value="0"/>
+			<test logic="AND" value="/systems/hydraulics/sys-r-pre-psi-cmd">
+				/systems/hydraulics/trans-valve eq 1
+				/systems/failures/hydraulics/trans ne 1
+			</test>
+		</switch>
 	
 	</channel>
 
