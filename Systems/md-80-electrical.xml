@@ -9,6 +9,8 @@
 	<property value="115">/systems/electrical/bus/ac-r</property>
 	<property value="28">/systems/electrical/bus/dc-l</property>
 	<property value="28">/systems/electrical/bus/dc-r</property>
+	<property value="115">/systems/electrical/bus/gen-ac-l</property>
+	<property value="115">/systems/electrical/bus/gen-ac-r</property>
 	<property value="28">/systems/electrical/outputs/fgcp-power</property>
 	<property value="28">/systems/electrical/outputs/fma-power</property>
 

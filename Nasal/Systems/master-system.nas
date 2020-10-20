@@ -128,6 +128,7 @@ var HYD = {
 		sysRLeak: props.globals.getNode("/systems/failures/hydraulics/sys-r-leak"),
 	},
 	Psi: {
+		auxPump: props.globals.getNode("/systems/hydraulics/aux-pump-psi"),
 		lPump: props.globals.getNode("/systems/hydraulics/l-pump-psi"),
 		rPump: props.globals.getNode("/systems/hydraulics/r-pump-psi"),
 		sysL: props.globals.getNode("/systems/hydraulics/sys-l-psi"),

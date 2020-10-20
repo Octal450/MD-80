@@ -159,6 +159,15 @@
 			</test>
 		</switch>
 		
+		<switch name="/systems/hydraulics/aux-pump-psi">
+			<default value="0"/>
+			<test logic="AND" value="2980">
+				/systems/electrical/bus/gen-ac-l ge 110
+				/controls/hydraulics/switches/aux-pump ne 0
+				/systems/failures/hydraulics/aux-pump ne 1
+			</test>
+		</switch>
+		
 		<fcs_function name="/systems/hydraulics/sys-r-pre-psi-cmd">
 			<function>
 				<ifthen>
@@ -168,7 +177,7 @@
 					</ge>
 					<max>
 						<property>/systems/hydraulics/r-pump-psi</property>
-						<!--property>/systems/hydraulics/aux-pump-psi</property--> <!-- Aux Pump -->
+						<property>/systems/hydraulics/aux-pump-psi</property>
 					</max>
 					<value>40</value>
 				</ifthen>
