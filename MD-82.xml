@@ -143,6 +143,7 @@
 	</propulsion>
 	
 	<system file="md-80-libraries"/>
+	<system file="glass-effect"/>
 	<system file="md-80-electrical"/>
 	<system file="md-80-fuel"/>
 	<system file="md-80-hydraulics"/>

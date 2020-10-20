@@ -10,6 +10,11 @@
 	<offsets>
 		<x-m>-22.6236</x-m>
 	</offsets>
+
+	<effect>
+		<inherits-from>Effects/glass</inherits-from>
+		<object-name>WindowsCockpit</object-name>
+	</effect>
 	
  <!-- Tyre Smoke -->
 <model>
