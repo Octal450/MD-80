@@ -41,6 +41,8 @@
 								setprop("/controls/fuel/switches/pump-aft-r", 1);
 								setprop("/controls/fuel/switches/pump-fwd-l", 1);
 								setprop("/controls/fuel/switches/pump-fwd-r", 1);
+								setprop("/controls/hydraulics/switches/l-pump", 2);
+								setprop("/controls/hydraulics/switches/r-pump", 2);
 								settimer(func() {
 									setprop("/controls/engines/engine[0]/cutoff", 0);
 									setprop("/controls/engines/engine[1]/cutoff", 0);
@@ -324,6 +326,7 @@
 				<pump-fwd-c type="bool">0</pump-fwd-c>
 				<pump-fwd-l type="bool">0</pump-fwd-l>
 				<pump-fwd-r type="bool">0</pump-fwd-r>
+				<pump-start type="bool">0</pump-start>
 				<x-feed type="bool">0</x-feed>
 			</switches>
 		</fuel>
@@ -332,6 +335,14 @@
 			<tiller-cmd-norm type="double">0</tiller-cmd-norm>
 			<tiller-enabled type="bool">0</tiller-enabled>
 		</gear>
+		<hydraulics n="0">
+			<switches n="0">
+				<aux-pump type="int">0</aux-pump>
+				<l-pump type="int">0</l-pump>
+				<r-pump type="int">0</r-pump>
+				<trans type="bool">0</trans>
+			</switches>
+		</hydraulics>
 		<lighting n="0">
 			<beacon type="bool">0</beacon>
 			<digital-norm type="double">1</digital-norm>
@@ -885,7 +896,19 @@
 				<pumps-l type="bool">0</pumps-l>
 				<pumps-r type="bool">0</pumps-r>
 			</fuel>
+			<hydraulics n="0">
+				<aux-pump type="bool">0</aux-pump>
+				<l-pump type="bool">0</l-pump>
+				<r-pump type="bool">0</r-pump>
+				<sys-l-leak type="bool">0</sys-l-leak>
+				<sys-r-leak type="bool">0</sys-r-leak>
+				<trans type="bool">0</trans>
+			</hydraulics>
 		</failures>
+		<hydraulics n="0">
+			<sys-l-qty-input type="double">8</sys-l-qty-input> <!-- Randomized later in sim init -->
+			<sys-r-qty-input type="double">8</sys-r-qty-input> <!-- Randomized later in sim init -->
+		</hydraulics>
 	</systems>
 	
 	<nasal n="0">

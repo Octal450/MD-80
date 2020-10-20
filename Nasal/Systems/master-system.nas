@@ -80,6 +80,90 @@ var doFullThrust = func() {
 	pts.Controls.Engines.Engine.throttle[1].setValue(1);
 }
 
+# Fuel
+var FUEL = {
+	Fail: {
+		pumpStart: props.globals.getNode("/systems/failures/fuel/pump-start"),
+		pumpsC: props.globals.getNode("/systems/failures/fuel/pumps-c"),
+		pumpsL: props.globals.getNode("/systems/failures/fuel/pumps-l"),
+		pumpsR: props.globals.getNode("/systems/failures/fuel/pumps-r"),
+	},
+	Switch: {
+		pumpStart: props.globals.getNode("/controls/fuel/switches/pump-start"),
+		pumpAftC: props.globals.getNode("/controls/fuel/switches/pump-aft-c"),
+		pumpAftL: props.globals.getNode("/controls/fuel/switches/pump-aft-l"),
+		pumpAftR: props.globals.getNode("/controls/fuel/switches/pump-aft-r"),
+		pumpFwdC: props.globals.getNode("/controls/fuel/switches/pump-fwd-c"),
+		pumpFwdL: props.globals.getNode("/controls/fuel/switches/pump-fwd-l"),
+		pumpFwdR: props.globals.getNode("/controls/fuel/switches/pump-fwd-r"),
+		xFeed: props.globals.getNode("/controls/fuel/switches/x-feed"),
+	},
+	init: func() {
+		me.resetFail();
+		me.Switch.pumpStart.setBoolValue(0);
+		me.Switch.pumpAftC.setBoolValue(0);
+		me.Switch.pumpAftL.setBoolValue(0);
+		me.Switch.pumpAftR.setBoolValue(0);
+		me.Switch.pumpFwdC.setBoolValue(0);
+		me.Switch.pumpFwdL.setBoolValue(0);
+		me.Switch.pumpFwdR.setBoolValue(0);
+		me.Switch.xFeed.setBoolValue(0);
+	},
+	resetFail: func() {
+		me.Fail.pumpStart.setBoolValue(0);
+		me.Fail.pumpsC.setBoolValue(0);
+		me.Fail.pumpsL.setBoolValue(0);
+		me.Fail.pumpsR.setBoolValue(0);
+	},
+};
+
+# Hydraulics
+var HYD = {
+	Fail: {
+		auxPump: props.globals.getNode("/systems/failures/hydraulics/aux-pump"),
+		lPump: props.globals.getNode("/systems/failures/hydraulics/l-pump"),
+		rPump: props.globals.getNode("/systems/failures/hydraulics/r-pump"),
+		trans: props.globals.getNode("/systems/failures/hydraulics/trans"),
+		sysLLeak: props.globals.getNode("/systems/failures/hydraulics/sys-l-leak"),
+		sysRLeak: props.globals.getNode("/systems/failures/hydraulics/sys-r-leak"),
+	},
+	Psi: {
+		lPump: props.globals.getNode("/systems/hydraulics/l-pump-psi"),
+		rPump: props.globals.getNode("/systems/hydraulics/r-pump-psi"),
+		sysL: props.globals.getNode("/systems/hydraulics/sys-l-psi"),
+		sysR: props.globals.getNode("/systems/hydraulics/sys-r-psi"),
+	},
+	Qty: {
+		sysL: props.globals.getNode("/systems/hydraulics/sys-l-qty"),
+		sysLInput: props.globals.getNode("/systems/hydraulics/sys-l-qty-input"),
+		sysR: props.globals.getNode("/systems/hydraulics/sys-r-qty"),
+		sysRInput: props.globals.getNode("/systems/hydraulics/sys-r-qty-input"),
+	},
+	Switch: {
+		auxPump: props.globals.getNode("/controls/hydraulics/switches/aux-pump"),
+		lPump: props.globals.getNode("/controls/hydraulics/switches/l-pump"),
+		rPump: props.globals.getNode("/controls/hydraulics/switches/r-pump"),
+		trans: props.globals.getNode("/controls/hydraulics/switches/trans"),
+	},
+	init: func() {
+		me.resetFail();
+		me.Qty.sysLInput.setValue(math.round((rand() * 4) + 8 , 0.1)); # Random between 8 and 12
+		me.Qty.sysRInput.setValue(math.round((rand() * 4) + 8 , 0.1)); # Random between 8 and 12
+		me.Switch.auxPump.setValue(0);
+		me.Switch.lPump.setValue(0);
+		me.Switch.rPump.setValue(0);
+		me.Switch.trans.setBoolValue(0);
+	},
+	resetFail: func() {
+		me.Fail.auxPump.setBoolValue(0);
+		me.Fail.lPump.setBoolValue(0);
+		me.Fail.rPump.setBoolValue(0);
+		me.Fail.trans.setBoolValue(0);
+		me.Fail.sysLLeak.setBoolValue(0);
+		me.Fail.sysRLeak.setBoolValue(0);
+	},
+};
+
 # TRI
 var TRI = {
 	pitchMode: 0,

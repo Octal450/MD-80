@@ -6,8 +6,6 @@
 <system name="MD-80: FCS">
 	
 	<property value="25">/systems/electrical/trim-power</property> <!-- Fix prop -->
-	<property value="2000">/systems/hydraulics/sys-l-psi</property>
-	<property value="2000">/systems/hydraulics/sys-r-psi</property>
 	
 	<channel name="Libraries">
 		
@@ -677,8 +675,8 @@
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 			<test logic="OR" value="2.5">
-				/systems/hydraulics/sys-l-psi ge 1500
-				/systems/hydraulics/sys-r-psi ge 1500
+				/systems/hydraulics/sys-l-psi ge 950
+				/systems/hydraulics/sys-r-psi ge 950
 			</test>
 		</switch>
 		
@@ -711,8 +709,8 @@
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 			<test logic="OR" value="2">
-				/systems/hydraulics/sys-l-psi ge 1500
-				/systems/hydraulics/sys-r-psi ge 1500
+				/systems/hydraulics/sys-l-psi ge 950
+				/systems/hydraulics/sys-r-psi ge 950
 			</test>
 		</switch>
 		
@@ -909,8 +907,8 @@
 				/sim/model/autopush/connected eq 1
 			</test>
 			<test logic="OR" value="35">
-				/systems/hydraulics/sys-l-psi ge 1500
-				/systems/hydraulics/sys-r-psi ge 1500
+				/systems/hydraulics/sys-l-psi ge 950
+				/systems/hydraulics/sys-r-psi ge 950
 			</test>
 		</switch>
 		
@@ -920,7 +918,7 @@
 				/sim/model/autopush/connected eq 1
 			</test>
 			<test value="-82">
-				/systems/hydraulics/sys-l-psi ge 1500
+				/systems/hydraulics/sys-l-psi ge 950
 			</test>
 		</switch>
 		
@@ -930,7 +928,7 @@
 				/sim/model/autopush/connected eq 1
 			</test>
 			<test value="82">
-				/systems/hydraulics/sys-r-psi ge 1500
+				/systems/hydraulics/sys-r-psi ge 950
 			</test>
 		</switch>
 		
@@ -951,7 +949,73 @@
 	
 	<channel name="Brakes">
 		
+		<switch name="fcs/brake-avail">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/hydraulics/sys-l-psi ge 950
+				/systems/hydraulics/sys-r-psi ge 950
+			</test>
+		</switch>
 		
+		<fcs_function name="fcs/left-brake-input">
+			<function>
+				<product>
+					<property>fcs/brake-avail</property>
+					<max>
+						<property>/controls/gear/brake-left</property>
+						<property>/controls/gear/brake-parking</property>
+						<!--property>/gear/abs/brake-output</property-->
+					</max>
+				</product>
+			</function>
+			<clipto>
+				<min>0</min>
+				<max>1</max>
+			</clipto>
+		</fcs_function>
+		
+		<actuator name="fcs/left-brake-actuator">
+			<input>fcs/left-brake-input</input>
+			<rate_limit>0.5</rate_limit>
+		</actuator>
+		
+		<switch name="rubbish/left-brake-cmd-norm">
+			<default value="fcs/left-brake-actuator"/>
+			<test value="1">
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<output>fcs/left-brake-cmd-norm</output>
+		</switch>
+		
+		<fcs_function name="fcs/right-brake-input">
+			<function>
+				<product>
+					<property>fcs/brake-avail</property>
+					<max>
+						<property>/controls/gear/brake-right</property>
+						<property>/controls/gear/brake-parking</property>
+						<!--property>/gear/abs/brake-output</property-->
+					</max>
+				</product>
+			</function>
+			<clipto>
+				<min>0</min>
+				<max>1</max>
+			</clipto>
+		</fcs_function>
+		
+		<actuator name="fcs/right-brake-actuator">
+			<input>fcs/right-brake-input</input>
+			<rate_limit>0.5</rate_limit>
+		</actuator>
+		
+		<switch name="rubbish/right-brake-cmd-norm">
+			<default value="fcs/right-brake-actuator"/>
+			<test value="1">
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<output>fcs/right-brake-cmd-norm</output>
+		</switch>
 	
 	</channel>
 

@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-80 Hydraulic System -->
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
+<system name="MD-80: Hydraulics">
+	
+	<property value="500">/systems/hydraulics/sys-incr-rate</property> <!-- 2 seconds per 1000 psi -->
+	
+	<channel name="SYS Leak Logic" execrate="8">
+		
+		<!-- SYS L -->
+		<switch name="/systems/hydraulics/sys-l-qty-cmd">
+			<default value="/systems/hydraulics/sys-l-qty-input"/>
+			<test value="0">
+				/systems/failures/hydraulics/sys-l-leak eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/hydraulics/sys-l-qty-decr-rate">
+			<default value="100"/> <!-- Instant -->
+			<test value="0.25">
+				/systems/failures/hydraulics/sys-l-leak eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/hydraulics/sys-l-qty">
+			<input>/systems/hydraulics/sys-l-qty-cmd</input>
+			<rate_limit sense="incr">100</rate_limit> <!-- Instant -->
+			<rate_limit sense="decr">/systems/hydraulics/sys-l-qty-decr-rate</rate_limit>
+			<output>/systems/hydraulics/sys-l-qty-debug</output>
+		</actuator>
+		
+		<!-- SYS R -->
+		<switch name="/systems/hydraulics/sys-r-qty-cmd">
+			<default value="/systems/hydraulics/sys-r-qty-input"/>
+			<test value="0">
+				/systems/failures/hydraulics/sys-r-leak eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/hydraulics/sys-r-qty-decr-rate">
+			<default value="100"/> <!-- Instant -->
+			<test value="0.25">
+				/systems/failures/hydraulics/sys-r-leak eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/hydraulics/sys-r-qty">
+			<input>/systems/hydraulics/sys-r-qty-cmd</input>
+			<rate_limit sense="incr">100</rate_limit> <!-- Instant -->
+			<rate_limit sense="decr">/systems/hydraulics/sys-r-qty-decr-rate</rate_limit>
+			<output>/systems/hydraulics/sys-r-qty-debug</output>
+		</actuator>
+	
+	</channel>
+	
+	<channel name="Main Hydraulics" execrate="8">
+		
+		<!-- Common -->
+		<switch name="/systems/hydraulics/sys-decr-rate">
+			<default value="45.45455"/> <!-- 22 seconds per 1000 psi -->
+			<test value="500"> <!-- 2 seconds per 1000 psi for ACCONFIG -->
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<!-- SYS L -->
+		<fcs_function name="/systems/hydraulics/l-pump-psi-input">
+			<function>
+				<ifthen>
+					<nq>
+						<property>/systems/failures/hydraulics/l-pump</property>
+						<value>1</value>
+					</nq>
+					<table>
+						<independentVar lookup="row">/engines/engine[0]/n2-actual</independentVar>
+						<independentVar lookup="column">/controls/hydraulics/switches/l-pump</independentVar>
+						<tableData>
+							       1     2
+							40    40    40
+							45  1510  2990
+						</tableData>
+					</table>
+					<value>40</value>
+				</ifthen>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/hydraulics/l-pump-psi">
+			<default value="40"/>
+			<test value="/systems/hydraulics/l-pump-psi-input">
+				/controls/hydraulics/switches/l-pump gt 0
+			</test>
+		</switch>
+		
+		<actuator name="/systems/hydraulics/sys-l-psi">
+			<input>/systems/hydraulics/l-pump-psi</input>
+			<rate_limit sense="incr">/systems/hydraulics/sys-incr-rate</rate_limit>
+			<rate_limit sense="decr">/systems/hydraulics/sys-decr-rate</rate_limit>
+			<output>/systems/hydraulics/sys-l-psi-debug</output>
+		</actuator>
+		
+		<!-- SYS R -->
+		<fcs_function name="/systems/hydraulics/r-pump-psi-input">
+			<function>
+				<ifthen>
+					<nq>
+						<property>/systems/failures/hydraulics/r-pump</property>
+						<value>1</value>
+					</nq>
+					<table>
+						<independentVar lookup="row">/engines/engine[1]/n2-actual</independentVar>
+						<independentVar lookup="column">/controls/hydraulics/switches/r-pump</independentVar>
+						<tableData>
+							       1     2
+							40    40    40
+							45  1490  3010
+						</tableData>
+					</table>
+					<value>40</value>
+				</ifthen>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/hydraulics/r-pump-psi">
+			<default value="40"/>
+			<test value="/systems/hydraulics/r-pump-psi-input">
+				/controls/hydraulics/switches/r-pump gt 0
+			</test>
+		</switch>
+		
+		<actuator name="/systems/hydraulics/sys-r-psi">
+			<input>/systems/hydraulics/r-pump-psi</input>
+			<rate_limit sense="incr">/systems/hydraulics/sys-incr-rate</rate_limit>
+			<rate_limit sense="decr">/systems/hydraulics/sys-decr-rate</rate_limit>
+			<output>/systems/hydraulics/sys-r-psi-debug</output>
+		</actuator>
+	
+	</channel>
+
+</system>
