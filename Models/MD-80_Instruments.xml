@@ -65,153 +65,152 @@
 		<object-name>enginepanel2</object-name> 
 	</animation>
 	
-<!-- Captain Panel -->
-
-<model>
-  <name>FMA_L</name>
-  <path>Aircraft/MD-80/Models/Instruments/FMA/FMA1.xml</path>
-  <offsets>
-    <x-m>2.210</x-m>
-    <y-m>-0.330</y-m>
-    <z-m>0.952</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>L_efis</name>
-  <path>Aircraft/MD-80/Models/Instruments/EFIS/efis_L.xml</path>
-  <offsets>
-    <x-m>2.586</x-m>
-    <y-m>-0.918</y-m>
-    <z-m>0.888</z-m>
-    <pitch-deg>-35</pitch-deg>
-    <heading-deg>38</heading-deg>
-	<roll-deg>20</roll-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>clock</name>
-  <path>Aircraft/MD-80/Models/Instruments/clock.xml</path>
-  <offsets>
-    <x-m>2.248</x-m>
-    <y-m>-0.734</y-m>
-    <z-m>0.765</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>asi</name>
-  <path>Aircraft/MD-80/Models/Instruments/asi.xml</path>
-  <offsets>
-    <x-m>2.226</x-m>
-    <y-m>-0.651</y-m>
-    <z-m>0.868</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>rmi</name>
-  <path>Aircraft/MD-80/Models/Instruments/rmi.xml</path>
-  <offsets>
-    <x-m>2.248</x-m>
-    <y-m>-0.639</y-m>
-    <z-m>0.765</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>pfd1</name>
-  <path>Aircraft/MD-80/Models/Instruments/PFD/PFD1.xml</path>
-  <offsets>
-    <x-m>2.225</x-m>
-    <y-m>-0.513</y-m>
-    <z-m>0.876</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<!--model>
-  <name>att</name>
-  <path>Aircraft/MD-80/Models/Instruments/att/att1.xml</path>
-  <offsets>
-    <x-m>2.225</x-m>
-    <y-m>-0.513</y-m>
-    <z-m>0.876</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model-->
-
-<model>
-  <name>ND_L</name>
-  <path>Aircraft/MD-80/Models/Instruments/ND/ND_L.xml</path>
-  <offsets>
-	<x-m>2.254</x-m>
-	<y-m>-0.513</y-m>
-	<z-m>0.740</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<!--model>
-  <name>hsi</name>
-  <path>Aircraft/MD-80/Models/Instruments/hsi/hsi1.xml</path>
-  <offsets>
-	<x-m>2.254</x-m>
-	<y-m>-0.513</y-m>
-	<z-m>0.740</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model-->
-
-<model>
-  <name>alt</name>
-  <path>Aircraft/MD-80/Models/Instruments/altimeter1.xml</path>
-  <offsets>
-    <x-m>2.229</x-m>
-    <y-m>-0.390</y-m>
-    <z-m>0.856</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>efisdim_L</name>
-  <path>Aircraft/MD-80/Models/Instruments/efis_dimmer.xml</path>
-  <offsets>
-    <x-m>2.230</x-m>
-    <y-m>-0.320</y-m>
-    <z-m>0.856</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>vsi</name>
-  <path>Aircraft/MD-80/Models/Instruments/vsi.xml</path>
-  <offsets>
-    <x-m>2.248</x-m>
-    <y-m>-0.384</y-m>
-    <z-m>0.765</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>lighting_panel_L</name>
-  <path>Aircraft/MD-80/Models/Instruments/panel_lighting.xml</path>
-  <offsets>
-    <x-m>2.278</x-m>
-    <y-m>-0.891</y-m>
-    <z-m>0.636</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
+	<!-- Captain Panel -->
+	<model>
+		<name>FMA_L</name>
+		<path>Aircraft/MD-80/Models/Instruments/FMA/FMA1.xml</path>
+		<offsets>
+			<x-m>2.210</x-m>
+			<y-m>-0.330</y-m>
+			<z-m>0.952</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>L_efis</name>
+		<path>Aircraft/MD-80/Models/Instruments/EFIS/efis_L.xml</path>
+		<offsets>
+			<x-m>2.586</x-m>
+			<y-m>-0.918</y-m>
+			<z-m>0.888</z-m>
+			<pitch-deg>-35</pitch-deg>
+			<heading-deg>38</heading-deg>
+			<roll-deg>20</roll-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>clock</name>
+		<path>Aircraft/MD-80/Models/Instruments/clock.xml</path>
+		<offsets>
+			<x-m>2.248</x-m>
+			<y-m>-0.734</y-m>
+			<z-m>0.765</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>asi</name>
+		<path>Aircraft/MD-80/Models/Instruments/asi.xml</path>
+		<offsets>
+			<x-m>2.226</x-m>
+			<y-m>-0.651</y-m>
+			<z-m>0.868</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>rmi</name>
+		<path>Aircraft/MD-80/Models/Instruments/rmi.xml</path>
+		<offsets>
+			<x-m>2.248</x-m>
+			<y-m>-0.639</y-m>
+			<z-m>0.765</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>pfd1</name>
+		<path>Aircraft/MD-80/Models/Instruments/PFD/PFD1.xml</path>
+		<offsets>
+			<x-m>2.225</x-m>
+			<y-m>-0.513</y-m>
+			<z-m>0.876</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<!--model>
+		<name>att</name>
+		<path>Aircraft/MD-80/Models/Instruments/att/att1.xml</path>
+		<offsets>
+			<x-m>2.225</x-m>
+			<y-m>-0.513</y-m>
+			<z-m>0.876</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model-->
+	
+	<model>
+		<name>ND_L</name>
+		<path>Aircraft/MD-80/Models/Instruments/ND/ND_L.xml</path>
+		<offsets>
+			<x-m>2.254</x-m>
+			<y-m>-0.513</y-m>
+			<z-m>0.740</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<!--model>
+		<name>hsi</name>
+		<path>Aircraft/MD-80/Models/Instruments/hsi/hsi1.xml</path>
+		<offsets>
+			<x-m>2.254</x-m>
+			<y-m>-0.513</y-m>
+			<z-m>0.740</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model-->
+	
+	<model>
+		<name>alt</name>
+		<path>Aircraft/MD-80/Models/Instruments/altimeter.xml</path>
+		<offsets>
+			<x-m>2.229</x-m>
+			<y-m>-0.390</y-m>
+			<z-m>0.856</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>efisdim_L</name>
+		<path>Aircraft/MD-80/Models/Instruments/efis_dimmer.xml</path>
+		<offsets>
+			<x-m>2.230</x-m>
+			<y-m>-0.320</y-m>
+			<z-m>0.856</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>vsi</name>
+		<path>Aircraft/MD-80/Models/Instruments/vsi.xml</path>
+		<offsets>
+			<x-m>2.248</x-m>
+			<y-m>-0.384</y-m>
+			<z-m>0.765</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>lighting_panel_L</name>
+		<path>Aircraft/MD-80/Models/Instruments/panel_lighting.xml</path>
+		<offsets>
+			<x-m>2.278</x-m>
+			<y-m>-0.891</y-m>
+			<z-m>0.636</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
 	<!-- Center Panel -->
 	<model>
 		<name>stbyai</name>
@@ -226,7 +225,7 @@
 	
 	<model>
 		<name>stbyalt</name>
-		<path>Aircraft/MD-80/Models/Instruments/stbyalt.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/altimeter.xml</path>
 		<offsets>
 			<x-m>2.235</x-m>
 			<y-m>-0.18</y-m>
@@ -480,151 +479,151 @@
 		</offsets>
 	</model>
 	
-<!-- Copilot Panel -->
-<model>
-  <name>FMA_R</name>
-  <path>Aircraft/MD-80/Models/Instruments/FMA/FMA2.xml</path>
-  <offsets>
-    <x-m>2.210</x-m>
-    <y-m>0.330</y-m>
-    <z-m>0.952</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>R_efis</name>
-  <path>Aircraft/MD-80/Models/Instruments/EFIS/efis_R.xml</path>
-  <offsets>
-    <x-m>2.586</x-m>
-    <y-m>0.918</y-m>
-    <z-m>0.888</z-m>
-    <pitch-deg>-35</pitch-deg>
-    <heading-deg>-38</heading-deg>
-	<roll-deg>-20</roll-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>pfd2</name>
-  <path>Aircraft/MD-80/Models/Instruments/PFD/PFD2.xml</path>
-  <offsets>
-    <x-m>2.225</x-m>
-    <y-m>0.513</y-m>
-    <z-m>0.876</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<!--model>
-  <name>att_R</name>
-  <path>Aircraft/MD-80/Models/Instruments/att/att2.xml</path>
-  <offsets>
-    <x-m>2.225</x-m>
-    <y-m>0.513</y-m>
-    <z-m>0.876</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model-->
-
-<model>
-  <name>ND_R</name>
-  <path>Aircraft/MD-80/Models/Instruments/ND/ND_R.xml</path>
-  <offsets>
-	<x-m>2.254</x-m>
-	<y-m>0.513</y-m>
-	<z-m>0.740</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<!--model>
-  <name>hsi_R</name>
-  <path>Aircraft/MD-80/Models/Instruments/hsi/hsi2.xml</path>
-  <offsets>
-	<x-m>2.254</x-m>
-	<y-m>0.513</y-m>
-	<z-m>0.740</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model-->
-
-<model>
-  <name>clock_R</name>
-  <path>Aircraft/MD-80/Models/Instruments/clock.xml</path>
-  <offsets>
-    <x-m>2.248</x-m>
-    <y-m>0.74</y-m>
-    <z-m>0.765</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>asi_R</name>
-  <path>Aircraft/MD-80/Models/Instruments/asi.xml</path>
-  <offsets>
-    <x-m>2.226</x-m>
-    <y-m>0.376</y-m>
-    <z-m>0.868</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>rmi_R</name>
-  <path>Aircraft/MD-80/Models/Instruments/rmi2.xml</path>
-  <offsets>
-    <x-m>2.248</x-m>
-    <y-m>0.388</y-m>
-    <z-m>0.765</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>alt_R</name>
-  <path>Aircraft/MD-80/Models/Instruments/altimeter2.xml</path>
-  <offsets>
-    <x-m>2.229</x-m>
-    <y-m>0.637</y-m>
-    <z-m>0.856</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>efisdim_R</name>
-  <path>Aircraft/MD-80/Models/Instruments/efis_dimmer.xml</path>
-  <offsets>
-    <x-m>2.230</x-m>
-    <y-m>0.706</y-m>
-    <z-m>0.856</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>vsi_R</name>
-  <path>Aircraft/MD-80/Models/Instruments/vsi.xml</path>
-  <offsets>
-    <x-m>2.248</x-m>
-    <y-m>0.643</y-m>
-    <z-m>0.765</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
-
-<model>
-  <name>lighting_panel_R</name>
-  <path>Aircraft/MD-80/Models/Instruments/panel_lighting.xml</path>
-  <offsets>
-    <x-m>2.278</x-m>
-    <y-m>0.891</y-m>
-    <z-m>0.636</z-m>
-    <pitch-deg>-12</pitch-deg>
-  </offsets>
-</model>
+	<!-- Copilot Panel -->
+	<model>
+		<name>FMA_R</name>
+		<path>Aircraft/MD-80/Models/Instruments/FMA/FMA2.xml</path>
+		<offsets>
+			<x-m>2.210</x-m>
+			<y-m>0.330</y-m>
+			<z-m>0.952</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>R_efis</name>
+		<path>Aircraft/MD-80/Models/Instruments/EFIS/efis_R.xml</path>
+		<offsets>
+			<x-m>2.586</x-m>
+			<y-m>0.918</y-m>
+			<z-m>0.888</z-m>
+			<pitch-deg>-35</pitch-deg>
+			<heading-deg>-38</heading-deg>
+			<roll-deg>-20</roll-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>pfd2</name>
+		<path>Aircraft/MD-80/Models/Instruments/PFD/PFD2.xml</path>
+		<offsets>
+			<x-m>2.225</x-m>
+			<y-m>0.513</y-m>
+			<z-m>0.876</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<!--model>
+		<name>att_R</name>
+		<path>Aircraft/MD-80/Models/Instruments/att/att2.xml</path>
+		<offsets>
+			<x-m>2.225</x-m>
+			<y-m>0.513</y-m>
+			<z-m>0.876</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model-->
+	
+	<model>
+		<name>ND_R</name>
+		<path>Aircraft/MD-80/Models/Instruments/ND/ND_R.xml</path>
+		<offsets>
+			<x-m>2.254</x-m>
+			<y-m>0.513</y-m>
+			<z-m>0.740</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<!--model>
+		<name>hsi_R</name>
+		<path>Aircraft/MD-80/Models/Instruments/hsi/hsi2.xml</path>
+		<offsets>
+			<x-m>2.254</x-m>
+			<y-m>0.513</y-m>
+			<z-m>0.740</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model-->
+	
+	<model>
+		<name>clock_R</name>
+		<path>Aircraft/MD-80/Models/Instruments/clock.xml</path>
+		<offsets>
+			<x-m>2.248</x-m>
+			<y-m>0.74</y-m>
+			<z-m>0.765</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>asi_R</name>
+		<path>Aircraft/MD-80/Models/Instruments/asi.xml</path>
+		<offsets>
+			<x-m>2.226</x-m>
+			<y-m>0.376</y-m>
+			<z-m>0.868</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>rmi_R</name>
+		<path>Aircraft/MD-80/Models/Instruments/rmi2.xml</path>
+		<offsets>
+			<x-m>2.248</x-m>
+			<y-m>0.388</y-m>
+			<z-m>0.765</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>alt_R</name>
+		<path>Aircraft/MD-80/Models/Instruments/altimeter.xml</path>
+		<offsets>
+			<x-m>2.229</x-m>
+			<y-m>0.637</y-m>
+			<z-m>0.856</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>efisdim_R</name>
+		<path>Aircraft/MD-80/Models/Instruments/efis_dimmer.xml</path>
+		<offsets>
+			<x-m>2.230</x-m>
+			<y-m>0.706</y-m>
+			<z-m>0.856</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>vsi_R</name>
+		<path>Aircraft/MD-80/Models/Instruments/vsi.xml</path>
+		<offsets>
+			<x-m>2.248</x-m>
+			<y-m>0.643</y-m>
+			<z-m>0.765</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>lighting_panel_R</name>
+		<path>Aircraft/MD-80/Models/Instruments/panel_lighting.xml</path>
+		<offsets>
+			<x-m>2.278</x-m>
+			<y-m>0.891</y-m>
+			<z-m>0.636</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
 	
 	<!-- Glareshield -->
 	<model>
