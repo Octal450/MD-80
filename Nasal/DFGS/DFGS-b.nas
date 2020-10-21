@@ -108,10 +108,18 @@ var updateFma = {
 		me.thrTemp = Output.thrMode.getValue();
 		if (me.thrTemp == 3) {
 			Fma.thrA.setValue("CLMP");
-			Fma.thrB.setValue("");
+			if (systems.TRI.Limit.activeModeInt.getValue() == 5) {
+				Fma.thrB.setValue(sprintf("%02d", pts.Fdm.JSBsim.Engine.Limit.flexTemp.getValue()));
+			} else {
+				Fma.thrB.setValue("");
+			}
 		} else if (me.thrTemp == 2) {
 			Fma.thrA.setValue("EPR");
-			Fma.thrB.setValue(systems.TRI.Limit.activeMode.getValue());
+			if (systems.TRI.Limit.activeModeInt.getValue() == 5) {
+				Fma.thrB.setValue(sprintf("%02d", pts.Fdm.JSBsim.Engine.Limit.flexTemp.getValue()));
+			} else {
+				Fma.thrB.setValue(systems.TRI.Limit.activeMode.getValue());
+			}
 		} else if (me.thrTemp == 1) {
 			Fma.thrA.setValue("RETD");
 			Fma.thrB.setValue("");
@@ -127,6 +135,13 @@ setlistener("/it-autoflight/input/kts-mach", func() {
 
 setlistener("/it-autoflight/input/kts-mach-flch", func() {
 	updateFma.pitch();
+}, 0, 0);
+
+setlistener("/fdm/jsbsim/engine/limit/flex-temp", func() {
+	updateFma.thrTemp = Output.thrMode.getValue();
+	if ((updateFma.thrTemp == 2 or updateFma.thrTemp == 3) and systems.TRI.Limit.activeModeInt.getValue() == 5) {
+		Fma.thrB.setValue(sprintf("%02d", pts.Fdm.JSBsim.Engine.Limit.flexTemp.getValue()));
+	}
 }, 0, 0);
 
 setlistener("/it-autoflight/input/alt-armed", func() {

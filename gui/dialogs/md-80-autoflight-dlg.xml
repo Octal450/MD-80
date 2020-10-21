@@ -304,10 +304,16 @@
 			<border>1</border>
 			<label>99999</label>
 			<visible>
-				<equals>
-					<property>/it-autoflight/output/athr</property>
-					<value>1</value>
-				</equals>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/athr</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/fdm/jsbsim/engine/limit/active-mode-int</property>
+						<value>5</value>
+					</equals>
+				</or>
 			</visible>
 			<valign>center</valign>
 			<property>/instrumentation/fma/thr-mode-b</property>

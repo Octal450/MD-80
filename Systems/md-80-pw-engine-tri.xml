@@ -5,7 +5,7 @@
 
 <system name="MD-80: PW Engine/TRI"> <!-- Limits vs 98.7 -->
 	
-	<property value="30">engine/limit/flex-temp</property>
+	<property value="0">engine/limit/flex-temp</property>
 	<property value="1">engine/limit/idle</property>
 	<property value="1">engine/epr/c1</property> <!-- Done in property rule because its easier to tune -->
 	<property value="1">engine/epr/c2</property> <!-- Done in property rule because its easier to tune -->

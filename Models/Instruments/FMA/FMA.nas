@@ -24,7 +24,9 @@ var Modes = { # 0 thrust, 1 arm, 2 roll, 3 pitch
 };
 
 var Value = {
+	activeModeInt: 0,
 	apOn: 0,
+	atsOn: 0,
 };
 
 var canvasBase = {
@@ -52,9 +54,12 @@ var canvasBase = {
 		armR.setup();
 	},
 	update: func() {
+		Value.activeModeInt = systems.TRI.Limit.activeModeInt.getValue();
 		Value.apOn = dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue();
+		Value.atsOn = dfgs.Output.athr.getBoolValue();
+		
 		if (systems.ELEC.Generic.fmaPower.getValue() >= 25) {
-			if (dfgs.Output.athr.getBoolValue()) {
+			if (Value.atsOn or Value.activeModeInt == 5) { # For showing flex digit
 				thrL.update();
 				thrL.page.show();
 				thrR.update();
@@ -213,6 +218,12 @@ var canvasThrL = {
 		return ["Line1", "Line2"];
 	},
 	update: func() {
+		if (!Value.atsOn and Value.activeModeInt == 5) { # For showing flex digit
+			me["Line1"].hide();
+		} else {
+			me["Line1"].show();
+		}
+		
 		me.updateCommon(0);
 	},
 };
@@ -228,6 +239,12 @@ var canvasThrR = {
 		return ["Line1", "Line2"];
 	},
 	update: func() {
+		if (!Value.atsOn and Value.activeModeInt == 5) { # For showing flex digit
+			me["Line1"].hide();
+		} else {
+			me["Line1"].show();
+		}
+		
 		me.updateCommon(0);
 	},
 };
