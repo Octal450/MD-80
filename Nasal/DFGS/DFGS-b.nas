@@ -116,9 +116,9 @@ var updateFma = {
 		} else if (me.thrTemp == 2) {
 			Fma.thrA.setValue("EPR");
 			if (systems.TRI.Limit.activeModeInt.getValue() == 5) {
-				Fma.thrB.setValue(sprintf("%02d", pts.Fdm.JSBsim.Engine.Limit.flexTemp.getValue()));
+				Fma.thrB.setValue("  " ~ sprintf("%02d", pts.Fdm.JSBsim.Engine.Limit.flexTemp.getValue()));
 			} else {
-				Fma.thrB.setValue("  " ~ systems.TRI.Limit.activeMode.getValue());
+				Fma.thrB.setValue(systems.TRI.Limit.activeMode.getValue());
 			}
 		} else if (me.thrTemp == 1) {
 			Fma.thrA.setValue("RETD");
