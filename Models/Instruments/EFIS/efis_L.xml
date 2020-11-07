@@ -78,7 +78,11 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>MD88.ctl_func("range",1);</script>
+                <script>
+                    var val = getprop("/instrumentation/efis[0]/inputs/range-nm") * 2;
+                    if (val &gt; 640) val = 640;
+                    setprop("/instrumentation/efis[0]/inputs/range-nm", val); 
+                </script>
             </binding>
         </action>
     </animation>
@@ -96,7 +100,11 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>MD88.ctl_func("range",-1);</script>
+                <script>
+                    var val = math.floor(getprop("/instrumentation/efis[0]/inputs/range-nm") / 2);
+                    if (val &lt; 10) val = 10;
+                    setprop("/instrumentation/efis[0]/inputs/range-nm", val); 
+                </script>
             </binding>
         </action>
     </animation>
@@ -114,7 +122,11 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>MD88.ctl_func("range",1);</script>
+                <script>
+                    var val = getprop("/instrumentation/efis[0]/inputs/range-nm") * 2;
+                    if (val > 640) val = 640;
+                    setprop("/instrumentation/efis[0]/inputs/range-nm", val); 
+                </script>
             </binding>
         </action>
     </animation>
@@ -132,7 +144,11 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>MD88.ctl_func("range",-1);</script>
+                <script>
+                    var val = math.floor(getprop("/instrumentation/efis[0]/inputs/range-nm") / 2);
+                    if (val &lt; 10) val = 10;
+                    setprop("/instrumentation/efis[0]/inputs/range-nm", val); 
+                </script>
             </binding>
         </action>
     </animation>
@@ -163,7 +179,13 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>MD88.mode_inc();</script>
+                <script>
+                    var modes = [ "APP", "VOR", "MAP", "PLAN" ];
+                    var mode = getprop("/controls/switches/modekb") + 1;
+                    if (mode &gt; 3) mode = 3;
+                    setprop("/controls/switches/modekb", mode);
+                    setprop("/instrumentation/efis[0]/mfd/display-mode", modes[mode]);
+                </script>
             </binding>
         </action>
     </animation>
@@ -181,7 +203,13 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>MD88.mode_dec();</script>
+                <script>
+                    var modes = [ "APP", "VOR", "MAP", "PLAN" ];
+                    var mode = getprop("/controls/switches/modekb") - 1;
+                    if (mode &lt; 0) mode = 0;
+                    setprop("/controls/switches/modekb", mode);
+                    setprop("/instrumentation/efis[0]/mfd/display-mode", modes[mode]);
+                </script>
             </binding>
         </action>
     </animation>
@@ -199,7 +227,13 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>MD88.mode_inc();</script>
+                <script>
+                    var modes = [ "APP", "VOR", "MAP", "PLAN" ];
+                    var mode = getprop("/controls/switches/modekb") + 1;
+                    if (mode &gt; 3) mode = 3;
+                    setprop("/controls/switches/modekb", mode);
+                    setprop("/instrumentation/efis[0]/mfd/display-mode", modes[mode]);
+                </script>
             </binding>
         </action>
     </animation>
@@ -216,7 +250,14 @@
             <repeatable>false</repeatable>
             <binding>
                 <command>nasal</command>
-                <script>MD88.mode_dec();</script>
+                <script>
+                    var modes = [ "APP", "VOR", "MAP", "PLAN" ];
+                    var mode = getprop("/controls/switches/modekb") - 1;
+                    if (mode &lt; 0) mode = 0;
+                    setprop("/controls/switches/modekb", mode);
+                    setprop("/instrumentation/efis[0]/mfd/display-mode", modes[mode]);
+                </script>
+
             </binding>
         </action>
     </animation>
