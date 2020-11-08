@@ -160,8 +160,6 @@ var Velocities = {
 	groundspeedKt: props.globals.getNode("/velocities/groundspeed-kt"),
 };
 
-setprop("/controls/switches/modekb", 2);
-setprop("/controls/switches/modekb2", 2);
 setprop("/systems/acconfig/property-tree-setup-loaded", 1);
 
 fgcommand("dialog-show", props.Node.new({"dialog-name": "system"}));
