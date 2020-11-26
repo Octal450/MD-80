@@ -752,17 +752,17 @@
 						<independentVar lookup="table">/controls/engines/engine[0]/cutoff</independentVar>
 						<tableData breakPoint="0">
 							       0    50000
-							 10    0    0
-							 35  430  330
-							 45  330  230
-							 54  320  160
-							103  610  495
+							 10.0    0    0
+							 35.0  430  330
+							 45.0  330  230
+							 54.2  320  160
+							102.5  610  495
 						</tableData>
 						<tableData breakPoint="1">
 							       0    50000
-							 30    0    0
-							 54  320  160
-							103  610  495
+							 30.0    0    0
+							 54.2  320  160
+							102.5  610  495
 						</tableData>
 					</table>
 				</sum>
@@ -785,17 +785,17 @@
 						<independentVar lookup="table">/controls/engines/engine[1]/cutoff</independentVar>
 						<tableData breakPoint="0">
 							       0    50000
-							 10    0    0
-							 35  430  330
-							 45  330  230
-							 54  320  160
-							103  610  495
+							 10.0    0    0
+							 35.0  430  330
+							 45.0  330  230
+							 54.2  320  160
+							102.5  610  495
 						</tableData>
 						<tableData breakPoint="1">
 							       0    50000
-							 30    0    0
-							 54  320  160
-							103  610  495
+							 30.0    0    0
+							 54.2  320  160
+							102.5  610  495
 						</tableData>
 					</table>
 				</sum>
@@ -833,6 +833,60 @@
 			<c1>3</c1>
 			<output>/engines/engine[1]/ff-actual</output>
 		</lag_filter>
+		
+		<fcs_function name="fadec/oil-psi-cmd-1">
+			<function>
+				<table>
+					<independentVar lookup="row">/engines/engine[0]/n2</independentVar>
+					<independentVar lookup="column">atmosphere/density-altitude</independentVar>
+					<independentVar lookup="table">/controls/engines/engine[0]/cutoff</independentVar>
+					<tableData breakPoint="0">
+						        0   50000
+						 15.0   0   0
+						 54.2  44  46
+						102.5  52  54
+					</tableData>
+					<tableData breakPoint="1">
+						        0   50000
+						 30.0   0   0
+						 62.9  44  46
+						102.5  52  54
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<actuator name="/engines/engine[0]/oil-psi">
+			<input>fadec/oil-psi-cmd-1</input>
+			<lag>0.5</lag>
+		</actuator>
+		
+		<fcs_function name="fadec/oil-psi-cmd-2">
+			<function>
+				<table>
+					<independentVar lookup="row">/engines/engine[1]/n2</independentVar>
+					<independentVar lookup="column">atmosphere/density-altitude</independentVar>
+					<independentVar lookup="table">/controls/engines/engine[1]/cutoff</independentVar>
+					<tableData breakPoint="0">
+						        0   50000
+						 15.0   0   0
+						 54.2  44  46
+						102.5  52  54
+					</tableData>
+					<tableData breakPoint="1">
+						        0   50000
+						 30.0   0   0
+						 62.9  44  46
+						102.5  52  54
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<actuator name="/engines/engine[1]/oil-psi">
+			<input>fadec/oil-psi-cmd-2</input>
+			<lag>0.5</lag>
+		</actuator>
 	
 	</channel>
 
