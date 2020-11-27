@@ -18,7 +18,7 @@
 		<engine file="jt8d-217a_1">
 			<location unit="M">
 				<x>23.902</x>
-				<y>-2.7</y>
+				<y>-1.4</y>
 				<z>0.0014</z>
 			</location>
 			<orient unit="DEG">
@@ -30,7 +30,7 @@
 			<thruster file="direct">
 				<location unit="M">
 					<x>23.902</x>
-					<y>-2.7</y>
+					<y>-1.4</y>
 					<z>0.0014</z>
 				</location>
 				<orient unit="DEG">
@@ -44,7 +44,7 @@
 		<engine file="jt8d-217a_2">
 			<location unit="M">
 				<x>23.902</x>
-				<y>2.7</y>
+				<y>1.4</y>
 				<z>0.0014</z>
 			</location>
 			<orient unit="DEG">
@@ -56,7 +56,7 @@
 			<thruster file="direct">
 				<location unit="M">
 					<x>23.902</x>
-					<y>2.7</y>
+					<y>1.4</y>
 					<z>0.0014</z>
 				</location>
 				<orient unit="DEG">

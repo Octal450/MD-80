@@ -219,7 +219,9 @@
 				<y-offset-m archive="y">1.3</y-offset-m>
 				<z-offset-m archive="y">-19.6</z-offset-m>
 				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
+				<heading-offset-deg archive="y">0</heading-offset-deg>
 				<pitch-offset-deg archive="y">-18</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
 			</config>
 		</view>
 		<view n="100">
@@ -233,7 +235,9 @@
 				<y-offset-m archive="y">1.3</y-offset-m>
 				<z-offset-m archive="y">-19.6</z-offset-m>
 				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
+				<heading-offset-deg archive="y">0</heading-offset-deg>
 				<pitch-offset-deg archive="y">-18</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
 			</config>
 		</view>
 		<view n="105">
@@ -249,9 +253,41 @@
 				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
 				<heading-offset-deg archive="y">129</heading-offset-deg>
 				<pitch-offset-deg archive="y">-7</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
 			</config>
 		</view>
 		<view n="106">
+			<name>Right Front View</name>
+			<type>lookfrom</type>
+			<enabled type="bool">true</enabled>
+			<internal type="bool" archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">1.75</x-offset-m>
+				<y-offset-m archive="y">0.92</y-offset-m>
+				<z-offset-m archive="y">-5.5</z-offset-m>
+				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
+				<heading-offset-deg archive="y">231</heading-offset-deg>
+				<pitch-offset-deg archive="y">-7</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
+			</config>
+		</view>
+		<view n="107">
+			<name>Left Mid View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">-1.75</x-offset-m>
+				<y-offset-m archive="y">0.92</y-offset-m>
+				<z-offset-m archive="y">1.0</z-offset-m>
+				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
+				<heading-offset-deg>103</heading-offset-deg>
+				<pitch-offset-deg archive="y">-7</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
+			</config>
+		</view>
+		<view n="108">
 			<name>Right Mid View</name>
 			<type>lookfrom</type>
 			<internal archive="y">true</internal>
@@ -260,12 +296,13 @@
 				<x-offset-m archive="y">1.75</x-offset-m>
 				<y-offset-m archive="y">0.92</y-offset-m>
 				<z-offset-m archive="y">1.0</z-offset-m>
-				<heading-offset-deg>257</heading-offset-deg>
 				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
+				<heading-offset-deg>257</heading-offset-deg>
 				<pitch-offset-deg archive="y">-7</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
 			</config>
 		</view>
-		<view n="107">
+		<view n="109">
 			<name>Left Aft View</name>
 			<type>lookfrom</type>
 			<internal archive="y">true</internal>
@@ -274,9 +311,25 @@
 				<x-offset-m archive="y">-1.75</x-offset-m>
 				<y-offset-m archive="y">0.92</y-offset-m>
 				<z-offset-m archive="y">4.5</z-offset-m>
-				<heading-offset-deg>75</heading-offset-deg>
 				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
+				<heading-offset-deg>75</heading-offset-deg>
 				<pitch-offset-deg archive="y">-7</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
+			</config>
+		</view>
+		<view n="110">
+			<name>Right Aft View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">1.75</x-offset-m>
+				<y-offset-m archive="y">0.92</y-offset-m>
+				<z-offset-m archive="y">4.5</z-offset-m>
+				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
+				<heading-offset-deg>285</heading-offset-deg>
+				<pitch-offset-deg archive="y">-7</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
 			</config>
 		</view>
 	</sim>
