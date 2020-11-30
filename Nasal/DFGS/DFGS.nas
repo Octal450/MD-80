@@ -91,8 +91,8 @@ var Input = {
 	autoLandTemp: 0,
 	athr: props.globals.initNode("/it-autoflight/input/athr", 0, "BOOL"),
 	altDiff: 0,
-	bankLimitSW: props.globals.initNode("/it-autoflight/input/bank-limit-sw", 4, "INT"), # 30
-	bankLimitSWTemp: 0,
+	bankLimitSw: props.globals.initNode("/it-autoflight/input/bank-limit-sw", 4, "INT"), # 30
+	bankLimitSwTemp: 0,
 	fd1: props.globals.initNode("/it-autoflight/input/fd1", 0, "BOOL"),
 	fd2: props.globals.initNode("/it-autoflight/input/fd2", 0, "BOOL"),
 	fpa: props.globals.initNode("/it-autoflight/input/fpa", 0, "DOUBLE"),
@@ -185,7 +185,7 @@ var ITAF = {
 	init: func(t = 0) { # Not everything should be reset if the reset is type 1
 		if (t != 1) {
 			Input.alt.setValue(10000);
-			Input.bankLimitSW.setValue(4); # 30
+			Input.bankLimitSw.setValue(4); # 30
 			Input.hdg.setValue(360);
 			Input.ktsMach.setBoolValue(0);
 			Input.ktsMachFlch.setBoolValue(0);
@@ -370,14 +370,14 @@ var ITAF = {
 		}
 	},
 	slowLoop: func() {
-		Input.bankLimitSWTemp = Input.bankLimitSW.getValue();
+		Input.bankLimitSwTemp = Input.bankLimitSw.getValue();
 		Velocities.trueAirspeedKtTemp = Velocities.trueAirspeedKt.getValue();
 		FPLN.activeTemp = FPLN.active.getValue();
 		FPLN.currentWpTemp = FPLN.currentWp.getValue();
 		FPLN.numTemp = FPLN.num.getValue();
 		
 		# Bank Limit
-		Internal.bankLimit.setValue(Internal.bankLimitMax[Input.bankLimitSWTemp]); # Non auto
+		Internal.bankLimit.setValue(Internal.bankLimitMax[Input.bankLimitSwTemp]); # Non auto
 		
 		# If in LNAV mode and route is not longer active, switch to HDG HLD
 		if (Output.lat.getValue() == 1) { # Only evaulate the rest of the condition if we are in LNAV mode
