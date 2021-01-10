@@ -951,8 +951,10 @@
 			<options n="0">
 				<canvas-map-less-transparent type="bool">0</canvas-map-less-transparent>
 				<map-less-transparent type="bool">0</map-less-transparent>
-				<nd-rate type="double">1</nd-rate>
-				<pfd-rate type="double">1</pfd-rate>
+				<du n="0">
+					<nd-fps type="double">20</nd-fps>
+					<pfd-fps type="double">20</pfd-fps>
+				</du>
 				<seperate-tiller-axis type="bool">0</seperate-tiller-axis>
 			</options>
 		</acconfig>
@@ -976,6 +978,10 @@
 			<sys-l-qty-input type="double">8</sys-l-qty-input> <!-- Randomized later in sim init -->
 			<sys-r-qty-input type="double">8</sys-r-qty-input> <!-- Randomized later in sim init -->
 		</hydraulics>
+		<shake n="0">
+			<effect type="bool">0</effect>
+			<shaking type="double">0</shaking>
+		</shake>
 	</systems>
 	
 	<nasal n="0">
@@ -990,19 +996,23 @@
 			<file>Aircraft/MD-80/Nasal/thunder-effects.nas</file>
 			<file>Aircraft/MD-80/Models/Instruments/ND/ND.nas</file>
 		</libraries>
+		<acconfig>
+			<file>Aircraft/MD-80/Nasal/acconfig.nas</file>
+		</acconfig>
 		<systems>
 			<file>Aircraft/MD-80/Nasal/Systems/electrical.nas</file>
 			<file>Aircraft/MD-80/Nasal/Systems/master-system.nas</file>
+			<file>Aircraft/MD-80/Nasal/Displays/DU-controller.nas</file>
 		</systems>
 		<dfgs>
 			<file>Aircraft/MD-80/Nasal/DFGS/DFGS.nas</file>
 			<file>Aircraft/MD-80/Nasal/DFGS/DFGS-b.nas</file>
 		</dfgs>
 		<canvas_pfd>
-			<file>Aircraft/MD-80/Models/Instruments/PFD/PFD.nas</file>
+			<file>Aircraft/MD-80/Nasal/Displays/PFD.nas</file>
 		</canvas_pfd>
 		<canvas_fma>
-			<file>Aircraft/MD-80/Models/Instruments/FMA/FMA.nas</file>
+			<file>Aircraft/MD-80/Nasal/Displays/FMA.nas</file>
 		</canvas_fma>
 		<autopush>
 			<file>Aircraft/MD-80/Nasal/Autopush/autopush.nas</file>

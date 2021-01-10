@@ -29,6 +29,7 @@
 			<contrast type="float">0.85</contrast>
 		</parameters>
 		<object-name>ND.screenR</object-name>
+		<object-name>ND.offR</object-name>
 	</effect>
 	
 	<animation>
@@ -50,6 +51,28 @@
 			<y-m>0</y-m>
 			<z-m>0.055</z-m>
 		</center>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ND.screenR</object-name>
+		<condition>
+			<equals>
+				<property>instrumentation/nd/show-nd2</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ND.offR</object-name>
+		<condition>
+			<not-equals>
+				<property>instrumentation/nd/show-nd2</property>
+				<value>1</value>
+			</not-equals>
+		</condition>
 	</animation>
 
 </PropertyList>

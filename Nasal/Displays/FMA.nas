@@ -30,19 +30,19 @@ var Value = {
 };
 
 var canvasBase = {
-	init: func(canvas_group, file) {
+	init: func(canvasGroup, file) {
 		var font_mapper = func(family, weight) {
 			return "FMA.ttf";
 		};
 		
-		canvas.parsesvg(canvas_group, file, {"font-mapper": font_mapper});
+		canvas.parsesvg(canvasGroup, file, {"font-mapper": font_mapper});
 		
-		var svg_keys = me.getKeys();
-		foreach(var key; svg_keys) {
-			me[key] = canvas_group.getElementById(key);
+		var svgKeys = me.getKeys();
+		foreach(var key; svgKeys) {
+			me[key] = canvasGroup.getElementById(key);
 		}
 		
-		me.page = canvas_group;
+		me.page = canvasGroup;
 		
 		return me;
 	},
@@ -110,9 +110,9 @@ var canvasBase = {
 };
 
 var canvasArmL = {
-	new: func(canvas_group, file) {
+	new: func(canvasGroup, file) {
 		var m = {parents: [canvasArmL, canvasBase]};
-		m.init(canvas_group, file);
+		m.init(canvasGroup, file);
 
 		return m;
 	},
@@ -129,9 +129,9 @@ var canvasArmL = {
 };
 
 var canvasArmR = {
-	new: func(canvas_group, file) {
+	new: func(canvasGroup, file) {
 		var m = {parents: [canvasArmR, canvasBase]};
-		m.init(canvas_group, file);
+		m.init(canvasGroup, file);
 
 		return m;
 	},
@@ -148,9 +148,9 @@ var canvasArmR = {
 };
 
 var canvasPitchL = {
-	new: func(canvas_group, file) {
+	new: func(canvasGroup, file) {
 		var m = {parents: [canvasPitchL, canvasBase]};
-		m.init(canvas_group, file);
+		m.init(canvasGroup, file);
 
 		return m;
 	},
@@ -163,9 +163,9 @@ var canvasPitchL = {
 };
 
 var canvasPitchR = {
-	new: func(canvas_group, file) {
+	new: func(canvasGroup, file) {
 		var m = {parents: [canvasPitchR, canvasBase]};
-		m.init(canvas_group, file);
+		m.init(canvasGroup, file);
 
 		return m;
 	},
@@ -178,9 +178,9 @@ var canvasPitchR = {
 };
 
 var canvasRollL = {
-	new: func(canvas_group, file) {
+	new: func(canvasGroup, file) {
 		var m = {parents: [canvasRollL, canvasBase]};
-		m.init(canvas_group, file);
+		m.init(canvasGroup, file);
 
 		return m;
 	},
@@ -193,9 +193,9 @@ var canvasRollL = {
 };
 
 var canvasRollR = {
-	new: func(canvas_group, file) {
+	new: func(canvasGroup, file) {
 		var m = {parents: [canvasRollR, canvasBase]};
-		m.init(canvas_group, file);
+		m.init(canvasGroup, file);
 
 		return m;
 	},
@@ -208,9 +208,9 @@ var canvasRollR = {
 };
 
 var canvasThrL = {
-	new: func(canvas_group, file) {
+	new: func(canvasGroup, file) {
 		var m = {parents: [canvasThrL, canvasBase]};
-		m.init(canvas_group, file);
+		m.init(canvasGroup, file);
 
 		return m;
 	},
@@ -229,9 +229,9 @@ var canvasThrL = {
 };
 
 var canvasThrR = {
-	new: func(canvas_group, file) {
+	new: func(canvasGroup, file) {
 		var m = {parents: [canvasThrR, canvasBase]};
-		m.init(canvas_group, file);
+		m.init(canvasGroup, file);
 
 		return m;
 	},

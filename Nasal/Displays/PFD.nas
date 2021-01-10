@@ -4,7 +4,9 @@
 var pfd1Display = nil;
 var pfd2Display = nil;
 var pfd1 = nil;
+var pfd1Error = nil;
 var pfd2 = nil;
+var pfd2Error = nil;
 
 var Value = {
 	Ai: {
@@ -27,27 +29,27 @@ var Value = {
 };
 
 var canvasBase = {
-	init: func(canvas_group, file) {
+	init: func(canvasGroup, file) {
 		var font_mapper = func(family, weight) {
 			return "LiberationFonts/LiberationSans-Regular.ttf";
 		};
 		
-		canvas.parsesvg(canvas_group, file, {"font-mapper": font_mapper});
+		canvas.parsesvg(canvasGroup, file, {"font-mapper": font_mapper});
 		
-		var svg_keys = me.getKeys();
-		foreach(var key; svg_keys) {
-			me[key] = canvas_group.getElementById(key);
+		var svgKeys = me.getKeys();
+		foreach(var key; svgKeys) {
+			me[key] = canvasGroup.getElementById(key);
 			
-			var clip_el = canvas_group.getElementById(key ~ "_clip");
+			var clip_el = canvasGroup.getElementById(key ~ "_clip");
 			if (clip_el != nil) {
 				clip_el.setVisible(0);
-				var tran_rect = clip_el.getTransformedBounds();
+				var tranRect = clip_el.getTransformedBounds();
 				
 				var clip_rect = sprintf("rect(%d, %d, %d, %d)", 
-					tran_rect[1], # 0 ys
-					tran_rect[2], # 1 xe
-					tran_rect[3], # 2 ye
-					tran_rect[0] # 3 xs
+					tranRect[1], # 0 ys
+					tranRect[2], # 1 xe
+					tranRect[3], # 2 ye
+					tranRect[0] # 3 xs
 				);
 				
 				# Coordinates are top, right, bottom, left (ys, xe, ye, xs) ref: l621 of simgear/canvas/CanvasElement.cxx
@@ -62,16 +64,27 @@ var canvasBase = {
 		me.aiScaleTrans = me["AI_scale"].createTransform();
 		me.aiScaleRot = me["AI_scale"].createTransform();
 		
-		me.page = canvas_group;
+		me.page = canvasGroup;
 		
 		return me;
 	},
 	getKeys: func() {
 		return ["AI_center", "AI_background", "AI_scale", "AI_bank", "FD_pitch", "FD_roll", "ILS_group", "LOC_pointer", "LOC_scale", "LOC_no", "GS_pointer", "GS_scale", "GS_no", "FS_scale", "FS_pointer", "RA_bars", "RA_scale"];
 	},
+	setup: func() {
+		# Hide the pages by default
+		pfd1.page.hide();
+		pfd1Error.page.hide();
+		pfd2.page.hide();
+		pfd2Error.page.hide();
+	},
 	update: func() {
-		pfd1.update();
-		pfd2.update();
+		if (systems.DUController.updatePfd1) {
+			pfd1.update();
+		}
+		if (systems.DUController.updatePfd2) {
+			pfd2.update();
+		}
 	},
 	updateBase: func() {
 		# Fast Slow
@@ -110,9 +123,9 @@ var canvasBase = {
 };
 
 var canvasPfd1 = {
-	new: func(canvas_group, file) {
+	new: func(canvasGroup, file) {
 		var m = {parents: [canvasPfd1, canvasBase]};
-		m.init(canvas_group, file);
+		m.init(canvasGroup, file);
 		
 		return m;
 	},
@@ -169,9 +182,9 @@ var canvasPfd1 = {
 };
 
 var canvasPfd2 = {
-	new: func(canvas_group, file) {
+	new: func(canvasGroup, file) {
 		var m = {parents: [canvasPfd2, canvasBase]};
-		m.init(canvas_group, file);
+		m.init(canvasGroup, file);
 		
 		return m;
 	},
@@ -227,6 +240,68 @@ var canvasPfd2 = {
 	},
 };
 
+var canvasPfd1Error = {
+	init: func(canvasGroup, file) {
+		var font_mapper = func(family, weight) {
+			return "LiberationFonts/LiberationSans-Regular.ttf";
+		};
+		
+		canvas.parsesvg(canvasGroup, file, {"font-mapper": font_mapper});
+		
+		var svgKeys = me.getKeys();
+		foreach(var key; svgKeys) {
+			me[key] = canvasGroup.getElementById(key);
+		}
+		
+		me.page = canvasGroup;
+		
+		return me;
+	},
+	new: func(canvasGroup, file) {
+		var m = {parents: [canvasPfd1Error]};
+		m.init(canvasGroup, file);
+		
+		return m;
+	},
+	getKeys: func() {
+		return ["Error_Code"];
+	},
+	update: func() {
+		me["Error_Code"].setText(acconfig.SYSTEM.Error.code.getValue());
+	},
+};
+
+var canvasPfd2Error = {
+	init: func(canvasGroup, file) {
+		var font_mapper = func(family, weight) {
+			return "LiberationFonts/LiberationSans-Regular.ttf";
+		};
+		
+		canvas.parsesvg(canvasGroup, file, {"font-mapper": font_mapper});
+		
+		var svgKeys = me.getKeys();
+		foreach(var key; svgKeys) {
+			me[key] = canvasGroup.getElementById(key);
+		}
+		
+		me.page = canvasGroup;
+		
+		return me;
+	},
+	new: func(canvasGroup, file) {
+		var m = {parents: [canvasPfd2Error]};
+		m.init(canvasGroup, file);
+		
+		return m;
+	},
+	getKeys: func() {
+		return ["Error_Code"];
+	},
+	update: func() {
+		me["Error_Code"].setText(acconfig.SYSTEM.Error.code.getValue());
+	},
+};
+
 var init = func() {
 	pfd1Display = canvas.new({
 		"name": "PFD1",
@@ -245,23 +320,28 @@ var init = func() {
 	pfd2Display.addPlacement({"node": "pfd2.screen"});
 	
 	var pfd1Group = pfd1Display.createGroup();
+	var pfd1ErrorGroup = pfd1Display.createGroup();
 	var pfd2Group = pfd2Display.createGroup();
+	var pfd2ErrorGroup = pfd2Display.createGroup();
 	
 	pfd1 = canvasPfd1.new(pfd1Group, "Aircraft/MD-80/Models/Instruments/PFD/res/PFD.svg");
+	pfd1Error = canvasPfd1Error.new(pfd1ErrorGroup, "Aircraft/MD-80/Models/Instruments/PFD/res/Error.svg");
 	pfd2 = canvasPfd2.new(pfd2Group, "Aircraft/MD-80/Models/Instruments/PFD/res/PFD.svg");
+	pfd2Error = canvasPfd2Error.new(pfd2ErrorGroup, "Aircraft/MD-80/Models/Instruments/PFD/res/Error.svg");
 	
+	canvasBase.setup();
 	pfdUpdate.start();
 	
-	if (pts.Systems.Acconfig.Options.pfdRate.getValue() > 1) {
+	if (pts.Systems.Acconfig.Options.Du.pfdFps.getValue() != 20) {
 		rateApply();
 	}
 }
 
 var rateApply = func() {
-	pfdUpdate.restart(pts.Systems.Acconfig.Options.pfdRate.getValue() * 0.05);
+	pfdUpdate.restart(1 / pts.Systems.Acconfig.Options.Du.pfdFps.getValue());
 }
 
-var pfdUpdate = maketimer(0.05, func() {
+var pfdUpdate = maketimer(0.05, func() { # 20FPS
 	canvasBase.update();
 });
 

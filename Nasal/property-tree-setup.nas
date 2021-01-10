@@ -151,8 +151,11 @@ var Systems = {
 	Acconfig: {
 		autoConfigRunning: props.globals.getNode("/systems/acconfig/autoconfig-running"),
 		Options: {
-			pfdRate: props.globals.getNode("/systems/acconfig/options/pfd-rate"),
-		}
+			Du: {
+				ndFps: props.globals.getNode("/systems/acconfig/options/du/nd-fps"),
+				pfdFps: props.globals.getNode("/systems/acconfig/options/du/pfd-fps"),
+			},
+		},
 	},
 	Shake: {
 		effect: props.globals.getNode("/systems/shake/effect"),

@@ -23,12 +23,13 @@ var systemsInit = func() {
 
 setlistener("sim/signals/fdm-initialized", func() {
 	systemsInit();
+	systemsLoop.start();
 	canvas_pfd.init();
 	canvas_fma.init();
 });
 
 var systemsLoop = maketimer(0.1, func() {
-	# Put loops
+	systems.DUController.loop();
 	
 	if (pts.Velocities.groundspeedKt.getValue() >= 15) {
 		pts.Systems.Shake.effect.setBoolValue(1);
