@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -38,12 +38,12 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1017"
+     inkscape:window-height="1030"
      id="namedview371"
      showgrid="false"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="1215.7324"
-     inkscape:cy="464.78487"
+     inkscape:zoom="16"
+     inkscape:cx="652.88892"
+     inkscape:cy="497.228"
      inkscape:window-x="1592"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -93,7 +93,7 @@
      id="AI_background"
      transform="matrix(1.0761131,0,0,1.0761131,33.549837,-251.2475)">
     <rect
-       style="opacity:1;fill:#4b1f00;fill-opacity:1;stroke:none;stroke-width:2.48752213;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#401800;fill-opacity:1;stroke:none;stroke-width:2.48752213;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="AI_ground"
        width="1287.3097"
        height="1375.7401"
@@ -113,7 +113,7 @@
        height="1375.7399"
        width="1287.3096"
        id="AI_sky"
-       style="opacity:1;fill:#0055ae;fill-opacity:1;stroke:none;stroke-width:2.58921981;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+       style="opacity:1;fill:#004097;fill-opacity:1;stroke:none;stroke-width:2.58921981;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
   </g>
   <g
      transform="matrix(1.0761131,0,0,1.0761131,-39.268584,-30.720782)"
@@ -2199,17 +2199,17 @@
      transform="matrix(0,1,-1,0,0,0)"
      inkscape:label="#rect4743"
      y="-742.37952"
-     x="398.12195"
+     x="398.02194"
      height="452.90799"
-     width="10.994112"
+     width="11.194112"
      id="FD_pitch"
      style="fill:#ff42a5;fill-opacity:1;stroke:none;stroke-width:2.87749815;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   <rect
      style="fill:#ff42a5;fill-opacity:1;stroke:none;stroke-width:2.87749815;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      id="FD_roll"
-     width="10.994112"
+     width="11.194112"
      height="452.90799"
-     x="510.42844"
+     x="510.32843"
      y="177.16501"
      inkscape:label="#rect4743" />
   <g
