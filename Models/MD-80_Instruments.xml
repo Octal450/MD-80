@@ -63,6 +63,7 @@
 		<object-name>FMA_R</object-name> 
 		<object-name>enginepanel</object-name> 
 		<object-name>enginepanel2</object-name> 
+		<object-name>assumedtemp</object-name> 
 	</animation>
 	
 	<!-- Captain Panel -->
@@ -336,6 +337,17 @@
 			<x-m>2.245</x-m>
 			<y-m>0.037</y-m>
 			<z-m>0.783</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>assumedtemp</name>
+		<path>Aircraft/MD-80/Models/Instruments/assumedtemp.xml</path>
+		<offsets>
+			<x-m>2.195</x-m>
+			<y-m>-0.21</y-m>
+			<z-m>1.029</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>

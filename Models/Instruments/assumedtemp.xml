@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
+
+<PropertyList>
+	
+	<path>assumedtemp.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>box</object-name>
+		<object-name>flex1</object-name>
+		<object-name>flex2</object-name>
+		<emission>
+			<red>0.3</red>
+			<green>0.3</green>
+			<blue>0.3</blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>flex1</object-name>
+		<property>controls/tri/flex-d10</property>
+		<factor>0.0695</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>flex2</object-name>
+		<property>controls/tri/flex-d1</property>
+		<factor>0.0695</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>flexGroup</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>fdm/jsbsim/engine/limit/flex-temp</property>
+				<step>1</step>
+				<min>30</min>
+				<max>60</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>fdm/jsbsim/engine/limit/flex-temp</property>
+				<step>-1</step>
+				<min>30</min>
+				<max>60</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+
+</PropertyList>

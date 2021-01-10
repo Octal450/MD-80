@@ -5,7 +5,8 @@
 
 <system name="MD-80: PW Engine/TRI"> <!-- Limits vs 98.7 -->
 	
-	<property value="0">engine/limit/flex-temp</property>
+	<property value="45">engine/limit/flex-temp</property>
+	<property value="30">engine/limit/rated-temp</property>
 	<property value="1">engine/limit/idle</property>
 	<property value="1">engine/epr/c1</property> <!-- Done in property rule because its easier to tune -->
 	<property value="1">engine/epr/c2</property> <!-- Done in property rule because its easier to tune -->
@@ -178,19 +179,27 @@
 			</function>
 		</fcs_function>
 		
-		<switch name="engine/limit/to-ref-temp">
-			<default value="propulsion/tat-c"/>
-			<test value="engine/limit/flex-temp">
-				engine/limit/active-mode-int eq 5
-			</test>
-		</switch>
-		
-		<fcs_function name="engine/limit/takeoff-input"> <!-- Vs 98.7 -->
+		<fcs_function name="engine/limit/takeoff-input">
 			<function>
 				<pow>
-					<table>
+					<property>engine/limit/rated-thrust-n1</property>
+					<value>3.5</value>
+				</pow>
+			</function>
+		</fcs_function>
+		
+		<summer name="engine/limit/flex-temp-input"> <!-- (Rated - Flex) + TAT -->
+			<input>engine/limit/rated-temp</input>
+			<input>-engine/limit/flex-temp</input>
+			<input>propulsion/tat-c</input>
+		</summer>
+
+		<fcs_function name="engine/limit/takeoff-flex-input">
+			<function>
+				<pow>
+					<table> <!-- Copy of rated-thrust-n1 table above -->
 						<independentVar lookup="row">/position/altitude-ft</independentVar>
-						<independentVar lookup="column">engine/limit/to-ref-temp</independentVar>
+						<independentVar lookup="column">engine/limit/flex-temp-input</independentVar>
 						<tableData>
 							      -60   -30    0     30    60
 							    0  83.2  86.7  90.0  94.2  89.8
@@ -203,12 +212,19 @@
 			</function>
 		</fcs_function>
 		
+		<switch name="engine/limit/takeoff-final-input">
+			<default value="engine/limit/takeoff-input"/>
+			<test value="engine/limit/takeoff-flex-input">
+				engine/limit/active-mode-int eq 5
+			</test>
+		</switch>
+		
 		<fcs_function name="engine/limit/takeoff-ref">
 			<function>
 				<sum>
 					<product>
 						<table>
-							<independentVar lookup="row">engine/limit/takeoff-input</independentVar>
+							<independentVar lookup="row">engine/limit/takeoff-final-input</independentVar>
 							<tableData>
 								   24743.1  0.00
 								   81455.7  0.03
@@ -834,7 +850,7 @@
 			<output>/engines/engine[1]/ff-actual</output>
 		</lag_filter>
 		
-		<fcs_function name="fadec/oil-psi-cmd-1">
+		<fcs_function name="engine/oil-psi-cmd-1">
 			<function>
 				<table>
 					<independentVar lookup="row">/engines/engine[0]/n2</independentVar>
@@ -857,11 +873,11 @@
 		</fcs_function>
 		
 		<actuator name="/engines/engine[0]/oil-psi">
-			<input>fadec/oil-psi-cmd-1</input>
+			<input>engine/oil-psi-cmd-1</input>
 			<lag>0.5</lag>
 		</actuator>
 		
-		<fcs_function name="fadec/oil-psi-cmd-2">
+		<fcs_function name="engine/oil-psi-cmd-2">
 			<function>
 				<table>
 					<independentVar lookup="row">/engines/engine[1]/n2</independentVar>
@@ -884,7 +900,7 @@
 		</fcs_function>
 		
 		<actuator name="/engines/engine[1]/oil-psi">
-			<input>fadec/oil-psi-cmd-2</input>
+			<input>engine/oil-psi-cmd-2</input>
 			<lag>0.5</lag>
 		</actuator>
 	

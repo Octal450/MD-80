@@ -249,6 +249,44 @@
 				</integer>
 			</function>
 		</fcs_function>
+		
+		<fcs_function name="/controls/tri/flex-fixed">
+			<function>
+				<sum>
+					<abs>
+						<property>engine/limit/flex-temp</property>
+					</abs>
+					<value>0.5</value> <!-- Make it round correctly -->
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/tri/flex-d10">
+			<function>
+				<integer>
+					<quotient>
+						<property>/controls/tri/flex-fixed</property>
+						<value>10</value>
+					</quotient>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/tri/flex-d1">
+			<function>
+				<integer>
+					<product>
+						<fraction>
+							<quotient>
+								<property>/controls/tri/flex-fixed</property>
+								<value>10</value>
+							</quotient>
+						</fraction>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
 	
 	</channel>
 
