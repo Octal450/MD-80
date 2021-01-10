@@ -85,6 +85,22 @@
 			</test>
 		</switch>
 		
+		<fcs_function name="dfgs/yaw/rudder-nul">
+			<function>
+				<table>
+					<independentVar lookup="row">/controls/flight/rudder</independentVar>
+					<independentVar lookup="column">dfgs/yaw/autoland-switch</independentVar>
+					<tableData>
+						       0  1
+						-1.00 -1  0
+						-0.02  0  0
+						 0.02  0  0
+						 1.00  1  0
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
 		<washout_filter name="dfgs/yaw/r-washout">
 			<input>velocities/r-rad_sec</input>
 			<c1>0.5</c1>
@@ -114,15 +130,20 @@
 			</test>
 		</switch>
 		
+		<summer name="dfgs/yaw/output-sum">
+			<input>dfgs/yaw/yd-f</input>
+			<input>dfgs/yaw/afs-cmd</input>
+		</summer>
+		
 		<switch name="dfgs/yaw/output">
-			<default value="dfgs/yaw/yd-f"/>
-			<test value="dfgs/yaw/afs-cmd"> <!-- AFS keeps working even if YD is unavail -->
+			<default value="dfgs/yaw/output-sum"/>
+			<test value="dfgs/yaw/afs-cmd"> <!-- DFGS keeps working even if YD is unavail -->
 				/controls/fctl/yd eq 0
 			</test>
 		</switch>
 		
 		<summer name="dfgs/rudder-output">
-			<input>/controls/flight/rudder</input>
+			<input>dfgs/yaw/rudder-nul</input>
 			<input>dfgs/yaw/output</input>
 			<clipto>
 				<min>-1.0</min>
