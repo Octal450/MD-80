@@ -13,7 +13,7 @@
 			<expression>
 				<table>
 					<property>/fdm/jsbsim/velocities/vc-kts</property>
-					<entry><ind>130</ind><dep>1.7</dep></entry>
+					<entry><ind>130</ind><dep>1.5</dep></entry>
 					<entry><ind>360</ind><dep>2.8</dep></entry>
 				</table>
 			</expression>

@@ -67,7 +67,35 @@
 					<tableData>
 						     0    1
 						130 -8.5  0.0
-						360 -1.0  0.0
+						350 -1.0  0.0
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="dfgs/yaw/tc-p-gain">
+			<function>
+				<table>
+					<independentVar lookup="row">velocities/vc-kts</independentVar>
+					<independentVar lookup="column">dfgs/yaw/gain-switch</independentVar>
+					<tableData>
+						     0    1
+						130  2.0  0.0
+						350  0.5  0.0
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="dfgs/yaw/tc-d-gain">
+			<function>
+				<table>
+					<independentVar lookup="row">velocities/vc-kts</independentVar>
+					<independentVar lookup="column">dfgs/yaw/gain-switch</independentVar>
+					<tableData>
+						     0    1
+						130  4.0  0.0
+						350  1.0  0.0
 					</tableData>
 				</table>
 			</function>
@@ -123,6 +151,33 @@
 			</clipto>
 		</pure_gain>
 		
+		<switch name="dfgs/yaw/slip-skid">
+			<default value="aero/beta-rad"/>
+			<test logic="OR" value="0">
+				position/wow eq 1
+			</test>
+		</switch>
+		
+		<pid name="dfgs/yaw/tc-pd-v">
+			<input>dfgs/yaw/slip-skid</input>
+			<kp>dfgs/yaw/tc-p-gain</kp>
+			<ki>0.0</ki>
+			<kd>dfgs/yaw/tc-d-gain</kd>
+			<clipto>
+				<min>-0.2</min>
+				<max>0.2</max>
+			</clipto>
+			<output>dfgs/yaw/tc-pd</output>
+		</pid>
+		
+		<switch name="dfgs/yaw/tc-pd-s">
+			<default value="dfgs/yaw/tc-pd"/>
+			<test logic="OR" value="0">
+				dfgs/yaw/gain-switch ne 0
+				dfgs/yaw/autoland-switch eq 1
+			</test>
+		</switch>
+		
 		<switch name="dfgs/yaw/afs-cmd">
 			<default value="0"/>
 			<test value="dfgs/afs/yaw-cmd">
@@ -132,6 +187,7 @@
 		
 		<summer name="dfgs/yaw/output-sum">
 			<input>dfgs/yaw/yd-f</input>
+			<input>dfgs/yaw/tc-pd-s</input>
 			<input>dfgs/yaw/afs-cmd</input>
 		</summer>
 		
