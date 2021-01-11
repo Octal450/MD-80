@@ -72,8 +72,8 @@
 						10.7094  1.0843
 						11.6170  1.1538
 						12.6496  1.2184
-						13.7292  1.2911
-						14.7930  1.3444
+						13.7292  1.2811
+						14.7930  1.3244
 						15.6981  1.1882
 						16.6352  1.1064
 						17.5725  1.0311
@@ -482,7 +482,7 @@
 				<property>metrics/bw-ft</property>
 				<property>aero/bi2vel</property>
 				<property>velocities/p-aero-rad_sec</property>
-				<value>-0.61</value>
+				<value>-0.51</value>
 			</product>
 		</function>
 		
@@ -566,7 +566,7 @@
 				<table>
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<tableData>
-						-9.4468  0.1997
+						-9.4468  0.1897
 						-6.3284  0.1313
 						-5.4416  0.1101
 						-4.3131  0.0870
@@ -583,7 +583,7 @@
 						 8.5212 -0.0736
 						 9.8677 -0.0851
 						11.3179 -0.1017
-						20.1549 -0.2027
+						20.1549 -0.1727
 					</tableData>
 				</table>
 			</product>
@@ -597,7 +597,7 @@
 				<property>metrics/cbarw-ft</property>
 				<property>aero/ci2vel</property>
 				<property>velocities/q-aero-rad_sec</property>
-				<value>-28.9</value>
+				<value>-25.9</value>
 			</product>
 		</function>
 		
@@ -638,7 +638,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<toradians><property>fcs-actual/elevator-l/surface-final-deg</property></toradians>
-				<value>-0.24</value>
+				<value>-0.23</value>
 			</product>
 		</function>
 		
@@ -649,7 +649,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<toradians><property>fcs-actual/elevator-r/surface-final-deg</property></toradians>
-				<value>-0.24</value>
+				<value>-0.23</value>
 			</product>
 		</function>
 		
@@ -697,7 +697,7 @@
 				<property>metrics/bw-ft</property>
 				<property>aero/bi2vel</property>
 				<property>velocities/r-aero-rad_sec</property>
-				<value>-0.3</value>
+				<value>-0.25</value>
 			</product>
 		</function>
 		

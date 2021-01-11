@@ -26,8 +26,8 @@
 			<table>
 				<independentVar lookup="row">aero/alpha-deg-norm</independentVar>
 				<tableData>
-					10  1.00
-					15  0.25
+					14  1.0
+					24  0.1
 				</tableData>
 			</table>
 		</scheduled_gain>
@@ -99,6 +99,9 @@
 		
 		<switch name="fcs-actual/elevator/yoke-switch">
 			<default value="/controls/flight/elevator"/>
+			<test value="dfgs/stick-pusher/output">
+				dfgs/stick-pusher/active eq 1
+			</test>
 			<test value="dfgs/afs/pitch-cmd">
 				dfgs/afs/enabled eq 1
 			</test>

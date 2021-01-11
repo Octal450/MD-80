@@ -103,6 +103,38 @@
 	
 	</channel>
 	
+	<channel name="DFGS: Stick Pusher">
+		
+		<switch name="dfgs/stick-pusher/alpha-latch">
+			<default value="dfgs/stick-pusher/alpha-latch"/>
+			<test value="0">
+				position/wow eq 1
+			</test>
+			<test logic="AND" value="0">
+				aero/alpha-deg gt 12
+				aero/alpha-deg le 15
+			</test>
+			<test logic="AND" value="1">
+				aero/alpha-deg gt 18
+				position/wow ne 1
+			</test>
+		</switch>
+		
+		<switch name="dfgs/stick-pusher/active">
+			<default value="0"/>
+			<test value="1"> <!-- TODO: Add electrical etc -->
+				dfgs/stick-pusher/alpha-latch eq 1
+			</test>
+		</switch>
+		
+		<actuator name="dfgs/stick-pusher/output">
+			<input>dfgs/stick-pusher/active</input>
+			<rate_limit sense="incr">5.0</rate_limit>
+			<rate_limit sense="decr">1000</rate_limit>
+		</actuator>
+	
+	</channel>
+	
 	<channel name="DFGS: Yaw Axis and Yaw Damper">
 		
 		<switch name="dfgs/yaw/autoland-switch">

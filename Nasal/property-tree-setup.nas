@@ -38,6 +38,11 @@ var Controls = {
 
 var Fdm = {
 	JSBsim: {
+		Dfgs: {
+			StickPusher: {
+				active: props.globals.getNode("/fdm/jsbsim/dfgs/stick-pusher/active"),
+			},
+		},
 		Engine: {
 			atsCmdRawPid: props.globals.initNode("/fdm/jsbsim/engine/ats-cmd-raw-pid", 0, "DOUBLE"),
 			Limit: {

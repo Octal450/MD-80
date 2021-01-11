@@ -363,7 +363,7 @@ var ITAF = {
 		
 		# Trip system off
 		if (Output.ap1Temp == 1 or Output.ap2Temp == 1) { 
-			if (abs(Controls.aileron.getValue()) >= 0.2 or abs(Controls.elevator.getValue()) >= 0.2) {
+			if (abs(Controls.aileron.getValue()) >= 0.2 or abs(Controls.elevator.getValue()) >= 0.2 or pts.Fdm.JSBsim.Dfgs.StickPusher.active.getBoolValue()) {
 				me.ap1Master(0);
 				me.ap2Master(0);
 			}
