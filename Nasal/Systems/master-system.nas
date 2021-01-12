@@ -1,5 +1,5 @@
 # McDonnell Douglas MD-80 Master System
-# Copyright (c) 2020 Josh Davidson (Octal450)
+# Copyright (c) 2021 Josh Davidson (Octal450)
 
 # Engine Sim Control Stuff
 # Don't want to change the bindings yet

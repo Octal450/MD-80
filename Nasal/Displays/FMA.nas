@@ -1,5 +1,5 @@
 # McDonnell Douglas MD-80 FMA
-# Copyright (c) 2020 Josh Davidson (Octal450)
+# Copyright (c) 2021 Josh Davidson (Octal450)
 
 var armL = nil;
 var armLDisplay = nil;

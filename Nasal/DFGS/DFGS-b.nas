@@ -1,5 +1,5 @@
 # McDonnell Douglas MD-80 DFGS AFS Interface
-# Copyright (c) 2020 Josh Davidson (Octal450)
+# Copyright (c) 2021 Josh Davidson (Octal450)
 
 var Fma = {
 	thrA: props.globals.initNode("/instrumentation/fma/thr-mode-a", "", "STRING"),
