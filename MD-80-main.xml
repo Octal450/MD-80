@@ -87,7 +87,11 @@
 					</item>
 				</menu>
 				<menu n="103">
-					<label>DU</label>
+					<label>2D Panels</label>
+					<item>
+						<label>DUs:</label>
+						<enabled type="bool">false</enabled>
+					</item>
 					<item>
 						<label>Captain's PFD</label>
 						<binding>
