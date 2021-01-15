@@ -6,7 +6,9 @@
 <system name="MD-80: DFGS">
 	
 	<!-- Default gains for tuning -->
-	<property value="0">dfgs/yaw/yd-p-gain</property>
+	<property value="0">dfgs/yaw/yd-p-gain-tune</property>
+	<property value="0">dfgs/yaw/tc-p-gain-tune</property>
+	<property value="0">dfgs/yaw/tc-d-gain-tune</property>
 	
 	<!-- DFGS stuff -->
 	<property value="0">dfgs/mach-trim/output</property>
@@ -40,17 +42,17 @@
 	
 	<channel name="Yaw Damper Logic">
 		
-		<switch name="dfgs/yaw/gain-switch">
-			<default value="1"/>
-			<test value="1">
+		<switch name="dfgs/yaw/active">
+			<default value="0"/>
+			<test value="0">
 				position/wow eq 1
 				/position/gear-agl-ft lt 50
 			</test>
-			<test logic="AND" value="0">
+			<test logic="AND" value="1">
 				/controls/fctl/yd eq 1
 				dfgs/afs/enabled eq 1
 			</test>
-			<test value="0">
+			<test value="1">
 				/controls/fctl/yd eq 2
 			</test>
 		</switch>
@@ -61,43 +63,49 @@
 		
 		<fcs_function name="dfgs/yaw/yd-p-gain">
 			<function>
-				<table>
-					<independentVar lookup="row">velocities/vc-kts</independentVar>
-					<independentVar lookup="column">dfgs/yaw/gain-switch</independentVar>
-					<tableData>
-						     0    1
-						130 -8.5  0.0
-						350 -1.0  0.0
-					</tableData>
-				</table>
+				<product>
+					<table>
+						<independentVar lookup="row">velocities/vc-kts</independentVar>
+						<tableData>
+							130 -8.5
+							350 -1.0
+						</tableData>
+					</table>
+					<!--property>dfgs/yaw/yd-p-gain-tune</property--> <!-- For tuning -->
+					<property>dfgs/yaw/active</property>
+				</product>
 			</function>
 		</fcs_function>
 		
 		<fcs_function name="dfgs/yaw/tc-p-gain">
 			<function>
-				<table>
-					<independentVar lookup="row">velocities/vc-kts</independentVar>
-					<independentVar lookup="column">dfgs/yaw/gain-switch</independentVar>
-					<tableData>
-						     0    1
-						130  2.0  0.0
-						350  0.5  0.0
-					</tableData>
-				</table>
+				<product>
+					<table>
+						<independentVar lookup="row">velocities/vc-kts</independentVar>
+						<tableData>
+							130  2.0
+							350  0.5
+						</tableData>
+					</table>
+					<!--property>dfgs/yaw/tc-p-gain-tune</property--> <!-- For tuning -->
+					<property>dfgs/yaw/active</property>
+				</product>
 			</function>
 		</fcs_function>
 		
 		<fcs_function name="dfgs/yaw/tc-d-gain">
 			<function>
-				<table>
-					<independentVar lookup="row">velocities/vc-kts</independentVar>
-					<independentVar lookup="column">dfgs/yaw/gain-switch</independentVar>
-					<tableData>
-						     0    1
-						130  4.0  0.0
-						350  1.0  0.0
-					</tableData>
-				</table>
+				<product>
+					<table>
+						<independentVar lookup="row">velocities/vc-kts</independentVar>
+						<tableData>
+							130  4
+							350  1
+						</tableData>
+					</table>
+					<!--property>dfgs/yaw/tc-d-gain-tune</property--> <!-- For tuning -->
+					<property>dfgs/yaw/active</property>
+				</product>
 			</function>
 		</fcs_function>
 	
@@ -166,16 +174,16 @@
 			<c1>0.5</c1>
 		</washout_filter>
 		
-		<switch name="dfgs/yaw/r-r_s-s">
+		<switch name="dfgs/yaw/r-switched">
 			<default value="dfgs/yaw/r-washout"/>
 			<test logic="OR" value="0">
-				dfgs/yaw/gain-switch ne 0
+				dfgs/yaw/active ne 1
 				dfgs/yaw/autoland-switch eq 1
 			</test>
 		</switch>
 		
 		<pure_gain name="dfgs/yaw/yd-f">
-			<input>dfgs/yaw/r-r_s-s</input>
+			<input>dfgs/yaw/r-switched</input>
 			<gain>dfgs/yaw/yd-p-gain</gain>
 			<clipto>
 				<min>-0.5</min>
@@ -205,7 +213,7 @@
 		<switch name="dfgs/yaw/tc-pd-s">
 			<default value="dfgs/yaw/tc-pd"/>
 			<test logic="OR" value="0">
-				dfgs/yaw/gain-switch ne 0
+				dfgs/yaw/active ne 1
 				dfgs/yaw/autoland-switch eq 1
 			</test>
 		</switch>

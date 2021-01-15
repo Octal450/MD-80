@@ -621,7 +621,7 @@
 			<Kp>
 				<expression>
 					<table>
-						<property>/fdm/jsbsim/velocities/vc-kts</property>
+						<property>/velocities/airspeed-kt</property>
 						<entry><ind>130</ind><dep>-0.16</dep></entry>
 						<entry><ind>360</ind><dep>-0.07</dep></entry>
 					</table>
