@@ -823,6 +823,9 @@
 			<serviceable type="bool">true</serviceable>
 			<volume type="double">0</volume>
 		</dme>
+		<encoder n="0">
+			<serviceable type="bool">1</serviceable>
+		</encoder>
 		<fgcp n="0">
 			<alt-rotate type="int">50000</alt-rotate>
 			<hdg-rotate type="int">49984</hdg-rotate> <!-- So the symbol is upright -->

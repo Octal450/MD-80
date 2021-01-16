@@ -20,10 +20,10 @@
 <animation>
   <type>rotate</type>
   <object-name>KnobLtsPanel</object-name>
-  <property>controls/lighting/panel-norm</property>
+  <property>controls/lighting/main-integ-norm</property>
   <interpolation>
     <entry><ind>0</ind><dep>  0</dep></entry>
-    <entry><ind>1</ind><dep>180</dep></entry>
+    <entry><ind>1</ind><dep>270</dep></entry>
   </interpolation>
   <center>
     <x-m>0.005</x-m>
@@ -44,8 +44,8 @@
     <repeatable>false</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>controls/lighting/panel-norm</property>
-      <step>0.1</step>
+      <property>controls/lighting/main-integ-norm</property>
+      <step>0.05</step>
       <min>0</min>
       <max>1</max>
       <wrap>false</wrap>
@@ -60,8 +60,8 @@
     <repeatable>false</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>controls/lighting/panel-norm</property>
-      <step>-0.1</step>
+      <property>controls/lighting/main-integ-norm</property>
+      <step>-0.05</step>
       <min>0</min>
       <max>1</max>
       <wrap>false</wrap>
@@ -72,10 +72,10 @@
 <animation>
   <type>rotate</type>
   <object-name>KnobLtsDigital</object-name>
-  <property>controls/lighting/digital-norm</property>
+  <property>controls/lighting/main-digital-norm</property>
   <interpolation>
     <entry><ind>0</ind><dep>  0</dep></entry>
-    <entry><ind>1</ind><dep>180</dep></entry>
+    <entry><ind>1</ind><dep>270</dep></entry>
   </interpolation>
   <center>
     <x-m>0.008</x-m>
@@ -96,7 +96,7 @@
     <repeatable>false</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>controls/lighting/digital-norm</property>
+      <property>controls/lighting/main-digital-norm</property>
       <step>0.1</step>
       <min>0</min>
       <max>1</max>
@@ -112,7 +112,7 @@
     <repeatable>false</repeatable>
     <binding>
       <command>property-adjust</command>
-      <property>controls/lighting/digital-norm</property>
+      <property>controls/lighting/main-digital-norm</property>
       <step>-0.1</step>
       <min>0</min>
       <max>1</max>

@@ -6,7 +6,7 @@
 	
     <sim>
 		<aero>MD-82</aero>
-		<description>McDonnell Douglas MD-82 (EFIS, JT8D-217A)</description>
+		<description>McDonnell Douglas MD-82 (Analog, JT8D-217A)</description>
 		<flight-model>jsb</flight-model>
 		<model n="0">
 			<livery>

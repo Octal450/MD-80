@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 
+<!-- MD-80 Custom Instrumentation -->
 <!-- Copyright (c) 2021 Josh Davidson (Octal450) -->
-
-<!-- Custom Instrumentation -->
 
 <PropertyList>
 	
@@ -27,8 +26,20 @@
 		<name>altimeter</name>
 		<number>0</number>
 		<static-pressure>/systems/static/pressure-inhg</static-pressure>
-		<quantum>0</quantum>
-		<tau>0</tau>
+		<quantum>1</quantum>
+		<tau>0.1</tau>
+		<encode-mode-c>1</encode-mode-c>
+		<encode-mode-s>1</encode-mode-s>
+	</altimeter>
+	
+	<altimeter>
+		<name>encoder</name>
+		<number>0</number>
+		<static-pressure>/systems/static/pressure-inhg</static-pressure>
+		<quantum>10</quantum>
+		<tau>0.1</tau>
+		<encode-mode-c>1</encode-mode-c>
+		<encode-mode-s>1</encode-mode-s>
 	</altimeter>
 	
 	<attitude-indicator>
@@ -67,19 +78,6 @@
 		<number>1</number>
 	</dme>
 	
-	<altimeter>
-		<name>encoder</name>
-		<number>0</number>
-		<static-pressure>/systems/static/pressure-inhg</static-pressure>
-		<quantum>10</quantum>
-		<tau>0.1</tau>
-	</altimeter>
-	
-	<marker-beacon>
-		<name>marker-beacon</name>
-		<number>0</number>
-	</marker-beacon>
-	
 	<heading-indicator>
 		<name>heading-indicator</name>
 		<number>0</number>
@@ -95,6 +93,11 @@
 		<name>magnetic-compass</name>
 		<number>0</number>
 	</magnetic-compass>
+	
+	<marker-beacon>
+		<name>marker-beacon</name>
+		<number>0</number>
+	</marker-beacon>
 	
 	<mk-viii>
 		<name>mk-viii</name>
@@ -116,10 +119,21 @@
 		<number>0</number>
 	</slip-skid-ball>
 	
+	<radar>
+		<name>wxradar</name>
+		<number>0</number>
+	</radar>
+	
+	<tcas>
+		<name>tcas</name>
+		<number>0</number>
+	</tcas>
+	
 	<transponder>
 		<name>transponder</name>
 		<number>0</number>
-		<mode-c-altitude>/instrumentation/encoder/mode-c-alt-ft</mode-c-altitude>
+		<mode>2</mode>
+		<encoder-path>/instrumentation/encoder</encoder-path>
 	</transponder>
 	
 	<turn-indicator>
@@ -132,25 +146,5 @@
 		<number>0</number>
 		<static-pressure>/systems/static/pressure-inhg</static-pressure>
 	</vertical-speed-indicator>
-	
-	<gps>
-		<name>gps</name>
-		<number>0</number>
-	</gps>
-	
-	<tcas>
-		<name>tcas</name>
-		<number>0</number>
-	</tcas>
-	
-	<radar>
-		<name>wxradar</name>
-		<number>0</number>
-	</radar>
-	
-	<tacan>
-		<name>tacan</name>
-		<number>0</number>
-	</tacan>
 
 </PropertyList>

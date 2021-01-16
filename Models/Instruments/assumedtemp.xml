@@ -8,13 +8,13 @@
 	
 	<animation>
 		<type>material</type>
-		<object-name>box</object-name>
 		<object-name>flex1</object-name>
 		<object-name>flex2</object-name>
 		<emission>
-			<red>0.3</red>
-			<green>0.3</green>
-			<blue>0.3</blue>
+			<red>1.0</red>
+			<green>0.4</green>
+			<blue>0.1</blue>
+			<factor-prop>controls/lighting/main-integ-norm</factor-prop>
 		</emission>
 	</animation>
 	

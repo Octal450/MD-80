@@ -18,12 +18,13 @@
 		<object-name>inhg02</object-name>
 		<object-name>inhg03</object-name>
 		<object-name>inhg04</object-name>
-  <emission>
-	<red>0.3</red>
-	<green>0.3</green>
-	<blue>0.3</blue>
-  </emission>
-  </animation>
+		<emission>
+			<red>1.0</red>
+			<green>0.4</green>
+			<blue>0.1</blue>
+			<factor-prop>controls/lighting/main-integ-norm</factor-prop>
+		</emission>
+	</animation>
 
 <!--####    InHg    ####-->
 

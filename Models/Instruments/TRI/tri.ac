@@ -2,7 +2,7 @@ AC3Db
 MATERIAL "ac3dmat1.001" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 64  trans 0
 MATERIAL "ac3dmat1" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 64  trans 0
 OBJECT world
-kids 10
+kids 9
 OBJECT group
 name "clBtn"
 kids 3
@@ -206,69 +206,6 @@ refs 4
 1 0.910156 0.550781
 2 0.820312 0.550781
 3 0.820312 0.460938
-kids 0
-OBJECT group
-name "eprDigits"
-kids 3
-OBJECT poly
-name "epr1"
-data 13
-epr1.mesh.015
-texture "tri.jpg"
-crease 45.000000
-numvert 4
-0.00281 0.0028 0.00329
-0.00281 0.0028 0.00879
-0.00281 0.01546 0.00329
-0.00281 0.01546 0.00879
-numsurf 1
-SURF 0x10
-mat 0
-refs 4
-3 0.775391 0.59375
-1 0.775391 0.541016
-0 0.792969 0.541016
-2 0.792969 0.59375
-kids 0
-OBJECT poly
-name "epr2"
-data 13
-epr1.mesh.016
-texture "tri.jpg"
-crease 45.000000
-numvert 4
-0.00281 0.01546 0.00221
-0.00281 0.01546 -0.00329
-0.00281 0.0028 0.00221
-0.00281 0.0028 -0.00329
-numsurf 1
-SURF 0x10
-mat 0
-refs 4
-0 0.775391 0.59375
-2 0.775391 0.541016
-3 0.792969 0.541016
-1 0.792969 0.59375
-kids 0
-OBJECT poly
-name "epr3"
-data 13
-epr1.mesh.017
-texture "tri.jpg"
-crease 45.000000
-numvert 4
-0.00281 0.01546 -0.00329
-0.00281 0.01546 -0.00879
-0.00281 0.0028 -0.00329
-0.00281 0.0028 -0.00879
-numsurf 1
-SURF 0x10
-mat 0
-refs 4
-0 0.775391 0.59375
-2 0.775391 0.541016
-3 0.792969 0.541016
-1 0.792969 0.59375
 kids 0
 OBJECT group
 name "flxBtn"
@@ -577,7 +514,77 @@ refs 4
 3 0.820312 0.640625
 kids 0
 OBJECT group
+name "LightingGroup"
+loc 2.02126e-05 0 0
+folded
+kids 3
+OBJECT group
+name "eprDigits"
+loc -2.02126e-05 0 0
+kids 3
+OBJECT poly
+name "epr1"
+data 13
+epr1.mesh.015
+texture "tri.jpg"
+crease 45.000000
+numvert 4
+0.00281 0.0028 0.00329
+0.00281 0.0028 0.00879
+0.00281 0.01546 0.00329
+0.00281 0.01546 0.00879
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0.775391 0.59375
+1 0.775391 0.541016
+0 0.792969 0.541016
+2 0.792969 0.59375
+kids 0
+OBJECT poly
+name "epr2"
+data 13
+epr1.mesh.016
+texture "tri.jpg"
+crease 45.000000
+numvert 4
+0.00281 0.01546 0.00221
+0.00281 0.01546 -0.00329
+0.00281 0.0028 0.00221
+0.00281 0.0028 -0.00329
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.775391 0.59375
+2 0.775391 0.541016
+3 0.792969 0.541016
+1 0.792969 0.59375
+kids 0
+OBJECT poly
+name "epr3"
+data 13
+epr1.mesh.017
+texture "tri.jpg"
+crease 45.000000
+numvert 4
+0.00281 0.01546 -0.00329
+0.00281 0.01546 -0.00879
+0.00281 0.0028 -0.00329
+0.00281 0.0028 -0.00879
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.775391 0.59375
+2 0.775391 0.541016
+3 0.792969 0.541016
+1 0.792969 0.59375
+kids 0
+OBJECT group
 name "ratDigits"
+loc -2.02126e-05 0 0
 kids 4
 OBJECT poly
 name "rat1"
@@ -658,6 +665,27 @@ refs 4
 0 0.974609 0.4375
 1 0.84375 0.4375
 3 0.84375 0.398438
+kids 0
+OBJECT poly
+name "Text"
+loc 4.04253e-05 0 0
+data 8
+box.mesh
+texture "tri-text.png"
+crease 45.000000
+numvert 4
+0.0028 0.05675 -0.02883
+0.0028 0.05675 0.02883
+0.0028 -0.05675 0.02883
+0.0028 -0.05675 -0.02883
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+1 0.013672 1
+2 0.013672 0
+3 0.523438 0
+0 0.523438 1
 kids 0
 OBJECT poly
 name "testBtn"

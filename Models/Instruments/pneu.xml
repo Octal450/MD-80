@@ -8,12 +8,11 @@
   <type>material</type>
   <object-name>Face</object-name>
   <object-name>Needle</object-name>
-  <emission>
-    <red>0.8</red>
-    <green>0.4</green>
-    <blue>0.2</blue>
-    <factor-prop>controls/lighting/panel-norm</factor-prop>
-  </emission>
+		<emission>
+			<red>0.3</red>
+			<green>0.3</green>
+			<blue>0.3</blue>
+		</emission>
 </animation>
 
 <animation>

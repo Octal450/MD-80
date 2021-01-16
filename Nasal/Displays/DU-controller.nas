@@ -30,51 +30,58 @@ var DUController = {
 		canvas_pfd.pfd2Error.update();
 	},
 	loop: func() {
-		if (!me.errorActive) {
-			#if (systems.ELEC.Bus.someBus.getValue() >= 110) {
-				if (!me.updatePfd1) {
-					me.updatePfd1 = 1;
-					canvas_pfd.pfd1.update();
-					canvas_pfd.pfd1.page.show();
-				}
+		if (pts.Options.panel.getValue() == "EFIS") {
+			if (!me.errorActive) {
+				#if (systems.ELEC.Bus.someBus.getValue() >= 110) {
+					if (!me.updatePfd1) {
+						me.updatePfd1 = 1;
+						canvas_pfd.pfd1.update();
+						canvas_pfd.pfd1.page.show();
+					}
+					
+					if (!me.updateNd1) {
+						me.updateNd1 = 1;
+						me.showNd1.setBoolValue(1); # Temporary
+					}
+				#} else {
+				#	if (me.updatePfd1) {
+				#		me.updatePfd1 = 0;
+				#		canvas_pfd.pfd1.page.hide();
+				#	}
+				#	if (me.updateNd1) {
+				#		me.updateNd1 = 0;
+				#		me.showNd1.setBoolValue(0); # Temporary
+				#	}
+				#}
 				
-				if (!me.updateNd1) {
-					me.updateNd1 = 1;
-					me.showNd1.setBoolValue(1); # Temporary
-				}
-			#} else {
-			#	if (me.updatePfd1) {
-			#		me.updatePfd1 = 0;
-			#		canvas_pfd.pfd1.page.hide();
-			#	}
-			#	if (me.updateNd1) {
-			#		me.updateNd1 = 0;
-			#		me.showNd1.setBoolValue(0); # Temporary
-			#	}
-			#}
-			
-			#if (systems.ELEC.Bus.someBus.getValue() >= 110) {
-				if (!me.updatePfd2) {
-					me.updatePfd2 = 1;
-					canvas_pfd.pfd2.update();
-					canvas_pfd.pfd2.page.show();
-				}
-				
-				if (!me.updateNd2) {
-					me.updateNd2 = 1;
-					me.showNd2.setBoolValue(1); # Temporary
-				}
-			#} else {
-			#	if (me.updatePfd2) {
-			#		me.updatePfd2 = 0;
-			#		canvas_pfd.pfd2.page.hide();
-			#	}
-			#	
-			#	if (me.updateNd2) {
-			#		me.updateNd2 = 0;
-			#		me.showNd2.setBoolValue(0); # Temporary
-			#	}
-			#}
+				#if (systems.ELEC.Bus.someBus.getValue() >= 110) {
+					if (!me.updatePfd2) {
+						me.updatePfd2 = 1;
+						canvas_pfd.pfd2.update();
+						canvas_pfd.pfd2.page.show();
+					}
+					
+					if (!me.updateNd2) {
+						me.updateNd2 = 1;
+						me.showNd2.setBoolValue(1); # Temporary
+					}
+				#} else {
+				#	if (me.updatePfd2) {
+				#		me.updatePfd2 = 0;
+				#		canvas_pfd.pfd2.page.hide();
+				#	}
+				#	
+				#	if (me.updateNd2) {
+				#		me.updateNd2 = 0;
+				#		me.showNd2.setBoolValue(0); # Temporary
+				#	}
+				#}
+			}
+		} else {
+			me.updatePfd1 = 0;
+			me.updatePfd2 = 0;
+			me.updateNd1 = 0;
+			me.updateNd2 = 0;
 		}
 	},
 };

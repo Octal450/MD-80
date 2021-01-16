@@ -9,11 +9,12 @@
   <object-name>Face</object-name>
   <object-name>NeedleL</object-name>
   <object-name>NeedleR</object-name>
-<emission>
-    <red>0.3</red>
-    <green>0.3</green>
-    <blue>0.3</blue>
-  </emission>
+		<emission>
+			<red>1.0</red>
+			<green>0.4</green>
+			<blue>0.1</blue>
+			<factor-prop>controls/lighting/main-integ-norm</factor-prop>
+		</emission>
 </animation>
 
 <animation>

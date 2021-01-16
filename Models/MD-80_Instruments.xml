@@ -5,67 +5,6 @@
 
 <PropertyList>
 	
-	<!-- Special Groups and Shaders -->
-	<animation>
-		<type>noshadow</type>
-		<object-name>clock</object-name>
-		<object-name>asi</object-name>
-		<object-name>rmi</object-name>
-		<object-name>pfd1</object-name>
-		<object-name>alt</object-name>
-		<object-name>stbyalt</object-name>
-		<object-name>vsi</object-name>
-		<object-name>ND_L</object-name>
-		<object-name>stbyai</object-name>
-		<object-name>gear_indicators</object-name>
-		<object-name>flaps</object-name>
-		<object-name>marker_beacons</object-name>
-		<object-name>eprL</object-name>
-		<object-name>eprR</object-name>
-		<object-name>n1L</object-name>
-		<object-name>n1R</object-name>
-		<object-name>egtL</object-name>
-		<object-name>egtR</object-name>
-		<object-name>n2L</object-name>
-		<object-name>n2R</object-name>
-		<object-name>opL</object-name>
-		<object-name>opR</object-name>
-		<object-name>fuelflowL</object-name>
-		<object-name>fuelflowR</object-name>
-		<object-name>fuel</object-name>
-		<object-name>tri</object-name>
-		<object-name>revthrust_indicators</object-name>
-		<object-name>fgcp</object-name>
-		<object-name>lighting_panel_L</object-name>
-		<object-name>lighting_panel_R</object-name>
-		<object-name>lighting_panel_P</object-name>
-		<object-name>pfd2</object-name>
-		<object-name>ND_R</object-name>
-		<object-name>alt_R</object-name>
-		<object-name>asi_R</object-name>
-		<object-name>vsi_R</object-name>
-		<object-name>rmi_R</object-name>
-		<object-name>clock_R</object-name>
-		<object-name>efisdim_L</object-name>
-		<object-name>efisdim_R</object-name>
-		<object-name>comm1</object-name>
-		<object-name>comm2</object-name>
-		<object-name>nav1</object-name>
-		<object-name>nav2</object-name>
-		<object-name>adf1</object-name>
-		<object-name>adf2</object-name>
-		<object-name>pneu</object-name>
-		<object-name>apu_rpm</object-name>
-		<object-name>apu_egt</object-name>
-		<object-name>L_efis</object-name>
-		<object-name>R_efis</object-name> 
-		<object-name>FMA_L</object-name> 
-		<object-name>FMA_R</object-name> 
-		<object-name>enginepanel</object-name> 
-		<object-name>enginepanel2</object-name> 
-		<object-name>assumedtemp</object-name> 
-	</animation>
-	
 	<!-- Captain Panel -->
 	<model>
 		<name>FMA_L</name>
@@ -136,7 +75,7 @@
 	</model>
 	
 	<!--model>
-		<name>att</name>
+		<name>att1</name>
 		<path>Aircraft/MD-80/Models/Instruments/att/att1.xml</path>
 		<offsets>
 			<x-m>2.225</x-m>
@@ -147,26 +86,38 @@
 	</model-->
 	
 	<model>
-		<name>ND_L</name>
+		<name>nd1</name>
 		<path>Aircraft/MD-80/Models/Instruments/ND/ND_L.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>EFIS</value>
+			</equals>
+		</condition>
 		<offsets>
-			<x-m>2.254</x-m>
+			<x-m>2.248</x-m>
 			<y-m>-0.513</y-m>
-			<z-m>0.740</z-m>
+			<z-m>0.747</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
 	
-	<!--model>
-		<name>hsi</name>
-		<path>Aircraft/MD-80/Models/Instruments/hsi/hsi1.xml</path>
+	<model>
+		<name>hsi1</name>
+		<path>Aircraft/MD-80/Models/Instruments/HSI/hsi1.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>Analog</value>
+			</equals>
+		</condition>
 		<offsets>
 			<x-m>2.254</x-m>
 			<y-m>-0.513</y-m>
-			<z-m>0.740</z-m>
+			<z-m>0.738</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
-	</model-->
+	</model>
 	
 	<model>
 		<name>alt</name>
@@ -195,7 +146,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/vsi.xml</path>
 		<offsets>
 			<x-m>2.248</x-m>
-			<y-m>-0.384</y-m>
+			<y-m>-0.390</y-m>
 			<z-m>0.765</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -528,7 +479,7 @@
 	</model>
 	
 	<!--model>
-		<name>att_R</name>
+		<name>att2</name>
 		<path>Aircraft/MD-80/Models/Instruments/att/att2.xml</path>
 		<offsets>
 			<x-m>2.225</x-m>
@@ -539,26 +490,38 @@
 	</model-->
 	
 	<model>
-		<name>ND_R</name>
+		<name>nd2</name>
 		<path>Aircraft/MD-80/Models/Instruments/ND/ND_R.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>EFIS</value>
+			</equals>
+		</condition>
 		<offsets>
-			<x-m>2.254</x-m>
+			<x-m>2.248</x-m>
 			<y-m>0.513</y-m>
-			<z-m>0.740</z-m>
+			<z-m>0.747</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
 	
-	<!--model>
-		<name>hsi_R</name>
-		<path>Aircraft/MD-80/Models/Instruments/hsi/hsi2.xml</path>
+	<model>
+		<name>hsi2</name>
+		<path>Aircraft/MD-80/Models/Instruments/HSI/hsi2.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>Analog</value>
+			</equals>
+		</condition>
 		<offsets>
 			<x-m>2.254</x-m>
 			<y-m>0.513</y-m>
-			<z-m>0.740</z-m>
+			<z-m>0.738</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
-	</model-->
+	</model>
 	
 	<model>
 		<name>clock_R</name>
@@ -620,7 +583,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/vsi.xml</path>
 		<offsets>
 			<x-m>2.248</x-m>
-			<y-m>0.643</y-m>
+			<y-m>0.637</y-m>
 			<z-m>0.765</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>

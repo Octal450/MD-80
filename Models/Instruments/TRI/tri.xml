@@ -9,20 +9,12 @@
 	
 	<animation>
 		<type>material</type>
-		<object-name>tri</object-name>
-		<object-name>toOff</object-name>
-		<object-name>flxOff</object-name>
-		<object-name>gaOff</object-name>
-		<object-name>mctOff</object-name>
-		<object-name>clOff</object-name>
-		<object-name>crOff</object-name>
-		<object-name>testBtn</object-name>
-		<object-name>ratDigits</object-name>
-		<object-name>eprDigits</object-name>
+		<object-name>LightingGroup</object-name>
 		<emission>
-			<red>0.3</red>
-			<green>0.3</green>
-			<blue>0.3</blue>
+			<red>1.0</red>
+			<green>0.4</green>
+			<blue>0.1</blue>
+			<factor-prop>controls/lighting/main-integ-norm</factor-prop>
 		</emission>
 	</animation>
 	

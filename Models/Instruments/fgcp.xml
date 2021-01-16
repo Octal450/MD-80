@@ -47,10 +47,10 @@
 		<type>material</type>
 		<object-name>FGCP_labels</object-name>
 		<emission>
-			<red>0.8</red>
+			<red>1.0</red>
 			<green>0.4</green>
-			<blue>0.2</blue>
-			<factor-prop>controls/lighting/integrity-norm</factor-prop>
+			<blue>0.1</blue>
+			<factor-prop>controls/lighting/main-integ-norm</factor-prop>
 		</emission>
 	</animation>
 	
