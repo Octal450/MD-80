@@ -527,7 +527,7 @@
 	
 	<model>
 		<name>ai2</name>
-		<path>Aircraft/MD-80/Models/Instruments/AI/ai1.xml</path> <!-- 2 -->
+		<path>Aircraft/MD-80/Models/Instruments/AI/ai2.xml</path>
 		<condition>
 			<equals>
 				<property>options/panel</property>

@@ -750,13 +750,18 @@
 			</table>
 		</scheduled_gain>
 		
+		<actuator name="fcs-actual/tiller/handle">
+			<input>fcs-actual/tiller/handle-scheduled</input>
+			<rate_limit>0.426829</rate_limit> <!-- 35/82 -->
+		</actuator>
+		
 		<pure_gain name="fcs-actual/tiller/autopush-cmd-deg">
 			<input>fcs-actual/tiller/autopush-cmd</input>
 			<gain>82</gain>
 		</pure_gain>
 		
 		<summer name="fcs-actual/tiller/afs-cmd-input">
-			<!--input>dfgs/afs/yaw-cmd</input-->
+			<input>dfgs/afs/yaw-cmd</input>
 			<input>fcs-actual/rudder/trim</input> <!-- 10 of 17 -->
 			<clipto>
 				<min>-1.0</min>
@@ -847,37 +852,6 @@
 			</function>
 		</fcs_function>
 		
-		<switch name="fcs-actual/tiller/cmd-deg">
-			<default value="fcs-actual/tiller/rudder-cmd-deg"/>
-			<test value="0">
-				/gear/gear[0]/wow ne 1
-			</test>
-			<test value="fcs-actual/tiller/autopush-cmd-deg">
-				/sim/model/autopush/connected eq 1
-			</test>
-			<!--test value="fcs-actual/tiller/afs-cmd-deg">
-				dfgs/afs/enabled eq 1
-			</test-->
-			<test value="fcs-actual/tiller/tiller-cmd-deg">
-				/systems/acconfig/options/seperate-tiller-axis eq 1
-			</test>
-			<clipto>
-				<min>fcs-actual/tiller/min-deg</min>
-				<max>fcs-actual/tiller/max-deg</max>
-			</clipto>
-		</switch>
-		
-		<switch name="fcs-actual/tiller/rate">
-			<default value="0"/>
-			<test value="82">
-				/sim/model/autopush/connected eq 1
-			</test>
-			<test logic="OR" value="35">
-				/systems/hydraulics/sys-l-psi ge 950
-				/systems/hydraulics/sys-r-psi ge 950
-			</test>
-		</switch>
-		
 		<switch name="fcs-actual/tiller/min-deg">
 			<default value="-50"/>
 			<test value="-82">
@@ -894,6 +868,37 @@
 				/sim/model/autopush/connected eq 1
 			</test>
 			<test value="82">
+				/systems/hydraulics/sys-r-psi ge 950
+			</test>
+		</switch>
+		
+		<switch name="fcs-actual/tiller/cmd-deg">
+			<default value="fcs-actual/tiller/rudder-cmd-deg"/>
+			<test value="0">
+				/gear/gear[0]/wow ne 1
+			</test>
+			<test value="fcs-actual/tiller/autopush-cmd-deg">
+				/sim/model/autopush/connected eq 1
+			</test>
+			<test value="fcs-actual/tiller/afs-cmd-deg">
+				dfgs/afs/enabled eq 1
+			</test>
+			<test value="fcs-actual/tiller/tiller-cmd-deg">
+				/systems/acconfig/options/seperate-tiller-axis eq 1
+			</test>
+			<clipto>
+				<min>fcs-actual/tiller/min-deg</min>
+				<max>fcs-actual/tiller/max-deg</max>
+			</clipto>
+		</switch>
+		
+		<switch name="fcs-actual/tiller/rate">
+			<default value="0"/>
+			<test value="82">
+				/sim/model/autopush/connected eq 1
+			</test>
+			<test logic="OR" value="35">
+				/systems/hydraulics/sys-l-psi ge 950
 				/systems/hydraulics/sys-r-psi ge 950
 			</test>
 		</switch>

@@ -489,6 +489,10 @@ var ITAF = {
 	},
 	athrMaster: func(s) {
 		if (s == 1) {
+			Output.thrModeTemp = Output.thrMode.getValue();
+			if (Output.thrModeTemp == 1 or Output.thrModeTemp == 2) {
+				Athr.setMode(3); # Clamp
+			}
 			Output.athr.setBoolValue(1);
 		} else {
 			Output.athr.setBoolValue(0);

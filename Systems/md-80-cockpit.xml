@@ -13,7 +13,7 @@
 		</lag_filter>
 		
 		<lag_filter name="fcs-actual/tiller-handle">
-			<input>fcs-actual/tiller/handle-scheduled</input>
+			<input>fcs-actual/tiller/handle</input>
 			<c1>20</c1>
 		</lag_filter>
 		
