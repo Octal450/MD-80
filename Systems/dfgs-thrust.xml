@@ -229,8 +229,8 @@
 	<filter>
 		<name>IT-CONTROLLER: Idle Limit</name>
 		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
+		<type>noise-spike</type>
+		<initialize-to>output</initialize-to>
 		<enable>
 			<condition>
 				<and>
@@ -247,13 +247,14 @@
 		</enable>
 		<input>0</input>
 		<output>/fdm/jsbsim/engine/ats-cmd-raw</output>
+		<max-rate-of-change>0.15</max-rate-of-change>
 	</filter>
 	
 	<filter>
 		<name>IT-CONTROLLER: Thrust Limit</name>
 		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
+		<type>noise-spike</type>
+		<initialize-to>output</initialize-to>
 		<enable>
 			<condition>
 				<and>
@@ -270,33 +271,43 @@
 		</enable>
 		<input>/fdm/jsbsim/engine/limit/active-norm</input>
 		<output>/fdm/jsbsim/engine/ats-cmd-raw</output>
+		<max-rate-of-change>0.15</max-rate-of-change>
 	</filter>
 	
 	<filter>
-		<name>Power Comparator</name>
+		<name>Power Norm Engine 1</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
 			<expression> <!-- EPR non-linearity makes it hard -->
-				<max>
-					<table>
-						<property>/engines/engine[0]/n1-actual</property>
-						<entry><ind> 25.3</ind><dep>0</dep></entry>
-						<entry><ind>105.2</ind><dep>1</dep></entry>
-					</table>
-					<table>
-						<property>/engines/engine[1]/n1-actual</property>
-						<entry><ind> 25.3</ind><dep>0</dep></entry>
-						<entry><ind>105.2</ind><dep>1</dep></entry>
-					</table>
-				</max>
+				<table>
+					<property>/engines/engine[0]/n1-actual</property>
+					<entry><ind> 25.3</ind><dep>0</dep></entry>
+					<entry><ind>105.2</ind><dep>1</dep></entry>
+				</table>
 			</expression>
 		</input>
-		<output>/fdm/jsbsim/engine/power-compare-max-norm</output>
+		<output>/fdm/jsbsim/engine/power-norm[0]</output>
+	</filter>
+	
+	<filter>
+		<name>Power Norm Engine 2</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression> <!-- EPR non-linearity makes it hard -->
+				<table>
+					<property>/engines/engine[1]/n1-actual</property>
+					<entry><ind> 25.3</ind><dep>0</dep></entry>
+					<entry><ind>105.2</ind><dep>1</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/fdm/jsbsim/engine/power-norm[1]</output>
 	</filter>
 	
 	<pid-controller>
-		<name>System Command: Throttle</name> <!-- Simulates EPR "hunting" -->
+		<name>System Command: Throttle 1</name> <!-- Simulates EPR "hunting" -->
 		<debug>false</debug>
 		<enable>
 			<condition>
@@ -312,9 +323,9 @@
 				</and>
 			</condition>
 		</enable>
-		<input>/fdm/jsbsim/engine/power-compare-max-norm</input>
+		<input>/fdm/jsbsim/engine/power-norm[0]</input>
 		<reference>/fdm/jsbsim/engine/ats-cmd-raw</reference>
-		<output>/fdm/jsbsim/engine/ats-cmd</output>
+		<output>/fdm/jsbsim/engine/ats-cmd[0]</output>
 		<config>
 			<Kp>1.2</Kp>
 			<Ti>0.6</Ti>
@@ -323,7 +334,7 @@
 				<expression>
 					<max>
 						<difference>
-							<property>/fdm/jsbsim/engine/power-compare-max-norm</property>
+							<property>/fdm/jsbsim/engine/power-norm[0]</property>
 							<value>0.1</value>
 						</difference>
 						<value>0</value>
@@ -334,7 +345,56 @@
 				<expression>
 					<min>
 						<sum>
-							<property>/fdm/jsbsim/engine/power-compare-max-norm</property>
+							<property>/fdm/jsbsim/engine/power-norm[0]</property>
+							<value>0.1</value>
+						</sum>
+						<value>1</value>
+					</min>
+				</expression>
+			</u_max>
+		</config>
+	</pid-controller>
+	
+	<pid-controller>
+		<name>System Command: Throttle 2</name> <!-- Simulates EPR "hunting" -->
+		<debug>false</debug>
+		<enable>
+			<condition>
+				<and>
+					<equals>
+						<property>/it-autoflight/output/athr</property>
+						<value>1</value>
+					</equals>
+					<not-equals>
+						<property>/it-autoflight/output/thr-mode</property>
+						<value>3</value> <!-- Clamp -->
+					</not-equals>
+				</and>
+			</condition>
+		</enable>
+		<input>/fdm/jsbsim/engine/power-norm[1]</input>
+		<reference>/fdm/jsbsim/engine/ats-cmd-raw</reference>
+		<output>/fdm/jsbsim/engine/ats-cmd[1]</output>
+		<config>
+			<Kp>1.2</Kp>
+			<Ti>0.6</Ti>
+			<Td>0.0</Td>
+			<u_min>
+				<expression>
+					<max>
+						<difference>
+							<property>/fdm/jsbsim/engine/power-norm[1]</property>
+							<value>0.1</value>
+						</difference>
+						<value>0</value>
+					</max>
+				</expression>
+			</u_min>
+			<u_max>
+				<expression>
+					<min>
+						<sum>
+							<property>/fdm/jsbsim/engine/power-norm[1]</property>
 							<value>0.1</value>
 						</sum>
 						<value>1</value>
@@ -378,7 +438,8 @@
 			</condition>
 		</enable>
 		<input>/fdm/jsbsim/engine/throttle-compare-max</input>
-		<output>/fdm/jsbsim/engine/ats-cmd</output>
+		<output>/fdm/jsbsim/engine/ats-cmd[0]</output>
+		<output>/fdm/jsbsim/engine/ats-cmd[1]</output>
 		<output>/fdm/jsbsim/engine/ats-cmd-raw</output>
 	</filter>
 	
@@ -401,7 +462,7 @@
 					</not-equals>
 				</and>
 			</condition>
-			<property>/fdm/jsbsim/engine/ats-cmd</property>
+			<property>/fdm/jsbsim/engine/ats-cmd[0]</property>
 		</input>
 		<input>/fdm/jsbsim/engine/throttle-lever[0]</input>
 		<output>/fdm/jsbsim/engine/ats-cmd-1</output>
@@ -464,7 +525,7 @@
 					</not-equals>
 				</and>
 			</condition>
-			<property>/fdm/jsbsim/engine/ats-cmd</property>
+			<property>/fdm/jsbsim/engine/ats-cmd[1]</property>
 		</input>
 		<input>/fdm/jsbsim/engine/throttle-lever[1]</input>
 		<output>/fdm/jsbsim/engine/ats-cmd-2</output>

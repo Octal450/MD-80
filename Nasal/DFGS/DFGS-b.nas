@@ -155,6 +155,7 @@ setlistener("/it-autoflight/input/alt-armed", func() {
 
 # Seperated the Autothrottle from ITAF because its very different from the ITAF base. So we do it here!
 var Athr = {
+	atsCmdRawPid: 0,
 	retard: 0,
 	triMode: 0,
 	loop: func() {
@@ -181,9 +182,18 @@ var Athr = {
 		}
 	},
 	modeZeroCheck: func() {
-		if (pts.Fdm.JSBsim.Engine.atsCmdRawPid.getValue() <= systems.TRI.Limit.idleNorm.getValue() + 0.005) {
+		me.atsCmdRawPid = pts.Fdm.JSBsim.Engine.atsCmdRawPid.getValue();
+		if (me.atsCmdRawPid <= systems.TRI.Limit.idleNorm.getValue() + 0.005) {
 			Fma.thrA.setValue("LOW");
 			Fma.thrB.setValue("LIM");
+		} else if (me.atsCmdRawPid >= systems.TRI.Limit.activeNorm.getValue() - 0.005) {
+			if (Input.ktsMach.getBoolValue()) {
+				Fma.thrA.setValue("MACH");
+				Fma.thrB.setValue("ATL");
+			} else {
+				Fma.thrA.setValue("SPD");
+				Fma.thrB.setValue("ATL");
+			}
 		} else {
 			if (Input.ktsMach.getBoolValue()) {
 				Fma.thrA.setValue("MACH");
