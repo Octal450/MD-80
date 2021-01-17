@@ -293,7 +293,6 @@ var ITAF = {
 				if (Position.gearAglFtTemp <= 1500 and Position.gearAglFtTemp >= 5) {
 					if (Output.latTemp != 4 and Text.lat.getValue() != "LAND") {
 						me.updateLatText("LAND");
-						print("e");
 					}
 					if (Text.vert.getValue() != "LAND") {
 						me.updateVertText("LAND");

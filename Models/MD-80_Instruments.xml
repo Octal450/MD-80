@@ -194,6 +194,23 @@
 	</model>
 	
 	<model>
+		<name>marker_beacons</name>
+		<path>Aircraft/MD-80/Models/Instruments/marker_beacons.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>Analog</value>
+			</equals>
+		</condition>
+		<offsets>
+			<x-m>2.227</x-m>
+			<y-m>-0.249</y-m>
+			<z-m>0.856</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
 		<name>lighting_panel_L</name>
 		<path>Aircraft/MD-80/Models/Instruments/panel_lighting.xml</path>
 		<offsets>

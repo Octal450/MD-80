@@ -638,7 +638,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<toradians><property>fcs-actual/elevator-l/surface-final-deg</property></toradians>
-				<value>-0.23</value>
+				<value>-0.22</value>
 			</product>
 		</function>
 		
@@ -649,7 +649,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<toradians><property>fcs-actual/elevator-r/surface-final-deg</property></toradians>
-				<value>-0.23</value>
+				<value>-0.22</value>
 			</product>
 		</function>
 		
