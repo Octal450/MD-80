@@ -624,7 +624,9 @@ var ITAF = {
 			Output.vert.setValue(4);
 			me.updateVertText("FLCH");
 			Internal.flchActive = 1;
-			Athr.setMode(3); # Clamp
+			if (Output.thrMode.getValue() != 2) {
+				Athr.setMode(3); # Clamp
+			}
 			if (Input.ktsMachFlch.getBoolValue()) {
 				me.syncMachFlch();
 			} else {
