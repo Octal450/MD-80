@@ -64,8 +64,14 @@
 	</model>
 	
 	<model>
-		<name>pfd1</name>
+		<name>pfd</name>
 		<path>Aircraft/MD-80/Models/Instruments/PFD/PFD1.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>EFIS</value>
+			</equals>
+		</condition>
 		<offsets>
 			<x-m>2.225</x-m>
 			<y-m>-0.513</y-m>
@@ -74,19 +80,25 @@
 		</offsets>
 	</model>
 	
-	<!--model>
-		<name>att1</name>
-		<path>Aircraft/MD-80/Models/Instruments/att/att1.xml</path>
+	<model>
+		<name>ai</name>
+		<path>Aircraft/MD-80/Models/Instruments/AI/ai1.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>Analog</value>
+			</equals>
+		</condition>
 		<offsets>
 			<x-m>2.225</x-m>
 			<y-m>-0.513</y-m>
-			<z-m>0.876</z-m>
+			<z-m>0.89</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
-	</model-->
+	</model>
 	
 	<model>
-		<name>nd1</name>
+		<name>nd</name>
 		<path>Aircraft/MD-80/Models/Instruments/ND/ND_L.xml</path>
 		<condition>
 			<equals>
@@ -122,6 +134,12 @@
 	<model>
 		<name>alt</name>
 		<path>Aircraft/MD-80/Models/Instruments/altimeter.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>EFIS</value>
+			</equals>
+		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
 			<y-m>-0.390</y-m>
@@ -131,8 +149,31 @@
 	</model>
 	
 	<model>
+		<name>alt_A</name>
+		<path>Aircraft/MD-80/Models/Instruments/altimeter.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>Analog</value>
+			</equals>
+		</condition>
+		<offsets>
+			<x-m>2.229</x-m>
+			<y-m>-0.350</y-m>
+			<z-m>0.856</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
 		<name>efisdim_L</name>
 		<path>Aircraft/MD-80/Models/Instruments/efis_dimmer.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>EFIS</value>
+			</equals>
+		</condition>
 		<offsets>
 			<x-m>2.230</x-m>
 			<y-m>-0.320</y-m>
@@ -470,6 +511,12 @@
 	<model>
 		<name>pfd2</name>
 		<path>Aircraft/MD-80/Models/Instruments/PFD/PFD2.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>EFIS</value>
+			</equals>
+		</condition>
 		<offsets>
 			<x-m>2.225</x-m>
 			<y-m>0.513</y-m>
@@ -479,8 +526,8 @@
 	</model>
 	
 	<!--model>
-		<name>att2</name>
-		<path>Aircraft/MD-80/Models/Instruments/att/att2.xml</path>
+		<name>ai2</name>
+		<path>Aircraft/MD-80/Models/Instruments/AI/ai2.xml</path>
 		<offsets>
 			<x-m>2.225</x-m>
 			<y-m>0.513</y-m>
@@ -559,6 +606,12 @@
 	<model>
 		<name>alt_R</name>
 		<path>Aircraft/MD-80/Models/Instruments/altimeter.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>EFIS</value>
+			</equals>
+		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
 			<y-m>0.637</y-m>
@@ -568,8 +621,31 @@
 	</model>
 	
 	<model>
+		<name>alt_R_A</name>
+		<path>Aircraft/MD-80/Models/Instruments/altimeter.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>Analog</value>
+			</equals>
+		</condition>
+		<offsets>
+			<x-m>2.229</x-m>
+			<y-m>0.677</y-m>
+			<z-m>0.856</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
 		<name>efisdim_R</name>
 		<path>Aircraft/MD-80/Models/Instruments/efis_dimmer.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>EFIS</value>
+			</equals>
+		</condition>
 		<offsets>
 			<x-m>2.230</x-m>
 			<y-m>0.706</y-m>
