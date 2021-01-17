@@ -2235,7 +2235,7 @@ OBJECT poly
 name "Horizon"
 data 16
 Horizon.mesh.002
-texture "horizon.jpg"
+texture "horizon.png"
 crease 45.000000
 numvert 13
 -0.0027 0.00109 -0.05447
@@ -2330,7 +2330,7 @@ name "HorizonInner"
 loc -0.00222 7.01512e-05 0
 data 17
 HorizonInner.mesh
-texture "horizon.jpg"
+texture "horizon.png"
 crease 45.000000
 numvert 41
 0 0.00101985 -0.0369859
