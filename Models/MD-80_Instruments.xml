@@ -74,7 +74,7 @@
 		</condition>
 		<offsets>
 			<x-m>2.225</x-m>
-			<y-m>-0.513</y-m>
+			<y-m>-0.514</y-m>
 			<z-m>0.876</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -91,7 +91,7 @@
 		</condition>
 		<offsets>
 			<x-m>2.225</x-m>
-			<y-m>-0.513</y-m>
+			<y-m>-0.514</y-m>
 			<z-m>0.89</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -108,7 +108,7 @@
 		</condition>
 		<offsets>
 			<x-m>2.248</x-m>
-			<y-m>-0.513</y-m>
+			<y-m>-0.514</y-m>
 			<z-m>0.747</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -125,7 +125,7 @@
 		</condition>
 		<offsets>
 			<x-m>2.254</x-m>
-			<y-m>-0.513</y-m>
+			<y-m>-0.514</y-m>
 			<z-m>0.738</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -525,16 +525,22 @@
 		</offsets>
 	</model>
 	
-	<!--model>
+	<model>
 		<name>ai2</name>
-		<path>Aircraft/MD-80/Models/Instruments/AI/ai2.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/AI/ai1.xml</path> <!-- 2 -->
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>Analog</value>
+			</equals>
+		</condition>
 		<offsets>
 			<x-m>2.225</x-m>
 			<y-m>0.513</y-m>
-			<z-m>0.876</z-m>
+			<z-m>0.89</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
-	</model-->
+	</model>
 	
 	<model>
 		<name>nd2</name>

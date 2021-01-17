@@ -8,6 +8,18 @@
 		<aero>MD-82</aero>
 		<description>McDonnell Douglas MD-82 (Analog, JT8D-217A)</description>
 		<flight-model>jsb</flight-model>
+		<menubar>
+			<default>
+				<menu n="103">
+					<item n="1">
+						<enabled type="bool">false</enabled>
+					</item>
+					<item n="2">
+						<enabled type="bool">false</enabled>
+					</item>
+				</menu>
+			</default>
+		</menubar>
 		<model n="0">
 			<livery>
 				<file type="string">DAL</file>

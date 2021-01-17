@@ -19,12 +19,36 @@
 	
 	<animation>
 		<type>rotate</type>
+		<object-name>Horizon</object-name>
+		<object-name>HorizonInner</object-name>
 		<object-name>RollIndex</object-name>
 		<property>orientation/roll-deg</property>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0.00109</z-m>
+		</center>
 		<axis>
 			<x>1</x>
 			<y>0</y>
 			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>HorizonInner</object-name>
+		<property>orientation/pitch-deg</property>
+		<interpolation>
+			<entry><ind>-30</ind><dep> 0.2122</dep></entry>
+			<entry><ind>-20</ind><dep>-0.1415</dep></entry>
+			<entry><ind>  0</ind><dep> 0.0000</dep></entry>
+			<entry><ind> 20</ind><dep> 0.1415</dep></entry>
+			<entry><ind> 30</ind><dep> 0.2122</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
 		</axis>
 	</animation>
 	
@@ -41,6 +65,18 @@
 			</and>
         </condition>
     </animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>FD</object-name>
+		<property>it-autoflight/fd/pitch-bar</property>
+		<factor>0.001415</factor>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
 	
 	<animation>
 		<type>rotate</type>
