@@ -5,5 +5,213 @@
 <PropertyList>
 	
 	<path>ai.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>LightingGroup</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>0.4</green>
+			<blue>0.1</blue>
+			<factor-prop>controls/lighting/main-integ-norm</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>RollIndex</object-name>
+		<property>orientation/roll-deg</property>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+    <animation>
+        <type>select</type>
+        <object-name>FD</object-name>
+        <condition>
+			<and>
+				<greater-than-equals>
+					<property>systems/electrical/outputs/efis</property>
+					<value>25</value>
+				</greater-than-equals>
+				<property>it-autoflight/output/fd1</property>
+			</and>
+        </condition>
+    </animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>FD</object-name>
+		<property>it-autoflight/fd/roll-bar</property>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>SkipSkid</object-name>
+		<property>instrumentation/pfd/slip-skid</property>
+		<interpolation>
+			<entry><ind>-15</ind><dep>-8</dep></entry>
+			<entry><ind>  0</ind><dep> 0</dep></entry>
+			<entry><ind> 15</ind><dep> 8</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0</y-m>
+			<z-m>0.02</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>FastSlowFlag</object-name>
+		<condition>
+			<less-than>
+				<property>systems/electrical/outputs/efis</property>
+				<value>25</value>
+			</less-than>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>FastSlow</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/outputs/efis</property>
+				<value>25</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>FastSlow</object-name>
+		<property>instrumentation/pfd/fast-slow</property>
+		<factor>-0.0017</factor>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LOCFlag</object-name>
+		<condition>
+			<or>
+				<less-than>
+					<property>systems/electrical/outputs/efis</property>
+					<value>25</value>
+				</less-than>
+				<less-than>
+					<property>systems/electrical/outputs/nav[0]</property>
+					<value>25</value>
+				</less-than>
+				<not><property>instrumentation/nav[0]/in-range</property></not>
+				<less-than-equals>
+					<property>instrumentation/nav[0]/signal-quality-norm</property>
+					<value>0.99</value>
+				</less-than-equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LOC</object-name>
+		<condition>
+			<and>
+				<greater-than-equals>
+					<property>systems/electrical/outputs/efis</property>
+					<value>25</value>
+				</greater-than-equals>
+				<property>instrumentation/nav[0]/in-range</property>
+				<greater-than>
+					<property>instrumentation/nav[0]/signal-quality-norm</property>
+					<value>0.99</value>
+				</greater-than>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>LOC</object-name>
+		<property>instrumentation/nav[0]/heading-needle-deflection-norm</property>
+		<factor>0.0153</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>GSFlag</object-name>
+		<condition>
+			<or>
+				<less-than>
+					<property>systems/electrical/outputs/efis</property>
+					<value>25</value>
+				</less-than>
+				<less-than>
+					<property>systems/electrical/outputs/nav[0]</property>
+					<value>25</value>
+				</less-than>
+				<not><property>instrumentation/nav[0]/gs-in-range</property></not>
+				<not><property>instrumentation/nav[0]/has-gs</property></not>
+				<less-than-equals>
+					<property>instrumentation/nav[0]/signal-quality-norm</property>
+					<value>0.99</value>
+				</less-than-equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>GS</object-name>
+		<condition>
+			<and>
+				<greater-than-equals>
+					<property>systems/electrical/outputs/efis</property>
+					<value>25</value>
+				</greater-than-equals>
+				<property>instrumentation/nav[0]/gs-in-range</property>
+				<property>instrumentation/nav[0]/has-gs</property>
+				<greater-than>
+					<property>instrumentation/nav[0]/signal-quality-norm</property>
+					<value>0.99</value>
+				</greater-than>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>GS</object-name>
+		<property>instrumentation/nav[0]/gs-needle-deflection-norm</property>
+		<factor>0.0188</factor>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
 
 </PropertyList>
