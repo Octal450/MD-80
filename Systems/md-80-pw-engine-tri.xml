@@ -20,9 +20,9 @@
 					<independentVar lookup="column">propulsion/tat-c</independentVar>
 					<tableData>
 						      -60   -30    0     30    60
-						    0  83.2  86.7  90.0  94.2  89.8
-						10000  87.1  89.3  93.9  95.1  91.4
-						43000  87.1  87.4  90.9  95.3  93.4
+						    0  83.2  86.7  90.0  94.2  98.4
+						10000  87.1  89.3  93.9  95.1  99.5
+						43000  87.1  87.4  90.9  95.3  99.7
 					</tableData>
 				</table>
 			</function>
@@ -182,7 +182,16 @@
 		<fcs_function name="engine/limit/takeoff-input">
 			<function>
 				<pow>
-					<property>engine/limit/rated-thrust-n1</property>
+					<table>
+						<independentVar lookup="row">/position/altitude-ft</independentVar>
+						<independentVar lookup="column">propulsion/tat-c</independentVar>
+						<tableData>
+							      -60   -30    0     30    60
+							    0  83.2  86.7  90.0  94.2  89.8
+							10000  87.1  89.3  93.9  95.1  91.4
+							43000  87.1  87.4  90.9  95.3  93.4
+						</tableData>
+					</table>
 					<value>3.5</value>
 				</pow>
 			</function>
@@ -197,7 +206,7 @@
 		<fcs_function name="engine/limit/takeoff-flex-input">
 			<function>
 				<pow>
-					<table> <!-- Copy of rated-thrust-n1 table above -->
+					<table>
 						<independentVar lookup="row">/position/altitude-ft</independentVar>
 						<independentVar lookup="column">engine/limit/flex-temp-input</independentVar>
 						<tableData>
