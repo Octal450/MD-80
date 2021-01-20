@@ -40,11 +40,9 @@
 		<object-name>HorizonInner</object-name>
 		<property>orientation/pitch-deg</property>
 		<interpolation>
-			<entry><ind>-50</ind><dep>-0.3537</dep></entry>
-			<entry><ind>-20</ind><dep>-0.1415</dep></entry>
+			<entry><ind>-50</ind><dep>-0.3520</dep></entry>
 			<entry><ind>  0</ind><dep> 0.0000</dep></entry>
-			<entry><ind> 20</ind><dep> 0.1415</dep></entry>
-			<entry><ind> 50</ind><dep> 0.3537</dep></entry>
+			<entry><ind> 50</ind><dep> 0.3525</dep></entry>
 		</interpolation>
 		<axis>
 			<x>0</x>
@@ -70,7 +68,7 @@
 		<type>translate</type>
 		<object-name>FD</object-name>
 		<property>it-autoflight/fd/pitch-bar</property>
-		<factor>0.001324</factor>
+		<factor>0.001326</factor>
 		<axis>
 			<x>0</x>
 			<y>0</y>
