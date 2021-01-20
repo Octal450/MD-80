@@ -166,7 +166,7 @@
 	</model>
 	
 	<model>
-		<name>efisdim_L</name>
+		<name>efisdim</name>
 		<path>Aircraft/MD-80/Models/Instruments/efis_dimmer.xml</path>
 		<condition>
 			<equals>
@@ -177,6 +177,23 @@
 		<offsets>
 			<x-m>2.230</x-m>
 			<y-m>-0.320</y-m>
+			<z-m>0.856</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>ra</name>
+		<path>Aircraft/MD-80/Models/Instruments/AGL/agl.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>Analog</value>
+			</equals>
+		</condition>
+		<offsets>
+			<x-m>2.229</x-m>
+			<y-m>-0.4175</y-m>
 			<z-m>0.856</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -672,6 +689,23 @@
 		<offsets>
 			<x-m>2.230</x-m>
 			<y-m>0.706</y-m>
+			<z-m>0.856</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>ra_R</name>
+		<path>Aircraft/MD-80/Models/Instruments/AGL/agl.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>Analog</value>
+			</equals>
+		</condition>
+		<offsets>
+			<x-m>2.229</x-m>
+			<y-m>0.6095</y-m>
 			<z-m>0.856</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>

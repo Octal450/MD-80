@@ -385,20 +385,6 @@
 		<path>Aircraft/MD-80/Models/MD-80_Instruments.xml</path>
 	</model>
 	
-	<!-- Level Of Detail -->
-	<animation>
-		<type>range</type>
-		<object-name>Instruments</object-name>
-		<min-m>0</min-m>
-		<max-m>5</max-m>
-	</animation>
-	<animation>
-		<type>range</type>
-		<object-name>OverheadPanel</object-name>
-		<min-m>0</min-m>
-		<max-m>5</max-m>
-	</animation>
-	
 	<!-- Panel glows -->
 	<animation>
 		<type>material</type>

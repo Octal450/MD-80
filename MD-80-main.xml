@@ -182,7 +182,7 @@
 				<int n="6" alias="/sim/model/lights/nav-lights"/>
 				<int n="7" alias="/controls/lighting/wing-lights"/>
 			</generic>
-			<visibility-range-nm type="int">110</visibility-range-nm>
+			<visibility-range-nm type="int">130</visibility-range-nm>
 		</multiplay>
 		<startup>
 			<splash-texture>Aircraft/MD-80/gui/splash/Article-8.png</splash-texture>
@@ -251,6 +251,67 @@
 				<y-offset-m archive="y">1.3</y-offset-m>
 				<z-offset-m archive="y">-19.6</z-offset-m>
 				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
+				<heading-offset-deg archive="y">0</heading-offset-deg>
+				<pitch-offset-deg archive="y">-18</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
+			</config>
+		</view>
+		<view n="101"> 
+			<name>Overhead Panel</name>
+			<type>lookfrom</type>
+			<enabled type="bool">true</enabled>
+			<internal type="bool" archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0.0</x-offset-m>
+				<y-offset-m archive="y">1.14</y-offset-m>
+				<z-offset-m archive="y">-19.44</z-offset-m>
+				<default-field-of-view-deg type="double">103</default-field-of-view-deg>
+				<heading-offset-deg archive="y">0</heading-offset-deg>
+				<pitch-offset-deg archive="y">57.0</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
+			</config>
+		</view>
+		<view n="102">
+			<name>Forward Pedestal View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0.0</x-offset-m>
+				<y-offset-m archive="y">1.3</y-offset-m>
+				<z-offset-m archive="y">-19.97</z-offset-m>
+				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
+				<heading-offset-deg archive="y">0</heading-offset-deg>
+				<pitch-offset-deg archive="y">-75</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
+			</config>
+		</view>
+		<view n="103">
+			<name>Aft Pedestal View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0.0</x-offset-m>
+				<y-offset-m archive="y">1.3</y-offset-m>
+				<z-offset-m archive="y">-19.6</z-offset-m>
+				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
+				<heading-offset-deg archive="y">0</heading-offset-deg>
+				<pitch-offset-deg archive="y">-75</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
+			</config>
+		</view>
+		<view n="104">
+			<name>FCGP Panel View</name>
+			<type>lookfrom</type>
+			<internal archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0.0</x-offset-m>
+				<y-offset-m archive="y">1.3</y-offset-m>
+				<z-offset-m archive="y">-19.6</z-offset-m>
+				<default-field-of-view-deg type="double">74</default-field-of-view-deg>
 				<heading-offset-deg archive="y">0</heading-offset-deg>
 				<pitch-offset-deg archive="y">-18</pitch-offset-deg>
 				<roll-offset-deg archive="y">0</roll-offset-deg>
@@ -596,6 +657,209 @@
 					<script>libraries.fovZoom(0);</script>
 				</binding>
 			</key>
+			<key n="33">
+				<name>PAGE UP</name>
+				<desc>Throttle Increase</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						setprop("/controls/engines/engine[0]/throttle", getprop("/controls/engines/engine[0]/throttle") + 0.01);
+						setprop("/controls/engines/engine[1]/throttle", getprop("/controls/engines/engine[0]/throttle") + 0.01); # Not a typo, always use engine[0] as a reference
+					</script>
+				</binding>
+			</key>
+			<key n="34">
+				<name>PAGE DN</name>
+				<desc>Throttle Decrease</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						setprop("/controls/engines/engine[0]/throttle", getprop("/controls/engines/engine[0]/throttle") - 0.01);
+						setprop("/controls/engines/engine[1]/throttle", getprop("/controls/engines/engine[0]/throttle") - 0.01); # Not a typo, always use engine[0] as a reference
+					</script>
+				</binding>
+			</key>
+			<key n="49">
+				<name>1</name>
+				<desc>Captain View/Elevator Trim Up</desc>
+				<binding>
+					<condition>
+						<not><property>/systems/acconfig/options/keyboard-mode</property></not>
+					</condition>
+					<command>property-assign</command>
+					<property>/sim/current-view/view-number</property>
+					<value>0</value>
+				</binding>
+				<binding>
+					<condition>
+						<property>/systems/acconfig/options/keyboard-mode</property>
+					</condition>
+					<command>nasal</command>
+					<script>controls.elevatorTrim(-1);</script>
+				</binding>
+			</key>
+			<key n="50">
+				<name>2</name>
+				<desc>First Officer View/Elevator Up</desc>
+				<binding>
+					<condition>
+						<not><property>/systems/acconfig/options/keyboard-mode</property></not>
+					</condition>
+					<command>property-assign</command>
+					<property>/sim/current-view/view-number</property>
+					<value>8</value>
+				</binding>
+				<binding>
+					<condition>
+						<property>/systems/acconfig/options/keyboard-mode</property>
+					</condition>
+					<command>nasal</command>
+					<script>setprop("/controls/flight/elevator", getprop("/controls/flight/elevator") - 0.05);</script>
+				</binding>
+			</key>
+			<key n="51">
+				<name>3</name>
+				<desc>Overhead View/Throttle Decrease</desc>
+				<binding>
+					<condition>
+						<not><property>/systems/acconfig/options/keyboard-mode</property></not>
+					</condition>
+					<command>property-assign</command>
+					<property>/sim/current-view/view-number</property>
+					<value>9</value>
+				</binding>
+				<binding>
+					<condition>
+						<property>/systems/acconfig/options/keyboard-mode</property>
+					</condition>
+					<command>nasal</command>
+					<script>
+						setprop("/controls/engines/engine[0]/throttle", getprop("/controls/engines/engine[0]/throttle") - 0.01);
+						setprop("/controls/engines/engine[1]/throttle", getprop("/controls/engines/engine[0]/throttle") - 0.01); # Not a typo, always use engine[0] as a reference
+					</script>
+				</binding>
+			</key>
+			<key n="52">
+				<name>4</name>
+				<desc>Forward Pedestal/Aileron Left</desc>
+				<binding>
+					<condition>
+						<not><property>/systems/acconfig/options/keyboard-mode</property></not>
+					</condition>
+					<command>property-assign</command>
+					<property>/sim/current-view/view-number</property>
+					<value>10</value>
+				</binding>
+				<binding>
+					<condition>
+						<property>/systems/acconfig/options/keyboard-mode</property>
+					</condition>
+					<command>nasal</command>
+					<script>setprop("/controls/flight/aileron", getprop("/controls/flight/aileron") - 0.05);</script>
+				</binding>
+			</key>
+			<key n="53">
+				<name>5</name>
+				<desc>Aft Pedestal/Center Controls</desc>
+				<binding>
+					<condition>
+						<not><property>/systems/acconfig/options/keyboard-mode</property></not>
+					</condition>
+					<command>property-assign</command>
+					<property>/sim/current-view/view-number</property>
+					<value>11</value>
+				</binding>
+				<binding>
+					<condition>
+						<property>/systems/acconfig/options/keyboard-mode</property>
+					</condition>
+					<command>nasal</command>
+					<script>
+						setprop("/controls/flight/aileron", 0);
+						setprop("/controls/flight/elevator", 0);
+						setprop("/controls/flight/rudder", 0);
+					</script>
+				</binding>
+			</key>
+			<key n="54">
+				<name>6</name>
+				<desc>AFS Panel/Aileron Right</desc>
+				<binding>
+					<condition>
+						<not><property>/systems/acconfig/options/keyboard-mode</property></not>
+					</condition>
+					<command>property-assign</command>
+					<property>/sim/current-view/view-number</property>
+					<value>12</value>
+				</binding>
+				<binding>
+					<condition>
+						<property>/systems/acconfig/options/keyboard-mode</property>
+					</condition>
+					<command>nasal</command>
+					<script>setprop("/controls/flight/aileron", getprop("/controls/flight/aileron") + 0.05);</script>
+				</binding>
+			</key>
+			<key n="55">
+				<name>7</name>
+				<desc>Elevator Trim Down</desc>
+				<!--binding>
+					<condition>
+						<not><property>/systems/acconfig/options/keyboard-mode</property></not>
+					</condition>
+					<command>property-assign</command>
+					<property>/sim/current-view/view-number</property>
+					<value></value>
+				</binding-->
+				<binding>
+					<condition>
+						<property>/systems/acconfig/options/keyboard-mode</property>
+					</condition>
+					<command>nasal</command>
+					<script>controls.elevatorTrim(1);</script>
+				</binding>
+			</key>
+			<key n="56">
+				<name>8</name>
+				<desc>Elevator Down</desc>
+				<!--binding>
+					<condition>
+						<not><property>/systems/acconfig/options/keyboard-mode</property></not>
+					</condition>
+					<command>property-assign</command>
+					<property>/sim/current-view/view-number</property>
+					<value></value>
+				</binding-->
+				<binding>
+					<condition>
+						<property>/systems/acconfig/options/keyboard-mode</property>
+					</condition>
+					<command>nasal</command>
+					<script>setprop("/controls/flight/elevator", getprop("/controls/flight/elevator") + 0.05);</script>
+				</binding>
+			</key>
+			<key n="57">
+				<name>9</name>
+				<desc>Throttle Increase</desc>
+				<!--binding>
+					<condition>
+						<not><property>/systems/acconfig/options/keyboard-mode</property></not>
+					</condition>
+					<command>property-assign</command>
+					<property>/sim/current-view/view-number</property>
+					<value></value>
+				</binding-->
+				<binding>
+					<condition>
+						<property>/systems/acconfig/options/keyboard-mode</property>
+					</condition>
+					<command>nasal</command>
+					<script>
+						setprop("/controls/engines/engine[0]/throttle", getprop("/controls/engines/engine[0]/throttle") + 0.01);
+						setprop("/controls/engines/engine[1]/throttle", getprop("/controls/engines/engine[0]/throttle") + 0.01); # Not a typo, always use engine[0] as a reference
+					</script>
+				</binding>
+			</key>
 			<key n="68">
 				<name>D</name>
 				<desc>AFS Disconnect</desc>
@@ -823,6 +1087,9 @@
 			<serviceable type="bool">true</serviceable>
 			<volume type="double">0</volume>
 		</dme>
+		<efis n="0">
+			<mins-rotate type="int">50000</mins-rotate>
+		</efis>
 		<encoder n="0">
 			<serviceable type="bool">1</serviceable>
 		</encoder>
@@ -957,6 +1224,7 @@
 			<autoconfig-running type="bool">0</autoconfig-running>
 			<options n="0">
 				<canvas-map-less-transparent type="bool">0</canvas-map-less-transparent>
+				<keyboard-mode type="bool">0</keyboard-mode>
 				<map-less-transparent type="bool">0</map-less-transparent>
 				<du n="0">
 					<nd-fps type="double">20</nd-fps>

@@ -721,6 +721,7 @@ loc 0.002 2.79397e-09 0
 kids 10
 OBJECT poly
 name "fromflag"
+loc -0.00137643 0 0
 data 9
 Plane.013
 texture "hsi.png"
@@ -985,6 +986,7 @@ refs 4
 kids 0
 OBJECT poly
 name "HSI.crsdeflection"
+loc -0.00109 1.27329e-11 0
 data 9
 Plane.015
 texture "hsi.png"
@@ -1026,6 +1028,7 @@ refs 4
 kids 0
 OBJECT poly
 name "HSI.crsneedle"
+loc -0.00109399 0 0
 data 10
 Circle.004
 texture "hsi.png"
@@ -1764,6 +1767,7 @@ refs 4
 kids 0
 OBJECT poly
 name "Plane.137"
+loc -0.00249478 0 0
 data 9
 Plane.017
 texture "hsi.png"
@@ -1926,6 +1930,7 @@ refs 4
 kids 0
 OBJECT poly
 name "toflag"
+loc -0.00137643 0 0
 data 9
 Plane.018
 texture "hsi.png"
