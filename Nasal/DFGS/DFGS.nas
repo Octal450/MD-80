@@ -12,6 +12,10 @@ var Controls = {
 	rudder: props.globals.getNode("/controls/flight/rudder", 1),
 };
 
+var Engines = {
+	reverserNorm: [props.globals.getNode("/engines/engine[0]/reverser-pos-norm", 1), props.globals.getNode("/engines/engine[1]/reverser-pos-norm", 1)],
+};
+
 var FPLN = {
 	active: props.globals.getNode("/autopilot/route-manager/active", 1),
 	activeTemp: 0,
