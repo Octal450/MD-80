@@ -25,6 +25,8 @@ var Value = {
 	},
 	Ra: {
 		agl: 0,
+		dh: 0,
+		dhSwitch: 0,
 	},
 };
 
@@ -69,7 +71,7 @@ var canvasBase = {
 		return me;
 	},
 	getKeys: func() {
-		return ["AI_center", "AI_background", "AI_scale", "AI_bank", "FD_pitch", "FD_roll", "ILS_group", "LOC_pointer", "LOC_scale", "LOC_no", "GS_pointer", "GS_scale", "GS_no", "FS_scale", "FS_pointer", "RA_bars", "RA_scale"];
+		return ["AI_center", "AI_background", "AI_scale", "AI_bank", "DH_below", "DH_pointer", "DH_set", "FD_pitch", "FD_roll", "ILS_group", "LOC_pointer", "LOC_scale", "LOC_no", "GS_pointer", "GS_scale", "GS_no", "FS_scale", "FS_pointer", "RA_bars", "RA_scale"];
 	},
 	setup: func() {
 		# Hide the pages by default
@@ -109,15 +111,43 @@ var canvasBase = {
 		
 		me["AI_bank"].setRotation(-Value.Ai.roll * D2R);
 		
-		# RA
+		# RA and DH
 		Value.Ra.agl = pts.Position.gearAglFt.getValue();
+		Value.Ra.dh = pts.Controls.Switches.minimums.getValue();
 		if (Value.Ra.agl <= 3000) {
+			me["DH_pointer"].show();
+			me["DH_pointer"].setTranslation(0, math.clamp(Value.Ra.agl - Value.Ra.dh, -3100, 3100) * 2.079);
 			me["RA_bars"].show();
 			me["RA_scale"].setTranslation(0, math.clamp(Value.Ra.agl, 0, 3100) * 2.079);
 			me["RA_scale"].show();
 		} else {
+			me["DH_pointer"].hide();
 			me["RA_bars"].hide();
 			me["RA_scale"].hide();
+		}
+		
+		if (pts.Fdm.JSBsim.Position.wow.getBoolValue()) {
+			Value.Ra.dhSwitch = 0;
+		} else if (Value.Ra.agl >= Value.Ra.dh) {
+			Value.Ra.dhSwitch = 1;
+		}
+		
+		if (Value.Ra.dh > 0) {
+			if (Value.Ra.agl <= Value.Ra.dh and Value.Ra.dhSwitch) {
+				me["DH_below"].show();
+				me["DH_pointer"].setColor(0.9647,0.8196,0.0784);
+				me["DH_pointer"].setColorFill(0.9647,0.8196,0.0784);
+				me["DH_set"].hide();
+			} else {
+				me["DH_below"].hide();
+				me["DH_pointer"].setColor(0,0.7059,0);
+				me["DH_pointer"].setColorFill(0,0.7059,0);
+				me["DH_set"].setText("DH" ~ sprintf("%03d", Value.Ra.dh));
+				me["DH_set"].show();
+			}
+		} else {
+			me["DH_below"].hide();
+			me["DH_set"].hide();
 		}
 	},
 };
