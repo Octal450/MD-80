@@ -1,5 +1,5 @@
 AC3Db
-MATERIAL "ac3dmat1.010" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 64  trans 0
+MATERIAL "ac3dmat1.004" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 64  trans 0
 OBJECT world
 kids 5
 OBJECT poly
@@ -653,7 +653,7 @@ refs 4
 kids 0
 OBJECT group
 name "LightingGroup"
-kids 6
+kids 7
 OBJECT poly
 name "DH1"
 data 9
@@ -713,6 +713,27 @@ refs 4
 1 1e-06 0.913994
 0 0.62624 0.913993
 2 0.62624 1.0024
+kids 0
+OBJECT poly
+name "Flag"
+loc 0 0.0107282 0.000398155
+data 9
+Plane.041
+texture "agl.png"
+crease 30.000000
+numvert 4
+0.00172 -0.0173348 -0.0130413
+0.00172 0.00831402 0.00850724
+0.00172 0.0123781 0.00366205
+0.00172 -0.0132846 -0.017884
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+2 0.341797 0.929687
+1 0.341797 0.941406
+0 0.404297 0.9375
+3 0.404297 0.925781
 kids 0
 OBJECT poly
 name "Needle"
