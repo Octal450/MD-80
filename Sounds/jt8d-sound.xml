@@ -1106,40 +1106,6 @@
 		
 		<!-- Custom GPWS -->
 	    <gpws>
-			<name>100</name>
-			<path>Aircraft/MD-80/Sounds/GPWS/100.wav</path>
-			<mode>once</mode>
-			<condition>
-				<and>
-					<not-equals>
-						<property>/controls/switches/minimums</property>
-						<value>100</value>
-					</not-equals>
-					<less-than-equals>
-						<property>/position/gear-agl-ft</property>
-						<value>100</value>
-					</less-than-equals>
-					<greater-than>
-						<property>/position/gear-agl-ft</property>
-						<value>80</value>
-					</greater-than>
-					<less-than>
-						<property>/position/gear-agl-ft-2-sec</property>
-						<property>/position/gear-agl-ft</property>
-					</less-than>
-					<greater-than-equals>
-						<property>/systems/electrical/outputs/mk-viii</property>
-						<value>25</value>
-					</greater-than-equals>
-				</and>
-			</condition>
-			<volume>
-				<factor>8</factor>
-			</volume>
-			<reference-dist>20.0</reference-dist>
-			<max-dist>100.0</max-dist>
-		</gpws>
-	    <gpws>
 			<name>50</name>
 			<path>Aircraft/MD-80/Sounds/GPWS/50.wav</path>
 			<mode>once</mode>
@@ -1310,11 +1276,49 @@
 			<max-dist>100.0</max-dist>
 		</gpws>
 	    <gpws>
+			<name>Approaching Minimum</name>
+			<path>Aircraft/MD-80/Sounds/GPWS/approaching-minimum.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<property>/controls/switches/minimums-plus-50</property>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<property>/controls/switches/minimums</property>
+					</greater-than>
+					<property>/controls/misc/minimums-latch-sound</property>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<pitch>
+				<property>/controls/switches/minimums-horn-pitch</property>
+			</pitch>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
+	    <gpws>
 			<name>Minimum</name>
 			<path>Aircraft/MD-80/Sounds/GPWS/minimum.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
+					<equals>
+						<property>/options/panel</property>
+						<value>EFIS</value>
+					</equals>
+					<greater-than>
+						<property>/controls/switches/minimums</property>
+						<value>0</value>
+					</greater-than>
 					<less-than-equals>
 						<property>/position/gear-agl-ft</property>
 						<property>/controls/switches/minimums</property>

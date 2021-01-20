@@ -24,7 +24,7 @@
 			<red>1.0</red>
 			<green>0.776</green>
 			<blue>0.273</blue>
-			<factor-prop>controls/misc/dh-light</factor-prop>
+			<factor-prop>controls/misc/minimums-light</factor-prop>
 		</emission>
 	</animation>
 	
@@ -34,7 +34,7 @@
 		<property>position/gear-agl-ft</property>
 		<interpolation>
 			<entry><ind>   0</ind><dep>0.0000</dep></entry>
-			<entry><ind>2500</ind><dep>0.8772</dep></entry>
+			<entry><ind>3000</ind><dep>0.9812</dep></entry>
 		</interpolation>
 		<axis>
 			<x>0</x>

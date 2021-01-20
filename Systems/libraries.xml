@@ -129,8 +129,41 @@
 	</filter>
 	
 	<filter>
+		<name>Minimums Plus 50</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input> 
+			<expression>
+				<sum>
+					<property>/controls/switches/minimums</property>
+					<value>50</value>
+				</sum>
+			</expression>
+		</input>
+		<output>/controls/switches/minimums-plus-50</output>
+	</filter>
+	
+	<filter>
+		<name>Minimums Horn</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input> 
+			<expression>
+				<table>
+					<difference>
+						<property>/position/gear-agl-ft</property>
+						<property>/controls/switches/minimums-plus-50</property>
+					</difference>
+					<entry><ind>  0</ind><dep>0.0</dep></entry>
+					<entry><ind>-50</ind><dep>0.7</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/controls/switches/minimums-horn-pitch</output>
+	</filter>
+	
+	<filter>
 		<name>Minimums Minus 50</name>
-		<update-interval-secs>0.1</update-interval-secs>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input> 

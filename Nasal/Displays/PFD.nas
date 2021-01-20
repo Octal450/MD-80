@@ -26,7 +26,7 @@ var Value = {
 	Ra: {
 		agl: 0,
 		dh: 0,
-		dhSwitch: 0,
+		dhLatch: 0,
 	},
 };
 
@@ -115,8 +115,12 @@ var canvasBase = {
 		Value.Ra.agl = pts.Position.gearAglFt.getValue();
 		Value.Ra.dh = pts.Controls.Switches.minimums.getValue();
 		if (Value.Ra.agl <= 3000) {
-			me["DH_pointer"].show();
-			me["DH_pointer"].setTranslation(0, math.clamp(Value.Ra.agl - Value.Ra.dh, -3100, 3100) * 2.079);
+			if (Value.Ra.dh > 0) {
+				me["DH_pointer"].setTranslation(0, (Value.Ra.agl - Value.Ra.dh) * 2.079);
+				me["DH_pointer"].show();
+			} else {
+				me["DH_pointer"].hide();
+			}
 			me["RA_bars"].show();
 			me["RA_scale"].setTranslation(0, math.clamp(Value.Ra.agl, 0, 3100) * 2.079);
 			me["RA_scale"].show();
@@ -126,14 +130,9 @@ var canvasBase = {
 			me["RA_scale"].hide();
 		}
 		
-		if (pts.Fdm.JSBsim.Position.wow.getBoolValue()) {
-			Value.Ra.dhSwitch = 0;
-		} else if (Value.Ra.agl >= Value.Ra.dh) {
-			Value.Ra.dhSwitch = 1;
-		}
-		
+		Value.Ra.dhLatch = pts.Controls.Misc.minimumsLatch.getBoolValue();
 		if (Value.Ra.dh > 0) {
-			if (Value.Ra.agl <= Value.Ra.dh and Value.Ra.dhSwitch) {
+			if (Value.Ra.agl <= Value.Ra.dh and Value.Ra.dhLatch) {
 				me["DH_below"].show();
 				me["DH_pointer"].setColor(0.9647,0.8196,0.0784);
 				me["DH_pointer"].setColorFill(0.9647,0.8196,0.0784);

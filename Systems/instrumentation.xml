@@ -406,5 +406,26 @@
 		</input>
 		<output>/instrumentation/dme[1]/indicated-distance-nm-x10</output>
 	</filter>
+	
+	<!-- RA -->
+	<logic>
+		<input>
+			<or>
+				<and>
+					<property>/systems/electrical/outputs/efis</property>
+					<property>/controls/misc/minimums-latch</property>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<property>/controls/switches/minimums</property>
+					</less-than-equals>
+				</and>
+				<and>
+					<property>/systems/electrical/outputs/efis</property>
+					<property>/controls/switches/annun-test</property>
+				</and>
+			</or>
+		</input>
+		<output>/controls/misc/minimums-light</output>
+	</logic>
 
 </PropertyList>

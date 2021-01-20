@@ -23,7 +23,7 @@
 			</test>
 		</switch>
 		
-		<fcs_function name="/position/gear-agl-ft-tie">
+		<fcs_function name="position/gear-agl-ft">
 			<function>
 				<difference>
 					<property>/position/altitude-agl-ft</property>
@@ -33,8 +33,8 @@
 			<output>/position/gear-agl-ft</output> <!-- So flight recorder can override it -->
 		</fcs_function>
 		
-		<pure_gain name="/position/gear-agl-m-tie">
-			<input>/position/gear-agl-ft</input>
+		<pure_gain name="position/gear-agl-m">
+			<input>position/gear-agl-ft</input>
 			<gain>0.3048</gain>
 			<output>/position/gear-agl-m</output> <!-- So flight recorder can override it -->
 		</pure_gain>
@@ -43,7 +43,35 @@
 	
 	<channel name="Execrate 8 Libraries" execrate="8">
 		
+		<fcs_function name="/controls/misc/minimums-latch-input">
+			<function>
+				<sum>
+					<property>/controls/switches/minimums</property>
+					<value>50.5</value>
+				</sum>
+			</function>
+		</fcs_function>
 		
+		<switch name="/controls/misc/minimums-latch">
+			<default value="/controls/misc/minimums-latch"/>
+			<test value="0">
+				position/wow eq 1
+			</test>
+			<test value="1">
+				position/gear-agl-ft ge /controls/misc/minimums-latch-input
+			</test>
+		</switch>
+		
+		<switch name="/controls/misc/minimums-latch-sound">
+			<default value="/controls/misc/minimums-latch-sound"/>
+			<test logic="OR" value="0">
+				position/wow eq 1
+				position/gear-agl-ft lt /controls/switches/minimums
+			</test>
+			<test value="1">
+				position/gear-agl-ft ge /controls/misc/minimums-latch-input
+			</test>
+		</switch>
 	
 	</channel>
 

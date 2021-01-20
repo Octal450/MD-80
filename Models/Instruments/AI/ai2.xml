@@ -247,5 +247,16 @@
 			<z>1</z>
 		</axis>
 	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>DHLight</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>1.0</green>
+			<blue>0</blue>
+			<factor-prop>controls/misc/minimums-light</factor-prop>
+		</emission>
+	</animation>
 
 </PropertyList>

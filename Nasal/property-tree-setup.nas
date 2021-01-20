@@ -29,6 +29,9 @@ var Controls = {
 		brakeRight: props.globals.getNode("/controls/gear/brake-right"),
 		gearDown: props.globals.getNode("/controls/gear/gear-down"),
 	},
+	Misc: {
+		minimumsLatch: props.globals.getNode("/controls/misc/minimums-latch"),
+	},
 	Switches: {
 		minimums: props.globals.getNode("/controls/switches/minimums"),
 		noSmokingSign: props.globals.getNode("/controls/switches/no-smoking-sign"),
