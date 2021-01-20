@@ -13,7 +13,7 @@
 			<red>0.6</red>
 			<green>0.45</green>
 			<blue>0.3</blue>
-			<factor-prop>controls/lighting/main-panel-norm</factor-prop>
+			<factor-prop>controls/lighting/main-integ-norm</factor-prop>
 		</emission>
 	</animation>
 	
@@ -35,6 +35,20 @@
 		<interpolation>
 			<entry><ind>   0</ind><dep>0.0000</dep></entry>
 			<entry><ind>3000</ind><dep>0.9812</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>TapeDH</object-name>
+		<property>controls/misc/minimums-tape</property>
+		<interpolation>
+			<entry><ind>-150</ind><dep>-0.3675</dep></entry>
+			<entry><ind>   0</ind><dep> 0.0000</dep></entry>
+			<entry><ind> 150</ind><dep> 0.3675</dep></entry>
 		</interpolation>
 		<axis>
 			<x>0</x>

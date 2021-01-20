@@ -1,8 +1,7 @@
 AC3Db
-MATERIAL "DefaultWhite.021" rgb 1 1 1  amb 0.8 0.8 0.8  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
-MATERIAL "ac3dmat1.010" rgb 1 1 1  amb 0.8 0.8 0.8  emis 0 0 0  spec 0.2 0.2 0.2  shi 64  trans 0
+MATERIAL "ac3dmat1.010" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 64  trans 0
 OBJECT world
-kids 9
+kids 5
 OBJECT poly
 name "Bezel"
 data 8
@@ -337,66 +336,6 @@ refs 4
 6 0.051278 0.923148
 kids 0
 OBJECT poly
-name "DH1"
-data 9
-Plane.036
-texture "digits.png"
-crease 30.000000
-numvert 4
-0.00161 -0.03741 -0.00403
-0.00161 -0.03741 0.00066
-0.00161 -0.03121 -0.00403
-0.00161 -0.03121 0.00066
-numsurf 1
-SURF 0x0
-mat 0
-refs 4
-3 0 1.0024
-1 1e-06 0.913994
-0 0.62624 0.913993
-2 0.62624 1.0024
-kids 0
-OBJECT poly
-name "DH10"
-data 9
-Plane.037
-texture "digits.png"
-crease 30.000000
-numvert 4
-0.00161 -0.03741 0.00063
-0.00161 -0.03741 0.00532
-0.00161 -0.03121 0.00063
-0.00161 -0.03121 0.00532
-numsurf 1
-SURF 0x0
-mat 0
-refs 4
-3 0 1.0024
-1 1e-06 0.913994
-0 0.62624 0.913993
-2 0.62624 1.0024
-kids 0
-OBJECT poly
-name "DH100"
-data 9
-Plane.038
-texture "digits.png"
-crease 30.000000
-numvert 4
-0.00161 -0.03741 0.00529
-0.00161 -0.03741 0.00998
-0.00161 -0.03121 0.00529
-0.00161 -0.03121 0.00998
-numsurf 1
-SURF 0x0
-mat 0
-refs 4
-3 0 1.0024
-1 1e-06 0.913994
-0 0.62624 0.913993
-2 0.62624 1.0024
-kids 0
-OBJECT poly
 name "DHLight"
 data 8
 Cube.005
@@ -712,41 +651,103 @@ refs 4
 11 0.822424 0.148607
 23 0.822424 0.148608
 kids 0
+OBJECT group
+name "LightingGroup"
+kids 6
+OBJECT poly
+name "DH1"
+data 9
+Plane.036
+texture "digits.png"
+crease 30.000000
+numvert 4
+0.00161 -0.03741 -0.00403
+0.00161 -0.03741 0.00066
+0.00161 -0.03121 -0.00403
+0.00161 -0.03121 0.00066
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 0 1.0024
+1 1e-06 0.913994
+0 0.62624 0.913993
+2 0.62624 1.0024
+kids 0
+OBJECT poly
+name "DH10"
+data 9
+Plane.037
+texture "digits.png"
+crease 30.000000
+numvert 4
+0.00161 -0.03741 0.00063
+0.00161 -0.03741 0.00532
+0.00161 -0.03121 0.00063
+0.00161 -0.03121 0.00532
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 0 1.0024
+1 1e-06 0.913994
+0 0.62624 0.913993
+2 0.62624 1.0024
+kids 0
+OBJECT poly
+name "DH100"
+data 9
+Plane.038
+texture "digits.png"
+crease 30.000000
+numvert 4
+0.00161 -0.03741 0.00529
+0.00161 -0.03741 0.00998
+0.00161 -0.03121 0.00529
+0.00161 -0.03121 0.00998
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 0 1.0024
+1 1e-06 0.913994
+0 0.62624 0.913993
+2 0.62624 1.0024
+kids 0
 OBJECT poly
 name "Needle"
-loc 0.00161 -0.00425997 0
 data 15
 Needle.mesh.001
 texture "agl.png"
 crease 45.000000
 numvert 10
-0 0.0068312 -0.0096
-0 0.00938502 -0.0096
-0 0.0068312 -0.01152
-0 0.00682983 0.00099
-0 0.00772503 0.00099
-0 0.011305 -0.01339
-0 0.00938502 0.01339
-0 0.0068312 0.01224
-0 0.00772503 0.00732
-0 0.00682983 0.00732
+0.00161 0.00257 -0.0096
+0.00161 0.00513 -0.0096
+0.00161 0.00257 -0.01152
+0.00161 0.00257 0.00099
+0.00161 0.00347 0.00099
+0.00161 0.00705 -0.01339
+0.00161 0.00513 0.01339
+0.00161 0.00257 0.01224
+0.00161 0.00347 0.00732
+0.00161 0.00257 0.00732
 numsurf 3
 SURF 0x10
-mat 1
+mat 0
 refs 4
 1 0.215595 0.970546
 0 0.215595 0.8835
 2 0.259118 0.8835
 5 0.259118 0.970546
 SURF 0x10
-mat 1
+mat 0
 refs 4
 4 0.172072 0.970546
 3 0.172072 0.8835
 0 0.215595 0.8835
 1 0.215595 0.970546
 SURF 0x10
-mat 1
+mat 0
 refs 4
 6 0.172072 0.970546
 7 0.172072 0.8835
@@ -756,7 +757,7 @@ kids 0
 OBJECT poly
 name "Tape"
 data 9
-Plane.039
+Plane.001
 texture "agl-tape.png"
 crease 30.000000
 numvert 4
@@ -772,4 +773,24 @@ refs 4
 0 0.890625 0.09436
 1 0.226562 0.09436
 2 0.226562 0.03064
+kids 0
+OBJECT poly
+name "TapeDH"
+data 9
+Plane.039
+texture "dh-tape.png"
+crease 30.000000
+numvert 4
+0.0016 -0.02585 0.0073
+0.0016 -0.02585 0.01077
+0.0016 0.03187 0.01077
+0.0016 0.03187 0.0073
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+0 0.9375 0.260755
+3 0.9375 0.73927
+2 0 0.73927
+1 0 0.260755
 kids 0
