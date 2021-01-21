@@ -107,8 +107,8 @@ var Input = {
 	ktsFlch: props.globals.initNode("/it-autoflight/input/kts-flch", 100, "INT"),
 	ktsMach: props.globals.initNode("/it-autoflight/input/kts-mach", 0, "BOOL"),
 	ktsMachFlch: props.globals.initNode("/it-autoflight/input/kts-mach-flch", 0, "BOOL"),
-	lat: props.globals.initNode("/it-autoflight/input/lat", 0, "INT"),
-	latTemp: 0,
+	lat: props.globals.initNode("/it-autoflight/input/lat", 3, "INT"),
+	latTemp: 3,
 	mach: props.globals.initNode("/it-autoflight/input/mach", 0.5, "DOUBLE"),
 	machFlch: props.globals.initNode("/it-autoflight/input/mach-flch", 0.5, "DOUBLE"),
 	toga: props.globals.initNode("/it-autoflight/input/toga", 0, "BOOL"),
@@ -116,8 +116,8 @@ var Input = {
 	trueCourse: props.globals.initNode("/it-autoflight/input/true-course", 0, "BOOL"),
 	vs: props.globals.initNode("/it-autoflight/input/vs", 0, "INT"),
 	vsAbs: props.globals.initNode("/it-autoflight/input/vs-abs", 0, "INT"), # Set by property rule
-	vert: props.globals.initNode("/it-autoflight/input/vert", 0, "INT"),
-	vertTemp: 0,
+	vert: props.globals.initNode("/it-autoflight/input/vert", 1, "INT"),
+	vertTemp: 1,
 };
 
 var Internal = {
@@ -165,14 +165,14 @@ var Output = {
 	locArm: props.globals.initNode("/it-autoflight/output/loc-armed", 0, "BOOL"),
 	thrMode: props.globals.initNode("/it-autoflight/output/thr-mode", 3, "INT"),
 	thrModeTemp: 3,
-	vert: props.globals.initNode("/it-autoflight/output/vert", 0, "INT"),
-	vertTemp: 0,
+	vert: props.globals.initNode("/it-autoflight/output/vert", 1, "INT"),
+	vertTemp: 1,
 };
 
 var Text = {
 	lat: props.globals.initNode("/it-autoflight/mode/lat", "HDG", "STRING"),
-	vert: props.globals.initNode("/it-autoflight/mode/vert", "ALT HLD", "STRING"),
-	vertTemp: "T/O CLB",
+	vert: props.globals.initNode("/it-autoflight/mode/vert", "V/S", "STRING"),
+	vertTemp: "V/S",
 };
 
 var Setting = {
@@ -212,8 +212,8 @@ var ITAF = {
 		Input.vs.setValue(0);
 		Input.fpa.setValue(0);
 		Input.altArmed.setBoolValue(0);
-		Input.lat.setValue(0);
-		Input.vert.setValue(0);
+		Input.lat.setValue(3);
+		Input.vert.setValue(1);
 		Input.toga.setBoolValue(0);
 		Output.ap1.setBoolValue(0);
 		Output.ap2.setBoolValue(0);
@@ -227,7 +227,7 @@ var ITAF = {
 		me.updateLocArm(0);
 		me.updateApprArm(0);
 		Output.lat.setValue(0);
-		Output.vert.setValue(0);
+		Output.vert.setValue(1);
 		Internal.minVs.setValue(-500);
 		Internal.maxVs.setValue(500);
 		Internal.alt.setValue(10000);
@@ -235,7 +235,7 @@ var ITAF = {
 		updateFma.thr();
 		updateFma.arm();
 		me.updateLatText("HDG");
-		me.updateVertText("ALT HLD");
+		me.updateVertText("V/S");
 		loopTimer.start();
 		slowLoopTimer.start();
 	},
@@ -320,7 +320,7 @@ var ITAF = {
 				}
 			}
 		} else {
-			if (Output.vertTemp == 2) {
+			if ((Output.ap1Temp or Output.ap2Temp) and Output.vertTemp == 2) {
 				if (Position.gearAglFtTemp <= 100 and Position.gearAglFtTemp >= 5) {
 					me.updateVertText("NO FLARE");
 				}
@@ -427,6 +427,13 @@ var ITAF = {
 					FPLN.currentWp.setValue(FPLN.currentWpTemp + 1);
 				}
 			}
+		}
+		
+		# Reset system once flight complete
+		Output.latTemp = Output.lat.getValue();
+		Output.vertTemp = Output.vert.getValue();
+		if (!Output.ap1.getBoolValue() and !Output.ap2.getBoolValue() and Gear.wow0.getBoolValue() and Velocities.groundspeedKt.getValue() < 80 and (Output.latTemp == 2 or Output.latTemp == 4 or Output.vertTemp == 2 or Output.vertTemp == 6)) {
+			me.init(1);
 		}
 	},
 	ap1Master: func(s) {
