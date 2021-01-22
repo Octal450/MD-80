@@ -165,7 +165,7 @@
 			<property>/sim/current-view/internal</property>
 			<volume>
 				<property>/MD80/ambience/wind-b-z</property>
-				<factor>0.5</factor>
+				<factor>0.15</factor>
 			</volume>
 		</MDAMB>
 		
@@ -176,7 +176,7 @@
 			<property>/sim/current-view/internal</property>
 			<volume>
 				<property>/MD80/ambience/wind-b-z</property>
-				<factor>0.2</factor>
+				<factor>0.02</factor>
 			</volume>
 		</MDAMB>
 		
@@ -354,6 +354,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDA_WHN_1</property>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>3</y>
+				<z>0</z>
+			</position>
 		</MDB_WHN>
 		
 		<!-- ENGINE 1 SPOOL -->
@@ -370,6 +375,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDA_WHN_2</property>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>3</y>
+				<z>0</z>
+			</position>
 		</MDA_WHN>
 		
 		<MDA_WHN>
@@ -384,6 +394,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDA_WHN_3</property>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>3</y>
+				<z>0</z>
+			</position>
 		</MDA_WHN>
 		
 		<MDA_WHN>
@@ -398,6 +413,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDA_howl</property>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>3</y>
+				<z>0</z>
+			</position>
 		</MDA_WHN>
 		
 		<!--<MDA_WHN>
@@ -425,6 +445,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDA_hum</property>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>3</y>
+				<z>0</z>
+			</position>
 		</MDA_WHN>
 		
 		<!-- ENGINE 1 BUZZ -->
@@ -448,6 +473,11 @@
 				<property>/MD80/enginep/MDA_WHN_4</property>
 				<offset>0</offset>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>3</y>
+				<z>0</z>
+			</position>
 		</MDA_WHN>
 		
 		<MDA_WHN>
@@ -462,6 +492,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDA_WHN_5</property>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>3</y>
+				<z>0</z>
+			</position>
 		</MDA_WHN>
 		
 		<MDA_REV>
@@ -478,6 +513,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDA_REV1</property>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>3</y>
+				<z>0</z>
+			</position>
 		</MDA_REV>
 		
 		<!-- ENGINE 2 IDLE -->
@@ -493,6 +533,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDB_WHN_1</property>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>-3</y>
+				<z>0</z>
+			</position>
 		</MDB_WHN>
 		
 		<!-- ENGINE 2 SPOOL -->
@@ -509,6 +554,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDB_WHN_2</property>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>-3</y>
+				<z>0</z>
+			</position>
 		</MDB_WHN>
 		
 		<MDB_WHN>
@@ -523,6 +573,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDB_WHN_3</property>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>-3</y>
+				<z>0</z>
+			</position>
 		</MDB_WHN>
 		
 		<MDB_WHN>
@@ -537,6 +592,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDB_howl</property>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>-3</y>
+				<z>0</z>
+			</position>
 		</MDB_WHN>
 		
 		<!--<MDB_WHN>
@@ -564,6 +624,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDB_hum</property>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>-3</y>
+				<z>0</z>
+			</position>
 		</MDB_WHN>
 		
 		<!-- ENGINE 2 BUZZ -->
@@ -580,6 +645,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDB_WHN_4</property>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>-3</y>
+				<z>0</z>
+			</position>
 		</MDB_WHN>
 		
 		<MDB_WHN>
@@ -594,6 +664,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDB_WHN_5</property>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>-3</y>
+				<z>0</z>
+			</position>
 		</MDB_WHN>
 		
 		<MDA_REV>
@@ -610,6 +685,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDA_REV2</property>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>-3</y>
+				<z>0</z>
+			</position>
 		</MDA_REV>
 		
 		<!-- COMBUSTION/THRUST ENGINE 1 -->
@@ -626,6 +706,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDA_CMB_1</property>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>3</y>
+				<z>0</z>
+			</position>
 		</MDA_CMB>
 		
 		<!-- COMBUSTION/THRUST ENGINE 2 -->
@@ -642,6 +727,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDB_CMB_1</property>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>-3</y>
+				<z>0</z>
+			</position>
 		</MDB_CMB>
 		
 		
@@ -689,13 +779,18 @@
 			<volume>
 				<property>/MD80/engine/MDA_WHN_1</property>
 			</volume>
-			<volume>
+			<condition>
 				<property>sim/current-view/external</property>
-			</volume>
+			</condition>
 			<pitch>
 				<property>/MD80/enginep/MDA_WHN_1</property>
 				<offset>0</offset>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>3</y>
+				<z>0</z>
+			</position>
 		</MDA_WHN>
 		
 		<!-- X ENGINE 1 SPOOL -->
@@ -708,19 +803,24 @@
 			<volume>
 				<property>/MD80/engine/MDA_WHN_2</property>
 			</volume>
-			<volume>
+			<condition>
 				<property>sim/current-view/external</property>
-			</volume>
+			</condition>
 			<pitch>
 				<property>/MD80/enginep/MDA_WHN_2</property>
 				<offset>0</offset>
 			</pitch>
 			<orientation>
-				<x>-10</x>
+				<x>-1</x>
 				<inner-angle>40</inner-angle>
 				<outer-angle>180</outer-angle>
 				<outer-gain>0.7</outer-gain>
 			</orientation>
+			<position>
+				<x>34</x>
+				<y>3</y>
+				<z>0</z>
+			</position>
 		</MDA_WHN>
 		
 		<MDA_WHN>
@@ -731,19 +831,24 @@
 			<volume>
 				<property>/MD80/engine/MDA_WHN_3</property>
 			</volume>
-			<volume>
+			<condition>
 				<property>sim/current-view/external</property>
-			</volume>
+			</condition>
 			<pitch>
 				<property>/MD80/enginep/MDA_WHN_3</property>
 				<offset>0</offset>
 			</pitch>
 			<orientation>
-				<x>-10</x>
+				<x>-1</x>
 				<inner-angle>40</inner-angle>
 				<outer-angle>180</outer-angle>
 				<outer-gain>0.5</outer-gain>
 			</orientation>
+			<position>
+				<x>34</x>
+				<y>3</y>
+				<z>0</z>
+			</position>
 		</MDA_WHN>
 		
 		<!-- X ENGINE 1 BUZZ -->
@@ -756,22 +861,24 @@
 			<volume>
 				<property>/MD80/engine/MDA_WHN_4</property>
 			</volume>
-			<volume>
+			<condition>
 				<property>sim/current-view/external</property>
-			</volume>
-			<volume>
-				<property>sim/current-view/external</property>
-			</volume>
+			</condition>
 			<pitch>
 				<property>/MD80/enginep/MDA_WHN_4</property>
 				<offset>0</offset>
 			</pitch>
 			<orientation>
-				<x>-10</x>
+				<x>-1</x>
 				<inner-angle>25</inner-angle>
 				<outer-angle>99</outer-angle>
 				<outer-gain>0</outer-gain>
 			</orientation>
+			<position>
+				<x>34</x>
+				<y>3</y>
+				<z>0</z>
+			</position>
 		</MDA_WHN>
 		
 		<MDA_WHN>
@@ -782,19 +889,24 @@
 			<volume>
 				<property>/MD80/engine/MDA_WHN_5</property>
 			</volume>
-			<volume>
+			<condition>
 				<property>sim/current-view/external</property>
-			</volume>
+			</condition>
 			<pitch>
 				<property>/MD80/enginep/MDA_WHN_5</property>
 				<offset>0</offset>
 			</pitch>
 			<orientation>
-				<x>-10</x>
+				<x>-1</x>
 				<inner-angle>25</inner-angle>
 				<outer-angle>99</outer-angle>
 				<outer-gain>0</outer-gain>
 			</orientation>
+			<position>
+				<x>34</x>
+				<y>3</y>
+				<z>0</z>
+			</position>
 		</MDA_WHN>
 		
 		<!-- X ENGINE 2 IDLE -->
@@ -807,13 +919,18 @@
 			<volume>
 				<property>/MD80/engine/MDB_WHN_1</property>
 			</volume>
-			<volume>
+			<condition>
 				<property>sim/current-view/external</property>
-			</volume>
+			</condition>
 			<pitch>
 				<property>/MD80/enginep/MDB_WHN_1</property>
 				<offset>0</offset>
 			</pitch>
+			<position>
+				<x>34</x>
+				<y>-3</y>
+				<z>0</z>
+			</position>
 		</MDB_WHN>
 		
 		<!-- X ENGINE 2 SPOOL -->
@@ -826,19 +943,24 @@
 			<volume>
 				<property>/MD80/engine/MDB_WHN_2</property>
 			</volume>
-			<volume>
+			<condition>
 				<property>sim/current-view/external</property>
-			</volume>
+			</condition>
 			<pitch>
 				<property>/MD80/enginep/MDB_WHN_2</property>
 				<offset>0</offset>
 			</pitch>
 			<orientation>
-				<x>-10</x>
+				<x>-1</x>
 				<inner-angle>40</inner-angle>
 				<outer-angle>180</outer-angle>
 				<outer-gain>0.7</outer-gain>
 			</orientation>
+			<position>
+				<x>34</x>
+				<y>-3</y>
+				<z>0</z>
+			</position>
 		</MDB_WHN>
 		
 		<MDB_WHN>
@@ -849,19 +971,24 @@
 			<volume>
 				<property>/MD80/engine/MDB_WHN_3</property>
 			</volume>
-			<volume>
+			<condition>
 				<property>sim/current-view/external</property>
-			</volume>
+			</condition>
 			<pitch>
 				<property>/MD80/enginep/MDB_WHN_3</property>
 				<offset>0</offset>
 			</pitch>
 			<orientation>
-				<x>-10</x>
+				<x>-1</x>
 				<inner-angle>40</inner-angle>
 				<outer-angle>180</outer-angle>
 				<outer-gain>0.5</outer-gain>
 			</orientation>
+			<position>
+				<x>34</x>
+				<y>-3</y>
+				<z>0</z>
+			</position>
 		</MDB_WHN>
 		
 		<!-- X ENGINE 2 BUZZ -->
@@ -874,19 +1001,24 @@
 			<volume>
 				<property>/MD80/engine/MDB_WHN_4</property>
 			</volume>
-			<volume>
+			<condition>
 				<property>sim/current-view/external</property>
-			</volume>
+			</condition>
 			<pitch>
 				<property>/MD80/enginep/MDB_WHN_4</property>
 				<offset>0</offset>
 			</pitch>
 			<orientation>
-				<x>-10</x>
+				<x>-1</x>
 				<inner-angle>25</inner-angle>
 				<outer-angle>99</outer-angle>
 				<outer-gain>0</outer-gain>
 			</orientation>
+			<position>
+				<x>34</x>
+				<y>-3</y>
+				<z>0</z>
+			</position>
 		</MDB_WHN>
 		
 		<MDB_WHN>
@@ -897,19 +1029,24 @@
 			<volume>
 				<property>/MD80/engine/MDB_WHN_5</property>
 			</volume>
-			<volume>
+			<condition>
 				<property>sim/current-view/external</property>
-			</volume>
+			</condition>
 			<pitch>
 				<property>/MD80/enginep/MDB_WHN_5</property>
 				<offset>0</offset>
 			</pitch>
 			<orientation>
-				<x>-10</x>
+				<x>-1</x>
 				<inner-angle>25</inner-angle>
 				<outer-angle>99</outer-angle>
 				<outer-gain>0</outer-gain>
 			</orientation>
+			<position>
+				<x>34</x>
+				<y>-3</y>
+				<z>0</z>
+			</position>
 		</MDB_WHN>
 		
 		<!-- Effects -->
