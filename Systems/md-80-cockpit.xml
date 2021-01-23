@@ -336,5 +336,81 @@
 			</test>
 		</switch>
 	</channel>
+	
+	<channel name="Exterior Lights" execrate="8">
+		
+		<switch name="exterior-lights/nose-landing-light-cmd">
+			<default value="0"/>
+			<test logic="AND" value="0.6">
+				/controls/lighting/landing-light-n eq 0.5
+				/controls/gear/gear-down eq 1
+			</test>
+			<test logic="AND" value="1">
+				/controls/lighting/landing-light-n eq 1.0
+				/controls/gear/gear-down eq 1
+			</test>
+		</switch>
+		
+		<actuator name="exterior-lights/nose-landing-light-actuator">
+			<input>exterior-lights/nose-landing-light-cmd</input>
+			<rate_limit>5.0</rate_limit>
+			<output>exterior-lights/nose-landing-light</output>
+		</actuator>
+		
+		<switch name="exterior-lights/left-landing-light-ext-cmd">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/landing-light-l ge 0.5
+			</test>
+		</switch>
+		
+		<actuator name="exterior-lights/left-landing-light-ext-actuator">
+			<input>exterior-lights/left-landing-light-ext-cmd</input>
+			<rate_limit>0.14285714285</rate_limit> <!-- 7 seconds -->
+			<output>exterior-lights/left-landing-light-ext</output>
+		</actuator>
+		
+		<switch name="exterior-lights/left-landing-light-cmd">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/landing-light-l eq 1.0
+				exterior-lights/left-landing-light-ext eq 1.0
+			</test>
+		</switch>
+		
+		<actuator name="exterior-lights/left-landing-light-actuator">
+			<input>exterior-lights/left-landing-light-cmd</input>
+			<rate_limit>5.0</rate_limit>
+			<output>exterior-lights/left-landing-light</output>
+		</actuator>
+		
+		<switch name="exterior-lights/right-landing-light-ext-cmd">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/landing-light-r ge 0.5
+			</test>
+		</switch>
+		
+		<actuator name="exterior-lights/right-landing-light-ext-actuator">
+			<input>exterior-lights/right-landing-light-ext-cmd</input>
+			<rate_limit>0.14285714285</rate_limit> <!-- 7 seconds -->
+			<output>exterior-lights/right-landing-light-ext</output>
+		</actuator>
+		
+		<switch name="exterior-lights/right-landing-light-cmd">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/landing-light-r eq 1.0
+				exterior-lights/right-landing-light-ext eq 1.0
+			</test>
+		</switch>
+		
+		<actuator name="exterior-lights/right-landing-light-actuator">
+			<input>exterior-lights/right-landing-light-cmd</input>
+			<rate_limit>5.0</rate_limit>
+			<output>exterior-lights/right-landing-light</output>
+		</actuator>
+		
+	</channel>
 
 </system>

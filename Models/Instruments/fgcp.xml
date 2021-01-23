@@ -2024,5 +2024,179 @@
 			</binding>
 		</action>
 	</animation>
+	
+	<animation>
+		<name>Nose landing light pick</name>
+		<type>pick</type>
+		<object-name>SwLdgLtsL</object-name>
+		<object-name>SwLdgLtsL.bump</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/landing-light-l</property>
+				<value>0</value>
+				<value>0.5</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/landing-light-l</property>
+				<value>1</value>
+				<value>0.5</value>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Nose landing light pick</name>
+		<type>pick</type>
+		<object-name>SwLdgLtsR</object-name>
+		<object-name>SwLdgLtsR.bump</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/landing-light-r</property>
+				<value>0</value>
+				<value>0.5</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/landing-light-n</property>
+				<value>1</value>
+				<value>0.5</value>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Nose landing light pick</name>
+		<type>pick</type>
+		<object-name>SwNoseLts</object-name>
+		<object-name>SwNoseLts.bump</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/landing-light-n</property>
+				<value>0</value>
+				<value>0.5</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/landing-light-n</property>
+				<value>1</value>
+				<value>0.5</value>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+	</animation>
 
+	<animation>
+		<name>landing light rotate</name>
+		<type>rotate</type>
+		<object-name>SwLdgLtsL</object-name>
+		<object-name>SwLdgLtsL.bump</object-name>
+		<property>/controls/lighting/landing-light-l</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>35</dep></entry>
+			<entry><ind>1</ind><dep>-35</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.00798</x-m>
+			<y-m>-0.379129</y-m>
+			<z-m>0.003556</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<name>landing light rotate</name>
+		<type>rotate</type>
+		<object-name>SwLdgLtsR</object-name>
+		<object-name>SwLdgLtsR.bump</object-name>
+		<property>/controls/lighting/landing-light-r</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>35</dep></entry>
+			<entry><ind>1</ind><dep>-35</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.00798</x-m>
+			<y-m>-0.351358</y-m>
+			<z-m>0.003556</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<name>landing light rotate</name>
+		<type>rotate</type>
+		<object-name>SwNoseLts</object-name>
+		<object-name>SwNoseLts.bump</object-name>
+		<property>/controls/lighting/landing-light-n</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>35</dep></entry>
+			<entry><ind>1</ind><dep>-35</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.00798</x-m>
+			<y-m>-0.304921</y-m>
+			<z-m>0.003564</z-m>
+		</center>
+	</animation>
 </PropertyList>

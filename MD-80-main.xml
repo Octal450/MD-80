@@ -175,10 +175,10 @@
 				<float n="10" alias="/gear/gear[0]/steering-norm"/>
 				<int n="0" alias="/sim/model/lights/strobe/state"/>
 				<int n="1" alias="/sim/model/lights/beacon/state"/>
-				<int n="2" alias="/controls/lighting/landing-lights-n"/>
+				<int n="2" alias="/controls/lighting/landing-light-n"/>
 				<int n="3" alias="/sim/model/lights/logo-lights"/>
-				<int n="4" alias="/controls/lighting/landing-lights-l"/>
-				<int n="5" alias="/controls/lighting/landing-lights-r"/>
+				<int n="4" alias="/controls/lighting/landing-light-l"/>
+				<int n="5" alias="/controls/lighting/landing-light-r"/>
 				<int n="6" alias="/sim/model/lights/nav-lights"/>
 				<int n="7" alias="/controls/lighting/wing-lights"/>
 			</generic>
@@ -479,10 +479,7 @@
 			<landing-light-l type="double">0</landing-light-l>
 			<landing-light-r type="double">0</landing-light-r>
 			<landing-light-n type="double">0</landing-light-n>
-			<land-on-l type="double">0</land-on-l>
-			<land-on-r type="double">0</land-on-r>
-			<land-ext-l type="double">0</land-ext-l>
-			<land-ext-r type="double">0</land-ext-r>
+			<taxi-light type="bool">0</taxi-light>
 			<logo-lights type="bool">0</logo-lights>
 			<nav-lights type="bool">0</nav-lights>
 			<strobe type="bool">0</strobe>
