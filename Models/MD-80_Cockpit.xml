@@ -1275,6 +1275,38 @@
 			<z>0.0</z>
 		</axis>
 	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>gearHornCutout</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-assign</command>
+				<property>/fdm/jsbsim/warnings/gear-horn/gear-horn-inhibit-cmd</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>/fdm/jsbsim/warnings/gear-horn/gear-horn-inhibit-cmd</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>gearHornCutout</object-name>
+		<factor>-0.001</factor>
+		<property>/fdm/jsbsim/warnings/gear-horn/gear-horn-inhibit-cmd</property>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0.8384</z>
+		</axis>
+	</animation>
 
 </PropertyList>
 

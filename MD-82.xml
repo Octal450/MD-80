@@ -153,6 +153,7 @@
 	<system file="md-80-spoiler"/>
 	<system file="md-80-pw-engine-tri"/>
 	<system file="md-80-cockpit"/>
+	<system file="md-80-warnings"/>
 	
 	<flight_control name="none"/>
 	<aerodynamics file="Systems/md-80-aerodynamics.xml"/>
