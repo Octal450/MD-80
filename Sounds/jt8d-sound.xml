@@ -1480,6 +1480,25 @@
 			<reference-dist>20.0</reference-dist>
 			<max-dist>100.0</max-dist>
 		</gpws>
+	    <gpws>
+			<name>Landing Gear Horn</name>
+			<path>Aircraft/MD-80/Sounds/GPWS/landing-gear-alert.wav</path>
+			<mode>looped</mode>
+			<condition>
+				<and>
+					<property>/fdm/jsbsim/warnings/gear-horn/gear-horn</property>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>25</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</gpws>
 	
 	</fx>
 </PropertyList>
