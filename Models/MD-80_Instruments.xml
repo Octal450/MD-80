@@ -822,39 +822,5 @@
     <pitch-deg>-75</pitch-deg>
   </offsets>
 </model>
-	
-	<!-- Overhead -->
-	<model>
-		<name>pneu</name>
-		<path>Aircraft/MD-80/Models/Instruments/pneu.xml</path>
-		<offsets>
-			<x-m>2.732</x-m>
-			<y-m>-0.206</y-m>
-			<z-m>1.502</z-m>
-			<pitch-deg>63</pitch-deg>
-		</offsets>
-	</model>
-	
-	<model>
-		<name>apu_rpm</name>
-		<path>Aircraft/MD-80/Models/Instruments/apu_rpm.xml</path>
-		<offsets>
-			<x-m>2.937</x-m>
-			<y-m>-0.002</y-m>
-			<z-m>1.606</z-m>
-			<pitch-deg>63</pitch-deg>
-		</offsets>
-	</model>
-	
-	<model>
-		<name>apu_egt</name>
-		<path>Aircraft/MD-80/Models/Instruments/apu_egt.xml</path>
-		<offsets>
-			<x-m>2.937</x-m>
-			<y-m>-0.060</y-m>
-			<z-m>1.606</z-m>
-			<pitch-deg>63</pitch-deg>
-		</offsets>
-	</model>
 
 </PropertyList>

@@ -5,8 +5,15 @@
 
 <PropertyList>
 
-<path>mesh_overhead.ac</path>
-
+	<path>mesh_overhead.ac</path>
+	<!--<offsets>
+		<pitch-deg>153</pitch-deg>   
+		<heading-deg>0</heading-deg>
+		<roll-deg>0</roll-deg>
+		<x-m>2.897</x-m>
+		<y-m>0</y-m>
+		<z-m>1.606</z-m>
+	</offsets>-->
 
 <!-- Sub-Model Imports -->
 
@@ -841,5 +848,91 @@
     </binding>
   </action>
 </animation>
+
+
+	<!-- APU -->
+	
+	<animation>
+	  <type>material</type>
+	  <object-name>APU_RPM_FACE</object-name>
+	  <object-name>APU_RPM_NEEDLE</object-name>
+	  <emission>
+		<red>0.8</red>
+		<green>0.4</green>
+		<blue>0.2</blue>
+		<factor-prop>controls/lighting/panel-norm</factor-prop>
+	  </emission>
+	</animation>
+
+	<animation>
+	  <type>rotate</type>
+	  <object-name>APU_RPM_NEEDLE</object-name>
+	  <property>systems/apu/rpm</property>
+	  <interpolation>
+		<entry><ind>  0</ind><dep>  0</dep></entry>
+		<entry><ind>110</ind><dep>297</dep></entry>
+	  </interpolation>
+	  <axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	  </axis>
+	</animation>
+	
+	<animation>
+	  <type>material</type>
+	  <object-name>APU_EGT_FACE</object-name>
+	  <object-name>APU_EGT_NEEDLE</object-name>
+	  <emission>
+		<red>0.8</red>
+		<green>0.4</green>
+		<blue>0.2</blue>
+		<factor-prop>controls/lighting/panel-norm</factor-prop>
+	  </emission>
+	</animation>
+
+	<animation>
+	  <type>rotate</type>
+	  <object-name>APU_EGT_NEEDLE</object-name>
+	  <property>systems/apu/egt</property>
+	  <interpolation>
+		<entry><ind>  0</ind><dep>  0</dep></entry>
+		<entry><ind>350</ind><dep> 72</dep></entry>
+		<entry><ind>400</ind><dep> 95</dep></entry>
+		<entry><ind>800</ind><dep>275</dep></entry>
+	  </interpolation>
+	  <axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	  </axis>
+	</animation>
+	
+	<animation>
+	  <type>material</type>
+	  <object-name>PNEU_FACE</object-name>
+	  <object-name>PNEU_NEEDLE</object-name>
+		<emission>
+			<red>0.3</red>
+			<green>0.3</green>
+			<blue>0.3</blue>
+		</emission>
+	</animation>
+
+	<animation>
+	  <type>rotate</type>
+	  <object-name>PNEU_NEEDLE</object-name>
+	  <property>systems/pneumatic/psi</property>
+	  <interpolation>
+		<entry><ind>  0</ind><dep>  0</dep></entry>
+		<entry><ind>120</ind><dep>360</dep></entry>
+	  </interpolation>
+	  <axis>
+		<x>-1</x>
+		<y>0</y>
+		<z>0</z>
+	  </axis>
+	</animation>
+
 
 </PropertyList>
