@@ -5,7 +5,7 @@
 
 <system name="MD-80: Warnings">
 	
-	<channel name="Gear Warning">
+	<channel name="Gear Warning" execrate="8">
 		
 		<switch name="warnings/gear-horn/gear-horn-cmd">
 			<default value="0"/>
