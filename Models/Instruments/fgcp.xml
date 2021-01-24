@@ -2421,4 +2421,61 @@
 			<z-m> 0.000777</z-m>
 		</center>
 	</animation>
+	
+	<animation>
+		<name>Wing Lights Pick</name>
+		<type>pick</type>
+		<object-name>SwWingLts</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/wing-lights</property>
+				<value>0</value>
+				<value>0.5</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/wing-lights</property>
+				<value>1</value>
+				<value>0.5</value>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>Anti Coll Lights Rotate</name>
+		<type>rotate</type>
+		<object-name>SwWingLts</object-name>
+		<property>/controls/lighting/wing-lights</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>-70</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.008653</x-m>
+			<y-m> 0.29842</y-m>
+			<z-m>-0.01645</z-m>
+		</center>
+	</animation>
 </PropertyList>

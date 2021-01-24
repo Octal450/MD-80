@@ -16,6 +16,7 @@ setprop("/sim/multiplay/visibility-range-nm", 130);
 
 # Aircraft Lighting
 var beacon = aircraft.light.new("/sim/model/lights/beacon", [0.15, 1.35], "/controls/lighting/beacon");
+var strobe = aircraft.light.new("/sim/model/lights/strobe", [0.2, 1], "/fdm/jsbsim/exterior-lights/strobe-light");
 
 var systemsInit = func() {
 	systems.FUEL.init();

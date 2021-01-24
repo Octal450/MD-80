@@ -434,6 +434,28 @@
 			</test>
 		</switch>
 		
+		<switch name="exterior-lights/strobe-light">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/position-strobe-light eq 1.0
+				/gear/gear[0]/wow ne 1
+			</test>
+		</switch>
+		
+		<switch name="exterior-lights/left-wing-light">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/wing-lights eq 0.5
+			</test>
+		</switch>
+		
+		<switch name="exterior-lights/right-wing-light">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/wing-lights ge 0.5
+			</test>
+		</switch>
+		
 	</channel>
 
 </system>

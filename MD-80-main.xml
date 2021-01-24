@@ -482,6 +482,7 @@
 			<landing-light-r type="double">0</landing-light-r>
 			<landing-light-n type="double">0</landing-light-n>
 			<position-strobe-light type="double">0</position-strobe-light>
+			<wing-lights type="double">0</wing-lights>
 			<taxi-light type="bool">0</taxi-light>
 			<logo-lights type="bool">0</logo-lights>
 		</lighting>
