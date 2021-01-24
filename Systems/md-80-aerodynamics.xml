@@ -527,7 +527,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<toradians><property>fcs/spoiler-left-deg</property></toradians>
-				<value>-0.019</value>
+				<value>-0.018</value>
 			</product>
 		</function>
 		
@@ -538,7 +538,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<toradians><property>fcs/spoiler-right-deg</property></toradians>
-				<value>0.019</value>
+				<value>0.018</value>
 			</product>
 		</function>
 		
@@ -638,7 +638,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<toradians><property>fcs-actual/elevator-l/surface-final-deg</property></toradians>
-				<value>-0.22</value>
+				<value>-0.21</value>
 			</product>
 		</function>
 		
@@ -649,7 +649,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<toradians><property>fcs-actual/elevator-r/surface-final-deg</property></toradians>
-				<value>-0.22</value>
+				<value>-0.21</value>
 			</product>
 		</function>
 		
