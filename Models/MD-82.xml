@@ -1288,6 +1288,68 @@
 		<range-m>50</range-m>
 	</light>
 	
+	<model>
+		<name>Left Logo Light AFT</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/rearlogoL.xml</path>
+		<offsets>
+			<x-m>29.0</x-m>
+			<y-m>-16.2553</y-m>
+			<z-m>-0.044478</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Right Logo Light AFT</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/rearlogoR.xml</path>
+		<offsets>
+			<x-m>29.0</x-m>
+			<y-m>16.2553</y-m>
+			<z-m>-0.044478</z-m>
+		</offsets>
+	</model>
+	
+	<light>
+		<name>Left Logo Light Compositor</name>
+		<type>spot</type>
+		<dim-factor><property>/controls/lighting/logo-lights</property></dim-factor>
+		<position>
+			<x-m>29.0</x-m>
+			<y-m>-16.2553</y-m>
+			<z-m>-0.044478</z-m>
+		</position>
+		<direction>
+			<x>0.60</x>
+			<y>0.866</y>
+			<z>0.175</z>
+		</direction>
+		<ambient>
+			<r>1.00</r>
+			<g>1.00</g>
+			<b>1.00</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>1.00</r>
+			<g>1.00</g>
+			<b>1.00</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>0.98</r>
+			<g>0.98</g>
+			<b>0.98</b>
+			<a>1</a>
+		</specular>
+	    <attenuation>
+			<c>1.0</c>
+			<l>0.09</l>
+			<q>0.03</q>
+		</attenuation>
+		<spot-exponent>400</spot-exponent>
+		<spot-cutoff>4.5</spot-cutoff>
+		<range-m>100</range-m>
+	</light>
+	
 	<!-- Livery machine texture assignments -->
 <animation>
   <type>material</type>
