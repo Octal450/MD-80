@@ -7150,7 +7150,7 @@ name "CVR_PANEL"
 data 8
 Cube.000
 crease 40.0
-texture "cockpit_oh_cadc.png"
+texture "cockpit_oh_cvr.png"
 texrep 1 1
 numvert 464
 3.07371 1.67601 0.08096
