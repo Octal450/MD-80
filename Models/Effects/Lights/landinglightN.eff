@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <PropertyList>
-	<name>Effects/left-strobe</name>
+	<name>Effects/nose-landing-light</name>
 	<inherits-from>Effects/procedural-light</inherits-from>
 
 <parameters>

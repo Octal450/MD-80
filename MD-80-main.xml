@@ -476,13 +476,14 @@
 		<lighting n="0">
 			<beacon type="bool">0</beacon>
 			<digital-norm type="double">1</digital-norm>
+			<ground-flood-light-l type="bool">0</ground-flood-light-l>
+			<ground-flood-light-r type="bool">0</ground-flood-light-r>
 			<landing-light-l type="double">0</landing-light-l>
 			<landing-light-r type="double">0</landing-light-r>
 			<landing-light-n type="double">0</landing-light-n>
+			<position-strobe-light type="double">0</position-strobe-light>
 			<taxi-light type="bool">0</taxi-light>
 			<logo-lights type="bool">0</logo-lights>
-			<nav-lights type="bool">0</nav-lights>
-			<strobe type="bool">0</strobe>
 		</lighting>
 		<switches n="0">
 			<annun-test type="bool">0</annun-test>
