@@ -355,7 +355,7 @@
 		
 		<actuator name="exterior-lights/nose-landing-light-actuator">
 			<input>exterior-lights/nose-landing-light-cmd</input>
-			<rate_limit>5.0</rate_limit>
+			<rate_limit>7.5</rate_limit>
 			<output>exterior-lights/nose-landing-light</output>
 		</actuator>
 		
@@ -412,6 +412,49 @@
 			<rate_limit>5.0</rate_limit>
 			<output>exterior-lights/right-landing-light</output>
 		</actuator>
+		
+		<switch name="exterior-lights/ground-flood-light-l">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/ground-flood-light-l eq 1
+			</test>
+		</switch>
+		
+		<switch name="exterior-lights/ground-flood-light-r">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/ground-flood-light-r eq 1
+			</test>
+		</switch>
+		
+		<switch name="exterior-lights/position-light">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/position-strobe-light ge 0.5
+			</test>
+		</switch>
+		
+		<switch name="exterior-lights/strobe-light">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/position-strobe-light eq 1.0
+				/gear/gear[0]/wow ne 1
+			</test>
+		</switch>
+		
+		<switch name="exterior-lights/left-wing-light">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/wing-lights eq 0.5
+			</test>
+		</switch>
+		
+		<switch name="exterior-lights/right-wing-light">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/wing-lights ge 0.5
+			</test>
+		</switch>
 		
 	</channel>
 

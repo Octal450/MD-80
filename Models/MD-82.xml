@@ -309,9 +309,9 @@
 			<l>0.01</l>
 			<q>0.0</q>
 		</attenuation>
-		<spot-exponent>200.0</spot-exponent>
+		<spot-exponent>100.0</spot-exponent>
 		<spot-cutoff>25.0</spot-cutoff>
-		<range-m>5000.0</range-m>
+		<range-m>2500.0</range-m>
 	</light>
 
 	<model>
@@ -361,9 +361,9 @@
 			<l>0.01</l>
 			<q>0.0</q>
 		</attenuation>
-		<spot-exponent>200.0</spot-exponent>
-		<spot-cutoff>25.0</spot-cutoff>
-		<range-m>5000.0</range-m>
+		<spot-exponent>100.0</spot-exponent>
+		<spot-cutoff>35.0</spot-cutoff>
+		<range-m>2000.0</range-m>
 	</light>
 	
 	<model>
@@ -413,9 +413,9 @@
 			<l>0.01</l>
 			<q>0.0</q>
 		</attenuation>
-		<spot-exponent>200.0</spot-exponent>
-		<spot-cutoff>25.0</spot-cutoff>
-		<range-m>5000.0</range-m>
+		<spot-exponent>100.0</spot-exponent>
+		<spot-cutoff>35.0</spot-cutoff>
+		<range-m>2000.0</range-m>
 	</light>
 	
 	<model>
@@ -465,11 +465,891 @@
 			<l>0.01</l>
 			<q>0.0</q>
 		</attenuation>
-		<spot-exponent>200.0</spot-exponent>
+		<spot-exponent>100.0</spot-exponent>
 		<spot-cutoff>25.0</spot-cutoff>
-		<range-m>5000.0</range-m>
+		<range-m>2500.0</range-m>
+	</light>
+	
+	<model>
+		<name>Left Wing Light</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/winglightL.xml</path>
+		<offsets>
+			<x-m>15.9823</x-m>
+			<y-m>-1.64884</y-m>
+			<z-m>0.384018</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Right Wing Light</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/winglightR.xml</path>
+		<offsets>
+			<x-m>15.9823</x-m>
+			<y-m>1.64884</y-m>
+			<z-m>0.384018</z-m>
+		</offsets>
+	</model>
+	
+	<light>
+		<name>Left Wing Light Compositor</name>
+		<type>spot</type>
+		<dim-factor><property>/fdm/jsbsim/exterior-lights/left-wing-light</property></dim-factor>
+		<position>
+			<x-m>15.9823</x-m>
+			<y-m>-1.64884</y-m>
+			<z-m>0.384018</z-m>
+		</position>
+		<direction>
+			<x>1.0</x>
+			<y>-0.667</y>
+			<z>0.100</z>
+		</direction>
+		<ambient>
+			<r>0.35</r>
+			<g>0.35</g>
+			<b>0.35</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</diffuse>
+		<specular>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</specular>
+	    <attenuation>
+			<c>1.0</c>
+			<l>0.09</l>
+			<q>0.032</q>
+		</attenuation>
+		<spot-exponent>40</spot-exponent>
+		<spot-cutoff>20</spot-cutoff>
+		<range-m>50</range-m>
+	</light>
+	
+	<light>
+		<name>Right Wing Light Compositor</name>
+		<type>spot</type>
+		<dim-factor><property>/fdm/jsbsim/exterior-lights/right-wing-light</property></dim-factor>
+		<position>
+			<x-m>15.9823</x-m>
+			<y-m>1.64884</y-m>
+			<z-m>0.384018</z-m>
+		</position>
+		<direction>
+			<x>1.0</x>
+			<y>0.667</y>
+			<z>0.100</z>
+		</direction>
+		<ambient>
+			<r>0.35</r>
+			<g>0.35</g>
+			<b>0.35</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</diffuse>
+		<specular>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</specular>
+	    <attenuation>
+			<c>1.0</c>
+			<l>0.09</l>
+			<q>0.032</q>
+		</attenuation>
+		<spot-exponent>40</spot-exponent>
+		<spot-cutoff>20</spot-cutoff>
+		<range-m>50</range-m>
+	</light>
+	
+	<model>
+		<name>Left Nacelle Light</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/winglightL.xml</path>
+		<offsets>
+			<x-m>29.7552</x-m>
+			<y-m>-1.68808</y-m>
+			<z-m>0.382021</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Right Nacelle Light</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/winglightR.xml</path>
+		<offsets>
+			<x-m>29.7552</x-m>
+			<y-m>1.68808</y-m>
+			<z-m>0.382021</z-m>
+		</offsets>
+	</model>
+	
+	<light>
+		<name>Left Nacelle Light Compositor</name>
+		<type>spot</type>
+		<dim-factor><property>/fdm/jsbsim/exterior-lights/left-wing-light</property></dim-factor>
+		<position>
+			<x-m>29.7552</x-m>
+			<y-m>-1.68808</y-m>
+			<z-m>0.382021</z-m>
+		</position>
+		<direction>
+			<x>1.0</x>
+			<y>-0.50</y>
+			<z>0.10</z>
+		</direction>
+		<ambient>
+			<r>0.95</r>
+			<g>0.95</g>
+			<b>0.95</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</diffuse>
+		<specular>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</specular>
+	    <attenuation>
+			<c>1.0</c>
+			<l>1.5</l>
+			<q>3.0</q>
+		</attenuation>
+		<spot-exponent>100</spot-exponent>
+		<spot-cutoff>20</spot-cutoff>
+		<range-m>5.0</range-m>
+	</light>
+	
+	<light>
+		<name>Right Nacelle Light Compositor</name>
+		<type>spot</type>
+		<dim-factor><property>/fdm/jsbsim/exterior-lights/right-wing-light</property></dim-factor>
+		<position>
+			<x-m>29.7552</x-m>
+			<y-m>1.68808</y-m>
+			<z-m>0.382021</z-m>
+		</position>
+		<direction>
+			<x>1.0</x>
+			<y>0.50</y>
+			<z>0.10</z>
+		</direction>
+		<ambient>
+			<r>0.95</r>
+			<g>0.95</g>
+			<b>0.95</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</diffuse>
+		<specular>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</specular>
+	    <attenuation>
+			<c>1.0</c>
+			<l>1.5</l>
+			<q>3.0</q>
+		</attenuation>
+		<spot-exponent>100</spot-exponent>
+		<spot-cutoff>20</spot-cutoff>
+		<range-m>5.0</range-m>
+	</light>
+	
+	<model>
+		<name>Left Ground Flood Light</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/groundFloodLightL.xml</path>
+		<offsets>
+			<x-m>12.995</x-m>
+			<y-m>-1.50</y-m>
+			<z-m>-0.292114</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Right Ground Flood Light</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/groundFloodLightR.xml</path>
+		<offsets>
+			<x-m>12.995</x-m>
+			<y-m>1.50</y-m>
+			<z-m>-0.292114</z-m>
+		</offsets>
+	</model>
+	
+	<light>
+		<name>Left Ground Flood Light Compositor</name>
+		<type>spot</type>
+		<dim-factor><property>/fdm/jsbsim/exterior-lights/ground-flood-light-l</property></dim-factor>
+		<position>
+			<x-m>12.995</x-m>
+			<y-m>-1.44773</y-m>
+			<z-m>-0.292114</z-m>
+		</position>
+		<direction>
+			<x>-1.0</x>
+			<y>-0.75</y>
+			<z>-0.05</z>
+		</direction>
+		<ambient>
+			<r>0.25</r>
+			<g>0.25</g>
+			<b>0.25</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</diffuse>
+		<specular>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</specular>
+	    <attenuation>
+			<c>1.0</c>
+			<l>0.06</l>
+			<q>0.01</q>
+		</attenuation>
+		<spot-exponent>30</spot-exponent>
+		<spot-cutoff>25</spot-cutoff>
+		<range-m>75</range-m>
+	</light>
+	
+	<light>
+		<name>Right Ground Flood Light Compositor</name>
+		<type>spot</type>
+		<dim-factor><property>/fdm/jsbsim/exterior-lights/ground-flood-light-r</property></dim-factor>
+		<position>
+			<x-m>12.995</x-m>
+			<y-m>1.44773</y-m>
+			<z-m>-0.292114</z-m>
+		</position>
+		<direction>
+			<x>-1.0</x>
+			<y>0.75</y>
+			<z>-0.05</z>
+		</direction>
+		<ambient>
+			<r>0.25</r>
+			<g>0.25</g>
+			<b>0.25</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</diffuse>
+		<specular>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</specular>
+	    <attenuation>
+			<c>1.0</c>
+			<l>0.06</l>
+			<q>0.01</q>
+		</attenuation>
+		<spot-exponent>30</spot-exponent>
+		<spot-cutoff>25</spot-cutoff>
+		<range-m>75</range-m>
 	</light>
 
+	<model>
+		<name>Top Beacon</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/beacon.xml</path>
+		<offsets>
+			<x-m>23.2539</x-m>
+			<y-m>-0.000214</y-m>
+			<z-m>2.31971</z-m>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Bottom Beacon</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/beacon.xml</path>
+		<offsets>
+			<x-m>25.2005</x-m>
+			<y-m>0.191746</y-m>
+			<z-m>-1.51053</z-m>
+		</offsets>
+	</model>
+	
+	<light>
+		<name>Top Beacon Compositor</name>
+		<type>point</type>
+		<dim-factor><property>/sim/model/lights/beacon/state</property></dim-factor>
+		<position>
+			<x-m>23.2539</x-m>
+			<y-m>-0.000214</y-m>
+			<z-m>2.31971</z-m>
+		</position>
+		<ambient>
+			<r>0.78</r>
+			<g>0.00</g>
+			<b>0.00</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>0.78</r>
+			<g>0.00</g>
+			<b>0.00</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>0.98</r>
+			<g>0.00</g>
+			<b>0.00</b>
+			<a>1</a>
+		</specular>
+		<attenuation>
+			<c>1.0</c>
+			<l>1.50</l>
+			<q>8.33</q>
+		</attenuation>
+		<range-m>3</range-m>
+	</light>
+	
+	<light>
+		<name>Bottom Beacon Compositor</name>
+		<type>point</type>
+		<dim-factor><property>/sim/model/lights/beacon/state</property></dim-factor>
+		<position>
+			<x-m>25.2005</x-m>
+			<y-m>0.191746</y-m>
+			<z-m>-1.51053</z-m>
+		</position>
+		<ambient>
+			<r>0.78</r>
+			<g>0.00</g>
+			<b>0.00</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>0.78</r>
+			<g>0.00</g>
+			<b>0.00</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>0.98</r>
+			<g>0.00</g>
+			<b>0.00</b>
+			<a>1</a>
+		</specular>
+		<attenuation>
+			<c>1.0</c>
+			<l>0.90</l>
+			<q>3.00</q>
+		</attenuation>
+		<range-m>5</range-m>
+	</light>
+	
+	<model>
+		<name>Left Position Light FWD</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/rednav.xml</path>
+		<offsets>
+			<x-m>27.47</x-m>
+			<y-m>-16.02</y-m>
+			<z-m>-0.066558</z-m>
+		</offsets>
+	</model>
+	
+	<light>
+		<name>Left Position Light FWD Compositor</name>
+		<type>spot</type>
+		<dim-factor><property>/fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
+		<position>
+			<x-m>27.47</x-m>
+			<y-m>-16.02</y-m>
+			<z-m>-0.066558</z-m>
+		</position>
+		<direction>
+			<x>-1.0</x>
+			<y>-1.0</y>
+			<z>-0.25</z>
+		</direction>
+		<ambient>
+			<r>0.20</r>
+			<g>0.00</g>
+			<b>0.00</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>0.78</r>
+			<g>0.00</g>
+			<b>0.00</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>0.98</r>
+			<g>0.00</g>
+			<b>0.00</b>
+			<a>1</a>
+		</specular>
+	    <attenuation>
+			<c>1.0</c>
+			<l>0.09</l>
+			<q>0.032</q>
+		</attenuation>
+		<spot-exponent>10</spot-exponent>
+		<spot-cutoff>45</spot-cutoff>
+		<range-m>50</range-m>
+	</light>
+	
+	<model>
+		<name>Left Strobe Light FWD</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/strobe.xml</path>
+		<offsets>
+			<x-m>27.47</x-m>
+			<y-m>-16.02</y-m>
+			<z-m>-0.066558</z-m>
+		</offsets>
+	</model>
+	
+	<light>
+		<name>Left Strobe Light FWD Compositor</name>
+		<type>spot</type>
+		<dim-factor><property>/sim/model/lights/strobe/state</property></dim-factor>
+		<position>
+			<x-m>27.47</x-m>
+			<y-m>-16.02</y-m>
+			<z-m>-0.066558</z-m>
+		</position>
+		<direction>
+			<x>-1.0</x>
+			<y>-1.0</y>
+			<z>-0.25</z>
+		</direction>
+		<ambient>
+			<r>0.50</r>
+			<g>0.00</g>
+			<b>0.00</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>0.78</r>
+			<g>0.78</g>
+			<b>0.78</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>0.98</r>
+			<g>0.98</g>
+			<b>0.98</b>
+			<a>1</a>
+		</specular>
+	    <attenuation>
+			<c>1.0</c>
+			<l>0.09</l>
+			<q>0.032</q>
+		</attenuation>
+		<spot-exponent>10</spot-exponent>
+		<spot-cutoff>45</spot-cutoff>
+		<range-m>50</range-m>
+	</light>
+	
+	<model>
+		<name>Right Position Light FWD</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/greennav.xml</path>
+		<offsets>
+			<x-m>27.47</x-m>
+			<y-m>16.02</y-m>
+			<z-m>-0.066558</z-m>
+		</offsets>
+	</model>
+	
+	<light>
+		<name>Right Position Light FWD Compositor</name>
+		<type>spot</type>
+		<dim-factor><property>/fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
+		<position>
+			<x-m>27.47</x-m>
+			<y-m>16.02</y-m>
+			<z-m>-0.066558</z-m>
+		</position>
+		<direction>
+			<x>-1.0</x>
+			<y>1.0</y>
+			<z>-0.25</z>
+		</direction>
+		<ambient>
+			<r>0.00</r>
+			<g>0.20</g>
+			<b>0.00</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>0.00</r>
+			<g>0.78</g>
+			<b>0.00</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>0.00</r>
+			<g>0.98</g>
+			<b>0.00</b>
+			<a>1</a>
+		</specular>
+	    <attenuation>
+			<c>1.0</c>
+			<l>0.09</l>
+			<q>0.032</q>
+		</attenuation>
+		<spot-exponent>10</spot-exponent>
+		<spot-cutoff>45</spot-cutoff>
+		<range-m>50</range-m>
+	</light>
+	
+	<model>
+		<name>Right Strobe Light FWD</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/strobe.xml</path>
+		<offsets>
+			<x-m>27.47</x-m>
+			<y-m>16.02</y-m>
+			<z-m>-0.066558</z-m>
+		</offsets>
+	</model>
+	
+	<light>
+		<name>Right Strobe Light FWD Compositor</name>
+		<type>spot</type>
+		<dim-factor><property>/sim/model/lights/strobe/state</property></dim-factor>
+		<position>
+			<x-m>27.47</x-m>
+			<y-m>16.02</y-m>
+			<z-m>-0.066558</z-m>
+		</position>
+		<direction>
+			<x>-1.0</x>
+			<y>1.0</y>
+			<z>-0.25</z>
+		</direction>
+		<ambient>
+			<r>0.50</r>
+			<g>0.00</g>
+			<b>0.00</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>0.78</r>
+			<g>0.78</g>
+			<b>0.78</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>0.98</r>
+			<g>0.98</g>
+			<b>0.98</b>
+			<a>1</a>
+		</specular>
+	    <attenuation>
+			<c>1.0</c>
+			<l>0.09</l>
+			<q>0.032</q>
+		</attenuation>
+		<spot-exponent>10</spot-exponent>
+		<spot-cutoff>45</spot-cutoff>
+		<range-m>50</range-m>
+	</light>
+	
+	<model>
+		<name>Left Position Light AFT</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/rearnav.xml</path>
+		<offsets>
+			<x-m>29.0</x-m>
+			<y-m>-16.3553</y-m>
+			<z-m>-0.044478</z-m>
+		</offsets>
+	</model>
+	
+	<light>
+		<name>Left Position Light AFT Compositor</name>
+		<type>spot</type>
+		<dim-factor><property>/fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
+		<position>
+			<x-m>29.0</x-m>
+			<y-m>-16.3553</y-m>
+			<z-m>-0.044478</z-m>
+		</position>
+		<direction>
+			<x>1.0</x>
+			<y>-0.0</y>
+			<z>-0.25</z>
+		</direction>
+		<ambient>
+			<r>0.25</r>
+			<g>0.25</g>
+			<b>0.25</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</diffuse>
+		<specular>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</specular>
+	    <attenuation>
+			<c>1.0</c>
+			<l>0.09</l>
+			<q>0.032</q>
+		</attenuation>
+		<spot-exponent>10</spot-exponent>
+		<spot-cutoff>45</spot-cutoff>
+		<range-m>50</range-m>
+	</light>
+	
+	<model>
+		<name>Left Strobe Light AFT</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/strobe-aft.xml</path>
+		<offsets>
+			<x-m>29.0</x-m>
+			<y-m>-16.3553</y-m>
+			<z-m>-0.044478</z-m>
+		</offsets>
+	</model>
+	
+	<light>
+		<name>Left Strobe Light AFT Compositor</name>
+		<type>spot</type>
+		<dim-factor><property>/sim/model/lights/strobe/state</property></dim-factor>
+		<position>
+			<x-m>29.0</x-m>
+			<y-m>-16.3553</y-m>
+			<z-m>-0.044478</z-m>
+		</position>
+		<direction>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>-0.25</z>
+		</direction>
+		<ambient>
+			<r>0.50</r>
+			<g>0.00</g>
+			<b>0.00</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>0.78</r>
+			<g>0.78</g>
+			<b>0.78</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>0.98</r>
+			<g>0.98</g>
+			<b>0.98</b>
+			<a>1</a>
+		</specular>
+	    <attenuation>
+			<c>1.0</c>
+			<l>0.09</l>
+			<q>0.032</q>
+		</attenuation>
+		<spot-exponent>10</spot-exponent>
+		<spot-cutoff>45</spot-cutoff>
+		<range-m>50</range-m>
+	</light>
+	
+	<model>
+		<name>Right Position Light AFT</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/rearnav.xml</path>
+		<offsets>
+			<x-m>29.0</x-m>
+			<y-m>16.3553</y-m>
+			<z-m>-0.044478</z-m>
+		</offsets>
+	</model>
+	
+	<light>
+		<name>Right Position Light AFT Compositor</name>
+		<type>spot</type>
+		<dim-factor><property>/fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
+		<position>
+			<x-m>29.0</x-m>
+			<y-m>16.3553</y-m>
+			<z-m>-0.044478</z-m>
+		</position>
+		<direction>
+			<x>1.0</x>
+			<y>-0.0</y>
+			<z>-0.25</z>
+		</direction>
+		<ambient>
+			<r>0.25</r>
+			<g>0.25</g>
+			<b>0.25</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</diffuse>
+		<specular>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
+		</specular>
+	    <attenuation>
+			<c>1.0</c>
+			<l>0.09</l>
+			<q>0.032</q>
+		</attenuation>
+		<spot-exponent>10</spot-exponent>
+		<spot-cutoff>45</spot-cutoff>
+		<range-m>50</range-m>
+	</light>
+	
+	<model>
+		<name>Right Strobe Light AFT</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/strobe-aft.xml</path>
+		<offsets>
+			<x-m>29.0</x-m>
+			<y-m>16.3553</y-m>
+			<z-m>-0.044478</z-m>
+		</offsets>
+	</model>
+	
+	<light>
+		<name>Right Strobe Light AFT Compositor</name>
+		<type>spot</type>
+		<dim-factor><property>/sim/model/lights/strobe/state</property></dim-factor>
+		<position>
+			<x-m>29.0</x-m>
+			<y-m>16.3553</y-m>
+			<z-m>-0.044478</z-m>
+		</position>
+		<direction>
+			<x>1.0</x>
+			<y>0.0</y>
+			<z>-0.25</z>
+		</direction>
+		<ambient>
+			<r>0.50</r>
+			<g>0.00</g>
+			<b>0.00</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>0.78</r>
+			<g>0.78</g>
+			<b>0.78</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>0.98</r>
+			<g>0.98</g>
+			<b>0.98</b>
+			<a>1</a>
+		</specular>
+	    <attenuation>
+			<c>1.0</c>
+			<l>0.09</l>
+			<q>0.032</q>
+		</attenuation>
+		<spot-exponent>10</spot-exponent>
+		<spot-cutoff>45</spot-cutoff>
+		<range-m>50</range-m>
+	</light>
+	
+	<model>
+		<name>Left Logo Light AFT</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/rearlogoL.xml</path>
+		<offsets>
+			<x-m>29.0</x-m>
+			<y-m>-16.2553</y-m>
+			<z-m>-0.044478</z-m>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>Right Logo Light AFT</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/rearlogoR.xml</path>
+		<offsets>
+			<x-m>29.0</x-m>
+			<y-m>16.2553</y-m>
+			<z-m>-0.044478</z-m>
+		</offsets>
+	</model>
+	
+	<light>
+		<name>Left Logo Light Compositor</name>
+		<type>spot</type>
+		<dim-factor><property>/controls/lighting/logo-lights</property></dim-factor>
+		<position>
+			<x-m>29.0</x-m>
+			<y-m>-16.2553</y-m>
+			<z-m>-0.044478</z-m>
+		</position>
+		<direction>
+			<x>0.60</x>
+			<y>0.866</y>
+			<z>0.175</z>
+		</direction>
+		<ambient>
+			<r>1.00</r>
+			<g>1.00</g>
+			<b>1.00</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>1.00</r>
+			<g>1.00</g>
+			<b>1.00</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>0.98</r>
+			<g>0.98</g>
+			<b>0.98</b>
+			<a>1</a>
+		</specular>
+	    <attenuation>
+			<c>1.0</c>
+			<l>0.09</l>
+			<q>0.03</q>
+		</attenuation>
+		<spot-exponent>400</spot-exponent>
+		<spot-cutoff>4.5</spot-cutoff>
+		<range-m>100</range-m>
+	</light>
+	
 	<!-- Livery machine texture assignments -->
 <animation>
   <type>material</type>

@@ -2026,7 +2026,7 @@
 	</animation>
 	
 	<animation>
-		<name>Nose landing light pick</name>
+		<name>Left landing light pick</name>
 		<type>pick</type>
 		<object-name>SwLdgLtsL</object-name>
 		<object-name>SwLdgLtsL.bump</object-name>
@@ -2062,7 +2062,7 @@
 		</action>
 	</animation>
 	<animation>
-		<name>Nose landing light pick</name>
+		<name>Right landing light pick</name>
 		<type>pick</type>
 		<object-name>SwLdgLtsR</object-name>
 		<object-name>SwLdgLtsR.bump</object-name>
@@ -2197,6 +2197,285 @@
 			<x-m>-0.00798</x-m>
 			<y-m>-0.304921</y-m>
 			<z-m>0.003564</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<name>Ground Flood Light Pick L</name>
+		<type>pick</type>
+		<object-name>SwFloodLtsL</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/ground-flood-light-l</property>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/ground-flood-light-l</property>
+				<value>1</value>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<name>Ground Flood Light Pick R</name>
+		<type>pick</type>
+		<object-name>SwFloodLtsR</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/ground-flood-light-r</property>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/ground-flood-light-r</property>
+				<value>1</value>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>flood light rotate L</name>
+		<type>rotate</type>
+		<object-name>SwFloodLtsL</object-name>
+		<property>/controls/lighting/ground-flood-light-l</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>-70</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.008647</x-m>
+			<y-m> 0.29482</y-m>
+			<z-m> 0.0121</z-m>
+		</center>
+	</animation>
+
+	<animation>
+		<name>flood light rotate R</name>
+		<type>rotate</type>
+		<object-name>SwFloodLtsR</object-name>
+		<property>/controls/lighting/ground-flood-light-r</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>-70</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.008647</x-m>
+			<y-m> 0.3266</y-m>
+			<z-m> 0.0121</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<name>Anti Coll Lights Pick</name>
+		<type>pick</type>
+		<object-name>SwACLts</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/beacon</property>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/beacon</property>
+				<value>1</value>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>Anti Coll Lights Rotate</name>
+		<type>rotate</type>
+		<object-name>SwACLts</object-name>
+		<property>/controls/lighting/beacon</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>-70</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.008653</x-m>
+			<y-m> 0.35007</y-m>
+			<z-m> 0.000777</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<name>Position Lights Pick</name>
+		<type>pick</type>
+		<object-name>SwNavLts</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/position-strobe-light</property>
+				<value>0</value>
+				<value>0.5</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/position-strobe-light</property>
+				<value>1</value>
+				<value>0.5</value>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>Position Lights Rotate</name>
+		<type>rotate</type>
+		<object-name>SwNavLts</object-name>
+		<property>/controls/lighting/position-strobe-light</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>0.5</ind><dep>-35</dep></entry>
+			<entry><ind>1</ind><dep>-70</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.008653</x-m>
+			<y-m> 0.37152</y-m>
+			<z-m> 0.000777</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<name>Wing Lights Pick</name>
+		<type>pick</type>
+		<object-name>SwWingLts</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/wing-lights</property>
+				<value>0</value>
+				<value>0.5</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/wing-lights</property>
+				<value>1</value>
+				<value>0.5</value>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>setprop("sim/sounde/switch1", 1);</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<name>Anti Coll Lights Rotate</name>
+		<type>rotate</type>
+		<object-name>SwWingLts</object-name>
+		<property>/controls/lighting/wing-lights</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0</dep></entry>
+			<entry><ind>1</ind><dep>-70</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>-0.008653</x-m>
+			<y-m> 0.29842</y-m>
+			<z-m>-0.01645</z-m>
 		</center>
 	</animation>
 </PropertyList>
