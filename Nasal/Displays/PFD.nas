@@ -71,7 +71,7 @@ var canvasBase = {
 		return me;
 	},
 	getKeys: func() {
-		return ["AI_center", "AI_background", "AI_scale", "AI_bank", "DH_below", "DH_pointer", "DH_set", "FD_pitch", "FD_roll", "ILS_group", "LOC_pointer", "LOC_scale", "LOC_no", "GS_pointer", "GS_scale", "GS_no", "FS_scale", "FS_pointer", "RA_bars", "RA_scale"];
+		return ["AI_center", "AI_background", "AI_scale", "AI_bank", "DH_below", "DH_pointer", "DH_set", "FD_pitch", "FD_roll", "ILS_group", "LOC_pointer", "LOC_scale", "LOC_no", "GS_pointer", "GS_scale", "GS_no", "FS_pointer", "FS_scale", "RA_bars", "RA_scale"];
 	},
 	setup: func() {
 		# Hide the pages by default

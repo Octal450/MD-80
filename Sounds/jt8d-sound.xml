@@ -1241,10 +1241,10 @@
 			</pitch>
 		</pushback>
 		
-		<!-- Custom GPWS -->
-	    <gpws>
+		<!-- Custom CAWS -->
+	    <caws>
 			<name>50</name>
-			<path>Aircraft/MD-80/Sounds/GPWS/50.wav</path>
+			<path>Aircraft/MD-80/Sounds/CAWS/50.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
@@ -1275,10 +1275,10 @@
 			</volume>
 			<reference-dist>20.0</reference-dist>
 			<max-dist>100.0</max-dist>
-		</gpws>
-	    <gpws>
+		</caws>
+	    <caws>
 			<name>40</name>
-			<path>Aircraft/MD-80/Sounds/GPWS/40.wav</path>
+			<path>Aircraft/MD-80/Sounds/CAWS/40.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
@@ -1309,10 +1309,10 @@
 			</volume>
 			<reference-dist>20.0</reference-dist>
 			<max-dist>100.0</max-dist>
-		</gpws>
-	    <gpws>
+		</caws>
+	    <caws>
 			<name>30</name>
-			<path>Aircraft/MD-80/Sounds/GPWS/30.wav</path>
+			<path>Aircraft/MD-80/Sounds/CAWS/30.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
@@ -1343,10 +1343,10 @@
 			</volume>
 			<reference-dist>20.0</reference-dist>
 			<max-dist>100.0</max-dist>
-		</gpws>
-	    <gpws>
+		</caws>
+	    <caws>
 			<name>20</name>
-			<path>Aircraft/MD-80/Sounds/GPWS/20.wav</path>
+			<path>Aircraft/MD-80/Sounds/CAWS/20.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
@@ -1377,10 +1377,10 @@
 			</volume>
 			<reference-dist>20.0</reference-dist>
 			<max-dist>100.0</max-dist>
-		</gpws>
-	    <gpws>
+		</caws>
+	    <caws>
 			<name>10</name>
-			<path>Aircraft/MD-80/Sounds/GPWS/10.wav</path>
+			<path>Aircraft/MD-80/Sounds/CAWS/10.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
@@ -1411,10 +1411,10 @@
 			</volume>
 			<reference-dist>20.0</reference-dist>
 			<max-dist>100.0</max-dist>
-		</gpws>
-	    <gpws>
+		</caws>
+	    <caws>
 			<name>Approaching Minimum</name>
-			<path>Aircraft/MD-80/Sounds/GPWS/approaching-minimum.wav</path>
+			<path>Aircraft/MD-80/Sounds/CAWS/approaching-minimum.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
@@ -1431,6 +1431,10 @@
 						<property>/systems/electrical/outputs/mk-viii</property>
 						<value>25</value>
 					</greater-than-equals>
+					<equals>
+						<property>/fdm/jsbsim/position/wow</property>
+						<value>0</value>
+					</equals>
 				</and>
 			</condition>
 			<volume>
@@ -1441,10 +1445,10 @@
 			</pitch>
 			<reference-dist>20.0</reference-dist>
 			<max-dist>100.0</max-dist>
-		</gpws>
-	    <gpws>
+		</caws>
+	    <caws>
 			<name>Minimum</name>
-			<path>Aircraft/MD-80/Sounds/GPWS/minimum.wav</path>
+			<path>Aircraft/MD-80/Sounds/CAWS/minimum.wav</path>
 			<mode>once</mode>
 			<condition>
 				<and>
@@ -1479,14 +1483,17 @@
 			</volume>
 			<reference-dist>20.0</reference-dist>
 			<max-dist>100.0</max-dist>
-		</gpws>
-	    <gpws>
+		</caws>
+	    <caws>
 			<name>Landing Gear Horn</name>
-			<path>Aircraft/MD-80/Sounds/GPWS/landing-gear-alert.wav</path>
+			<path>Aircraft/MD-80/Sounds/CAWS/landing-gear.wav</path>
 			<mode>looped</mode>
 			<condition>
 				<and>
-					<property>/fdm/jsbsim/warnings/gear-horn/gear-horn</property>
+					<equals>
+						<property>/systems/warnings/gear-warning</property>
+						<value>1</value>
+					</equals>
 					<greater-than-equals>
 						<property>/systems/electrical/outputs/mk-viii</property>
 						<value>25</value>
@@ -1498,7 +1505,7 @@
 			</volume>
 			<reference-dist>20.0</reference-dist>
 			<max-dist>100.0</max-dist>
-		</gpws>
+		</caws>
 	
 	</fx>
 </PropertyList>

@@ -462,12 +462,14 @@
 		</fuel>
 		<gear n="0">
 			<brake-parking type="bool">0</brake-parking>
+			<lever-cockpit type="int">3</lever-cockpit>
 			<tiller-cmd-norm type="double">0</tiller-cmd-norm>
 			<tiller-enabled type="bool">0</tiller-enabled>
 		</gear>
 		<hydraulics n="0">
 			<switches n="0">
 				<aux-pump type="int">0</aux-pump>
+				<gear-gravity-ext type="bool">0</gear-gravity-ext>
 				<l-pump type="int">0</l-pump>
 				<r-pump type="int">0</r-pump>
 				<trans type="bool">0</trans>
@@ -493,7 +495,7 @@
 			<cart type="bool">0</cart>
 			<modekb type="int">2</modekb> <!-- For temporary ND -->
 			<modekb2 type="int">2</modekb2> <!-- For temporary ND -->
-			<minimums type="int">200</minimums>
+			<minimums type="int">0</minimums>
 			<no-smoking-sign type="double">1</no-smoking-sign> <!-- Smoking is bad! -->
 			<no-smoking-sign-status type="bool">1</no-smoking-sign-status>
 			<seatbelt-sign type="double">0</seatbelt-sign>

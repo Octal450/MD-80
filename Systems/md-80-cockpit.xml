@@ -293,47 +293,39 @@
 	<channel name="Warnings" execrate="8">
 		
 		<!-- Gear Warning -->
-		<switch name="warnings/gear-horn/gear-horn-cmd">
+		<switch name="/systems/warnings/gear-warning-idle">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				fcs/flap-pos-deg ge 26
-				<test logic="OR">
-					/gear/gear[0]/position-norm ne 1
-					/gear/gear[1]/position-norm ne 1
-					/gear/gear[2]/position-norm ne 1
-				</test>
-			</test>
-			<test logic="AND" value="1">
-				/fdm/jsbsim/engine/throttle-compare-max lt 0.01
 				/instrumentation/airspeed-indicator/indicated-speed-kt lt 210
-				/position/gear-agl-ft lt 1500
+				/position/gear-agl-ft le 1500
 				<test logic="OR">
-					/gear/gear[0]/position-norm ne 1
-					/gear/gear[1]/position-norm ne 1
-					/gear/gear[2]/position-norm ne 1
+					engine/control-1/throttle-pos lt 0.01
+					engine/control-2/throttle-pos lt 0.01
 				</test>
 			</test>
 		</switch>
 		
-		<switch name="warnings/gear-horn/gear-horn-inhibit">
+		<switch name="/systems/warnings/gear-warning-inhibit">
 			<default value="0"/>
-			<test logic="AND" value="1"> <!-- keep inhibit until the throttles are reset or flaps > 26 -->
-				fcs/flap-pos-deg lt 26
-				warnings/gear-horn/gear-horn-inhibit eq 1
-				/fdm/jsbsim/engine/throttle-compare-max lt 0.01
+			<test value="/controls/warnings/gear-warning-inhibit">
+				/systems/warnings/gear-warning-idle eq 1
 			</test>
-			<test logic="AND" value="1"> <!-- only allow inhibit if flaps less than 26 -->
-				fcs/flap-pos-deg lt 26
-				warnings/gear-horn/gear-horn eq 1
-				warnings/gear-horn/gear-horn-inhibit-cmd eq 1
-			</test>
+			<output>/controls/warnings/gear-warning-inhibit</output> <!-- So it resets properly -->
 		</switch>
 		
-		<switch name="warnings/gear-horn/gear-horn">
+		<switch name="/systems/warnings/gear-warning">
 			<default value="0"/>
-			<test logic="AND" value="1">
-				warnings/gear-horn/gear-horn-cmd eq 1
-				warnings/gear-horn/gear-horn-inhibit eq 0
+			<test logic="AND" value="0">
+				gear/unit[0]/status eq 2
+				gear/unit[1]/status eq 2
+				gear/unit[2]/status eq 2
+			</test>
+			<test logic="OR" value="1">
+				<test logic="AND">
+					/systems/warnings/gear-warning-idle eq 1
+					/systems/warnings/gear-warning-inhibit eq 0
+				</test>
+				fcs/flap-pos-deg ge 26
 			</test>
 		</switch>
 	
@@ -345,12 +337,12 @@
 			<default value="0"/>
 			<test logic="AND" value="0.6">
 				/controls/lighting/landing-light-n eq 0.5
-				/controls/gear/gear-down eq 1
+				/controls/gear/lever eq 1
 				/gear/gear[0]/position-norm ge 0.99
 			</test>
 			<test logic="AND" value="1">
 				/controls/lighting/landing-light-n eq 1.0
-				/controls/gear/gear-down eq 1
+				/controls/gear/lever eq 1
 				/gear/gear[0]/position-norm ge 0.99
 			</test>
 		</switch>
