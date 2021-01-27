@@ -290,8 +290,9 @@
 	
 	</channel>
 	
-	<channel name="Gear Warning" execrate="8">
+	<channel name="Warnings" execrate="8">
 		
+		<!-- Gear Warning -->
 		<switch name="warnings/gear-horn/gear-horn-cmd">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -313,7 +314,7 @@
 				</test>
 			</test>
 		</switch>
-	
+		
 		<switch name="warnings/gear-horn/gear-horn-inhibit">
 			<default value="0"/>
 			<test logic="AND" value="1"> <!-- keep inhibit until the throttles are reset or flaps > 26 -->
@@ -335,6 +336,7 @@
 				warnings/gear-horn/gear-horn-inhibit eq 0
 			</test>
 		</switch>
+	
 	</channel>
 	
 	<channel name="Exterior Lights" execrate="8">
@@ -455,7 +457,7 @@
 				/controls/lighting/wing-lights ge 0.5
 			</test>
 		</switch>
-		
+	
 	</channel>
 
 </system>
