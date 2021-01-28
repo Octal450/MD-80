@@ -729,6 +729,12 @@
 		<button>
 			<legend>NAV</legend>
 			<pref-width>80</pref-width>
+			<enable>
+				<not-equals>
+					<property>/options/panel</property>
+					<value>Analog</value>
+				</not-equals>
+			</enable>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apPanel.nav();</script>

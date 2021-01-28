@@ -46,6 +46,17 @@
 		</condition>
 	</animation>
 	
+	<animation>
+		<type>select</type>
+		<object-name>NavLabel</object-name>
+		<condition>
+			<not-equals>
+				<property>/options/panel</property>
+				<value>Analog</value>
+			</not-equals>
+		</condition>
+	</animation>
+	
 	<!-- NAV1 Digits -->
 	<animation>
 		<type>textranslate</type>
