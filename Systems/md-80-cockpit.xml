@@ -290,6 +290,27 @@
 	
 	</channel>
 	
+	<channel name="Cockpit Indications" execrate="8">
+		
+		<fcs_function name="inertia/weight-lbs-fmt">
+			<function>
+				<product>
+					<integer>
+						<sum>
+							<quotient>
+								<property>inertia/weight-lbs</property>
+								<value>25</value>
+							</quotient>
+							<value>0.5</value>
+						</sum>
+					</integer>
+					<value>25</value>
+				</product>
+			</function>
+		</fcs_function>
+	
+	</channel>
+	
 	<channel name="Warnings" execrate="8">
 		
 		<!-- Gear Warning -->

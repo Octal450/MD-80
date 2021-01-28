@@ -1,49 +1,45 @@
 <?xml version="1.0"?>
+
+<!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
+<!-- Copyright (c) 2021 Josh Davidson (Octal450) -->
+
 <PropertyList>
-
-<path>fuel.ac</path>
-
-<animation>
-  <type>material</type>
-  <object-name>FuelL1</object-name>
-  <object-name>FuelL2</object-name>
-  <object-name>FuelL3</object-name>
-  <object-name>FuelL4</object-name>
-  <object-name>FuelL5</object-name>
-  <object-name>FuelR1</object-name>
-  <object-name>FuelR2</object-name>
-  <object-name>FuelR3</object-name>
-  <object-name>FuelR4</object-name>
-  <object-name>FuelR5</object-name>
-  <object-name>FuelC1</object-name>
-  <object-name>FuelC2</object-name>
-  <object-name>FuelC3</object-name>
-  <object-name>FuelC4</object-name>
-  <object-name>FuelC5</object-name>
-  <object-name>FuelT1</object-name>
-  <object-name>FuelT2</object-name>
-  <object-name>FuelT3</object-name>
-  <object-name>FuelT4</object-name>
-  <object-name>FuelT5</object-name>
-  <object-name>Lbs1</object-name>
-  <object-name>Lbs2</object-name>
-  <object-name>Lbs3</object-name>
-  <object-name>Lbs4</object-name>
-  <object-name>Lbs5</object-name>
-  <object-name>Lbs6</object-name>
-  <emission>
-    <red>1.0</red>
-    <green>1.0</green>
-    <blue>1.0</blue>
-  </emission>
-</animation>
+	
+	<path>fuel.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Digits</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>1.0</green>
+			<blue>1.0</blue>
+			<factor-prop>controls/lighting/main-digital-norm</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Digits</object-name>
+		<condition>
+			<and>
+				<greater-than-equals>
+					<property>systems/electrical/outputs/efis</property>
+					<value>25</value>
+				</greater-than-equals>
+				<greater-than>
+					<property>controls/lighting/main-digital-norm</property>
+					<value>0.01</value>
+				</greater-than>
+			</and>
+		</condition>
+	</animation>
 
 <!-- Fuel Left Digits -->
-
 <animation>
   <type>textranslate</type>
   <object-name>FuelL1</object-name>
-  <property>consumables/fuel/tank[0]/level-lbs</property>
+  <property>systems/fuel/tank-l-lbs</property>
   <factor>0.00001</factor>
   <step>10000</step>
   <axis>
@@ -55,7 +51,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>FuelL2</object-name>
-  <property>consumables/fuel/tank[0]/level-lbs</property>
+  <property>systems/fuel/tank-l-lbs</property>
   <factor>0.0001</factor>
   <step>1000</step>
   <axis>
@@ -67,7 +63,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>FuelL3</object-name>
-  <property>consumables/fuel/tank[0]/level-lbs</property>
+  <property>systems/fuel/tank-l-lbs</property>
   <factor>0.001</factor>
   <step>100</step>
   <axis>
@@ -79,7 +75,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>FuelL4</object-name>
-  <property>consumables/fuel/tank[0]/level-lbs</property>
+  <property>systems/fuel/tank-l-lbs</property>
   <factor>0.01</factor>
   <step>10</step>
   <axis>
@@ -91,7 +87,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>FuelL5</object-name>
-  <property>consumables/fuel/tank[0]/level-lbs</property>
+  <property>systems/fuel/tank-l-lbs</property>
   <factor>0.1</factor>
   <step>1</step>
   <axis>
@@ -102,11 +98,10 @@
 </animation>
 
 <!-- Fuel Right Digits -->
-
 <animation>
   <type>textranslate</type>
   <object-name>FuelR1</object-name>
-  <property>consumables/fuel/tank[2]/level-lbs</property>
+  <property>systems/fuel/tank-r-lbs</property>
   <factor>0.00001</factor>
   <step>10000</step>
   <axis>
@@ -118,7 +113,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>FuelR2</object-name>
-  <property>consumables/fuel/tank[2]/level-lbs</property>
+  <property>systems/fuel/tank-r-lbs</property>
   <factor>0.0001</factor>
   <step>1000</step>
   <axis>
@@ -130,7 +125,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>FuelR3</object-name>
-  <property>consumables/fuel/tank[2]/level-lbs</property>
+  <property>systems/fuel/tank-r-lbs</property>
   <factor>0.001</factor>
   <step>100</step>
   <axis>
@@ -142,7 +137,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>FuelR4</object-name>
-  <property>consumables/fuel/tank[2]/level-lbs</property>
+  <property>systems/fuel/tank-r-lbs</property>
   <factor>0.01</factor>
   <step>10</step>
   <axis>
@@ -154,7 +149,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>FuelR5</object-name>
-  <property>consumables/fuel/tank[2]/level-lbs</property>
+  <property>systems/fuel/tank-r-lbs</property>
   <factor>0.1</factor>
   <step>1</step>
   <axis>
@@ -165,11 +160,10 @@
 </animation>
 
 <!-- Fuel Center Digits -->
-
 <animation>
   <type>textranslate</type>
   <object-name>FuelC1</object-name>
-  <property>consumables/fuel/tank[1]/level-lbs</property>
+  <property>systems/fuel/tank-c-lbs</property>
   <factor>0.00001</factor>
   <step>10000</step>
   <axis>
@@ -181,7 +175,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>FuelC2</object-name>
-  <property>consumables/fuel/tank[1]/level-lbs</property>
+  <property>systems/fuel/tank-c-lbs</property>
   <factor>0.0001</factor>
   <step>1000</step>
   <axis>
@@ -193,7 +187,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>FuelC3</object-name>
-  <property>consumables/fuel/tank[1]/level-lbs</property>
+  <property>systems/fuel/tank-c-lbs</property>
   <factor>0.001</factor>
   <step>100</step>
   <axis>
@@ -205,7 +199,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>FuelC4</object-name>
-  <property>consumables/fuel/tank[1]/level-lbs</property>
+  <property>systems/fuel/tank-c-lbs</property>
   <factor>0.01</factor>
   <step>10</step>
   <axis>
@@ -217,7 +211,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>FuelC5</object-name>
-  <property>consumables/fuel/tank[1]/level-lbs</property>
+  <property>systems/fuel/tank-c-lbs</property>
   <factor>0.1</factor>
   <step>1</step>
   <axis>
@@ -228,11 +222,10 @@
 </animation>
 
 <!-- Fuel Total Digits -->
-
 <animation>
   <type>textranslate</type>
   <object-name>FuelT1</object-name>
-  <property>consumables/fuel/total-fuel-lbs</property>
+  <property>systems/fuel/tank-a-lbs</property>
   <factor>0.00001</factor>
   <step>10000</step>
   <axis>
@@ -244,7 +237,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>FuelT2</object-name>
-  <property>consumables/fuel/total-fuel-lbs</property>
+  <property>systems/fuel/tank-a-lbs</property>
   <factor>0.0001</factor>
   <step>1000</step>
   <axis>
@@ -256,7 +249,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>FuelT3</object-name>
-  <property>consumables/fuel/total-fuel-lbs</property>
+  <property>systems/fuel/tank-a-lbs</property>
   <factor>0.001</factor>
   <step>100</step>
   <axis>
@@ -268,7 +261,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>FuelT4</object-name>
-  <property>consumables/fuel/total-fuel-lbs</property>
+  <property>systems/fuel/tank-a-lbs</property>
   <factor>0.01</factor>
   <step>10</step>
   <axis>
@@ -280,7 +273,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>FuelT5</object-name>
-  <property>consumables/fuel/total-fuel-lbs</property>
+  <property>systems/fuel/tank-a-lbs</property>
   <factor>0.1</factor>
   <step>1</step>
   <axis>
@@ -291,11 +284,10 @@
 </animation>
 
 <!-- Gross Weight Pounds Digits -->
-
 <animation>
   <type>textranslate</type>
   <object-name>Lbs1</object-name>
-  <property>fdm/jsbsim/inertia/weight-lbs</property>
+  <property>fdm/jsbsim/inertia/weight-lbs-fmt</property>
   <factor>0.000001</factor>
   <step>100000</step>
   <axis>
@@ -307,7 +299,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>Lbs2</object-name>
-  <property>fdm/jsbsim/inertia/weight-lbs</property>
+  <property>fdm/jsbsim/inertia/weight-lbs-fmt</property>
   <factor>0.00001</factor>
   <step>10000</step>
   <axis>
@@ -319,7 +311,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>Lbs3</object-name>
-  <property>fdm/jsbsim/inertia/weight-lbs</property>
+  <property>fdm/jsbsim/inertia/weight-lbs-fmt</property>
   <factor>0.0001</factor>
   <step>1000</step>
   <axis>
@@ -331,7 +323,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>Lbs4</object-name>
-  <property>fdm/jsbsim/inertia/weight-lbs</property>
+  <property>fdm/jsbsim/inertia/weight-lbs-fmt</property>
   <factor>0.001</factor>
   <step>100</step>
   <axis>
@@ -343,7 +335,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>Lbs5</object-name>
-  <property>fdm/jsbsim/inertia/weight-lbs</property>
+  <property>fdm/jsbsim/inertia/weight-lbs-fmt</property>
   <factor>0.01</factor>
   <step>10</step>
   <axis>
@@ -355,7 +347,7 @@
 <animation>
   <type>textranslate</type>
   <object-name>Lbs6</object-name>
-  <property>fdm/jsbsim/inertia/weight-lbs</property>
+  <property>fdm/jsbsim/inertia/weight-lbs-fmt</property>
   <factor>0.1</factor>
   <step>1</step>
   <axis>
@@ -366,5 +358,3 @@
 </animation>
 
 </PropertyList>
-
-

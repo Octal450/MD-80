@@ -24,13 +24,13 @@
 			<livery>
 				<file type="string">DAL</file>
 			</livery>
-			<path>Aircraft/MD-80/Models/Article-8.xml</path>
+			<path>Aircraft/MD-80/Models/MD-82.xml</path>
 		</model>
 		<previews>
 			<preview>
 				<type>exterior</type>
 				<splash type="bool">true</splash>
-				<path>gui/splash/Article-8.png</path>
+				<path>gui/splash/MD-80.png</path>
 			</preview>
 		</previews>
 		<rating>

@@ -4,20 +4,6 @@
 <path>panel_lighting.ac</path>
 
 <animation>
-  <type>material</type>
-  <object-name>PlacardLts</object-name>
-  <object-name>KnobLtsPanel</object-name>
-  <object-name>KnobLtsDigital</object-name>
-  <object-name>KnobLtsFlood</object-name>
-  <emission>
-    <red>0.2</red>
-    <green>0.1</green>
-    <blue>0.05</blue>
-    <!--factor-prop>controls/switches/battery</factor-prop-->
-  </emission>
-</animation>
-
-<animation>
   <type>rotate</type>
   <object-name>KnobLtsPanel</object-name>
   <property>controls/lighting/main-integ-norm</property>
@@ -122,5 +108,3 @@
 </animation>
 
 </PropertyList>
-
-

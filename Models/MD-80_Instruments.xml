@@ -20,6 +20,12 @@
 	<model>
 		<name>L_efis</name>
 		<path>Aircraft/MD-80/Models/Instruments/EFIS/efis_L.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>EFIS</value>
+			</equals>
+		</condition>
 		<offsets>
 			<x-m>2.586</x-m>
 			<y-m>-0.918</y-m>
@@ -506,7 +512,7 @@
 		</offsets>
 	</model>
 	
-	<model>
+	<!--model>
 		<name>Radar</name>
 		<path>Aircraft/MD-80/Models/Instruments/RDR-160/RDR-160.xml</path>
 		<offsets>
@@ -515,7 +521,7 @@
 			<z-m>0.70</z-m>
 			<pitch-deg>-50</pitch-deg>
 		</offsets>
-	</model>
+	</model-->
 	
 	<!-- Copilot Panel -->
 	<model>
@@ -532,6 +538,12 @@
 	<model>
 		<name>R_efis</name>
 		<path>Aircraft/MD-80/Models/Instruments/EFIS/efis_R.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>EFIS</value>
+			</equals>
+		</condition>
 		<offsets>
 			<x-m>2.586</x-m>
 			<y-m>0.918</y-m>

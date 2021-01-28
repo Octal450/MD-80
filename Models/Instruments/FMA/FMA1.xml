@@ -6,17 +6,6 @@
 
 	<path>res/fma1.ac</path>
 	
-	<animation>
-		<type>material</type>
-		<object-name>face</object-name>
-		<object-name>rstBtn</object-name>
-		<emission>
-			<red>0.3</red>
-			<green>0.3</green>
-			<blue>0.3</blue>
-		</emission>
-	</animation>
-	
     <effect>
         <inherits-from>Effects/model-transparent</inherits-from>
         <object-name>Lights</object-name>

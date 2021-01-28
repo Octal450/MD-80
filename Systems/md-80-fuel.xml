@@ -280,5 +280,70 @@
 		</summer>
 	
 	</channel>
+	
+	<channel name="Fuel Indicators" execrate="16"> <!-- Rounds and sums appropriate tanks for good cockpit indication -->
+		
+		<fcs_function name="/systems/fuel/tank-l-lbs">
+			<function>
+				<product>
+					<integer>
+						<sum>
+							<quotient>
+								<property>propulsion/tank[0]/contents-lbs</property>
+								<value>25</value>
+							</quotient>
+							<value>0.5</value>
+						</sum>
+					</integer>
+					<value>25</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/fuel/tank-c-lbs">
+			<function>
+				<product>
+					<integer>
+						<sum>
+							<quotient>
+								<property>propulsion/tank[1]/contents-lbs</property>
+								<value>25</value>
+							</quotient>
+							<value>0.5</value>
+						</sum>
+					</integer>
+					<value>25</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/fuel/tank-r-lbs">
+			<function>
+				<product>
+					<integer>
+						<sum>
+							<quotient>
+								<property>propulsion/tank[2]/contents-lbs</property>
+								<value>25</value>
+							</quotient>
+							<value>0.5</value>
+						</sum>
+					</integer>
+					<value>25</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/fuel/tank-a-lbs">
+			<function>
+				<sum>
+					<property>/systems/fuel/tank-l-lbs</property>
+					<property>/systems/fuel/tank-c-lbs</property>
+					<property>/systems/fuel/tank-r-lbs</property>
+				</sum>
+			</function>
+		</fcs_function>
+	
+	</channel>
 
 </system>
