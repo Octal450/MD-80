@@ -565,30 +565,6 @@
 	</filter>
 	
 	<filter>
-		<name>VS FMA</name>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<update-interval-secs type="double">0.02</update-interval-secs>
-		<input>
-			<expression>
-				<product>
-					<floor>
-						<sum>
-							<div>
-								<property>/it-autoflight/input/vs-abs</property>
-								<value>100</value>
-							</div>
-							<value>0.5</value> <!-- Make it round correctly -->
-						</sum>
-					</floor>
-					<value>100</value>
-				</product>
-			</expression>
-		</input>
-		<output>/it-autoflight/input/vs-fma</output>
-	</filter>
-	
-	<filter>
 		<name>FPA Abs</name>
 		<type>gain</type>
 		<gain>1.0</gain>
