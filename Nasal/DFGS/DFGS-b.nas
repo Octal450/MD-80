@@ -183,7 +183,7 @@ var Athr = {
 	loop: func() {
 		me.triMode = systems.TRI.Limit.activeModeInt.getValue();
 		Output.thrModeTemp = Output.thrMode.getValue();
-		me.retard = Output.athr.getBoolValue() and Output.vert.getValue() != 7 and pts.Position.gearAglFt.getValue() <= 50 and pts.SurfacePositions.flapPosNorm.getValue() >= 0.679 and me.triMode != 0 and me.triMode != 1 and me.triMode != 5;
+		me.retard = Output.athr.getBoolValue() and Output.vert.getValue() != 7 and pts.Position.gearAglFt.getValue() <= 50 and pts.SurfacePositions.flapPosNorm.getValue() >= 0.679 and me.triMode != 0 and me.triMode != 5;
 		
 		if (Output.thrModeTemp == 0) { # Update it as the updateFma only does it once
 			me.modeZeroCheck();

@@ -370,10 +370,42 @@
 	</filter>
 	
 	<!-- HSI -->
+	<logic>
+		<input>
+			<or>
+				<property>/instrumentation/dme[0]/in-range</property>
+				<and>
+					<property>/instrumentation/nav[0]/slaved-to-gps</property>
+					<property>/autopilot/route-manager/active</property>
+				</and>
+			</or>
+		</input>
+		<output>/instrumentation/dme[0]/in-range-hsi</output>
+	</logic>
+	
 	<filter>
-		<name>DME1 x00</name>
+		<name>DME1</name>
 		<type>gain</type>
 		<gain>1</gain>
+		<input>
+			<condition>
+				<equals>
+					<property>/instrumentation/nav[0]/slaved-to-gps</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<expression>
+				<floor>
+					<sum>
+						<product>
+							<property>/autopilot/route-manager/wp[0]/dist</property>
+							<value>10</value>
+						</product>
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</expression>
+		</input>
 		<input>
 			<expression>
 				<floor>
@@ -387,13 +419,46 @@
 				</floor>
 			</expression>
 		</input>
-		<output>/instrumentation/dme[0]/indicated-distance-nm-x10</output>
+		<output>/instrumentation/dme[0]/indicated-distance-nm-hsi</output>
+		<max>9999</max>
 	</filter>
 	
+	<logic>
+		<input>
+			<or>
+				<property>/instrumentation/dme[1]/in-range</property>
+				<and>
+					<property>/instrumentation/nav[1]/slaved-to-gps</property>
+					<property>/autopilot/route-manager/active</property>
+				</and>
+			</or>
+		</input>
+		<output>/instrumentation/dme[1]/in-range-hsi</output>
+	</logic>
+	
 	<filter>
-		<name>DME2 x10</name>
+		<name>DME2</name>
 		<type>gain</type>
 		<gain>10</gain>
+		<input>
+			<condition>
+				<equals>
+					<property>/instrumentation/nav[1]/slaved-to-gps</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<expression>
+				<floor>
+					<sum>
+						<product>
+							<property>/autopilot/route-manager/wp[0]/dist</property>
+							<value>10</value>
+						</product>
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</expression>
+		</input>
 		<input>
 			<expression>
 				<floor>
@@ -405,6 +470,7 @@
 			</expression>
 		</input>
 		<output>/instrumentation/dme[1]/indicated-distance-nm-x10</output>
+		<max>9999</max>
 	</filter>
 	
 	<!-- RA -->

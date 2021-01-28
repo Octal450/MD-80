@@ -59,7 +59,7 @@
 					<property>systems/electrical/outputs/efis</property>
 					<value>25</value>
 				</greater-than-equals>
-				<property>it-autoflight/output/fd1</property>
+				<property>it-autoflight/output/fd2</property>
 			</and>
         </condition>
     </animation>
