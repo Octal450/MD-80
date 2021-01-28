@@ -29,7 +29,11 @@ var updateFma = {
 			Fma.rollA.setValue("NAV");
 			Fma.rollB.setValue("TRK");
 		} else if (me.rollText == "LOC") { # Needs logic for AUT LND
-			Fma.rollA.setValue("LOC");
+			if (pts.Instrumentation.Nav.navLoc[Input.activeAp.getValue() - 1].getBoolValue()) {
+				Fma.rollA.setValue("LOC");
+			} else {
+				Fma.rollA.setValue("VOR");
+			}
 			Fma.rollB.setValue("TRK"); # Needs logic for CAP/TRK
 		} else if (me.rollText == "LAND") {
 			Fma.rollA.setValue("AUT");
@@ -97,7 +101,11 @@ var updateFma = {
 		} else if (Output.apprArm.getBoolValue()) {
 			Fma.armA.setValue("ILS");
 		} else if (Output.locArm.getBoolValue()) {
-			Fma.armA.setValue("LOC");
+			if (pts.Instrumentation.Nav.navLoc[Input.activeAp.getValue() - 1].getBoolValue()) {
+				Fma.armA.setValue("LOC");
+			} else {
+				Fma.armA.setValue("VOR");
+			}
 		} else if (Output.lnavArm.getBoolValue()) {
 			Fma.armA.setValue("NAV");
 		} else {
@@ -141,6 +149,20 @@ setlistener("/fdm/jsbsim/engine/limit/flex-temp", func() {
 	updateFma.thrTemp = Output.thrMode.getValue();
 	if ((updateFma.thrTemp == 2 or updateFma.thrTemp == 3) and systems.TRI.Limit.activeModeInt.getValue() == 5) {
 		Fma.thrB.setValue("  " ~ sprintf("%02d", pts.Fdm.JSBsim.Engine.Limit.flexTemp.getValue()));
+	}
+}, 0, 0);
+
+setlistener("/instrumentation/nav[0]/nav-loc", func() {
+	if (Input.activeAp.getValue() == 1) {
+		updateFma.arm();
+		updateFma.roll();
+	}
+}, 0, 0);
+
+setlistener("/instrumentation/nav[1]/nav-loc", func() {
+	if (Input.activeAp.getValue() == 2) {
+		updateFma.arm();
+		updateFma.roll();
 	}
 }, 0, 0);
 
