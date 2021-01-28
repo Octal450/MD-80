@@ -189,11 +189,10 @@ var Athr = {
 		} else if (me.atsCmdRawPid >= systems.TRI.Limit.activeNorm.getValue() - 0.005) {
 			if (Input.ktsMach.getBoolValue()) {
 				Fma.thrA.setValue("MACH");
-				Fma.thrB.setValue("ATL");
 			} else {
 				Fma.thrA.setValue("SPD");
-				Fma.thrB.setValue("ATL");
 			}
+			Fma.thrB.setValue("ATL");
 		} else {
 			if (Input.ktsMach.getBoolValue()) {
 				Fma.thrA.setValue("MACH");
