@@ -1454,7 +1454,7 @@
 				<and>
 					<equals>
 						<property>/options/panel</property>
-						<value>EFIS</value>
+						<value>Retrofit</value>
 					</equals>
 					<greater-than>
 						<property>/controls/switches/minimums</property>

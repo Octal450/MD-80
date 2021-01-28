@@ -30,7 +30,7 @@ var DUController = {
 		canvas_pfd.pfd2Error.update();
 	},
 	loop: func() {
-		if (pts.Options.panel.getValue() == "EFIS") {
+		if (pts.Options.panel.getValue() == "Retrofit") {
 			if (!me.errorActive) {
 				#if (systems.ELEC.Bus.someBus.getValue() >= 110) {
 					if (!me.updatePfd1) {
