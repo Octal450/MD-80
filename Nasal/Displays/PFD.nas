@@ -163,7 +163,7 @@ var canvasPfd1 = {
 			me["FD_pitch"].show();
 			me["FD_roll"].show();
 			
-			me["FD_pitch"].setTranslation(0, -dfgs.Fd.pitchBar.getValue() * 4.3);
+			me["FD_pitch"].setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
 			me["FD_roll"].setTranslation(dfgs.Fd.rollBar.getValue() * 2.6, 0);
 		} else {
 			me["FD_pitch"].hide();
@@ -222,7 +222,7 @@ var canvasPfd2 = {
 			me["FD_pitch"].show();
 			me["FD_roll"].show();
 			
-			me["FD_pitch"].setTranslation(0, -dfgs.Fd.pitchBar.getValue() * 4.3);
+			me["FD_pitch"].setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
 			me["FD_roll"].setTranslation(dfgs.Fd.rollBar.getValue() * 2.6, 0);
 		} else {
 			me["FD_pitch"].hide();

@@ -194,7 +194,7 @@
 					<property>systems/electrical/outputs/dme[0]</property>
 					<value>25</value>
 				</greater-than-equals>
-				<property>instrumentation/dme[0]/in-range-hsi</property>
+				<property>instrumentation/dme[0]/in-range</property>
 			</and>
 		</condition>
 	</animation>
@@ -208,7 +208,7 @@
 					<property>systems/electrical/outputs/dme[0]</property>
 					<value>25</value>
 				</less-than>
-				<not><property>instrumentation/dme[0]/in-range-hsi</property></not>
+				<not><property>instrumentation/dme[0]/in-range</property></not>
 			</or>
 		</condition>
 	</animation>
@@ -216,7 +216,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>DME1.1</object-name>
-		<property>instrumentation/dme[0]/indicated-distance-nm-hsi</property>
+		<property>instrumentation/dme[0]/indicated-distance-nm-x10</property>
 		<factor>0.0001</factor>
 		<step>1000</step>
 		<axis>
@@ -229,7 +229,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>DME1.2</object-name>
-		<property>instrumentation/dme[0]/indicated-distance-nm-hsi</property>
+		<property>instrumentation/dme[0]/indicated-distance-nm-x10</property>
 		<factor>0.001</factor>
 		<step>100</step>
 		<axis>
@@ -242,7 +242,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>DME1.3</object-name>
-		<property>instrumentation/dme[0]/indicated-distance-nm-hsi</property>
+		<property>instrumentation/dme[0]/indicated-distance-nm-x10</property>
 		<factor>0.01</factor>
 		<step>10</step>
 		<axis>
@@ -255,7 +255,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>DME1.4</object-name>
-		<property>instrumentation/dme[0]/indicated-distance-nm-hsi</property>
+		<property>instrumentation/dme[0]/indicated-distance-nm-x10</property>
 		<factor>0.1</factor>
 		<step>1</step>
 		<axis>
@@ -279,7 +279,7 @@
 					<property>systems/electrical/outputs/dme[1]</property>
 					<value>25</value>
 				</greater-than-equals>
-				<property>instrumentation/dme[1]/in-range-hsi</property>
+				<property>instrumentation/dme[1]/in-range</property>
 			</and>
 		</condition>
 	</animation>
@@ -293,7 +293,7 @@
 					<property>systems/electrical/outputs/dme[1]</property>
 					<value>25</value>
 				</less-than>
-				<not><property>instrumentation/dme[1]/in-range-hsi</property></not>
+				<not><property>instrumentation/dme[1]/in-range</property></not>
 			</or>
 		</condition>
 	</animation>
@@ -301,7 +301,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>DME2.1</object-name>
-		<property>instrumentation/dme[1]/indicated-distance-nm-hsi</property>
+		<property>instrumentation/dme[1]/indicated-distance-nm-x10</property>
 		<factor>0.0001</factor>
 		<step>1000</step>
 		<axis>
@@ -314,7 +314,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>DME2.2</object-name>
-		<property>instrumentation/dme[1]/indicated-distance-nm-hsi</property>
+		<property>instrumentation/dme[1]/indicated-distance-nm-x10</property>
 		<factor>0.001</factor>
 		<step>100</step>
 		<axis>
@@ -327,7 +327,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>DME2.3</object-name>
-		<property>instrumentation/dme[1]/indicated-distance-nm-hsi</property>
+		<property>instrumentation/dme[1]/indicated-distance-nm-x10</property>
 		<factor>0.01</factor>
 		<step>10</step>
 		<axis>
@@ -340,7 +340,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>DME2.4</object-name>
-		<property>instrumentation/dme[1]/indicated-distance-nm-hsi</property>
+		<property>instrumentation/dme[1]/indicated-distance-nm-x10</property>
 		<factor>0.1</factor>
 		<step>1</step>
 		<axis>

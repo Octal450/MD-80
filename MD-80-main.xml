@@ -1171,6 +1171,21 @@
 			<serviceable type="bool">true</serviceable>
 			<volume type="double">0</volume>
 		</nav>
+		<nav n="2"> <!-- Dummy nav radio slaved to GPS -->
+			<cdi>
+				<serviceable type="bool">true</serviceable>
+			</cdi>
+			<frequencies>
+				<selected-mhz type="double">000.00</selected-mhz>
+				<standby-mhz type="double">000.00</standby-mhz>
+			</frequencies>
+			<radials>
+				<selected-deg type="double">360</selected-deg>
+			</radials>
+			<serviceable type="bool">true</serviceable>
+			<slaved-to-gps type="bool">true</slaved-to-gps>
+			<volume type="double">0</volume>
+		</nav>
 		<rmi n="0">
 			<vor-adf-1 type="bool">1</vor-adf-1>
 			<vor-adf-2 type="bool">1</vor-adf-2>

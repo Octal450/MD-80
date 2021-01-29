@@ -180,12 +180,12 @@
 		<type>exponential</type>
 		<input>
 			<condition>
-				<less-than>
-					<property>/velocities/airspeed-kt</property>
-					<value>60</value>
-				</less-than>
+				<equals>
+					<property>/gear/gear[0]/wow</property>
+					<value>1</value>
+				</equals>
 			</condition>
-			<value>0</value>
+			<value>3</value> <!-- On ground, we want upwards guidance only -->
 		</input>
 		<input>/it-autoflight/internal/kts-rate-raw</input>
 		<output>/it-autoflight/internal/kts-rate</output>
@@ -589,7 +589,7 @@
 	</filter>
 	
 	<filter>
-		<name>Mach FLCH x1000</name>
+		<name>Mach Flch x1000</name>
 		<type>gain</type>
 		<gain>1000</gain>
 		<update-interval-secs type="double">0.02</update-interval-secs>
@@ -843,9 +843,9 @@
 						<property>/it-autoflight/internal/vert-speed-fpm</property>
 					</difference>
 					<table>
-						<property>/instrumentation/airspeed-indicator/indicated-mach</property> 
-						<entry><ind>0.20</ind><dep>0.004</dep></entry>
-						<entry><ind>0.95</ind><dep>0.002</dep></entry>
+						<property>/velocities/airspeed-kt</property>
+						<entry><ind>140</ind><dep>0.001848350</dep></entry>
+						<entry><ind>360</ind><dep>0.000924175</dep></entry>
 					</table>
 				</product>
 			</expression>

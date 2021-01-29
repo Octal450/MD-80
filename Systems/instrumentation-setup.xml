@@ -114,15 +114,20 @@
 		<number>1</number>
 	</nav-radio>
 	
-	<slip-skid-ball>
-		<name>slip-skid-ball</name>
-		<number>0</number>
-	</slip-skid-ball>
+	<nav-radio> <!-- Dummy nav radio slaved to GPS -->
+		<name>nav</name>
+		<number>2</number>
+	</nav-radio>
 	
 	<radar>
 		<name>wxradar</name>
 		<number>0</number>
 	</radar>
+	
+	<slip-skid-ball>
+		<name>slip-skid-ball</name>
+		<number>0</number>
+	</slip-skid-ball>
 	
 	<tcas>
 		<name>tcas</name>

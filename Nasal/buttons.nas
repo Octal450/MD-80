@@ -124,7 +124,7 @@ var apPanel = {
 		}
 	},
 	nav: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue() and pts.Options.panel.getValue() != "Analog") {
+		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			dfgs.Input.lat.setValue(1);
 		}
 	},
