@@ -2056,7 +2056,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/lighting/landing-light-n</property>
+				<property>/controls/lighting/landing-light-r</property>
 				<value>1</value>
 				<value>0.5</value>
 				<value>0</value>
