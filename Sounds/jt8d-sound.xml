@@ -773,19 +773,43 @@
 		
 		<MDA_WHN>
 			<name>XMDA WHN 1</name>
-			<path>FL2070/XMDA_WHN_1.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/Exterior/idle.wav</path>
 			<mode>looped</mode>
-			<property>engines/engine[0]/n1</property>
+			<condition>
+				<not>
+					<property>sim/current-view/internal</property>
+				</not>
+			</condition>
 			<volume>
 				<property>/MD80/engine/MDA_WHN_1</property>
 			</volume>
-			<condition>
-				<property>sim/current-view/external</property>
-			</condition>
 			<pitch>
 				<property>/MD80/enginep/MDA_WHN_1</property>
-				<offset>0</offset>
 			</pitch>
+			<reference-dist>100</reference-dist>
+			<position>
+				<x>34</x>
+				<y>3</y>
+				<z>0</z>
+			</position>
+		</MDA_WHN>
+		
+		<MDA_WHN>
+			<name>XMDA WHN 2</name>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/Exterior/idle_2.wav</path>
+			<mode>looped</mode>
+			<condition>
+				<not>
+					<property>sim/current-view/internal</property>
+				</not>
+			</condition>
+			<volume>
+				<property>/MD80/engine/MDA_WHN_2</property>
+			</volume>
+			<pitch>
+				<property>/MD80/enginep/MDA_WHN_2</property>
+			</pitch>
+			<reference-dist>100</reference-dist>
 			<position>
 				<x>34</x>
 				<y>3</y>
@@ -796,19 +820,19 @@
 		<!-- X ENGINE 1 SPOOL -->
 		
 		<MDA_WHN>
-			<name>XMDA WHN 2</name>
-			<path>FL2070/XMDA_WHN_2.wav</path>
+			<name>XMDA WHN 3</name>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/Exterior/spool.wav</path>
 			<mode>looped</mode>
-			<property>engines/engine[0]/n1</property>
-			<volume>
-				<property>/MD80/engine/MDA_WHN_2</property>
-			</volume>
 			<condition>
-				<property>sim/current-view/external</property>
+				<not>
+					<property>sim/current-view/internal</property>
+				</not>
 			</condition>
+			<volume>
+				<property>/MD80/engine/MDA_WHN_3</property>
+			</volume>
 			<pitch>
-				<property>/MD80/enginep/MDA_WHN_2</property>
-				<offset>0</offset>
+				<property>/MD80/enginep/MDA_WHN_3</property>
 			</pitch>
 			<orientation>
 				<x>-1</x>
@@ -816,34 +840,7 @@
 				<outer-angle>180</outer-angle>
 				<outer-gain>0.7</outer-gain>
 			</orientation>
-			<position>
-				<x>34</x>
-				<y>3</y>
-				<z>0</z>
-			</position>
-		</MDA_WHN>
-		
-		<MDA_WHN>
-			<name>XMDA WHN 3</name>
-			<path>FL2070/XMDA_WHN_3.wav</path>
-			<mode>looped</mode>
-			<property>engines/engine[0]/n1</property>
-			<volume>
-				<property>/MD80/engine/MDA_WHN_3</property>
-			</volume>
-			<condition>
-				<property>sim/current-view/external</property>
-			</condition>
-			<pitch>
-				<property>/MD80/enginep/MDA_WHN_3</property>
-				<offset>0</offset>
-			</pitch>
-			<orientation>
-				<x>-1</x>
-				<inner-angle>40</inner-angle>
-				<outer-angle>180</outer-angle>
-				<outer-gain>0.5</outer-gain>
-			</orientation>
+			<reference-dist>100</reference-dist>
 			<position>
 				<x>34</x>
 				<y>3</y>
@@ -855,46 +852,49 @@
 		
 		<MDA_WHN>
 			<name>XMDA WHN 4</name>
-			<path>FL2070/XMDA_WHN_4.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/Exterior/high.wav</path>
 			<mode>looped</mode>
-			<property>engines/engine[0]/n1</property>
+			<condition>
+				<not>
+					<property>sim/current-view/internal</property>
+				</not>
+			</condition>
 			<volume>
 				<property>/MD80/engine/MDA_WHN_4</property>
+				<factor>0.8</factor>
 			</volume>
-			<condition>
-				<property>sim/current-view/external</property>
-			</condition>
 			<pitch>
 				<property>/MD80/enginep/MDA_WHN_4</property>
-				<offset>0</offset>
 			</pitch>
 			<orientation>
 				<x>-1</x>
-				<inner-angle>25</inner-angle>
-				<outer-angle>99</outer-angle>
-				<outer-gain>0</outer-gain>
+				<inner-angle>40</inner-angle>
+				<outer-angle>180</outer-angle>
+				<outer-gain>0.7</outer-gain>
 			</orientation>
+			<reference-dist>100</reference-dist>
 			<position>
 				<x>34</x>
-				<y>3</y>
+				<y>-3</y>
 				<z>0</z>
 			</position>
 		</MDA_WHN>
 		
 		<MDA_WHN>
 			<name>XMDA WHN 5</name>
-			<path>FL2070/XMDA_WHN_5.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/Exterior/buzz.wav</path>
 			<mode>looped</mode>
-			<property>engines/engine[0]/n1</property>
+			<condition>
+				<not>
+					<property>sim/current-view/internal</property>
+				</not>
+			</condition>
 			<volume>
 				<property>/MD80/engine/MDA_WHN_5</property>
 			</volume>
-			<condition>
-				<property>sim/current-view/external</property>
-			</condition>
 			<pitch>
 				<property>/MD80/enginep/MDA_WHN_5</property>
-				<offset>0</offset>
+				<factor>0.98</factor>
 			</pitch>
 			<orientation>
 				<x>-1</x>
@@ -902,6 +902,7 @@
 				<outer-angle>99</outer-angle>
 				<outer-gain>0</outer-gain>
 			</orientation>
+			<reference-dist>100</reference-dist>
 			<position>
 				<x>34</x>
 				<y>3</y>
@@ -913,19 +914,43 @@
 		
 		<MDB_WHN>
 			<name>XMDB WHN 1</name>
-			<path>FL2070/XMDB_WHN_1.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/Exterior/idle.wav</path>
 			<mode>looped</mode>
-			<property>engines/engine[1]/n1</property>
+			<condition>
+				<not>
+					<property>sim/current-view/internal</property>
+				</not>
+			</condition>
 			<volume>
 				<property>/MD80/engine/MDB_WHN_1</property>
 			</volume>
-			<condition>
-				<property>sim/current-view/external</property>
-			</condition>
 			<pitch>
 				<property>/MD80/enginep/MDB_WHN_1</property>
-				<offset>0</offset>
 			</pitch>
+			<reference-dist>100</reference-dist>
+			<position>
+				<x>34</x>
+				<y>-3</y>
+				<z>0</z>
+			</position>
+		</MDB_WHN>
+		
+		<MDB_WHN>
+			<name>XMDB WHN 2</name>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/Exterior/idle_2.wav</path>
+			<mode>looped</mode>
+			<condition>
+				<not>
+					<property>sim/current-view/internal</property>
+				</not>
+			</condition>
+			<volume>
+				<property>/MD80/engine/MDB_WHN_2</property>
+			</volume>
+			<pitch>
+				<property>/MD80/enginep/MDB_WHN_2</property>
+			</pitch>
+			<reference-dist>100</reference-dist>
 			<position>
 				<x>34</x>
 				<y>-3</y>
@@ -936,19 +961,19 @@
 		<!-- X ENGINE 2 SPOOL -->
 		
 		<MDB_WHN>
-			<name>XMDB WHN 2</name>
-			<path>FL2070/XMDB_WHN_2.wav</path>
+			<name>XMDB WHN 3</name>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/Exterior/spool.wav</path>
 			<mode>looped</mode>
-			<property>engines/engine[1]/n1</property>
-			<volume>
-				<property>/MD80/engine/MDB_WHN_2</property>
-			</volume>
 			<condition>
-				<property>sim/current-view/external</property>
+				<not>
+					<property>sim/current-view/internal</property>
+				</not>
 			</condition>
+			<volume>
+				<property>/MD80/engine/MDB_WHN_3</property>
+			</volume>
 			<pitch>
-				<property>/MD80/enginep/MDB_WHN_2</property>
-				<offset>0</offset>
+				<property>/MD80/enginep/MDB_WHN_3</property>
 			</pitch>
 			<orientation>
 				<x>-1</x>
@@ -956,34 +981,7 @@
 				<outer-angle>180</outer-angle>
 				<outer-gain>0.7</outer-gain>
 			</orientation>
-			<position>
-				<x>34</x>
-				<y>-3</y>
-				<z>0</z>
-			</position>
-		</MDB_WHN>
-		
-		<MDB_WHN>
-			<name>XMDB WHN 3</name>
-			<path>FL2070/XMDB_WHN_3.wav</path>
-			<mode>looped</mode>
-			<property>engines/engine[1]/n1</property>
-			<volume>
-				<property>/MD80/engine/MDB_WHN_3</property>
-			</volume>
-			<condition>
-				<property>sim/current-view/external</property>
-			</condition>
-			<pitch>
-				<property>/MD80/enginep/MDB_WHN_3</property>
-				<offset>0</offset>
-			</pitch>
-			<orientation>
-				<x>-1</x>
-				<inner-angle>40</inner-angle>
-				<outer-angle>180</outer-angle>
-				<outer-gain>0.5</outer-gain>
-			</orientation>
+			<reference-dist>100</reference-dist>
 			<position>
 				<x>34</x>
 				<y>-3</y>
@@ -995,25 +993,27 @@
 		
 		<MDB_WHN>
 			<name>XMDB WHN 4</name>
-			<path>FL2070/XMDB_WHN_4.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/Exterior/high.wav</path>
 			<mode>looped</mode>
-			<property>engines/engine[1]/n1</property>
+			<condition>
+				<not>
+					<property>sim/current-view/internal</property>
+				</not>
+			</condition>
 			<volume>
 				<property>/MD80/engine/MDB_WHN_4</property>
+				<factor>0.8</factor>
 			</volume>
-			<condition>
-				<property>sim/current-view/external</property>
-			</condition>
 			<pitch>
 				<property>/MD80/enginep/MDB_WHN_4</property>
-				<offset>0</offset>
 			</pitch>
 			<orientation>
 				<x>-1</x>
-				<inner-angle>25</inner-angle>
-				<outer-angle>99</outer-angle>
-				<outer-gain>0</outer-gain>
+				<inner-angle>40</inner-angle>
+				<outer-angle>180</outer-angle>
+				<outer-gain>0.7</outer-gain>
 			</orientation>
+			<reference-dist>100</reference-dist>
 			<position>
 				<x>34</x>
 				<y>-3</y>
@@ -1023,18 +1023,19 @@
 		
 		<MDB_WHN>
 			<name>XMDB WHN 5</name>
-			<path>FL2070/XMDB_WHN_5.wav</path>
+			<path>Aircraft/MD-80/Sounds/SASA/Engines/Exterior/buzz.wav</path>
 			<mode>looped</mode>
-			<property>engines/engine[1]/n1</property>
+			<condition>
+				<not>
+					<property>sim/current-view/internal</property>
+				</not>
+			</condition>
 			<volume>
 				<property>/MD80/engine/MDB_WHN_5</property>
 			</volume>
-			<condition>
-				<property>sim/current-view/external</property>
-			</condition>
 			<pitch>
 				<property>/MD80/enginep/MDB_WHN_5</property>
-				<offset>0</offset>
+				<factor>0.98</factor>
 			</pitch>
 			<orientation>
 				<x>-1</x>
@@ -1042,6 +1043,7 @@
 				<outer-angle>99</outer-angle>
 				<outer-gain>0</outer-gain>
 			</orientation>
+			<reference-dist>100</reference-dist>
 			<position>
 				<x>34</x>
 				<y>-3</y>
