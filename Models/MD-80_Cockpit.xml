@@ -83,6 +83,8 @@
 		<object-name>AToffR</object-name>
 		<object-name>TogaL</object-name>
 		<object-name>TogaR</object-name>
+		<object-name>SteeringHandle</object-name>
+		<object-name>parkingBrakeButton</object-name>
 		<emission>
 			<red>0.6</red>
 			<green>0.6</green>
@@ -1340,4 +1342,20 @@
 		</axis>
 	</animation>
 
+	<animation>
+		<type>rotate</type>
+		<object-name>SteeringHandle</object-name>
+		<object-name>parkingBrakeButton</object-name>
+		<factor>82</factor>
+		<property>fdm/jsbsim/fcs-actual/tiller-handle</property>
+		<axis>
+			<x1-m>2.53712</x1-m>
+			<y1-m>-0.91446</y1-m>
+			<z1-m>0.665011</z1-m>
+			<x2-m>2.53319</x2-m>
+			<y2-m>-0.917095</y2-m>
+			<z2-m>0.64979</z2-m>
+		</axis>
+	</animation>
+	
 </PropertyList>
