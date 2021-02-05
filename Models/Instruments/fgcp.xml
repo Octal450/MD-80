@@ -1505,14 +1505,20 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.apPanel.altAdjust(1);</script>
+				<script>
+					if (getprop("/instrumentation/fgcp/alt-translate") == -1) {
+						libraries.apPanel.altAdjust(1);
+					} else {
+						libraries.apPanel.altAdjust(10);
+					}
+				</script>
 			</binding>
 			<binding>
 				<condition>
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.apPanel.altAdjust(10);</script>
+				<script>libraries.apPanel.altAdjust(1);</script>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
@@ -1531,14 +1537,20 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.apPanel.altAdjust(-1);</script>
+				<script>
+					if (getprop("/instrumentation/fgcp/alt-translate") == -1) {
+						libraries.apPanel.altAdjust(-1);
+					} else {
+						libraries.apPanel.altAdjust(-10);
+					}
+				</script>
 			</binding>
 			<binding>
 				<condition>
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.apPanel.altAdjust(-10);</script>
+				<script>libraries.apPanel.altAdjust(-1);</script>
 			</binding>
 			<binding>
 				<command>property-adjust</command>

@@ -200,24 +200,7 @@ var apPanel = {
 	altAdjust: func(d) {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			me.altTemp = dfgs.Input.alt.getValue();
-			if (d == 1) {
-				if (me.altTemp >= 10000) {
-					me.altTemp = math.round(me.altTemp, 500) + 500; # Make sure it rounds to the nearest 500 from previous before changing
-				} else {
-					me.altTemp = math.round(me.altTemp, 100) + 100; # Make sure it rounds to the nearest 100 from previous before changing
-				}
-			} else if (d == -1) {
-				if (me.altTemp > 10000) { # Intentionally not >=
-					me.altTemp = math.round(me.altTemp, 500) - 500; # Make sure it rounds to the nearest 500 from previous before changing
-				} else {
-					me.altTemp = math.round(me.altTemp, 100) - 100; # Make sure it rounds to the nearest 100 from previous before changing
-				}
-			} else {
-				me.altTemp = me.altTemp + (d * 100);
-				if (me.altTemp >= 10000) {
-					me.altTemp = math.round(me.altTemp, 1000);
-				}
-			}
+			me.altTemp = math.round(me.altTemp + (d * 100), 100);
 			if (me.altTemp < 0) {
 				dfgs.Input.alt.setValue(0);
 			} else if (me.altTemp > 50000) {
