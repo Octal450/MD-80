@@ -28,13 +28,14 @@ var updateFma = {
 		} else if (me.rollText == "LNAV") {
 			Fma.rollA.setValue("NAV");
 			Fma.rollB.setValue("TRK");
-		} else if (me.rollText == "LOC") { # Needs logic for AUT LND
+		} else if (me.rollText == "LOC") {
 			if (pts.Instrumentation.Nav.navLoc[Input.activeAp.getValue() - 1].getBoolValue()) {
 				Fma.rollA.setValue("LOC");
 			} else {
 				Fma.rollA.setValue("VOR");
 			}
-			Fma.rollB.setValue("TRK"); # Needs logic for CAP/TRK
+			me.locUpdate();
+			locUpdateT.start();
 		} else if (me.rollText == "LAND") {
 			Fma.rollA.setValue("AUT");
 			Fma.rollB.setValue("LND");
@@ -76,7 +77,8 @@ var updateFma = {
 			Fma.pitchB.setValue("SPD");
 		} else if (me.pitchText == "G/S") {
 			Fma.pitchA.setValue("G/S");
-			Fma.pitchB.setValue("TRK"); # Needs logic for CAP/TRK
+			me.gsUpdate();
+			gsUpdateT.start();
 		} else if (me.pitchText == "FPA") {
 			Fma.pitchA.setValue("");
 			Fma.pitchB.setValue("");
@@ -135,7 +137,41 @@ var updateFma = {
 			Athr.modeZeroCheck(); # Handled there cause its complicated...
 		}
 	},
+	# Special stuff
+	locUpdate: func() {
+		updateFma.rollText = Text.lat.getValue();
+		if (updateFma.rollText == "LOC") {
+			if (abs(pts.Instrumentation.Nav.headingNeedleDeflectionNorm[Input.activeAp.getValue() - 1].getValue()) < 0.1) {
+				locUpdateT.stop();
+				Fma.rollB.setValue("TRK");
+			} else {
+				if (Fma.rollB.getValue() != "CAP") {
+					Fma.rollB.setValue("CAP");
+				}
+			}
+		} else {
+			locUpdateT.stop();
+		}
+	},
+	gsUpdate: func() {
+		updateFma.pitchText = Text.vert.getValue();
+		if (updateFma.pitchText == "G/S") {
+			if (abs(pts.Instrumentation.Nav.gsNeedleDeflectionNorm[Input.activeAp.getValue() - 1].getValue()) < 0.1) {
+				gsUpdateT.stop();
+				Fma.pitchB.setValue("TRK");
+			} else {
+				if (Fma.pitchB.getValue() != "CAP") {
+					Fma.pitchB.setValue("CAP");
+				}
+			}
+		} else {
+			gsUpdateT.stop();
+		}
+	},
 };
+
+var locUpdateT = maketimer(0.5, updateFma.locUpdate, updateFma);
+var gsUpdateT = maketimer(0.5, updateFma.gsUpdate, updateFma);
 
 setlistener("/it-autoflight/input/kts-mach", func() {
 	updateFma.thr();
