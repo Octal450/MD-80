@@ -1109,6 +1109,12 @@
 		<groundradar>
 			<range type="double">1.0</range>
 		</groundradar>
+		<hsi n="0">
+			<slaved-to-gps type="bool">0</slaved-to-gps>
+		</hsi>
+		<hsi n="1">
+			<slaved-to-gps type="bool">0</slaved-to-gps>
+		</hsi>
 		<mk-viii n="0"> <!-- See http://wiki.flightgear.org/index.php/GPWS -->
 			<serviceable type="bool">true</serviceable>
 			<configuration-module>

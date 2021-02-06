@@ -124,10 +124,33 @@
 		<name>hsi1</name>
 		<path>Aircraft/MD-80/Models/Instruments/HSI/hsi1.xml</path>
 		<condition>
-			<equals>
-				<property>options/panel</property>
-				<value>Analog</value>
-			</equals>
+			<and>
+				<equals>
+					<property>options/panel</property>
+					<value>Analog</value>
+				</equals>
+				<not><property>instrumentation/hsi[0]/slaved-to-gps</property></not>
+			</and>
+		</condition>
+		<offsets>
+			<x-m>2.254</x-m>
+			<y-m>-0.514</y-m>
+			<z-m>0.738</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>hsi1</name>
+		<path>Aircraft/MD-80/Models/Instruments/HSI/hsi_gps.xml</path>
+		<condition>
+			<and>
+				<equals>
+					<property>options/panel</property>
+					<value>Analog</value>
+				</equals>
+				<property>instrumentation/hsi[0]/slaved-to-gps</property>
+			</and>
 		</condition>
 		<offsets>
 			<x-m>2.254</x-m>
@@ -609,10 +632,33 @@
 		<name>hsi2</name>
 		<path>Aircraft/MD-80/Models/Instruments/HSI/hsi2.xml</path>
 		<condition>
-			<equals>
-				<property>options/panel</property>
-				<value>Analog</value>
-			</equals>
+			<and>
+				<equals>
+					<property>options/panel</property>
+					<value>Analog</value>
+				</equals>
+				<not><property>instrumentation/hsi[1]/slaved-to-gps</property></not>
+			</and>
+		</condition>
+		<offsets>
+			<x-m>2.254</x-m>
+			<y-m>0.513</y-m>
+			<z-m>0.738</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>hsi2</name>
+		<path>Aircraft/MD-80/Models/Instruments/HSI/hsi_gps.xml</path>
+		<condition>
+			<and>
+				<equals>
+					<property>options/panel</property>
+					<value>Analog</value>
+				</equals>
+				<property>instrumentation/hsi[1]/slaved-to-gps</property>
+			</and>
 		</condition>
 		<offsets>
 			<x-m>2.254</x-m>
