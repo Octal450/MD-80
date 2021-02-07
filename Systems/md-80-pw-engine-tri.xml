@@ -76,7 +76,7 @@
 			<function>
 				<sum>
 					<product>
-						<property>propulsion/engine/IdleThrust</property>
+						<property>propulsion/engine[0]/IdleThrust</property> <!-- It doesn't matter which engine, its same for all -->
 						<value>20000</value>
 					</product>
 					<product>
@@ -372,7 +372,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/limit/cruise-input"> <!-- Vs 103 + 1% -->
+		<fcs_function name="engine/limit/cruise-input"> <!-- Vs 103 - 1% -->
 			<function>
 				<pow>
 					<table>
