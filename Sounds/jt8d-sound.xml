@@ -1454,10 +1454,6 @@
 			<mode>once</mode>
 			<condition>
 				<and>
-					<equals>
-						<property>/options/panel</property>
-						<value>Retrofit</value>
-					</equals>
 					<greater-than>
 						<property>/controls/switches/minimums</property>
 						<value>0</value>

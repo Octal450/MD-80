@@ -495,7 +495,7 @@
 			<cart type="bool">0</cart>
 			<modekb type="int">2</modekb> <!-- For temporary ND -->
 			<modekb2 type="int">2</modekb2> <!-- For temporary ND -->
-			<minimums type="int">0</minimums>
+			<minimums type="int">200</minimums>
 			<no-smoking-sign type="double">1</no-smoking-sign> <!-- Smoking is bad! -->
 			<no-smoking-sign-status type="bool">1</no-smoking-sign-status>
 			<seatbelt-sign type="double">0</seatbelt-sign>

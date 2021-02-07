@@ -520,7 +520,7 @@
 					<value>0</value> <!-- Tab locks -->
 					<product>
 						<property>fcs-actual/rudder/input-lag</property>
-						<value>-17</value>
+						<value>-22</value>
 					</product>
 				</ifthen>
 			</function>
@@ -532,7 +532,7 @@
 				<table>
 					<independentVar lookup="row">velocities/vc-kts</independentVar>
 					<tableData>
-						125  17.0
+						144  22.0
 						285   2.5
 					</tableData>
 				</table>
@@ -548,7 +548,7 @@
 					</eq>
 					<product> <!-- Hydraulic Mode -->
 						<property>fcs-actual/rudder/input-sum</property> <!-- Don't use the lagged version -->
-						<value>17</value>
+						<value>22</value>
 					</product>
 					<product> <!-- Aerodynamic Mode -->
 						<property>fcs-actual/rudder/control-tab-cmd-deg</property>

@@ -444,7 +444,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<toradians><property>fcs-actual/rudder/surface-final-deg</property></toradians>
-				<value>-0.14</value>
+				<value>-0.11</value>
 			</product>
 		</function>
 	
@@ -708,7 +708,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<toradians><property>fcs-actual/rudder/surface-final-deg</property></toradians>
-				<value>0.04</value>
+				<value>0.031</value>
 			</product>
 		</function>
 	

@@ -23,7 +23,7 @@
 		<condition>
 			<equals>
 				<property>options/panel</property>
-				<value>Retrofit</value>
+				<value>EFIS</value>
 			</equals>
 		</condition>
 		<offsets>
@@ -75,7 +75,7 @@
 		<condition>
 			<equals>
 				<property>options/panel</property>
-				<value>Retrofit</value>
+				<value>EFIS</value>
 			</equals>
 		</condition>
 		<offsets>
@@ -109,7 +109,7 @@
 		<condition>
 			<equals>
 				<property>options/panel</property>
-				<value>Retrofit</value>
+				<value>EFIS</value>
 			</equals>
 		</condition>
 		<offsets>
@@ -166,7 +166,7 @@
 		<condition>
 			<equals>
 				<property>options/panel</property>
-				<value>Retrofit</value>
+				<value>EFIS</value>
 			</equals>
 		</condition>
 		<offsets>
@@ -200,7 +200,7 @@
 		<condition>
 			<equals>
 				<property>options/panel</property>
-				<value>Retrofit</value>
+				<value>EFIS</value>
 			</equals>
 		</condition>
 		<offsets>
@@ -564,7 +564,7 @@
 		<condition>
 			<equals>
 				<property>options/panel</property>
-				<value>Retrofit</value>
+				<value>EFIS</value>
 			</equals>
 		</condition>
 		<offsets>
@@ -583,7 +583,7 @@
 		<condition>
 			<equals>
 				<property>options/panel</property>
-				<value>Retrofit</value>
+				<value>EFIS</value>
 			</equals>
 		</condition>
 		<offsets>
@@ -617,7 +617,7 @@
 		<condition>
 			<equals>
 				<property>options/panel</property>
-				<value>Retrofit</value>
+				<value>EFIS</value>
 			</equals>
 		</condition>
 		<offsets>
@@ -707,7 +707,7 @@
 		<condition>
 			<equals>
 				<property>options/panel</property>
-				<value>Retrofit</value>
+				<value>EFIS</value>
 			</equals>
 		</condition>
 		<offsets>
@@ -741,7 +741,7 @@
 		<condition>
 			<equals>
 				<property>options/panel</property>
-				<value>Retrofit</value>
+				<value>EFIS</value>
 			</equals>
 		</condition>
 		<offsets>
