@@ -261,8 +261,19 @@
 		<path>Aircraft/MD-80/Models/Instruments/panel_lighting.xml</path>
 		<offsets>
 			<x-m>2.278</x-m>
-			<y-m>-0.891</y-m>
+			<y-m>-0.881</y-m>
 			<z-m>0.636</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>staticair</name>
+		<path>Aircraft/MD-80/Models/Instruments/staticair_panel.xml</path>
+		<offsets>
+			<x-m>2.265</x-m>
+			<y-m>-0.861</y-m>
+			<z-m>0.690</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
