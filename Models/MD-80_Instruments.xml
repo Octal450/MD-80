@@ -803,6 +803,17 @@
 	</model>
 	
 	<model>
+		<name>hydraulic panel</name>
+		<path>Aircraft/MD-80/Models/Instruments/hydraulicPanel.xml</path>
+		<offsets>
+			<x-m>2.26479</x-m>
+			<y-m>0.315235</y-m>
+			<z-m>0.677944</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
 		<name>lighting_panel_R</name>
 		<path>Aircraft/MD-80/Models/Instruments/panel_lighting.xml</path>
 		<offsets>
