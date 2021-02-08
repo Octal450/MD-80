@@ -1341,7 +1341,7 @@
 			<z>0.8384</z>
 		</axis>
 	</animation>
-
+	
 	<animation>
 		<type>rotate</type>
 		<object-name>SteeringHandle</object-name>
@@ -1358,4 +1358,48 @@
 		</axis>
 	</animation>
 	
+	<animation>
+		<type>pick</type>
+		<object-name>parkingBrakeButton</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/gear/brake-parking</property>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/gear/brake-parking-switch</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/gear/brake-parking-switch</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>parkingBrakeButton</object-name>
+		<interpolation>
+			<entry><ind>0.0</ind><dep>0.000</dep></entry>
+			<entry><ind>0.9</ind><dep>0.010</dep></entry>
+			<entry><ind>1.0</ind><dep>0.008</dep></entry>
+		</interpolation>   
+		<property>fdm/jsbsim/fcs/brake-lever</property>
+		<axis>
+			<x1-m>2.53712</x1-m>
+			<y1-m>-0.91446</y1-m>
+			<z1-m>0.665011</z1-m>
+			<x2-m>2.53319</x2-m>
+			<y2-m>-0.917095</y2-m>
+			<z2-m>0.64979</z2-m>
+		</axis>
+	</animation>
+
 </PropertyList>

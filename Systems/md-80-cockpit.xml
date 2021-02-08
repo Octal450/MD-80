@@ -53,6 +53,12 @@
 			<input>/controls/flight/speedbrake-arm</input>
 			<c1>20</c1>
 		</lag_filter>
+		
+		<actuator name="fcs/brake-lever">
+			<input>/controls/gear/brake-parking</input>
+			<rate_limit>2.5</rate_limit>
+			<lag>20</lag>
+		</actuator>
 	
 	</channel>
 	

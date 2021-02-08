@@ -463,6 +463,7 @@
 		</fuel>
 		<gear n="0">
 			<brake-parking type="bool">0</brake-parking>
+			<brake-parking-switch type="bool">0</brake-parking-switch>
 			<lever-cockpit type="int">3</lever-cockpit>
 			<tiller-cmd-norm type="double">0</tiller-cmd-norm>
 			<tiller-enabled type="bool">0</tiller-enabled>
