@@ -163,7 +163,7 @@
 	</channel>
 	
 	<!--
-	The MD-80s Ailerons are connected together mechanically, and thus alwayys move together
+	The MD-80s Ailerons are connected together mechanically, and thus always move together
 	They cannot ever move seperately. Thus the tab positions are averaged for each aileron
 	That makes the most sense, and allows a reasonably good simulation of jamming one side
 	-->
@@ -231,7 +231,7 @@
 		<actuator name="fcs-actual/aileron-l/surface-final-actuator">
 			<input>fcs-actual/aileron-l/surface-cmd-deg</input>
 			<rate_limit>fcs-actual/surface-rate</rate_limit>
-			<lag>20</lag>
+			<lag>10</lag>
 			<output>fcs-actual/aileron-l/surface-final-deg</output>
 		</actuator>
 	
@@ -273,7 +273,7 @@
 		<actuator name="fcs-actual/aileron-r/surface-final-actuator">
 			<input>fcs-actual/aileron-r/surface-cmd-deg</input>
 			<rate_limit>fcs-actual/surface-rate</rate_limit>
-			<lag>20</lag>
+			<lag>10</lag>
 			<output>fcs-actual/aileron-r/surface-final-deg</output>
 		</actuator>
 	
@@ -315,6 +315,14 @@
 		<switch name="fcs-actual/elevator-l/rate-incr">
 			<default value="fcs-actual/surface-rate"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="80">
+				/systems/hydraulics/sys-l-psi ge 950
+				fcs-actual/elevator/pwr-active eq 1
+			</test>
+		</switch>
+		
+		<switch name="fcs-actual/elevator-l/lag">
+			<default value="10"/> <!-- For aerodynamically flown -->
+			<test logic="AND" value="20">
 				/systems/hydraulics/sys-l-psi ge 950
 				fcs-actual/elevator/pwr-active eq 1
 			</test>
@@ -370,13 +378,17 @@
 			<input>fcs-actual/elevator-l/surface-cmd-deg</input>
 			<rate_limit sense="incr">fcs-actual/elevator-l/rate-incr</rate_limit>
 			<rate_limit sense="decr">fcs-actual/surface-rate</rate_limit> <!-- Power only works downward! -->
-			<lag>20</lag>
-			<output>fcs-actual/elevator-l/surface-final-deg</output>
 		</actuator>
 		
+		<lag_filter name="fcs-actual/elevator-l/surface-final-lag">
+			<input>fcs-actual/elevator-l/surface-final-actuator</input>
+			<c1>fcs-actual/elevator-l/lag</c1>
+			<output>fcs-actual/elevator-l/surface-final-deg</output>
+		</lag_filter>
+		
 		<pure_gain name="fcs-actual/elevator-l/geared-tab-final-gain">
-			<input>-fcs-actual/elevator-l/surface-final-actuator</input>
-			<gain>1</gain>
+			<input>-fcs-actual/elevator-l/surface-final-lag</input>
+			<gain>1.0</gain>
 			<output>fcs-actual/elevator-l/geared-tab-final-deg</output>
 		</pure_gain>
 	
@@ -397,6 +409,14 @@
 		<switch name="fcs-actual/elevator-r/rate-incr">
 			<default value="fcs-actual/surface-rate"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="80"> <!-- Not a typo, left hydraulic on both -->
+				/systems/hydraulics/sys-l-psi ge 950
+				fcs-actual/elevator/pwr-active eq 1
+			</test>
+		</switch>
+		
+		<switch name="fcs-actual/elevator-r/lag">
+			<default value="10"/> <!-- For aerodynamically flown -->
+			<test logic="AND" value="20"> <!-- Not a typo, left hydraulic on both -->
 				/systems/hydraulics/sys-l-psi ge 950
 				fcs-actual/elevator/pwr-active eq 1
 			</test>
@@ -452,13 +472,17 @@
 			<input>fcs-actual/elevator-r/surface-cmd-deg</input>
 			<rate_limit sense="incr">fcs-actual/elevator-r/rate-incr</rate_limit>
 			<rate_limit sense="decr">fcs-actual/surface-rate</rate_limit> <!-- Power only works downward! -->
-			<lag>20</lag>
-			<output>fcs-actual/elevator-r/surface-final-deg</output>
 		</actuator>
 		
+		<lag_filter name="fcs-actual/elevator-r/surface-final-lag">
+			<input>fcs-actual/elevator-r/surface-final-actuator</input>
+			<c1>fcs-actual/elevator-r/lag</c1>
+			<output>fcs-actual/elevator-r/surface-final-deg</output>
+		</lag_filter>
+		
 		<pure_gain name="fcs-actual/elevator-r/geared-tab-final-gain">
-			<input>-fcs-actual/elevator-r/surface-final-actuator</input>
-			<gain>1</gain>
+			<input>-fcs-actual/elevator-r/surface-final-lag</input>
+			<gain>1.0</gain>
 			<output>fcs-actual/elevator-r/geared-tab-final-deg</output>
 		</pure_gain>
 	
@@ -571,12 +595,24 @@
 			</test>
 		</switch>
 		
+		<switch name="fcs-actual/rudder/lag">
+			<default value="10"/> <!-- For aerodynamically flown -->
+			<test logic="AND" value="20">
+				/systems/hydraulics/sys-r-psi ge 950
+				/controls/flight/rudder-pwr eq 1
+			</test>
+		</switch>
+		
 		<actuator name="fcs-actual/rudder/surface-final-actuator">
 			<input>fcs-actual/rudder/surface-cmd-deg</input>
 			<rate_limit>fcs-actual/rudder/rate</rate_limit>
-			<lag>20</lag>
-			<output>fcs-actual/rudder/surface-final-deg</output>
 		</actuator>
+		
+		<lag_filter name="fcs-actual/rudder/surface-final-lag">
+			<input>fcs-actual/rudder/surface-final-actuator</input>
+			<c1>fcs-actual/rudder/lag</c1>
+			<output>fcs-actual/rudder/surface-final-deg</output>
+		</lag_filter>
 	
 	</channel>
 	
