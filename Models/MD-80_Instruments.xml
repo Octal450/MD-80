@@ -260,9 +260,20 @@
 		<name>lighting_panel_L</name>
 		<path>Aircraft/MD-80/Models/Instruments/panel_lighting.xml</path>
 		<offsets>
-			<x-m>2.278</x-m>
-			<y-m>-0.881</y-m>
-			<z-m>0.636</z-m>
+			<x-m>2.26953</x-m>
+			<y-m>-0.865</y-m>
+			<z-m>0.66566</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>floorlight</name>
+		<path>Aircraft/MD-80/Models/Instruments/floor_light.xml</path>
+		<offsets>
+			<x-m>2.245</x-m>
+			<y-m>-0.837</y-m>
+			<z-m>0.769</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
@@ -271,9 +282,9 @@
 		<name>staticair</name>
 		<path>Aircraft/MD-80/Models/Instruments/staticair_panel.xml</path>
 		<offsets>
-			<x-m>2.265</x-m>
-			<y-m>-0.861</y-m>
-			<z-m>0.690</z-m>
+			<x-m>2.2561</x-m>
+			<y-m>-0.852</y-m>
+			<z-m>0.7152</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
@@ -795,9 +806,31 @@
 		<name>lighting_panel_R</name>
 		<path>Aircraft/MD-80/Models/Instruments/panel_lighting.xml</path>
 		<offsets>
-			<x-m>2.278</x-m>
-			<y-m>0.891</y-m>
-			<z-m>0.636</z-m>
+			<x-m>2.26953</x-m>
+			<y-m>0.86145</y-m>
+			<z-m>0.66566</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>floorlight_R</name>
+		<path>Aircraft/MD-80/Models/Instruments/floor_light.xml</path>
+		<offsets>
+			<x-m>2.245</x-m>
+			<y-m>0.79523</y-m>
+			<z-m>0.769</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>staticair_R</name>
+		<path>Aircraft/MD-80/Models/Instruments/staticair_panel.xml</path>
+		<offsets>
+			<x-m>2.2561</x-m>
+			<y-m>0.82515</y-m>
+			<z-m>0.7152</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>

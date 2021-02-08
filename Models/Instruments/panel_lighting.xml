@@ -8,8 +8,8 @@
   <object-name>KnobLtsPanel</object-name>
   <property>controls/lighting/main-integ-norm</property>
   <interpolation>
-    <entry><ind>0</ind><dep>-160</dep></entry>
-    <entry><ind>1</ind><dep>160</dep></entry>
+    <entry><ind>0</ind><dep>-145</dep></entry>
+    <entry><ind>1</ind><dep>145</dep></entry>
   </interpolation>
   <center>
     <x-m>0.00757</x-m>
@@ -60,8 +60,8 @@
   <object-name>KnobLtsDigital</object-name>
   <property>controls/lighting/main-digital-norm</property>
   <interpolation>
-    <entry><ind>0</ind><dep>-160</dep></entry>
-    <entry><ind>1</ind><dep>160</dep></entry>
+    <entry><ind>0</ind><dep>-145</dep></entry>
+    <entry><ind>1</ind><dep>145</dep></entry>
   </interpolation>
   <center>
     <x-m>0.00759</x-m>
