@@ -592,7 +592,7 @@
 				/controls/flight/flaps ge 0.36
 				/controls/flight/flaps lt 0.52
 			</test>
-			<test logic="AND" value="3"> <!-- 15/EXT -->
+			<test logic="AND" value="3"> <!-- Dial A Flap -->
 				/controls/flight/flaps ge 0.52
 				/controls/flight/flaps lt 0.68
 			</test>
@@ -605,12 +605,27 @@
 			</test>
 		</switch>
 		
+		<fcs_function name="/controls/flight/dial-a-flap-int">
+			<function>
+				<integer>
+					<sum>
+						<property>/controls/flight/dial-a-flap</property>
+						<value>0.5</value> <!-- Make the integer rounded correctly -->
+					</sum>
+				</integer>
+			</function>
+			<clipto>
+				<min>10</min>
+				<max>25</max>
+			</clipto>
+		</fcs_function>
+		
 		<switch name="/controls/flight/flaps-cmd">
 			<default value="0"/>
 			<test value="11">
 				/controls/flight/flaps-input eq 2
 			</test>
-			<test value="15"> 
+			<test value="/controls/flight/dial-a-flap-int"> 
 				/controls/flight/flaps-input eq 3
 			</test>
 			<test value="28">

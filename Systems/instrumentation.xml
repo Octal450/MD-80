@@ -23,11 +23,10 @@
 	</filter>
 	
 	<filter>
-		<name>Fast Slow Indicator</name>
+		<name>Fast Slow Indicator Input</name>
 		<type>gain</type>
-		<gain>-1.0</gain>
-		<input>/instrumentation/airspeed-indicator/indicated-speed-kt</input>
-		<reference>
+		<gain>1.0</gain>
+		<input>
 			<condition>
 				<equals>
 					<property>/it-autoflight/mode/vert</property>
@@ -35,8 +34,8 @@
 				</equals>
 			</condition>
 			<property>/it-autoflight/settings/togaspd</property>
-		</reference>
-		<reference>
+		</input>
+		<input>
 			<condition>
 				<and>
 					<equals>
@@ -58,8 +57,8 @@
 					<property>/it-autoflight/input/mach-flch</property>
 				</product>
 			</expression>
-		</reference>
-		<reference>
+		</input>
+		<input>
 			<condition>
 				<equals>
 					<property>/it-autoflight/output/vert</property>
@@ -67,8 +66,8 @@
 				</equals>
 			</condition>
 			<property>/it-autoflight/input/kts-flch</property>
-		</reference>
-		<reference>
+		</input>
+		<input>
 			<condition>
 				<equals>
 					<property>/it-autoflight/input/kts-mach</property>
@@ -84,8 +83,19 @@
 					<property>/it-autoflight/input/mach</property>
 				</product>
 			</expression>
-		</reference>
-		<reference>/it-autoflight/input/kts</reference>
+		</input>
+		<input>/it-autoflight/input/kts</input>
+		<output>/instrumentation/pfd/fast-slow-input</output>
+		<min>/fdm/jsbsim/dfgs/speeds/vmin</min>
+		<max>350</max> <!-- Fix later -->
+	</filter>
+	
+	<filter>
+		<name>Fast Slow Indicator Error</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>/instrumentation/pfd/fast-slow-input</input>
+		<reference>/instrumentation/airspeed-indicator/indicated-speed-kt</reference>
 		<output>/instrumentation/pfd/fast-slow-raw</output>
 		<min>-10</min>
 		<max>10</max>

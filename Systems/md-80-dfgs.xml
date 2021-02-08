@@ -40,6 +40,97 @@
 	
 	</channel>
 	
+	<channel name="Envelope Protection Calculations" execrate="8">
+		
+		<fcs_function name="dfgs/speeds/vss-kts"> <!-- From FCOM -->
+			<function>
+				<table>
+					<independentVar lookup="row">inertia/weight-lbs</independentVar>
+					<independentVar lookup="column">fcs/flap-pos-deg</independentVar>
+					<independentVar lookup="table">fcs/slat-pos-deg</independentVar>
+					<tableData breakPoint="0">
+						        0    11   15   28   40
+						 90000  132  122  119  112  106
+						 95000  136  125  123  116  109
+						100000  139  128  126  118  112
+						105000  143  132  129  122  114
+						110000  146  135  132  124  117
+						115000  149  138  135  127  120
+						120000  152  141  138  130  122
+						125000  156  143  141  133  125
+						130000  159  146  143  135  127
+						135000  162  149  146  138  130
+						140000  165  152  149  141  132
+						145000  168  155  152  143  135
+					</tableData>
+					<tableData breakPoint="31">
+						        0    11   15   28   40
+						 90000  104   98   96   92   89
+						 95000  107  101   99   94   92
+						100000  110  104  102   97   94
+						105000  112  106  104   99   96
+						110000  115  109  107  101   99
+						115000  117  111  109  104  101
+						120000  120  114  111  106  103
+						125000  122  116  113  108  105
+						130000  125  118  116  110  107
+						135000  127  120  118  112  109
+						140000  129  122  120  114  111
+						145000  132  124  122  116  113
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="dfgs/speeds/vss-roll-factor"> <!-- Not 100% sure the 80 does this, but I assume it does -->
+			<function>
+				<sqrt> <!-- Take the square root to get the factor -->
+					<quotient> <!-- Calculate neutral load factor from bank -->
+						<value>1</value>
+						<cos>
+							<toradians>
+								<property>/orientation/roll-deg</property>
+							</toradians>
+						</cos>
+					</quotient>
+				</sqrt>
+			</function>
+		</fcs_function>
+		
+		<pure_gain name="dfgs/speeds/vss">
+			<input>dfgs/speeds/vss-kts</input>
+			<gain>dfgs/speeds/vss-roll-factor</gain>
+		</pure_gain>
+		
+		<pure_gain name="dfgs/speeds/vmin">
+			<input>dfgs/speeds/vss-kts</input>
+			<gain>1.2</gain> <!-- 1.2Vstall -->
+			<clipto>
+				<min>dfgs/speeds/vss</min>
+				<max>100000</max>
+			</clipto>
+		</pure_gain>
+		
+		<fcs_function name="dfgs/speeds/vmin-mach">
+			<function>
+				<sum>
+					<product>
+						<quotient>
+							<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+							<max> <!-- Prevent divide by 0 -->
+								<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+								<value>0.0001</value>
+							</max>
+						</quotient>
+						<property>dfgs/speeds/vmin</property>
+					</product>
+					<value>0.005</value>
+				</sum>
+			</function>
+		</fcs_function>
+	
+	</channel>
+	
 	<channel name="Yaw Damper Logic">
 		
 		<switch name="dfgs/yaw/active">

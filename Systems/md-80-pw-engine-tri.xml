@@ -3,10 +3,11 @@
 <!-- McDonnell Douglas MD-80 JT8D-217A Engine/TRI -->
 <!-- Copyright (c) 2021 Josh Davidson (Octal450) -->
 
-<system name="MD-80: PW Engine/TRI"> <!-- Limits vs 98.7 -->
+<system name="MD-80: PW Engine/TRI">
 	
 	<property value="45">engine/limit/flex-temp</property>
 	<property value="30">engine/limit/rated-temp</property>
+	<property value="20000">engine/limit/rated-thrust</property>
 	<property value="1">engine/limit/idle</property>
 	<property value="1">engine/epr/c1</property> <!-- Done in property rule because its easier to tune -->
 	<property value="1">engine/epr/c2</property> <!-- Done in property rule because its easier to tune -->
@@ -56,14 +57,14 @@
 				<sum>
 					<product>
 						<property>propulsion/engine/IdleThrust</property>
-						<value>20000</value>
+						<property>engine/limit/rated-thrust</property>
 					</product>
 					<product>
 						<difference>
-							<value>20000</value>
+							<property>engine/limit/rated-thrust</property>
 							<product>
 								<property>propulsion/engine[0]/IdleThrust</property> <!-- It doesn't matter which engine, its same for all -->
-								<value>20000</value>
+								<property>engine/limit/rated-thrust</property>
 							</product>
 						</difference>
 						<property>engine/limit/milthrust-unmodified</property>
@@ -77,15 +78,15 @@
 				<sum>
 					<product>
 						<property>propulsion/engine[0]/IdleThrust</property> <!-- It doesn't matter which engine, its same for all -->
-						<value>20000</value>
+						<property>engine/limit/rated-thrust</property>
 					</product>
 					<product>
 						<product>
 							<difference>
-								<value>20000</value>
+								<property>engine/limit/rated-thrust</property>
 								<product>
 									<property>propulsion/engine[0]/IdleThrust</property> <!-- It doesn't matter which engine, its same for all -->
-									<value>20000</value>
+									<property>engine/limit/rated-thrust</property>
 								</product>
 							</difference>
 							<property>engine/limit/milthrust-unmodified</property>

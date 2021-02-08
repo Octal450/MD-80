@@ -445,7 +445,7 @@
 			<aileron-drives-tiller type="bool">0</aileron-drives-tiller>
 			<elevator-trim type="double">-0.35</elevator-trim>
 			<elevator-trim-lever type="int">0</elevator-trim-lever>
-			<dial-a-flap type="double">15</dial-a-flap> <!-- Rounded in md-11-fcc.xml -->
+			<dial-a-flap type="double">15</dial-a-flap> <!-- Rounded in md-80-fcs.xml -->
 			<rudder-pwr type="bool">1</rudder-pwr>
 			<speedbrake-arm type="bool">0</speedbrake-arm>
 		</flight>

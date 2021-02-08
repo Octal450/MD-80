@@ -15,6 +15,7 @@ var Controls = {
 	Flight: {
 		aileronDrivesTiller: props.globals.getNode("/controls/flight/aileron-drives-tiller"),
 		autoCoordination: props.globals.getNode("/controls/flight/auto-coordination", 1),
+		dialAFlap: props.globals.getNode("/controls/flight/dial-a-flap"),
 		elevatorTrim: props.globals.getNode("/controls/flight/elevator-trim"),
 		flaps: props.globals.getNode("/controls/flight/flaps"),
 		flapsTemp: 0,
@@ -43,6 +44,10 @@ var Controls = {
 var Fdm = {
 	JSBsim: {
 		Dfgs: {
+			Speeds: {
+				vmin: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin"),
+				vminMach: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin-mach"),
+			},
 			StickPusher: {
 				active: props.globals.getNode("/fdm/jsbsim/dfgs/stick-pusher/active"),
 			},

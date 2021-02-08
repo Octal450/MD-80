@@ -13,10 +13,13 @@
 		<output>/it-autoflight/internal/athr-kts-cmd</output>
 		<min>
 			<expression>
-				<difference>
-					<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-					<value>25</value>
-				</difference>
+				<max>
+					<property>/fdm/jsbsim/dfgs/speeds/vmin</property>
+					<difference>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						<value>25</value>
+					</difference>
+				</max>
 			</expression>
 		</min>
 		<max>
@@ -75,10 +78,13 @@
 		<output>/it-autoflight/internal/athr-mach-cmd</output>
 		<min>
 			<expression>
-				<difference>
-					<property>/instrumentation/airspeed-indicator/indicated-mach</property>
-					<value>0.045</value>
-				</difference>
+				<max>
+					<property>/fdm/jsbsim/dfgs/speeds/vmin-mach</property>
+					<difference>
+						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+						<value>0.045</value>
+					</difference>
+				</max>
 			</expression>
 		</min>
 		<max>

@@ -214,6 +214,7 @@ setlistener("/it-autoflight/input/alt-armed", func() {
 # Seperated the Autothrottle from ITAF because its very different from the ITAF base. So we do it here!
 var Athr = {
 	atsCmdRawPid: 0,
+	ktsMach: 0,
 	retard: 0,
 	triMode: 0,
 	loop: func() {
@@ -241,18 +242,25 @@ var Athr = {
 	},
 	modeZeroCheck: func() {
 		me.atsCmdRawPid = pts.Fdm.JSBsim.Engine.atsCmdRawPid.getValue();
-		if (me.atsCmdRawPid <= systems.TRI.Limit.idleNorm.getValue() + 0.005) {
+		me.ktsMach = Input.ktsMach.getBoolValue();
+		if (Input.mach.getValue() <= pts.Fdm.JSBsim.Dfgs.Speeds.vminMach.getValue() and me.ktsMach) {
+			Fma.thrA.setValue("ALFA");
+			Fma.thrB.setValue("SPD");
+		} else if (Input.kts.getValue() <= pts.Fdm.JSBsim.Dfgs.Speeds.vmin.getValue() and !me.ktsMach) {
+			Fma.thrA.setValue("ALFA");
+			Fma.thrB.setValue("SPD");
+		} else if (me.atsCmdRawPid <= systems.TRI.Limit.idleNorm.getValue() + 0.005) {
 			Fma.thrA.setValue("LOW");
 			Fma.thrB.setValue("LIM");
 		} else if (me.atsCmdRawPid >= systems.TRI.Limit.activeNorm.getValue() - 0.005) {
-			if (Input.ktsMach.getBoolValue()) {
+			if (me.ktsMach) {
 				Fma.thrA.setValue("MACH");
 			} else {
 				Fma.thrA.setValue("SPD");
 			}
 			Fma.thrB.setValue("ATL");
 		} else {
-			if (Input.ktsMach.getBoolValue()) {
+			if (me.ktsMach) {
 				Fma.thrA.setValue("MACH");
 				Fma.thrB.setValue(sprintf("%3.0f", dfgs.Input.mach.getValue() * 1000));
 			} else {
