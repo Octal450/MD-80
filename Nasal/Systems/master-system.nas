@@ -117,6 +117,27 @@ var FUEL = {
 	},
 };
 
+# Landing Gear
+var GEAR = {
+	Fail: {
+		leftActuator: props.globals.getNode("/systems/failures/gear/left-actuator"),
+		noseActuator: props.globals.getNode("/systems/failures/gear/nose-actuator"),
+		rightActuator: props.globals.getNode("/systems/failures/gear/right-actuator"),
+	},
+	Switch: {
+		brakeLeft: props.globals.getNode("/controls/gear/brake-left"),
+		brakeParking: props.globals.getNode("/controls/gear/brake-parking"),
+		brakeRight: props.globals.getNode("/controls/gear/brake-right"),
+		lever: props.globals.getNode("/controls/gear/lever"),
+		leverCockpit: props.globals.getNode("/controls/gear/lever-cockpit"),
+	},
+	resetFailures: func() {
+		me.Fail.leftActuator.setBoolValue(0);
+		me.Fail.noseActuator.setBoolValue(0);
+		me.Fail.rightActuator.setBoolValue(0);
+	},
+};
+
 # Hydraulics
 var HYD = {
 	Fail: {

@@ -106,39 +106,39 @@ controls.flapsDown = func(step) {
 var leverCockpit = 3;
 controls.gearDown = func(d) { # Requires a mod-up
 	pts.Fdm.JSBsim.Position.wowTemp = pts.Fdm.JSBsim.Position.wow.getBoolValue();
-	leverCockpit = pts.Controls.Gear.leverCockpit.getValue();
+	leverCockpit = systems.GEAR.Switch.leverCockpit.getValue();
 	if (d < 0) {
 		if (pts.Fdm.JSBsim.Position.wowTemp) {
 			if (leverCockpit == 3) {
-				pts.Controls.Gear.leverCockpit.setValue(2);
+				systems.GEAR.Switch.leverCockpit.setValue(2);
 			} else if (leverCockpit == 0) {
-				pts.Controls.Gear.leverCockpit.setValue(1);
+				systems.GEAR.Switch.leverCockpit.setValue(1);
 			}
 		} else {
-			pts.Controls.Gear.leverCockpit.setValue(0);
+			systems.GEAR.Switch.leverCockpit.setValue(0);
 		}
 	} else if (d > 0) {
 		if (pts.Fdm.JSBsim.Position.wowTemp) {
 			if (leverCockpit == 3) {
-				pts.Controls.Gear.leverCockpit.setValue(2);
+				systems.GEAR.Switch.leverCockpit.setValue(2);
 			} else if (leverCockpit == 0) {
-				pts.Controls.Gear.leverCockpit.setValue(1);
+				systems.GEAR.Switch.leverCockpit.setValue(1);
 			}
 		} else {
-			pts.Controls.Gear.leverCockpit.setValue(3);
+			systems.GEAR.Switch.leverCockpit.setValue(3);
 		}
 	} else {
 		if (leverCockpit == 2) {
-			pts.Controls.Gear.leverCockpit.setValue(3);
+			systems.GEAR.Switch.leverCockpit.setValue(3);
 		} else if (leverCockpit == 1) {
-			pts.Controls.Gear.leverCockpit.setValue(0);
+			systems.GEAR.Switch.leverCockpit.setValue(0);
 		}
 	}
 }
 
 controls.gearDownSmart = func(d) { # Used by cockpit, requires a mod-up
 	if (d) {
-		if (pts.Controls.Gear.leverCockpit.getValue() >= 2) {
+		if (systems.GEAR.Switch.leverCockpit.getValue() >= 2) {
 			controls.gearDown(-1);
 		} else {
 			controls.gearDown(1);
@@ -150,10 +150,10 @@ controls.gearDownSmart = func(d) { # Used by cockpit, requires a mod-up
 
 controls.gearToggle = func() {
 	if (!pts.Fdm.JSBsim.Position.wow.getBoolValue()) {
-		if (pts.Controls.Gear.leverCockpit.getValue() >= 2) {
-			pts.Controls.Gear.leverCockpit.setValue(0);
+		if (systems.GEAR.Switch.leverCockpit.getValue() >= 2) {
+			systems.GEAR.Switch.leverCockpit.setValue(0);
 		} else {
-			pts.Controls.Gear.leverCockpit.setValue(3);
+			systems.GEAR.Switch.leverCockpit.setValue(3);
 		}
 	}
 }
@@ -243,10 +243,10 @@ setlistener("/controls/flight/elevator-trim", func() {
 # Override FG's generic brake
 controls.applyBrakes = func(v, which = 0) { # No interpolate, that's bad, we will apply rate-limit in JSBsim
 	if (which <= 0) {
-		pts.Controls.Gear.brakeLeft.setValue(v);
+		systems.GEAR.Switch.brakeLeft.setValue(v);
 	}
 	if (which >= 0) {
-		pts.Controls.Gear.brakeRight.setValue(v);
+		systems.GEAR.Switch.brakeRight.setValue(v);
 	}
 }
 

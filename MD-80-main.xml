@@ -1263,6 +1263,11 @@
 				<pumps-l type="bool">0</pumps-l>
 				<pumps-r type="bool">0</pumps-r>
 			</fuel>
+			<gear n="0">
+				<left-actuator type="bool">0</left-actuator>
+				<nose-actuator type="bool">0</nose-actuator>
+				<right-actuator type="bool">0</right-actuator>
+			</gear>
 			<hydraulics n="0">
 				<aux-pump type="bool">0</aux-pump>
 				<l-pump type="bool">0</l-pump>

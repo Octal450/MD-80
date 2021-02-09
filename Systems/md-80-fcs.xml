@@ -776,13 +776,6 @@
 				/controls/gear/lever-cockpit le 1
 			</test>
 		</switch>
-		
-		<switch name="gear/gear-lever">
-			<default value="gear/gear-lever"/>
-			<test value="/controls/gear/lever">
-				position/wow eq 0
-			</test>
-		</switch>
 	
 	</channel>
 	
@@ -790,9 +783,12 @@
 		
 		<switch name="gear/unit[0]/rate-incr">
 			<default value="0"/>
-			<test logic="OR" value="1000">
+			<test logic="AND" value="1000">
 				/systems/acconfig/autoconfig-running eq 1
 				position/wow eq 1
+			</test>
+			<test value="0">
+				/systems/failures/gear/nose-actuator eq 1
 			</test>
 			<test value="0.2222222"> <!-- About 4.5 sec -->
 				/systems/hydraulics/sys-r-psi ge 950
@@ -805,9 +801,12 @@
 		
 		<switch name="gear/unit[0]/rate-decr">
 			<default value="0"/>
-			<test logic="OR" value="1000">
+			<test logic="AND" value="1000">
 				/systems/acconfig/autoconfig-running eq 1
 				position/wow eq 1
+			</test>
+			<test value="0">
+				/systems/failures/gear/nose-actuator eq 1
 			</test>
 			<test value="0.4"> <!-- About 2.5 sec -->
 				/systems/hydraulics/sys-r-psi ge 950
@@ -815,7 +814,7 @@
 		</switch>
 		
 		<actuator name="gear/unit[0]/pos-norm-actuator">
-			<input>gear/gear-lever</input>
+			<input>/controls/gear/lever</input>
 			<rate_limit sense="incr">gear/unit[0]/rate-incr</rate_limit>
 			<rate_limit sense="decr">gear/unit[0]/rate-decr</rate_limit>
 			<output>gear/unit[0]/pos-norm</output>
@@ -827,9 +826,12 @@
 		
 		<switch name="gear/unit[1]/rate-incr">
 			<default value="0"/>
-			<test logic="OR" value="1000">
+			<test logic="AND" value="1000">
 				/systems/acconfig/autoconfig-running eq 1
 				position/wow eq 1
+			</test>
+			<test value="0">
+				/systems/failures/gear/left-actuator eq 1
 			</test>
 			<test value="0.0740741"> <!-- About 13.5 sec -->
 				/systems/hydraulics/sys-r-psi ge 950
@@ -842,9 +844,12 @@
 		
 		<switch name="gear/unit[1]/rate-decr">
 			<default value="0"/>
-			<test logic="OR" value="1000">
+			<test logic="AND" value="1000">
 				/systems/acconfig/autoconfig-running eq 1
 				position/wow eq 1
+			</test>
+			<test value="0">
+				/systems/failures/gear/left-actuator eq 1
 			</test>
 			<test value="0.1111111"> <!-- About 9 sec -->
 				/systems/hydraulics/sys-r-psi ge 950
@@ -852,7 +857,7 @@
 		</switch>
 		
 		<actuator name="gear/unit[1]/pos-norm-actuator">
-			<input>gear/gear-lever</input>
+			<input>/controls/gear/lever</input>
 			<rate_limit sense="incr">gear/unit[1]/rate-incr</rate_limit>
 			<rate_limit sense="decr">gear/unit[1]/rate-decr</rate_limit>
 			<output>gear/unit[1]/pos-norm</output>
@@ -864,9 +869,12 @@
 		
 		<switch name="gear/unit[2]/rate-incr">
 			<default value="0"/>
-			<test logic="OR" value="1000">
+			<test logic="AND" value="1000">
 				/systems/acconfig/autoconfig-running eq 1
 				position/wow eq 1
+			</test>
+			<test value="0">
+				/systems/failures/gear/right-actuator eq 1
 			</test>
 			<test value="0.0769231"> <!-- About 13 sec -->
 				/systems/hydraulics/sys-r-psi ge 950
@@ -879,9 +887,12 @@
 		
 		<switch name="gear/unit[2]/rate-decr">
 			<default value="0"/>
-			<test logic="OR" value="1000">
+			<test logic="AND" value="1000">
 				/systems/acconfig/autoconfig-running eq 1
 				position/wow eq 1
+			</test>
+			<test value="0">
+				/systems/failures/gear/right-actuator eq 1
 			</test>
 			<test value="0.1052632"> <!-- About 9.5 sec -->
 				/systems/hydraulics/sys-r-psi ge 950
@@ -889,7 +900,7 @@
 		</switch>
 		
 		<actuator name="gear/unit[2]/pos-norm-actuator">
-			<input>gear/gear-lever</input>
+			<input>/controls/gear/lever</input>
 			<rate_limit sense="incr">gear/unit[2]/rate-incr</rate_limit>
 			<rate_limit sense="decr">gear/unit[2]/rate-decr</rate_limit>
 			<output>gear/unit[2]/pos-norm</output>
