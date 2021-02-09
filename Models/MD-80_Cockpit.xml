@@ -1230,6 +1230,7 @@
 		<type>rotate</type>
 		<object-name>YokeColL</object-name>
 		<object-name>YokeL</object-name>
+		<object-name>YokeL.001</object-name>
 		<object-name>YokeTrimL</object-name>
 		<object-name>apoff</object-name>
 		<property>fdm/jsbsim/fcs-actual/elevator-yoke</property>
@@ -1269,6 +1270,7 @@
 		<type>rotate</type>
 		<object-name>YokeColR</object-name>
 		<object-name>YokeR</object-name>
+		<object-name>YokeR.001</object-name>
 		<object-name>YokeTrimR</object-name>
 		<object-name>apoff2</object-name>
 		<property>fdm/jsbsim/fcs-actual/elevator-yoke</property>
