@@ -74,6 +74,13 @@
 							</script>
 						</binding>
 					</item>
+					<item>
+						<label>Toggle Keyboard Mode</label>
+						<binding>
+							<command>property-toggle</command>
+							<property>/systems/acconfig/options/keyboard-mode</property>
+						</binding>
+					</item>
 				</menu>
 				<menu n="102">
 					<label>FGCP/FMS</label>
