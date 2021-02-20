@@ -13,8 +13,8 @@
 			<expression>
 				<table>
 					<property>/velocities/airspeed-kt</property>
-					<entry><ind>130</ind><dep>1.6</dep></entry>
-					<entry><ind>360</ind><dep>2.8</dep></entry>
+					<entry><ind>130</ind><dep>1.3</dep></entry>
+					<entry><ind>360</ind><dep>2.5</dep></entry>
 				</table>
 			</expression>
 		</gain>
@@ -222,7 +222,7 @@
 		<name>System Command: Roll Rate Target</name>
 		<debug>false</debug>
 		<type>gain</type>
-		<gain>-0.84</gain>
+		<gain>-0.7</gain>
 		<input>/orientation/roll-deg</input>
 		<reference>/it-autoflight/internal/target-roll</reference>
 		<output>/it-autoflight/internal/roll-rate</output>
@@ -266,7 +266,7 @@
 					<table>
 						<property>/velocities/airspeed-kt</property>
 						<entry><ind>130</ind><dep>0.09</dep></entry>
-						<entry><ind>360</ind><dep>0.02</dep></entry>
+						<entry><ind>360</ind><dep>0.03</dep></entry>
 					</table>
 				</expression>
 			</Kp>

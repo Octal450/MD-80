@@ -19,13 +19,9 @@
 	<function name="N1SpoolUp">
 		<table>
 			<independentVar lookup="row">propulsion/engine[1]/n1</independentVar>
-			<tableData>
-				 28   4.4
-				 46  14.6
-				 68  23.1
-				 80  29.4
-				 94  32.1
-				103  35.4
+			<tableData> <!-- Bottlenecked by slow fuel control valve -->
+				 28   4.0
+				 46  13.1
 			</tableData>
 		</table>
 	</function>
@@ -33,13 +29,9 @@
 	<function name="N1SpoolDown">
 		<table>
 			<independentVar lookup="row">propulsion/engine[1]/n1</independentVar>
-			<tableData>
-				 28   4.4
-				 46  14.6
-				 68  23.1
-				 80  29.4
-				 94  32.1
-				103  35.4
+			<tableData> <!-- Bottlenecked by slow fuel control valve -->
+				 28   4.0
+				 46  13.1
 			</tableData>
 		</table>
 	</function>
@@ -47,13 +39,9 @@
 	<function name="N2SpoolUp"> <!-- N1 to N2 factor 0.617021276595744 -->
 		<table>
 			<independentVar lookup="row">propulsion/engine[1]/n1</independentVar>
-			<tableData>
-				 28   2.7
-				 46   9.0
-				 68  14.3
-				 80  18.1
-				 94  19.8
-				103  21.8
+			<tableData> <!-- Bottlenecked by slow fuel control valve -->
+				 28   2.5
+				 46   8.1
 			</tableData>
 		</table>
 	</function>
@@ -61,13 +49,9 @@
 	<function name="N2SpoolDown"> <!-- N1 to N2 factor 0.617021276595744 -->
 		<table>
 			<independentVar lookup="row">propulsion/engine[1]/n1</independentVar>
-			<tableData>
-				 28   2.7
-				 46   9.0
-				 68  14.3
-				 80  18.1
-				 94  19.8
-				103  21.8
+			<tableData> <!-- Bottlenecked by slow fuel control valve -->
+				 28   2.5
+				 46   8.1
 			</tableData>
 		</table>
 	</function>

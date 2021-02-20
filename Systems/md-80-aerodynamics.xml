@@ -50,6 +50,30 @@
 		</table>
 	</function>
 	
+	<function name="aero/function/kCmde"> <!-- Deel Stall -->
+		<description>Drag factor due to ground effect</description>
+		<table>
+			<independentVar lookup="row">aero/alpha-deg</independentVar>
+			<tableData>
+				16.2412  1.0
+				20.1657  0.1
+				31.2478  0.3
+			</tableData>
+		</table>
+	</function>
+	
+	<function name="aero/function/kCmdstab"> <!-- Deel Stall -->
+		<description>Drag factor due to ground effect</description>
+		<table>
+			<independentVar lookup="row">aero/alpha-deg</independentVar>
+			<tableData>
+				16.2412  1.0
+				20.1657  0.4
+				31.2478  0.6
+			</tableData>
+		</table>
+	</function>
+	
 	<axis name="LIFT">
 		
 		<function name="aero/coefficient/CLalpha">
@@ -584,6 +608,7 @@
 						 9.8677 -0.0851
 						11.3179 -0.1017
 						20.1549 -0.1727
+						45.4566  0.0154
 					</tableData>
 				</table>
 			</product>
@@ -637,6 +662,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
+				<property>aero/function/kCmde</property>
 				<toradians><property>fcs-actual/elevator-l/surface-final-deg</property></toradians>
 				<value>-0.21</value>
 			</product>
@@ -648,6 +674,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
+				<property>aero/function/kCmde</property>
 				<toradians><property>fcs-actual/elevator-r/surface-final-deg</property></toradians>
 				<value>-0.21</value>
 			</product>
@@ -659,6 +686,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
+				<property>aero/function/kCmdstab</property>
 				<toradians><property>fcs-actual/stabilizer/final-deg</property></toradians>
 				<value>-1.93</value>
 			</product>

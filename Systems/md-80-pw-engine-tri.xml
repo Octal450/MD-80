@@ -459,6 +459,72 @@
 			<rate_limit>1.25</rate_limit>
 			<lag>20</lag>
 		</actuator>
+		
+		<fcs_function name="engine/limit/idle-input">
+			<function>
+				<ifthen>
+					<eq>
+						<property>position/wow</property>
+						<value>0</value>
+					</eq>
+					<pow>
+						<table>
+							<independentVar lookup="row">velocities/mach</independentVar>
+							<independentVar lookup="column">/controls/flight/flaps-input</independentVar> <!-- Take advantage of table interpolation, values same -->
+							<independentVar lookup="table">/position/altitude-ft</independentVar>
+							<tableData breakPoint="0">
+								      0     1
+								0.21  30.7  30.7
+								0.70  42.7  42.7
+							</tableData>
+							<tableData breakPoint="43000">
+								      0     1
+								0.55  48.4  48.4
+								0.90  56.8  56.8
+							</tableData>
+						</table>
+						<value>3.5</value>
+					</pow>
+					<value>0</value>
+				</ifthen>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/idle-ref">
+			<function>
+				<sum>
+					<product>
+						<table>
+							<independentVar lookup="row">engine/limit/idle-input</independentVar>
+							<tableData>
+								   24743.1  0.00
+								   81455.7  0.03
+								10571289.8  1.00
+							</tableData>
+						</table>
+						<property>engine/epr/c1</property>
+					</product>
+					<property>engine/epr/c2</property>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/idle">
+			<function>
+				<quotient>
+					<integer>
+						<sum>
+							<product>
+								<property>engine/limit/idle-ref</property>
+								<value>1000</value>
+							</product>
+							<value>0.5</value> <!-- Make it round correctly -->
+						</sum>
+					</integer>
+					<value>1000</value>
+				</quotient>
+			</function>
+		</fcs_function>
 	
 	</channel>
 	

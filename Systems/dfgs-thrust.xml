@@ -333,15 +333,15 @@
 		<reference>/fdm/jsbsim/engine/ats-cmd-raw</reference>
 		<output>/fdm/jsbsim/engine/ats-cmd[0]</output>
 		<config>
-			<Kp>1.2</Kp>
-			<Ti>0.6</Ti>
+			<Kp>1.0</Kp>
+			<Ti>0.5</Ti>
 			<Td>0.0</Td>
 			<u_min>
 				<expression>
 					<max>
 						<difference>
 							<property>/fdm/jsbsim/engine/power-norm[0]</property>
-							<value>0.1</value>
+							<value>0.2</value>
 						</difference>
 						<value>0</value>
 					</max>
@@ -352,7 +352,7 @@
 					<min>
 						<sum>
 							<property>/fdm/jsbsim/engine/power-norm[0]</property>
-							<value>0.1</value>
+							<value>0.2</value>
 						</sum>
 						<value>1</value>
 					</min>
@@ -382,15 +382,15 @@
 		<reference>/fdm/jsbsim/engine/ats-cmd-raw</reference>
 		<output>/fdm/jsbsim/engine/ats-cmd[1]</output>
 		<config>
-			<Kp>1.2</Kp>
-			<Ti>0.6</Ti>
+			<Kp>1.0</Kp>
+			<Ti>0.5</Ti>
 			<Td>0.0</Td>
 			<u_min>
 				<expression>
 					<max>
 						<difference>
 							<property>/fdm/jsbsim/engine/power-norm[1]</property>
-							<value>0.1</value>
+							<value>0.2</value>
 						</difference>
 						<value>0</value>
 					</max>
@@ -401,7 +401,7 @@
 					<min>
 						<sum>
 							<property>/fdm/jsbsim/engine/power-norm[1]</property>
-							<value>0.1</value>
+							<value>0.2</value>
 						</sum>
 						<value>1</value>
 					</min>
@@ -485,7 +485,7 @@
 					</not-equals>
 				</and>
 			</condition>
-			<value>0.3</value>
+			<value>0.2</value>
 		</max-rate-of-change>
 		<max-rate-of-change>100</max-rate-of-change>
 	</filter>
@@ -548,7 +548,7 @@
 					</not-equals>
 				</and>
 			</condition>
-			<value>0.3</value>
+			<value>0.2</value>
 		</max-rate-of-change>
 		<max-rate-of-change>100</max-rate-of-change>
 	</filter>

@@ -455,7 +455,7 @@
 		</fctl>
 		<flight n="0">
 			<aileron-drives-tiller type="bool">0</aileron-drives-tiller>
-			<elevator-trim type="double">-0.35</elevator-trim>
+			<elevator-trim type="double">-0.32</elevator-trim>
 			<elevator-trim-lever type="int">0</elevator-trim-lever>
 			<dial-a-flap type="double">15</dial-a-flap> <!-- Rounded in md-80-fcs.xml -->
 			<rudder-pwr type="bool">1</rudder-pwr>
