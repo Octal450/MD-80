@@ -1163,28 +1163,9 @@
 
 <animation>
   <type>select</type>
-  <object-name>LampABS</object-name>
-  <condition>
-    <or>
-      <property>systems/autobrakes/armed</property>
-      <equals>
-        <property>controls/autobrakes/ABS-select</property>
-        <value>1</value>
-      </equals>
-    </or>
-  </condition>
-</animation>
-<animation>
-  <type>select</type>
   <object-name>LampABSon</object-name>
   <condition>
-    <and>
-      <not><property>systems/autobrakes/armed</property></not>
-      <not-equals>
-        <property>controls/autobrakes/ABS-select</property>
-        <value>1</value>
-      </not-equals>
-    </and>
+    <property>controls/switches/unused</property>
   </condition>
 </animation>
 	
@@ -1402,6 +1383,72 @@
 			<y2-m>-0.917095</y2-m>
 			<z2-m>0.64979</z2-m>
 		</axis>
+	</animation>
+	
+	<!-- No lights without power! -->
+	<animation>
+		<type>select</type>
+		<object-name>LampABSon</object-name>
+		<object-name>Slat.Auto</object-name>
+		<object-name>Slat.Disag</object-name>
+		<object-name>Slat.Land</object-name>
+		<object-name>Slat.Takeoff</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/outputs/efis</property>
+				<value>25</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Slat.Auto</object-name>
+		<condition>
+			<equals>
+				<property>controls/flight/slat-indicator</property>
+				<value>3</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Slat.Disag</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/flight/slat-indicator</property>
+					<value>2</value>
+				</equals>
+				<equals>
+					<property>controls/flight/slat-indicator</property>
+					<value>3</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Slat.Land</object-name>
+		<condition>
+			<equals>
+				<property>controls/flight/slat-indicator</property>
+				<value>4</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Slat.Takeoff</object-name>
+		<condition>
+			<equals>
+				<property>controls/flight/slat-indicator</property>
+				<value>1</value>
+			</equals>
+		</condition>
 	</animation>
 
 </PropertyList>
