@@ -1256,8 +1256,8 @@
 		<factor>90</factor>
 		<center>
 			<x-m>0</x-m>
-			<y-m>-0.500</y-m>
-			<z-m>0.8715</z-m>
+			<y-m>-0.5</y-m>
+			<z-m>0.8709</z-m>
 		</center>
 		<axis>
 			<x>-1.0</x>
@@ -1296,8 +1296,8 @@
 		<factor>90</factor>
 		<center>
 			<x-m>0.0</x-m>
-			<y-m>0.500</y-m>
-			<z-m>0.8715</z-m>
+			<y-m>0.5</y-m>
+			<z-m>0.8709</z-m>
 		</center>
 		<axis>
 			<x>-1.0</x>
