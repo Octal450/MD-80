@@ -1268,6 +1268,11 @@
 				<seperate-tiller-axis type="bool">0</seperate-tiller-axis>
 			</options>
 		</acconfig>
+		<caws n="0">
+			<landing-gear n="0">
+				<out type="double">0</out>
+			</landing-gear>
+		</caws>
 		<failures n="0">
 			<fuel n="0">
 				<pump-start type="bool">0</pump-start>

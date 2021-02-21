@@ -28,7 +28,7 @@
 			<table>
 				<independentVar lookup="row">aero/alpha-deg-norm</independentVar>
 				<tableData>
-					14  1.0
+					16  1.0
 					24  0.1
 				</tableData>
 			</table>

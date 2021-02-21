@@ -358,6 +358,30 @@
 	
 	</channel>
 	
+	<channel name="CAWS Sound Controller" execrate="16">
+		
+		<!-- Landing Gear Horn -->
+		<switch name="/systems/caws/landing-gear/trigger">
+			<default value="/systems/caws/landing-gear/trigger"/>
+			<test logic="OR" value="0">
+				/systems/electrical/outputs/mk-viii lt 25
+				/systems/caws/landing-gear/out eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/landing-gear/out eq 0
+				/systems/warnings/gear-warning eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/caws/landing-gear/actuator">
+			<input>/systems/caws/landing-gear/trigger</input>
+			<rate_limit sense="incr">0.35</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>/systems/caws/landing-gear/out</output>
+		</actuator>
+	
+	</channel>
+	
 	<channel name="Exterior Lights" execrate="8">
 		
 		<switch name="exterior-lights/nose-landing-light-cmd">
