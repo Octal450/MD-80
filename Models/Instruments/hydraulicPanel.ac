@@ -6,7 +6,7 @@ kids 5
 OBJECT poly
 name "auxHydSwitch"
 data 41
-instrument_brightness_ratio_manual[0].008
+auxHydSwitch
 crease 30.0
 texture "hydraulicPanel.png"
 texrep 1 1
@@ -647,7 +647,7 @@ kids 0
 OBJECT poly
 name "eng1HydSwitch"
 data 41
-instrument_brightness_ratio_manual[0].009
+eng1HydSwitch
 crease 30.0
 texture "hydraulicPanel.png"
 texrep 1 1
@@ -1288,7 +1288,7 @@ kids 0
 OBJECT poly
 name "eng2HydSwitch"
 data 41
-instrument_brightness_ratio_manual[0].007
+eng2HydSwitch
 crease 30.0
 texture "hydraulicPanel.png"
 texrep 1 1
@@ -3930,7 +3930,7 @@ kids 0
 OBJECT poly
 name "transHydSwitch"
 data 41
-instrument_brightness_ratio_manual[0].001
+transHydSwitch
 crease 30.0
 texture "hydraulicPanel.png"
 texrep 1 1
