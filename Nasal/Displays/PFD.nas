@@ -66,12 +66,16 @@ var canvasBase = {
 		me.aiScaleTrans = me["AI_scale"].createTransform();
 		me.aiScaleRot = me["AI_scale"].createTransform();
 		
+		me.fdVTrans = me["FD_v"].createTransform();
+		me.fdVRot = me["FD_v"].createTransform();
+		
 		me.page = canvasGroup;
 		
 		return me;
 	},
 	getKeys: func() {
-		return ["AI_center", "AI_background", "AI_scale", "AI_bank", "DH_below", "DH_pointer", "DH_set", "FD_pitch", "FD_roll", "ILS_group", "LOC_pointer", "LOC_scale", "LOC_no", "GS_pointer", "GS_scale", "GS_no", "FS_pointer", "FS_scale", "RA_bars", "RA_scale"];
+		return ["AI_background", "AI_bank", "AI_center", "AI_dual_cue", "AI_scale", "AI_scale_dc", "AI_single_cue", "DH_below", "DH_pointer", "DH_set", "FD_v", "FD_pitch", "FD_roll", "FS_pointer", "FS_scale", "GS_group", "GS_no", "GS_pointer", "GS_scale",
+		"ILS_group", "LOC_no", "LOC_pointer", "LOC_scale", "RA_bars", "RA_scale"];
 	},
 	setup: func() {
 		# Hide the pages by default
@@ -98,6 +102,20 @@ var canvasBase = {
 		}
 		
 		# AI
+		if (systems.DUController.flightDirector == "Dual Cue") {
+			me["AI_dual_cue"].show();
+			me["AI_scale_dc"].show();
+			me["AI_single_cue"].hide();
+			me["FS_scale"].setTranslation(0, 0);
+			me["GS_group"].setTranslation(0, 0);
+		} else {
+			me["AI_dual_cue"].hide();
+			me["AI_scale_dc"].hide();
+			me["AI_single_cue"].show();
+			me["FS_scale"].setTranslation(619.7825, 0);
+			me["GS_group"].setTranslation(-619.7825, 0);
+		}
+		
 		Value.Ai.pitch = pts.Orientation.pitchDeg.getValue();
 		Value.Ai.roll = pts.Orientation.rollDeg.getValue();
 		
@@ -160,12 +178,25 @@ var canvasPfd1 = {
 	},
 	update: func() {
 		if (dfgs.Output.fd1.getBoolValue()) {
-			me["FD_pitch"].show();
-			me["FD_roll"].show();
-			
-			me["FD_pitch"].setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
-			me["FD_roll"].setTranslation(dfgs.Fd.rollBar.getValue() * 2.6, 0);
+			if (systems.DUController.flightDirector == "Dual Cue") {
+				me["FD_v"].hide();
+				
+				me["FD_pitch"].setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
+				me["FD_roll"].setTranslation(dfgs.Fd.rollBar.getValue() * 2.6, 0);
+				
+				me["FD_pitch"].show();
+				me["FD_roll"].show();
+			} else {
+				me.fdVTrans.setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
+				me.fdVRot.setRotation(dfgs.Fd.rollBar.getValue() * D2R, me["AI_center"].getCenter());
+				
+				me["FD_v"].show();
+				
+				me["FD_pitch"].hide();
+				me["FD_roll"].hide();
+			}
 		} else {
+			me["FD_v"].hide();
 			me["FD_pitch"].hide();
 			me["FD_roll"].hide();
 		}
@@ -219,12 +250,25 @@ var canvasPfd2 = {
 	},
 	update: func() {
 		if (dfgs.Output.fd2.getBoolValue()) {
-			me["FD_pitch"].show();
-			me["FD_roll"].show();
-			
-			me["FD_pitch"].setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
-			me["FD_roll"].setTranslation(dfgs.Fd.rollBar.getValue() * 2.6, 0);
+			if (systems.DUController.flightDirector == "Dual Cue") {
+				me["FD_v"].hide();
+				
+				me["FD_pitch"].setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
+				me["FD_roll"].setTranslation(dfgs.Fd.rollBar.getValue() * 2.6, 0);
+				
+				me["FD_pitch"].show();
+				me["FD_roll"].show();
+			} else {
+				me.fdVTrans.setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
+				me.fdVRot.setRotation(dfgs.Fd.rollBar.getValue() * D2R, me["AI_center"].getCenter());
+				
+				me["FD_v"].show();
+				
+				me["FD_pitch"].hide();
+				me["FD_roll"].hide();
+			}
 		} else {
+			me["FD_v"].hide();
 			me["FD_pitch"].hide();
 			me["FD_roll"].hide();
 		}

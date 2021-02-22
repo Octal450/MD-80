@@ -49,36 +49,18 @@
 				</menu>
 				<menu n="101">
 					<label>System</label>
-					<item> <!-- Temporary in case you shut down by accident as VC startup doesn't work yet -->
-						<label>Magic Startup</label>
+					<item>
+						<label>Aircraft Config</label>
 						<binding>
-							<command>nasal</command>
-							<script>
-								setprop("/controls/fuel/switches/pump-aft-l", 1);
-								setprop("/controls/fuel/switches/pump-aft-r", 1);
-								setprop("/controls/fuel/switches/pump-fwd-l", 1);
-								setprop("/controls/fuel/switches/pump-fwd-r", 1);
-								setprop("/controls/hydraulics/switches/l-pump", 2);
-								setprop("/controls/hydraulics/switches/r-pump", 2);
-								setprop("/controls/lighting/main-digital-norm", 1);
-								settimer(func() {
-									setprop("/controls/engines/engine[0]/cutoff", 0);
-									setprop("/controls/engines/engine[1]/cutoff", 0);
-									setprop("/controls/engines/engine[0]/starter", 0);
-									setprop("/controls/engines/engine[1]/starter", 0);
-									setprop("/fdm/jsbsim/propulsion/set-running", 0);
-									setprop("/fdm/jsbsim/propulsion/set-running", 1);
-									setprop("/engines/engine[0]/state", 3);
-									setprop("/engines/engine[1]/state", 3);
-								}, 0.5);
-							</script>
+							<command>dialog-show</command>
+							<dialog-name>acconfig-main</dialog-name>
 						</binding>
 					</item>
 					<item>
-						<label>Toggle Keyboard Mode</label>
+						<label>About This Aircraft</label>
 						<binding>
-							<command>property-toggle</command>
-							<property>/systems/acconfig/options/keyboard-mode</property>
+							<command>dialog-show</command>
+							<dialog-name>acconfig-about</dialog-name>
 						</binding>
 					</item>
 				</menu>
@@ -139,7 +121,7 @@
 				</menu>
 			</default>
 		</menubar>
-		<minimum-fg-version>2019.2.0</minimum-fg-version>
+		<minimum-fg-version>2020.3.1</minimum-fg-version>
 		<model n="0">
 			<autopush>
 				<available type="int">1</available>
@@ -165,6 +147,7 @@
 				<position-norm type="double">0</position-norm>
 				<route>
 					<show type="bool"/>
+					<show-wingtip type="bool"/>
 				</route>
 				<steer-cmd-norm alias="/fdm/jsbsim/fcs-actual/tiller/autopush-cmd"/>
 				<stopping-distance-m type="float">5.0</stopping-distance-m>
@@ -659,6 +642,27 @@
 						<script>
 							setprop("/controls/switches/ats-lever1", 0);
 							setprop("/controls/switches/ats-lever2", 0);
+						</script>
+					</binding>
+				</mod-up>
+			</key>
+			<key n="7">
+				<name>CTRL-g</name>
+				<desc>Go Around</desc>
+				<binding>
+					<command>nasal</command>
+					<script>
+						setprop("/controls/switches/toga-btn1", 1);
+						setprop("/controls/switches/toga-btn2", 1);
+						libraries.apPanel.toga();
+					</script>
+				</binding>
+				<mod-up>
+					<binding>
+						<command>nasal</command>
+						<script>
+							setprop("/controls/switches/toga-btn1", 0);
+							setprop("/controls/switches/toga-btn2", 0);
 						</script>
 					</binding>
 				</mod-up>
@@ -1258,7 +1262,12 @@
 		<acconfig n="0">
 			<autoconfig-running type="bool">0</autoconfig-running>
 			<options n="0">
+				<autopush n="0">
+					<show-route type="bool">1</show-route>
+					<show-wingtip type="bool">1</show-wingtip>
+				</autopush>
 				<canvas-map-less-transparent type="bool">0</canvas-map-less-transparent>
+				<flight-director type="string">Single Cue</flight-director>
 				<keyboard-mode type="bool">0</keyboard-mode>
 				<map-less-transparent type="bool">0</map-less-transparent>
 				<du n="0">

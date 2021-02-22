@@ -172,6 +172,7 @@ var Systems = {
 	Acconfig: {
 		autoConfigRunning: props.globals.getNode("/systems/acconfig/autoconfig-running"),
 		Options: {
+			flightDirector: props.globals.getNode("/systems/acconfig/options/flight-director"),
 			Du: {
 				ndFps: props.globals.getNode("/systems/acconfig/options/du/nd-fps"),
 				pfdFps: props.globals.getNode("/systems/acconfig/options/du/pfd-fps"),
@@ -189,5 +190,3 @@ var Velocities = {
 };
 
 setprop("/systems/acconfig/property-tree-setup-loaded", 1);
-
-fgcommand("dialog-show", props.Node.new({"dialog-name": "system"}));

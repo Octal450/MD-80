@@ -3023,7 +3023,17 @@
     <y2-m>3.254</y2-m>
     <z2-m>0.524</z2-m>
   </axis>
-</animation> 
+</animation>
+
+	<model>
+		<name>Pushback</name>
+		<path>Aircraft/MD-80/Models/Services/Pushback/Douglas.xml</path>
+		<offsets>
+			<x-m>0.88649</x-m>
+			<y-m>0.0</y-m>
+			<z-m>-2.6</z-m>
+		</offsets>
+	</model>
 
 </PropertyList>
 

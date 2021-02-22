@@ -4,6 +4,7 @@
 
 var DUController = {
 	errorActive: 0,
+	flightDirector: "SINGLE CUE",
 	showNd1: props.globals.initNode("/instrumentation/nd/show-nd1", 0, "BOOL"),
 	showNd2: props.globals.initNode("/instrumentation/nd/show-nd2", 0, "BOOL"),
 	updatePfd1: 0,
@@ -30,6 +31,8 @@ var DUController = {
 		canvas_pfd.pfd2Error.update();
 	},
 	loop: func() {
+		me.flightDirector = pts.Systems.Acconfig.Options.flightDirector.getValue();
+		
 		if (pts.Options.panel.getValue() == "EFIS") {
 			if (!me.errorActive) {
 				#if (systems.ELEC.Bus.someBus.getValue() >= 110) {
