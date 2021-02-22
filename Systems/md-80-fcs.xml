@@ -695,15 +695,11 @@
 			<test value="100">
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
-			<test logic="OR" value="1.25">
+			<test logic="AND" value="2.5">
 				/systems/hydraulics/sys-l-psi ge 950
-				/systems/hydraulics/sys-r-psi lt 950
-			</test>
-			<test logic="OR" value="1.25">
-				/systems/hydraulics/sys-l-psi lt 950
 				/systems/hydraulics/sys-r-psi ge 950
 			</test>
-			<test logic="OR" value="2.5">
+			<test logic="OR" value="1.25">
 				/systems/hydraulics/sys-l-psi ge 950
 				/systems/hydraulics/sys-r-psi ge 950
 			</test>
@@ -737,15 +733,11 @@
 			<test value="100">
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
-			<test logic="AND" value="1">
+			<test logic="AND" value="2">
 				/systems/hydraulics/sys-l-psi ge 950
-				/systems/hydraulics/sys-r-psi lt 950
-			</test>
-			<test logic="AND" value="1">
-				/systems/hydraulics/sys-l-psi lt 950
 				/systems/hydraulics/sys-r-psi ge 950
 			</test>
-			<test logic="OR" value="2">
+			<test logic="OR" value="1">
 				/systems/hydraulics/sys-l-psi ge 950
 				/systems/hydraulics/sys-r-psi ge 950
 			</test>
