@@ -38,6 +38,13 @@
 			<gain>0.3048</gain>
 			<output>/position/gear-agl-m</output> <!-- So flight recorder can override it -->
 		</pure_gain>
+		
+		<actuator name="/gear/gear[0]/wow-timer">
+			<input>/gear/gear[0]/wow</input>
+			<rate_limit sense="incr">0.05</rate_limit> <!-- 20 seconds-->
+			<rate_limit sense="decr">1000</rate_limit>
+			<output>/gear/gear[0]/wow-timer-out</output>
+		</actuator>
 	
 	</channel>
 	

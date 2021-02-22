@@ -1233,14 +1233,10 @@
 		</tcas>
 	</instrumentation>
 	
-	<it-autoflight> <!-- Will be removed -->
+	<it-autoflight>
 		<output n="0">
 			<thr-mode type="int">0</thr-mode>
 		</output>
-		<settings>
-			<auto-bank-max-deg>30</auto-bank-max-deg> <!-- Maximum Auto Bank Limit -->
-			<togaspd>150</togaspd> <!-- V2 + 10kts -->
-		</settings>
 	</it-autoflight>
 	
 	<payload n="0">

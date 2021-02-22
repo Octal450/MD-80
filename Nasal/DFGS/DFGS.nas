@@ -40,6 +40,7 @@ var FPLN = {
 
 var Gear = {
 	wow0: props.globals.getNode("/gear/gear[0]/wow", 1),
+	wow0Timer: props.globals.getNode("/gear/gear[0]/wow-timer", 1),
 	wow1: props.globals.getNode("/gear/gear[1]/wow", 1),
 	wow1Temp: 1,
 	wow2: props.globals.getNode("/gear/gear[2]/wow", 1),
@@ -49,6 +50,8 @@ var Gear = {
 var Misc = {
 	efis0Trk: props.globals.getNode("/instrumentation/efis[0]/hdg-trk-selected", 1),
 	efis1Trk: props.globals.getNode("/instrumentation/efis[1]/hdg-trk-selected", 1),
+	flapDeg: props.globals.getNode("/fdm/jsbsim/fcs/flap-pos-deg", 1),
+	flapDegTemp: 0,
 };
 
 var Position = {
@@ -173,11 +176,6 @@ var Text = {
 	lat: props.globals.initNode("/it-autoflight/mode/lat", "HDG", "STRING"),
 	vert: props.globals.initNode("/it-autoflight/mode/vert", "V/S", "STRING"),
 	vertTemp: "V/S",
-};
-
-var Setting = {
-	autoBankMaxDeg: props.globals.getNode("/it-autoflight/settings/auto-bank-max-deg", 1),
-	togaSpd: props.globals.getNode("/it-autoflight/settings/togaspd", 1),
 };
 
 var Sound = {
@@ -590,12 +588,11 @@ var ITAF = {
 			me.updateApprArm(0);
 			Output.lat.setValue(4);
 			me.updateLatText("ALGN");
-		} else if (n == 5) { # T/O
+		} else if (n == 5) { # T/O or G/A, text is set by TOGA selector
 			me.updateLnavArm(0);
 			me.updateLocArm(0);
 			me.updateApprArm(0);
 			Output.lat.setValue(5);
-			me.updateLatText("T/O");
 		}
 	},
 	setVertMode: func(n) {
@@ -670,7 +667,7 @@ var ITAF = {
 			Internal.altCaptureActive = 0;
 			me.updateApprArm(0);
 			Output.vert.setValue(7);
-			Athr.setMode(3); # Clamp
+			Athr.setMode(2); # EPR Lim
 			Input.ktsMachFlch.setBoolValue(0);
 			me.updateAutoLand(0);
 		}
@@ -781,19 +778,21 @@ var ITAF = {
 	},
 	takeoffGoAround: func() {
 		Output.vertTemp = Output.vert.getValue();
-		if ((Output.vertTemp == 2 or Output.vertTemp == 6) and Velocities.indicatedAirspeedKt.getValue() >= 80) {
-			me.setLatMode(3);
+		Misc.flapDegTemp = Misc.flapDeg.getValue();
+		if (Gear.wow0Timer.getValue() < 1 and Output.vertTemp != 7 and Position.gearAglFt.getValue() < 1500 and Misc.flapDegTemp >= 25.9) {
+			systems.TRI.Limit.activeModeInt.setValue(1); # G/A
+			me.setLatMode(5);
+			me.updateLatText("G/A");
 			me.setVertMode(7); # Must be before kicking AP off
 			me.updateVertText("G/A CLB");
-			Input.ktsMachFlch.setBoolValue(0);
-			me.syncKtsGa();
 			if (Gear.wow1.getBoolValue() or Gear.wow2.getBoolValue()) {
 				me.ap1Master(0);
 				me.ap2Master(0);
 			}
-		} else if (Gear.wow1Temp or Gear.wow2Temp) {
+		} else if ((Gear.wow1Temp or Gear.wow2Temp) and Misc.flapDegTemp >= 4.9) {
 			if (Output.lat.getValue() != 5) { # Don't accidently disarm LNAV
 				me.setLatMode(5);
+				me.updateLatText("T/O");
 			}
 			me.setVertMode(7);
 			me.updateVertText("T/O CLB");
@@ -804,9 +803,6 @@ var ITAF = {
 	},
 	syncKtsFlch: func() {
 		Input.ktsFlch.setValue(math.clamp(math.round(Velocities.indicatedAirspeedKt.getValue()), 100, 350));
-	},
-	syncKtsGa: func() { # Same as syncKts, except doesn't go below TogaSpd
-		Input.kts.setValue(math.clamp(math.round(Velocities.indicatedAirspeedKt.getValue()), Setting.togaSpd.getValue(), 350));
 	},
 	syncMach: func() {
 		Input.mach.setValue(math.clamp(math.round(Velocities.indicatedMach.getValue(), 0.001), 0.5, 0.82));

@@ -29,11 +29,11 @@
 		<input>
 			<condition>
 				<equals>
-					<property>/it-autoflight/mode/vert</property>
-					<value>T/O CLB</value>
+					<property>/it-autoflight/output/vert</property>
+					<value>7</value>
 				</equals>
 			</condition>
-			<property>/it-autoflight/settings/togaspd</property>
+			<property>/fdm/jsbsim/dfgs/speeds/vss1_3</property>
 		</input>
 		<input>
 			<condition>

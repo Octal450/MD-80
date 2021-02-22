@@ -42,12 +42,15 @@ var updateFma = {
 		} else if (me.rollText == "ALGN") {
 			Fma.rollA.setValue("ALN");
 			Fma.rollB.setValue("");
-		} else if (me.rollText == "T/O") {
-			Fma.rollA.setValue("TAK");
-			Fma.rollB.setValue("OFF");
 		} else if (me.rollText == "RLOU") {
 			Fma.rollA.setValue("ROL");
 			Fma.rollB.setValue("OUT");
+		} else if (me.rollText == "T/O") {
+			Fma.rollA.setValue("TAK");
+			Fma.rollB.setValue("OFF");
+		} else if (me.rollText == "G/A") {
+			Fma.rollA.setValue("GO");
+			Fma.rollB.setValue("RND");
 		}
 	},
 	pitch: func() {
@@ -220,7 +223,7 @@ var Athr = {
 	loop: func() {
 		me.triMode = systems.TRI.Limit.activeModeInt.getValue();
 		Output.thrModeTemp = Output.thrMode.getValue();
-		me.retard = Output.athr.getBoolValue() and Output.vert.getValue() != 7 and pts.Position.gearAglFt.getValue() <= 50 and pts.SurfacePositions.flapPosNorm.getValue() >= 0.679 and me.triMode != 0 and me.triMode != 5;
+		me.retard = Output.athr.getBoolValue() and Output.vert.getValue() != 7 and pts.Position.gearAglFt.getValue() <= 50 and Misc.flapDeg.getValue() >= 27.9 and me.triMode != 0 and me.triMode != 5;
 		
 		if (Output.thrModeTemp == 0) { # Update it as the updateFma only does it once
 			me.modeZeroCheck();

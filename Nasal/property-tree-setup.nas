@@ -164,10 +164,6 @@ var Sim = {
 	},
 };
 
-var SurfacePositions = {
-	flapPosNorm: props.globals.getNode("/surface-positions/flap-pos-norm", 1)
-};
-
 var Systems = {
 	Acconfig: {
 		autoConfigRunning: props.globals.getNode("/systems/acconfig/autoconfig-running"),

@@ -89,7 +89,10 @@
 						<value>1</value>
 						<cos>
 							<toradians>
-								<property>/orientation/roll-deg</property>
+								<min>
+									<abs><property>/orientation/roll-deg</property></abs>
+									<value>45</value> <!-- Otherwise problems happen -->
+								</min>
 							</toradians>
 						</cos>
 					</quotient>
@@ -128,6 +131,15 @@
 				</sum>
 			</function>
 		</fcs_function>
+		
+		<pure_gain name="dfgs/speeds/vss1_3">
+			<input>dfgs/speeds/vss-kts</input>
+			<gain>1.3</gain> <!-- 1.3Vstall -->
+			<clipto>
+				<min>dfgs/speeds/vss</min>
+				<max>100000</max>
+			</clipto>
+		</pure_gain>
 	
 	</channel>
 	
