@@ -136,6 +136,7 @@ var Internal = {
 	driftAngle: props.globals.initNode("/it-autoflight/internal/drift-angle-deg", 0, "DOUBLE"),
 	flchActive: 0,
 	fpa: props.globals.initNode("/it-autoflight/internal/fpa", 0, "DOUBLE"),
+	goAround: 0, # 0 Off, 1 MAN G/A, 2 FD G/A, 3 AUT G/A
 	hdgErrorDeg: props.globals.initNode("/it-autoflight/internal/heading-error-deg", 0, "DOUBLE"),
 	hdgHldTarget: props.globals.initNode("/it-autoflight/internal/hdg-hld-target", 360, "INT"),
 	hdgPredicted: props.globals.initNode("/it-autoflight/internal/heading-predicted", 0, "DOUBLE"),
@@ -332,6 +333,27 @@ var ITAF = {
 				me.activateGs();
 			}
 		}
+		
+		# Go Around Arm
+		if (Gear.wow0Timer.getValue() < 1 and Output.vertTemp != 7 and Position.gearAglFtTemp < 1500 and Misc.flapDeg.getValue() >= 25.9) {
+			if (Output.ap1Temp or Output.ap2Temp) {
+				if (Internal.goAround != 3) {
+					Internal.goAround = 3;
+					updateFma.arm();
+				}
+			} else {
+				if (Internal.goAround != 2) {
+					Internal.goAround = 2;
+					updateFma.arm();
+				}
+			}
+		} else {
+			if (Internal.goAround != 0) {
+				Internal.goAround = 0;
+				updateFma.arm();
+			}
+		}
+		
 		
 		# Altitude Capture/Sync Logic
 		if (Output.vertTemp != 0) {

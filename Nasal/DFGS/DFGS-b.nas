@@ -103,18 +103,39 @@ var updateFma = {
 	arm: func() {
 		if (Input.autoLand.getBoolValue() and Text.vert.getValue() != "LAND") {
 			Fma.armA.setValue("LND");
+			me.altArm();
 		} else if (Output.apprArm.getBoolValue()) {
 			Fma.armA.setValue("ILS");
+			me.altArm();
 		} else if (Output.locArm.getBoolValue()) {
 			if (pts.Instrumentation.Nav.navLoc[Input.activeAp.getValue() - 1].getBoolValue()) {
 				Fma.armA.setValue("LOC");
 			} else {
 				Fma.armA.setValue("VOR");
 			}
+			me.altArm();
 		} else if (Output.lnavArm.getBoolValue()) {
 			Fma.armA.setValue("NAV");
+			me.altArm();
+		} else if (Internal.goAround == 3) {
+			Fma.armA.setValue("AUT");
+			Fma.armB.setValue("G/A");
+		} else if (Internal.goAround == 2) {
+			Fma.armA.setValue("F/D");
+			Fma.armB.setValue("G/A");
+		} else if (Internal.goAround == 1) {
+			Fma.armA.setValue("MAN");
+			Fma.armB.setValue("G/A");
 		} else {
 			Fma.armA.setValue("");
+			me.altArm();
+		}
+	},
+	altArm: func() {
+		if (Input.altArmed.getBoolValue()) {
+			Fma.armB.setValue("ALT");
+		} else {
+			Fma.armB.setValue("");
 		}
 	},
 	thr: func() {
@@ -206,12 +227,7 @@ setlistener("/instrumentation/nav[1]/nav-loc", func() {
 }, 0, 0);
 
 setlistener("/it-autoflight/input/alt-armed", func() {
-	# Arm of ALT
-	if (Input.altArmed.getBoolValue()) {
-		Fma.armB.setValue("ALT");
-	} else {
-		Fma.armB.setValue("");
-	}
+	updateFma.altArm();
 }, 0, 0);
 
 # Seperated the Autothrottle from ITAF because its very different from the ITAF base. So we do it here!
