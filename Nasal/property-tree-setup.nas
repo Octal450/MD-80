@@ -87,6 +87,11 @@ var Instrumentation = {
 	Hsi: {
 		slavedToGps: [props.globals.getNode("/instrumentation/hsi[0]/slaved-to-gps"), props.globals.getNode("/instrumentation/hsi[1]/slaved-to-gps")],
 	},
+	MarkerBeacon: {
+		inner: props.globals.getNode("/instrumentation/marker-beacon/inner"),
+		middle: props.globals.getNode("/instrumentation/marker-beacon/middle"),
+		outer: props.globals.getNode("/instrumentation/marker-beacon/outer"),
+	},
 	Nav: {
 		Frequencies: {
 			selectedMhzFmtX100: [props.globals.getNode("/instrumentation/nav[0]/frequencies/selected-mhz-fmt-x100"), props.globals.getNode("/instrumentation/nav[1]/frequencies/selected-mhz-fmt-x100")],

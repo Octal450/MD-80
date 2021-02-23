@@ -75,7 +75,7 @@ var canvasBase = {
 	},
 	getKeys: func() {
 		return ["AI_background", "AI_bank", "AI_center", "AI_dual_cue", "AI_scale", "AI_scale_dc", "AI_single_cue", "DH_below", "DH_pointer", "DH_set", "FD_v", "FD_pitch", "FD_roll", "FS_pointer", "FS_scale", "GS_group", "GS_no", "GS_pointer", "GS_scale",
-		"ILS_group", "LOC_no", "LOC_pointer", "LOC_scale", "RA_bars", "RA_scale"];
+		"ILS_group", "Inner_Marker", "LOC_no", "LOC_pointer", "LOC_scale", "Middle_Marker", "Outer_Marker", "RA_bars", "RA_scale"];
 	},
 	setup: func() {
 		# Hide the pages by default
@@ -128,6 +128,25 @@ var canvasBase = {
 		me.aiScaleRot.setRotation(-Value.Ai.roll * D2R, AICenter);
 		
 		me["AI_bank"].setRotation(-Value.Ai.roll * D2R);
+		
+		# Marker Beacons
+		if (pts.Instrumentation.MarkerBeacon.inner.getBoolValue()) {
+			me["Inner_Marker"].show();
+			me["Middle_Marker"].hide();
+			me["Outer_Marker"].hide();
+		} else if (pts.Instrumentation.MarkerBeacon.middle.getBoolValue()) {
+			me["Inner_Marker"].hide();
+			me["Middle_Marker"].show();
+			me["Outer_Marker"].hide();
+		} else if (pts.Instrumentation.MarkerBeacon.outer.getBoolValue()) {
+			me["Inner_Marker"].hide();
+			me["Middle_Marker"].hide();
+			me["Outer_Marker"].show();
+		} else {
+			me["Inner_Marker"].hide();
+			me["Middle_Marker"].hide();
+			me["Outer_Marker"].hide();
+		}
 		
 		# RA and DH
 		Value.Ra.agl = pts.Position.gearAglFt.getValue();
