@@ -305,9 +305,9 @@
 			<a>1.0</a>
 		</specular>
 		<attenuation>
-			<c>1.0</c>
-			<l>0.0018</l>
-			<q>0.000012</q>
+			<c>0.1</c>
+			<l>0.01</l>
+			<q>0.0</q>
 		</attenuation>
 		<spot-exponent>100.0</spot-exponent>
 		<spot-cutoff>25.0</spot-cutoff>
