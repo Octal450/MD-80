@@ -727,8 +727,30 @@
 			</test>
 		</switch>
 		
+		<fcs_function name="engine/control-1/throttle-weird">
+			<function>
+				<sum>
+					<property>engine/control-1/throttle-output</property>
+					<table>
+						<independentVar lookup="row">engine/control-1/throttle-output</independentVar>
+						<tableData>
+							0.0  0.007
+							0.2  0.014
+							0.5  0.010
+							0.8 -0.012
+							1.0 -0.007
+						</tableData>
+					</table>
+				</sum>
+			</function>
+			<clipto>
+				<min>0</min>
+				<max>1</max>
+			</clipto>
+		</fcs_function>
+		
 		<lag_filter name="engine/control-1/throttle-fdm">
-			<input>engine/control-1/throttle-output</input>
+			<input>engine/control-1/throttle-weird</input>
 			<c1>1.25</c1>
 			<output>fcs/throttle-pos-norm[0]</output>
 		</lag_filter>
@@ -752,8 +774,30 @@
 			</test>
 		</switch>
 		
+		<fcs_function name="engine/control-2/throttle-weird">
+			<function>
+				<sum>
+					<property>engine/control-2/throttle-output</property>
+					<table>
+						<independentVar lookup="row">engine/control-2/throttle-output</independentVar>
+						<tableData>
+							0.0  0.000
+							0.2 -0.014
+							0.5 -0.010
+							0.8  0.012
+							1.0 -0.000
+						</tableData>
+					</table>
+				</sum>
+			</function>
+			<clipto>
+				<min>0</min>
+				<max>1</max>
+			</clipto>
+		</fcs_function>
+		
 		<lag_filter name="engine/control-2/throttle-fdm">
-			<input>engine/control-2/throttle-output</input>
+			<input>engine/control-2/throttle-weird</input>
 			<c1>1.25</c1>
 			<output>fcs/throttle-pos-norm[1]</output>
 		</lag_filter>
