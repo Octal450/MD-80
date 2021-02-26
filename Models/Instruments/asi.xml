@@ -10,9 +10,10 @@
 	<animation>
 		<type>material</type>
 		<object-name>Face</object-name>
-		<object-name>Needle1</object-name>
+		<object-name>Needle.kts</object-name>
 		<object-name>Mach1</object-name>
 		<object-name>Mach2</object-name>
+		<object-name>Mach3</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.4</green>
@@ -23,14 +24,14 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>Needle1</object-name>
+		<object-name>Needle.kts</object-name>
 		<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
 		<interpolation>
-			<entry><ind>  0</ind><dep>  -9.5</dep></entry>
-			<entry><ind> 60</ind><dep>   0.0</dep></entry>
-			<entry><ind>250</ind><dep> 244.0</dep></entry>
-			<entry><ind>300</ind><dep> 265.5</dep></entry>
-			<entry><ind>450</ind><dep> 331.0</dep></entry>
+			<entry><ind> 42</ind><dep> -6.00</dep></entry>
+			<entry><ind> 60</ind><dep>  4.00</dep></entry>
+			<entry><ind> 70</ind><dep>  9.53</dep></entry>
+			<entry><ind>250</ind><dep>234.00</dep></entry>
+			<entry><ind>450</ind><dep>314.00</dep></entry>
 		</interpolation>
 		<axis>
 			<x>-1</x>
@@ -39,11 +40,11 @@
 		</axis>
 	</animation>
 	
-	<!--  Mach Digits -->
-	<animation>
+	<!--  TODO: Mach Digits -->
+	<!--animation>
 		<type>textranslate</type>
 		<object-name>Mach1</object-name>
-		<property>instrumentation/airspeed-indicator/indicated-mach-x1000</property>
+		<property>instrumentation/airspeed-indicator/indicated-mach</property>
 		<factor>0.01</factor>
 		<step>10</step>
 		<axis>
@@ -51,19 +52,6 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>Mach2</object-name>
-		<property>instrumentation/airspeed-indicator/indicated-mach-x1000</property>
-		<factor>0.1</factor>
-		<step>1</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
+	</animation-->
 
 </PropertyList>
