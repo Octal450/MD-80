@@ -140,6 +140,25 @@
 				<max>100000</max>
 			</clipto>
 		</pure_gain>
+		
+		<fcs_function name="dfgs/speeds/mmo-kts">
+			<function>
+				<product>
+					<quotient>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+					</quotient>
+					<value>0.84</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<switch name="dfgs/speeds/vmo-mmo">
+			<default value="340"/>
+			<test value="dfgs/speeds/mmo-kts">
+				dfgs/speeds/mmo-kts lt 340
+			</test>
+		</switch>
 	
 	</channel>
 	

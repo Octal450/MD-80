@@ -11,6 +11,7 @@
 		<type>material</type>
 		<object-name>Face</object-name>
 		<object-name>Needle.kts</object-name>
+		<object-name>Needle.vmo</object-name>
 		<object-name>Mach1</object-name>
 		<object-name>Mach2</object-name>
 		<object-name>Mach3</object-name>
@@ -26,6 +27,24 @@
 		<type>rotate</type>
 		<object-name>Needle.kts</object-name>
 		<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+		<interpolation>
+			<entry><ind> 42</ind><dep> -6.00</dep></entry>
+			<entry><ind> 60</ind><dep>  4.00</dep></entry>
+			<entry><ind> 70</ind><dep>  9.53</dep></entry>
+			<entry><ind>250</ind><dep>234.00</dep></entry>
+			<entry><ind>450</ind><dep>314.00</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle.vmo</object-name>
+		<property>fdm/jsbsim/dfgs/speeds/vmo-mmo</property>
 		<interpolation>
 			<entry><ind> 42</ind><dep> -6.00</dep></entry>
 			<entry><ind> 60</ind><dep>  4.00</dep></entry>

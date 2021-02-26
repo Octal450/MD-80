@@ -62,8 +62,8 @@ var apPanel = {
 				me.machTemp = math.round(dfgs.Input.mach.getValue() + (d * 0.001), (abs(d * 0.001))); # Kill floating point error
 				if (me.machTemp < 0.50) {
 					dfgs.Input.mach.setValue(0.50);
-				} else if (me.machTemp > 0.82) {
-					dfgs.Input.mach.setValue(0.82);
+				} else if (me.machTemp > 0.84) {
+					dfgs.Input.mach.setValue(0.84);
 				} else {
 					dfgs.Input.mach.setValue(me.machTemp);
 				}
@@ -71,8 +71,8 @@ var apPanel = {
 				me.ktsTemp = dfgs.Input.kts.getValue() + d;
 				if (me.ktsTemp < 100) {
 					dfgs.Input.kts.setValue(100);
-				} else if (me.ktsTemp > 350) {
-					dfgs.Input.kts.setValue(350);
+				} else if (me.ktsTemp > 340) {
+					dfgs.Input.kts.setValue(340);
 				} else {
 					dfgs.Input.kts.setValue(me.ktsTemp);
 				}
@@ -167,8 +167,8 @@ var apPanel = {
 					me.machFlchTemp = math.round(dfgs.Input.machFlch.getValue() + (d * -0.001), (abs(d * 0.001))); # Kill floating point error
 					if (me.machFlchTemp < 0.50) {
 						dfgs.Input.machFlch.setValue(0.50);
-					} else if (me.machFlchTemp > 0.82) {
-						dfgs.Input.machFlch.setValue(0.82);
+					} else if (me.machFlchTemp > 0.84) {
+						dfgs.Input.machFlch.setValue(0.84);
 					} else {
 						dfgs.Input.machFlch.setValue(me.machFlchTemp);
 					}
@@ -176,8 +176,8 @@ var apPanel = {
 					me.ktsFlchTemp = dfgs.Input.ktsFlch.getValue() + (d * -1);
 					if (me.ktsFlchTemp < 100) {
 						dfgs.Input.ktsFlch.setValue(100);
-					} else if (me.ktsFlchTemp > 350) {
-						dfgs.Input.ktsFlch.setValue(350);
+					} else if (me.ktsFlchTemp > 340) {
+						dfgs.Input.ktsFlch.setValue(340);
 					} else {
 						dfgs.Input.ktsFlch.setValue(me.ktsFlchTemp);
 					}

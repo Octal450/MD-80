@@ -538,11 +538,19 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<switch name="fcs-actual/rudder/pwr-active">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/hydraulics/sys-r-psi ge 950
+				/controls/flight/rudder-pwr eq 1
+			</test>
+		</switch>
+		
 		<fcs_function name="fcs-actual/rudder/control-tab-cmd-deg">
 			<function>
 				<ifthen>
 					<eq>
-						<property>/controls/flight/rudder-pwr</property>
+						<property>fcs-actual/rudder/pwr-active</property>
 						<value>1</value>
 					</eq>
 					<value>0</value> <!-- Tab locks -->
@@ -571,7 +579,7 @@
 			<function>
 				<ifthen>
 					<eq>
-						<property>/controls/flight/rudder-pwr</property>
+						<property>fcs-actual/rudder/pwr-active</property>
 						<value>1</value>
 					</eq>
 					<product> <!-- Hydraulic Mode -->
@@ -594,16 +602,14 @@
 		<switch name="fcs-actual/rudder/rate">
 			<default value="fcs-actual/rudder-rate"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="75">
-				/systems/hydraulics/sys-r-psi ge 950
-				/controls/flight/rudder-pwr eq 1
+				fcs-actual/rudder/pwr-active eq 1
 			</test>
 		</switch>
 		
 		<switch name="fcs-actual/rudder/lag">
 			<default value="10"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="20">
-				/systems/hydraulics/sys-r-psi ge 950
-				/controls/flight/rudder-pwr eq 1
+				fcs-actual/rudder/pwr-active eq 1
 			</test>
 		</switch>
 		
