@@ -22,6 +22,7 @@
 		<output>/instrumentation/du/crt-contrast</output>
 	</filter>
 	
+	<!-- PFD/AI -->
 	<filter>
 		<name>Fast Slow Indicator Input</name>
 		<type>gain</type>
@@ -87,7 +88,7 @@
 		<input>/it-autoflight/input/kts</input>
 		<output>/instrumentation/pfd/fast-slow-input</output>
 		<min>/fdm/jsbsim/dfgs/speeds/vmin</min>
-		<max>350</max> <!-- Fix later -->
+		<max>/fdm/jsbsim/dfgs/speeds/vmo-mmo</max>
 	</filter>
 	
 	<filter>
@@ -129,26 +130,41 @@
 		<filter-time>0.16</filter-time>
 	</filter>
 	
+	<!-- ASI -->
 	<filter>
-		<name>Mach x1000 Indicator</name>
+		<name>ASI Speed Bug Input</name>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input> <!-- Fix when you add 3 digits to the ASI, right now only 2 -->
+		<input>
+			<condition>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>1</value>
+				</equals>
+			</condition>
 			<expression>
-				<floor>
-					<sum>
-						<product>
-							<property>/instrumentation/airspeed-indicator/indicated-mach</property>
-							<value>100</value>
-						</product>
-						<value>0.5</value>
-					</sum>
-				</floor>
+				<product>
+					<div>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+					</div>
+					<property>/it-autoflight/input/mach</property>
+				</product>
 			</expression>
 		</input>
-		<output>/instrumentation/airspeed-indicator/indicated-mach-x1000</output>
+		<input>/it-autoflight/input/kts</input>
+		<output>/instrumentation/airspeed-indicator/bug-kts-raw</output>
 	</filter>
 	
+	<filter>
+		<name>ASI Speed Bug Lag</name>
+		<type>exponential</type>
+		<input>/instrumentation/airspeed-indicator/bug-kts-raw</input>
+		<output>/instrumentation/airspeed-indicator/bug-kts</output>
+		<filter-time>0.05</filter-time>
+	</filter>
+	
+	<!-- FGCP -->
 	<filter>
 		<name>NAV1 x100</name>
 		<type>gain</type>

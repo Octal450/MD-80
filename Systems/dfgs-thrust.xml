@@ -24,10 +24,13 @@
 		</min>
 		<max>
 			<expression>
-				<sum>
-					<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-					<value>25</value>
-				</sum>
+				<max>
+					<property>/fdm/jsbsim/dfgs/speeds/vmo-mmo</property>
+					<sum>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						<value>25</value>
+					</sum>
+				</max>
 			</expression>
 		</max>
 	</filter>
@@ -89,10 +92,13 @@
 		</min>
 		<max>
 			<expression>
-				<sum>
-					<property>/instrumentation/airspeed-indicator/indicated-mach</property>
-					<value>0.045</value>
-				</sum>
+				<max>
+					<value>0.84</value>
+					<sum>
+						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+						<value>0.045</value>
+					</sum>
+				</max>
 			</expression>
 		</max>
 	</filter>

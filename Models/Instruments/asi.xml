@@ -9,12 +9,7 @@
 	
 	<animation>
 		<type>material</type>
-		<object-name>Face</object-name>
-		<object-name>Needle.kts</object-name>
-		<object-name>Needle.vmo</object-name>
-		<object-name>Mach1</object-name>
-		<object-name>Mach2</object-name>
-		<object-name>Mach3</object-name>
+		<object-name>LightingGroup</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.4</green>
@@ -59,18 +54,61 @@
 		</axis>
 	</animation>
 	
-	<!--  TODO: Mach Digits -->
-	<!--animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>Bug.kts</object-name>
+		<property>instrumentation/airspeed-indicator/bug-kts</property>
+		<interpolation>
+			<entry><ind> 42</ind><dep> -6.00</dep></entry>
+			<entry><ind> 60</ind><dep>  4.00</dep></entry>
+			<entry><ind> 70</ind><dep>  9.53</dep></entry>
+			<entry><ind>250</ind><dep>234.00</dep></entry>
+			<entry><ind>450</ind><dep>314.00</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
 		<type>textranslate</type>
 		<object-name>Mach1</object-name>
-		<property>instrumentation/airspeed-indicator/indicated-mach</property>
-		<factor>0.01</factor>
-		<step>10</step>
+		<property>instrumentation/airspeed-indicator/indicated-mach-d100</property>
+		<factor>0.0695</factor>
+		<step>1</step>
 		<axis>
 			<x>0</x>
 			<y>1</y>
 			<z>0</z>
 		</axis>
-	</animation-->
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>Mach2</object-name>
+		<property>instrumentation/airspeed-indicator/indicated-mach-d10</property>
+		<factor>0.0695</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>Mach3</object-name>
+		<property>instrumentation/airspeed-indicator/indicated-mach-d1</property>
+		<factor>0.0695</factor>
+		<step>0.01</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
 </PropertyList>

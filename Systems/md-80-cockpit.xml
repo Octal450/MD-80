@@ -73,6 +73,66 @@
 	
 	<channel name="Gauge Extras" execrate="4">
 		
+		<!-- ASI -->
+		<fcs_function name="/instrumentation/airspeed-indicator/indicated-mach-input">
+			<function>
+				<sum>
+					<product>
+						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+						<value>1000</value>
+					</product>
+					<value>0.5</value>
+				</sum>
+			</function>
+			<clipto>
+				<min>149</min>
+				<max>999</max>
+			</clipto>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/airspeed-indicator/indicated-mach-d100">
+			<function>
+				<integer>
+					<quotient>
+						<property>/instrumentation/airspeed-indicator/indicated-mach-input</property>
+						<value>100</value>
+					</quotient>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/airspeed-indicator/indicated-mach-d10">
+			<function>
+				<integer>
+					<product>
+						<fraction>
+							<quotient>
+								<property>/instrumentation/airspeed-indicator/indicated-mach-input</property>
+								<value>100</value>
+							</quotient>
+						</fraction>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/airspeed-indicator/indicated-mach-d1">
+			<function>
+				<integer>
+					<product>
+						<fraction>
+							<quotient>
+								<property>/instrumentation/airspeed-indicator/indicated-mach-input</property>
+								<value>10</value>
+							</quotient>
+						</fraction>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+		
 		<!-- EPR Gauges -->
 		<fcs_function name="engine/gauge/epr-actual-1-fixed">
 			<function>
