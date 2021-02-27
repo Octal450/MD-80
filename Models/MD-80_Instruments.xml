@@ -240,6 +240,17 @@
 	</model>
 	
 	<model>
+		<name>stbyasi</name>
+		<path>Aircraft/MD-80/Models/Instruments/stbyasi.xml</path>
+		<offsets>
+			<x-m>2.248</x-m>
+			<y-m>-0.295</y-m>
+			<z-m>0.765</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
 		<name>marker_beacons</name>
 		<path>Aircraft/MD-80/Models/Instruments/marker_beacons.xml</path>
 		<condition>
@@ -695,7 +706,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/clock.xml</path>
 		<offsets>
 			<x-m>2.248</x-m>
-			<y-m>0.74</y-m>
+			<y-m>0.732</y-m>
 			<z-m>0.765</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>

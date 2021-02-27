@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
+<!-- Copyright (c) 2021 Josh Davidson (Octal450) -->
+
+<PropertyList>
+	
+	<path>stbyasi.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>Needle</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>0.4</green>
+			<blue>0.1</blue>
+			<factor-prop>controls/lighting/main-integ-norm</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle</object-name>
+		<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+		<interpolation>
+			<entry><ind> 42</ind><dep>-10</dep></entry>
+			<entry><ind> 60</ind><dep>  0</dep></entry>
+			<entry><ind>120</ind><dep> 90</dep></entry>
+			<entry><ind>200</ind><dep>180</dep></entry>
+			<entry><ind>300</ind><dep>255</dep></entry>
+			<entry><ind>350</ind><dep>285</dep></entry>
+			<entry><ind>450</ind><dep>332</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+</PropertyList>
