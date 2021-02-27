@@ -7,25 +7,68 @@
 	
 	<property value="45">engine/limit/flex-temp</property>
 	<property value="30">engine/limit/rated-temp</property>
-	<property value="20000">engine/limit/rated-thrust</property>
 	<property value="1">engine/limit/idle</property>
 	<property value="1">engine/epr/c1</property> <!-- Done in property rule because its easier to tune -->
 	<property value="1">engine/epr/c2</property> <!-- Done in property rule because its easier to tune -->
 	
 	<channel name="Thrust Limits">
 		
-		<fcs_function name="engine/limit/rated-thrust-n1"> <!-- Vs 98.7 -->
+		<fcs_function name="engine/limit/rated-thrust-epr"> <!-- From FCOM + Extrapolation -->
 			<function>
 				<table>
-					<independentVar lookup="row">/position/altitude-ft</independentVar>
-					<independentVar lookup="column">propulsion/tat-c</independentVar>
+					<independentVar lookup="row">propulsion/tat-c</independentVar>
+					<independentVar lookup="column">/position/altitude-ft</independentVar>
 					<tableData>
-						      -60   -30    0     30    60
-						    0  83.2  86.7  90.0  94.2  98.4
-						10000  87.1  89.3  93.9  95.1  99.5
-						43000  87.1  87.4  90.9  95.3  99.7
+						     0     1000  2000  3000  4000  5000  6000  7000  10000
+						-50  1.93  1.96  1.98  2.00  2.02  2.04  2.04  2.04  2.07
+						 22  1.93  1.96  1.98  2.00  2.01  2.01  2.01  2.01  2.02
+						 24  1.93  1.96  1.98  2.00  2.00  2.00  2.00  2.00  2.00
+						 26  1.93  1.96  1.98  1.99  1.98  1.98  1.98  1.98  1.98
+						 28  1.93  1.96  1.97  1.97  1.97  1.97  1.97  1.97  1.97
+						 30  1.93  1.95  1.95  1.95  1.95  1.95  1.95  1.95  1.95
+						 32  1.91  1.93  1.93  1.93  1.93  1.93  1.93  1.93  1.93
+						 34  1.89  1.91  1.91  1.90  1.90  1.90  1.30  1.90  1.90
+						 36  1.88  1.88  1.88  1.88  1.88  1.88  1.88  1.88  1.88
+						 38  1.86  1.86  1.86  1.86  1.86  1.86  1.86  1.86  1.86
+						 40  1.85  1.84  1.84  1.84  1.84  1.84  1.84  1.84  1.84
+						 42  1.83  1.83  1.83  1.83  1.83  1.83  1.83  1.83  1.83
+						 44  1.81  1.81  1.81  1.81  1.81  1.81  1.81  1.81  1.81
 					</tableData>
 				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/rated-thrust-ref"> <!-- Opposite of EPR Calc -->
+			<function>
+				<quotient>
+					<difference>
+						<property>engine/limit/rated-thrust-epr</property>
+						<property>engine/epr/c2</property>
+					</difference>
+					<max> <!-- Prevent divide by 0 -->
+						<property>engine/epr/c1</property>
+						<value>0.001</value>
+					</max>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/rated-thrust-n1"> <!-- Opposite of EPR Calc -->
+			<function>
+				<pow>
+					<table>
+						<independentVar lookup="row">engine/limit/rated-thrust-ref</independentVar>
+						<tableData>
+							0.00     24743.1
+							0.03     81455.7
+							1.00  10571289.8
+						</tableData>
+					</table>
+					<quotient>
+						<value>1</value>
+						<value>3.5</value>
+					</quotient>
+				</pow>
 			</function>
 		</fcs_function>
 		
@@ -126,40 +169,30 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/limit/go-around-input"> <!-- Vs 98.7 -->
+		<fcs_function name="engine/limit/go-around-ref"> <!-- From FCOM -->
 			<function>
-				<pow>
-					<table>
-						<independentVar lookup="row">/position/altitude-ft</independentVar>
-						<independentVar lookup="column">propulsion/tat-c</independentVar>
-						<tableData>
-							      -60   -30    0     30    60
-							    0  84.2  87.7  91.0  95.2  90.8
-							10000  88.1  90.3  94.9  96.1  92.4
-							43000  88.1  88.4  91.9  96.3  94.4
-						</tableData>
-					</table>
-					<value>3.5</value>
-				</pow>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="engine/limit/go-around-ref">
-			<function>
-				<sum>
-					<product>
-						<table>
-							<independentVar lookup="row">engine/limit/go-around-input</independentVar>
-							<tableData>
-								   24743.1  0.00
-								   81455.7  0.03
-								10571289.8  1.00
-							</tableData>
-						</table>
-						<property>engine/epr/c1</property>
-					</product>
-					<property>engine/epr/c2</property>
-				</sum>
+				<table>
+					<independentVar lookup="row">propulsion/tat-c</independentVar>
+					<independentVar lookup="column">/position/altitude-ft</independentVar>
+					<tableData>
+						     0     1000  2000  3000  4000  5000  8000
+						-50  1.96  1.97  2.00  2.02  2.04  2.06  2.06
+						 20  1.96  1.97  2.00  2.02  2.04  2.06  2.06
+						 22  1.96  1.97  2.00  2.02  2.04  2.05  2.05
+						 24  1.96  1.97  2.00  2.02  2.04  2.04  2.04
+						 26  1.96  1.97  2.00  2.02  2.03  2.03  2.03
+						 28  1.96  1.97  2.00  2.02  2.02  2.01  2.01
+						 30  1.96  1.97  2.00  2.00  2.00  2.00  2.00
+						 32  1.96  1.97  1.98  1.98  1.98  1.98  1.98
+						 34  1.95  1.96  1.96  1.96  1.96  1.96  1.95
+						 36  1.93  1.94  1.94  1.93  1.93  1.93  1.93
+						 38  1.92  1.92  1.92  1.92  1.91  1.91  1.91
+						 40  1.90  1.90  1.90  1.90  1.90  1.90  1.90
+						 42  1.89  1.89  1.89  1.88  1.88  1.88  1.88
+						 44  1.87  1.87  1.87  1.87  1.87  1.87  1.87
+						 46  1.86  1.86  1.86  1.85  1.85  1.85  1.85
+					</tableData>
+				</table>
 			</function>
 		</fcs_function>
 		
@@ -180,73 +213,61 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/limit/takeoff-input">
+		<fcs_function name="engine/limit/takeoff-ref"> <!-- From FCOM -->
 			<function>
-				<pow>
-					<table>
-						<independentVar lookup="row">/position/altitude-ft</independentVar>
-						<independentVar lookup="column">propulsion/tat-c</independentVar>
-						<tableData>
-							      -60   -30    0     30    60
-							    0  83.2  86.7  90.0  94.2  89.8
-							10000  87.1  89.3  93.9  95.1  91.4
-							43000  87.1  87.4  90.9  95.3  93.4
-						</tableData>
-					</table>
-					<value>3.5</value>
-				</pow>
+				<table>
+					<independentVar lookup="row">propulsion/tat-c</independentVar>
+					<independentVar lookup="column">/position/altitude-ft</independentVar>
+					<tableData>
+						     0     1000  2000  3000  4000  5000  6000  7000
+						-50  1.93  1.96  1.98  2.00  2.02  2.04  2.04  2.04
+						 22  1.93  1.96  1.98  2.00  2.01  2.01  2.01  2.01
+						 24  1.93  1.96  1.98  2.00  2.00  2.00  2.00  2.00
+						 26  1.93  1.96  1.98  1.99  1.98  1.98  1.98  1.98
+						 28  1.93  1.96  1.97  1.97  1.97  1.97  1.97  1.97
+						 30  1.93  1.95  1.95  1.95  1.95  1.95  1.95  1.95
+						 32  1.91  1.93  1.93  1.93  1.93  1.93  1.93  1.93
+						 34  1.89  1.91  1.91  1.90  1.90  1.90  1.30  1.90
+						 36  1.88  1.88  1.88  1.88  1.88  1.88  1.88  1.88
+						 38  1.86  1.86  1.86  1.86  1.86  1.86  1.86  1.86
+						 40  1.85  1.84  1.84  1.84  1.84  1.84  1.84  1.84
+						 42  1.83  1.83  1.83  1.83  1.83  1.83  1.83  1.83
+						 44  1.81  1.81  1.81  1.81  1.81  1.81  1.81  1.81
+					</tableData>
+				</table>
 			</function>
 		</fcs_function>
 		
-		<summer name="engine/limit/flex-temp-input"> <!-- (Rated - Flex) + TAT -->
-			<input>engine/limit/rated-temp</input>
-			<input>-engine/limit/flex-temp</input>
-			<input>propulsion/tat-c</input>
-		</summer>
-
-		<fcs_function name="engine/limit/takeoff-flex-input">
+		<fcs_function name="engine/limit/takeoff-flex-ref"> <!-- From FCOM -->
 			<function>
-				<pow>
-					<table>
-						<independentVar lookup="row">/position/altitude-ft</independentVar>
-						<independentVar lookup="column">engine/limit/flex-temp-input</independentVar>
-						<tableData>
-							      -60   -30    0     30    60
-							    0  83.2  86.7  90.0  94.2  89.8
-							10000  87.1  89.3  93.9  95.1  91.4
-							43000  87.1  87.4  90.9  95.3  93.4
-						</tableData>
-					</table>
-					<value>3.5</value>
-				</pow>
+				<table>
+					<independentVar lookup="row">engine/limit/flex-temp</independentVar>
+					<independentVar lookup="column">/position/altitude-ft</independentVar>
+					<tableData>
+						    0     1000  2000  3000  4000  5000
+						25  1.93  1.98  2.01  2.01  2.01  2.01
+						27  1.93  1.98  1.99  1.99  1.99  1.99
+						30  1.93  1.98  1.98  1.98  1.97  1.97
+						32  1.93  1.96  1.96  1.96  1.96  1.96
+						34  1.93  1.94  1.94  1.94  1.94  1.94
+						36  1.93  1.93  1.93  1.93  1.92  1.92
+						38  1.91  1.91  1.91  1.91  1.91  1.91
+						41  1.89  1.89  1.89  1.89  1.89  1.89
+						43  1.88  1.88  1.88  1.88  1.87  1.87
+						45  1.86  1.86  1.86  1.86  1.86  1.86
+						47  1.84  1.84  1.84  1.84  1.84  1.84
+						50  1.82  1.82  1.82  1.82  1.82  1.82
+					</tableData>
+				</table>
 			</function>
 		</fcs_function>
 		
-		<switch name="engine/limit/takeoff-final-input">
-			<default value="engine/limit/takeoff-input"/>
-			<test value="engine/limit/takeoff-flex-input">
+		<switch name="engine/limit/takeoff-final-ref">
+			<default value="engine/limit/takeoff-ref"/>
+			<test value="engine/limit/takeoff-flex-ref">
 				engine/limit/active-mode-int eq 5
 			</test>
 		</switch>
-		
-		<fcs_function name="engine/limit/takeoff-ref">
-			<function>
-				<sum>
-					<product>
-						<table>
-							<independentVar lookup="row">engine/limit/takeoff-final-input</independentVar>
-							<tableData>
-								   24743.1  0.00
-								   81455.7  0.03
-								10571289.8  1.00
-							</tableData>
-						</table>
-						<property>engine/epr/c1</property>
-					</product>
-					<property>engine/epr/c2</property>
-				</sum>
-			</function>
-		</fcs_function>
 		
 		<fcs_function name="engine/limit/takeoff">
 			<function>
@@ -254,7 +275,7 @@
 					<integer>
 						<sum>
 							<product>
-								<property>engine/limit/takeoff-ref</property>
+								<property>engine/limit/takeoff-final-ref</property>
 								<value>1000</value>
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
@@ -265,40 +286,30 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/limit/mct-input"> <!-- Climb + 2% -->
+		<fcs_function name="engine/limit/mct-ref"> <!-- From FCOM -->
 			<function>
-				<pow>
-					<table>
-						<independentVar lookup="row">/position/altitude-ft</independentVar>
-						<independentVar lookup="column">propulsion/tat-c</independentVar>
-						<tableData>
-							      -60   -30    0     30    60
-							    0  82.1  82.1  86.6  90.6  88.9
-							10000  88.8  88.8  93.1  94.2  88.9
-							43000  92.7  93.1  92.7  93.1  88.9
-						</tableData>
-					</table>
-					<value>3.5</value>
-				</pow>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="engine/limit/mct-ref">
-			<function>
-				<sum>
-					<product>
-						<table>
-							<independentVar lookup="row">engine/limit/mct-input</independentVar>
-							<tableData>
-								   24743.1  0.00
-								   81455.7  0.03
-								10571289.8  1.00
-							</tableData>
-						</table>
-						<property>engine/epr/c1</property>
-					</product>
-					<property>engine/epr/c2</property>
-				</sum>
+				<table>
+					<independentVar lookup="row">propulsion/tat-c</independentVar>
+					<independentVar lookup="column">/position/altitude-ft</independentVar>
+					<tableData>
+						     1000  2000  5000  10000 15000 20000 25000 30000 35000
+						-50  1.97  2.00  2.06  2.06  2.05  2.04  2.03  2.02  2.01
+						 -8  1.97  2.00  2.06  2.06  2.05  2.04  2.03  2.02  2.01
+						 -4  1.97  2.00  2.05  2.05  2.04  2.03  2.02  2.01  2.00
+						  0  1.97  2.00  2.04  2.04  2.03  2.02  2.01  2.00  1.99
+						  4  1.97  2.00  2.03  2.03  2.02  2.01  2.00  1.99  1.98
+						  8  1.97  2.00  2.01  2.01  2.00  1.99  1.98  1.97  1.96
+						 12  1.97  2.00  2.00  2.00  1.99  1.98  1.97  1.96  1.95
+						 16  1.97  1.98  1.98  1.98  1.97  1.96  1.95  1.94  1.94
+						 20  1.96  1.96  1.96  1.96  1.95  1.94  1.93  1.92  1.92
+						 24  1.94  1.94  1.94  1.93  1.93  1.92  1.91  1.91  1.91
+						 28  1.91  1.91  1.91  1.91  1.90  1.89  1.88  1.88  1.88
+						 32  1.89  1.89  1.89  1.88  1.88  1.87  1.87  1.87  1.87
+						 36  1.86  1.86  1.86  1.86  1.85  1.84  1.84  1.84  1.84
+						 40  1.83  1.83  1.83  1.83  1.82  1.82  1.82  1.82  1.82
+						 46  1.79  1.79  1.79  1.79  1.79  1.79  1.79  1.79  1.79
+					</tableData>
+				</table>
 			</function>
 		</fcs_function>
 		
@@ -319,40 +330,31 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/limit/climb-input"> <!-- Vs 103 -->
+		<fcs_function name="engine/limit/climb-ref"> <!-- From FCOM -->
 			<function>
-				<pow>
-					<table>
-						<independentVar lookup="row">/position/altitude-ft</independentVar>
-						<independentVar lookup="column">propulsion/tat-c</independentVar>
-						<tableData>
-							      -60   -30    0     30    60
-							    0  80.1  80.1  84.6  88.6  86.9
-							10000  86.8  86.8  91.1  92.2  86.9
-							43000  90.7  91.1  90.7  91.1  86.9
-						</tableData>
-					</table>
-					<value>3.5</value>
-				</pow>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="engine/limit/climb-ref">
-			<function>
-				<sum>
-					<product>
-						<table>
-							<independentVar lookup="row">engine/limit/climb-input</independentVar>
-							<tableData>
-								   24743.1  0.00
-								   81455.7  0.03
-								10571289.8  1.00
-							</tableData>
-						</table>
-						<property>engine/epr/c1</property>
-					</product>
-					<property>engine/epr/c2</property>
-				</sum>
+				<table>
+					<independentVar lookup="row">propulsion/tat-c</independentVar>
+					<independentVar lookup="column">/position/altitude-ft</independentVar>
+					<tableData>
+						     1000  2000  5000  10000 15000 20000 25000 30000 35000
+						-50  1.97  2.00  2.06  2.06  2.05  2.05  2.05  2.05  2.05
+						-20  1.97  2.00  2.06  2.06  2.05  2.05  2.05  2.05  2.05
+						-16  1.97  2.00  2.03  2.03  2.03  2.02  2.02  2.02  2.02
+						-12  1.97  2.00  2.00  2.00  2.00  2.00  1.99  2.02  2.02
+						 -8  1.97  1.98  1.98  1.98  1.97  1.97  1.97  2.02  2.02
+						 -4  1.95  1.95  1.95  1.95  1.95  1.94  1.97  2.02  2.02
+						  0  1.92  1.92  1.92  1.92  1.92  1.91  1.97  2.00  2.00
+						  4  1.90  1.90  1.90  1.90  1.89  1.91  1.97  1.97  1.97
+						  8  1.87  1.87  1.87  1.87  1.88  1.91  1.95  1.95  1.95
+						 12  1.84  1.84  1.84  1.84  1.88  1.91  1.92  1.92  1.92
+						 16  1.82  1.82  1.82  1.84  1.88  1.90  1.90  1.90  1.90
+						 20  1.78  1.78  1.80  1.84  1.88  1.87  1.87  1.87  1.87
+						 24  1.75  1.77  1.80  1.84  1.85  1.85  1.84  1.84  1.84
+						 30  1.75  1.77  1.80  1.82  1.81  1.81  1.80  1.80  1.80
+						 40  1.73  1.73  1.73  1.73  1.73  1.72  1.72  1.72  1.72
+						 46  1.66  1.66  1.66  1.66  1.66  1.66  1.66  1.66  1.66
+					</tableData>
+				</table>
 			</function>
 		</fcs_function>
 		
@@ -373,40 +375,31 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/limit/cruise-input"> <!-- Vs 103 - 1% -->
+		<fcs_function name="engine/limit/cruise-ref"> <!-- From FCOM -->
 			<function>
-				<pow>
-					<table>
-						<independentVar lookup="row">/position/altitude-ft</independentVar>
-						<independentVar lookup="column">propulsion/tat-c</independentVar>
-						<tableData>
-							      -60   -30    0     30    60
-							    0  77.7  77.7  82.0  85.9  84.3
-							10000  84.1  84.1  88.3  89.4  84.3
-							43000  87.9  88.5  87.8  88.3  84.3
-						</tableData>
-					</table>
-					<value>3.5</value>
-				</pow>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="engine/limit/cruise-ref">
-			<function>
-				<sum>
-					<product>
-						<table>
-							<independentVar lookup="row">engine/limit/cruise-input</independentVar>
-							<tableData>
-								   24743.1  0.00
-								   81455.7  0.03
-								10571289.8  1.00
-							</tableData>
-						</table>
-						<property>engine/epr/c1</property>
-					</product>
-					<property>engine/epr/c2</property>
-				</sum>
+				<table>
+					<independentVar lookup="row">propulsion/tat-c</independentVar>
+					<independentVar lookup="column">/position/altitude-ft</independentVar>
+					<tableData>
+						     10000 15000 20000 25000 27000 29000 31000 33000 35000 37000
+						-50  2.06  2.05  2.04  2.03  2.05  2.05  2.05  2.05  2.04  2.04
+						-30  2.06  2.05  2.04  2.03  2.05  2.05  2.05  2.05  2.04  2.04
+						-26  2.04  2.03  2.02  2.01  2.03  2.05  2.05  2.05  2.04  2.04
+						-22  2.01  2.00  1.99  1.98  2.00  2.02  2.03  2.02  2.02  2.01
+						-18  1.98  1.97  1.96  1.95  1.97  1.99  2.00  1.99  1.99  1.98
+						-14  1.95  1.94  1.93  1.92  1.94  1.96  1.97  1.96  1.96  1.95
+						-10  1.93  1.92  1.91  1.90  1.91  1.93  1.94  1.94  1.93  1.93
+						 -6  1.90  1.89  1.87  1.87  1.88  1.90  1.91  1.90  1.90  1.90
+						 -2  1.87  1.86  1.85  1.83  1.86  1.88  1.88  1.88  1.87  1.87
+						  2  1.84  1.83  1.82  1.81  1.83  1.85  1.86  1.85  1.85  1.84
+						  6  1.82  1.81  1.80  1.79  1.81  1.83  1.83  1.83  1.82  1.82
+						 10  1.79  1.78  1.77  1.76  1.78  1.80  1.80  1.80  1.79  1.79
+						 14  1.76  1.75  1.73  1.73  1.75  1.77  1.77  1.77  1.76  1.76
+						 18  1.72  1.71  1.70  1.69  1.71  1.73  1.73  1.73  1.73  1.73
+						 22  1.69  1.68  1.67  1.66  1.68  1.69  1.70  1.70  1.70  1.70
+						 26  1.65  1.64  1.63  1.62  1.64  1.66  1.68  1.68  1.68  1.68
+					</tableData>
+				</table>
 			</function>
 		</fcs_function>
 		
@@ -656,7 +649,7 @@
 					<independentVar lookup="row">engine/limit/active-norm-input</independentVar>
 					<tableData>
 						 25.3  0
-						105.2  1
+						101.6  1
 					</tableData>
 				</table>
 			</function>
@@ -702,7 +695,7 @@
 					<independentVar lookup="row">engine/limit/idle-norm-input</independentVar>
 					<tableData>
 						 25.3  0
-						105.2  1
+						101.6  1
 					</tableData>
 				</table>
 			</function>

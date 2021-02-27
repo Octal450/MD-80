@@ -14,7 +14,7 @@
 				<table>
 					<property>/position/altitude-ft</property>
 					<entry><ind>    0</ind><dep>1.27</dep></entry>
-					<entry><ind>43000</ind><dep>1.59</dep></entry>
+					<entry><ind>43000</ind><dep>1.99</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -31,7 +31,7 @@
 					<table>
 						<property>/position/altitude-ft</property>
 						<entry><ind>    0</ind><dep>0.994</dep></entry>
-						<entry><ind>43000</ind><dep>0.844</dep></entry>
+						<entry><ind>43000</ind><dep>0.904</dep></entry>
 					</table>
 					<table>
 						<property>/fdm/jsbsim/velocities/mach</property>
