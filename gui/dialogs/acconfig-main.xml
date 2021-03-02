@@ -142,6 +142,9 @@
 									setprop("/engines/engine[0]/state", 3);
 									setprop("/engines/engine[1]/state", 3);
 								}, 0.5);
+								settimer(func() {
+									setprop("/services/chocks/enable", 0);
+								}, 10);
 							</script>
 						</binding>
 						<binding>
@@ -242,7 +245,7 @@
 		
 		<group>
 			<layout>vbox</layout>
-
+			
 			<checkbox>
 				<label>Enable De-icing Truck</label>
 				<halign>left</halign>
@@ -252,7 +255,7 @@
 				</binding>
 				<live>true</live>
 			</checkbox>
-
+			
 			<button>
 				<legend>De-ice Aircraft</legend>
 				<halign>center</halign>
@@ -318,6 +321,28 @@
 					<property>/systems/acconfig/extra-stuff</property>
 				</enable>
 				<property>/services/baggage/enable</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Enable Wheel Chocks</label>
+				<halign>left</halign>
+				<enable>
+					<and>
+						<equals>
+							<property>/fdm/jsbsim/position/wow</property>
+							<value>1</value>
+						</equals>
+						<less-than>
+							<property>/velocities/groundspeed-kt</property>
+							<value>2</value>
+						</less-than>
+					</and>
+				</enable>
+				<property>/services/chocks/enable</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>

@@ -1190,12 +1190,12 @@
 			<rate_limit>1.0</rate_limit>
 		</actuator>
 		
-		<switch name="rubbish/left-brake-cmd-norm">
+		<switch name="fcs/left-brake-cmd-norm">
 			<default value="fcs/left-brake-actuator"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/acconfig/autoconfig-running eq 1
+				/services/chocks/enable eq 1
 			</test>
-			<output>fcs/left-brake-cmd-norm</output>
 		</switch>
 		
 		<fcs_function name="fcs/right-brake-input">
@@ -1220,12 +1220,12 @@
 			<rate_limit>1.0</rate_limit>
 		</actuator>
 		
-		<switch name="rubbish/right-brake-cmd-norm">
+		<switch name="fcs/right-brake-cmd-norm">
 			<default value="fcs/right-brake-actuator"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/acconfig/autoconfig-running eq 1
+				/services/chocks/enable eq 1
 			</test>
-			<output>fcs/right-brake-cmd-norm</output>
 		</switch>
 	
 	</channel>

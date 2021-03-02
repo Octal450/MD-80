@@ -40,6 +40,11 @@ var systemsLoop = maketimer(0.1, func() {
 	} else {
 		pts.Systems.Shake.effect.setBoolValue(0);
 	}
+	
+	pts.Velocities.groundspeedKtTemp = pts.Velocities.groundspeedKt.getValue();
+	if ((pts.Velocities.groundspeedKtTemp >= 2 or !pts.Fdm.JSBsim.Position.wow.getBoolValue()) and pts.Services.Chocks.enable.getBoolValue()) {
+		pts.Services.Chocks.enable.setBoolValue(0);
+	}
 });
 
 canvas.Text._lastText = canvas.Text["_lastText"];

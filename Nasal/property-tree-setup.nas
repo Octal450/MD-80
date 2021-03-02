@@ -169,6 +169,12 @@ var Sim = {
 	},
 };
 
+var Services = {
+	Chocks: {
+		enable: props.globals.getNode("/services/chocks/enable"),
+	},
+};
+
 var Systems = {
 	Acconfig: {
 		autoConfigRunning: props.globals.getNode("/systems/acconfig/autoconfig-running"),
@@ -188,6 +194,7 @@ var Systems = {
 
 var Velocities = {
 	groundspeedKt: props.globals.getNode("/velocities/groundspeed-kt"),
+	groundspeedKtTemp: 0,
 };
 
 setprop("/systems/acconfig/property-tree-setup-loaded", 1);
