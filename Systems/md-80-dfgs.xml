@@ -158,8 +158,9 @@
 		
 		<switch name="dfgs/speeds/vmo-mmo">
 			<default value="340"/>
-			<test value="dfgs/speeds/mmo-kts">
+			<test logic="AND" value="dfgs/speeds/mmo-kts">
 				dfgs/speeds/mmo-kts lt 340
+				position/wow eq 0
 			</test>
 		</switch>
 	
