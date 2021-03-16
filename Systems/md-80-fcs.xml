@@ -106,7 +106,7 @@
 			</test>
 		</switch>
 		
-		<scheduled_gain name="dfgs/mach-trim/output-final">
+		<scheduled_gain name="dfgs/mach-trim/output-final"> <!-- So that we still get full -1 to 1 deflection -->
 			<input>dfgs/mach-trim/output</input>
 			<table>
 				<independentVar lookup="row">fcs-actual/elevator/yoke-switch</independentVar>

@@ -49,7 +49,7 @@
 	</function>
 	
 	<function name="aero/function/kCmde"> <!-- Deel Stall -->
-		<description>Drag factor due to ground effect</description>
+		<description>Elevator pitch factor due to wing shadow</description>
 		<table>
 			<independentVar lookup="row">aero/alpha-deg</independentVar>
 			<tableData>
@@ -61,7 +61,7 @@
 	</function>
 	
 	<function name="aero/function/kCmdstab"> <!-- Deel Stall -->
-		<description>Drag factor due to ground effect</description>
+		<description>Stabilizer pitch factor due to wing shadow</description>
 		<table>
 			<independentVar lookup="row">aero/alpha-deg</independentVar>
 			<tableData>
