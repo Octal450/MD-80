@@ -199,7 +199,7 @@
 		
 	</channel>
 	
-	<channel name="Aileron L">
+	<channel name="Aileron">
 		
 		<fcs_function name="fcs-actual/aileron-l/surface-cmd-deg">
 			<function>
@@ -238,48 +238,12 @@
 			<lag>10</lag>
 			<output>fcs-actual/aileron-l/surface-final-deg</output>
 		</actuator>
-	
-	</channel>
-	
-	<channel name="Aileron R">
 		
-		<fcs_function name="fcs-actual/aileron-r/surface-cmd-deg">
-			<function>
-				<product>
-					<sum>
-						<avg> <!-- Because both ailerons are linked -->
-							<property>fcs-actual/aileron-l/control-tab-cmd-deg</property>
-							<product>
-								<property>fcs-actual/aileron-r/control-tab-cmd-deg</property>
-								<value>-1</value>
-							</product>
-						</avg>
-						<avg> <!-- Because both ailerons are linked -->
-							<product>
-								<property>fcs-actual/aileron-l/trim-tab-cmd-deg</property>
-								<value>0.5</value>
-							</product>
-							<product>
-								<property>fcs-actual/aileron-r/trim-tab-cmd-deg</property>
-								<value>-0.5</value>
-							</product>
-						</avg>
-					</sum>
-					<property>fcs-actual/authority</property>
-				</product>
-			</function>
-			<clipto>
-				<min>-20</min>
-				<max>20</max>
-			</clipto>
-		</fcs_function>
-		
-		<actuator name="fcs-actual/aileron-r/surface-final-actuator">
-			<input>fcs-actual/aileron-r/surface-cmd-deg</input>
-			<rate_limit>fcs-actual/surface-rate</rate_limit>
-			<lag>10</lag>
+		<pure_gain name="fcs-actual/aileron-r/surface-final-actuator"> <!-- Because both ailerons are linked -->
+			<input>fcs-actual/aileron-l/surface-final-actuator</input>
+			<gain>-1.0</gain>
 			<output>fcs-actual/aileron-r/surface-final-deg</output>
-		</actuator>
+		</pure_gain>
 	
 	</channel>
 	
