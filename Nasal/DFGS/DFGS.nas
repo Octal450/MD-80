@@ -624,21 +624,21 @@ var ITAF = {
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
 			me.updateApprArm(0);
+			me.updateAutoLand(0);
 			Output.vert.setValue(0);
 			me.resetClimbRateLim();
 			me.updateVertText("ALT HLD");
 			me.syncAlt();
 			Athr.setMode(0); # Thrust
-			me.updateAutoLand(0);
 		} else if (n == 1) { # V/S
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
 			me.updateApprArm(0);
+			me.updateAutoLand(0);
 			Output.vert.setValue(1);
 			me.updateVertText("V/S");
 			me.syncVs();
 			Athr.setMode(0); # Thrust
-			me.updateAutoLand(0);
 		} else if (n == 2) { # G/S
 			me.updateLnavArm(0);
 			me.checkLoc(0);
@@ -646,14 +646,15 @@ var ITAF = {
 		} else if (n == 3) { # ALT CAP
 			Input.altArmed.setBoolValue(0);
 			Internal.flchActive = 0;
+			me.updateAutoLand(0);
 			Output.vert.setValue(0);
 			me.setClimbRateLim();
 			Internal.altCaptureActive = 1;
 			me.updateVertText("ALT CAP");
 			Athr.setMode(0); # Thrust
-			me.updateAutoLand(0);
 		} else if (n == 4) { # FLCH
 			me.updateApprArm(0);
+			me.updateAutoLand(0);
 			Internal.altCaptureActive = 0;
 			Output.vert.setValue(4);
 			me.updateVertText("FLCH");
@@ -666,16 +667,15 @@ var ITAF = {
 			} else {
 				me.syncKtsFlch();
 			}
-			me.updateAutoLand(0);
 		} else if (n == 5) { # FPA
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
 			me.updateApprArm(0);
+			me.updateAutoLand(0);
 			Output.vert.setValue(5);
 			me.updateVertText("FPA");
 			me.syncFpa();
 			Athr.setMode(0); # Thrust
-			me.updateAutoLand(0);
 		} else if (n == 6) { # FLARE/ROLLOUT
 			Input.altArmed.setBoolValue(0);
 			Internal.flchActive = 0;
@@ -688,10 +688,10 @@ var ITAF = {
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
 			me.updateApprArm(0);
+			me.updateAutoLand(0);
 			Output.vert.setValue(7);
 			Athr.setMode(2); # EPR Lim
 			Input.ktsMachFlch.setBoolValue(0);
-			me.updateAutoLand(0);
 		}
 	},
 	activateLnav: func() {
@@ -710,6 +710,7 @@ var ITAF = {
 		if (Output.lat.getValue() != 2) {
 			me.updateLnavArm(0);
 			me.updateLocArm(0);
+			me.updateAutoLand(0);
 			Output.lat.setValue(2);
 			me.updateLatText("LOC");
 		}

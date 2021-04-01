@@ -16,6 +16,12 @@ var updateFma = {
 	pitchText: "T/O CLB",
 	rollText: "T/O",
 	thrTemp: 0,
+	capTrkReCheck: func() {
+		me.locUpdate();
+		locUpdateT.start();
+		me.gsUpdate();
+		gsUpdateT.start();
+	},
 	roll: func() {
 		me.rollText = Text.lat.getValue();
 		if (me.rollText == "HDG") {

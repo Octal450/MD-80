@@ -13,6 +13,7 @@ var variousReset = func() {
 
 var apPanel = {
 	hdgTemp: 0,
+	latTemp: 0,
 	ktsTemp: 0,
 	ktsFlchTemp: 0,
 	machTemp: 0,
@@ -33,6 +34,11 @@ var apPanel = {
 				}
 			}
 		}
+	},
+	apSelector: func() {
+		libraries.apPanel.apDisc();
+		dfgs.Input.activeAp.setValue(!(dfgs.Input.activeAp.getValue() - 1) + 1); # This sh*t just toggles between 1 and 2
+		dfgs.updateFma.capTrkReCheck();
 	},
 	apDisc: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
@@ -144,8 +150,8 @@ var apPanel = {
 	},
 	autoLand: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
-			me.vertTemp = dfgs.Output.vert.getValue();
-			if (me.vertTemp == 2 or me.vertTemp == 6) {
+			me.latTemp = dfgs.Output.lat.getValue();
+			if ((me.latTemp == 2 or me.latTemp == 4) and dfgs.Output.apprArm.getBoolValue()) { # Check logic
 				dfgs.ITAF.updateAutoLand(1);
 			}
 		}

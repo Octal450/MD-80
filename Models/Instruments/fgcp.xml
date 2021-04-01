@@ -1370,13 +1370,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.apPanel.apDisc();</script>
-			</binding>
-			<binding>
-				<command>property-cycle</command>
-				<property>it-autoflight/input/active-ap</property>
-				<value>1</value>
-				<value>2</value>
+				<script>libraries.apPanel.apSelector();</script>
 			</binding>
 		</action>
 	</animation>
