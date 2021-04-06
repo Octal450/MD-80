@@ -23,7 +23,6 @@ var BRAKES = {
 };
 
 setlistener("/controls/gear/abs/armed", func {
-	print("fuck");
 	libraries.Sound.switch1();
 }, 0, 0);
 
