@@ -11293,7 +11293,7 @@ refs 4
 1 0.0689547 0.0169333
 kids 0
 OBJECT poly
-name "KnobABS"
+name "ABS_knob"
 data 8
 Cube.008
 texture "txt_cockpit_abs.rgb"
@@ -84090,7 +84090,7 @@ refs 4
 118 0.139518 0.164626
 kids 0
 OBJECT poly
-name "SwABS"
+name "ABS_arm"
 data 12
 Cylinder.022
 crease 80.000000

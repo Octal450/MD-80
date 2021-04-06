@@ -458,6 +458,11 @@
 			</switches>
 		</fuel>
 		<gear n="0">
+			<abs n="0">
+				<armed type="bool">0</armed>
+				<armed-momentary type="bool">0</armed-momentary>
+				<knob type="int">0</knob>
+			</abs>
 			<brake-parking type="bool">0</brake-parking>
 			<brake-parking-switch type="bool">0</brake-parking-switch>
 			<lever-cockpit type="int">3</lever-cockpit>
@@ -556,6 +561,10 @@
 	</fdm>
 	
 	<gear n="0">
+		<abs n="0">
+			<armed type="bool">0</armed>
+			<mode type="int">0</mode>
+		</abs>
 		<gear n="0">
 			<tyre-smoke type="bool">0</tyre-smoke>
 			<sprayspeed-ms type="double">0</sprayspeed-ms>

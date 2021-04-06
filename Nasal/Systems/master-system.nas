@@ -1,6 +1,32 @@
 # McDonnell Douglas MD-80 Master System
 # Copyright (c) 2021 Josh Davidson (Octal450)
 
+
+# Brakes
+var BRAKES = {
+	Abs: {
+		armed: props.globals.getNode("/gear/abs/armed"),
+		disarm: props.globals.getNode("/gear/abs/disarm"),
+		mode: props.globals.getNode("/gear/abs/mode"), # -2: RTO MAX, -1: RTO MIN, 0: OFF, 1: MIN, 2: MED, 3: MAX
+	},
+	Fail: {
+		abs: props.globals.getNode("/systems/failures/brakes/abs"),
+	},
+	Switch: {
+		abs: props.globals.getNode("/controls/gear/abs/knob"), # -1: RTO, 0: OFF, 1: MIN, 2: MED, 3: MAX
+		arm: props.globals.getNode("/controls/gear/abs/armed"),
+	},
+	init: func() {
+		me.Switch.abs.setValue(0);
+		me.Switch.arm.setBoolValue(0);
+	},
+};
+
+setlistener("/controls/gear/abs/armed", func {
+	print("fuck");
+	libraries.Sound.switch1();
+}, 0, 0);
+
 # Engine Sim Control Stuff
 # Don't want to change the bindings yet
 # Intentionally not using + or -, floating point error would be BAD

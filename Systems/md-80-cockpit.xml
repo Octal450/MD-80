@@ -20,13 +20,13 @@
 		<lag_filter name="engine/throttle-lever[0]">
 			<input>engine/control-1/throttle-pos</input>
 			<c1>20</c1>
-			<output>fcs/throttle-lever-feedback[0]</output>
+			<output>engine/throttle-lever-feedback[0]</output>
 		</lag_filter>
 		
 		<lag_filter name="engine/throttle-lever[1]">
 			<input>engine/control-2/throttle-pos</input>
 			<c1>20</c1>
-			<output>fcs/throttle-lever-feedback[1]</output>
+			<output>engine/throttle-lever-feedback[1]</output>
 		</lag_filter>
 		
 		<lag_filter name="engine/reverse-lever[0]">
@@ -68,6 +68,15 @@
 			<input>/it-autoflight/input/active-ap</input>
 			<c1>20</c1>
 		</lag_filter>
+		
+		<switch name="/gear/abs/lights/disarm">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/gear/lever-cockpit ge 2
+				/gear/abs/knob-input ne 0
+				/gear/abs/armed-input eq 0
+			</test>
+		</switch>
 	
 	</channel>
 	

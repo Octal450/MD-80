@@ -38,10 +38,9 @@
 		<object-name>FuelCutoffL</object-name>
 		<object-name>FuelCutoffR</object-name>
 		<object-name>GlareShield</object-name>
-		<object-name>KnobABS</object-name>
+		<object-name>ABS_knob</object-name>
 		<object-name>Lamp</object-name>
 		<object-name>LampABS</object-name>
-		<!--object-name>LampABSon</object-name-->
 		<object-name>LGLever</object-name>
 		<object-name>Moulding</object-name>
 		<object-name>Moulding.001</object-name>
@@ -67,7 +66,7 @@
 		<object-name>SeatCushionsP</object-name>
 		<object-name>SeatP</object-name>
 		<object-name>SpdBrakeLever</object-name>
-		<object-name>SwABS</object-name>
+		<object-name>ABS_arm</object-name>
 		<object-name>ThrottleL</object-name>
 		<object-name>ThrottleR</object-name>
 		<object-name>ThrottleRevL</object-name>
@@ -1072,102 +1071,131 @@
   </action>
 </animation>
 
-<!-- ABS -->
-
-<animation>
-  <type>rotate</type>
-  <object-name>SwABS</object-name>
-  <property>controls/autobrakes/ABS</property>
-  <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>50</dep></entry>
-  </interpolation>   
-  <center>
-    <x-m>3.02175</x-m>
-    <y-m>0.11094</y-m>
-    <z-m>0.556287</z-m>
-  </center>
-  <axis>
-    <x>0</x>
-    <y>-1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>pick</type>
-  <object-name>SwABS</object-name>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-toggle</command>
-      <property>controls/autobrakes/ABS</property>
-    </binding>
-    <binding> 
-      <command>nasal</command>
-      <script>MD88.abs_arm();</script>
-    </binding>
-  </action>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>KnobABS</object-name>
-  <property>controls/autobrakes/ABS-select</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>  40</dep></entry>
-    <entry><ind>1</ind><dep>   0</dep></entry>
-    <entry><ind>2</ind><dep>-40</dep></entry>
-    <entry><ind>3</ind><dep>-105</dep></entry>
-    <entry><ind>4</ind><dep>-150</dep></entry>
-  </interpolation>   
-  <center>
-    <x-m>3.058</x-m>
-    <y-m>0.123</y-m>
-    <z-m>0.550</z-m>
-  </center>
-  <axis>
-    <x>0.259</x>
-    <y>0</y>
-    <z>0.966</z>
-  </axis>
-</animation>
-<animation>
-  <type>pick</type>
-  <object-name>KnobABS</object-name>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>controls/autobrakes/ABS-select</property>
-      <step>1</step>
-      <min>0</min>
-      <max>4</max>
-      <wrap>false</wrap>
-    </binding>
-  </action>
-  <action>
-    <button>1</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-adjust</command>
-      <property>controls/autobrakes/ABS-select</property>
-      <step>-1</step>
-      <min>0</min>
-      <max>4</max>
-      <wrap>false</wrap>
-    </binding>
-  </action>
-</animation>
-
-<animation>
-  <type>select</type>
-  <object-name>LampABSon</object-name>
-  <condition>
-    <property>controls/switches/unused</property>
-  </condition>
-</animation>
+	<!-- ABS -->
+	<animation>
+		<type>rotate</type>
+		<object-name>ABS_arm</object-name>
+		<property>controls/gear/abs/armed</property>
+		<factor>50</factor>
+		<center>
+			<x-m>3.02175</x-m>
+			<y-m>0.11094</y-m>
+			<z-m>0.556287</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>ABS_arm</object-name>
+		<action> <!-- Switch sound done in master-system.nas -->
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/gear/abs/armed</property>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/gear/abs/armed-momentary</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/gear/abs/armed-momentary</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>ABS_knob</object-name>
+		<property>controls/gear/abs/knob</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>  40</dep></entry>
+			<entry><ind> 0</ind><dep>   0</dep></entry>
+			<entry><ind> 1</ind><dep> -40</dep></entry>
+			<entry><ind> 2</ind><dep>-105</dep></entry>
+			<entry><ind> 3</ind><dep>-150</dep></entry>
+		</interpolation>   
+		<center>
+			<x-m>3.058</x-m>
+			<y-m>0.123</y-m>
+			<z-m>0.550</z-m>
+		</center>
+		<axis>
+			<x>0.259</x>
+			<y>0</y>
+			<z>0.966</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>ABS_knob</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/gear/abs/knob</property>
+				<step>1</step>
+				<min>0</min> <!-- T/O doesn't work right yet -->
+				<max>3</max>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.knb1();</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/gear/abs/knob</property>
+				<step>-1</step>
+				<min>0</min> <!-- T/O doesn't work right yet -->
+				<max>3</max>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.knb1();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>LampABS</object-name>
+		<condition>
+			<or>
+				<not><property>gear/abs/lights/disarm</property></not>
+				<less-equals>
+					<property>systems/electrical/outputs/efis</property>
+					<value>25</value>
+				</less-equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>LampABSon</object-name>
+		<condition>
+			<and>
+				<property>gear/abs/lights/disarm</property>
+				<greater-than-equals>
+					<property>systems/electrical/outputs/efis</property>
+					<value>25</value>
+				</greater-than-equals>
+			</and>
+		</condition>
+	</animation>
 	
 	<!-- Pedals -->
 	<animation>
@@ -1388,7 +1416,6 @@
 	<!-- No lights without power! -->
 	<animation>
 		<type>select</type>
-		<object-name>LampABSon</object-name>
 		<object-name>Slat.Auto</object-name>
 		<object-name>Slat.Disag</object-name>
 		<object-name>Slat.Land</object-name>

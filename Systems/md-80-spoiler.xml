@@ -105,6 +105,7 @@
 			<test value="60">
 				spoilers/lever-cmd eq 4
 			</test>
+			<output>/gear/abs/spoilers-cmd-deg</output>
 		</switch>
 		
 		<aerosurface_scale name="spoilers/main-cmd">

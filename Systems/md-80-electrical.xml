@@ -15,6 +15,7 @@
 	<property value="28">/systems/electrical/outputs/efis</property>
 	<property value="28">/systems/electrical/outputs/fgcp-power</property>
 	<property value="28">/systems/electrical/outputs/fma-power</property>
+	<property value="28">/systems/electrical/outputs/idk</property>
 	<property value="28">/systems/electrical/outputs/nav[2]</property>
 
 </system>
