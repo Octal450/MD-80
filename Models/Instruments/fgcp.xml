@@ -404,6 +404,10 @@
 				<command>property-toggle</command>
 				<property>it-autoflight/input/fd1</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -437,6 +441,10 @@
 				<command>property-toggle</command>
 				<property>it-autoflight/input/fd2</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -469,7 +477,10 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.apPanel.spd();</script>
+				<script>
+					libraries.apPanel.spd();
+					libraries.Sound.btn1();
+				</script>
 			</binding>
 		</action>
 	</animation>
@@ -482,7 +493,10 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.apPanel.mach();</script>
+				<script>
+					libraries.apPanel.mach();
+					libraries.Sound.btn1();
+				</script>
 			</binding>
 		</action>
 	</animation>
@@ -495,7 +509,10 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.apPanel.eprLim();</script>
+				<script>
+					libraries.apPanel.eprLim();
+					libraries.Sound.btn1();
+				</script>
 			</binding>
 		</action>
 	</animation>
@@ -719,6 +736,10 @@
 				<command>property-toggle</command>
 				<property>it-autoflight/input/athr</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -751,7 +772,10 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.apPanel.nav();</script>
+				<script>
+					libraries.apPanel.nav();
+					libraries.Sound.btn1();
+				</script>
 			</binding>
 		</action>
 	</animation>
@@ -764,7 +788,10 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.apPanel.vorLoc();</script>
+				<script>
+					libraries.apPanel.vorLoc();
+					libraries.Sound.btn1();
+				</script>
 			</binding>
 		</action>
 	</animation>
@@ -777,7 +804,10 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.apPanel.ils();</script>
+				<script>
+					libraries.apPanel.ils();
+					libraries.Sound.btn1();
+				</script>
 			</binding>
 		</action>
 	</animation>
@@ -790,7 +820,10 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.apPanel.autoLand();</script>
+				<script>
+					libraries.apPanel.autoLand();
+					libraries.Sound.btn1();
+				</script>
 			</binding>
 		</action>
 	</animation>
@@ -1291,7 +1324,10 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.apPanel.vertSpd();</script>
+				<script>
+					libraries.apPanel.vertSpd();
+					libraries.Sound.btn1();
+				</script>
 			</binding>
 		</action>
 	</animation>
@@ -1304,7 +1340,10 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.apPanel.iasMach();</script>
+				<script>
+					libraries.apPanel.iasMach();
+					libraries.Sound.btn1();
+				</script>
 			</binding>
 		</action>
 	</animation>
@@ -1317,7 +1356,10 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.apPanel.altHold();</script>
+				<script>
+					libraries.apPanel.altHold();
+					libraries.Sound.btn1();
+				</script>
 			</binding>
 		</action>
 	</animation>
@@ -1331,7 +1373,10 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.apPanel.apSwitch();</script>
+				<script>
+					libraries.apPanel.apSwitch();
+					libraries.Sound.switch1();
+				</script>
 			</binding>
 		</action>
 	</animation>
@@ -2001,6 +2046,7 @@
 		</action>
 	</animation>
 	
+	<!-- Lighting -->
 	<animation>
 		<name>Left landing light pick</name>
 		<type>pick</type>
@@ -2012,13 +2058,13 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/lighting/landing-light-l</property>
-				<value>0</value>
+				<value>0.0</value>
 				<value>0.5</value>
-				<value>1</value>
+				<value>1.0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>setprop("sim/sounde/switch1", 1);</script>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -2027,16 +2073,17 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/lighting/landing-light-l</property>
-				<value>1</value>
+				<value>1.0</value>
 				<value>0.5</value>
-				<value>0</value>
+				<value>0.0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>setprop("sim/sounde/switch1", 1);</script>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
 		<name>Right landing light pick</name>
 		<type>pick</type>
@@ -2048,13 +2095,13 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/lighting/landing-light-r</property>
-				<value>0</value>
+				<value>0.0</value>
 				<value>0.5</value>
-				<value>1</value>
+				<value>1.0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>setprop("sim/sounde/switch1", 1);</script>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -2063,16 +2110,17 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/lighting/landing-light-r</property>
-				<value>1</value>
+				<value>1.0</value>
 				<value>0.5</value>
-				<value>0</value>
+				<value>0.0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>setprop("sim/sounde/switch1", 1);</script>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
 		<name>Nose landing light pick</name>
 		<type>pick</type>
@@ -2084,13 +2132,13 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/lighting/landing-light-n</property>
-				<value>0</value>
+				<value>0.0</value>
 				<value>0.5</value>
-				<value>1</value>
+				<value>1.0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>setprop("sim/sounde/switch1", 1);</script>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -2099,13 +2147,13 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/lighting/landing-light-n</property>
-				<value>1</value>
+				<value>1.0</value>
 				<value>0.5</value>
-				<value>0</value>
+				<value>0.0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>setprop("sim/sounde/switch1", 1);</script>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -2184,31 +2232,16 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
-				<command>property-cycle</command>
+				<command>property-toggle</command>
 				<property>/controls/lighting/ground-flood-light-l</property>
-				<value>0</value>
-				<value>1</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>setprop("sim/sounde/switch1", 1);</script>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>/controls/lighting/ground-flood-light-l</property>
-				<value>1</value>
-				<value>0</value>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>setprop("sim/sounde/switch1", 1);</script>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
+	
 	<animation>
 		<name>Ground Flood Light Pick R</name>
 		<type>pick</type>
@@ -2217,34 +2250,18 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
-				<command>property-cycle</command>
+				<command>property-toggle</command>
 				<property>/controls/lighting/ground-flood-light-r</property>
-				<value>0</value>
-				<value>1</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>setprop("sim/sounde/switch1", 1);</script>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>/controls/lighting/ground-flood-light-r</property>
-				<value>1</value>
-				<value>0</value>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>setprop("sim/sounde/switch1", 1);</script>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
 
 	<animation>
-		<name>flood light rotate L</name>
+		<name>Flood Light rotate L</name>
 		<type>rotate</type>
 		<object-name>SwFloodLtsL</object-name>
 		<property>/controls/lighting/ground-flood-light-l</property>
@@ -2259,13 +2276,13 @@
 		</axis>
 		<center>
 			<x-m>-0.008647</x-m>
-			<y-m> 0.29482</y-m>
-			<z-m> 0.0121</z-m>
+			<y-m>0.29482</y-m>
+			<z-m>0.0121</z-m>
 		</center>
 	</animation>
 
 	<animation>
-		<name>flood light rotate R</name>
+		<name>Flood Light rotate R</name>
 		<type>rotate</type>
 		<object-name>SwFloodLtsR</object-name>
 		<property>/controls/lighting/ground-flood-light-r</property>
@@ -2280,8 +2297,8 @@
 		</axis>
 		<center>
 			<x-m>-0.008647</x-m>
-			<y-m> 0.3266</y-m>
-			<z-m> 0.0121</z-m>
+			<y-m>0.3266</y-m>
+			<z-m>0.0121</z-m>
 		</center>
 	</animation>
 	
@@ -2293,28 +2310,12 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
-				<command>property-cycle</command>
+				<command>property-toggle</command>
 				<property>/controls/lighting/beacon</property>
-				<value>0</value>
-				<value>1</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>setprop("sim/sounde/switch1", 1);</script>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>/controls/lighting/beacon</property>
-				<value>1</value>
-				<value>0</value>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>setprop("sim/sounde/switch1", 1);</script>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -2335,8 +2336,8 @@
 		</axis>
 		<center>
 			<x-m>-0.008653</x-m>
-			<y-m> 0.35007</y-m>
-			<z-m> 0.000777</z-m>
+			<y-m>0.35007</y-m>
+			<z-m>0.000777</z-m>
 		</center>
 	</animation>
 	
@@ -2350,13 +2351,13 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/lighting/position-strobe-light</property>
-				<value>0</value>
+				<value>0.0</value>
 				<value>0.5</value>
-				<value>1</value>
+				<value>1.0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>setprop("sim/sounde/switch1", 1);</script>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -2365,13 +2366,13 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/lighting/position-strobe-light</property>
-				<value>1</value>
+				<value>1.0</value>
 				<value>0.5</value>
-				<value>0</value>
+				<value>0.0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>setprop("sim/sounde/switch1", 1);</script>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -2393,8 +2394,8 @@
 		</axis>
 		<center>
 			<x-m>-0.008653</x-m>
-			<y-m> 0.37152</y-m>
-			<z-m> 0.000777</z-m>
+			<y-m>0.37152</y-m>
+			<z-m>0.000777</z-m>
 		</center>
 	</animation>
 	
@@ -2408,13 +2409,13 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/lighting/wing-lights</property>
-				<value>0</value>
+				<value>0.0</value>
 				<value>0.5</value>
-				<value>1</value>
+				<value>1.0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>setprop("sim/sounde/switch1", 1);</script>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -2423,17 +2424,17 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/lighting/wing-lights</property>
-				<value>1</value>
+				<value>1.0</value>
 				<value>0.5</value>
-				<value>0</value>
+				<value>0.0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>setprop("sim/sounde/switch1", 1);</script>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
-
+	
 	<animation>
 		<name>Anti Coll Lights Rotate</name>
 		<type>rotate</type>
@@ -2450,8 +2451,9 @@
 		</axis>
 		<center>
 			<x-m>-0.008653</x-m>
-			<y-m> 0.29842</y-m>
+			<y-m>0.29842</y-m>
 			<z-m>-0.01645</z-m>
 		</center>
 	</animation>
+
 </PropertyList>

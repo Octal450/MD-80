@@ -34,6 +34,10 @@
 				<property>controls/tri/to-btn</property>
 				<value>1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
+			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
@@ -59,6 +63,10 @@
 				<command>property-assign</command>
 				<property>controls/tri/flx-btn</property>
 				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -86,6 +94,10 @@
 				<property>controls/tri/ga-btn</property>
 				<value>1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
+			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
@@ -111,6 +123,10 @@
 				<command>property-assign</command>
 				<property>controls/tri/mct-btn</property>
 				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -138,6 +154,10 @@
 				<property>controls/tri/cl-btn</property>
 				<value>1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
+			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
@@ -163,6 +183,10 @@
 				<command>property-assign</command>
 				<property>controls/tri/cr-btn</property>
 				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
 			</binding>
 			<mod-up>
 				<binding>
