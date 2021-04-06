@@ -50,20 +50,57 @@
 			</test>
 		</switch>
 		
+		<switch name="spoilers/arm-input-wow"> <!-- Latching Switch -->
+			<default value="position/wow"/>
+			<test logic="AND" value="spoilers/arm-input-wow">
+				/controls/flight/speedbrake-arm eq 1
+				position/wow eq 1
+			</test>
+		</switch>
+		
+		<switch name="spoilers/auto-speedbrake-arm-cmd">
+			<default value="0"/>
+			<test logic="AND" value="1"> <!-- Landing -->
+				/controls/flight/speedbrake-arm eq 1
+				spoilers/arm-input-wow ne 1
+			</test>
+			<test logic="AND" value="2"> <!-- RTO -->
+				/controls/flight/speedbrake-arm eq 1
+				spoilers/arm-input-wow eq 1
+			</test>
+		</switch>
+		
+		<switch name="spoilers/any-reverse">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/controls/engines/engine[0]/reverse-cmd eq 1
+				/controls/engines/engine[1]/reverse-cmd eq 1
+			</test>
+		</switch>
+		
 		<switch name="spoilers/auto-speedbrake">
 			<description>Flip flop for autospeedbrake</description>
 			<default value="spoilers/auto-speedbrake"/>
-			<test logic="OR" value="0"> <!-- Reset -->
-				fcs/throttle-lever-feedback[0] ge 0.05
-				fcs/throttle-lever-feedback[1] ge 0.05
-				/controls/flight/speedbrake-arm ne 1
+			<test value="spoilers/auto-speedbrake"> <!-- No power, don't do anything -->
+				/systems/electrical/outputs/idk lt 25
 			</test>
-			<test logic="AND" value="4"> <!-- Set -->
-				fcs/throttle-lever-feedback[0] lt 0.05
-				fcs/throttle-lever-feedback[1] lt 0.05
-				/controls/flight/speedbrake-arm eq 1
+			<test logic="OR" value="0"> <!-- Reset -->
+				engine/throttle-lever-feedback[0] ge 0.05
+				engine/throttle-lever-feedback[1] ge 0.05
+				spoilers/auto-speedbrake-arm-cmd eq 0
+			</test>
+			<test logic="AND" value="4"> <!-- Set --> <!-- Landing -->
+				engine/throttle-lever-feedback[0] lt 0.05
+				engine/throttle-lever-feedback[1] lt 0.05
+				spoilers/auto-speedbrake-arm-cmd eq 1
 				spoilers/main-gear-or eq 1
-				/velocities/groundspeed-kt ge 60
+				/instrumentation/airspeed-indicator/indicated-speed-kt ge 50
+			</test>
+			<test logic="AND" value="4"> <!-- Set --> <!-- RTO -->
+				spoilers/any-reverse eq 1
+				spoilers/auto-speedbrake-arm-cmd eq 2
+				spoilers/main-gear-or eq 1
+				/instrumentation/airspeed-indicator/indicated-speed-kt ge 50
 			</test>
 			<output>spoilers/auto-speedbrake-feedback</output>
 		</switch>

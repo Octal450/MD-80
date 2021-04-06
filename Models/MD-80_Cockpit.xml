@@ -1145,7 +1145,7 @@
 				<command>property-adjust</command>
 				<property>controls/gear/abs/knob</property>
 				<step>1</step>
-				<min>0</min> <!-- T/O doesn't work right yet -->
+				<min>-1</min>
 				<max>3</max>
 			</binding>
 			<binding>
@@ -1160,7 +1160,7 @@
 				<command>property-adjust</command>
 				<property>controls/gear/abs/knob</property>
 				<step>-1</step>
-				<min>0</min> <!-- T/O doesn't work right yet -->
+				<min>-1</min>
 				<max>3</max>
 			</binding>
 			<binding>
