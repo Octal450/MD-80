@@ -108,7 +108,6 @@
 		<object-name>toflag</object-name>
 		<object-name>fromflag</object-name>
 		<object-name>HSI.hdgbug</object-name>
-		<object-name>HSI.navbrg</object-name>
 		<property>orientation/heading-magnetic-deg</property>
 		<axis>
 			<x>1</x>
@@ -147,17 +146,6 @@
 		<type>rotate</type>
 		<object-name>HSI.hdgbug</object-name>
 		<property>it-autoflight/input/hdg</property>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
-		<object-name>HSI.navbrg</object-name>
-		<property>instrumentation/nav[2]/heading-deg</property>
 		<axis>
 			<x>-1</x>
 			<y>0</y>

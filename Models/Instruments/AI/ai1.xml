@@ -89,7 +89,7 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>SkipSkid</object-name>
+		<object-name>SlipSkid</object-name>
 		<property>instrumentation/pfd/slip-skid</property>
 		<interpolation>
 			<entry><ind>-15</ind><dep>-8</dep></entry>
