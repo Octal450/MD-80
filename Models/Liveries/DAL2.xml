@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<!--
+    Made by Pilot2938
+-->
+
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">Delta Airlines (N996DL)</name>
+      <texture>Liveries/DAL2A.png</texture>
+    </livery>
+    <fairings>
+      <texture>Liveries/DAL1B.png</texture>
+    </fairings>
+    <rudders>
+      <texture>Liveries/DAL2C.png</texture>
+    </rudders>
+  </model>
+</sim>
+</PropertyList>

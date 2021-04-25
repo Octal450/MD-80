@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<!--
+    Made by Pilot2938
+-->
+
+<PropertyList>
+
+<sim>
+  <model>
+    <livery>
+      <name type="string">SAS (SE-DIR)</name>
+      <texture>Liveries/SAS2A.png</texture>
+    </livery>
+    <fairings>
+      <texture>Liveries/SAS2B.png</texture>
+    </fairings>
+    <rudders>
+      <texture>Liveries/SAS2C.png</texture>
+    </rudders>
+  </model>
+</sim>
+</PropertyList>
