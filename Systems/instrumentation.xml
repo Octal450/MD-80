@@ -7,9 +7,16 @@
 	
 	<filter>
 		<name>CRT Contrast</name>
-		<update-interval-secs>0.5</update-interval-secs>
 		<type>gain</type>
 		<gain>1.0</gain>
+		<input>
+			<condition>
+				<not>
+					<property>/systems/acconfig/options/du/enable-shaders</property>
+				</not>
+			</condition>
+			<value>1</value>
+		</input>
 		<input>
 			<expression>
 				<table>

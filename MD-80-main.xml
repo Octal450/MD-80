@@ -1277,6 +1277,7 @@
 				<keyboard-mode type="bool">0</keyboard-mode>
 				<map-less-transparent type="bool">0</map-less-transparent>
 				<du n="0">
+					<enable-shaders type="bool">true</enable-shaders>
 					<nd-fps type="double">20</nd-fps>
 					<pfd-fps type="double">20</pfd-fps>
 				</du>
