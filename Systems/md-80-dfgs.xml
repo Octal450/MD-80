@@ -44,6 +44,29 @@
 	
 	<channel name="Envelope Protection Calculations" execrate="8">
 		
+		<fcs_function name="dfgs/speeds/mmo-kts">
+			<function>
+				<product>
+					<quotient>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						<max> <!-- Prevent divide by 0 -->
+							<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+							<value>0.0000001</value>
+						</max>
+					</quotient>
+					<value>0.84</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<switch name="dfgs/speeds/vmo-mmo">
+			<default value="340"/>
+			<test logic="AND" value="dfgs/speeds/mmo-kts">
+				dfgs/speeds/mmo-kts lt 340
+				position/wow eq 0
+			</test>
+		</switch>
+		
 		<fcs_function name="dfgs/speeds/vss-kts"> <!-- From FCOM -->
 			<function>
 				<table>
@@ -92,8 +115,10 @@
 						<cos>
 							<toradians>
 								<min>
-									<abs><property>/orientation/roll-deg</property></abs>
-									<value>45</value> <!-- Otherwise problems happen -->
+									<abs>
+										<property>/orientation/roll-deg</property>
+									</abs>
+									<value>89</value> <!-- Above math breaks -->
 								</min>
 							</toradians>
 						</cos>
@@ -105,6 +130,10 @@
 		<pure_gain name="dfgs/speeds/vss">
 			<input>dfgs/speeds/vss-kts</input>
 			<gain>dfgs/speeds/vss-roll-factor</gain>
+			<clipto>
+				<min>0</min>
+				<max>dfgs/speeds/vmo-mmo</max>
+			</clipto>
 		</pure_gain>
 		
 		<pure_gain name="dfgs/speeds/vmin">
@@ -142,29 +171,6 @@
 				<max>100000</max>
 			</clipto>
 		</pure_gain>
-		
-		<fcs_function name="dfgs/speeds/mmo-kts">
-			<function>
-				<product>
-					<quotient>
-						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-						<max> <!-- Prevent divide by 0 -->
-							<property>/instrumentation/airspeed-indicator/indicated-mach</property>
-							<value>0.0000001</value>
-						</max>
-					</quotient>
-					<value>0.84</value>
-				</product>
-			</function>
-		</fcs_function>
-		
-		<switch name="dfgs/speeds/vmo-mmo">
-			<default value="340"/>
-			<test logic="AND" value="dfgs/speeds/mmo-kts">
-				dfgs/speeds/mmo-kts lt 340
-				position/wow eq 0
-			</test>
-		</switch>
 	
 	</channel>
 	
