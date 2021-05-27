@@ -26,6 +26,101 @@ setlistener("/controls/gear/abs/armed", func {
 	libraries.Sound.switch1();
 }, 0, 0);
 
+# Electrical
+var ELEC = {
+	Bus: {
+		acL: props.globals.getNode("/systems/electrical/bus/ac-l"),
+		acGenL: props.globals.getNode("/systems/electrical/bus/ac-gen-l"),
+		acR: props.globals.getNode("/systems/electrical/bus/ac-r"),
+		acGenR: props.globals.getNode("/systems/electrical/bus/ac-gen-r"),
+		dcBat: props.globals.getNode("/systems/electrical/bus/dc-bat"),
+		dcBatDirect: props.globals.getNode("/systems/electrical/bus/dc-bat-direct"),
+		dcL: props.globals.getNode("/systems/electrical/bus/dc-l"),
+		dcR: props.globals.getNode("/systems/electrical/bus/dc-r"),
+		dcTrans: props.globals.getNode("/systems/electrical/bus/dc-trans"),
+		emerAc: props.globals.getNode("/systems/electrical/bus/emer-ac"),
+		emerDc: props.globals.getNode("/systems/electrical/bus/emer-dc"),
+		gndSvc: props.globals.getNode("/systems/electrical/bus/gndsvc"),
+	},
+	Fail: {
+		apu: props.globals.getNode("/systems/failures/electrical/apu"),
+		bat1: props.globals.getNode("/systems/failures/electrical/bat-1"),
+		bat2: props.globals.getNode("/systems/failures/electrical/bat-2"),
+		genL: props.globals.getNode("/systems/failures/electrical/gen-l"),
+		genR: props.globals.getNode("/systems/failures/electrical/gen-r"),
+	},
+	Generic: {
+		adf: props.globals.initNode("/systems/electrical/outputs/adf", 0, "DOUBLE"),
+		dme: props.globals.initNode("/systems/electrical/outputs/dme", 0, "DOUBLE"),
+		efis: props.globals.initNode("/systems/electrical/outputs/efis", 0, "DOUBLE"),
+		fgcpPower: props.globals.initNode("/systems/electrical/outputs/fgcp-power", 0, "DOUBLE"),
+		fmaPower: props.globals.initNode("/systems/electrical/outputs/fma-power", 0, "DOUBLE"),
+		fuelPump0: props.globals.initNode("/systems/electrical/outputs/fuel-pump[0]", 0, "DOUBLE"),
+		fuelPump1: props.globals.initNode("/systems/electrical/outputs/fuel-pump[1]", 0, "DOUBLE"),
+		fuelPump2: props.globals.initNode("/systems/electrical/outputs/fuel-pump[2]", 0, "DOUBLE"),
+		gps: props.globals.initNode("/systems/electrical/outputs/gps", 0, "DOUBLE"),
+		idk: props.globals.initNode("/systems/electrical/outputs/idk", 0, "DOUBLE"),
+		mkViii: props.globals.initNode("/systems/electrical/outputs/mk-viii", 0, "DOUBLE"),
+		nav0: props.globals.initNode("/systems/electrical/outputs/nav[0]", 0, "DOUBLE"),
+		nav1: props.globals.initNode("/systems/electrical/outputs/nav[1]", 0, "DOUBLE"),
+		nav2: props.globals.initNode("/systems/electrical/outputs/nav[2]", 0, "DOUBLE"),
+		transponder: props.globals.initNode("/systems/electrical/outputs/transponder", 0, "DOUBLE"),
+		turnCoordinator: props.globals.initNode("/systems/electrical/outputs/turn-coordinator", 0, "DOUBLE"),
+	},
+	Source: {
+		Ext: {
+			cart: props.globals.getNode("/controls/switches/cart"),
+			hertz: props.globals.getNode("/systems/electrical/sources/ext/output-hertz"),
+			volt: props.globals.getNode("/systems/electrical/sources/ext/output-volt"),
+		},
+	},
+	Switch: {
+		acTie: props.globals.getNode("/controls/electrical/switches/ac-tie"),
+		apuPwrL: props.globals.getNode("/controls/electrical/switches/apu-pwr-l"),
+		apuPwrR: props.globals.getNode("/controls/electrical/switches/apu-pwr-r"),
+		battery: props.globals.getNode("/controls/electrical/switches/battery"),
+		csdL: props.globals.getNode("/controls/electrical/switches/csd-l"),
+		csdR: props.globals.getNode("/controls/electrical/switches/csd-r"),
+		dcTie: props.globals.getNode("/controls/electrical/switches/dc-tie"),
+		emerPwr: props.globals.getNode("/controls/electrical/switches/emer-pwr"),
+		extPwrL: props.globals.getNode("/controls/electrical/switches/ext-pwr-l"),
+		extPwrR: props.globals.getNode("/controls/electrical/switches/ext-pwr-r"),
+		galley: props.globals.getNode("/controls/electrical/switches/galley"),
+		genApu: props.globals.getNode("/controls/electrical/switches/gen-apu"),
+		genL: props.globals.getNode("/controls/electrical/switches/gen-l"),
+		genR: props.globals.getNode("/controls/electrical/switches/gen-r"),
+	},
+	init: func() {
+		me.resetFailures();
+		me.Switch.acTie.setBoolValue(1);
+		me.Switch.apuPwrL.setBoolValue(0);
+		me.Switch.apuPwrR.setBoolValue(0);
+		me.Switch.battery.setBoolValue(0);
+		me.Switch.csdL.setBoolValue(1);
+		me.Switch.csdR.setBoolValue(1);
+		me.Switch.dcTie.setBoolValue(0);
+		me.Switch.emerPwr.setBoolValue(0);
+		me.Switch.extPwrL.setBoolValue(0);
+		me.Switch.extPwrR.setBoolValue(0);
+		me.Switch.galley.setBoolValue(1);
+		me.Switch.genApu.setBoolValue(1);
+		me.Switch.genL.setValue(1);
+		me.Switch.genR.setValue(1);
+		#me.Source.Bat1.percent.setValue(99.9);
+		#me.Source.Bat2.percent.setValue(99.9);
+		me.Source.Ext.cart.setBoolValue(0);
+	},
+	resetFailures: func() {
+		me.Switch.csdL.setBoolValue(1);
+		me.Switch.csdR.setBoolValue(1);
+		me.Fail.apu.setBoolValue(0);
+		me.Fail.bat1.setBoolValue(0);
+		me.Fail.bat2.setBoolValue(0);
+		me.Fail.genL.setBoolValue(0);
+		me.Fail.genR.setBoolValue(0);
+	},
+};
+
 # Engine Sim Control Stuff
 # Don't want to change the bindings yet
 # Intentionally not using + or -, floating point error would be BAD

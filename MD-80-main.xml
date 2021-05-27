@@ -420,6 +420,24 @@
 	</consumables>
 	
 	<controls n="0">
+		<electrical n="0">
+			<switches n="0">
+				<ac-tie type="bool">1</ac-tie>
+				<apu-pwr-l type="bool">0</apu-pwr-l>
+				<apu-pwr-r type="bool">0</apu-pwr-r>
+				<battery type="bool">0</battery>
+				<csd-l type="bool">1</csd-l>
+				<csd-r type="bool">1</csd-r>
+				<dc-tie type="bool">0</dc-tie>
+				<emer-pwr type="bool">0</emer-pwr>
+				<ext-pwr-l type="bool">0</ext-pwr-l>
+				<ext-pwr-r type="bool">0</ext-pwr-r>
+				<galley type="bool">1</galley>
+				<gen-apu type="bool">1</gen-apu>
+				<gen-l type="int">1</gen-l>
+				<gen-r type="int">1</gen-r>
+			</switches>
+		</electrical>
 		<engines n="0">
 			<engine n="0">
 				<cutoff type="bool">1</cutoff>
@@ -1336,8 +1354,7 @@
 			<file>Aircraft/MD-80/Nasal/acconfig.nas</file>
 		</acconfig>
 		<systems>
-			<file>Aircraft/MD-80/Nasal/Systems/electrical.nas</file>
-			<file>Aircraft/MD-80/Nasal/Systems/master-system.nas</file>
+			<file>Aircraft/MD-80/Nasal/systems.nas</file>
 			<file>Aircraft/MD-80/Nasal/Displays/DU-controller.nas</file>
 		</systems>
 		<dfgs>

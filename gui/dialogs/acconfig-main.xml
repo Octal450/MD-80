@@ -354,20 +354,23 @@
 				<halign>left</halign>
 				<property>/controls/switches/cart</property>
 				<enable>
-					<property>/systems/acconfig/extra-stuff</property>
-				</enable>
-				<!--enable>
 					<and>
-						<equals>
-							<property>/controls/gear/brake-parking</property>
-							<value>1</value>
-						</equals>
+						<or>
+							<equals>
+								<property>/controls/gear/brake-parking</property>
+								<value>1</value>
+							</equals>
+							<equals>
+								<property>/services/chocks/enable</property>
+								<value>1</value>
+							</equals>
+						</or>
 						<less-than>
 							<property>/velocities/groundspeed-kt</property>
 							<value>2</value>
 						</less-than>
 					</and>
-				</enable-->
+				</enable>
 				<binding>
 					<command>property-assign</command>
 					<property>/controls/electrical/switches/ext-pwr</property>
@@ -387,10 +390,16 @@
 				</enable>
 				<!--enable>
 					<and>
-						<equals>
-							<property>/controls/gear/brake-parking</property>
-							<value>1</value>
-						</equals>
+						<or>
+							<equals>
+								<property>/controls/gear/brake-parking</property>
+								<value>1</value>
+							</equals>
+							<equals>
+								<property>/services/chocks/enable</property>
+								<value>1</value>
+							</equals>
+						</or>
 						<less-than>
 							<property>/velocities/groundspeed-kt</property>
 							<value>2</value>

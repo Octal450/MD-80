@@ -17,5 +17,11 @@
 	<property value="28">/systems/electrical/outputs/fma-power</property>
 	<property value="28">/systems/electrical/outputs/idk</property>
 	<property value="28">/systems/electrical/outputs/nav[2]</property>
+	
+	<channel name="Main Electrical" execrate="8">
+		
+		
+	
+	</channel>
 
 </system>

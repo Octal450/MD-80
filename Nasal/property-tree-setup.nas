@@ -173,6 +173,7 @@ var Sim = {
 var Services = {
 	Chocks: {
 		enable: props.globals.getNode("/services/chocks/enable"),
+		enableTemp: 1,
 	},
 };
 

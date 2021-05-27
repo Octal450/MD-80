@@ -42,9 +42,19 @@ var systemsLoop = maketimer(0.1, func() {
 		pts.Systems.Shake.effect.setBoolValue(0);
 	}
 	
+	pts.Services.Chocks.enableTemp = pts.Services.Chocks.enable.getBoolValue();
 	pts.Velocities.groundspeedKtTemp = pts.Velocities.groundspeedKt.getValue();
-	if ((pts.Velocities.groundspeedKtTemp >= 2 or !pts.Fdm.JSBsim.Position.wow.getBoolValue()) and pts.Services.Chocks.enable.getBoolValue()) {
+	if ((pts.Velocities.groundspeedKtTemp >= 2 or !pts.Fdm.JSBsim.Position.wow.getBoolValue()) and pts.Services.Chocks.enableTemp) {
 		pts.Services.Chocks.enable.setBoolValue(0);
+	}
+	
+	if ((pts.Velocities.groundspeedKtTemp >= 2 or (!systems.GEAR.Switch.brakeParking.getBoolValue() and !pts.Services.Chocks.enableTemp)) and !acconfig.SYSTEM.autoConfigRunning.getBoolValue()) {
+		if (systems.ELEC.Source.Ext.cart.getBoolValue()) {
+			systems.ELEC.Source.Ext.cart.setBoolValue(0);
+		}
+		#if (systems.PNEU.Switch.groundAir.getBoolValue()) {
+		#	systems.PNEU.Switch.groundAir.setBoolValue(0);
+		#}
 	}
 });
 
