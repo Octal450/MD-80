@@ -12,7 +12,14 @@
 		<input>
 			<expression>
 				<table>
-					<property>/position/altitude-ft</property>
+					<product>
+						<property>/position/altitude-ft</property>
+						<table>
+							<property>/fdm/jsbsim/velocities/mach</property>
+							<entry><ind>0.09</ind><dep>0.1</dep></entry>
+							<entry><ind>0.15</ind><dep>1.0</dep></entry>
+						</table>
+					</product>
 					<entry><ind>    0</ind><dep>1.27</dep></entry>
 					<entry><ind>43000</ind><dep>1.99</dep></entry>
 				</table>
@@ -29,13 +36,19 @@
 			<expression>
 				<difference>
 					<table>
-						<property>/position/altitude-ft</property>
+						<product>
+							<property>/position/altitude-ft</property>
+							<table>
+								<property>/fdm/jsbsim/velocities/mach</property>
+								<entry><ind>0.09</ind><dep>0.1</dep></entry>
+								<entry><ind>0.15</ind><dep>1.0</dep></entry>
+							</table>
+						</product>
 						<entry><ind>    0</ind><dep>0.994</dep></entry>
 						<entry><ind>43000</ind><dep>0.904</dep></entry>
 					</table>
 					<table>
 						<property>/fdm/jsbsim/velocities/mach</property>
-						<entry><ind>0.00</ind><dep>0.000</dep></entry>
 						<entry><ind>0.09</ind><dep>0.000</dep></entry>
 						<entry><ind>0.15</ind><dep>0.017</dep></entry>
 						<entry><ind>0.22</ind><dep>0.023</dep></entry>
