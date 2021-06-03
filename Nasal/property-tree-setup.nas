@@ -150,12 +150,12 @@ var Sim = {
 	},
 	Sound: {
 		btn1: props.globals.initNode("/sim/sound/btn1", 0, "BOOL"),
+		btn2: props.globals.initNode("/sim/sound/btn2", 0, "BOOL"),
 		btn3: props.globals.initNode("/sim/sound/btn3", 0, "BOOL"),
 		flapsClick: props.globals.initNode("/sim/sound/flaps-click", 0, "BOOL"),
 		knb1: props.globals.initNode("/sim/sound/knb1", 0, "BOOL"),
 		noSmokingSign: props.globals.initNode("/sim/sound/no-smoking-sign", 0, "BOOL"),
 		noSmokingSignInhibit: props.globals.initNode("/sim/sound/no-smoking-sign-inhibit", 0, "BOOL"),
-		ohBtn: props.globals.initNode("/sim/sound/oh-btn", 0, "BOOL"),
 		seatbeltSign: props.globals.initNode("/sim/sound/seatbelt-sign", 0, "BOOL"),
 		switch1: props.globals.initNode("/sim/sound/switch1", 0, "BOOL"),
 	},

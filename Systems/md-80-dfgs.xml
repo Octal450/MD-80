@@ -174,25 +174,6 @@
 	
 	</channel>
 	
-	<channel name="Yaw Damper Logic">
-		
-		<switch name="dfgs/yaw/active">
-			<default value="0"/>
-			<test value="0">
-				position/wow eq 1
-				/position/gear-agl-ft lt 50
-			</test>
-			<test logic="AND" value="1">
-				/controls/fctl/yd eq 1
-				dfgs/afs/enabled eq 1
-			</test>
-			<test value="1">
-				/controls/fctl/yd eq 2
-			</test>
-		</switch>
-	
-	</channel>
-	
 	<channel name="Gains">
 		
 		<fcs_function name="dfgs/yaw/yd-p-gain">
@@ -278,6 +259,22 @@
 	</channel>
 	
 	<channel name="DFGS: Yaw Axis and Yaw Damper">
+		
+		<switch name="dfgs/yaw/active">
+			<default value="0"/>
+			<test logic="OR" value="0">
+				position/wow eq 1
+				/position/gear-agl-ft lt 50
+				/systems/failures/fctl/yaw-damper eq 1
+			</test>
+			<test logic="AND" value="1">
+				/controls/fctl/switches/yaw-damper eq 1
+				dfgs/afs/enabled eq 1
+			</test>
+			<test value="1">
+				/controls/fctl/switches/yaw-damper eq 2
+			</test>
+		</switch>
 		
 		<switch name="dfgs/yaw/autoland-switch">
 			<default value="0"/>
@@ -366,9 +363,9 @@
 		</summer>
 		
 		<switch name="dfgs/yaw/output">
-			<default value="dfgs/yaw/output-sum"/>
-			<test value="dfgs/yaw/afs-cmd"> <!-- DFGS keeps working even if YD is unavail -->
-				/controls/fctl/yd eq 0
+			<default value="dfgs/yaw/afs-cmd"/> <!-- DFGS keeps working even if YD is unavail -->
+			<test value="dfgs/yaw/output-sum">
+				dfgs/yaw/active eq 1
 			</test>
 		</switch>
 		

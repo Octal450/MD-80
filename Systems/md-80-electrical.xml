@@ -20,7 +20,161 @@
 	
 	<channel name="Main Electrical" execrate="8">
 		
+		<!-- IDG Engine 1 -->
+		<pure_gain name="/systems/electrical/sources/idg-l/drive-rpm-input">
+			<input>/engines/engine[0]/n2-actual</input>
+			<gain>48.27</gain>
+		</pure_gain>
 		
+		<pure_gain name="/systems/electrical/sources/idg-l/drive-rpm">
+			<input>/systems/electrical/sources/idg-l/drive-rpm-input</input>
+			<gain>/controls/electrical/switches/csd-l</gain>
+		</pure_gain>
+		
+		<fcs_function name="/systems/electrical/sources/idg-l/csd-gearbox-ratio-cmd">
+			<function>
+				<quotient>
+					<value>6000</value>
+					<property>/systems/electrical/sources/idg-l/drive-rpm</property>
+				</quotient>
+			</function>
+			<clipto>
+				<min>1.1</min>
+				<max>2.7</max>
+			</clipto>
+		</fcs_function>
+		
+		<lag_filter name="/systems/electrical/sources/idg-l/csd-gearbox-ratio">
+			<input>/systems/electrical/sources/idg-l/csd-gearbox-ratio-cmd</input>
+			<c1>40</c1>
+		</lag_filter>
+		
+		<pure_gain name="/systems/electrical/sources/idg-l/csd-rpm">
+			<input>/systems/electrical/sources/idg-l/drive-rpm</input>
+			<gain>/systems/electrical/sources/idg-l/csd-gearbox-ratio</gain>
+		</pure_gain>
+		
+		<fcs_function name="/systems/electrical/sources/idg-l/pmg-volt">
+			<function>
+				<product>
+					<property>/systems/electrical/sources/idg-l/csd-rpm</property>
+					<quotient>
+						<value>115</value>
+						<value>6000</value>
+					</quotient>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/electrical/sources/idg-l/pmg-hertz">
+			<function>
+				<quotient>
+					<product>
+						<property>/systems/electrical/sources/idg-l/csd-rpm</property>
+						<value>8</value> <!-- Number of poles in generator -->
+					</product>
+					<value>120</value>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/electrical/sources/idg-l/gcr-relay">
+			<default value="/systems/electrical/sources/idg-l/gcr-relay"/>
+			<test value="0">
+				/systems/failures/electrical/gen-l eq 1
+			</test>
+			<test value="1">
+				/controls/electrical/switches/gen-l eq -1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/electrical/sources/idg-l/output-volt">
+			<input>/systems/electrical/sources/idg-l/pmg-volt</input>
+			<gain>/systems/electrical/sources/idg-l/gcr-relay</gain>
+		</pure_gain>
+		
+		<pure_gain name="/systems/electrical/sources/idg-l/output-hertz">
+			<input>/systems/electrical/sources/idg-l/pmg-hertz</input>
+			<gain>/systems/electrical/sources/idg-l/gcr-relay</gain>
+		</pure_gain>
+		
+		<!-- IDG Engine 2 -->
+		<pure_gain name="/systems/electrical/sources/idg-r/drive-rpm-input">
+			<input>/engines/engine[1]/n2-actual</input>
+			<gain>48.27</gain>
+		</pure_gain>
+		
+		<pure_gain name="/systems/electrical/sources/idg-r/drive-rpm">
+			<input>/systems/electrical/sources/idg-r/drive-rpm-input</input>
+			<gain>/controls/electrical/switches/csd-r</gain>
+		</pure_gain>
+		
+		<fcs_function name="/systems/electrical/sources/idg-r/csd-gearbox-ratio-cmd">
+			<function>
+				<quotient>
+					<value>6000</value>
+					<property>/systems/electrical/sources/idg-r/drive-rpm</property>
+				</quotient>
+			</function>
+			<clipto>
+				<min>1.1</min>
+				<max>2.7</max>
+			</clipto>
+		</fcs_function>
+		
+		<lag_filter name="/systems/electrical/sources/idg-r/csd-gearbox-ratio">
+			<input>/systems/electrical/sources/idg-r/csd-gearbox-ratio-cmd</input>
+			<c1>40</c1>
+		</lag_filter>
+		
+		<pure_gain name="/systems/electrical/sources/idg-r/csd-rpm">
+			<input>/systems/electrical/sources/idg-r/drive-rpm</input>
+			<gain>/systems/electrical/sources/idg-r/csd-gearbox-ratio</gain>
+		</pure_gain>
+		
+		<fcs_function name="/systems/electrical/sources/idg-r/pmg-volt">
+			<function>
+				<product>
+					<property>/systems/electrical/sources/idg-r/csd-rpm</property>
+					<quotient>
+						<value>115</value>
+						<value>6000</value>
+					</quotient>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/electrical/sources/idg-r/pmg-hertz">
+			<function>
+				<quotient>
+					<product>
+						<property>/systems/electrical/sources/idg-r/csd-rpm</property>
+						<value>8</value> <!-- Number of poles in generator -->
+					</product>
+					<value>120</value>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/electrical/sources/idg-r/gcr-relay">
+			<default value="/systems/electrical/sources/idg-r/gcr-relay"/>
+			<test value="0">
+				/systems/failures/electrical/gen-r eq 1
+			</test>
+			<test value="1">
+				/controls/electrical/switches/gen-r eq -1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/electrical/sources/idg-r/output-volt">
+			<input>/systems/electrical/sources/idg-r/pmg-volt</input>
+			<gain>/systems/electrical/sources/idg-r/gcr-relay</gain>
+		</pure_gain>
+		
+		<pure_gain name="/systems/electrical/sources/idg-r/output-hertz">
+			<input>/systems/electrical/sources/idg-r/pmg-hertz</input>
+			<gain>/systems/electrical/sources/idg-r/gcr-relay</gain>
+		</pure_gain>
 	
 	</channel>
 

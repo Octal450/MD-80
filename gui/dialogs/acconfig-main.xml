@@ -529,9 +529,6 @@
 					<legend>System Failures</legend>
 					<halign>center</halign>
 					<padding>5</padding>
-					<enable>
-						<!--not--><property>/options/system/allow-damage</property><!--not-->
-					</enable>
 					<binding>
 						<command>dialog-show</command>
 						<dialog-name>acconfig-failures</dialog-name>

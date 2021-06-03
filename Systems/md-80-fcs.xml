@@ -254,6 +254,7 @@
 			<test logic="AND" value="1"> <!-- 0.51282 is +10 control tab defl -->
 				/systems/hydraulics/sys-l-psi ge 950
 				fcs-actual/elevator-yoke gt 0.51282
+				/systems/failures/fctl/elevator-pwr ne 1
 			</test>
 		</switch>
 		
@@ -506,7 +507,8 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/hydraulics/sys-r-psi ge 950
-				/controls/flight/rudder-pwr eq 1
+				/controls/fctl/switches/rudder-pwr eq 1
+				/systems/failures/fctl/rudder-pwr ne 1
 			</test>
 		</switch>
 		

@@ -20,6 +20,8 @@ var strobe = aircraft.light.new("/sim/model/lights/strobe", [0.2, 1], "/fdm/jsbs
 
 var systemsInit = func() {
 	systems.BRAKES.init();
+	systems.ELEC.init();
+	systems.FCTL.init();
 	systems.FUEL.init();
 	systems.HYD.init();
 	dfgs.ITAF.init(0);
@@ -309,12 +311,12 @@ var Sound = {
 		}, 0.2);
 	},
 	ohBtn: func() {
-		if (pts.Sim.Sound.ohBtn.getBoolValue()) {
+		if (pts.Sim.Sound.btn2.getBoolValue()) {
 			return;
 		}
-		pts.Sim.Sound.ohBtn.setBoolValue(1);
+		pts.Sim.Sound.btn2.setBoolValue(1);
 		settimer(func() {
-			pts.Sim.Sound.ohBtn.setBoolValue(0);
+			pts.Sim.Sound.btn2.setBoolValue(0);
 		}, 0.2);
 	},
 	switch1: func() {

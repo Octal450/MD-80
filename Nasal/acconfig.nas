@@ -112,6 +112,7 @@ var SYSTEM = {
 	},
 	resetFailures: func() {
 		systems.ELEC.resetFailures();
+		systems.FCTL.resetFailures();
 		systems.FUEL.resetFailures();
 		systems.GEAR.resetFailures();
 		systems.HYD.resetFailures();

@@ -200,6 +200,29 @@ var doFullThrust = func() {
 	pts.Controls.Engines.Engine.throttle[1].setValue(1);
 }
 
+# Flight Controls
+var FCTL = {
+	Fail: {
+		elevatorPwr: props.globals.getNode("/systems/failures/fctl/elevator-pwr"),
+		rudderPwr: props.globals.getNode("/systems/failures/fctl/rudder-pwr"),
+		yawDamper: props.globals.getNode("/systems/failures/fctl/yaw-damper"),
+	},
+	Switch: {
+		rudderPwr: props.globals.getNode("/controls/fctl/switches/rudder-pwr"),
+		yawDamper: props.globals.getNode("/controls/fctl/switches/yaw-damper"),
+	},
+	init: func() {
+		me.resetFailures();
+		me.Switch.rudderPwr.setBoolValue(1);
+		me.Switch.yawDamper.setValue(2);
+	},
+	resetFailures: func() {
+		me.Fail.elevatorPwr.setBoolValue(0);
+		me.Fail.rudderPwr.setBoolValue(0);
+		me.Fail.yawDamper.setBoolValue(0);
+	}
+};
+
 # Fuel
 var FUEL = {
 	Fail: {
@@ -219,7 +242,7 @@ var FUEL = {
 		xFeed: props.globals.getNode("/controls/fuel/switches/x-feed"),
 	},
 	init: func() {
-		me.resetFail();
+		me.resetFailures();
 		me.Switch.pumpStart.setBoolValue(0);
 		me.Switch.pumpAftC.setBoolValue(0);
 		me.Switch.pumpAftL.setBoolValue(0);
@@ -229,7 +252,7 @@ var FUEL = {
 		me.Switch.pumpFwdR.setBoolValue(0);
 		me.Switch.xFeed.setBoolValue(0);
 	},
-	resetFail: func() {
+	resetFailures: func() {
 		me.Fail.pumpStart.setBoolValue(0);
 		me.Fail.pumpsC.setBoolValue(0);
 		me.Fail.pumpsL.setBoolValue(0);
@@ -288,7 +311,7 @@ var HYD = {
 		trans: props.globals.getNode("/controls/hydraulics/switches/trans"),
 	},
 	init: func() {
-		me.resetFail();
+		me.resetFailures();
 		me.Qty.sysLInput.setValue(math.round((rand() * 4) + 8 , 0.1)); # Random between 8 and 12
 		me.Qty.sysRInput.setValue(math.round((rand() * 4) + 8 , 0.1)); # Random between 8 and 12
 		me.Switch.auxPump.setValue(0);
@@ -296,7 +319,7 @@ var HYD = {
 		me.Switch.rPump.setValue(0);
 		me.Switch.trans.setBoolValue(0);
 	},
-	resetFail: func() {
+	resetFailures: func() {
 		me.Fail.auxPump.setBoolValue(0);
 		me.Fail.lPump.setBoolValue(0);
 		me.Fail.rPump.setBoolValue(0);
