@@ -2,7 +2,7 @@
 
 <!-- Copyright (c) 2021 Josh Davidson (Octal450) -->
 
-<!-- MD-80 Aircraft Config Dialog -->
+<!-- MD-11 Aircraft Config Dialog -->
 
 <PropertyList>
 
@@ -11,10 +11,12 @@
 	
 	<group>
 		<layout>hbox</layout>
+		
 		<text>
 			<halign>left</halign>
 			<label>Rendering Settings</label>
 		</text>
+		
 		<button>
 			<halign>right</halign>
 			<pref-width>20</pref-width>
@@ -44,17 +46,7 @@
 		
 		<text>
 			<halign>left</halign>
-			<label>ALS, and custom shader settings must be on.</label>
-		</text>
-		
-		<text>
-			<halign>left</halign>
-			<label>Landmass shader must be at least 4 for lightspots to work.</label>
-		</text>
-		
-		<text>
-			<halign>left</halign>
-			<label>Model shader must be at least 2 for lightmaps to work.</label>
+			<label>Atmospheric Light Scattering (ALS) must be on, and some shader settings turned up.</label>
 		</text>
 		
 		<hrule/>
@@ -121,14 +113,6 @@
 			<binding>
 				<command>nasal</command>
 				<script>acconfig.RENDERING.fixCore();</script>
-			</binding>
-			<binding> <!-- Close the non-ALS shader dialog if it is open for some bizarre reason -->
-				<command>dialog-close</command>
-				<dialog-name>shaders</dialog-name>
-			</binding>
-			<binding>
-				<command>dialog-show</command>
-				<dialog-name>shaders-lightfield</dialog-name>
 			</binding>
 			<binding>
 				<command>dialog-close</command>

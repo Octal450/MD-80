@@ -15,11 +15,13 @@ var SYSTEM = {
 		outOfDate: 0,
 		reason: props.globals.initNode("/systems/acconfig/error-reason", "", "STRING"),
 	},
+	fgfs: num(string.replace(getprop("/sim/version/flightgear"), ".", "")),
 	newRevision: props.globals.initNode("/systems/acconfig/new-revision", 0, "INT"),
 	revision: props.globals.initNode("/systems/acconfig/revision", 0, "INT"),
 	revisionTemp: 0,
 	spinner: "\\",
 	simInit: func() {
+		PANEL.stop = 1;
 		me.autoConfigRunning.setBoolValue(0);
 		spinningT.start();
 		fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-init"}));
@@ -79,7 +81,7 @@ var SYSTEM = {
 		}
 	},
 	errorCheck: func() {
-		if (num(string.replace(getprop("/sim/version/flightgear"), ".", "")) < CONFIG.minFgfsInt) {
+		if (SYSTEM.fgfs < CONFIG.minFgfsInt) {
 			me.Error.code.setValue("0x121");
 			me.Error.reason.setValue("FGFS version is too old! Please update FlightGear to at least " ~ CONFIG.minFgfsString ~ ".");
 			me.showError();
@@ -130,10 +132,13 @@ var SYSTEM = {
 
 var RENDERING = {
 	als: props.globals.getNode("/sim/rendering/shaders/skydome"),
+	alsMode: props.globals.getNode("/sim/gui/dialogs/advanced/mode/als-mode", 1),
 	customSettings: props.globals.getNode("/sim/rendering/shaders/custom-settings"),
 	landmass: props.globals.getNode("/sim/rendering/shaders/landmass"),
 	landmassSet: 0,
+	lowSpecMode: props.globals.getNode("/sim/gui/dialogs/advanced/mode/low-spec-mode", 1),
 	model: props.globals.getNode("/sim/rendering/shaders/model"),
+	modelEffects: props.globals.getNode("/sim/gui/dialogs/advanced/model-effects", 1),
 	modelSet: 0,
 	rembrandt: props.globals.getNode("/sim/rendering/rembrandt/enabled"),
 	check: func() {
@@ -142,26 +147,43 @@ var RENDERING = {
 		}
 		
 		me.landmassSet = me.landmass.getValue() >= 4;
-		me.modelSet = me.model.getValue() >= 2;
+		me.modelSet = me.model.getValue() >= 3;
 		
-		if (!me.rembrandt.getBoolValue() and (!me.als.getBoolValue() or !me.customSettings.getBoolValue() or !me.landmassSet or !me.modelSet)) {
-			fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-rendering"}));
+		if (SYSTEM.fgfs >= 202040) {
+			if (!me.rembrandt.getBoolValue() and (!me.als.getBoolValue() or !me.landmassSet or !me.modelSet)) {
+				fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-rendering"}));
+			}
+		} else {
+			if (!me.rembrandt.getBoolValue() and (!me.als.getBoolValue() or !me.customSettings.getBoolValue() or !me.landmassSet or !me.modelSet)) {
+				fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-rendering"}));
+			}
 		}
 	},
 	fixAll: func() {
 		# Don't override higher settings
 		if (me.landmass.getValue() < 4) {
 			me.landmass.setValue(4);
+			if (SYSTEM.fgfs >= 202040) {
+				me.modelEffects.setValue("Medium");
+			}
 		}
-		if (me.model.getValue() < 2) {
-			me.model.setValue(2);
+		if (me.model.getValue() < 3) {
+			me.model.setValue(3);
+			if (SYSTEM.fgfs >= 202040) {
+				me.modelEffects.setValue("Enabled");
+			}
 		}
 		
 		me.fixCore();
 	},
 	fixCore: func() {
 		me.als.setBoolValue(1); # ALS on
-		me.customSettings.setBoolValue(1);
+		if (SYSTEM.fgfs >= 202040) {
+			me.alsMode.setBoolValue(1);
+			me.lowSpecMode.setBoolValue(0);
+		} else {
+			me.customSettings.setBoolValue(1);
+		}
 		
 		print("System: Rendering Settings updated!");
 		gui.popupTip("System: Rendering settings updated!");
@@ -198,15 +220,12 @@ var OPTIONS = {
 	},
 };
 
-var spinningT = maketimer(0.05, SYSTEM, SYSTEM.spinning);
-SYSTEM.simInit();
-
-setlistener("/sim/signals/fdm-initialized", func() {
-	SYSTEM.fdmInit();
-});
-
 # Panel States specifically designed to work with IntegratedSystems design
 var PANEL = {
+	stop: 1,
+	cancel: func() {
+		me.stop = 1; # Kill timers
+	},
 	panelBase: func(t) {
 		
 	},
@@ -220,3 +239,10 @@ var PANEL = {
 		
 	},
 };
+
+var spinningT = maketimer(0.05, SYSTEM, SYSTEM.spinning);
+SYSTEM.simInit();
+
+setlistener("/sim/signals/fdm-initialized", func() {
+	SYSTEM.fdmInit();
+});
