@@ -430,6 +430,7 @@
 		<electrical n="0">
 			<switches n="0">
 				<ac-tie type="bool">1</ac-tie>
+				<apu-gndsvc type="bool">0</apu-gndsvc>
 				<apu-pwr-l type="bool">0</apu-pwr-l>
 				<apu-pwr-r type="bool">0</apu-pwr-r>
 				<battery type="bool">0</battery>
@@ -437,6 +438,7 @@
 				<csd-r type="bool">1</csd-r>
 				<dc-tie type="bool">0</dc-tie>
 				<emer-pwr type="bool">0</emer-pwr>
+				<ext-gndsvc type="bool">0</ext-gndsvc>
 				<ext-pwr-l type="bool">0</ext-pwr-l>
 				<ext-pwr-r type="bool">0</ext-pwr-r>
 				<galley type="bool">1</galley>
@@ -1318,9 +1320,10 @@
 		</caws>
 		<failures n="0">
 			<electrical n="0">
+				<ac-tie type="bool">0</ac-tie>
 				<apu type="bool">0</apu>
-				<bat-1 type="bool">0</bat-1>
-				<bat-2 type="bool">0</bat-2>
+				<battery type="bool">0</battery>
+				<dc-tie type="bool">0</dc-tie>
 				<gen-l type="bool">0</gen-l>
 				<gen-r type="bool">0</gen-r>
 			</electrical>

@@ -266,7 +266,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>emerpwr</object-name>
-		<property>controls/electrical/switches/emer-pw</property>
+		<property>controls/electrical/switches/emer-pwr</property>
 		<factor>40</factor>
 		<axis>
 			<x1-m>2.81814</x1-m>
@@ -285,7 +285,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electrical/switches/emer-pw</property>
+				<property>controls/electrical/switches/emer-pwr</property>
 			</binding>
 		</action>
 	</animation>

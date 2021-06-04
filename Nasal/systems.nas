@@ -29,10 +29,11 @@ setlistener("/controls/gear/abs/armed", func {
 # Electrical
 var ELEC = {
 	Bus: {
-		acL: props.globals.getNode("/systems/electrical/bus/ac-l"),
 		acGenL: props.globals.getNode("/systems/electrical/bus/ac-gen-l"),
-		acR: props.globals.getNode("/systems/electrical/bus/ac-r"),
 		acGenR: props.globals.getNode("/systems/electrical/bus/ac-gen-r"),
+		acGndSvc: props.globals.getNode("/systems/electrical/bus/ac-gndsvc"),
+		acL: props.globals.getNode("/systems/electrical/bus/ac-l"),
+		acR: props.globals.getNode("/systems/electrical/bus/ac-r"),
 		dcBat: props.globals.getNode("/systems/electrical/bus/dc-bat"),
 		dcBatDirect: props.globals.getNode("/systems/electrical/bus/dc-bat-direct"),
 		dcL: props.globals.getNode("/systems/electrical/bus/dc-l"),
@@ -40,12 +41,12 @@ var ELEC = {
 		dcTrans: props.globals.getNode("/systems/electrical/bus/dc-trans"),
 		emerAc: props.globals.getNode("/systems/electrical/bus/emer-ac"),
 		emerDc: props.globals.getNode("/systems/electrical/bus/emer-dc"),
-		gndSvc: props.globals.getNode("/systems/electrical/bus/gndsvc"),
 	},
 	Fail: {
+		acTie: props.globals.getNode("/systems/failures/electrical/ac-tie"),
 		apu: props.globals.getNode("/systems/failures/electrical/apu"),
-		bat1: props.globals.getNode("/systems/failures/electrical/bat-1"),
-		bat2: props.globals.getNode("/systems/failures/electrical/bat-2"),
+		battery: props.globals.getNode("/systems/failures/electrical/battery"),
+		dcTie: props.globals.getNode("/systems/failures/electrical/dc-tie"),
 		genL: props.globals.getNode("/systems/failures/electrical/gen-l"),
 		genR: props.globals.getNode("/systems/failures/electrical/gen-r"),
 	},
@@ -68,14 +69,44 @@ var ELEC = {
 		turnCoordinator: props.globals.initNode("/systems/electrical/outputs/turn-coordinator", 0, "DOUBLE"),
 	},
 	Source: {
+		batChargerPowered: props.globals.getNode("/systems/electrical/sources/bat-charger-powered"),
+		#Apu: {
+		#	hertz: props.globals.getNode("/systems/electrical/sources/apu/output-hertz"),
+		#	volt: props.globals.getNode("/systems/electrical/sources/apu/output-volt"),
+		#	pmgHertz: props.globals.getNode("/systems/electrical/sources/apu/pmg-hertz"),
+		#	pmgVolt: props.globals.getNode("/systems/electrical/sources/apu/pmg-volt"),
+		#},
+		Bat1: {
+			amp: props.globals.getNode("/systems/electrical/sources/bat-1/amp"),
+			percent: props.globals.getNode("/systems/electrical/sources/bat-1/percent"),
+			volt: props.globals.getNode("/systems/electrical/sources/bat-1/volt"),
+		},
+		Bat2: {
+			amp: props.globals.getNode("/systems/electrical/sources/bat-2/amp"),
+			percent: props.globals.getNode("/systems/electrical/sources/bat-2/percent"),
+			volt: props.globals.getNode("/systems/electrical/sources/bat-2/volt"),
+		},
 		Ext: {
 			cart: props.globals.getNode("/controls/switches/cart"),
 			hertz: props.globals.getNode("/systems/electrical/sources/ext/output-hertz"),
 			volt: props.globals.getNode("/systems/electrical/sources/ext/output-volt"),
 		},
+		IdgL: {
+			outputHertz: props.globals.getNode("/systems/electrical/sources/idg-l/output-hertz"),
+			outputVolt: props.globals.getNode("/systems/electrical/sources/idg-l/output-volt"),
+			pmgHertz: props.globals.getNode("/systems/electrical/sources/idg-l/pmg-hertz"),
+			pmgVolt: props.globals.getNode("/systems/electrical/sources/idg-l/pmg-volt"),
+		},
+		IdgR: {
+			outputHertz: props.globals.getNode("/systems/electrical/sources/idg-r/output-hertz"),
+			outputVolt: props.globals.getNode("/systems/electrical/sources/idg-r/output-volt"),
+			pmgHertz: props.globals.getNode("/systems/electrical/sources/idg-r/pmg-hertz"),
+			pmgVolt: props.globals.getNode("/systems/electrical/sources/idg-r/pmg-volt"),
+		},
 	},
 	Switch: {
 		acTie: props.globals.getNode("/controls/electrical/switches/ac-tie"),
+		apuGndSvc: props.globals.getNode("/controls/electrical/switches/apu-gndsvc"),
 		apuPwrL: props.globals.getNode("/controls/electrical/switches/apu-pwr-l"),
 		apuPwrR: props.globals.getNode("/controls/electrical/switches/apu-pwr-r"),
 		battery: props.globals.getNode("/controls/electrical/switches/battery"),
@@ -83,6 +114,7 @@ var ELEC = {
 		csdR: props.globals.getNode("/controls/electrical/switches/csd-r"),
 		dcTie: props.globals.getNode("/controls/electrical/switches/dc-tie"),
 		emerPwr: props.globals.getNode("/controls/electrical/switches/emer-pwr"),
+		extGndSvc: props.globals.getNode("/controls/electrical/switches/ext-gndsvc"),
 		extPwrL: props.globals.getNode("/controls/electrical/switches/ext-pwr-l"),
 		extPwrR: props.globals.getNode("/controls/electrical/switches/ext-pwr-r"),
 		galley: props.globals.getNode("/controls/electrical/switches/galley"),
@@ -93,6 +125,7 @@ var ELEC = {
 	init: func() {
 		me.resetFailures();
 		me.Switch.acTie.setBoolValue(1);
+		me.Switch.apuGndSvc.setBoolValue(0);
 		me.Switch.apuPwrL.setBoolValue(0);
 		me.Switch.apuPwrR.setBoolValue(0);
 		me.Switch.battery.setBoolValue(0);
@@ -100,22 +133,24 @@ var ELEC = {
 		me.Switch.csdR.setBoolValue(1);
 		me.Switch.dcTie.setBoolValue(0);
 		me.Switch.emerPwr.setBoolValue(0);
+		me.Switch.extGndSvc.setBoolValue(0);
 		me.Switch.extPwrL.setBoolValue(0);
 		me.Switch.extPwrR.setBoolValue(0);
 		me.Switch.galley.setBoolValue(1);
 		me.Switch.genApu.setBoolValue(1);
 		me.Switch.genL.setValue(1);
 		me.Switch.genR.setValue(1);
-		#me.Source.Bat1.percent.setValue(99.9);
-		#me.Source.Bat2.percent.setValue(99.9);
+		me.Source.Bat1.percent.setValue(99.9);
+		me.Source.Bat2.percent.setValue(99.9);
 		me.Source.Ext.cart.setBoolValue(0);
 	},
 	resetFailures: func() {
 		me.Switch.csdL.setBoolValue(1);
 		me.Switch.csdR.setBoolValue(1);
+		me.Fail.acTie.setBoolValue(0);
 		me.Fail.apu.setBoolValue(0);
-		me.Fail.bat1.setBoolValue(0);
-		me.Fail.bat2.setBoolValue(0);
+		me.Fail.battery.setBoolValue(0);
+		me.Fail.dcTie.setBoolValue(0);
 		me.Fail.genL.setBoolValue(0);
 		me.Fail.genR.setBoolValue(0);
 	},

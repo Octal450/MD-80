@@ -40,7 +40,7 @@
 		<object-name>Off</object-name>
 		<condition>
 			<less-than>
-				<property>systems/electrical/bus/dcL</property>
+				<property>systems/electrical/bus/dc-l</property>
 				<value>15</value>
 			</less-than>
 		</condition>

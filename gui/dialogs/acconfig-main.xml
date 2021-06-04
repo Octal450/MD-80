@@ -128,6 +128,9 @@
 						<binding>
 							<command>nasal</command>
 							<script>
+								setprop("/controls/switches/cart", 1);
+								setprop("/controls/electrical/switches/ext-pwr-l", 1);
+								setprop("/controls/electrical/switches/ext-pwr-r", 1);
 								setprop("/controls/fuel/switches/pump-aft-l", 1);
 								setprop("/controls/fuel/switches/pump-aft-r", 1);
 								setprop("/controls/fuel/switches/pump-fwd-l", 1);
@@ -144,6 +147,9 @@
 									setprop("/fdm/jsbsim/propulsion/set-running", 1);
 									setprop("/engines/engine[0]/state", 3);
 									setprop("/engines/engine[1]/state", 3);
+									setprop("/controls/electrical/switches/ext-pwr-l", 0);
+									setprop("/controls/electrical/switches/ext-pwr-r", 0);
+									setprop("/controls/switches/cart", 0);
 								}, 0.5);
 								settimer(func() {
 									setprop("/services/chocks/enable", 0);

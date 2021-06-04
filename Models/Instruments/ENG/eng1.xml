@@ -98,11 +98,11 @@
 	<condition>
 		<or>
 		<greater-than>
-			<property>systems/electrical/bus/dcL</property>
+			<property>systems/electrical/bus/dc-l</property>
 			<value>15</value>
 		</greater-than>
 		<greater-than>
-			<property>systems/electrical/bus/dcR</property>
+			<property>systems/electrical/bus/dc-r</property>
 			<value>15</value>
 		</greater-than>
 		</or>
@@ -162,11 +162,11 @@
 		</greater-than>
 		<or>
 			<greater-than>
-				<property>systems/electrical/bus/dcL</property>
+				<property>systems/electrical/bus/dc-l</property>
 				<value>15</value>
 			</greater-than>
 			<greater-than>
-				<property>systems/electrical/bus/dcR</property>
+				<property>systems/electrical/bus/dc-r</property>
 				<value>15</value>
 			</greater-than>
 		</or>
@@ -185,11 +185,11 @@
 		</greater-than>
 		<or>
 			<greater-than>
-				<property>systems/electrical/bus/dcL</property>
+				<property>systems/electrical/bus/dc-l</property>
 				<value>15</value>
 			</greater-than>
 			<greater-than>
-				<property>systems/electrical/bus/dcR</property>
+				<property>systems/electrical/bus/dc-r</property>
 				<value>15</value>
 			</greater-than>
 		</or>
@@ -575,11 +575,11 @@
 		</greater-than>
 		<or>
 			<greater-than>
-				<property>systems/electrical/bus/dcL</property>
+				<property>systems/electrical/bus/dc-l</property>
 				<value>15</value>
 			</greater-than>
 			<greater-than>
-				<property>systems/electrical/bus/dcR</property>
+				<property>systems/electrical/bus/dc-r</property>
 				<value>15</value>
 			</greater-than>
 		</or>
@@ -598,11 +598,11 @@
 		</greater-than>
 		<or>
 			<greater-than>
-				<property>systems/electrical/bus/dcL</property>
+				<property>systems/electrical/bus/dc-l</property>
 				<value>15</value>
 			</greater-than>
 			<greater-than>
-				<property>systems/electrical/bus/dcR</property>
+				<property>systems/electrical/bus/dc-r</property>
 				<value>15</value>
 			</greater-than>
 		</or>

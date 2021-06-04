@@ -80,19 +80,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Battery 1</label>
+				<label>Battery</label>
 				<halign>left</halign>
-				<property>/systems/failures/electrical/bat-1</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Battery 2</label>
-				<halign>left</halign>
-				<property>/systems/failures/electrical/bat-2</property>
+				<property>/systems/failures/electrical/battery</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -113,6 +103,26 @@
 				<label>Eng 2 Generator</label>
 				<halign>left</halign>
 				<property>/systems/failures/electrical/gen-r</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>AC Bus Tie</label>
+				<halign>left</halign>
+				<property>/systems/failures/electrical/ac-tie</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>DC Bus Tie</label>
+				<halign>left</halign>
+				<property>/systems/failures/electrical/dc-tie</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -260,7 +270,7 @@
 					<stretch type="bool">true</stretch>
 				</hrule>
 				<text>
-					<label>Fuel</label>
+					<label>Landing Gear</label>
 				</text>
 				<hrule>
 					<stretch type="bool">true</stretch>
@@ -268,9 +278,9 @@
 			</group>
 			
 			<checkbox>
-				<label>Start Pump</label>
+				<label>Nose Gear Actuator</label>
 				<halign>left</halign>
-				<property>/systems/failures/fuel/pump-start</property>
+				<property>/systems/failures/gear/nose-actuator</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -278,9 +288,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Left Tank Pumps</label>
+				<label>Left Gear Actuator</label>
 				<halign>left</halign>
-				<property>/systems/failures/fuel/pumps-l</property>
+				<property>/systems/failures/gear/left-actuator</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -288,19 +298,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Center Tank Pumps</label>
+				<label>Right Gear Actuator</label>
 				<halign>left</halign>
-				<property>/systems/failures/fuel/pumps-c</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Right Tank Pumps</label>
-				<halign>left</halign>
-				<property>/systems/failures/fuel/pumps-r</property>
+				<property>/systems/failures/gear/right-actuator</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -365,7 +365,7 @@
 					<stretch type="bool">true</stretch>
 				</hrule>
 				<text>
-					<label>Landing Gear</label>
+					<label>Fuel</label>
 				</text>
 				<hrule>
 					<stretch type="bool">true</stretch>
@@ -373,9 +373,9 @@
 			</group>
 			
 			<checkbox>
-				<label>Nose Gear Actuator</label>
+				<label>Start Pump</label>
 				<halign>left</halign>
-				<property>/systems/failures/gear/nose-actuator</property>
+				<property>/systems/failures/fuel/pump-start</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -383,9 +383,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Left Gear Actuator</label>
+				<label>Left Tank Pumps</label>
 				<halign>left</halign>
-				<property>/systems/failures/gear/left-actuator</property>
+				<property>/systems/failures/fuel/pumps-l</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -393,9 +393,19 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Right Gear Actuator</label>
+				<label>Center Tank Pumps</label>
 				<halign>left</halign>
-				<property>/systems/failures/gear/right-actuator</property>
+				<property>/systems/failures/fuel/pumps-c</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Right Tank Pumps</label>
+				<halign>left</halign>
+				<property>/systems/failures/fuel/pumps-r</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
