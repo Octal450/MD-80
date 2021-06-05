@@ -129,6 +129,7 @@
 							<command>nasal</command>
 							<script>
 								setprop("/controls/switches/cart", 1);
+								setprop("/controls/electrical/switches/battery", 1);
 								setprop("/controls/electrical/switches/ext-pwr-l", 1);
 								setprop("/controls/electrical/switches/ext-pwr-r", 1);
 								setprop("/controls/fuel/switches/pump-aft-l", 1);

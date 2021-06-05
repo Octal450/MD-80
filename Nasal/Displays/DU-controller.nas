@@ -35,7 +35,7 @@ var DUController = {
 		
 		if (pts.Options.panel.getValue() == "EFIS") {
 			if (!me.errorActive) {
-				if (systems.ELEC.Bus.acL.getValue() >= 110) { # Guess
+				if (systems.ELEC.Bus.acL.getValue() >= 112) { # Guess
 					if (!me.updatePfd1) {
 						me.updatePfd1 = 1;
 						canvas_pfd.pfd1.update();
@@ -57,7 +57,7 @@ var DUController = {
 					}
 				}
 				
-				if (systems.ELEC.Bus.acR.getValue() >= 110) { # Guess
+				if (systems.ELEC.Bus.acR.getValue() >= 112) { # Guess
 					if (!me.updatePfd2) {
 						me.updatePfd2 = 1;
 						canvas_pfd.pfd2.update();

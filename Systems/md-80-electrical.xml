@@ -397,7 +397,7 @@
 				<ifthen>
 					<ge>
 						<property>/systems/electrical/sources/ext/output-volt</property>
-						<value>110</value>
+						<value>112</value>
 					</ge>
 					<value>400</value>
 					<value>0</value>
@@ -417,7 +417,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/relay/idg-ac-gen-l/command-pos eq 1
-				/systems/electrical/sources/idg-l/output-volt ge 110
+				/systems/electrical/sources/idg-l/output-volt ge 112
 			</test>
 		</switch>
 		
@@ -444,7 +444,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/relay/idg-ac-gen-r/command-pos eq 1
-				/systems/electrical/sources/idg-r/output-volt ge 110
+				/systems/electrical/sources/idg-r/output-volt ge 112
 			</test>
 		</switch>
 		
@@ -473,7 +473,7 @@
 			<test logic="AND" value="1"> <!-- Priority: IDG -->
 				/systems/electrical/relay/apu-ac-gen-l/command-pos eq 1
 				/systems/electrical/relay/idg-ac-gen-l/contact-pos ne 1
-				/systems/electrical/sources/apu/output-volt ge 110
+				/systems/electrical/sources/apu/output-volt ge 112
 			</test>
 		</switch>
 		
@@ -501,7 +501,7 @@
 			<test logic="AND" value="1"> <!-- Priority: IDG -->
 				/systems/electrical/relay/apu-ac-gen-r/command-pos eq 1
 				/systems/electrical/relay/idg-ac-gen-r/contact-pos ne 1
-				/systems/electrical/sources/apu/output-volt ge 110
+				/systems/electrical/sources/apu/output-volt ge 112
 			</test>
 		</switch>
 		
@@ -531,7 +531,7 @@
 				/systems/electrical/relay/ext-ac-gen-l/command-pos eq 1
 				/systems/electrical/relay/idg-ac-gen-l/contact-pos ne 1
 				/systems/electrical/relay/apu-ac-gen-l/contact-pos ne 1
-				/systems/electrical/sources/ext/output-volt ge 110
+				/systems/electrical/sources/ext/output-volt ge 112
 			</test>
 		</switch>
 		
@@ -560,7 +560,7 @@
 				/systems/electrical/relay/ext-ac-gen-r/command-pos eq 1
 				/systems/electrical/relay/idg-ac-gen-r/contact-pos ne 1
 				/systems/electrical/relay/apu-ac-gen-r/contact-pos ne 1
-				/systems/electrical/sources/ext/output-volt ge 110
+				/systems/electrical/sources/ext/output-volt ge 112
 			</test>
 		</switch>
 		
@@ -582,17 +582,17 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/controls/electrical/switches/ac-tie eq 1
-				/systems/electrical/bus/ac-gen-l ge 110
+				/systems/electrical/bus/ac-gen-l ge 112
 				<test logic="OR">
-					/systems/electrical/bus/ac-gen-r lt 110
+					/systems/electrical/bus/ac-gen-r lt 112
 					/systems/electrical/bus/ac-gen-r-src eq 4
 				</test>
 			</test>
 			<test logic="AND" value="1">
 				/controls/electrical/switches/ac-tie eq 1
-				/systems/electrical/bus/ac-gen-r ge 110
+				/systems/electrical/bus/ac-gen-r ge 112
 				<test logic="OR">
-					/systems/electrical/bus/ac-gen-l lt 110
+					/systems/electrical/bus/ac-gen-l lt 112
 					/systems/electrical/bus/ac-gen-l-src eq 4
 				</test>
 			</test>
@@ -749,12 +749,447 @@
 			</test>
 		</switch>
 		
+		<!-- AC Ground Service Bus Relays -->
+		<switch name="/systems/electrical/relay/apu-ac-gndsvc/contact-pos">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/electrical/switches/apu-gndsvc eq 1
+				/systems/electrical/sources/apu/output-volt ge 112
+			</test>
+		</switch>
+		
+		<actuator name="/systems/electrical/relay/apu-ac-gndsvc/contact-final">
+			<input>/systems/electrical/relay/apu-ac-gndsvc/contact-pos</input>
+			<rate_limit>4.8</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/electrical/relay/apu-ac-gndsvc/output">
+			<default value="0"/>
+			<test value="/systems/electrical/sources/apu/output-volt">
+				/systems/electrical/relay/apu-ac-gndsvc/contact-final eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/ext-ac-gndsvc/contact-pos">
+			<default value="0"/>
+			<test logic="AND" value="1"> <!-- Priority: APU -->
+				/controls/electrical/switches/ext-gndsvc eq 1
+				/systems/electrical/relay/apu-ac-gndsvc/contact-pos ne 1
+				/systems/electrical/sources/ext/output-volt ge 112
+			</test>
+		</switch>
+		
+		<actuator name="/systems/electrical/relay/ext-ac-gndsvc/contact-final">
+			<input>/systems/electrical/relay/ext-ac-gndsvc/contact-pos</input>
+			<rate_limit>4.8</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/electrical/relay/ext-ac-gndsvc/output">
+			<default value="0"/>
+			<test value="/systems/electrical/sources/ext/output-volt">
+				/systems/electrical/relay/ext-ac-gndsvc/contact-final eq 1
+			</test>
+		</switch>
+		
+		<fcs_function name="/systems/electrical/bus/apu-ext-gndsvc">
+			<function>
+				<max>
+					<property>/systems/electrical/relay/apu-ac-gndsvc/output</property>
+					<property>/systems/electrical/relay/ext-ac-gndsvc/output</property>
+				</max>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/electrical/relay/gndsvc-src-ac-gndsvc/contact-pos">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/ac-gen-r lt 112
+				/systems/electrical/bus/apu-ext-gndsvc ge 112
+			</test>
+		</switch>
+		
+		<actuator name="/systems/electrical/relay/gndsvc-src-ac-gndsvc/contact-final">
+			<input>/systems/electrical/relay/gndsvc-src-ac-gndsvc/contact-pos</input>
+			<rate_limit>4.8</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/electrical/relay/gndsvc-src-ac-gndsvc/output">
+			<default value="0"/>
+			<test value="/systems/electrical/bus/ac-gen-r">
+				/systems/electrical/relay/gndsvc-src-ac-gndsvc/contact-final eq 0
+			</test>
+			<test value="/systems/electrical/bus/apu-ext-gndsvc">
+				/systems/electrical/relay/gndsvc-src-ac-gndsvc/contact-final eq 1
+			</test>
+		</switch>
+		
+		<!-- AC Ground Service Bus -->
+		<pure_gain name="/systems/electrical/bus/ac-gndsvc">
+			<input>/systems/electrical/relay/gndsvc-src-ac-gndsvc/output</input>
+			<gain>1.0</gain>
+		</pure_gain>
+		
+		<!-- Transformer Rectifier Relays -->
+		<switch name="/systems/electrical/relay/ac-l-tr-l1/contact-pos">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/ac-l ge 112
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/ac-l-tr-l1/output">
+			<default value="0"/>
+			<test value="/systems/electrical/bus/ac-l">
+				/systems/electrical/relay/ac-l-tr-l1/contact-pos eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/ac-l-tr-l2/contact-pos">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/ac-gen-l ge 112
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/ac-l-tr-l2/output">
+			<default value="0"/>
+			<test value="/systems/electrical/bus/ac-l">
+				/systems/electrical/relay/ac-l-tr-l2/contact-pos eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/ac-r-tr-r1/contact-pos">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/ac-r-tr-r1/output">
+			<default value="0"/>
+			<test value="/systems/electrical/bus/ac-r">
+				/systems/electrical/relay/ac-r-tr-r1/contact-pos eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/ac-gndsvc-tr-r2/contact-pos">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/ac-gndsvc ge 112
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/ac-gndsvc-tr-r2/output">
+			<default value="0"/>
+			<test value="/systems/electrical/bus/ac-gndsvc">
+				/systems/electrical/relay/ac-gndsvc-tr-r2/contact-pos eq 1
+			</test>
+		</switch>
+		
+		<!-- Transformer Rectifiers -->
+		<scheduled_gain name="/systems/electrical/sources/tr-l1/output-volt">
+			<input>/systems/electrical/relay/ac-l-tr-l1/output</input>
+			<table> <!-- AC to DC converter -->
+				<independentVar lookup="row">/systems/electrical/relay/ac-l-tr-l1/output</independentVar>
+				<tableData>
+					112  0.21428571429
+					115  0.24347826087
+					118  0.24576271186
+				</tableData>
+			</table>
+		</scheduled_gain>
+		
+		<fcs_function name="/systems/electrical/sources/tr-l1/output-amp">
+			<function>
+				<table>
+					<independentVar lookup="row">/systems/electrical/sources/tr-l1/output-volt</independentVar>
+					<tableData>
+						 0    0
+						10   75
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<scheduled_gain name="/systems/electrical/sources/tr-l2/output-volt">
+			<input>/systems/electrical/relay/ac-l-tr-l2/output</input>
+			<table> <!-- AC to DC converter -->
+				<independentVar lookup="row">/systems/electrical/relay/ac-l-tr-l2/output</independentVar>
+				<tableData>
+					112  0.21428571429
+					115  0.24347826087
+					118  0.24576271186
+				</tableData>
+			</table>
+		</scheduled_gain>
+		
+		<fcs_function name="/systems/electrical/sources/tr-l2/output-amp">
+			<function>
+				<table>
+					<independentVar lookup="row">/systems/electrical/sources/tr-l2/output-volt</independentVar>
+					<tableData>
+						 0    0
+						10   75
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<scheduled_gain name="/systems/electrical/sources/tr-r1/output-volt">
+			<input>/systems/electrical/relay/ac-r-tr-r1/output</input>
+			<table> <!-- AC to DC converter -->
+				<independentVar lookup="row">/systems/electrical/relay/ac-r-tr-r1/output</independentVar>
+				<tableData>
+					112  0.21428571429
+					115  0.24347826087
+					118  0.24576271186
+				</tableData>
+			</table>
+		</scheduled_gain>
+		
+		<fcs_function name="/systems/electrical/sources/tr-r1/output-amp">
+			<function>
+				<table>
+					<independentVar lookup="row">/systems/electrical/sources/tr-r1/output-volt</independentVar>
+					<tableData>
+						 0    0
+						10   75
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<scheduled_gain name="/systems/electrical/sources/tr-r2/output-volt">
+			<input>/systems/electrical/relay/ac-gndsvc-tr-r2/output</input>
+			<table> <!-- AC to DC converter -->
+				<independentVar lookup="row">/systems/electrical/relay/ac-gndsvc-tr-r2/output</independentVar>
+				<tableData>
+					112  0.21428571429
+					115  0.24347826087
+					118  0.24576271186
+				</tableData>
+			</table>
+		</scheduled_gain>
+		
+		<fcs_function name="/systems/electrical/sources/tr-r2/output-amp">
+			<function>
+				<table>
+					<independentVar lookup="row">/systems/electrical/sources/tr-r2/output-volt</independentVar>
+					<tableData>
+						 0    0
+						10   75
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<!-- DC Tie Bus DC Bus Relays -->
+		<!-- These outputs are from the DC Tie Bus to the DC Bus -->
+		<switch name="/systems/electrical/relay/dc-tie-dc-l/contact-pos">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/electrical/switches/dc-tie eq 1
+				/systems/failures/electrical/dc-tie ne 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/dc-tie-dc-l/output">
+			<default value="0"/>
+			<test value="/systems/electrical/bus/dc-tie">
+				/systems/electrical/relay/dc-tie-dc-l/contact-pos eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/dc-tie-dc-r/contact-pos">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/electrical/switches/dc-tie eq 1
+				/systems/failures/electrical/dc-tie ne 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/dc-tie-dc-r/output">
+			<default value="0"/>
+			<test value="/systems/electrical/bus/dc-tie">
+				/systems/electrical/relay/dc-tie-dc-r/contact-pos eq 1
+			</test>
+		</switch>
+		
+		<!-- DC L Bus -->
+		<switch name="/systems/electrical/bus/dc-l-src">
+			<default value="0"/> <!-- OFF -->
+			<test logic="OR" value="1"> <!-- TRs -->
+				/systems/electrical/sources/tr-l1/output-volt ge 24
+				/systems/electrical/sources/tr-l2/output-volt ge 24
+			</test>
+			<test value="2"> <!-- DC TIE -->
+				/systems/electrical/relay/dc-tie-dc-l/contact-pos eq 1
+			</test>
+		</switch>
+		
+		<fcs_function name="/systems/electrical/bus/dc-l-pre">
+			<function>
+				<max>
+					<property>/systems/electrical/sources/tr-l1/output-volt</property>
+					<property>/systems/electrical/sources/tr-l2/output-volt</property>
+				</max>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/electrical/bus/dc-l">
+			<function>
+				<max>
+					<property>/systems/electrical/bus/dc-l-pre</property>
+					<property>/systems/electrical/relay/dc-tie-dc-l/output</property>
+				</max>
+			</function>
+		</fcs_function>
+		
+		<!-- AC Ground Service Bus DC R Bus Relay -->
+		<switch name="/systems/electrical/relay/tr-r2-dc-r/contact-pos">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/relay/gndsvc-src-ac-gndsvc/contact-final eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/tr-r2-dc-r/output-dc-r">
+			<default value="0"/>
+			<test value="/systems/electrical/sources/tr-r2/output-volt">
+				/systems/electrical/relay/tr-r2-dc-r/contact-pos eq 0
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/tr-r2-dc-r/output-dc-trans">
+			<default value="0"/>
+			<test value="/systems/electrical/sources/tr-r2/output-volt">
+				/systems/electrical/relay/tr-r2-dc-r/contact-pos eq 1
+			</test>
+		</switch>
+		
+		<!-- DC R Bus -->
+		<switch name="/systems/electrical/bus/dc-r-src">
+			<default value="0"/> <!-- OFF -->
+			<test logic="OR" value="1"> <!-- TRs -->
+				/systems/electrical/sources/tr-r1/output-volt ge 24
+				/systems/electrical/relay/tr-r2-dc-r/output-dc-r ge 24
+			</test>
+			<test value="2"> <!-- DC TIE -->
+				/systems/electrical/relay/dc-tie-dc-r/contact-pos eq 1
+			</test>
+		</switch>
+		
+		<fcs_function name="/systems/electrical/bus/dc-r-pre">
+			<function>
+				<max>
+					<property>/systems/electrical/sources/tr-r1/output-volt</property>
+					<property>/systems/electrical/relay/tr-r2-dc-r/output-dc-r</property>
+				</max>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/electrical/bus/dc-r">
+			<function>
+				<max>
+					<property>/systems/electrical/bus/dc-r-pre</property>
+					<property>/systems/electrical/relay/dc-tie-dc-r/output</property>
+				</max>
+			</function>
+		</fcs_function>
+		
+		<!-- DC Tie Bus DC Bus Relays (continued) -->
+		<!-- These outputs are from the DC Bus to the DC Tie Bus -->
+		<switch name="/systems/electrical/relay/dc-tie-dc-l/output-tie">
+			<default value="0"/>
+			<test value="/systems/electrical/bus/dc-l-pre">
+				/systems/electrical/relay/dc-tie-dc-l/contact-pos eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/dc-tie-dc-r/output-tie">
+			<default value="0"/>
+			<test value="/systems/electrical/bus/dc-r-pre">
+				/systems/electrical/relay/dc-tie-dc-r/contact-pos eq 1
+			</test>
+		</switch>
+		
+		<!-- DC Tie Bus -->
+		<switch name="/systems/electrical/bus/dc-tie">
+			<default value="0"/>
+			<test logic="AND" value="/systems/electrical/relay/dc-tie-dc-l/output-tie">
+				/systems/electrical/relay/dc-tie-dc-l/contact-pos eq 1
+				/systems/electrical/bus/dc-l-src ne 2
+			</test>
+			<test logic="AND" value="/systems/electrical/relay/dc-tie-dc-r/output-tie">
+				/systems/electrical/relay/dc-tie-dc-r/contact-pos eq 1
+				/systems/electrical/bus/dc-r-src ne 2
+			</test>
+		</switch>
+		
+		<!-- Battery Charger Power Relay -->
+		<switch name="/systems/electrical/sources/bat-charger-powered">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/electrical/switches/emer-pwr ne 1
+				/systems/electrical/bus/ac-gndsvc ge 112
+			</test>
+		</switch>
+		
+		<!-- Battery Bus/Battery Direct Bus -->
+		<fcs_function name="/systems/electrical/bus/dc-bat-direct">
+			<function>
+				<sum>
+					<property>/systems/electrical/sources/bat-1/volt</property>
+					<property>/systems/electrical/sources/bat-2/volt</property>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<scheduled_gain name="/systems/electrical/bus/dc-bat">
+			<description>Battery Voltage Step Down/Up (Buck/Boost) Regulator</description>
+			<input>/systems/electrical/bus/dc-bat-direct</input>
+			<gain>/controls/electrical/switches/battery</gain>
+			<table>
+				<independentVar lookup="row">/systems/electrical/bus/dc-bat-direct</independentVar>
+				<tableData>
+					21  1.33333333333
+					22  1.27272727272
+					23  1.21739130434
+					24  1.16666666666
+					25  1.12000000000
+					26  1.07692307692
+					27  1.03703703703
+					28  1.00000000000
+					29  0.96551724137
+					30  0.93333333333
+					31  0.90322580645
+					32  0.87500000000
+					33  0.84848484848
+				</tableData>
+			</table>
+		</scheduled_gain>
+		
+		<!-- Static Inverter -->
+		<fcs_function name="/systems/electrical/sources/si-1/output-volt">
+			<function>
+				<table> <!-- DC to AC converter -->
+					<independentVar lookup="row">/systems/electrical/bus/dc-bat</independentVar>
+					<tableData>
+						 0    0
+						24  112
+						28  115
+						29  118
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
 		<!-- Emergency AC Bus Relays -->
 		<switch name="/systems/electrical/relay/ac-src-emer-ac/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/systems/electrical/bus/ac-l lt 110
-				/systems/electrical/bus/ac-r ge 110
+				/systems/electrical/bus/ac-l lt 112
+				/systems/electrical/bus/ac-r ge 112
 			</test>
 		</switch>
 		
@@ -791,86 +1226,6 @@
 		<!-- Emergency AC Bus -->
 		<pure_gain name="/systems/electrical/bus/emer-ac">
 			<input>/systems/electrical/relay/ac-inv-emer-ac/output</input>
-			<gain>1.0</gain>
-		</pure_gain>
-		
-		<!-- AC Ground Service Bus Relay -->
-		<switch name="/systems/electrical/relay/apu-ac-gndsvc/contact-pos">
-			<default value="0"/>
-			<test logic="AND" value="1">
-				/controls/electrical/switches/apu-gndsvc eq 1
-				/systems/electrical/sources/apu/output-volt ge 110
-			</test>
-		</switch>
-		
-		<actuator name="/systems/electrical/relay/apu-ac-gndsvc/contact-final">
-			<input>/systems/electrical/relay/apu-ac-gndsvc/contact-pos</input>
-			<rate_limit>4.8</rate_limit>
-		</actuator>
-		
-		<switch name="/systems/electrical/relay/apu-ac-gndsvc/output">
-			<default value="0"/>
-			<test value="/systems/electrical/sources/apu/output-volt">
-				/systems/electrical/relay/apu-ac-gndsvc/contact-final eq 1
-			</test>
-		</switch>
-		
-		<switch name="/systems/electrical/relay/ext-ac-gndsvc/contact-pos">
-			<default value="0"/>
-			<test logic="AND" value="1"> <!-- Priority: APU -->
-				/controls/electrical/switches/ext-gndsvc eq 1
-				/systems/electrical/relay/apu-ac-gndsvc/contact-pos ne 1
-				/systems/electrical/sources/ext/output-volt ge 110
-			</test>
-		</switch>
-		
-		<actuator name="/systems/electrical/relay/ext-ac-gndsvc/contact-final">
-			<input>/systems/electrical/relay/ext-ac-gndsvc/contact-pos</input>
-			<rate_limit>4.8</rate_limit>
-		</actuator>
-		
-		<switch name="/systems/electrical/relay/ext-ac-gndsvc/output">
-			<default value="0"/>
-			<test value="/systems/electrical/sources/ext/output-volt">
-				/systems/electrical/relay/ext-ac-gndsvc/contact-final eq 1
-			</test>
-		</switch>
-		
-		<fcs_function name="/systems/electrical/bus/apu-ext-gndsvc">
-			<function>
-				<max>
-					<property>/systems/electrical/relay/apu-ac-gndsvc/output</property>
-					<property>/systems/electrical/relay/ext-ac-gndsvc/output</property>
-				</max>
-			</function>
-		</fcs_function>
-		
-		<switch name="/systems/electrical/relay/gndsvc-src-ac-gndsvc/contact-pos">
-			<default value="0"/>
-			<test logic="AND" value="1">
-				/systems/electrical/bus/ac-gen-r lt 110
-				/systems/electrical/bus/apu-ext-gndsvc ge 110
-			</test>
-		</switch>
-		
-		<actuator name="/systems/electrical/relay/gndsvc-src-ac-gndsvc/contact-final">
-			<input>/systems/electrical/relay/gndsvc-src-ac-gndsvc/contact-pos</input>
-			<rate_limit>4.8</rate_limit>
-		</actuator>
-		
-		<switch name="/systems/electrical/relay/gndsvc-src-ac-gndsvc/output">
-			<default value="0"/>
-			<test value="/systems/electrical/bus/ac-gen-r">
-				/systems/electrical/relay/gndsvc-src-ac-gndsvc/contact-final eq 0
-			</test>
-			<test value="/systems/electrical/bus/apu-ext-gndsvc">
-				/systems/electrical/relay/gndsvc-src-ac-gndsvc/contact-final eq 1
-			</test>
-		</switch>
-		
-		<!-- AC Ground Service Bus -->
-		<pure_gain name="/systems/electrical/bus/ac-gndsvc">
-			<input>/systems/electrical/relay/gndsvc-src-ac-gndsvc/output</input>
 			<gain>1.0</gain>
 		</pure_gain>
 	

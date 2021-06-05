@@ -103,6 +103,25 @@ var ELEC = {
 			pmgHertz: props.globals.getNode("/systems/electrical/sources/idg-r/pmg-hertz"),
 			pmgVolt: props.globals.getNode("/systems/electrical/sources/idg-r/pmg-volt"),
 		},
+		Si1: {
+			volt: props.globals.getNode("/systems/electrical/sources/si-1/output-volt"),
+		},
+		TrL1: {
+			amp: props.globals.getNode("/systems/electrical/sources/tr-l1/output-amp"),
+			volt: props.globals.getNode("/systems/electrical/sources/tr-l1/output-volt"),
+		},
+		TrL2: {
+			amp: props.globals.getNode("/systems/electrical/sources/tr-l2/output-amp"),
+			volt: props.globals.getNode("/systems/electrical/sources/tr-l2/output-volt"),
+		},
+		TrR1: {
+			amp: props.globals.getNode("/systems/electrical/sources/tr-r1/output-amp"),
+			volt: props.globals.getNode("/systems/electrical/sources/tr-r1/output-volt"),
+		},
+		TrR2: {
+			amp: props.globals.getNode("/systems/electrical/sources/tr-r2/output-amp"),
+			volt: props.globals.getNode("/systems/electrical/sources/tr-r2/output-volt"),
+		},
 	},
 	Switch: {
 		acTie: props.globals.getNode("/controls/electrical/switches/ac-tie"),
