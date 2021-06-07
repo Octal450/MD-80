@@ -1046,24 +1046,24 @@
 		</fcs_function>
 		
 		<!-- AC Ground Service Bus DC R Bus Relay -->
-		<switch name="/systems/electrical/relay/tr-r2-dc-r/contact-pos">
+		<switch name="/systems/electrical/relay/tr-r2-dc/contact-pos">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/relay/gndsvc-src-ac-gndsvc/contact-final eq 1
 			</test>
 		</switch>
 		
-		<switch name="/systems/electrical/relay/tr-r2-dc-r/output-dc-r">
+		<switch name="/systems/electrical/relay/tr-r2-dc/output-dc-r">
 			<default value="0"/>
 			<test value="/systems/electrical/sources/tr-r2/output-volt">
-				/systems/electrical/relay/tr-r2-dc-r/contact-pos eq 0
+				/systems/electrical/relay/tr-r2-dc/contact-pos eq 0
 			</test>
 		</switch>
 		
-		<switch name="/systems/electrical/relay/tr-r2-dc-r/output-dc-trans">
+		<switch name="/systems/electrical/relay/tr-r2-dc/output-dc-trans">
 			<default value="0"/>
 			<test value="/systems/electrical/sources/tr-r2/output-volt">
-				/systems/electrical/relay/tr-r2-dc-r/contact-pos eq 1
+				/systems/electrical/relay/tr-r2-dc/contact-pos eq 1
 			</test>
 		</switch>
 		
@@ -1072,7 +1072,7 @@
 			<default value="0"/> <!-- OFF -->
 			<test logic="OR" value="1"> <!-- TRs -->
 				/systems/electrical/sources/tr-r1/output-volt ge 24
-				/systems/electrical/relay/tr-r2-dc-r/output-dc-r ge 24
+				/systems/electrical/relay/tr-r2-dc/output-dc-r ge 24
 			</test>
 			<test value="2"> <!-- DC TIE -->
 				/systems/electrical/relay/dc-tie-dc-r/contact-pos eq 1
@@ -1083,7 +1083,7 @@
 			<function>
 				<max>
 					<property>/systems/electrical/sources/tr-r1/output-volt</property>
-					<property>/systems/electrical/relay/tr-r2-dc-r/output-dc-r</property>
+					<property>/systems/electrical/relay/tr-r2-dc/output-dc-r</property>
 				</max>
 			</function>
 		</fcs_function>
@@ -1126,15 +1126,6 @@
 			</test>
 		</switch>
 		
-		<!-- Battery Charger Power Relay -->
-		<switch name="/systems/electrical/sources/bat-charger-powered">
-			<default value="0"/>
-			<test logic="AND" value="1">
-				/controls/electrical/switches/emer-pwr ne 1
-				/systems/electrical/bus/ac-gndsvc ge 112
-			</test>
-		</switch>
-		
 		<!-- Battery Bus/Battery Direct Bus -->
 		<fcs_function name="/systems/electrical/bus/dc-bat-direct">
 			<function>
@@ -1174,11 +1165,13 @@
 			<function>
 				<table> <!-- DC to AC converter -->
 					<independentVar lookup="row">/systems/electrical/bus/dc-bat</independentVar>
+					<independentVar lookup="column">/controls/electrical/switches/emer-pwr</independentVar>
 					<tableData>
-						 0    0
-						24  112
-						28  115
-						29  118
+						    0    1
+						 0  0    0
+						24  0  112
+						28  0  115
+						29  0  118
 					</tableData>
 				</table>
 			</function>
@@ -1208,26 +1201,100 @@
 			</test>
 		</switch>
 		
-		<actuator name="/systems/electrical/relay/ac-inv-emer-ac/contact-final">
+		<actuator name="/systems/electrical/relay/ac-inv-src-emer-ac/contact-final">
 			<input>/controls/electrical/switches/emer-pwr</input>
 			<rate_limit>4.8</rate_limit>
 		</actuator>
 		
-		<switch name="/systems/electrical/relay/ac-inv-emer-ac/output">
+		<switch name="/systems/electrical/relay/ac-inv-src-emer-ac/output">
 			<default value="0"/>
 			<test value="/systems/electrical/relay/ac-src-emer-ac/output">
-				/systems/electrical/relay/ac-inv-emer-ac/contact-final eq 0
+				/systems/electrical/relay/ac-inv-src-emer-ac/contact-final eq 0
 			</test>
-			<!--test value="dc bat inverter">
-				/systems/electrical/relay/ac-inv-emer-ac/contact-final eq 1
-			</test-->
+			<test value="/systems/electrical/sources/si-1/output-volt">
+				/systems/electrical/relay/ac-inv-src-emer-ac/contact-final eq 1
+			</test>
 		</switch>
 		
 		<!-- Emergency AC Bus -->
 		<pure_gain name="/systems/electrical/bus/emer-ac">
-			<input>/systems/electrical/relay/ac-inv-emer-ac/output</input>
+			<input>/systems/electrical/relay/ac-inv-src-emer-ac/output</input>
 			<gain>1.0</gain>
 		</pure_gain>
+		
+		<!-- Emergency DC Bus Relays -->
+		<switch name="/systems/electrical/relay/dc-src-emer-dc/contact-pos">
+			<default value="0"/>
+			<test value="1"> <!-- It follows the Emergency AC Bus -->
+				/systems/electrical/relay/ac-src-emer-ac/contact-pos eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/dc-src-emer-dc/output">
+			<default value="0"/>
+			<test value="/systems/electrical/bus/dc-l">
+				/systems/electrical/relay/dc-src-emer-dc/contact-pos eq 0
+			</test>
+			<test value="/systems/electrical/bus/dc-r">
+				/systems/electrical/relay/dc-src-emer-dc/contact-pos eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/dc-bat-src-emer-dc/contact-pos">
+			<default value="0"/>
+			<test value="1">
+				/controls/electrical/switches/emer-pwr eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/dc-bat-src-emer-dc/output">
+			<default value="/systems/electrical/relay/dc-src-emer-dc/output"/>
+			<test value="/systems/electrical/bus/dc-bat">
+				/systems/electrical/relay/dc-bat-src-emer-dc/contact-pos eq 1
+			</test>
+		</switch>
+		
+		<!-- Emergency DC Bus -->
+		<pure_gain name="/systems/electrical/bus/emer-dc">
+			<input>/systems/electrical/relay/dc-bat-src-emer-dc/output</input>
+			<gain>1.0</gain>
+		</pure_gain>
+		
+		<!-- Battery Charger and Transfer Relays -->
+		<switch name="/systems/electrical/sources/bat-charger-powered">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/electrical/switches/emer-pwr ne 1
+				/systems/electrical/bus/ac-gndsvc ge 112
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/dc-bat-trans/contact-pos">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/relay/gndsvc-src-ac-gndsvc/contact-pos eq 0
+				/systems/electrical/bus/dc-l lt 24
+				/systems/electrical/bus/dc-r lt 24
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/relay/dc-bat-trans/output">
+			<default value="0"/>
+			<test value="/systems/electrical/bus/dc-bat">
+				/systems/electrical/relay/dc-bat-trans/contact-pos eq 1
+			</test>
+		</switch>
+		
+		<!-- DC Transfer Bus -->
+		<fcs_function name="/systems/electrical/bus/dc-trans">
+			<function>
+				<max>
+					<property>/systems/electrical/relay/dc-bat-src-emer-dc/output</property>
+					<property>/systems/electrical/relay/dc-bat-trans/output</property>
+					<property>/systems/electrical/relay/tr-r2-dc/output-dc-trans</property>
+				</max>
+			</function>
+		</fcs_function>
 	
 	</channel>
 

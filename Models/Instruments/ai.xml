@@ -30,7 +30,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>AI.BankIndex</object-name>
-		<property>orientation/roll-deg</property>
+		<property>instrumentation/stby-ai/roll-deg</property>
 		<factor>1</factor>
 		<axis>
 			<x>1</x>
@@ -42,7 +42,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>AI.Ball</object-name>
-		<property>orientation/roll-deg</property>
+		<property>instrumentation/stby-ai/roll-deg</property>
 		<factor>1</factor>
 		<axis>
 			<x>1</x>
@@ -56,11 +56,11 @@
 		</center>
 	</animation>
 	
-	<!-- Calibrated to move 15 degrees per every 10 true: -->
+	<!-- Calibrated to move 15 degrees per every 10 true -->
 	<animation>
 		<type>rotate</type>
 		<object-name>AI.Ball</object-name>
-		<property>orientation/pitch-deg</property>
+		<property>instrumentation/stby-ai/pitch-deg</property>
 		<interpolation>
 			<entry><ind>-90.0</ind><dep>-135.0</dep></entry>
 			<entry><ind> 90.0</ind><dep> 135.0</dep></entry>

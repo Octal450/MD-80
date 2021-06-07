@@ -62,6 +62,67 @@
 	
 	</channel>
 	
+	<channel name="Instrumentation">
+		
+		<!-- Standby Attitude Indicator -->
+		<switch name="/instrumentation/stby-ai/spin-cmd">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/dc-trans ge 24
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/stby-ai/spin-pos">
+			<input>/instrumentation/stby-ai/spin-cmd</input>
+			<rate_limit sense="incr">0.2</rate_limit>
+			<rate_limit sense="decr">0.04</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/stby-ai/spin">
+			<input>/instrumentation/stby-ai/spin-pos</input>
+			<c1>1</c1>
+		</lag_filter>
+		
+		<fcs_function name="/instrumentation/stby-ai/pitch-deg">
+			<function>
+				<sum>
+					<value>20</value>
+					<product>
+						<property>/instrumentation/stby-ai/spin</property>
+						<difference>
+							<property>/orientation/pitch-deg</property>
+							<value>20</value>
+						</difference>
+					</product>
+				</sum>
+			</function>
+			<clipto>
+				<min>-90</min>
+				<max>90</max>
+			</clipto>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/stby-ai/roll-deg">
+			<function>
+				<sum>
+					<value>45</value>
+					<product>
+						<property>/instrumentation/stby-ai/spin</property>
+						<difference>
+							<property>/orientation/roll-deg</property>
+							<value>45</value>
+						</difference>
+					</product>
+				</sum>
+			</function>
+			<clipto>
+				<min>-180</min>
+				<max>180</max>
+			</clipto>
+		</fcs_function>
+	
+	</channel>
+	
 	<channel name="Animations Execrate 4" execrate="4">
 		
 		<lag_filter name="/it-autoflight/input/active-ap-lag">

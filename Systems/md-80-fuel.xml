@@ -10,7 +10,7 @@
 		<!-- Tank Pumps -->
 		<switch name="/systems/fuel/aft-pump-l">
 			<default value="0"/>
-			<test logic="AND" value="1"> <!-- Power source is guess, unknown -->
+			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-l ge 110
 				/controls/fuel/switches/pump-aft-l eq 1
 				/systems/failures/fuel/pumps-l ne 1
@@ -30,8 +30,8 @@
 		
 		<switch name="/systems/fuel/fwd-pump-l">
 			<default value="0"/>
-			<test logic="AND" value="1"> <!-- Power source is guess, unknown -->
-				/systems/electrical/bus/ac-l ge 110
+			<test logic="AND" value="1">
+				/systems/electrical/bus/ac-r ge 110
 				/controls/fuel/switches/pump-fwd-l eq 1
 				/systems/failures/fuel/pumps-l ne 1
 			</test>
@@ -50,12 +50,7 @@
 		
 		<switch name="/systems/fuel/aft-pump-c">
 			<default value="0"/>
-			<test logic="AND" value="1"> <!-- Power source is guess, unknown -->
-				/systems/electrical/bus/ac-l ge 110
-				/controls/fuel/switches/pump-aft-c eq 1
-				/systems/failures/fuel/pumps-c ne 1
-			</test>
-			<test logic="AND" value="1"> <!-- Power source is guess, unknown -->
+			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-r ge 110
 				/controls/fuel/switches/pump-aft-c eq 1
 				/systems/failures/fuel/pumps-c ne 1
@@ -75,13 +70,8 @@
 		
 		<switch name="/systems/fuel/fwd-pump-c">
 			<default value="0"/>
-			<test logic="AND" value="1"> <!-- Power source is guess, unknown -->
+			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-l ge 110
-				/controls/fuel/switches/pump-fwd-c eq 1
-				/systems/failures/fuel/pumps-c ne 1
-			</test>
-			<test logic="AND" value="1"> <!-- Power source is guess, unknown -->
-				/systems/electrical/bus/ac-r ge 110
 				/controls/fuel/switches/pump-fwd-c eq 1
 				/systems/failures/fuel/pumps-c ne 1
 			</test>
@@ -100,8 +90,8 @@
 		
 		<switch name="/systems/fuel/aft-pump-r">
 			<default value="0"/>
-			<test logic="AND" value="1"> <!-- Power source is guess, unknown -->
-				/systems/electrical/bus/ac-r ge 110
+			<test logic="AND" value="1">
+				/systems/electrical/bus/ac-gndsvc ge 110
 				/controls/fuel/switches/pump-aft-r eq 1
 				/systems/failures/fuel/pumps-r ne 1
 			</test>
@@ -120,8 +110,8 @@
 		
 		<switch name="/systems/fuel/fwd-pump-r">
 			<default value="0"/>
-			<test logic="AND" value="1"> <!-- Power source is guess, unknown -->
-				/systems/electrical/bus/ac-r ge 110
+			<test logic="AND" value="1">
+				/systems/electrical/bus/ac-l ge 110
 				/controls/fuel/switches/pump-fwd-r eq 1
 				/systems/failures/fuel/pumps-r ne 1
 			</test>

@@ -268,7 +268,7 @@
 	</filter>
 	
 	<filter>
-		<name>RMI 1 Heading</name>
+		<name>RMI 2 Heading</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<enable>
@@ -284,7 +284,7 @@
 	</filter>
 	
 	<filter>
-		<name>RMI 1 Needle 1</name>
+		<name>RMI 2 Needle 1</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
@@ -315,7 +315,7 @@
 	</filter>
 	
 	<filter>
-		<name>RMI 1 Needle 2</name>
+		<name>RMI 2 Needle 2</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
