@@ -494,6 +494,35 @@
 		</action>
 	</animation>
 	
+	<animation>
+		<type>rotate</type>
+		<object-name>SwStartPump</object-name>
+		<property>controls/fuel/switches/pump-start</property>
+		<factor>50</factor>   
+		<center>
+			<x-m>2.771</x-m>
+			<y-m>0</y-m>
+			<z-m>1.521</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>SwStartPump</object-name>
+		<action>
+		<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/fuel/switches/pump-start</property>
+			</binding>
+		</action>
+	</animation>
+	
 	<!-- Below all broke -->
 
 <!-- APU Switches -->
@@ -542,26 +571,6 @@
 
 
 <!-- Engine and Fuel Switches -->
-
-<animation>
-  <type>rotate</type>
-  <object-name>SwStartPump</object-name>
-  <property>controls/fuel/switches/start-pump</property>
-  <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>50</dep></entry>
-  </interpolation>   
-  <center>
-    <x-m>2.771</x-m>
-    <y-m>0</y-m>
-    <z-m>1.521</z-m>
-  </center>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
 
 <animation>
   <type>rotate</type>

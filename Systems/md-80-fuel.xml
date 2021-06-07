@@ -11,7 +11,7 @@
 		<switch name="/systems/fuel/aft-pump-l">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/systems/electrical/bus/ac-l ge 110
+				/systems/electrical/bus/ac-l ge 112
 				/controls/fuel/switches/pump-aft-l eq 1
 				/systems/failures/fuel/pumps-l ne 1
 			</test>
@@ -31,7 +31,7 @@
 		<switch name="/systems/fuel/fwd-pump-l">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/systems/electrical/bus/ac-r ge 110
+				/systems/electrical/bus/ac-r ge 112
 				/controls/fuel/switches/pump-fwd-l eq 1
 				/systems/failures/fuel/pumps-l ne 1
 			</test>
@@ -51,7 +51,7 @@
 		<switch name="/systems/fuel/aft-pump-c">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/systems/electrical/bus/ac-r ge 110
+				/systems/electrical/bus/ac-r ge 112
 				/controls/fuel/switches/pump-aft-c eq 1
 				/systems/failures/fuel/pumps-c ne 1
 			</test>
@@ -71,7 +71,7 @@
 		<switch name="/systems/fuel/fwd-pump-c">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/systems/electrical/bus/ac-l ge 110
+				/systems/electrical/bus/ac-l ge 112
 				/controls/fuel/switches/pump-fwd-c eq 1
 				/systems/failures/fuel/pumps-c ne 1
 			</test>
@@ -91,7 +91,7 @@
 		<switch name="/systems/fuel/aft-pump-r">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/systems/electrical/bus/ac-gndsvc ge 110
+				/systems/electrical/bus/ac-gndsvc ge 112
 				/controls/fuel/switches/pump-aft-r eq 1
 				/systems/failures/fuel/pumps-r ne 1
 			</test>
@@ -111,7 +111,7 @@
 		<switch name="/systems/fuel/fwd-pump-r">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/systems/electrical/bus/ac-l ge 110
+				/systems/electrical/bus/ac-l ge 112
 				/controls/fuel/switches/pump-fwd-r eq 1
 				/systems/failures/fuel/pumps-r ne 1
 			</test>
@@ -124,6 +124,26 @@
 		
 		<actuator name="/systems/fuel/fwd-pump-r-psi">
 			<input>/systems/fuel/fwd-pump-r-psi-cmd</input>
+			<rate_limit sense="incr">5</rate_limit>
+			<rate_limit sense="decr">10</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/fuel/start-pump">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/dc-trans ge 24
+				/controls/fuel/switches/pump-start eq 1
+				/systems/failures/fuel/pump-start ne 1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/fuel/start-pump-psi-cmd">
+			<input>/systems/fuel/start-pump</input>
+			<gain>15</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/fuel/start-pump-psi">
+			<input>/systems/fuel/start-pump-psi-cmd</input>
 			<rate_limit sense="incr">5</rate_limit>
 			<rate_limit sense="decr">10</rate_limit>
 		</actuator>
@@ -151,6 +171,7 @@
 			<test logic="OR" value="1">
 				/systems/fuel/aft-pump-r eq 1
 				/systems/fuel/fwd-pump-r eq 1
+				/systems/fuel/start-pump eq 1
 			</test>
 		</switch>
 	
