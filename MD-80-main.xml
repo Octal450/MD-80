@@ -119,7 +119,7 @@
 						</binding>
 					</item>
 					<item>
-						<label>Failures</label>
+						<label>System Failures</label>
 						<binding>
 							<command>dialog-show</command>
 							<dialog-name>acconfig-failures</dialog-name>
@@ -193,9 +193,9 @@
 		</startup>
 		<status>Pre V1.0</status>
 		<systems n="0">
-			<!--electrical>
+			<electrical>
 				<path></path>
-			</electrical-->
+			</electrical>
 			<autopilot n="0">
 				<path>Aircraft/MD-80/Systems/dfgs-drivers.xml</path>
 			</autopilot>

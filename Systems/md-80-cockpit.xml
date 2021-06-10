@@ -105,12 +105,12 @@
 		<fcs_function name="/instrumentation/stby-ai/roll-deg">
 			<function>
 				<sum>
-					<value>45</value>
+					<value>40</value>
 					<product>
 						<property>/instrumentation/stby-ai/spin</property>
 						<difference>
 							<property>/orientation/roll-deg</property>
-							<value>45</value>
+							<value>40</value>
 						</difference>
 					</product>
 				</sum>

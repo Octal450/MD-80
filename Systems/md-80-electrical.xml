@@ -16,16 +16,6 @@
 	<property value="0">/systems/electrical/sources/bat-2/amp</property>
 	<property value="99.9">/systems/electrical/sources/bat-2/percent</property>
 	
-	<!-- Temporary shit cause the shit don't work -->
-	<property value="28">/systems/electrical/bus/dc-l</property>
-	<property value="28">/systems/electrical/bus/dc-r</property>
-	<property value="28">/systems/electrical/outputs/dme[1]</property>
-	<property value="28">/systems/electrical/outputs/efis</property>
-	<property value="28">/systems/electrical/outputs/fgcp-power</property>
-	<property value="28">/systems/electrical/outputs/fma-power</property>
-	<property value="28">/systems/electrical/outputs/idk</property>
-	<property value="28">/systems/electrical/outputs/nav[2]</property>
-	
 	<!-- There's no APU yet maaan -->
 	<property value="0">/systems/electrical/sources/apu/output-volt</property>
 	<property value="0">/systems/electrical/sources/apu/output-hertz</property>
@@ -1295,6 +1285,32 @@
 				</max>
 			</function>
 		</fcs_function>
+		
+		<!-- Output to Generics to keep FG things working, temporary, until we know what gets power by what bus -->
+		<switch name="/systems/electrical/generic/pwr">
+			<description>This makes the FG stuff work because we killed the generic electrical</description>
+			<default value="0"/>
+			<test logic="OR" value="28">
+				/systems/electrical/bus/dc-l ge 24
+				/systems/electrical/bus/dc-r ge 24
+				/systems/electrical/bus/emer-dc ge 24
+			</test>
+			<output>/systems/electrical/outputs/adf</output>
+			<output>/systems/electrical/outputs/dme</output>
+			<output>/systems/electrical/outputs/efis</output>
+			<output>/systems/electrical/outputs/fgcp-power</output>
+			<output>/systems/electrical/outputs/fma-power</output>
+			<output>/systems/electrical/outputs/gps</output>
+			<output>/systems/electrical/outputs/idk</output> <!-- Power stuff that I don't know what powers it -->
+			<output>/systems/electrical/outputs/mkviii</output>
+			<output>/systems/electrical/outputs/nav[0]</output>
+			<output>/systems/electrical/outputs/nav[1]</output>
+			<output>/systems/electrical/outputs/nav[2]</output>
+			<output>/systems/electrical/outputs/ra[0]</output>
+			<output>/systems/electrical/outputs/ra[1]</output>
+			<output>/systems/electrical/outputs/transponder</output>
+			<output>/systems/electrical/outputs/turn-coordinator</output>
+		</switch>
 	
 	</channel>
 

@@ -261,7 +261,7 @@
 		<condition>
 			<and>
 				<greater-than-equals>
-					<property>systems/electrical/outputs/dme[1]</property>
+					<property>systems/electrical/outputs/dme[0]</property>
 					<value>25</value>
 				</greater-than-equals>
 				<property>instrumentation/dme[1]/in-range</property>
@@ -275,7 +275,7 @@
 		<condition>
 			<or>
 				<less-than>
-					<property>systems/electrical/outputs/dme[1]</property>
+					<property>systems/electrical/outputs/dme[0]</property>
 					<value>25</value>
 				</less-than>
 				<not><property>instrumentation/dme[1]/in-range</property></not>
