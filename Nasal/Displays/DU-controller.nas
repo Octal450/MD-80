@@ -15,14 +15,14 @@ var DUController = {
 		me.errorActive = 1;
 		
 		# Hide the pages
-		canvas_pfd.pfd1.page.hide();
-		canvas_pfd.pfd2.page.hide();
-		me.showNd1.setBoolValue(0); # Temporary
-		me.showNd2.setBoolValue(0); # Temporary
 		me.updatePfd1 = 0;
 		me.updatePfd2 = 0;
 		me.updateNd1 = 0;
 		me.updateNd2 = 0;
+		canvas_pfd.pfd1.page.hide();
+		canvas_pfd.pfd2.page.hide();
+		me.showNd1.setBoolValue(0); # Temporary
+		me.showNd2.setBoolValue(0); # Temporary
 		
 		# Now show the error
 		canvas_pfd.pfd1Error.page.show();

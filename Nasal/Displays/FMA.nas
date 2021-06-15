@@ -327,9 +327,9 @@ var init = func() {
 	thrR = canvasThrR.new(thrRGroup, "Aircraft/MD-80/Nasal/Displays/res/four.svg");
 	
 	canvasBase.setup();
-	fmaUpdate.start();
+	update.start();
 }
 
-var fmaUpdate = maketimer(0.25, func() {
+var update = maketimer(0.25, func() {
 	canvasBase.update();
 });
