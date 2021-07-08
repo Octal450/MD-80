@@ -62,7 +62,101 @@
 	
 	</channel>
 	
-	<channel name="Instrumentation">
+	<channel name="Instrumentation" execrate="2">
+		
+		<!-- Attitude Indicator 1 -->
+		<switch name="/instrumentation/ai[0]/power-cmd">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/emer-ac ge 112
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/ai[0]/power-pos">
+			<input>/instrumentation/ai[0]/power-cmd</input>
+			<rate_limit>5</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/ai[0]/power">
+			<input>/instrumentation/ai[0]/power-pos</input>
+			<c1>2</c1>
+		</lag_filter>
+		
+		<fcs_function name="/instrumentation/ai[0]/pitch-deg">
+			<function>
+				<product>
+					<property>/instrumentation/ai[0]/power</property>
+					<property>/orientation/pitch-deg</property>
+				</product>
+			</function>
+			<clipto>
+				<min>-90</min>
+				<max>90</max>
+			</clipto>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/ai[0]/roll-deg">
+			<function>
+				<product>
+					<property>/instrumentation/ai[0]/power</property>
+					<property>/orientation/roll-deg</property>
+				</product>
+			</function>
+			<clipto>
+				<min>-180</min>
+				<max>180</max>
+			</clipto>
+		</fcs_function>
+		
+		<!-- Attitude Indicator 2 -->
+		<switch name="/instrumentation/ai[1]/power-cmd">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/ai[1]/power-pos">
+			<input>/instrumentation/ai[1]/power-cmd</input>
+			<rate_limit>2</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/ai[1]/power">
+			<input>/instrumentation/ai[1]/power-pos</input>
+			<c1>5</c1>
+		</lag_filter>
+		
+		<fcs_function name="/instrumentation/ai[1]/pitch-deg">
+			<function>
+				<product>
+					<property>/instrumentation/ai[1]/power</property>
+					<property>/orientation/pitch-deg</property>
+				</product>
+			</function>
+			<clipto>
+				<min>-90</min>
+				<max>90</max>
+			</clipto>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/ai[1]/roll-deg">
+			<function>
+				<product>
+					<property>/instrumentation/ai[1]/power</property>
+					<property>/orientation/roll-deg</property>
+				</product>
+			</function>
+			<clipto>
+				<min>-180</min>
+				<max>180</max>
+			</clipto>
+		</fcs_function>
+		
+		<!-- HSI 1 -->
+		<!--linear_actuator name="">
+			<input></input>
+			<module>360</module>
+		</linear_actuator-->
 		
 		<!-- Standby Attitude Indicator -->
 		<switch name="/instrumentation/stby-ai/spin-cmd">

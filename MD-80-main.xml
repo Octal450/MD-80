@@ -858,9 +858,8 @@
 					<condition>
 						<not><property>/systems/acconfig/options/keyboard-mode</property></not>
 					</condition>
-					<command>property-assign</command>
-					<property>/sim/current-view/view-number</property>
-					<value></value>
+					<command>nasal</command>
+					<script>libraries.setView(7);</script>
 				</binding-->
 				<binding>
 					<condition>
@@ -877,9 +876,8 @@
 					<condition>
 						<not><property>/systems/acconfig/options/keyboard-mode</property></not>
 					</condition>
-					<command>property-assign</command>
-					<property>/sim/current-view/view-number</property>
-					<value></value>
+					<command>nasal</command>
+					<script>libraries.setView(8);</script>
 				</binding-->
 				<binding>
 					<condition>
@@ -896,9 +894,8 @@
 					<condition>
 						<not><property>/systems/acconfig/options/keyboard-mode</property></not>
 					</condition>
-					<command>property-assign</command>
-					<property>/sim/current-view/view-number</property>
-					<value></value>
+					<command>nasal</command>
+					<script>libraries.setView(9);</script>
 				</binding-->
 				<binding>
 					<condition>

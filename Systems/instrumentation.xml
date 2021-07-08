@@ -448,22 +448,54 @@
 	<!-- RA -->
 	<logic>
 		<input>
-			<or>
-				<and>
-					<property>/systems/electrical/outputs/efis</property>
-					<property>/controls/misc/minimums-latch</property>
-					<less-than-equals>
-						<property>/position/gear-agl-ft</property>
-						<property>/controls/switches/minimums</property>
-					</less-than-equals>
-				</and>
-				<and>
-					<property>/systems/electrical/outputs/efis</property>
-					<property>/controls/switches/annun-test</property>
-				</and>
-			</or>
+			<and>
+				<greater-than-equals>
+					<property>systems/electrical/bus/emer-ac</property>
+					<value>112</value>
+				</greater-than-equals>
+				<or>
+					<and>
+						<property>/systems/electrical/outputs/efis</property>
+						<property>/controls/misc/minimums-latch</property>
+						<less-than-equals>
+							<property>/position/gear-agl-ft</property>
+							<property>/controls/switches/minimums</property>
+						</less-than-equals>
+					</and>
+					<and>
+						<property>/systems/electrical/outputs/efis</property>
+						<property>/controls/switches/annun-test</property>
+					</and>
+				</or>
+			</and>
 		</input>
-		<output>/controls/misc/minimums-light</output>
+		<output>/controls/misc/minimums-light-1</output>
+	</logic>
+	
+	<logic>
+		<input>
+			<and>
+				<greater-than-equals>
+					<property>systems/electrical/bus/ac-r</property>
+					<value>112</value>
+				</greater-than-equals>
+				<or>
+					<and>
+						<property>/systems/electrical/outputs/efis</property>
+						<property>/controls/misc/minimums-latch</property>
+						<less-than-equals>
+							<property>/position/gear-agl-ft</property>
+							<property>/controls/switches/minimums</property>
+						</less-than-equals>
+					</and>
+					<and>
+						<property>/systems/electrical/outputs/efis</property>
+						<property>/controls/switches/annun-test</property>
+					</and>
+				</or>
+			</and>
+		</input>
+		<output>/controls/misc/minimums-light-2</output>
 	</logic>
 	
 	<filter>

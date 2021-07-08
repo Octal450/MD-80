@@ -22,7 +22,7 @@
 		<object-name>Horizon</object-name>
 		<object-name>HorizonInner</object-name>
 		<object-name>RollIndex</object-name>
-		<property>orientation/roll-deg</property>
+		<property>instrumentation/ai[0]/roll-deg</property>
 		<center>
 			<x-m>0</x-m>
 			<y-m>0</y-m>
@@ -38,7 +38,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>HorizonInner</object-name>
-		<property>orientation/pitch-deg</property>
+		<property>instrumentation/ai[0]/pitch-deg</property>
 		<interpolation>
 			<entry><ind>-50</ind><dep>-0.3520</dep></entry>
 			<entry><ind>  0</ind><dep> 0.0000</dep></entry>
@@ -56,8 +56,8 @@
         <condition>
 			<and>
 				<greater-than-equals>
-					<property>systems/electrical/outputs/efis</property>
-					<value>25</value>
+					<property>systems/electrical/bus/emer-ac</property>
+					<value>112</value>
 				</greater-than-equals>
 				<property>it-autoflight/output/fd1</property>
 			</and>
@@ -113,8 +113,8 @@
 		<object-name>FastSlowFlag</object-name>
 		<condition>
 			<less-than>
-				<property>systems/electrical/outputs/efis</property>
-				<value>25</value>
+				<property>systems/electrical/bus/emer-ac</property>
+				<value>112</value>
 			</less-than>
 		</condition>
 	</animation>
@@ -124,8 +124,8 @@
 		<object-name>FastSlow</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>systems/electrical/outputs/efis</property>
-				<value>25</value>
+				<property>systems/electrical/bus/emer-ac</property>
+				<value>112</value>
 			</greater-than-equals>
 		</condition>
 	</animation>
@@ -148,8 +148,8 @@
 		<condition>
 			<or>
 				<less-than>
-					<property>systems/electrical/outputs/efis</property>
-					<value>25</value>
+					<property>systems/electrical/bus/emer-ac</property>
+					<value>112</value>
 				</less-than>
 				<less-than>
 					<property>systems/electrical/outputs/nav[0]</property>
@@ -170,8 +170,8 @@
 		<condition>
 			<and>
 				<greater-than-equals>
-					<property>systems/electrical/outputs/efis</property>
-					<value>25</value>
+					<property>systems/electrical/bus/emer-ac</property>
+					<value>112</value>
 				</greater-than-equals>
 				<property>instrumentation/nav[0]/in-range</property>
 				<greater-than>
@@ -200,8 +200,8 @@
 		<condition>
 			<or>
 				<less-than>
-					<property>systems/electrical/outputs/efis</property>
-					<value>25</value>
+					<property>systems/electrical/bus/emer-ac</property>
+					<value>112</value>
 				</less-than>
 				<less-than>
 					<property>systems/electrical/outputs/nav[0]</property>
@@ -223,8 +223,8 @@
 		<condition>
 			<and>
 				<greater-than-equals>
-					<property>systems/electrical/outputs/efis</property>
-					<value>25</value>
+					<property>systems/electrical/bus/emer-ac</property>
+					<value>112</value>
 				</greater-than-equals>
 				<property>instrumentation/nav[0]/gs-in-range</property>
 				<property>instrumentation/nav[0]/has-gs</property>
@@ -255,7 +255,7 @@
 			<red>1.0</red>
 			<green>1.0</green>
 			<blue>0</blue>
-			<factor-prop>controls/misc/minimums-light</factor-prop>
+			<factor-prop>controls/misc/minimums-light-1</factor-prop>
 		</emission>
 	</animation>
 
