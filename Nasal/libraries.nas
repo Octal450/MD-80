@@ -18,6 +18,7 @@ setprop("/sim/multiplay/visibility-range-nm", 130);
 var beacon = aircraft.light.new("/sim/model/lights/beacon", [0.15, 1.35], "/controls/lighting/beacon");
 var strobe = aircraft.light.new("/sim/model/lights/strobe", [0.2, 1], "/fdm/jsbsim/exterior-lights/strobe-light");
 
+var initDone = 0;
 var systemsInit = func() {
 	systems.BRAKES.init();
 	systems.ELEC.init();
@@ -28,11 +29,13 @@ var systemsInit = func() {
 	systems.TRI.init();
 }
 
-setlistener("sim/signals/fdm-initialized", func() {
+var fdmInit = setlistener("sim/signals/fdm-initialized", func() {
 	systemsInit();
 	systemsLoop.start();
 	canvas_pfd.init();
 	canvas_fma.init();
+	removelistener(fdmInit);
+	initDone = 1;
 });
 
 var systemsLoop = maketimer(0.1, func() {

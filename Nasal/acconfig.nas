@@ -247,3 +247,21 @@ SYSTEM.simInit();
 setlistener("/sim/signals/fdm-initialized", func() {
 	SYSTEM.fdmInit();
 });
+
+setlistener("/sim/signals/reinit", func(s) {
+	if (!s.getBoolValue() and libraries.initDone) {
+		#PANEL.coldDark(1);
+		
+		libraries.systemsInit();
+		pts.Services.Chocks.enable.setBoolValue(1);
+		setprop("/controls/lighting/main-digital-norm", 0);
+		settimer(func() {
+			setprop("/controls/engines/engine[0]/cutoff", 1);
+			setprop("/controls/engines/engine[1]/cutoff", 1);
+			setprop("/controls/engines/engine[0]/starter", 0);
+			setprop("/controls/engines/engine[1]/starter", 0);
+			setprop("/engines/engine[0]/state", 0);
+			setprop("/engines/engine[1]/state", 0);
+		}, 1);
+	}
+});
