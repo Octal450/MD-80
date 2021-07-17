@@ -30,8 +30,8 @@
 		<table>
 			<independentVar lookup="row">propulsion/engine[0]/n1</independentVar>
 			<tableData> <!-- Bottlenecked by slow fuel control valve + uneven -->
-				 28  3.5
-				 46  8.1
+				 28  3.7
+				 46  8.6
 			</tableData>
 		</table>
 	</function>
@@ -50,8 +50,8 @@
 		<table>
 			<independentVar lookup="row">propulsion/engine[0]/n1</independentVar>
 			<tableData> <!-- Bottlenecked by slow fuel control valve + uneven -->
-				 28   2.2
-				 46   5.0
+				 28   2.3
+				 46   5.3
 			</tableData>
 		</table>
 	</function>

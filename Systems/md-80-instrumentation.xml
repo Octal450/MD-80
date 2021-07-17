@@ -1,0 +1,535 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-80 Instrumentation -->
+<!-- Copyright (c) 2021 Josh Davidson (Octal450) -->
+
+<system name="MD-80: Instrumentation">
+	
+	<channel name="Attitude Indicators" execrate="2">
+		
+		<!-- Attitude Indicator 1 -->
+		<switch name="/instrumentation/ai[0]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/emer-ac ge 112
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/ai[0]/power-pos">
+			<input>/instrumentation/ai[0]/power-avail</input>
+			<rate_limit>5</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/ai[0]/power">
+			<input>/instrumentation/ai[0]/power-pos</input>
+			<c1>2</c1>
+		</lag_filter>
+		
+		<fcs_function name="/instrumentation/ai[0]/pitch-deg">
+			<function>
+				<product>
+					<property>/instrumentation/ai[0]/power</property>
+					<property>/orientation/pitch-deg</property>
+				</product>
+			</function>
+			<clipto>
+				<min>-90</min>
+				<max>90</max>
+			</clipto>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/ai[0]/roll-deg">
+			<function>
+				<product>
+					<property>/instrumentation/ai[0]/power</property>
+					<property>/orientation/roll-deg</property>
+				</product>
+			</function>
+			<clipto>
+				<min>-180</min>
+				<max>180</max>
+			</clipto>
+		</fcs_function>
+		
+		<!-- Attitude Indicator 2 -->
+		<switch name="/instrumentation/ai[1]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/ai[1]/power-pos">
+			<input>/instrumentation/ai[1]/power-avail</input>
+			<rate_limit>2</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/ai[1]/power">
+			<input>/instrumentation/ai[1]/power-pos</input>
+			<c1>5</c1>
+		</lag_filter>
+		
+		<fcs_function name="/instrumentation/ai[1]/pitch-deg">
+			<function>
+				<product>
+					<property>/instrumentation/ai[1]/power</property>
+					<property>/orientation/pitch-deg</property>
+				</product>
+			</function>
+			<clipto>
+				<min>-90</min>
+				<max>90</max>
+			</clipto>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/ai[1]/roll-deg">
+			<function>
+				<product>
+					<property>/instrumentation/ai[1]/power</property>
+					<property>/orientation/roll-deg</property>
+				</product>
+			</function>
+			<clipto>
+				<min>-180</min>
+				<max>180</max>
+			</clipto>
+		</fcs_function>
+		
+		<!-- Standby Attitude Indicator -->
+		<switch name="/instrumentation/stby-ai/spin-cmd">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/dc-trans ge 24
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/stby-ai/spin-pos">
+			<input>/instrumentation/stby-ai/spin-cmd</input>
+			<rate_limit sense="incr">0.2</rate_limit>
+			<rate_limit sense="decr">0.04</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/stby-ai/spin">
+			<input>/instrumentation/stby-ai/spin-pos</input>
+			<c1>1</c1>
+		</lag_filter>
+		
+		<fcs_function name="/instrumentation/stby-ai/pitch-deg">
+			<function>
+				<sum>
+					<value>20</value>
+					<product>
+						<property>/instrumentation/stby-ai/spin</property>
+						<difference>
+							<property>/orientation/pitch-deg</property>
+							<value>20</value>
+						</difference>
+					</product>
+				</sum>
+			</function>
+			<clipto>
+				<min>-90</min>
+				<max>90</max>
+			</clipto>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/stby-ai/roll-deg">
+			<function>
+				<sum>
+					<value>40</value>
+					<product>
+						<property>/instrumentation/stby-ai/spin</property>
+						<difference>
+							<property>/orientation/roll-deg</property>
+							<value>40</value>
+						</difference>
+					</product>
+				</sum>
+			</function>
+			<clipto>
+				<min>-180</min>
+				<max>180</max>
+			</clipto>
+		</fcs_function>
+	
+	</channel>
+	
+	<channel name="Horizontal Situation Indicators" execrate="4">
+		
+		<!-- Horizontal Situation Indicator 1 -->
+		<switch name="/instrumentation/hsi[0]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/emer-ac ge 112
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/hsi[0]/heading-input">
+			<default value="/instrumentation/hsi[0]/heading-input"/>
+			<test value="/orientation/heading-magnetic-deg">
+				/instrumentation/hsi[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<linear_actuator name="/instrumentation/hsi[0]/heading-linear-cmd">
+			<input>/instrumentation/hsi[0]/heading-input</input>
+			<module>360</module>
+		</linear_actuator>
+		
+		<actuator name="/instrumentation/hsi[0]/heading-linear-actuator">
+			<input>/instrumentation/hsi[0]/heading-linear-cmd</input>
+			<rate_limit>90</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/hsi[0]/heading-linear">
+			<input>/instrumentation/hsi[0]/heading-linear-actuator</input>
+			<c1>10</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/hsi[0]/heading-bug-input">
+			<default value="/instrumentation/hsi[0]/heading-bug-input"/>
+			<test value="/it-autoflight/input/hdg">
+				/instrumentation/hsi[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<linear_actuator name="/instrumentation/hsi[0]/heading-bug-linear-cmd">
+			<input>/instrumentation/hsi[0]/heading-bug-input</input>
+			<module>360</module>
+		</linear_actuator>
+		
+		<lag_filter name="/instrumentation/hsi[0]/heading-bug-linear">
+			<input>/instrumentation/hsi[0]/heading-bug-linear-cmd</input>
+			<c1>25</c1>
+		</lag_filter>
+	
+	</channel>
+	
+	<channel name="Misc Gauges" execrate="4">
+		
+		<!-- ASI -->
+		<fcs_function name="/instrumentation/airspeed-indicator/indicated-mach-input">
+			<function>
+				<sum>
+					<product>
+						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+						<value>1000</value>
+					</product>
+					<value>0.5</value>
+				</sum>
+			</function>
+			<clipto>
+				<min>149</min>
+				<max>999</max>
+			</clipto>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/airspeed-indicator/indicated-mach-d100">
+			<function>
+				<integer>
+					<quotient>
+						<property>/instrumentation/airspeed-indicator/indicated-mach-input</property>
+						<value>100</value>
+					</quotient>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/airspeed-indicator/indicated-mach-d10">
+			<function>
+				<integer>
+					<product>
+						<fraction>
+							<quotient>
+								<property>/instrumentation/airspeed-indicator/indicated-mach-input</property>
+								<value>100</value>
+							</quotient>
+						</fraction>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/airspeed-indicator/indicated-mach-d1">
+			<function>
+				<integer>
+					<product>
+						<fraction>
+							<quotient>
+								<property>/instrumentation/airspeed-indicator/indicated-mach-input</property>
+								<value>10</value>
+							</quotient>
+						</fraction>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<!-- EPR Gauges -->
+		<fcs_function name="engine/gauge/epr-actual-1-fixed">
+			<function>
+				<sum>
+					<property>engine/epr-actual-1</property>
+					<value>0.003</value>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/gauge/epr-actual-1-d100">
+			<function>
+				<integer>
+					<property>engine/gauge/epr-actual-1-fixed</property>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/gauge/epr-actual-1-d10">
+			<function>
+				<integer>
+					<product>
+						<difference>
+							<property>engine/gauge/epr-actual-1-fixed</property>
+							<integer>
+								<property>engine/gauge/epr-actual-1-fixed</property>
+							</integer>
+						</difference>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/gauge/epr-actual-1-d1">
+			<function>
+				<product>
+					<fraction>
+						<product>
+							<property>engine/epr-actual-1</property> <!-- Not epr-fixed on purpose! -->
+							<value>10</value>
+						</product>
+					</fraction>
+					<value>10</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/gauge/epr-actual-2-fixed">
+			<function>
+				<sum>
+					<property>engine/epr-actual-2</property>
+					<value>0.003</value>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/gauge/epr-actual-2-d100">
+			<function>
+				<integer>
+					<property>engine/gauge/epr-actual-2-fixed</property>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/gauge/epr-actual-2-d10">
+			<function>
+				<integer>
+					<product>
+						<difference>
+							<property>engine/gauge/epr-actual-2-fixed</property>
+							<integer>
+								<property>engine/gauge/epr-actual-2-fixed</property>
+							</integer>
+						</difference>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/gauge/epr-actual-2-d1">
+			<function>
+				<product>
+					<fraction>
+						<product>
+							<property>engine/epr-actual-2</property> <!-- Not epr-fixed on purpose! -->
+							<value>10</value>
+						</product>
+					</fraction>
+					<value>10</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<!-- TRI -->
+		<fcs_function name="/controls/tri/rat-fixed">
+			<function>
+				<sum>
+					<abs>
+						<property>propulsion/tat-c</property>
+					</abs>
+					<value>0.5</value> <!-- Make it round correctly -->
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/tri/rat-d10">
+			<function>
+				<integer>
+					<quotient>
+						<property>/controls/tri/rat-fixed</property>
+						<value>10</value>
+					</quotient>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/tri/rat-d1">
+			<function>
+				<integer>
+					<product>
+						<fraction>
+							<quotient>
+								<property>/controls/tri/rat-fixed</property>
+								<value>10</value>
+							</quotient>
+						</fraction>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/tri/limit-fixed">
+			<function>
+				<sum>
+					<property>engine/limit/active-ind</property>
+					<value>0.005</value> <!-- Make it round correctly -->
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/tri/limit-d100">
+			<function>
+				<integer>
+					<property>/controls/tri/limit-fixed</property>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/tri/limit-d10">
+			<function>
+				<integer>
+					<product>
+						<difference>
+							<property>/controls/tri/limit-fixed</property>
+							<integer>
+								<property>/controls/tri/limit-fixed</property>
+							</integer>
+						</difference>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/tri/limit-d1">
+			<function>
+				<integer>
+					<product>
+						<fraction>
+							<product>
+								<property>/controls/tri/limit-fixed</property>
+								<value>10</value>
+							</product>
+						</fraction>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/tri/flex-fixed">
+			<function>
+				<sum>
+					<abs>
+						<property>engine/limit/flex-temp</property>
+					</abs>
+					<value>0.5</value> <!-- Make it round correctly -->
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/tri/flex-d10">
+			<function>
+				<integer>
+					<quotient>
+						<property>/controls/tri/flex-fixed</property>
+						<value>10</value>
+					</quotient>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/controls/tri/flex-d1">
+			<function>
+				<integer>
+					<product>
+						<fraction>
+							<quotient>
+								<property>/controls/tri/flex-fixed</property>
+								<value>10</value>
+							</quotient>
+						</fraction>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+	
+	</channel>
+	
+	<channel name="Cockpit Indications" execrate="8">
+		
+		<fcs_function name="inertia/weight-lbs-fmt">
+			<function>
+				<product>
+					<integer>
+						<sum>
+							<quotient>
+								<property>inertia/weight-lbs</property>
+								<value>25</value>
+							</quotient>
+							<value>0.5</value>
+						</sum>
+					</integer>
+					<value>25</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<switch name="/controls/flight/slat-indicator">
+			<default value="2"/> <!-- Disag -->
+			<test logic="AND" value="4"> <!-- Land -->
+				fcs/slat-pos-deg ge 19.9
+				/controls/flight/flaps-input gt 3
+			</test>
+			<test logic="AND" value="1"> <!-- Takeoff -->
+				fcs/slat-pos-deg ge 9.9
+				fcs/slat-pos-deg le 10.1
+				/controls/flight/slats-cmd eq 10
+			</test>
+			<test logic="AND" value="1"> <!-- Takeoff -->
+				fcs/slat-pos-deg ge 19.9
+				/controls/flight/slats-cmd eq 20
+			</test>
+			<test logic="AND" value="0"> <!-- Off -->
+				fcs/slat-pos-deg lt 0.1
+				/controls/flight/flaps-input eq 0
+			</test>
+		</switch>
+	
+	</channel>
+
+</system>

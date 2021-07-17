@@ -729,11 +729,11 @@
 					<table>
 						<independentVar lookup="row">engine/control-1/throttle-output</independentVar>
 						<tableData>
-							0.0  0.007
-							0.2  0.014
-							0.5  0.010
-							0.8 -0.012
-							1.0 -0.007
+							0.0  0.003
+							0.2  0.007
+							0.5  0.005
+							0.8 -0.006
+							1.0 -0.003
 						</tableData>
 					</table>
 				</sum>
@@ -777,9 +777,9 @@
 						<independentVar lookup="row">engine/control-2/throttle-output</independentVar>
 						<tableData>
 							0.0  0.000
-							0.2 -0.014
-							0.5 -0.010
-							0.8  0.012
+							0.2 -0.007
+							0.5 -0.005
+							0.8  0.006
 							1.0 -0.000
 						</tableData>
 					</table>

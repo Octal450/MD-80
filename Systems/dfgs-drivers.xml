@@ -323,10 +323,10 @@
 			<condition>
 				<and>
 					<property>/it-autoflight/input/true-course</property>
-					<greater-than>
+					<greater-than-equals>
 						<property>/velocities/groundspeed-kt</property>
 						<value>1</value>
-					</greater-than>
+					</greater-than-equals>
 				</and>
 			</condition>
 			<property>/orientation/track-deg</property>
@@ -335,10 +335,10 @@
 			<condition>
 				<and>
 					<not><property>/it-autoflight/input/true-course</property></not>
-					<greater-than>
+					<greater-than-equals>
 						<property>/velocities/groundspeed-kt</property>
 						<value>1</value>
-					</greater-than>
+					</greater-than-equals>
 				</and>
 			</condition>
 			<property>/orientation/track-magnetic-deg</property>
@@ -354,10 +354,10 @@
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<less-than-equals>
+				<less-than>
 					<property>/velocities/groundspeed-kt</property>
 					<value>1</value>
-				</less-than-equals>
+				</less-than>
 			</condition>
 			<property>/orientation/heading-magnetic-deg</property>
 		</input>
