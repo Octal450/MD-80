@@ -110,6 +110,7 @@
 		<object-name>HSI.crsdeflection</object-name>
 		<object-name>toflag</object-name>
 		<object-name>fromflag</object-name>
+		<object-name>airplane</object-name>
 		<object-name>HSI.hdgbug</object-name>
 		<property>orientation/heading-magnetic-deg</property>
 		<axis>
@@ -125,6 +126,7 @@
 		<object-name>HSI.crsdeflection</object-name>
 		<object-name>toflag</object-name>
 		<object-name>fromflag</object-name>
+		<object-name>airplane</object-name>
 		<property>instrumentation/nav[0]/radials/selected-deg</property>
 		<axis>
 			<x>-1</x>
