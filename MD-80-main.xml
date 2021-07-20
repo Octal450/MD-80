@@ -1301,10 +1301,8 @@
 					<show-route type="bool">1</show-route>
 					<show-wingtip type="bool">1</show-wingtip>
 				</autopush>
-				<canvas-map-less-transparent type="bool">0</canvas-map-less-transparent>
 				<flight-director type="string">Single Cue</flight-director>
 				<keyboard-mode type="bool">0</keyboard-mode>
-				<map-less-transparent type="bool">0</map-less-transparent>
 				<du n="0">
 					<enable-shaders type="bool">true</enable-shaders>
 					<nd-fps type="double">20</nd-fps>
