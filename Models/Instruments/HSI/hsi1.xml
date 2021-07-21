@@ -132,7 +132,7 @@
 		<object-name>toflag</object-name>
 		<object-name>fromflag</object-name>
 		<object-name>airplane</object-name>
-		<property>instrumentation/nav[0]/radials/selected-deg</property>
+		<property>instrumentation/hsi[0]/course-linear</property>
 		<axis>
 			<x>-1</x>
 			<y>0</y>
@@ -143,8 +143,8 @@
 	<animation>
 		<type>translate</type>
 		<object-name>HSI.crsdeflection</object-name>
-		<property>instrumentation/nav[0]/heading-needle-deflection</property>
-		<factor>0.172</factor>
+		<property>instrumentation/hsi[0]/loc-deviation</property>
+		<factor>0.00172</factor>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -166,8 +166,8 @@
 	<animation>
 		<type>translate</type>
 		<object-name>gs.needle</object-name>
-		<property>instrumentation/nav[0]/gs-needle-deflection</property>
-		<factor>0.277</factor>
+		<property>instrumentation/hsi[0]/gs-deviation</property>
+		<factor>0.00277</factor>
 		<axis>
 			<x>0</x>
 			<y>0</y>
@@ -185,6 +185,10 @@
 		<object-name>DME1.dot</object-name>
 		<condition>
 			<and>
+				<equals>
+					<property>instrumentation/hsi[0]/power-avail</property>
+					<value>1</value>
+				</equals>
 				<greater-than-equals>
 					<property>systems/electrical/outputs/dme[0]</property>
 					<value>24</value>
@@ -198,13 +202,19 @@
 		<type>select</type>
 		<object-name>DME1.dash</object-name>
 		<condition>
-			<or>
-				<less-than>
-					<property>systems/electrical/outputs/dme[0]</property>
-					<value>24</value>
-				</less-than>
-				<not><property>instrumentation/dme[0]/in-range</property></not>
-			</or>
+			<and>
+				<equals>
+					<property>instrumentation/hsi[0]/power-avail</property>
+					<value>1</value>
+				</equals>
+				<or>
+					<less-than>
+						<property>systems/electrical/outputs/dme[0]</property>
+						<value>24</value>
+					</less-than>
+					<not><property>instrumentation/dme[0]/in-range</property></not>
+				</or>
+			</and>
 		</condition>
 	</animation>
 	
@@ -270,8 +280,12 @@
 		<object-name>DME2.dot</object-name>
 		<condition>
 			<and>
+				<equals>
+					<property>instrumentation/hsi[0]/power-avail</property>
+					<value>1</value>
+				</equals>
 				<greater-than-equals>
-					<property>systems/electrical/outputs/dme[0]</property>
+					<property>systems/electrical/outputs/dme[1]</property>
 					<value>24</value>
 				</greater-than-equals>
 				<property>instrumentation/dme[1]/in-range</property>
@@ -283,13 +297,19 @@
 		<type>select</type>
 		<object-name>DME2.dash</object-name>
 		<condition>
-			<or>
-				<less-than>
-					<property>systems/electrical/outputs/dme[0]</property>
-					<value>24</value>
-				</less-than>
-				<not><property>instrumentation/dme[1]/in-range</property></not>
-			</or>
+			<and>
+				<equals>
+					<property>instrumentation/hsi[0]/power-avail</property>
+					<value>1</value>
+				</equals>
+				<or>
+					<less-than>
+						<property>systems/electrical/outputs/dme[1]</property>
+						<value>24</value>
+					</less-than>
+					<not><property>instrumentation/dme[1]/in-range</property></not>
+				</or>
+			</and>
 		</condition>
 	</animation>
 	

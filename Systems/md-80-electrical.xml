@@ -1296,7 +1296,8 @@
 				/systems/electrical/bus/emer-dc ge 24
 			</test>
 			<output>/systems/electrical/outputs/adf</output>
-			<output>/systems/electrical/outputs/dme</output>
+			<output>/systems/electrical/outputs/dme[0]</output>
+			<output>/systems/electrical/outputs/dme[1]</output>
 			<output>/systems/electrical/outputs/efis</output>
 			<output>/systems/electrical/outputs/fgcp-power</output>
 			<output>/systems/electrical/outputs/fma-power</output>

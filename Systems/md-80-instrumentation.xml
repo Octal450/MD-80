@@ -3,6 +3,11 @@
 <!-- McDonnell Douglas MD-80 Instrumentation -->
 <!-- Copyright (c) 2021 Josh Davidson (Octal450) -->
 
+<!--
+Linear Actuators are commented out because they are broken in current 2020.3. 
+Once FGFS ver with them fixed is out on stable, we will enable and enforce that ver
+-->
+
 <system name="MD-80: Instrumentation">
 	
 	<channel name="Attitude Indicators" execrate="2">
@@ -169,9 +174,10 @@
 			<test value="/orientation/heading-magnetic-deg">
 				/instrumentation/hsi[0]/power-avail eq 1
 			</test>
+			<output>/instrumentation/hsi[0]/heading-linear</output>
 		</switch>
 		
-		<linear_actuator name="/instrumentation/hsi[0]/heading-linear-cmd">
+		<!--linear_actuator name="/instrumentation/hsi[0]/heading-linear-cmd">
 			<input>/instrumentation/hsi[0]/heading-input</input>
 			<module>360</module>
 		</linear_actuator>
@@ -184,16 +190,17 @@
 		<lag_filter name="/instrumentation/hsi[0]/heading-linear">
 			<input>/instrumentation/hsi[0]/heading-linear-actuator</input>
 			<c1>10</c1>
-		</lag_filter>
+		</lag_filter-->
 		
 		<switch name="/instrumentation/hsi[0]/heading-bug-input">
 			<default value="/instrumentation/hsi[0]/heading-bug-input"/>
 			<test value="/it-autoflight/input/hdg">
 				/instrumentation/hsi[0]/power-avail eq 1
 			</test>
+			<output>/instrumentation/hsi[0]/heading-bug-linear</output>
 		</switch>
 		
-		<linear_actuator name="/instrumentation/hsi[0]/heading-bug-linear-cmd">
+		<!--linear_actuator name="/instrumentation/hsi[0]/heading-bug-linear-cmd">
 			<input>/instrumentation/hsi[0]/heading-bug-input</input>
 			<module>360</module>
 		</linear_actuator>
@@ -201,6 +208,163 @@
 		<lag_filter name="/instrumentation/hsi[0]/heading-bug-linear">
 			<input>/instrumentation/hsi[0]/heading-bug-linear-cmd</input>
 			<c1>25</c1>
+		</lag_filter-->
+		
+		<switch name="/instrumentation/hsi[0]/course-input">
+			<default value="/instrumentation/hsi[0]/course-input"/>
+			<test logic="AND" value="/instrumentation/nav[2]/radials/selected-deg">
+				/instrumentation/hsi[0]/power-avail eq 1
+				/instrumentation/hsi[0]/slaved-to-gps eq 1
+			</test>
+			<test value="/instrumentation/nav[0]/radials/selected-deg">
+				/instrumentation/hsi[0]/power-avail eq 1
+			</test>
+			<output>/instrumentation/hsi[0]/course-linear</output>
+		</switch>
+		
+		<!--linear_actuator name="/instrumentation/hsi[0]/course-linear-cmd">
+			<input>/instrumentation/hsi[0]/course-input</input>
+			<module>360</module>
+		</linear_actuator>
+		
+		<lag_filter name="/instrumentation/hsi[0]/course-linear">
+			<input>/instrumentation/hsi[0]/course-linear-cmd</input>
+			<c1>25</c1>
+		</lag_filter-->
+		
+		<switch name="/instrumentation/hsi[0]/loc-deviation-cmd">
+			<default value="0"/>
+			<test logic="AND" value="/instrumentation/nav[2]/heading-needle-deflection">
+				/instrumentation/hsi[0]/power-avail eq 1
+				/instrumentation/hsi[0]/slaved-to-gps eq 1
+			</test>
+			<test value="/instrumentation/nav[0]/heading-needle-deflection">
+				/instrumentation/hsi[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/hsi[0]/loc-deviation">
+			<input>/instrumentation/hsi[0]/loc-deviation-cmd</input>
+			<c1>10</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/hsi[0]/gs-deviation-cmd">
+			<default value="0"/>
+			<test logic="AND" value="0">
+				/instrumentation/hsi[0]/power-avail eq 1
+				/instrumentation/hsi[0]/slaved-to-gps eq 1
+			</test>
+			<test value="/instrumentation/nav[0]/gs-needle-deflection">
+				/instrumentation/hsi[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/hsi[0]/gs-deviation">
+			<input>/instrumentation/hsi[0]/gs-deviation-cmd</input>
+			<c1>10</c1>
+		</lag_filter>
+		
+		<!-- Horizontal Situation Indicator 2 -->
+		<switch name="/instrumentation/hsi[1]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/hsi[1]/heading-input">
+			<default value="/instrumentation/hsi[1]/heading-input"/>
+			<test value="/orientation/heading-magnetic-deg">
+				/instrumentation/hsi[1]/power-avail eq 1
+			</test>
+			<output>/instrumentation/hsi[1]/heading-linear</output>
+		</switch>
+		
+		<!--linear_actuator name="/instrumentation/hsi[1]/heading-linear-cmd">
+			<input>/instrumentation/hsi[1]/heading-input</input>
+			<module>360</module>
+		</linear_actuator>
+		
+		<actuator name="/instrumentation/hsi[1]/heading-linear-actuator">
+			<input>/instrumentation/hsi[1]/heading-linear-cmd</input>
+			<rate_limit>90</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/hsi[1]/heading-linear">
+			<input>/instrumentation/hsi[1]/heading-linear-actuator</input>
+			<c1>10</c1>
+		</lag_filter-->
+		
+		<switch name="/instrumentation/hsi[1]/heading-bug-input">
+			<default value="/instrumentation/hsi[1]/heading-bug-input"/>
+			<test value="/it-autoflight/input/hdg">
+				/instrumentation/hsi[1]/power-avail eq 1
+			</test>
+			<output>/instrumentation/hsi[1]/heading-bug-linear</output>
+		</switch>
+		
+		<!--linear_actuator name="/instrumentation/hsi[1]/heading-bug-linear-cmd">
+			<input>/instrumentation/hsi[1]/heading-bug-input</input>
+			<module>360</module>
+		</linear_actuator>
+		
+		<lag_filter name="/instrumentation/hsi[1]/heading-bug-linear">
+			<input>/instrumentation/hsi[1]/heading-bug-linear-cmd</input>
+			<c1>25</c1>
+		</lag_filter-->
+		
+		<switch name="/instrumentation/hsi[1]/course-input">
+			<default value="/instrumentation/hsi[1]/course-input"/>
+			<test logic="AND" value="/instrumentation/nav[2]/radials/selected-deg">
+				/instrumentation/hsi[1]/power-avail eq 1
+				/instrumentation/hsi[1]/slaved-to-gps eq 1
+			</test>
+			<test value="/instrumentation/nav[1]/radials/selected-deg">
+				/instrumentation/hsi[1]/power-avail eq 1
+			</test>
+			<output>/instrumentation/hsi[1]/course-linear</output>
+		</switch>
+		
+		<!--linear_actuator name="/instrumentation/hsi[1]/course-linear-cmd">
+			<input>/instrumentation/hsi[1]/course-input</input>
+			<module>360</module>
+		</linear_actuator>
+		
+		<lag_filter name="/instrumentation/hsi[1]/course-linear">
+			<input>/instrumentation/hsi[1]/course-linear-cmd</input>
+			<c1>25</c1>
+		</lag_filter-->
+		
+		<switch name="/instrumentation/hsi[1]/loc-deviation-cmd">
+			<default value="0"/>
+			<test logic="AND" value="/instrumentation/nav[2]/heading-needle-deflection">
+				/instrumentation/hsi[1]/power-avail eq 1
+				/instrumentation/hsi[1]/slaved-to-gps eq 1
+			</test>
+			<test value="/instrumentation/nav[1]/heading-needle-deflection">
+				/instrumentation/hsi[1]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/hsi[1]/loc-deviation">
+			<input>/instrumentation/hsi[1]/loc-deviation-cmd</input>
+			<c1>10</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/hsi[1]/gs-deviation-cmd">
+			<default value="0"/>
+			<test logic="AND" value="0">
+				/instrumentation/hsi[1]/power-avail eq 1
+				/instrumentation/hsi[1]/slaved-to-gps eq 1
+			</test>
+			<test value="/instrumentation/nav[1]/gs-needle-deflection">
+				/instrumentation/hsi[1]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/hsi[1]/gs-deviation">
+			<input>/instrumentation/hsi[1]/gs-deviation-cmd</input>
+			<c1>10</c1>
 		</lag_filter>
 	
 	</channel>
