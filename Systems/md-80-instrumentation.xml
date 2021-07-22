@@ -15,6 +15,8 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 	<property value="340">/instrumentation/airspeed-indicator[0]/vmo-mmo-input</property>
 	<property value="100">/instrumentation/airspeed-indicator[1]/bug-kts-input</property>
 	<property value="340">/instrumentation/airspeed-indicator[1]/vmo-mmo-input</property>
+	<property value="1.95">/controls/tri/limit-active</property>
+	<property value="15">/controls/tri/rat</property>
 	
 	<channel name="Airspeed Indicators" execrate="2">
 		
@@ -920,13 +922,24 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 				</product>
 			</function>
 		</fcs_function>
+	
+	</channel>
+	
+	<channel name="TRI and FLEX" execrate="4">
+		
+		<switch name="/controls/tri/rat">
+			<default value="/controls/tri/rat"/>
+			<test value="propulsion/tat-c">
+				dfgs/power-avail eq 1
+			</test>
+		</switch>
 		
 		<!-- TRI -->
 		<fcs_function name="/controls/tri/rat-fixed">
 			<function>
 				<sum>
 					<abs>
-						<property>propulsion/tat-c</property>
+						<property>/controls/tri/rat</property>
 					</abs>
 					<value>0.5</value> <!-- Make it round correctly -->
 				</sum>
@@ -960,10 +973,17 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</function>
 		</fcs_function>
 		
+		<switch name="/controls/tri/limit-active">
+			<default value="/controls/tri/limit-active"/>
+			<test value="engine/limit/active-ind">
+				dfgs/power-avail eq 1
+			</test>
+		</switch>
+		
 		<fcs_function name="/controls/tri/limit-fixed">
 			<function>
 				<sum>
-					<property>engine/limit/active-ind</property>
+					<property>/controls/tri/limit-active</property>
 					<value>0.005</value> <!-- Make it round correctly -->
 				</sum>
 			</function>

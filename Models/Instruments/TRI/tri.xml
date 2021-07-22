@@ -459,5 +459,16 @@
 			<z>0</z>
 		</axis>
 	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Flag</object-name>
+		<condition>
+			<not-equals>
+				<property>fdm/jsbsim/dfgs/power-avail</property>
+				<value>1</value>
+			</not-equals>
+		</condition>
+	</animation>
 
 </PropertyList>

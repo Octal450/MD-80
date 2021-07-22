@@ -20,6 +20,16 @@
 	
 	<channel name="Libraries">
 		
+		<switch name="dfgs/power-avail">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/ac-l ge 112
+				/systems/electrical/bus/ac-r ge 112
+				/systems/electrical/bus/dc-l ge 24
+				/systems/electrical/bus/dc-r ge 24
+			</test>
+		</switch>
+		
 		<switch name="dfgs/afs/enabled">
 			<default value="0"/>
 			<test logic="OR" value="1">
@@ -230,8 +240,9 @@
 		
 		<switch name="dfgs/stick-pusher/alpha-latch">
 			<default value="dfgs/stick-pusher/alpha-latch"/>
-			<test value="0">
+			<test logic="OR" value="0">
 				position/wow eq 1
+				dfgs/power-avail eq 0
 			</test>
 			<test logic="AND" value="0">
 				aero/alpha-deg gt 12
@@ -266,6 +277,7 @@
 				position/wow eq 1
 				/position/gear-agl-ft lt 50
 				/systems/failures/fctl/yaw-damper eq 1
+				dfgs/power-avail eq 0
 			</test>
 			<test logic="AND" value="1">
 				/controls/fctl/switches/yaw-damper eq 1
@@ -386,7 +398,7 @@
 		<switch name="/gear/abs/knob-input">
 			<default value="0"/>
 			<test value="/controls/gear/abs/knob">
-				/systems/electrical/outputs/idk ge 25
+				/systems/electrical/outputs/idk ge 24
 			</test>
 		</switch>
 		
@@ -395,13 +407,13 @@
 			<test logic="AND" value="1">
 				/gear/abs/knob-input gt 0
 				fcs/flap-pos-deg gt 26
-				/systems/electrical/outputs/idk ge 25
+				/systems/electrical/outputs/idk ge 24
 				/gear/abs/disarm ne 1
 			</test>
 			<test logic="AND" value="1">
 				/gear/abs/knob-input lt 0
 				fcs/flap-pos-deg le 26
-				/systems/electrical/outputs/idk ge 25
+				/systems/electrical/outputs/idk ge 24
 				/gear/abs/disarm ne 1
 			</test>
 		</switch>

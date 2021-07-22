@@ -413,7 +413,7 @@ refs 4
 kids 0
 OBJECT group
 name "LightingGroup"
-kids 3
+kids 5
 OBJECT group
 name "eprDigits"
 kids 3
@@ -477,11 +477,50 @@ refs 4
 3 0.792969 0.541016
 1 0.792969 0.59375
 kids 0
+OBJECT poly
+name "Flag"
+loc 0.00292969 0.00892199 9.28871e-05
+texture "flag.png"
+crease 45.000000
+numvert 4
+0 -0.00178543 -0.0091803
+0 -0.00178543 0.0091803
+0 0.00178543 0.0091803
+0 0.00178543 -0.0091803
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+3 1 1
+2 0 1
+1 0 0
+0 1 0
+kids 0
+OBJECT poly
+name "Flag"
+loc 0.00292969 0.0345077 -0.000589375
+texture "flag.png"
+crease 45.000000
+numvert 4
+0 -0.00231087 -0.0157862
+0 -0.00231087 0.0157862
+0 0.00231087 0.0157862
+0 0.00231087 -0.0157862
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+3 1 1
+2 0 1
+1 0 0
+0 1 0
+kids 0
 OBJECT group
 name "ratDigits"
 kids 4
 OBJECT poly
 name "rat1"
+loc 0 0 0.01934
 data 13
 epr1.mesh.018
 texture "tri.jpg"
@@ -502,6 +541,7 @@ refs 4
 kids 0
 OBJECT poly
 name "rat2"
+loc 0 0 0.01934
 data 13
 epr1.mesh.019
 texture "tri.jpg"
@@ -522,6 +562,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ratMinus"
+loc 0 0 -0.01248
 data 17
 ratMinus.mesh.003
 texture "tri.jpg"
@@ -542,6 +583,7 @@ refs 4
 kids 0
 OBJECT poly
 name "ratPlus"
+loc 0 0 -0.01248
 data 16
 ratPlus.mesh.003
 texture "tri.jpg"
