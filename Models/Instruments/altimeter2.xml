@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
-<PropertyList>
 
+<!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
+<!-- Copyright (c) 2021 Josh Davidson (Octal450) -->
+
+<PropertyList>
+	
 	<path>altimeter.ac</path>
 
 	<animation>
@@ -18,6 +22,7 @@
 		<object-name>inhg02</object-name>
 		<object-name>inhg03</object-name>
 		<object-name>inhg04</object-name>
+		<object-name>Flag</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.4</green>
@@ -25,9 +30,7 @@
 			<factor-prop>controls/lighting/main-integ-norm</factor-prop>
 		</emission>
 	</animation>
-
-<!--####    InHg    ####-->
-
+	
 	<animation>
 		<type>textranslate</type>
 		<object-name>inhg01</object-name>
@@ -40,7 +43,7 @@
 			<z>0</z>
 		</axis>
 	</animation>
-
+	
 	<animation>
 		<type>textranslate</type>
 		<object-name>inhg02</object-name>
@@ -53,7 +56,7 @@
 			<z>0</z>
 		</axis>
 	</animation>
-
+	
 	<animation>
 		<type>textranslate</type>
 		<object-name>inhg03</object-name>
@@ -66,7 +69,7 @@
 			<z>0</z>
 		</axis>
 	</animation>
-
+	
 	<animation>
 		<type>textranslate</type>
 		<object-name>inhg04</object-name>
@@ -79,7 +82,7 @@
 			<z>0</z>
 		</axis>
 	</animation>
-
+	
 	<!--animation>
 		<type>textranslate</type>
 		<object-name>mb01</object-name>
@@ -131,8 +134,8 @@
 			<z>0</z>
 		</axis>
 	</animation-->
-
-<animation>
+	
+	<animation>
 		<name>Altitude pressure 10's</name>
 		<type>textranslate</type>
 		<object-name>mb01</object-name>
@@ -144,6 +147,7 @@
 			<y>1</y>
 		</axis>
 	</animation>
+	
 	<animation>
 		<name>Altitude pressure 1's</name>
 		<type>textranslate</type>
@@ -156,6 +160,7 @@
 			<y>1</y>
 		</axis>
 	</animation>
+	
 	<animation>
 		<name>Altitude pressure .1's</name>
 		<type>textranslate</type>
@@ -168,6 +173,7 @@
 			<y>1</y>
 		</axis>
 	</animation>
+	
 	<animation>
 		<name>Altitude pressure .01's</name>
 		<type>textranslate</type>
@@ -180,14 +186,11 @@
 			<y>1</y>
 		</axis>
 	</animation>
-
-
-<!--####    altimeter    ####-->
-
+	
 	<animation>
 		<type>textranslate</type>
 		<object-name>altnum100</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
+		<property>instrumentation/altimeter[1]/altitude-ft</property>
 		<factor>0.001</factor>
 		<axis>
 			<x>0</x>
@@ -195,11 +198,11 @@
 			<z>0</z>
 		</axis>
 	</animation>
-
+	
 	<animation>
 		<type>textranslate</type>
 		<object-name>altnum1000</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
+		<property>instrumentation/altimeter[1]/altitude-ft</property>
 		<factor>0.0001</factor>
 		<step>1000</step>
 		<scroll>20</scroll>
@@ -209,11 +212,11 @@
 			<z>0</z>
 		</axis>
 	</animation>
-
+	
 	<animation>
 		<type>textranslate</type>
 		<object-name>altnum10000</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
+		<property>instrumentation/altimeter[1]/altitude-ft</property>
 		<factor>0.00001</factor>
 		<step>10000</step>
 		<scroll>20</scroll>
@@ -223,11 +226,11 @@
 			<z>0</z>
 		</axis>
 	</animation>
-
+	
 	<animation>
 		<type>rotate</type>
 		<object-name>ALTneedle</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
+		<property>instrumentation/altimeter[1]/altitude-ft</property>
 		<factor>0.36</factor>
 		<axis>
 			<x>-1.0</x>
@@ -235,26 +238,25 @@
 			<z>0.0</z>
 		</axis>
 	</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>BaroKnob</object-name>
-  <property>instrumentation/altimeter/setting-inhg</property>
-  <factor>500</factor>
-  <center>
-	<x-m>0</x-m>
-	<y-m>0.03</y-m>
-	<z-m>-0.03</z-m>
-  </center>
-  <axis>
-	<x>-1</x>
-	<y>0</y>
-	<z>0</z>
-  </axis>
-</animation>
-
-<!-- Hotspots -->
-
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>BaroKnob</object-name>
+		<property>instrumentation/altimeter/setting-inhg</property>
+		<factor>500</factor>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.03169</y-m>
+			<z-m>-0.03154</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- TODO: Redo -->
 	<animation>
 		<type>pick</type>
 		<object-name>BaroKnob</object-name>
@@ -321,6 +323,17 @@
 			<wrap>false</wrap>
 			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Flag</object-name>
+		<condition>
+			<not-equals>
+				<property>instrumentation/altimeter[1]/power-avail</property>
+				<value>1</value>
+			</not-equals>
+		</condition>
 	</animation>
 
 </PropertyList>

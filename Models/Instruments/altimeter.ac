@@ -2,7 +2,7 @@ AC3Db
 MATERIAL "bezel" rgb 0.15 0.15 0.15  amb 0.1 0.1 0.1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
 MATERIAL "screws" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 16  trans 0
 OBJECT world
-kids 16
+kids 17
 OBJECT poly
 name "ALTneedle"
 data 10
@@ -102,6 +102,7 @@ refs 3
 kids 0
 OBJECT poly
 name "BaroKnob"
+loc 0 -0.00153581 0.0616881
 data 12
 Cylinder.071
 texture "alt-mb.png"
@@ -1255,4 +1256,23 @@ refs 3
 3 0.00906825 0.0903438
 1 0.0651505 0.0112187
 2 0.0651505 0.0903438
+kids 0
+OBJECT poly
+name "Flag"
+loc 0.00148195 0.0114988 0.00114988
+texture "flag.png"
+crease 45.000000
+numvert 4
+0 -0.00337415 -0.0154654
+0 -0.00337415 0.0154654
+0 0.00337415 0.0154654
+0 0.00337415 -0.0154654
+numsurf 1
+SURF 0x30
+mat 1
+refs 4
+3 1 1
+2 0 1
+1 0 0
+0 1 0
 kids 0
