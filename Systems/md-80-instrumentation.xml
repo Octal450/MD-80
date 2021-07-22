@@ -404,7 +404,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		
 		<!-- TODO: Figure out how to use linear actuator from -180 to 180 -->
 		<switch name="/instrumentation/rmi[0]/nav1-input">
-			<default value="-180"/>
+			<default value="0"/>
 			<test logic="AND" value="/instrumentation/rmi[0]/nav1-error">
 				/instrumentation/rmi[0]/power-avail eq 1
 				/instrumentation/rmi[0]/vor-adf-1 eq 1
@@ -416,7 +416,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		</switch>
 		
 		<switch name="/instrumentation/rmi[0]/nav2-input">
-			<default value="/instrumentation/rmi[0]/nav2-input"/>
+			<default value="0"/>
 			<test logic="AND" value="/instrumentation/rmi[0]/nav2-error">
 				/instrumentation/rmi[0]/power-avail eq 1
 				/instrumentation/rmi[0]/vor-adf-2 eq 1
@@ -460,7 +460,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		
 		<!-- TODO: Figure out how to use linear actuator from -180 to 180 -->
 		<switch name="/instrumentation/rmi[1]/nav1-input">
-			<default value="-180"/>
+			<default value="0"/>
 			<test logic="AND" value="/instrumentation/rmi[1]/nav1-error">
 				/instrumentation/rmi[1]/power-avail eq 1
 				/instrumentation/rmi[1]/vor-adf-1 eq 1
@@ -472,7 +472,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		</switch>
 		
 		<switch name="/instrumentation/rmi[1]/nav2-input">
-			<default value="/instrumentation/rmi[1]/nav2-input"/>
+			<default value="0"/>
 			<test logic="AND" value="/instrumentation/rmi[1]/nav2-error">
 				/instrumentation/rmi[1]/power-avail eq 1
 				/instrumentation/rmi[1]/vor-adf-2 eq 1
