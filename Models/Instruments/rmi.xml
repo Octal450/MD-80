@@ -27,7 +27,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Face</object-name>
-		<property>instrumentation/rmi[0]/heading</property>
+		<property>instrumentation/rmi[0]/heading-linear</property>
 		<factor>-1</factor>
 		<axis>
 			<x>-1</x>
@@ -39,7 +39,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Needle1</object-name>
-		<property>instrumentation/rmi[0]/needle-1</property>
+		<property>instrumentation/rmi[0]/nav1-linear</property>
 		<axis>
 			<x>-1</x>
 			<y>0</y>
@@ -50,7 +50,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Needle2</object-name>
-		<property>instrumentation/rmi[0]/needle-2</property>
+		<property>instrumentation/rmi[0]/nav2-linear</property>
 		<axis>
 			<x>-1</x>
 			<y>0</y>

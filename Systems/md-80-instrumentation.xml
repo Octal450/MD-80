@@ -369,6 +369,122 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 	
 	</channel>
 	
+	<channel name="Radio Magnetic Indicators" execrate="4">
+		
+		<!-- Radio Magnetic Indicator 1 -->
+		<switch name="/instrumentation/rmi[0]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/rmi[0]/heading-input">
+			<default value="/instrumentation/rmi[0]/heading-input"/>
+			<test value="/orientation/heading-magnetic-deg">
+				/instrumentation/rmi[0]/power-avail eq 1
+			</test>
+			<output>/instrumentation/rmi[0]/heading-linear</output>
+		</switch>
+		
+		<!--linear_actuator name="/instrumentation/rmi[0]/heading-linear-cmd">
+			<input>/instrumentation/rmi[0]/heading-input</input>
+			<module>360</module>
+		</linear_actuator>
+		
+		<actuator name="/instrumentation/rmi[0]/heading-linear-actuator">
+			<input>/instrumentation/rmi[0]/heading-linear-cmd</input>
+			<rate_limit>90</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/rmi[0]/heading-linear">
+			<input>/instrumentation/rmi[0]/heading-linear-actuator</input>
+			<c1>10</c1>
+		</lag_filter-->
+		
+		<!-- TODO: Figure out how to use linear actuator from -180 to 180 -->
+		<switch name="/instrumentation/rmi[0]/nav1-input">
+			<default value="-180"/>
+			<test logic="AND" value="/instrumentation/rmi[0]/nav1-error">
+				/instrumentation/rmi[0]/power-avail eq 1
+				/instrumentation/rmi[0]/vor-adf-1 eq 1
+			</test>
+			<test value="/instrumentation/rmi[0]/adf1-error">
+				/instrumentation/rmi[0]/power-avail eq 1
+			</test>
+			<output>/instrumentation/rmi[0]/nav1-linear</output>
+		</switch>
+		
+		<switch name="/instrumentation/rmi[0]/nav2-input">
+			<default value="/instrumentation/rmi[0]/nav2-input"/>
+			<test logic="AND" value="/instrumentation/rmi[0]/nav2-error">
+				/instrumentation/rmi[0]/power-avail eq 1
+				/instrumentation/rmi[0]/vor-adf-2 eq 1
+			</test>
+			<test value="/instrumentation/rmi[0]/adf2-error">
+				/instrumentation/rmi[0]/power-avail eq 1
+			</test>
+			<output>/instrumentation/rmi[0]/nav2-linear</output>
+		</switch>
+		
+		<!-- Radio Magnetic Indicator 2 -->
+		<switch name="/instrumentation/rmi[1]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/emer-ac ge 112
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/rmi[1]/heading-input">
+			<default value="/instrumentation/rmi[1]/heading-input"/>
+			<test value="/orientation/heading-magnetic-deg">
+				/instrumentation/rmi[1]/power-avail eq 1
+			</test>
+			<output>/instrumentation/rmi[1]/heading-linear</output>
+		</switch>
+		
+		<!--linear_actuator name="/instrumentation/rmi[1]/heading-linear-cmd">
+			<input>/instrumentation/rmi[1]/heading-input</input>
+			<module>360</module>
+		</linear_actuator>
+		
+		<actuator name="/instrumentation/rmi[1]/heading-linear-actuator">
+			<input>/instrumentation/rmi[1]/heading-linear-cmd</input>
+			<rate_limit>90</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/rmi[1]/heading-linear">
+			<input>/instrumentation/rmi[1]/heading-linear-actuator</input>
+			<c1>10</c1>
+		</lag_filter-->
+		
+		<!-- TODO: Figure out how to use linear actuator from -180 to 180 -->
+		<switch name="/instrumentation/rmi[1]/nav1-input">
+			<default value="-180"/>
+			<test logic="AND" value="/instrumentation/rmi[1]/nav1-error">
+				/instrumentation/rmi[1]/power-avail eq 1
+				/instrumentation/rmi[1]/vor-adf-1 eq 1
+			</test>
+			<test value="/instrumentation/rmi[1]/adf1-error">
+				/instrumentation/rmi[1]/power-avail eq 1
+			</test>
+			<output>/instrumentation/rmi[1]/nav1-linear</output>
+		</switch>
+		
+		<switch name="/instrumentation/rmi[1]/nav2-input">
+			<default value="/instrumentation/rmi[1]/nav2-input"/>
+			<test logic="AND" value="/instrumentation/rmi[1]/nav2-error">
+				/instrumentation/rmi[1]/power-avail eq 1
+				/instrumentation/rmi[1]/vor-adf-2 eq 1
+			</test>
+			<test value="/instrumentation/rmi[1]/adf2-error">
+				/instrumentation/rmi[1]/power-avail eq 1
+			</test>
+			<output>/instrumentation/rmi[1]/nav2-linear</output>
+		</switch>
+	
+	</channel>
+	
 	<channel name="Misc Gauges" execrate="4">
 		
 		<!-- ASI -->

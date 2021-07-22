@@ -1240,10 +1240,18 @@
 			<volume type="double">0</volume>
 		</nav>
 		<rmi n="0">
+			<adf1-error type="double">0</adf1-error>
+			<adf2-error type="double">0</adf2-error>
+			<nav1-error type="double">0</nav1-error>
+			<nav2-error type="double">0</nav2-error>
 			<vor-adf-1 type="bool">1</vor-adf-1>
 			<vor-adf-2 type="bool">1</vor-adf-2>
 		</rmi>
 		<rmi n="1">
+			<adf1-error type="double">0</adf1-error>
+			<adf2-error type="double">0</adf2-error>
+			<nav1-error type="double">0</nav1-error>
+			<nav2-error type="double">0</nav2-error>
 			<vor-adf-1 type="bool">1</vor-adf-1>
 			<vor-adf-2 type="bool">1</vor-adf-2>
 		</rmi>
