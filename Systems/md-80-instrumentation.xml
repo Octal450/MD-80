@@ -10,6 +10,266 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 
 <system name="MD-80: Instrumentation">
 	
+	<!-- So they start at the right place -->
+	<property value="100">/instrumentation/airspeed-indicator[0]/bug-kts-input</property>
+	<property value="340">/instrumentation/airspeed-indicator[0]/vmo-mmo-input</property>
+	<property value="100">/instrumentation/airspeed-indicator[1]/bug-kts-input</property>
+	<property value="340">/instrumentation/airspeed-indicator[1]/vmo-mmo-input</property>
+	
+	<channel name="Airspeed Indicators" execrate="2">
+		
+		<fcs_function name="/it-autoflight/input/mach-kts-equiv">
+			<function>
+				<product>
+					<quotient>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+					</quotient>
+					<property>/it-autoflight/input/mach</property>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<!-- Airspeed Indicator 1 -->
+		<switch name="/instrumentation/airspeed-indicator[0]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/emer-ac ge 112
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/airspeed-indicator[0]/speed-kt-input">
+			<default value="/instrumentation/airspeed-indicator[0]/speed-kt-input"/>
+			<test value="/instrumentation/airspeed-indicator/indicated-speed-kt">
+				/instrumentation/airspeed-indicator[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/airspeed-indicator[0]/speed-kt-actuator">
+			<input>/instrumentation/airspeed-indicator[0]/speed-kt-input</input>
+			<rate_limit>100</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/airspeed-indicator[0]/speed-kt">
+			<input>/instrumentation/airspeed-indicator[0]/speed-kt-actuator</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/airspeed-indicator[0]/mach-input">
+			<default value="/instrumentation/airspeed-indicator[0]/mach-input"/>
+			<test value="/instrumentation/airspeed-indicator/indicated-mach">
+				/instrumentation/airspeed-indicator[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<fcs_function name="/instrumentation/airspeed-indicator[0]/mach-digit-input">
+			<function>
+				<sum>
+					<product>
+						<property>/instrumentation/airspeed-indicator[0]/mach-input</property>
+						<value>1000</value>
+					</product>
+					<value>0.5</value>
+				</sum>
+			</function>
+			<clipto>
+				<min>149</min>
+				<max>999</max>
+			</clipto>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/airspeed-indicator[0]/mach-digit-d100">
+			<function>
+				<integer>
+					<quotient>
+						<property>/instrumentation/airspeed-indicator[0]/mach-digit-input</property>
+						<value>100</value>
+					</quotient>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/airspeed-indicator[0]/mach-digit-d10">
+			<function>
+				<integer>
+					<product>
+						<fraction>
+							<quotient>
+								<property>/instrumentation/airspeed-indicator[0]/mach-digit-input</property>
+								<value>100</value>
+							</quotient>
+						</fraction>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/airspeed-indicator[0]/mach-digit-d1">
+			<function>
+				<integer>
+					<product>
+						<fraction>
+							<quotient>
+								<property>/instrumentation/airspeed-indicator[0]/mach-digit-input</property>
+								<value>10</value>
+							</quotient>
+						</fraction>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<switch name="/instrumentation/airspeed-indicator[0]/vmo-mmo-input">
+			<default value="/instrumentation/airspeed-indicator[0]/vmo-mmo-input"/>
+			<test value="dfgs/speeds/vmo-mmo">
+				/instrumentation/airspeed-indicator[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/airspeed-indicator[0]/vmo-mmo">
+			<input>/instrumentation/airspeed-indicator[0]/vmo-mmo-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/airspeed-indicator[0]/bug-kts-input">
+			<default value="/instrumentation/airspeed-indicator[0]/bug-kts-input"/>
+			<test logic="AND" value="/it-autoflight/input/mach-kts-equiv">
+				/instrumentation/airspeed-indicator[0]/power-avail eq 1
+				/it-autoflight/input/kts-mach eq 1
+			</test>
+			<test value="/it-autoflight/input/kts">
+				/instrumentation/airspeed-indicator[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/airspeed-indicator[0]/bug-kts">
+			<input>/instrumentation/airspeed-indicator[0]/bug-kts-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<!-- Airspeed Indicator 2 -->
+		<switch name="/instrumentation/airspeed-indicator[1]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/airspeed-indicator[1]/speed-kt-input">
+			<default value="/instrumentation/airspeed-indicator[1]/speed-kt-input"/>
+			<test value="/instrumentation/airspeed-indicator/indicated-speed-kt">
+				/instrumentation/airspeed-indicator[1]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/airspeed-indicator[1]/speed-kt-actuator">
+			<input>/instrumentation/airspeed-indicator[1]/speed-kt-input</input>
+			<rate_limit>100</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/airspeed-indicator[1]/speed-kt">
+			<input>/instrumentation/airspeed-indicator[1]/speed-kt-actuator</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/airspeed-indicator[1]/mach-input">
+			<default value="/instrumentation/airspeed-indicator[1]/mach-input"/>
+			<test value="/instrumentation/airspeed-indicator/indicated-mach">
+				/instrumentation/airspeed-indicator[1]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<fcs_function name="/instrumentation/airspeed-indicator[1]/mach-digit-input">
+			<function>
+				<sum>
+					<product>
+						<property>/instrumentation/airspeed-indicator[1]/mach-input</property>
+						<value>1000</value>
+					</product>
+					<value>0.5</value>
+				</sum>
+			</function>
+			<clipto>
+				<min>149</min>
+				<max>999</max>
+			</clipto>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/airspeed-indicator[1]/mach-digit-d100">
+			<function>
+				<integer>
+					<quotient>
+						<property>/instrumentation/airspeed-indicator[1]/mach-digit-input</property>
+						<value>100</value>
+					</quotient>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/airspeed-indicator[1]/mach-digit-d10">
+			<function>
+				<integer>
+					<product>
+						<fraction>
+							<quotient>
+								<property>/instrumentation/airspeed-indicator[1]/mach-digit-input</property>
+								<value>100</value>
+							</quotient>
+						</fraction>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/airspeed-indicator[1]/mach-digit-d1">
+			<function>
+				<integer>
+					<product>
+						<fraction>
+							<quotient>
+								<property>/instrumentation/airspeed-indicator[1]/mach-digit-input</property>
+								<value>10</value>
+							</quotient>
+						</fraction>
+						<value>10</value>
+					</product>
+				</integer>
+			</function>
+		</fcs_function>
+		
+		<switch name="/instrumentation/airspeed-indicator[1]/vmo-mmo-input">
+			<default value="/instrumentation/airspeed-indicator[1]/vmo-mmo-input"/>
+			<test value="dfgs/speeds/vmo-mmo">
+				/instrumentation/airspeed-indicator[1]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/airspeed-indicator[1]/vmo-mmo">
+			<input>/instrumentation/airspeed-indicator[1]/vmo-mmo-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/airspeed-indicator[1]/bug-kts-input">
+			<default value="/instrumentation/airspeed-indicator[1]/bug-kts-input"/>
+			<test logic="AND" value="/it-autoflight/input/mach-kts-equiv">
+				/instrumentation/airspeed-indicator[1]/power-avail eq 1
+				/it-autoflight/input/kts-mach eq 1
+			</test>
+			<test value="/it-autoflight/input/kts">
+				/instrumentation/airspeed-indicator[1]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/airspeed-indicator[1]/bug-kts">
+			<input>/instrumentation/airspeed-indicator[1]/bug-kts-input</input>
+			<c1>20</c1>
+		</lag_filter>
+	
+	</channel>
+	
 	<channel name="Attitude Indicators" execrate="2">
 		
 		<!-- Attitude Indicator 1 -->
@@ -159,7 +419,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 	
 	</channel>
 	
-	<channel name="Altimeters" execrate="4">
+	<channel name="Altimeters" execrate="2">
 		
 		<!-- Altimeter 1 -->
 		<switch name="/instrumentation/altimeter[0]/power-avail">
@@ -286,7 +546,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		
 		<lag_filter name="/instrumentation/hsi[0]/heading-bug-linear">
 			<input>/instrumentation/hsi[0]/heading-bug-linear-cmd</input>
-			<c1>25</c1>
+			<c1>20</c1>
 		</lag_filter-->
 		
 		<switch name="/instrumentation/hsi[0]/course-input">
@@ -308,7 +568,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		
 		<lag_filter name="/instrumentation/hsi[0]/course-linear">
 			<input>/instrumentation/hsi[0]/course-linear-cmd</input>
-			<c1>25</c1>
+			<c1>20</c1>
 		</lag_filter-->
 		
 		<switch name="/instrumentation/hsi[0]/loc-deviation-cmd">
@@ -389,7 +649,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		
 		<lag_filter name="/instrumentation/hsi[1]/heading-bug-linear">
 			<input>/instrumentation/hsi[1]/heading-bug-linear-cmd</input>
-			<c1>25</c1>
+			<c1>20</c1>
 		</lag_filter-->
 		
 		<switch name="/instrumentation/hsi[1]/course-input">
@@ -411,7 +671,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		
 		<lag_filter name="/instrumentation/hsi[1]/course-linear">
 			<input>/instrumentation/hsi[1]/course-linear-cmd</input>
-			<c1>25</c1>
+			<c1>20</c1>
 		</lag_filter-->
 		
 		<switch name="/instrumentation/hsi[1]/loc-deviation-cmd">
@@ -565,66 +825,6 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 	</channel>
 	
 	<channel name="Misc Gauges" execrate="4">
-		
-		<!-- ASI -->
-		<fcs_function name="/instrumentation/airspeed-indicator/indicated-mach-input">
-			<function>
-				<sum>
-					<product>
-						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
-						<value>1000</value>
-					</product>
-					<value>0.5</value>
-				</sum>
-			</function>
-			<clipto>
-				<min>149</min>
-				<max>999</max>
-			</clipto>
-		</fcs_function>
-		
-		<fcs_function name="/instrumentation/airspeed-indicator/indicated-mach-d100">
-			<function>
-				<integer>
-					<quotient>
-						<property>/instrumentation/airspeed-indicator/indicated-mach-input</property>
-						<value>100</value>
-					</quotient>
-				</integer>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="/instrumentation/airspeed-indicator/indicated-mach-d10">
-			<function>
-				<integer>
-					<product>
-						<fraction>
-							<quotient>
-								<property>/instrumentation/airspeed-indicator/indicated-mach-input</property>
-								<value>100</value>
-							</quotient>
-						</fraction>
-						<value>10</value>
-					</product>
-				</integer>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="/instrumentation/airspeed-indicator/indicated-mach-d1">
-			<function>
-				<integer>
-					<product>
-						<fraction>
-							<quotient>
-								<property>/instrumentation/airspeed-indicator/indicated-mach-input</property>
-								<value>10</value>
-							</quotient>
-						</fraction>
-						<value>10</value>
-					</product>
-				</integer>
-			</function>
-		</fcs_function>
 		
 		<!-- EPR Gauges -->
 		<fcs_function name="engine/gauge/epr-actual-1-fixed">

@@ -137,40 +137,6 @@
 		<filter-time>0.16</filter-time>
 	</filter>
 	
-	<!-- ASI -->
-	<filter>
-		<name>ASI Speed Bug Input</name>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<condition>
-				<equals>
-					<property>/it-autoflight/input/kts-mach</property>
-					<value>1</value>
-				</equals>
-			</condition>
-			<expression>
-				<product>
-					<div>
-						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
-					</div>
-					<property>/it-autoflight/input/mach</property>
-				</product>
-			</expression>
-		</input>
-		<input>/it-autoflight/input/kts</input>
-		<output>/instrumentation/airspeed-indicator/bug-kts-raw</output>
-	</filter>
-	
-	<filter>
-		<name>ASI Speed Bug Lag</name>
-		<type>exponential</type>
-		<input>/instrumentation/airspeed-indicator/bug-kts-raw</input>
-		<output>/instrumentation/airspeed-indicator/bug-kts</output>
-		<filter-time>0.05</filter-time>
-	</filter>
-	
 	<!-- FGCP -->
 	<filter>
 		<name>NAV1 x100</name>

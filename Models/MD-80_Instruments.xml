@@ -49,7 +49,7 @@
 	
 	<model>
 		<name>asi</name>
-		<path>Aircraft/MD-80/Models/Instruments/asi.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/asi1.xml</path>
 		<offsets>
 			<x-m>2.226</x-m>
 			<y-m>-0.651</y-m>
@@ -60,7 +60,7 @@
 	
 	<model>
 		<name>rmi</name>
-		<path>Aircraft/MD-80/Models/Instruments/rmi.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/rmi1.xml</path>
 		<offsets>
 			<x-m>2.248</x-m>
 			<y-m>-0.639</y-m>
@@ -668,7 +668,7 @@
 	
 	<model>
 		<name>asi_R</name>
-		<path>Aircraft/MD-80/Models/Instruments/asi.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/asi2.xml</path>
 		<offsets>
 			<x-m>2.226</x-m>
 			<y-m>0.376</y-m>

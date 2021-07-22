@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
+<!-- Copyright (c) 2021 Josh Davidson (Octal450) -->
+
+<PropertyList>
+	
+	<path>asi.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>LightingGroup</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>0.4</green>
+			<blue>0.1</blue>
+			<factor-prop>controls/lighting/main-integ-norm</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle.kts</object-name>
+		<property>instrumentation/airspeed-indicator[1]/speed-kt</property>
+		<interpolation>
+			<entry><ind> 42</ind><dep> -6.00</dep></entry>
+			<entry><ind> 60</ind><dep>  4.00</dep></entry>
+			<entry><ind> 70</ind><dep>  9.53</dep></entry>
+			<entry><ind>250</ind><dep>234.00</dep></entry>
+			<entry><ind>450</ind><dep>314.00</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle.vmo</object-name>
+		<property>instrumentation/airspeed-indicator[1]/vmo-mmo</property>
+		<interpolation>
+			<entry><ind> 42</ind><dep> -6.00</dep></entry>
+			<entry><ind> 60</ind><dep>  4.00</dep></entry>
+			<entry><ind> 70</ind><dep>  9.53</dep></entry>
+			<entry><ind>250</ind><dep>234.00</dep></entry>
+			<entry><ind>450</ind><dep>314.00</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Bug.kts</object-name>
+		<property>instrumentation/airspeed-indicator[1]/bug-kts</property>
+		<interpolation>
+			<entry><ind> 42</ind><dep> -6.00</dep></entry>
+			<entry><ind> 60</ind><dep>  4.00</dep></entry>
+			<entry><ind> 70</ind><dep>  9.53</dep></entry>
+			<entry><ind>250</ind><dep>234.00</dep></entry>
+			<entry><ind>450</ind><dep>314.00</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>Mach1</object-name>
+		<property>instrumentation/airspeed-indicator[1]/mach-digit-d100</property>
+		<factor>0.0695</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>Mach2</object-name>
+		<property>instrumentation/airspeed-indicator[1]/mach-digit-d10</property>
+		<factor>0.0695</factor>
+		<step>1</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>Mach3</object-name>
+		<property>instrumentation/airspeed-indicator[1]/mach-digit-d1</property>
+		<factor>0.0695</factor>
+		<step>0.01</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>AsiFlag</object-name>
+		<object-name>MachFlag</object-name>
+		<condition>
+			<not-equals>
+				<property>instrumentation/airspeed-indicator[1]/power-avail</property>
+				<value>1</value>
+			</not-equals>
+		</condition>
+	</animation>
+
+</PropertyList>

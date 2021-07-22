@@ -1274,6 +1274,7 @@
 	<it-autoflight>
 		<input n="0">
 			<hdg type="int">360</hdg>
+			<kts-mach type="bool">0</kts-mach>
 		</input>
 		<output n="0">
 			<thr-mode type="int">0</thr-mode>

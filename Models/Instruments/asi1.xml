@@ -21,7 +21,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Needle.kts</object-name>
-		<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+		<property>instrumentation/airspeed-indicator[0]/speed-kt</property>
 		<interpolation>
 			<entry><ind> 42</ind><dep> -6.00</dep></entry>
 			<entry><ind> 60</ind><dep>  4.00</dep></entry>
@@ -39,7 +39,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Needle.vmo</object-name>
-		<property>fdm/jsbsim/dfgs/speeds/vmo-mmo</property>
+		<property>instrumentation/airspeed-indicator[0]/vmo-mmo</property>
 		<interpolation>
 			<entry><ind> 42</ind><dep> -6.00</dep></entry>
 			<entry><ind> 60</ind><dep>  4.00</dep></entry>
@@ -57,7 +57,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Bug.kts</object-name>
-		<property>instrumentation/airspeed-indicator/bug-kts</property>
+		<property>instrumentation/airspeed-indicator[0]/bug-kts</property>
 		<interpolation>
 			<entry><ind> 42</ind><dep> -6.00</dep></entry>
 			<entry><ind> 60</ind><dep>  4.00</dep></entry>
@@ -75,7 +75,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>Mach1</object-name>
-		<property>instrumentation/airspeed-indicator/indicated-mach-d100</property>
+		<property>instrumentation/airspeed-indicator[0]/mach-digit-d100</property>
 		<factor>0.0695</factor>
 		<step>1</step>
 		<axis>
@@ -88,7 +88,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>Mach2</object-name>
-		<property>instrumentation/airspeed-indicator/indicated-mach-d10</property>
+		<property>instrumentation/airspeed-indicator[0]/mach-digit-d10</property>
 		<factor>0.0695</factor>
 		<step>1</step>
 		<axis>
@@ -101,7 +101,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>Mach3</object-name>
-		<property>instrumentation/airspeed-indicator/indicated-mach-d1</property>
+		<property>instrumentation/airspeed-indicator[0]/mach-digit-d1</property>
 		<factor>0.0695</factor>
 		<step>0.01</step>
 		<axis>
@@ -109,6 +109,18 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>AsiFlag</object-name>
+		<object-name>MachFlag</object-name>
+		<condition>
+			<not-equals>
+				<property>instrumentation/airspeed-indicator[0]/power-avail</property>
+				<value>1</value>
+			</not-equals>
+		</condition>
 	</animation>
 
 </PropertyList>
