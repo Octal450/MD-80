@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2021 Josh Davidson (Octal450) -->
+
+<PropertyList>
+	
+	<path>vsi.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>VSIface</object-name>
+		<object-name>VSI.needle</object-name>
+		<object-name>Flag</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>0.4</green>
+			<blue>0.1</blue>
+			<factor-prop>controls/lighting/main-integ-norm</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>VSI.needle</object-name>
+		<property>instrumentation/vertical-speed-indicator[1]/vs-fpm</property>
+		<interpolation>
+			<entry><ind>-6000</ind><dep>-170</dep></entry>
+			<entry><ind>-4000</ind><dep>-130</dep></entry>
+			<entry><ind>-2000</ind><dep> -90</dep></entry>
+			<entry><ind>-1000</ind><dep> -55</dep></entry>
+			<entry><ind>  -10</ind><dep>   0</dep></entry>
+			<entry><ind>   10</ind><dep>   0</dep></entry>
+			<entry><ind> 1000</ind><dep>  55</dep></entry>
+			<entry><ind> 2000</ind><dep>  90</dep></entry>
+			<entry><ind> 4000</ind><dep> 130</dep></entry>
+			<entry><ind> 6000</ind><dep> 170</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Flag</object-name>
+		<condition>
+			<not-equals>
+				<property>instrumentation/vertical-speed-indicator[1]/power-avail</property>
+				<value>1</value>
+			</not-equals>
+		</condition>
+	</animation>
+
+</PropertyList>

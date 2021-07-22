@@ -162,7 +162,7 @@
 		<switch name="/systems/hydraulics/aux-pump-psi">
 			<default value="0"/>
 			<test logic="AND" value="2980">
-				/systems/electrical/bus/ac-gen-l ge 110
+				/systems/electrical/bus/emer-ac ge 112
 				/controls/hydraulics/switches/aux-pump ne 0
 				/systems/failures/hydraulics/aux-pump ne 1
 			</test>

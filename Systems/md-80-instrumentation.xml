@@ -500,7 +500,123 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 	
 	</channel>
 	
-	<channel name="Horizontal Situation Indicators" execrate="4">
+	<channel name="Radio Magnetic Indicators" execrate="2">
+		
+		<!-- Radio Magnetic Indicator 1 -->
+		<switch name="/instrumentation/rmi[0]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/rmi[0]/heading-input">
+			<default value="/instrumentation/rmi[0]/heading-input"/>
+			<test value="/orientation/heading-magnetic-deg">
+				/instrumentation/rmi[0]/power-avail eq 1
+			</test>
+			<output>/instrumentation/rmi[0]/heading-linear</output>
+		</switch>
+		
+		<!--linear_actuator name="/instrumentation/rmi[0]/heading-linear-cmd">
+			<input>/instrumentation/rmi[0]/heading-input</input>
+			<module>360</module>
+		</linear_actuator>
+		
+		<actuator name="/instrumentation/rmi[0]/heading-linear-actuator">
+			<input>/instrumentation/rmi[0]/heading-linear-cmd</input>
+			<rate_limit>90</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/rmi[0]/heading-linear">
+			<input>/instrumentation/rmi[0]/heading-linear-actuator</input>
+			<c1>10</c1>
+		</lag_filter-->
+		
+		<!-- TODO: Figure out how to use linear actuator from -180 to 180 -->
+		<switch name="/instrumentation/rmi[0]/nav1-input">
+			<default value="0"/>
+			<test logic="AND" value="/instrumentation/rmi[0]/nav1-error">
+				/instrumentation/rmi[0]/power-avail eq 1
+				/instrumentation/rmi[0]/vor-adf-1 eq 1
+			</test>
+			<test value="/instrumentation/rmi[0]/adf1-error">
+				/instrumentation/rmi[0]/power-avail eq 1
+			</test>
+			<output>/instrumentation/rmi[0]/nav1-linear</output>
+		</switch>
+		
+		<switch name="/instrumentation/rmi[0]/nav2-input">
+			<default value="0"/>
+			<test logic="AND" value="/instrumentation/rmi[0]/nav2-error">
+				/instrumentation/rmi[0]/power-avail eq 1
+				/instrumentation/rmi[0]/vor-adf-2 eq 1
+			</test>
+			<test value="/instrumentation/rmi[0]/adf2-error">
+				/instrumentation/rmi[0]/power-avail eq 1
+			</test>
+			<output>/instrumentation/rmi[0]/nav2-linear</output>
+		</switch>
+		
+		<!-- Radio Magnetic Indicator 2 -->
+		<switch name="/instrumentation/rmi[1]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/emer-ac ge 112
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/rmi[1]/heading-input">
+			<default value="/instrumentation/rmi[1]/heading-input"/>
+			<test value="/orientation/heading-magnetic-deg">
+				/instrumentation/rmi[1]/power-avail eq 1
+			</test>
+			<output>/instrumentation/rmi[1]/heading-linear</output>
+		</switch>
+		
+		<!--linear_actuator name="/instrumentation/rmi[1]/heading-linear-cmd">
+			<input>/instrumentation/rmi[1]/heading-input</input>
+			<module>360</module>
+		</linear_actuator>
+		
+		<actuator name="/instrumentation/rmi[1]/heading-linear-actuator">
+			<input>/instrumentation/rmi[1]/heading-linear-cmd</input>
+			<rate_limit>90</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/rmi[1]/heading-linear">
+			<input>/instrumentation/rmi[1]/heading-linear-actuator</input>
+			<c1>10</c1>
+		</lag_filter-->
+		
+		<!-- TODO: Figure out how to use linear actuator from -180 to 180 -->
+		<switch name="/instrumentation/rmi[1]/nav1-input">
+			<default value="0"/>
+			<test logic="AND" value="/instrumentation/rmi[1]/nav1-error">
+				/instrumentation/rmi[1]/power-avail eq 1
+				/instrumentation/rmi[1]/vor-adf-1 eq 1
+			</test>
+			<test value="/instrumentation/rmi[1]/adf1-error">
+				/instrumentation/rmi[1]/power-avail eq 1
+			</test>
+			<output>/instrumentation/rmi[1]/nav1-linear</output>
+		</switch>
+		
+		<switch name="/instrumentation/rmi[1]/nav2-input">
+			<default value="0"/>
+			<test logic="AND" value="/instrumentation/rmi[1]/nav2-error">
+				/instrumentation/rmi[1]/power-avail eq 1
+				/instrumentation/rmi[1]/vor-adf-2 eq 1
+			</test>
+			<test value="/instrumentation/rmi[1]/adf2-error">
+				/instrumentation/rmi[1]/power-avail eq 1
+			</test>
+			<output>/instrumentation/rmi[1]/nav2-linear</output>
+		</switch>
+	
+	</channel>
+	
+	<channel name="Horizontal Situation Indicators" execrate="2">
 		
 		<!-- Horizontal Situation Indicator 1 -->
 		<switch name="/instrumentation/hsi[0]/power-avail">
@@ -710,119 +826,57 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 	
 	</channel>
 	
-	<channel name="Radio Magnetic Indicators" execrate="4">
+	<channel name="Vertical Speed Indicators" execrate="2">
 		
-		<!-- Radio Magnetic Indicator 1 -->
-		<switch name="/instrumentation/rmi[0]/power-avail">
-			<default value="0"/>
-			<test value="1">
-				/systems/electrical/bus/ac-r ge 112
-			</test>
-		</switch>
-		
-		<switch name="/instrumentation/rmi[0]/heading-input">
-			<default value="/instrumentation/rmi[0]/heading-input"/>
-			<test value="/orientation/heading-magnetic-deg">
-				/instrumentation/rmi[0]/power-avail eq 1
-			</test>
-			<output>/instrumentation/rmi[0]/heading-linear</output>
-		</switch>
-		
-		<!--linear_actuator name="/instrumentation/rmi[0]/heading-linear-cmd">
-			<input>/instrumentation/rmi[0]/heading-input</input>
-			<module>360</module>
-		</linear_actuator>
-		
-		<actuator name="/instrumentation/rmi[0]/heading-linear-actuator">
-			<input>/instrumentation/rmi[0]/heading-linear-cmd</input>
-			<rate_limit>90</rate_limit>
-		</actuator>
-		
-		<lag_filter name="/instrumentation/rmi[0]/heading-linear">
-			<input>/instrumentation/rmi[0]/heading-linear-actuator</input>
-			<c1>10</c1>
-		</lag_filter-->
-		
-		<!-- TODO: Figure out how to use linear actuator from -180 to 180 -->
-		<switch name="/instrumentation/rmi[0]/nav1-input">
-			<default value="0"/>
-			<test logic="AND" value="/instrumentation/rmi[0]/nav1-error">
-				/instrumentation/rmi[0]/power-avail eq 1
-				/instrumentation/rmi[0]/vor-adf-1 eq 1
-			</test>
-			<test value="/instrumentation/rmi[0]/adf1-error">
-				/instrumentation/rmi[0]/power-avail eq 1
-			</test>
-			<output>/instrumentation/rmi[0]/nav1-linear</output>
-		</switch>
-		
-		<switch name="/instrumentation/rmi[0]/nav2-input">
-			<default value="0"/>
-			<test logic="AND" value="/instrumentation/rmi[0]/nav2-error">
-				/instrumentation/rmi[0]/power-avail eq 1
-				/instrumentation/rmi[0]/vor-adf-2 eq 1
-			</test>
-			<test value="/instrumentation/rmi[0]/adf2-error">
-				/instrumentation/rmi[0]/power-avail eq 1
-			</test>
-			<output>/instrumentation/rmi[0]/nav2-linear</output>
-		</switch>
-		
-		<!-- Radio Magnetic Indicator 2 -->
-		<switch name="/instrumentation/rmi[1]/power-avail">
+		<!-- Vertical Speed Indicator 1 -->
+		<switch name="/instrumentation/vertical-speed-indicator[0]/power-avail">
 			<default value="0"/>
 			<test value="1">
 				/systems/electrical/bus/emer-ac ge 112
 			</test>
 		</switch>
 		
-		<switch name="/instrumentation/rmi[1]/heading-input">
-			<default value="/instrumentation/rmi[1]/heading-input"/>
-			<test value="/orientation/heading-magnetic-deg">
-				/instrumentation/rmi[1]/power-avail eq 1
+		<switch name="/instrumentation/vertical-speed-indicator[0]/vs-fpm-input">
+			<default value="/instrumentation/vertical-speed-indicator[0]/vs-fpm-input"/>
+			<test value="/instrumentation/vertical-speed-indicator/vert-speed-fpm">
+				/instrumentation/vertical-speed-indicator[0]/power-avail eq 1
 			</test>
-			<output>/instrumentation/rmi[1]/heading-linear</output>
 		</switch>
 		
-		<!--linear_actuator name="/instrumentation/rmi[1]/heading-linear-cmd">
-			<input>/instrumentation/rmi[1]/heading-input</input>
-			<module>360</module>
-		</linear_actuator>
-		
-		<actuator name="/instrumentation/rmi[1]/heading-linear-actuator">
-			<input>/instrumentation/rmi[1]/heading-linear-cmd</input>
-			<rate_limit>90</rate_limit>
+		<actuator name="/instrumentation/vertical-speed-indicator[0]/vs-fpm-actuator">
+			<input>/instrumentation/vertical-speed-indicator[0]/vs-fpm-input</input>
+			<rate_limit>1500</rate_limit>
 		</actuator>
 		
-		<lag_filter name="/instrumentation/rmi[1]/heading-linear">
-			<input>/instrumentation/rmi[1]/heading-linear-actuator</input>
-			<c1>10</c1>
-		</lag_filter-->
+		<lag_filter name="/instrumentation/vertical-speed-indicator[0]/vs-fpm">
+			<input>/instrumentation/vertical-speed-indicator[0]/vs-fpm-actuator</input>
+			<c1>15</c1>
+		</lag_filter>
 		
-		<!-- TODO: Figure out how to use linear actuator from -180 to 180 -->
-		<switch name="/instrumentation/rmi[1]/nav1-input">
+		<!-- Vertical Speed Indicator 2 -->
+		<switch name="/instrumentation/vertical-speed-indicator[1]/power-avail">
 			<default value="0"/>
-			<test logic="AND" value="/instrumentation/rmi[1]/nav1-error">
-				/instrumentation/rmi[1]/power-avail eq 1
-				/instrumentation/rmi[1]/vor-adf-1 eq 1
+			<test value="1">
+				/systems/electrical/bus/ac-r ge 112
 			</test>
-			<test value="/instrumentation/rmi[1]/adf1-error">
-				/instrumentation/rmi[1]/power-avail eq 1
-			</test>
-			<output>/instrumentation/rmi[1]/nav1-linear</output>
 		</switch>
 		
-		<switch name="/instrumentation/rmi[1]/nav2-input">
-			<default value="0"/>
-			<test logic="AND" value="/instrumentation/rmi[1]/nav2-error">
-				/instrumentation/rmi[1]/power-avail eq 1
-				/instrumentation/rmi[1]/vor-adf-2 eq 1
+		<switch name="/instrumentation/vertical-speed-indicator[1]/vs-fpm-input">
+			<default value="/instrumentation/vertical-speed-indicator[1]/vs-fpm-input"/>
+			<test value="/instrumentation/vertical-speed-indicator/vert-speed-fpm">
+				/instrumentation/vertical-speed-indicator[1]/power-avail eq 1
 			</test>
-			<test value="/instrumentation/rmi[1]/adf2-error">
-				/instrumentation/rmi[1]/power-avail eq 1
-			</test>
-			<output>/instrumentation/rmi[1]/nav2-linear</output>
 		</switch>
+		
+		<actuator name="/instrumentation/vertical-speed-indicator[1]/vs-fpm-actuator">
+			<input>/instrumentation/vertical-speed-indicator[1]/vs-fpm-input</input>
+			<rate_limit>1500</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/vertical-speed-indicator[1]/vs-fpm">
+			<input>/instrumentation/vertical-speed-indicator[1]/vs-fpm-actuator</input>
+			<c1>15</c1>
+		</lag_filter>
 	
 	</channel>
 	

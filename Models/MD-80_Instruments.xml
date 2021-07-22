@@ -207,7 +207,7 @@
 	
 	<model>
 		<name>vsi</name>
-		<path>Aircraft/MD-80/Models/Instruments/vsi.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/vsi1.xml</path>
 		<offsets>
 			<x-m>2.248</x-m>
 			<y-m>-0.390</y-m>
@@ -758,7 +758,7 @@
 	
 	<model>
 		<name>vsi_R</name>
-		<path>Aircraft/MD-80/Models/Instruments/vsi.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/vsi2.xml</path>
 		<offsets>
 			<x-m>2.248</x-m>
 			<y-m>0.637</y-m>

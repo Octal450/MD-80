@@ -1269,6 +1269,9 @@
 				<volume>0.8</volume>
 			</speaker>
 		</tcas>
+		<vertical-speed-indicator n="0">
+			<vert-speed-fpm type="double">0</vert-speed-fpm>
+		</vertical-speed-indicator>
 	</instrumentation>
 	
 	<it-autoflight>

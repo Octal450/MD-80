@@ -10,6 +10,7 @@
 		<type>material</type>
 		<object-name>VSIface</object-name>
 		<object-name>VSI.needle</object-name>
+		<object-name>Flag</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.4</green>
@@ -21,7 +22,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>VSI.needle</object-name>
-		<property>instrumentation/vertical-speed-indicator/vert-speed-fpm</property>
+		<property>instrumentation/vertical-speed-indicator[0]/vs-fpm</property>
 		<interpolation>
 			<entry><ind>-6000</ind><dep>-170</dep></entry>
 			<entry><ind>-4000</ind><dep>-130</dep></entry>
@@ -39,6 +40,17 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Flag</object-name>
+		<condition>
+			<not-equals>
+				<property>instrumentation/vertical-speed-indicator[0]/power-avail</property>
+				<value>1</value>
+			</not-equals>
+		</condition>
 	</animation>
 
 </PropertyList>
