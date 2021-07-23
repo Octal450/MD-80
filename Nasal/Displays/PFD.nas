@@ -11,6 +11,8 @@ var pfd2Error = nil;
 var Value = {
 	Ai: {
 		pitch: 0,
+		risingRunwayMultiplier: 0,
+		risingRunwayOffset: 0,
 		roll: 0,
 	},
 	Nav: {
@@ -20,6 +22,7 @@ var Value = {
 			selectedDecimal: [0, 0],
 		},
 		gsInRange: [0, 0],
+		headingNeedleDeflectionNorm: [0, 0],
 		inRange: [0, 0],
 		signalQuality: [0, 0],
 	},
@@ -74,8 +77,8 @@ var canvasBase = {
 		return me;
 	},
 	getKeys: func() {
-		return ["AI_background", "AI_bank", "AI_center", "AI_dual_cue", "AI_scale", "AI_scale_dc", "AI_single_cue", "DH_below", "DH_pointer", "DH_set", "FD_v", "FD_pitch", "FD_roll", "FS_pointer", "FS_scale", "GS_group", "GS_no", "GS_pointer", "GS_scale",
-		"ILS_group", "Inner_Marker", "LOC_no", "LOC_pointer", "LOC_scale", "Middle_Marker", "Outer_Marker", "RA_bars", "RA_scale"];
+		return ["AI_background", "AI_bank", "AI_center", "AI_dual_cue", "AI_rising_runway", "AI_scale", "AI_scale_dc", "AI_single_cue", "DH_below", "DH_pointer", "DH_set", "FD_v", "FD_pitch", "FD_roll", "FS_pointer", "FS_scale", "GS_group", "GS_no", "GS_pointer",
+		"GS_scale", "ILS_group", "Inner_Marker", "LOC_no", "LOC_pointer", "LOC_scale", "Middle_Marker", "Outer_Marker", "RA_bars", "RA_scale"];
 	},
 	setup: func() {
 		# Hide the pages by default
@@ -108,12 +111,16 @@ var canvasBase = {
 			me["AI_single_cue"].hide();
 			me["FS_scale"].setTranslation(0, 0);
 			me["GS_group"].setTranslation(0, 0);
+			Value.Ai.risingRunwayMultiplier = 1.24;
+			Value.Ai.risingRunwayOffset = 0;
 		} else {
 			me["AI_dual_cue"].hide();
 			me["AI_scale_dc"].hide();
 			me["AI_single_cue"].show();
 			me["FS_scale"].setTranslation(619.7825, 0);
 			me["GS_group"].setTranslation(-619.7825, 0);
+			Value.Ai.risingRunwayMultiplier = 1.2;
+			Value.Ai.risingRunwayOffset = 7.545; # Align it properly
 		}
 		
 		Value.Ai.pitch = pts.Orientation.pitchDeg.getValue();
@@ -149,7 +156,6 @@ var canvasBase = {
 		}
 		
 		# RA and DH
-		Value.Ra.agl = pts.Position.gearAglFt.getValue();
 		Value.Ra.dh = pts.Controls.Switches.minimums.getValue();
 		if (Value.Ra.agl <= 3000) {
 			if (Value.Ra.dh > 0) {
@@ -196,6 +202,9 @@ var canvasPfd1 = {
 		return m;
 	},
 	update: func() {
+		# Provide the value to here and the base
+		Value.Ra.agl = pts.Position.gearAglFt.getValue();
+		
 		if (dfgs.Output.fd1.getBoolValue()) {
 			if (systems.DUController.flightDirector == "Dual Cue") {
 				me["FD_v"].hide();
@@ -231,14 +240,18 @@ var canvasPfd1 = {
 			me["ILS_group"].hide();
 		}
 		
+		Value.Nav.headingNeedleDeflectionNorm[0] = pts.Instrumentation.Nav.headingNeedleDeflectionNorm[0].getValue();
 		Value.Nav.inRange[0] = pts.Instrumentation.Nav.inRange[0].getBoolValue();
 		Value.Nav.signalQuality[0] = pts.Instrumentation.Nav.signalQualityNorm[0].getValue();
 		if (Value.Nav.inRange[0] and Value.Nav.signalQuality[0] > 0.99) {
+			me["AI_rising_runway"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[0] * 156, (math.clamp(Value.Ra.agl, 0, 200) * Value.Ai.risingRunwayMultiplier) + Value.Ai.risingRunwayOffset);
+			me["AI_rising_runway"].show();
+			me["LOC_pointer"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[0] * 156, 0);
 			me["LOC_pointer"].show();
-			me["LOC_pointer"].setTranslation(pts.Instrumentation.Nav.headingNeedleDeflectionNorm[0].getValue() * 156, 0);
 			me["LOC_no"].hide();
 			me["LOC_scale"].show();
 		} else {
+			me["AI_rising_runway"].hide();
 			me["LOC_pointer"].hide();
 			me["LOC_no"].show();
 			me["LOC_scale"].hide();
@@ -246,8 +259,8 @@ var canvasPfd1 = {
 		
 		Value.Nav.gsInRange[0] = pts.Instrumentation.Nav.gsInRange[0].getBoolValue();
 		if (Value.Nav.gsInRange[0] and Value.Nav.signalQuality[0] > 0.99 and pts.Instrumentation.Nav.hasGs[0].getBoolValue()) {
-			me["GS_pointer"].show();
 			me["GS_pointer"].setTranslation(0, pts.Instrumentation.Nav.gsNeedleDeflectionNorm[0].getValue() * -148);
+			me["GS_pointer"].show();
 			me["GS_no"].hide();
 			me["GS_scale"].show();
 		} else {
@@ -303,14 +316,18 @@ var canvasPfd2 = {
 			me["ILS_group"].hide();
 		}
 		
+		Value.Nav.headingNeedleDeflectionNorm[1] = pts.Instrumentation.Nav.headingNeedleDeflectionNorm[1].getValue();
 		Value.Nav.inRange[1] = pts.Instrumentation.Nav.inRange[1].getBoolValue();
 		Value.Nav.signalQuality[1] = pts.Instrumentation.Nav.signalQualityNorm[1].getValue();
 		if (Value.Nav.inRange[1] and Value.Nav.signalQuality[1] > 0.99) {
+			me["AI_rising_runway"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[1] * 156, (math.clamp(Value.Ra.agl, 0, 200) * Value.Ai.risingRunwayMultiplier) + Value.Ai.risingRunwayOffset);
+			me["AI_rising_runway"].show();
+			me["LOC_pointer"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[1] * 156, 0);
 			me["LOC_pointer"].show();
-			me["LOC_pointer"].setTranslation(pts.Instrumentation.Nav.headingNeedleDeflectionNorm[1].getValue() * 156, 0);
 			me["LOC_no"].hide();
 			me["LOC_scale"].show();
 		} else {
+			me["AI_rising_runway"].hide();
 			me["LOC_pointer"].hide();
 			me["LOC_no"].show();
 			me["LOC_scale"].hide();
