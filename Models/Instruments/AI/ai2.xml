@@ -178,6 +178,21 @@
 	</animation>
 	
 	<animation>
+		<type>translate</type>
+		<object-name>Runway</object-name>
+		<property>instrumentation/ai[1]/rising-runway</property>
+		<interpolation>
+			<entry><ind>  0</ind><dep>0.03517</dep></entry>
+			<entry><ind>200</ind><dep>0.00000</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+	
+	<animation>
 		<type>select</type>
 		<object-name>GSFlag</object-name>
 		<condition>
@@ -227,7 +242,7 @@
 		<type>translate</type>
 		<object-name>GS</object-name>
 		<property>instrumentation/ai[1]/gs-deviation</property>
-		<factor>0.00188</factor>
+		<factor>0.00537</factor>
 		<axis>
 			<x>0</x>
 			<y>0</y>

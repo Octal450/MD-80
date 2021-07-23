@@ -333,6 +333,21 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<c1>10</c1>
 		</lag_filter>
 		
+		<switch name="/instrumentation/ai[0]/rising-runway-cmd">
+			<default value="200"/>
+			<test logic="AND" value="/position/gear-agl-ft">
+				/instrumentation/ai[0]/power-avail eq 1
+				/systems/electrical/outputs/nav[0] ge 24
+				/instrumentation/nav[0]/in-range eq 1
+				/instrumentation/nav[0]/signal-quality-norm gt 0.99
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/ai[0]/rising-runway">
+			<input>/instrumentation/ai[0]/rising-runway-cmd</input>
+			<c1>10</c1>
+		</lag_filter>
+		
 		<switch name="/instrumentation/ai[0]/gs-deviation-cmd">
 			<default value="0"/>
 			<test logic="AND" value="/instrumentation/nav[0]/gs-needle-deflection">
@@ -425,6 +440,21 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		
 		<lag_filter name="/instrumentation/ai[1]/loc-deviation">
 			<input>/instrumentation/ai[1]/loc-deviation-cmd</input>
+			<c1>10</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/ai[1]/rising-runway-cmd">
+			<default value="200"/>
+			<test logic="AND" value="/position/gear-agl-ft">
+				/instrumentation/ai[1]/power-avail eq 1
+				/systems/electrical/outputs/nav[1] ge 24
+				/instrumentation/nav[1]/in-range eq 1
+				/instrumentation/nav[1]/signal-quality-norm gt 0.99
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/ai[1]/rising-runway">
+			<input>/instrumentation/ai[1]/rising-runway-cmd</input>
 			<c1>10</c1>
 		</lag_filter>
 		

@@ -167,7 +167,7 @@
 		<type>translate</type>
 		<object-name>gs.needle</object-name>
 		<property>instrumentation/hsi[0]/gs-deviation</property>
-		<factor>0.00277</factor>
+		<factor>0.00791</factor>
 		<axis>
 			<x>0</x>
 			<y>0</y>
