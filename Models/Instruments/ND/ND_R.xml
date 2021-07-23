@@ -35,7 +35,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SlipBall</object-name>
-		<property>instrumentation/pfd/slip-skid</property>
+		<property>instrumentation/ai[1]/slip-skid</property>
 		<interpolation>
 			<entry><ind>-15</ind><dep>-5.9</dep></entry>
 			<entry><ind>  0</ind><dep> 0.0</dep></entry>

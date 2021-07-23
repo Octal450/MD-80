@@ -90,7 +90,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SlipSkid</object-name>
-		<property>instrumentation/pfd/slip-skid</property>
+		<property>instrumentation/ai[1]/slip-skid</property>
 		<interpolation>
 			<entry><ind>-15</ind><dep>-8</dep></entry>
 			<entry><ind>  0</ind><dep> 0</dep></entry>
@@ -102,7 +102,7 @@
 			<z-m>0.02</z-m>
 		</center>
 		<axis>
-			<x>-1</x>
+			<x>1</x>
 			<y>0</y>
 			<z>0</z>
 		</axis>
@@ -144,7 +144,7 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>LOCFlag</object-name>
+		<object-name>RunwayFlag</object-name>
 		<condition>
 			<or>
 				<not-equals>
@@ -165,32 +165,11 @@
 	</animation>
 	
 	<animation>
-		<type>select</type>
-		<object-name>LOC</object-name>
-		<condition>
-			<and>
-				<equals>
-					<property>instrumentation/ai[1]/power-avail</property>
-					<value>1</value>
-				</equals>
-				<greater-than-equals>
-					<property>systems/electrical/outputs/nav[1]</property>
-					<value>24</value>
-				</greater-than-equals>
-				<property>instrumentation/nav[1]/in-range</property>
-				<greater-than>
-					<property>instrumentation/nav[1]/signal-quality-norm</property>
-					<value>0.99</value>
-				</greater-than>
-			</and>
-		</condition>
-	</animation>
-	
-	<animation>
 		<type>translate</type>
-		<object-name>LOC</object-name>
-		<property>instrumentation/nav[1]/heading-needle-deflection-norm</property>
-		<factor>0.0153</factor>
+		<object-name>Runway</object-name>
+		<object-name>Runway2</object-name>
+		<property>instrumentation/ai[1]/loc-deviation</property>
+		<factor>0.00153</factor>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -247,8 +226,8 @@
 	<animation>
 		<type>translate</type>
 		<object-name>GS</object-name>
-		<property>instrumentation/nav[1]/gs-needle-deflection-norm</property>
-		<factor>0.0188</factor>
+		<property>instrumentation/ai[1]/gs-deviation</property>
+		<factor>0.00188</factor>
 		<axis>
 			<x>0</x>
 			<y>0</y>
@@ -265,6 +244,19 @@
 			<blue>0</blue>
 			<factor-prop>controls/misc/minimums-light-1</factor-prop>
 		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>CmptrFlag</object-name>
+		<object-name>GyroFlag</object-name>
+		<object-name>RTFlag</object-name>
+		<condition>
+			<not-equals>
+				<property>instrumentation/ai[1]/power-avail</property>
+				<value>1</value>
+			</not-equals>
+		</condition>
 	</animation>
 
 </PropertyList>
