@@ -318,59 +318,5 @@
 		<output>/instrumentation/dme[1]/indicated-distance-nm-x10</output>
 		<max>9999</max>
 	</filter>
-	
-	<!-- RA -->
-	<logic>
-		<input>
-			<and>
-				<greater-than-equals>
-					<property>systems/electrical/bus/emer-ac</property>
-					<value>112</value>
-				</greater-than-equals>
-				<or>
-					<and>
-						<property>/controls/misc/minimums-latch</property>
-						<less-than-equals>
-							<property>/position/gear-agl-ft</property>
-							<property>/controls/switches/minimums</property>
-						</less-than-equals>
-					</and>
-					<property>/controls/switches/annun-test</property>
-				</or>
-			</and>
-		</input>
-		<output>/instrumentation/agl[0]/minimums-light</output>
-	</logic>
-	
-	<logic>
-		<input>
-			<and>
-				<greater-than-equals>
-					<property>systems/electrical/bus/ac-r</property>
-					<value>112</value>
-				</greater-than-equals>
-				<or>
-					<and>
-						<property>/controls/misc/minimums-latch</property>
-						<less-than-equals>
-							<property>/position/gear-agl-ft</property>
-							<property>/controls/switches/minimums</property>
-						</less-than-equals>
-					</and>
-					<property>/controls/switches/annun-test</property>
-				</or>
-			</and>
-		</input>
-		<output>/instrumentation/agl[1]/minimums-light</output>
-	</logic>
-	
-	<filter>
-		<name>Minimums Error</name>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>/position/gear-agl-ft</input>
-		<reference>/controls/switches/minimums</reference>
-		<output>/controls/misc/minimums-tape</output>
-	</filter>
 
 </PropertyList>

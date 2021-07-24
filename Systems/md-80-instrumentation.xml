@@ -11,6 +11,8 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 <system name="MD-80: Instrumentation">
 	
 	<!-- So they start at the right place -->
+	<property value="-200">/instrumentation/agl[0]/minimums-input</property>
+	<property value="-200">/instrumentation/agl[1]/minimums-input</property>
 	<property value="100">/instrumentation/airspeed-indicator[0]/bug-kts-input</property>
 	<property value="340">/instrumentation/airspeed-indicator[0]/vmo-mmo-input</property>
 	<property value="100">/instrumentation/airspeed-indicator[1]/bug-kts-input</property>
