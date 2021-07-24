@@ -329,21 +329,17 @@
 				</greater-than-equals>
 				<or>
 					<and>
-						<property>/systems/electrical/outputs/efis</property>
 						<property>/controls/misc/minimums-latch</property>
 						<less-than-equals>
 							<property>/position/gear-agl-ft</property>
 							<property>/controls/switches/minimums</property>
 						</less-than-equals>
 					</and>
-					<and>
-						<property>/systems/electrical/outputs/efis</property>
-						<property>/controls/switches/annun-test</property>
-					</and>
+					<property>/controls/switches/annun-test</property>
 				</or>
 			</and>
 		</input>
-		<output>/controls/misc/minimums-light-1</output>
+		<output>/instrumentation/agl[0]/minimums-light</output>
 	</logic>
 	
 	<logic>
@@ -355,21 +351,17 @@
 				</greater-than-equals>
 				<or>
 					<and>
-						<property>/systems/electrical/outputs/efis</property>
 						<property>/controls/misc/minimums-latch</property>
 						<less-than-equals>
 							<property>/position/gear-agl-ft</property>
 							<property>/controls/switches/minimums</property>
 						</less-than-equals>
 					</and>
-					<and>
-						<property>/systems/electrical/outputs/efis</property>
-						<property>/controls/switches/annun-test</property>
-					</and>
+					<property>/controls/switches/annun-test</property>
 				</or>
 			</and>
 		</input>
-		<output>/controls/misc/minimums-light-2</output>
+		<output>/instrumentation/agl[1]/minimums-light</output>
 	</logic>
 	
 	<filter>

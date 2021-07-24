@@ -24,14 +24,14 @@
 			<red>1.0</red>
 			<green>0.776</green>
 			<blue>0.273</blue>
-			<factor-prop>controls/misc/minimums-light</factor-prop>
+			<factor-prop>instrumentation/agl[1]/minimums-light</factor-prop>
 		</emission>
 	</animation>
 	
 	<animation>
 		<type>textranslate</type>
 		<object-name>Tape</object-name>
-		<property>position/gear-agl-ft</property>
+		<property>instrumentation/agl[1]/altitude-ft</property>
 		<interpolation>
 			<entry><ind>   0</ind><dep>0.0000</dep></entry>
 			<entry><ind>2700</ind><dep>0.8831</dep></entry>
@@ -44,7 +44,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>TapeDH</object-name>
-		<property>controls/misc/minimums-tape</property>
+		<property>instrumentation/agl[1]/minimums</property>
 		<interpolation>
 			<entry><ind>-150</ind><dep>-0.3675</dep></entry>
 			<entry><ind>   0</ind><dep> 0.0000</dep></entry>
@@ -60,16 +60,10 @@
 		<type>select</type>
 		<object-name>Flag</object-name>
 		<condition>
-			<or>
-				<less-than>
-					<property>systems/electrical/outputs/efis</property>
-					<value>25</value>
-				</less-than>
-				<greater-than>
-					<property>position/gear-agl-ft</property>
-					<value>3000</value>
-				</greater-than>
-			</or>
+			<not-equals>
+				<property>instrumentation/agl[1]/power-avail</property>
+				<value>1</value>
+			</not-equals>
 		</condition>
 	</animation>
 	

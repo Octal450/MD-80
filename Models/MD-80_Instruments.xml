@@ -190,7 +190,7 @@
 	
 	<model>
 		<name>ra</name>
-		<path>Aircraft/MD-80/Models/Instruments/AGL/agl.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/AGL/agl1.xml</path>
 		<condition>
 			<equals>
 				<property>options/panel</property>
@@ -741,7 +741,7 @@
 	
 	<model>
 		<name>ra_R</name>
-		<path>Aircraft/MD-80/Models/Instruments/AGL/agl.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/AGL/agl2.xml</path>
 		<condition>
 			<equals>
 				<property>options/panel</property>

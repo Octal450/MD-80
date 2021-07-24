@@ -553,6 +553,127 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 	
 	</channel>
 	
+	<channel name="Radio Altimeters" execrate="2">
+		
+		<summer name="/controls/misc/minimums-diff">
+			<input>/position/gear-agl-ft</input>
+			<input>-/controls/switches/minimums</input>
+		</summer>
+		
+		<!-- Radio Altimeter 1 -->
+		<switch name="/instrumentation/agl[0]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/emer-ac ge 112
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/agl[0]/altitude-ft-input">
+			<default value="/instrumentation/agl[0]/altitude-ft-input"/>
+			<test value="/position/gear-agl-ft">
+				/instrumentation/agl[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/agl[0]/altitude-ft-actuator">
+			<input>/instrumentation/agl[0]/altitude-ft-input</input>
+			<rate_limit>1500</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/agl[0]/altitude-ft">
+			<input>/instrumentation/agl[0]/altitude-ft-actuator</input>
+			<c1>15</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/agl[0]/minimums-light">
+			<default value="0"/>
+			<test value="0">
+				/instrumentation/agl[0]/power-avail ne 1
+			</test>
+			<test logic="OR" value="1">
+				/controls/switches/annun-test eq 1
+				<test logic="AND">
+					/controls/misc/minimums-latch eq 1
+					/position/gear-agl-ft le /controls/switches/minimums
+				</test>
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/agl[0]/minimums-input">
+			<default value="/instrumentation/agl[0]/minimums-input"/>
+			<test value="/controls/misc/minimums-diff">
+				/instrumentation/agl[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/agl[0]/minimums-actuator">
+			<input>/instrumentation/agl[0]/minimums-input</input>
+			<rate_limit>1500</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/agl[0]/minimums">
+			<input>/instrumentation/agl[0]/minimums-actuator</input>
+			<c1>15</c1>
+		</lag_filter>
+		
+		<!-- Radio Altimeter 2 -->
+		<switch name="/instrumentation/agl[1]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/agl[1]/altitude-ft-input">
+			<default value="/instrumentation/agl[1]/altitude-ft-input"/>
+			<test value="/position/gear-agl-ft">
+				/instrumentation/agl[1]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/agl[1]/altitude-ft-actuator">
+			<input>/instrumentation/agl[1]/altitude-ft-input</input>
+			<rate_limit>1500</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/agl[1]/altitude-ft">
+			<input>/instrumentation/agl[1]/altitude-ft-actuator</input>
+			<c1>15</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/agl[1]/minimums-light">
+			<default value="0"/>
+			<test value="0">
+				/instrumentation/agl[1]/power-avail ne 1
+			</test>
+			<test logic="OR" value="1">
+				/controls/switches/annun-test eq 1
+				<test logic="AND">
+					/controls/misc/minimums-latch eq 1
+					/position/gear-agl-ft le /controls/switches/minimums
+				</test>
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/agl[1]/minimums-input">
+			<default value="/instrumentation/agl[1]/minimums-input"/>
+			<test value="/controls/misc/minimums-diff">
+				/instrumentation/agl[1]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/agl[1]/minimums-actuator">
+			<input>/instrumentation/agl[1]/minimums-input</input>
+			<rate_limit>1500</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/agl[1]/minimums">
+			<input>/instrumentation/agl[1]/minimums-actuator</input>
+			<c1>15</c1>
+		</lag_filter>
+	
+	</channel>
+	
 	<channel name="Altimeters" execrate="2">
 		
 		<!-- Altimeter 1 -->

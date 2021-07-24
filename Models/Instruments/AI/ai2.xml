@@ -257,7 +257,7 @@
 			<red>1.0</red>
 			<green>1.0</green>
 			<blue>0</blue>
-			<factor-prop>controls/misc/minimums-light-1</factor-prop>
+			<factor-prop>instrumentation/agl[1]/minimums-light</factor-prop>
 		</emission>
 	</animation>
 	
