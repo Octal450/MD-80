@@ -7,6 +7,14 @@
 	<path>hsi.ac</path>
 	
 	<animation>
+		<type>select</type>
+		<object-name>HSI.2</object-name>
+		<condition>
+			<property>instrumentation/hsi[0]/unused</property>
+		</condition>
+	</animation>
+	
+	<animation>
 		<type>material</type>
 		<object-name>LightingGroup</object-name>
 		<emission>
@@ -49,10 +57,33 @@
 			</and>
 		</condition>
 	</animation>
-
+	
 	<animation>
 		<type>select</type>
-		<object-name>gs.needle</object-name>
+		<object-name>GSFlag</object-name>
+		<condition>
+			<or>
+				<not-equals>
+					<property>instrumentation/hsi[0]/power-avail</property>
+					<value>1</value>
+				</not-equals>
+				<less-than>
+					<property>systems/electrical/outputs/nav[0]</property>
+					<value>24</value>
+				</less-than>
+				<not><property>instrumentation/nav[0]/gs-in-range</property></not>
+				<not><property>instrumentation/nav[0]/has-gs</property></not>
+				<less-than-equals>
+					<property>instrumentation/nav[0]/signal-quality-norm</property>
+					<value>0.99</value>
+				</less-than-equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>GS.needle</object-name>
 		<condition>
 			<and>
 				<equals>
@@ -76,25 +107,7 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>navflag</object-name>
-		<condition>
-			<or>
-				<not-equals>
-					<property>instrumentation/hsi[0]/power-avail</property>
-					<value>1</value>
-				</not-equals>
-				<less-than>
-					<property>systems/electrical/outputs/nav[0]</property>
-					<value>24</value>
-				</less-than>
-				<not><property>instrumentation/nav[0]/in-range</property></not>
-			</or>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>toflag</object-name>
+		<object-name>ToFlag</object-name>
 		<condition>
 			<property>instrumentation/nav[0]/to-flag</property>
 		</condition>
@@ -102,7 +115,7 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>fromflag</object-name>
+		<object-name>FromFlag</object-name>
 		<condition>
 			<property>instrumentation/nav[0]/from-flag</property>
 		</condition>
@@ -113,9 +126,8 @@
 		<object-name>HSI.card</object-name>
 		<object-name>HSI.crsneedle</object-name>
 		<object-name>HSI.crsdeflection</object-name>
-		<object-name>toflag</object-name>
-		<object-name>fromflag</object-name>
-		<object-name>airplane</object-name>
+		<object-name>ToFlag</object-name>
+		<object-name>FromFlag</object-name>
 		<object-name>HSI.hdgbug</object-name>
 		<property>instrumentation/hsi[0]/heading-linear</property>
 		<axis>
@@ -129,9 +141,8 @@
 		<type>rotate</type>
 		<object-name>HSI.crsneedle</object-name>
 		<object-name>HSI.crsdeflection</object-name>
-		<object-name>toflag</object-name>
-		<object-name>fromflag</object-name>
-		<object-name>airplane</object-name>
+		<object-name>ToFlag</object-name>
+		<object-name>FromFlag</object-name>
 		<property>instrumentation/hsi[0]/course-linear</property>
 		<axis>
 			<x>-1</x>
@@ -165,7 +176,7 @@
 	
 	<animation>
 		<type>translate</type>
-		<object-name>gs.needle</object-name>
+		<object-name>GS.needle</object-name>
 		<property>instrumentation/hsi[0]/gs-deviation</property>
 		<factor>0.00791</factor>
 		<axis>
@@ -173,6 +184,25 @@
 			<y>0</y>
 			<z>1</z>
 		</axis>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>HeadingFlag</object-name>
+		<condition>
+			<not-equals>
+				<property>instrumentation/hsi[0]/power-avail</property>
+				<value>1</value>
+			</not-equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>HSI.nav</object-name>
+		<condition>
+			<property>instrumentation/hsi[0]/slaved-to-gps</property>
+		</condition>
 	</animation>
 	
 	<!-- DME 1 -->
