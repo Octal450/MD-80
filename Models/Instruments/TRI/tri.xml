@@ -25,6 +25,12 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<equals>
+						<property>fdm/jsbsim/dfgs/power-avail</property>
+						<value>1</value>
+					</equals>
+				</condition>
 				<command>property-assign</command>
 				<property>fdm/jsbsim/engine/limit/active-mode-int</property>
 				<value>0</value>
@@ -55,6 +61,12 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<equals>
+						<property>fdm/jsbsim/dfgs/power-avail</property>
+						<value>1</value>
+					</equals>
+				</condition>
 				<command>property-assign</command>
 				<property>fdm/jsbsim/engine/limit/active-mode-int</property>
 				<value>5</value>
@@ -85,6 +97,12 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<equals>
+						<property>fdm/jsbsim/dfgs/power-avail</property>
+						<value>1</value>
+					</equals>
+				</condition>
 				<command>property-assign</command>
 				<property>fdm/jsbsim/engine/limit/active-mode-int</property>
 				<value>1</value>
@@ -115,6 +133,12 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<equals>
+						<property>fdm/jsbsim/dfgs/power-avail</property>
+						<value>1</value>
+					</equals>
+				</condition>
 				<command>property-assign</command>
 				<property>fdm/jsbsim/engine/limit/active-mode-int</property>
 				<value>2</value>
@@ -145,6 +169,12 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<equals>
+						<property>fdm/jsbsim/dfgs/power-avail</property>
+						<value>1</value>
+					</equals>
+				</condition>
 				<command>property-assign</command>
 				<property>fdm/jsbsim/engine/limit/active-mode-int</property>
 				<value>3</value>
@@ -175,6 +205,12 @@
 			<button>0</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<equals>
+						<property>fdm/jsbsim/dfgs/power-avail</property>
+						<value>1</value>
+					</equals>
+				</condition>
 				<command>property-assign</command>
 				<property>fdm/jsbsim/engine/limit/active-mode-int</property>
 				<value>4</value>
@@ -196,6 +232,22 @@
 				</binding>
 			</mod-up>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>toOn</object-name>
+		<object-name>flxOn</object-name>
+		<object-name>gaOn</object-name>
+		<object-name>mctOn</object-name>
+		<object-name>clOn</object-name>
+		<object-name>crOn</object-name>
+		<condition>
+			<equals>
+				<property>fdm/jsbsim/dfgs/power-avail</property>
+				<value>1</value>
+			</equals>
+		</condition>
 	</animation>
 	
 	<animation>
