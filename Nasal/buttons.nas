@@ -151,7 +151,8 @@ var apPanel = {
 	autoLand: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			me.latTemp = dfgs.Output.lat.getValue();
-			if ((me.latTemp == 2 or me.latTemp == 4) and dfgs.Output.apprArm.getBoolValue()) { # Check logic
+			me.vertTemp = dfgs.Output.vert.getValue();
+			if ((me.latTemp == 2 or me.latTemp == 4) and (dfgs.Output.apprArm.getBoolValue() or me.vertTemp == 2 or me.vertTemp == 6)) { # Check logic
 				dfgs.ITAF.updateAutoLand(1);
 			}
 		}

@@ -301,13 +301,10 @@ var ITAF = {
 						me.updateVertText("LAND");
 					}
 				}
-				if (Position.gearAglFtTemp <= 100 and Position.gearAglFtTemp >= 5) {
+				if (Position.gearAglFtTemp <= 50 and Position.gearAglFtTemp >= 5) {
 					me.setVertMode(6);
 				}
 			} else if (Output.vertTemp == 6) {
-				if (Position.gearAglFtTemp <= 50 and Position.gearAglFtTemp >= 5 and Text.vert.getValue() != "FLARE") {
-					me.updateVertText("FLARE");
-				}
 				if (Gear.wow1Temp and Gear.wow2Temp and Text.vert.getValue() != "ROLLOUT") {
 					me.updateLatText("RLOU");
 					me.updateVertText("ROLLOUT");
@@ -682,8 +679,7 @@ var ITAF = {
 			Internal.altCaptureActive = 0;
 			me.updateApprArm(0);
 			Output.vert.setValue(6);
-			me.updateVertText("LAND");
-			Athr.setMode(0); # Thrust
+			me.updateVertText("FLARE");
 		} else if (n == 7) { # T/O CLB or G/A CLB, text is set by TOGA selector
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
