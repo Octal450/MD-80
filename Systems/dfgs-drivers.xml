@@ -670,10 +670,7 @@
 			</condition>
 			<expression>
 				<min>
-					<max>
-						<property>/it-autoflight/internal/nav1-rate-of-climb-fpm</property>
-						<value>-1100</value>
-					</max>
+					<property>/it-autoflight/internal/nav1-rate-of-climb-fpm</property>
 					<value>-500</value>
 				</min>
 			</expression>
@@ -710,10 +707,7 @@
 			</condition>
 			<expression>
 				<min>
-					<max>
-						<property>/it-autoflight/internal/nav2-rate-of-climb-fpm</property>
-						<value>-1100</value>
-					</max>
+					<property>/it-autoflight/internal/nav2-rate-of-climb-fpm</property>
 					<value>-500</value>
 				</min>
 			</expression>
