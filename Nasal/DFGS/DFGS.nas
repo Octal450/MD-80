@@ -116,10 +116,10 @@ var Input = {
 	toga: props.globals.initNode("/it-autoflight/input/toga", 0, "BOOL"),
 	trk: props.globals.initNode("/it-autoflight/input/trk", 0, "BOOL"),
 	trueCourse: props.globals.initNode("/it-autoflight/input/true-course", 0, "BOOL"),
-	vs: props.globals.initNode("/it-autoflight/input/vs", 0, "INT"),
-	vsAbs: props.globals.initNode("/it-autoflight/input/vs-abs", 0, "INT"), # Set by property rule
 	vert: props.globals.initNode("/it-autoflight/input/vert", 1, "INT"),
 	vertTemp: 1,
+	vs: props.globals.initNode("/it-autoflight/input/vs", 0, "INT"),
+	vsAbs: props.globals.initNode("/it-autoflight/input/vs-abs", 0, "INT"), # Set by property rule
 };
 
 var Internal = {
@@ -463,12 +463,7 @@ var ITAF = {
 		if (s == 1) {
 			if (Output.vert.getValue() != 6 and !Gear.wow1.getBoolValue() and !Gear.wow2.getBoolValue()) {
 				if (!Output.fd1.getBoolValue() and !Output.fd2.getBoolValue() and !Output.ap1.getBoolValue() and !Output.ap2.getBoolValue()) {
-					me.setLatMode(3); # HDG HOLD
-					if (abs(Internal.vs.getValue()) > 75) {
-						me.setVertMode(1); # V/S
-					} else {
-						me.setVertMode(0); # HOLD
-					}
+					me.setBasicMode();
 				}
 				Controls.rudder.setValue(0);
 				Output.ap1.setBoolValue(1);
@@ -488,12 +483,7 @@ var ITAF = {
 		if (s == 1) {
 			if (Output.vert.getValue() != 6 and !Gear.wow1.getBoolValue() and !Gear.wow2.getBoolValue()) {
 				if (!Output.fd1.getBoolValue() and !Output.fd2.getBoolValue() and !Output.ap1.getBoolValue() and !Output.ap2.getBoolValue()) {
-					me.setLatMode(3); # HDG HOLD
-					if (abs(Internal.vs.getValue()) > 75) {
-						me.setVertMode(1); # V/S
-					} else {
-						me.setVertMode(0); # HOLD
-					}
+					me.setBasicMode();
 				}
 				Controls.rudder.setValue(0);
 				Output.ap2.setBoolValue(1);
@@ -548,12 +538,7 @@ var ITAF = {
 			Output.fd1.setBoolValue(1);
 		} else {
 			if (!Output.fd1.getBoolValue() and !Output.fd2.getBoolValue() and !Output.ap1.getBoolValue() and !Output.ap2.getBoolValue()) {
-				me.setLatMode(3); # HDG HOLD
-					if (abs(Internal.vs.getValue()) > 75) {
-					me.setVertMode(1); # V/S
-				} else {
-					me.setVertMode(0); # HOLD
-				}
+				me.setBasicMode();
 			}
 			Output.fd1.setBoolValue(0);
 		}
@@ -564,6 +549,9 @@ var ITAF = {
 	},
 	fd2Master: func(s) {
 		if (s == 1) {
+			if (!Output.fd1.getBoolValue() and !Output.fd2.getBoolValue() and !Output.ap1.getBoolValue() and !Output.ap2.getBoolValue()) {
+				me.setBasicMode();
+			}
 			Output.fd2.setBoolValue(1);
 		} else {
 			Output.fd2.setBoolValue(0);
@@ -571,6 +559,14 @@ var ITAF = {
 		Output.fd2Temp = Output.fd2.getBoolValue();
 		if (Input.fd2.getBoolValue() != Output.fd2Temp) {
 			Input.fd2.setBoolValue(Output.fd2Temp);
+		}
+	},
+	setBasicMode: func() {
+		me.setLatMode(3); # HDG HOLD
+		if (abs(Internal.vs.getValue()) > 75) {
+			me.setVertMode(1); # V/S or FPA
+		} else {
+			me.setVertMode(0); # HOLD
 		}
 	},
 	setLatMode: func(n) {
