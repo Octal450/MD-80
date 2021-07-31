@@ -36,7 +36,6 @@ var apPanel = {
 		}
 	},
 	apSelector: func() {
-		libraries.apPanel.apDisc();
 		dfgs.Input.activeAp.setValue(!(dfgs.Input.activeAp.getValue() - 1) + 1); # This sh*t just toggles between 1 and 2
 		dfgs.updateFma.capTrkReCheck();
 	},

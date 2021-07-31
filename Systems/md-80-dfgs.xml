@@ -271,20 +271,24 @@
 	
 	<channel name="DFGS: Yaw Axis and Yaw Damper">
 		
-		<switch name="dfgs/yaw/active">
+		<switch name="dfgs/yaw/cmd-on">
 			<default value="0"/>
-			<test logic="OR" value="0">
-				position/wow eq 1
-				/position/gear-agl-ft lt 50
-				/systems/failures/fctl/yaw-damper eq 1
-				dfgs/power-avail eq 0
-			</test>
 			<test logic="AND" value="1">
-				/controls/fctl/switches/yaw-damper eq 1
 				dfgs/afs/enabled eq 1
+				/controls/fctl/switches/yaw-damper eq 0
 			</test>
 			<test value="1">
-				/controls/fctl/switches/yaw-damper eq 2
+				/controls/fctl/switches/yaw-damper eq 1
+			</test>
+		</switch>
+		
+		<switch name="dfgs/yaw/active">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				position/wow eq 0
+				/position/gear-agl-ft ge 50
+				dfgs/yaw/cmd-on eq 1
+				dfgs/power-avail eq 1
 			</test>
 		</switch>
 		

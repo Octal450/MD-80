@@ -91,10 +91,13 @@ var Input = {
 	altArmed: props.globals.initNode("/it-autoflight/input/alt-armed", 0, "BOOL"),
 	alt: props.globals.initNode("/it-autoflight/input/alt", 10000, "INT"),
 	ap1: props.globals.initNode("/it-autoflight/input/ap1", 0, "BOOL"),
+	ap1Avail: props.globals.initNode("/it-autoflight/input/ap1-avail", 1, "BOOL"),
 	ap2: props.globals.initNode("/it-autoflight/input/ap2", 0, "BOOL"),
+	ap2Avail: props.globals.initNode("/it-autoflight/input/ap2-avail", 1, "BOOL"),
 	autoLand: props.globals.initNode("/it-autoflight/input/auto-land", 0, "BOOL"),
 	autoLandTemp: 0,
 	athr: props.globals.initNode("/it-autoflight/input/athr", 0, "BOOL"),
+	athrAvail: props.globals.initNode("/it-autoflight/input/athr-avail", 1, "BOOL"),
 	altDiff: 0,
 	bankLimitSw: props.globals.initNode("/it-autoflight/input/bank-limit-sw", 4, "INT"), # 30
 	bankLimitSwTemp: 0,
@@ -241,15 +244,36 @@ var ITAF = {
 		slowLoopTimer.start();
 	},
 	loop: func() {
-		Output.latTemp = Output.lat.getValue();
-		Output.vertTemp = Output.vert.getValue();
 		Output.ap1Temp = Output.ap1.getBoolValue();
 		Output.ap2Temp = Output.ap2.getBoolValue();
+		Output.latTemp = Output.lat.getValue();
+		Output.vertTemp = Output.vert.getValue();
+		
+		# Trip system off
+		if (Output.ap1Temp == 1 or Output.ap2Temp == 1) { 
+			if (abs(Controls.aileron.getValue()) >= 0.2 or abs(Controls.elevator.getValue()) >= 0.2 or pts.Fdm.JSBsim.Dfgs.StickPusher.active.getBoolValue()) {
+				me.ap1Master(0);
+				me.ap2Master(0);
+			}
+		}
+		if (!Input.ap1Avail.getBoolValue() and Output.ap1Temp) {
+			me.ap1Master(0);
+		}
+		if (!Input.ap2Avail.getBoolValue() and Output.ap2Temp) {
+			me.ap2Master(0);
+		}
+		if (!Input.athrAvail.getBoolValue() and Output.athr.getBoolValue()) {
+			me.athrMaster(0);
+		}
 		
 		# VOR/ILS Revision
 		if (Output.latTemp == 2 or Output.latTemp == 4 or Output.vertTemp == 2 or Output.vertTemp == 6) {
 			me.checkRadioRevision(Output.latTemp, Output.vertTemp);
 		}
+		
+		Output.ap1Temp = Output.ap1.getBoolValue();
+		Output.ap2Temp = Output.ap2.getBoolValue();
+		Output.athrTemp = Output.athr.getBoolValue();
 		
 		Gear.wow1Temp = Gear.wow1.getBoolValue();
 		Gear.wow2Temp = Gear.wow2.getBoolValue();
@@ -386,14 +410,6 @@ var ITAF = {
 		
 		# Autothrottle Update
 		Athr.loop();
-		
-		# Trip system off
-		if (Output.ap1Temp == 1 or Output.ap2Temp == 1) { 
-			if (abs(Controls.aileron.getValue()) >= 0.2 or abs(Controls.elevator.getValue()) >= 0.2 or pts.Fdm.JSBsim.Dfgs.StickPusher.active.getBoolValue()) {
-				me.ap1Master(0);
-				me.ap2Master(0);
-			}
-		}
 	},
 	slowLoop: func() {
 		Input.bankLimitSwTemp = Input.bankLimitSw.getValue();
@@ -461,7 +477,7 @@ var ITAF = {
 	},
 	ap1Master: func(s) {
 		if (s == 1) {
-			if (Output.vert.getValue() != 6 and !Gear.wow1.getBoolValue() and !Gear.wow2.getBoolValue()) {
+			if (Input.ap1Avail.getBoolValue() and Output.vert.getValue() != 6 and !Gear.wow1.getBoolValue() and !Gear.wow2.getBoolValue()) {
 				if (!Output.fd1.getBoolValue() and !Output.fd2.getBoolValue() and !Output.ap1.getBoolValue() and !Output.ap2.getBoolValue()) {
 					me.setBasicMode();
 				}
@@ -481,7 +497,7 @@ var ITAF = {
 	},
 	ap2Master: func(s) {
 		if (s == 1) {
-			if (Output.vert.getValue() != 6 and !Gear.wow1.getBoolValue() and !Gear.wow2.getBoolValue()) {
+			if (Input.ap2Avail.getBoolValue() and Output.vert.getValue() != 6 and !Gear.wow1.getBoolValue() and !Gear.wow2.getBoolValue()) {
 				if (!Output.fd1.getBoolValue() and !Output.fd2.getBoolValue() and !Output.ap1.getBoolValue() and !Output.ap2.getBoolValue()) {
 					me.setBasicMode();
 				}
@@ -512,11 +528,13 @@ var ITAF = {
 	},
 	athrMaster: func(s) {
 		if (s == 1) {
-			Output.thrModeTemp = Output.thrMode.getValue();
-			if (Output.thrModeTemp == 1 or Output.thrModeTemp == 2) {
-				Athr.setMode(3); # Clamp
+			if (Input.athrAvail.getBoolValue()) {
+				Output.thrModeTemp = Output.thrMode.getValue();
+				if (Output.thrModeTemp == 1 or Output.thrModeTemp == 2) {
+					Athr.setMode(3); # Clamp
+				}
+				Output.athr.setBoolValue(1);
 			}
-			Output.athr.setBoolValue(1);
 		} else {
 			Output.athr.setBoolValue(0);
 		}
@@ -524,6 +542,20 @@ var ITAF = {
 		if (Input.athr.getBoolValue() != Output.athrTemp) {
 			Input.athr.setBoolValue(Output.athrTemp);
 		}
+	},
+	killApSilent: func() {
+		Output.ap1.setBoolValue(0);
+		Output.ap2.setBoolValue(0);
+		Sound.apOff.setBoolValue(0);
+		Sound.enableApOff = 0;
+		# Now that APs are off, we can safely update the input to 0 without the AP Master running
+		Input.ap1.setBoolValue(0);
+		Input.ap2.setBoolValue(0);
+	},
+	killAthrSilent: func() {
+		Output.athr.setBoolValue(0);
+		# Now that A/THR is off, we can safely update the input to 0 without the A/THR Master running
+		Input.athr.setBoolValue(0);
 	},
 	fd1Master: func(s) {
 		if (s == 1) {

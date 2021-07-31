@@ -265,7 +265,7 @@ var FCTL = {
 	init: func() {
 		me.resetFailures();
 		me.Switch.rudderPwr.setBoolValue(1);
-		me.Switch.yawDamper.setValue(2);
+		me.Switch.yawDamper.setValue(1);
 	},
 	resetFailures: func() {
 		me.Fail.elevatorPwr.setBoolValue(0);

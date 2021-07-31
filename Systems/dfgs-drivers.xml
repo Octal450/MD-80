@@ -4,6 +4,69 @@
 
 <PropertyList>
 	
+	<!-- Logic -->
+	<logic>
+		<input>
+			<and>
+				<equals>
+					<property>/fdm/jsbsim/dfgs/power-avail</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/input/active-ap</property>
+					<value>1</value>
+				</equals>
+				<greater-than-equals>
+					<property>/systems/hydraulics/sys-l-psi</property>
+					<value>950</value>
+				</greater-than-equals>
+			</and>
+		</input>
+		<output>/it-autoflight/input/ap1-avail</output>
+	</logic>
+	
+	<logic>
+		<input>
+			<and>
+				<equals>
+					<property>/fdm/jsbsim/dfgs/power-avail</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/input/active-ap</property>
+					<value>2</value>
+				</equals>
+				<greater-than-equals>
+					<property>/systems/hydraulics/sys-r-psi</property>
+					<value>950</value>
+				</greater-than-equals>
+			</and>
+		</input>
+		<output>/it-autoflight/input/ap2-avail</output>
+	</logic>
+	
+	<logic>
+		<input>
+			<and>
+				<equals>
+					<property>/fdm/jsbsim/dfgs/power-avail</property>
+					<value>1</value>
+				</equals>
+				<or>
+					<equals>
+						<property>/engines/engine[0]/state</property>
+						<value>3</value>
+					</equals>
+					<equals>
+						<property>/engines/engine[1]/state</property>
+						<value>3</value>
+					</equals>
+				</or>
+			</and>
+		</input>
+		<output>/it-autoflight/input/athr-avail</output>
+	</logic>
+	
 	<!-- Predictors -->
 	<predict-simple>
 		<name>Knots 5 Second Predictor</name>
@@ -460,6 +523,15 @@
 	</filter>
 	
 	<filter>
+		<name>Internal Vertical Speed</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>/instrumentation/gps/indicated-vertical-speed</input>
+		<output>/it-autoflight/internal/vert-speed-fpm</output>
+	</filter>
+	
+	<filter>
 		<name>Vertical Speed Sync</name>
 		<debug>false</debug>
 		<type>gain</type>
@@ -491,7 +563,36 @@
 		<type>noise-spike</type>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
-		<input>/it-autoflight/input/vs</input>
+		<input>
+			<condition>
+				<and>
+					<or>
+						<equals>
+							<property>/it-autoflight/output/ap1</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/output/ap2</property>
+							<value>1</value>
+						</equals>
+					</or>
+					<equals>
+						<property>/it-autoflight/output/vert</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+			<property>/it-autoflight/input/vs</property>
+		</input>
+		<input>/it-autoflight/internal/vert-speed-fpm</input>
 		<output>/it-autoflight/internal/vs</output>
 		<max-rate-of-change>
 			<condition>
@@ -693,15 +794,6 @@
 			<min>-180</min>
 			<max>180</max>
 		</period>
-	</filter>
-	
-	<filter>
-		<name>Internal Vertical Speed</name>
-		<debug>false</debug>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>/instrumentation/gps/indicated-vertical-speed</input>
-		<output>/it-autoflight/internal/vert-speed-fpm</output>
 	</filter>
 	
 	<filter>

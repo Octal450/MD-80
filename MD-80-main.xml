@@ -464,7 +464,7 @@
 		<fctl n="0">
 			<switches n="0">
 				<rudder-pwr type="bool">1</rudder-pwr>
-				<yaw-damper type="int">2</yaw-damper>
+				<yaw-damper type="int">1</yaw-damper>
 			</switches>
 		</fctl>
 		<flight n="0">
