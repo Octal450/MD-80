@@ -1,41 +1,36 @@
 <?xml version="1.0"?>
 
+<!-- Copyright (c) 2021 Josh Davidson (Octal450) -->
+
 <PropertyList>
-
-<path>oq.ac</path>
-
-<animation>
-  <type>material</type>
-  <object-name>Face</object-name>
-  <object-name>Needle</object-name>
+	
+	<path>op.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>Needle</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.4</green>
 			<blue>0.1</blue>
 			<factor-prop>controls/lighting/main-integ-norm</factor-prop>
 		</emission>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>Needle</object-name>
-  <property>engines/engine[1]/oil-q</property>
-  <interpolation>
-    <entry><ind> 0</ind><dep>-49</dep></entry>
-    <entry><ind> 8</ind><dep>  0</dep></entry>
-    <entry><ind>16</ind><dep> 49</dep></entry>
-  </interpolation>
-  <axis>
-    <x>-1</x>
-    <y>0</y>
-    <z>0</z>
-  </axis>
-  <center>
-    <x-m>0</x-m>
-    <y-m>0.01</y-m>
-    <z-m>0</z-m>
-  </center>
-</animation>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle</object-name>
+		<property>instrumentation/op[1]/op</property>
+		<interpolation>
+			<entry><ind>  0</ind><dep>-205</dep></entry>
+			<entry><ind>100</ind><dep>  50</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
 </PropertyList>
-

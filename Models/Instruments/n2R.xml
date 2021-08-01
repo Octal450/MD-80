@@ -23,7 +23,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Needle</object-name>
-		<property>engines/engine[1]/n2-actual</property>
+		<property>instrumentation/n[1]/n2</property>
 		<factor>2.7</factor> <!-- 270 degrees for 100%, so 2.7 for 1 -->
 		<axis>
 			<x>-1</x>
@@ -35,7 +35,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Needle2</object-name>
-		<property>engines/engine[1]/n2-actual</property>
+		<property>instrumentation/n[1]/n2</property>
 		<factor>36</factor> <!-- 360 degrees for 10%, so 3.6 for 1 -->
 		<center>
 			<x-m>0</x-m>

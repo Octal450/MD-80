@@ -24,7 +24,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Needle</object-name>
-		<property>engines/engine[1]/epr-actual</property>
+		<property>instrumentation/epr[1]/epr</property>
 		<interpolation>
 			<entry><ind>0.8</ind><dep>  0</dep></entry>
 			<entry><ind>2.5</ind><dep>255</dep></entry>
@@ -39,7 +39,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>eprLimit</object-name>
-		<property>fdm/jsbsim/engine/limit/active-ind</property>
+		<property>instrumentation/epr[1]/epr-bug</property>
 		<interpolation>
 			<entry><ind>0.8</ind><dep>  0</dep></entry>
 			<entry><ind>2.5</ind><dep>255</dep></entry>
@@ -54,7 +54,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>epr1</object-name>
-		<property>fdm/jsbsim/engine/gauge/epr-actual-2-d100</property>
+		<property>instrumentation/epr[1]/epr-d100</property>
 		<factor>0.0695</factor>
 		<step>1</step>
 		<axis>
@@ -67,7 +67,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>epr2</object-name>
-		<property>fdm/jsbsim/engine/gauge/epr-actual-2-d10</property>
+		<property>instrumentation/epr[1]/epr-d10</property>
 		<factor>0.0695</factor>
 		<step>1</step>
 		<axis>
@@ -80,7 +80,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>epr3</object-name>
-		<property>fdm/jsbsim/engine/gauge/epr-actual-2-d1</property>
+		<property>instrumentation/epr[1]/epr-d1</property>
 		<factor>0.0695</factor>
 		<step>0.01</step>
 		<axis>

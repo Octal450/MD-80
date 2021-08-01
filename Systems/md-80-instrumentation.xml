@@ -17,6 +17,10 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 	<property value="340">/instrumentation/airspeed-indicator[0]/vmo-mmo-input</property>
 	<property value="100">/instrumentation/airspeed-indicator[1]/bug-kts-input</property>
 	<property value="340">/instrumentation/airspeed-indicator[1]/vmo-mmo-input</property>
+	<property value="0.996">/instrumentation/epr[0]/epr-input</property>
+	<property value="0.996">/instrumentation/epr[1]/epr-input</property>
+	<property value="1.95">/instrumentation/epr[0]/epr-bug-input</property>
+	<property value="1.95">/instrumentation/epr[1]/epr-bug-input</property>
 	<property value="1.95">/controls/tri/limit-active</property>
 	<property value="15">/controls/tri/rat</property>
 	
@@ -1135,34 +1139,53 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 	
 	</channel>
 	
-	<channel name="Misc Gauges" execrate="4">
+	<channel name="EPR Gauges" execrate="4">
 		
-		<!-- EPR Gauges -->
-		<fcs_function name="engine/gauge/epr-actual-1-fixed">
+		<!-- EPR Gauge 1 -->
+		<switch name="/instrumentation/epr[0]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/ac-l ge 112
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/epr[0]/epr-input">
+			<default value="/instrumentation/epr[0]/epr-input"/>
+			<test value="engine/epr-actual-1">
+				/instrumentation/epr[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/epr[0]/epr">
+			<input>/instrumentation/epr[0]/epr-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<fcs_function name="/instrumentation/epr[0]/epr-fixed">
 			<function>
 				<sum>
-					<property>engine/epr-actual-1</property>
+					<property>/instrumentation/epr[0]/epr-input</property>
 					<value>0.003</value>
 				</sum>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/gauge/epr-actual-1-d100">
+		<fcs_function name="/instrumentation/epr[0]/epr-d100">
 			<function>
 				<integer>
-					<property>engine/gauge/epr-actual-1-fixed</property>
+					<property>/instrumentation/epr[0]/epr-fixed</property>
 				</integer>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/gauge/epr-actual-1-d10">
+		<fcs_function name="/instrumentation/epr[0]/epr-d10">
 			<function>
 				<integer>
 					<product>
 						<difference>
-							<property>engine/gauge/epr-actual-1-fixed</property>
+							<property>/instrumentation/epr[0]/epr-fixed</property>
 							<integer>
-								<property>engine/gauge/epr-actual-1-fixed</property>
+								<property>/instrumentation/epr[0]/epr-fixed</property>
 							</integer>
 						</difference>
 						<value>10</value>
@@ -1171,12 +1194,12 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/gauge/epr-actual-1-d1">
+		<fcs_function name="/instrumentation/epr[0]/epr-d1">
 			<function>
 				<product>
 					<fraction>
 						<product>
-							<property>engine/epr-actual-1</property> <!-- Not epr-fixed on purpose! -->
+							<property>/instrumentation/epr[0]/epr-input</property> <!-- Not epr-fixed on purpose! -->
 							<value>10</value>
 						</product>
 					</fraction>
@@ -1185,31 +1208,64 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/gauge/epr-actual-2-fixed">
+		<switch name="/instrumentation/epr[0]/epr-bug-input">
+			<default value="/instrumentation/epr[0]/epr-bug-input"/>
+			<test value="engine/limit/active-ind-cmd">
+				/instrumentation/epr[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/epr[0]/epr-bug">
+			<input>/instrumentation/epr[0]/epr-bug-input</input>
+			<rate_limit>1.25</rate_limit>
+			<lag>20</lag>
+		</actuator>
+		
+		<!-- EPR Gauge 2 -->
+		<switch name="/instrumentation/epr[1]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/epr[1]/epr-input">
+			<default value="/instrumentation/epr[1]/epr-input"/>
+			<test value="engine/epr-actual-2">
+				/instrumentation/epr[1]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/epr[1]/epr">
+			<input>/instrumentation/epr[1]/epr-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<fcs_function name="/instrumentation/epr[1]/epr-fixed">
 			<function>
 				<sum>
-					<property>engine/epr-actual-2</property>
+					<property>/instrumentation/epr[1]/epr-input</property>
 					<value>0.003</value>
 				</sum>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/gauge/epr-actual-2-d100">
+		<fcs_function name="/instrumentation/epr[1]/epr-d100">
 			<function>
 				<integer>
-					<property>engine/gauge/epr-actual-2-fixed</property>
+					<property>/instrumentation/epr[1]/epr-fixed</property>
 				</integer>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/gauge/epr-actual-2-d10">
+		<fcs_function name="/instrumentation/epr[1]/epr-d10">
 			<function>
 				<integer>
 					<product>
 						<difference>
-							<property>engine/gauge/epr-actual-2-fixed</property>
+							<property>/instrumentation/epr[1]/epr-fixed</property>
 							<integer>
-								<property>engine/gauge/epr-actual-2-fixed</property>
+								<property>/instrumentation/epr[1]/epr-fixed</property>
 							</integer>
 						</difference>
 						<value>10</value>
@@ -1218,12 +1274,12 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/gauge/epr-actual-2-d1">
+		<fcs_function name="/instrumentation/epr[1]/epr-d1">
 			<function>
 				<product>
 					<fraction>
 						<product>
-							<property>engine/epr-actual-2</property> <!-- Not epr-fixed on purpose! -->
+							<property>/instrumentation/epr[1]/epr-input</property> <!-- Not epr-fixed on purpose! -->
 							<value>10</value>
 						</product>
 					</fraction>
@@ -1231,6 +1287,177 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 				</product>
 			</function>
 		</fcs_function>
+		
+		<switch name="/instrumentation/epr[1]/epr-bug-input">
+			<default value="/instrumentation/epr[1]/epr-bug-input"/>
+			<test value="engine/limit/active-ind-cmd">
+				/instrumentation/epr[1]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/epr[1]/epr-bug">
+			<input>/instrumentation/epr[1]/epr-bug-input</input>
+			<rate_limit>1.25</rate_limit>
+			<lag>20</lag>
+		</actuator>
+	
+	</channel>
+	
+	<channel name="N1/N2 Gauges" execrate="4">
+		
+		<!-- N1/N2 Gauge 1 -->
+		<lag_filter name="/instrumentation/n[0]/n1">
+			<input>engine/n1-actual-1</input>
+			<c1>15</c1>
+		</lag_filter>
+		
+		<lag_filter name="/instrumentation/n[0]/n2">
+			<input>engine/n2-actual-1</input>
+			<c1>15</c1>
+		</lag_filter>
+		
+		<!-- N1/N2 Gauge 2 -->
+		<lag_filter name="/instrumentation/n[1]/n1">
+			<input>engine/n1-actual-2</input>
+			<c1>15</c1>
+		</lag_filter>
+		
+		<lag_filter name="/instrumentation/n[1]/n2">
+			<input>engine/n2-actual-2</input>
+			<c1>15</c1>
+		</lag_filter>
+	
+	</channel>
+	
+	<channel name="EGT Gauges" execrate="4">
+		
+		<!-- EGT Gauge 1 -->
+		<switch name="/instrumentation/egt[0]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/emer-dc ge 24
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/egt[0]/egt-input">
+			<default value="/instrumentation/egt[0]/egt-input"/>
+			<test value="engine/egt-actual-1">
+				/instrumentation/egt[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/egt[0]/egt">
+			<input>/instrumentation/egt[0]/egt-input</input>
+			<c1>10</c1>
+		</lag_filter>
+		
+		<!-- EGT Gauge 2 -->
+		<switch name="/instrumentation/egt[1]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/emer-dc ge 24
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/egt[1]/egt-input">
+			<default value="/instrumentation/egt[1]/egt-input"/>
+			<test value="engine/egt-actual-2">
+				/instrumentation/egt[1]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/egt[1]/egt">
+			<input>/instrumentation/egt[1]/egt-input</input>
+			<c1>10</c1>
+		</lag_filter>
+	
+	</channel>
+	
+	<channel name="FF Gauges" execrate="4">
+		
+		<!-- FF Gauge 1 -->
+		<switch name="/instrumentation/ff[0]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/ac-l ge 24
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/ff[0]/ff-input">
+			<default value="/instrumentation/ff[0]/ff-input"/>
+			<test value="engine/ff-actual-1">
+				/instrumentation/ff[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/ff[0]/ff">
+			<input>/instrumentation/ff[0]/ff-input</input>
+			<c1>7.5</c1>
+		</lag_filter>
+		
+		<!-- FF Gauge 2 -->
+		<switch name="/instrumentation/ff[1]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/ac-r ge 24
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/ff[1]/ff-input">
+			<default value="/instrumentation/ff[1]/ff-input"/>
+			<test value="engine/ff-actual-2">
+				/instrumentation/ff[1]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/ff[1]/ff">
+			<input>/instrumentation/ff[1]/ff-input</input>
+			<c1>7.5</c1>
+		</lag_filter>
+	
+	</channel>
+	
+	<channel name="Oil Pressure Gauges" execrate="4">
+		
+		<!-- Oil Pressure Gauge 1 -->
+		<switch name="/instrumentation/op[0]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/ac-l ge 112
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/op[0]/op-input">
+			<default value="/instrumentation/op[0]/op-input"/>
+			<test value="/engines/engine[0]/oil-psi">
+				/instrumentation/op[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/op[0]/op">
+			<input>/instrumentation/op[0]/op-input</input>
+			<c1>15</c1>
+		</lag_filter>
+		
+		<!-- Oil Pressure Gauge 2 -->
+		<switch name="/instrumentation/op[1]/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/op[1]/op-input">
+			<default value="/instrumentation/op[1]/op-input"/>
+			<test value="/engines/engine[1]/oil-psi">
+				/instrumentation/op[1]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/op[1]/op">
+			<input>/instrumentation/op[1]/op-input</input>
+			<c1>15</c1>
+		</lag_filter>
 	
 	</channel>
 	

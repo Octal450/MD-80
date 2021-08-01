@@ -22,7 +22,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Needle</object-name>
-		<property>engines/engine[0]/egt-actual</property>
+		<property>instrumentation/egt[0]/egt</property>
 		<interpolation>
 			<entry><ind>  0</ind><dep>-45.0</dep></entry>
 			<entry><ind>300</ind><dep>  0.0</dep></entry>
