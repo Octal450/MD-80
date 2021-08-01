@@ -715,10 +715,23 @@
 			</test>
 		</switch>
 		
+		<pure_gain name="engine/control-1/throttle-pos-appr">
+			<input>engine/control-1/throttle-pos</input>
+			<gain>1.0</gain>
+			<clipto>
+				<min>0.18219</min>
+				<max>1.0</max>
+			</clipto>
+		</pure_gain>
+		
 		<switch name="engine/control-1/throttle-output">
 			<default value="engine/control-1/throttle-pos"/>
 			<test value="engine/reverse-1/throttle-rev">
 				engine/reverse-1/position-norm ne 0
+			</test>
+			<test logic="AND" value="engine/control-1/throttle-pos-appr">
+				position/wow eq 0
+				/controls/gear/lever eq 1
 			</test>
 		</switch>
 		
@@ -762,10 +775,23 @@
 			</test>
 		</switch>
 		
+		<pure_gain name="engine/control-2/throttle-pos-appr">
+			<input>engine/control-2/throttle-pos</input>
+			<gain>1.0</gain>
+			<clipto>
+				<min>0.18219</min>
+				<max>1.0</max>
+			</clipto>
+		</pure_gain>
+		
 		<switch name="engine/control-2/throttle-output">
 			<default value="engine/control-2/throttle-pos"/>
 			<test value="engine/reverse-2/throttle-rev">
 				engine/reverse-2/position-norm ne 0
+			</test>
+			<test logic="AND" value="engine/control-2/throttle-pos-appr">
+				position/wow eq 0
+				/controls/gear/lever eq 1
 			</test>
 		</switch>
 		

@@ -1303,7 +1303,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 	
 	</channel>
 	
-	<channel name="N1/N2 Gauges" execrate="4">
+	<channel name="N1/N2 Gauges" execrate="4"> <!-- They are power by the engine when he rotates -->
 		
 		<!-- N1/N2 Gauge 1 -->
 		<lag_filter name="/instrumentation/n[0]/n1">
