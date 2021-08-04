@@ -190,6 +190,23 @@
 		<output>/controls/switches/minimums-minus-50</output>
 	</filter>
 	
+	<!-- Because overwriting from JSBsim doesn't work -->
+	<filter>
+		<name>APU Cutoff</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>/systems/apu/cutoff</input>
+		<output>/controls/engines/engine[2]/cutoff</output>
+	</filter>
+	
+	<filter>
+		<name>APU Starter</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>/systems/apu/starter</input>
+		<output>/controls/engines/engine[2]/starter</output>
+	</filter>
+	
 	<!-- GPWS Controller -->
 	<logic>
 		<!-- Smewhat confusing : this input is not 'are the flaps in landing configration', but rather,

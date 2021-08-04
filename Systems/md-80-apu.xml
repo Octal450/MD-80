@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-80 AlliedSignal GTCP85-98DHF APU -->
+<!-- Copyright (c) 2021 Josh Davidson (Octal450) -->
+
+<system name="MD-80: APU">
+	
+	<channel name="APU Start/Stop"> <!-- Do NOT execrate! -->
+		
+		<switch name="/systems/apu/throttle-cmd-norm">
+			<default value="1"/>
+			<output>fcs/throttle-pos-norm[2]</output>
+		</switch>
+		
+		<switch name="/systems/apu/door-cmd">
+			<default value="0"/>
+			<test value="/systems/apu/door-cmd">
+				/systems/electrical/bus/dc-bat lt 24
+			</test>
+			<test logic="OR" value="1"> <!-- Fix? -->
+				/controls/apu/switches/master ge 1
+				/engines/engine[2]/n2-actual ge 2
+			</test>
+		</switch>
+		
+		<actuator name="/systems/apu/door-norm">
+			<input>/systems/apu/door-cmd</input>
+			<rate_limit>0.5</rate_limit> <!-- 2 seconds? Guess -->
+		</actuator>
+		
+		<switch name="/systems/apu/cutoff-cmd">
+			<default value="1"/>
+			<test logic="AND" value="0">
+				/controls/apu/switches/master ge 1
+				/engines/engine[2]/n2-actual ge 10
+			</test>
+		</switch>
+		
+		<switch name="/systems/apu/cutoff">
+			<default value="1"/>
+			<test logic="AND" value="0">
+				/controls/apu/switches/master ge 1
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<test logic="AND" value="0">
+				/systems/apu/cutoff-cmd eq 0
+				propulsion/tank[5]/contents-lbs ge 1
+				/systems/apu/door-norm eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/apu/starter-avail">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/dc-bat ge 24
+				propulsion/tank[5]/contents-lbs ge 1
+				/systems/apu/door-norm eq 1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/apu/starter-run-start">
+			<input>/controls/apu/switches/master</input>
+			<gain>1.0</gain>
+			<clipto>
+				<min>1</min>
+				<max>2</max>
+			</clipto>
+		</pure_gain>
+		
+		<actuator name="/systems/apu/starter-run-start-timer">
+			<input>/systems/apu/starter-run-start</input>
+			<rate_limit sense="incr">0.5</rate_limit> <!-- 2 seconds -->
+			<rate_limit sense="decr">10000</rate_limit> <!-- Instant -->
+		</actuator>
+		
+		<switch name="/systems/apu/starter-latch">
+			<default value="/systems/apu/starter-latch"/>
+			<test value="0">
+				/controls/apu/switches/master eq 0
+			</test>
+			<test logic="AND" value="1">
+				/controls/apu/switches/master eq 2
+				/systems/apu/starter-run-start-timer eq 2
+				/systems/apu/starter-avail eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/apu/starter">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				<test logic="OR">
+					/controls/apu/switches/master eq 2
+					/systems/apu/starter-latch eq 1
+				</test>
+				/systems/apu/starter-avail eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/apu/state">
+			<default value="0"/>
+			<test logic="AND" value="3">
+				/controls/apu/switches/master ge 1
+				/systems/apu/cutoff eq 0
+				/engines/engine[2]/n2-actual ge 93
+			</test>
+			<test logic="AND" value="2">
+				/controls/apu/switches/master ge 1
+				/engines/engine[2]/n2-actual ge 16
+				/systems/apu/cutoff eq 0
+				/systems/apu/starter eq 1
+			</test>
+			<test logic="AND" value="1">
+				/controls/apu/switches/master ge 1
+				/systems/apu/starter eq 1
+			</test>
+			<output>/engines/engine[2]/state</output>
+		</switch>
+	
+	</channel>
+	
+	<channel name="APU Parameters" execrate="2">
+		
+		<fcs_function name="/systems/apu/n1-cmd">
+			<function>
+				<table> <!-- JSBsim only allows linear, so lets make our own curve based on a recording of real -->
+					<independentVar lookup="row">/engines/engine[2]/n1</independentVar>
+					<tableData>
+						  0.0    0.0
+						  6.0    6.0
+						 75.0   45.0
+						 84.7   55.0
+						 89.0   65.0
+						100.0  100.0
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/systems/apu/n1-actual">
+			<input>/systems/apu/n1-cmd</input>
+			<c1>2.25</c1>
+			<output>/engines/engine[2]/n1-actual</output>
+		</lag_filter>
+		
+		<fcs_function name="/systems/apu/egt-cmd">
+			<function>
+				<sum>
+					<property>propulsion/tat-c</property>
+					<table>
+						<independentVar lookup="row">/engines/engine[2]/n1</independentVar>
+						<independentVar lookup="column">atmosphere/density-altitude</independentVar>
+						<independentVar lookup="table">/controls/engines/engine[2]/cutoff</independentVar>
+						<tableData breakPoint="0"> <!-- Apparently no spike in EGT -->
+							       0    50000
+							 10    0    0
+							100  391  301
+						</tableData>
+						<tableData breakPoint="1">
+							       0    50000
+							 14    0    0
+							100  391  301
+						</tableData>
+					</table>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/systems/apu/egt-actual">
+			<input>/systems/apu/egt-cmd</input>
+			<c1>0.35</c1>
+			<output>/engines/engine[2]/egt-actual</output>
+		</lag_filter>
+		
+		<fcs_function name="/systems/apu/n2-cmd">
+			<function>
+				<table> <!-- JSBsim only allows linear, so lets make our own curve based on a recording of real -->
+					<independentVar lookup="row">/engines/engine[2]/n2</independentVar>
+					<tableData>
+						  0.0    0.0
+						 15.1   15.1
+						 75.0   45.0
+						 84.7   55.0
+						 89.0   65.0
+						100.0  100.0
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/systems/apu/n2-actual">
+			<input>/systems/apu/n2-cmd</input>
+			<c1>2.25</c1>
+			<output>/engines/engine[2]/n2-actual</output>
+		</lag_filter>
+		
+		<lag_filter name="/systems/apu/ff-actual">
+			<input>/engines/engine[2]/fuel-flow_pph</input>
+			<c1>3.0</c1>
+			<output>/engines/engine[2]/ff-actual</output>
+		</lag_filter>
+	
+	</channel>
+
+</system>

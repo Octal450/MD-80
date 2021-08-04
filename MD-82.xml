@@ -67,6 +67,32 @@
 			</thruster>
 		</engine>
 		
+		<engine file="gtcp85-98dhf">
+			<location unit="M">
+				<x>35.4694</x>
+				<y>1.2879</y>
+				<z>1.15571</z>
+			</location>
+			<orient unit="DEG">
+				<roll>0</roll>
+				<pitch>0</pitch>
+				<yaw>0</yaw>
+			</orient>
+			<feed>5</feed>
+			<thruster file="direct">
+				<location unit="M">
+					<x>35.4694</x>
+					<y>1.2879</y>
+					<z>1.15571</z>
+				</location>
+				<orient unit="DEG">
+					<roll>0</roll>
+					<pitch>0</pitch>
+					<yaw>0</yaw>
+				</orient>
+			</thruster>
+		</engine>
+		
 		<!-- Fuel Tank Capacities from FCOM -->
 		<tank type="FUEL">    <!-- Left Tank -->
 			<location unit="M">
@@ -152,6 +178,7 @@
 	<system file="md-80-fcs"/>
 	<system file="md-80-spoiler"/>
 	<system file="md-80-pw-engine-tri"/>
+	<system file="md-80-apu"/>
 	<system file="md-80-cockpit"/>
 	<system file="md-80-instrumentation"/>
 	

@@ -1,6 +1,27 @@
 # McDonnell Douglas MD-80 Master System
 # Copyright (c) 2021 Josh Davidson (Octal450)
 
+# APU
+var APU = {
+	autoConnect: 0,
+	egt: props.globals.getNode("/engines/engine[2]/egt-actual"),
+	ff: props.globals.getNode("/engines/engine[2]/ff-actual"),
+	n1: props.globals.getNode("/engines/engine[2]/n1-actual"),
+	n2: props.globals.getNode("/engines/engine[2]/n2-actual"),
+	state: props.globals.getNode("/engines/engine[2]/state"),
+	Switch: {
+		master: props.globals.getNode("/controls/apu/switches/master"),
+	},
+	init: func() {
+		me.Switch.master.setValue(0);
+	},
+	fastStart: func() {
+		me.Switch.master.setValue(1);
+		settimer(func() { # Give the fuel system a moment to provide fuel in the pipe
+			pts.Fdm.JSBsim.Propulsion.setRunning.setValue(2);
+		}, 1);
+	},
+};
 
 # Brakes
 var BRAKES = {
@@ -67,12 +88,12 @@ var ELEC = {
 	},
 	Source: {
 		batChargerPowered: props.globals.getNode("/systems/electrical/sources/bat-charger-powered"),
-		#Apu: {
-		#	hertz: props.globals.getNode("/systems/electrical/sources/apu/output-hertz"),
-		#	volt: props.globals.getNode("/systems/electrical/sources/apu/output-volt"),
-		#	pmgHertz: props.globals.getNode("/systems/electrical/sources/apu/pmg-hertz"),
-		#	pmgVolt: props.globals.getNode("/systems/electrical/sources/apu/pmg-volt"),
-		#},
+		Apu: {
+			hertz: props.globals.getNode("/systems/electrical/sources/apu/output-hertz"),
+			volt: props.globals.getNode("/systems/electrical/sources/apu/output-volt"),
+			pmgHertz: props.globals.getNode("/systems/electrical/sources/apu/pmg-hertz"),
+			pmgVolt: props.globals.getNode("/systems/electrical/sources/apu/pmg-volt"),
+		},
 		Bat1: {
 			amp: props.globals.getNode("/systems/electrical/sources/bat-1/amp"),
 			percent: props.globals.getNode("/systems/electrical/sources/bat-1/percent"),

@@ -20,6 +20,7 @@ var strobe = aircraft.light.new("/sim/model/lights/strobe", [0.2, 1], "/fdm/jsbs
 
 var initDone = 0;
 var systemsInit = func() {
+	systems.APU.init();
 	systems.BRAKES.init();
 	systems.ELEC.init();
 	systems.FCTL.init();

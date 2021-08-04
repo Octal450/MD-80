@@ -26,14 +26,28 @@
 		</emission>
 	</animation>
 	
+	<animation>
+		<type>material</type>
+		<object-name>APU_EGT</object-name>
+		<object-name>APU_EGT_FACE</object-name>
+		<object-name>APU_RPM</object-name>
+		<object-name>APU_RPM_FACE</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>0.4</green>
+			<blue>0.1</blue>
+			<factor-prop>controls/lighting/main-integ-norm</factor-prop>
+		</emission>
+	</animation>
+	
 	<!-- Electrical -->
 	<animation>
 		<type>select</type>
 		<object-name>apupwravailon</object-name>
 		<condition>
 			<greater-than>
-				<property>systems/apu/rpm</property>
-				<value>94.9</value>
+				<property>systems/apu/n1-actual</property>
+				<value>92.9</value>
 			</greater-than>
 		</condition>
 	</animation>
@@ -319,6 +333,102 @@
 		</action>
 	</animation>
 	
+	<!-- APU -->
+	<animation>
+		<type>pick</type>
+		<object-name>SwAPU_Master</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/apu/switches/master</property>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/apu/switches/master</property>
+							<value>2</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>controls/apu/switches/master</property>
+					<value>1</value>
+				</binding>
+			</mod-up>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/apu/switches/master</property>
+				<value>1</value>
+				<value>0</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>SwAPU_Master</object-name>
+		<property>controls/apu/switches/master</property>
+		<factor>25</factor>  
+		<center>
+			<x-m>2.859</x-m>
+			<y-m>0</y-m>
+			<z-m>1.566</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>APU_RPM</object-name>
+		<property>systems/apu/n1-actual</property>
+		<interpolation>
+			<entry><ind>  0</ind><dep>  0</dep></entry>
+			<entry><ind>110</ind><dep>297</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>2.93745</x1-m>
+			<y1-m>-0.002</y1-m>
+			<z1-m>1.60511</z1-m>
+			<x2-m>2.93706</x2-m>
+			<y2-m>-0.002</y2-m>
+			<z2-m>1.60589</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>APU_EGT</object-name>
+		<property>systems/apu/egt-actual</property>
+		<interpolation>
+			<entry><ind>  0</ind><dep>  0</dep></entry>
+			<entry><ind>350</ind><dep> 72</dep></entry>
+			<entry><ind>400</ind><dep> 95</dep></entry>
+			<entry><ind>800</ind><dep>275</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>2.93745</x1-m>
+			<y1-m>-0.06</y1-m>
+			<z1-m>1.60511</z1-m>
+			<x2-m>2.93706</x2-m>
+			<y2-m>-0.06</y2-m>
+			<z2-m>1.60589</z2-m>
+		</axis>
+	</animation>
+	
 	<!-- Fuel -->
 	<animation>
 		<type>rotate</type>
@@ -525,28 +635,8 @@
 	
 	<!-- Below all broke -->
 
-<!-- APU Switches -->
 
-<animation>
-  <type>rotate</type>
-  <object-name>SwAPU_Master</object-name>
-  <property>controls/switches/apu-master</property>
-  <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>25</dep></entry>
-    <entry><ind>2</ind><dep>50</dep></entry>
-  </interpolation>   
-  <center>
-    <x-m>2.859</x-m>
-    <y-m>0</y-m>
-    <z-m>1.566</z-m>
-  </center>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
+
 
 <animation>
   <type>rotate</type>
@@ -567,10 +657,6 @@
     <z>0</z>
   </axis>
 </animation>
-
-
-
-<!-- Engine and Fuel Switches -->
 
 <animation>
   <type>rotate</type>
@@ -631,67 +717,10 @@
     <z>0</z>
   </axis>
 </animation>
-	
-	<!-- APU -->
-	<animation>
-	  <type>material</type>
-	  <object-name>APU_RPM_FACE</object-name>
-	  <object-name>APU_RPM_NEEDLE</object-name>
-	  <emission>
-		<red>0.8</red>
-		<green>0.4</green>
-		<blue>0.2</blue>
-		<factor-prop>controls/lighting/panel-norm</factor-prop>
-	  </emission>
-	</animation>
 
 	<animation>
 	  <type>rotate</type>
-	  <object-name>APU_RPM_NEEDLE</object-name>
-	  <property>systems/apu/rpm</property>
-	  <interpolation>
-		<entry><ind>  0</ind><dep>  0</dep></entry>
-		<entry><ind>110</ind><dep>297</dep></entry>
-	  </interpolation>
-	  <axis>
-		<x>-1</x>
-		<y>0</y>
-		<z>0</z>
-	  </axis>
-	</animation>
-	
-	<animation>
-	  <type>material</type>
-	  <object-name>APU_EGT_FACE</object-name>
-	  <object-name>APU_EGT_NEEDLE</object-name>
-	  <emission>
-		<red>0.8</red>
-		<green>0.4</green>
-		<blue>0.2</blue>
-		<factor-prop>controls/lighting/panel-norm</factor-prop>
-	  </emission>
-	</animation>
-
-	<animation>
-	  <type>rotate</type>
-	  <object-name>APU_EGT_NEEDLE</object-name>
-	  <property>systems/apu/egt</property>
-	  <interpolation>
-		<entry><ind>  0</ind><dep>  0</dep></entry>
-		<entry><ind>350</ind><dep> 72</dep></entry>
-		<entry><ind>400</ind><dep> 95</dep></entry>
-		<entry><ind>800</ind><dep>275</dep></entry>
-	  </interpolation>
-	  <axis>
-		<x>-1</x>
-		<y>0</y>
-		<z>0</z>
-	  </axis>
-	</animation>
-
-	<animation>
-	  <type>rotate</type>
-	  <object-name>PNEU_NEEDLE</object-name>
+	  <object-name>PneuPress</object-name>
 	  <property>systems/pneumatic/psi</property>
 	  <interpolation>
 		<entry><ind>  0</ind><dep>  0</dep></entry>

@@ -16,10 +16,6 @@
 	<property value="0">/systems/electrical/sources/bat-2/amp</property>
 	<property value="99.9">/systems/electrical/sources/bat-2/percent</property>
 	
-	<!-- There's no APU yet maaan -->
-	<property value="0">/systems/electrical/sources/apu/output-volt</property>
-	<property value="0">/systems/electrical/sources/apu/output-hertz</property>
-	
 	<channel name="Main Electrical" execrate="8">
 		
 		<!-- Battery 1 -->
@@ -366,6 +362,53 @@
 		<pure_gain name="/systems/electrical/sources/idg-r/output-hertz">
 			<input>/systems/electrical/sources/idg-r/pmg-hertz</input>
 			<gain>/systems/electrical/sources/idg-r/gcr-relay</gain>
+		</pure_gain>
+		
+		<!-- APU Gen -->
+		<pure_gain name="/systems/electrical/sources/apu/drive-rpm">
+			<input>/engines/engine[2]/n2-actual</input>
+			<gain>80</gain> <!-- 8000rpm at 100% -->
+		</pure_gain>
+		
+		<fcs_function name="/systems/electrical/sources/apu/pmg-volt">
+			<function>
+				<product>
+					<property>/systems/electrical/sources/apu/drive-rpm</property>
+					<quotient>
+						<value>115</value>
+						<value>8000</value>
+					</quotient>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/electrical/sources/apu/pmg-hertz">
+			<function>
+				<quotient>
+					<product>
+						<property>/systems/electrical/sources/apu/drive-rpm</property>
+						<value>6</value> <!-- Number of poles in generator -->
+					</product>
+					<value>120</value>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/electrical/sources/apu/gcr-relay">
+			<default value="0"/>
+			<test value="1">
+				/systems/failures/electrical/apu ne 1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/electrical/sources/apu/output-volt">
+			<input>/systems/electrical/sources/apu/pmg-volt</input>
+			<gain>/systems/electrical/sources/apu/gcr-relay</gain>
+		</pure_gain>
+		
+		<pure_gain name="/systems/electrical/sources/apu/output-hertz">
+			<input>/systems/electrical/sources/apu/pmg-hertz</input>
+			<gain>/systems/electrical/sources/apu/gcr-relay</gain>
 		</pure_gain>
 		
 		<!-- External Power -->
@@ -1311,6 +1354,18 @@
 			<output>/systems/electrical/outputs/ra[1]</output>
 			<output>/systems/electrical/outputs/transponder</output>
 			<output>/systems/electrical/outputs/turn-coordinator</output>
+		</switch>
+	
+	</channel>
+	
+	<channel name="Overhead Lights" execrate="8">
+		
+		<switch name="/controls/electrical/lights/emer-pwr-on">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/dc-bat ge 24
+				/controls/electrical/switches/emer-pwr eq 1
+			</test>
 		</switch>
 	
 	</channel>

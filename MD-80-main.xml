@@ -427,6 +427,11 @@
 	</consumables>
 	
 	<controls n="0">
+		<apu n="0">
+			<switches n="0">
+				<master type="int">0</master>
+			</switches>
+		</apu>
 		<electrical n="0">
 			<switches n="0">
 				<ac-tie type="bool">1</ac-tie>
@@ -459,6 +464,10 @@
 				<cutoff-switch type="bool">1</cutoff-switch>
 				<reverse-cmd type="bool">0</reverse-cmd>
 				<reverse-lever type="double">0</reverse-lever>
+			</engine>
+			<engine n="2"> <!-- APU -->
+				<cutoff type="bool">1</cutoff>
+				<starter type="bool">0</starter>
 			</engine>
 		</engines>
 		<fctl n="0">
@@ -560,6 +569,18 @@
 			<n2-actual type="double">0</n2-actual>
 			<on-fire type="bool">0</on-fire>
 			<reverser-pos-norm type="double">0</reverser-pos-norm>
+			<running type="bool">0</running>
+			<state type="int">0</state>
+		</engine>
+		<engine n="2"> <!-- APU -->
+			<egt-actual type="double">0</egt-actual>
+			<ff-actual type="double">0</ff-actual>
+			<fuel-flow_pph type="double">0</fuel-flow_pph>
+			<n1 type="double">0</n1>
+			<n1-actual type="double">0</n1-actual>
+			<n2 type="double">0</n2>
+			<n2-actual type="double">0</n2-actual>
+			<on-fire type="bool">0</on-fire>
 			<running type="bool">0</running>
 			<state type="int">0</state>
 		</engine>
@@ -1323,6 +1344,9 @@
 				<seperate-tiller-axis type="bool">0</seperate-tiller-axis>
 			</options>
 		</acconfig>
+		<apu n="0">
+			<state type="int">0</state>
+		</apu>
 		<caws n="0">
 			<landing-gear n="0">
 				<out type="double">0</out>
