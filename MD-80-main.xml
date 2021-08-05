@@ -189,7 +189,7 @@
 			<visibility-range-nm type="int">130</visibility-range-nm>
 		</multiplay>
 		<startup>
-			<splash-texture>Aircraft/MD-80/gui/splash/Article-8.png</splash-texture>
+			<splash-texture>Aircraft/MD-80/gui/splash/MD-80.png</splash-texture>
 		</startup>
 		<status>Pre V1.0</status>
 		<systems n="0">
