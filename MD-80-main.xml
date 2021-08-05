@@ -521,12 +521,12 @@
 			<ground-flood-light-l type="bool">0</ground-flood-light-l>
 			<ground-flood-light-r type="bool">0</ground-flood-light-r>
 			<landing-light-l type="double">0</landing-light-l>
-			<landing-light-r type="double">0</landing-light-r>
 			<landing-light-n type="double">0</landing-light-n>
-			<position-strobe-light type="double">0</position-strobe-light>
-			<wing-lights type="double">0</wing-lights>
-			<taxi-light type="bool">0</taxi-light>
+			<landing-light-r type="double">0</landing-light-r>
 			<logo-lights type="bool">0</logo-lights>
+			<position-strobe-light type="double">0</position-strobe-light>
+			<taxi-light type="bool">0</taxi-light>
+			<wing-lights type="double">0</wing-lights>
 		</lighting>
 		<switches n="0">
 			<annun-test type="bool">0</annun-test>
