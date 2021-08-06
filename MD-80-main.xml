@@ -478,7 +478,7 @@
 		</fctl>
 		<flight n="0">
 			<aileron-drives-tiller type="bool">0</aileron-drives-tiller>
-			<elevator-trim type="double">-0.32</elevator-trim>
+			<elevator-trim type="double">-0.26</elevator-trim>
 			<elevator-trim-lever type="int">0</elevator-trim-lever>
 			<dial-a-flap type="double">15</dial-a-flap> <!-- Rounded in md-80-fcs.xml -->
 			<speedbrake-arm type="bool">0</speedbrake-arm>
@@ -1304,21 +1304,6 @@
 			<thr-mode type="int">0</thr-mode>
 		</output>
 	</it-autoflight>
-	
-	<payload n="0">
-		<weight n="0">
-			<name>Cockpit Crew</name>
-			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
-			<min-lb type="double">200</min-lb>
-			<max-lb type="double">440</max-lb>
-		</weight>
-		<weight n="1">
-			<name>Cabin/Cargo</name>
-			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
-			<min-lb type="double">0</min-lb>
-			<max-lb type="double">40112</max-lb>
-		</weight>
-	</payload>
 	
 	<services n="0">
 		<chocks n="0">

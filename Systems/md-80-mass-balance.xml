@@ -24,16 +24,41 @@
 		<location name="POINTMASS" unit="M">
 			<x>2.95138</x>
 			<y>0</y>
-			<z>0.82058</z>
+			<z>0.984</z>
 		</location>
 	</pointmass>
 	
-	<pointmass name="Cabin/Cargo"> <!-- Seperate later -->
-		<weight unit="LBS">22000</weight>
+	<pointmass name="Forward Cabin">
+		<weight unit="LBS">9814</weight>
 		<location name="POINTMASS" unit="M"> 
-			<x>23.802</x>
+			<x>19.3</x>
 			<y>0</y>
-			<z>0.0014</z>
+			<z>0.984</z>
+		</location>
+	</pointmass>
+	<pointmass name="Aft Cabin">
+		<weight unit="LBS">9629</weight>
+		<location name="POINTMASS" unit="M">
+			<x>25.5</x>
+			<y>0</y>
+			<z>0.984</z>
+		</location>
+	</pointmass>
+	
+	<pointmass name="Forward Cargo">
+		<weight unit="LBS">1080</weight>
+		<location name="POINTMASS" unit="M"> 
+			<x>19.4</x>
+			<y>0</y>
+			<z>-0.284</z>
+		</location>
+	</pointmass>
+	<pointmass name="Aft Cargo">
+		<weight unit="LBS">4501</weight>
+		<location name="POINTMASS" unit="M">
+			<x>32.3</x>
+			<y>0</y>
+			<z>-0.284</z>
 		</location>
 	</pointmass>
 
