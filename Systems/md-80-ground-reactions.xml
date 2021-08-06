@@ -230,9 +230,9 @@
 	
 	<contact type="STRUCTURE" name="TOP_1">
 		<location unit="M">
-			<x>2.31344</x>
+			<x>5.08689</x>
 			<y>0</y>
-			<z>5.08689</z>
+			<z>2.31344</z>
 		</location>
 		<static_friction>1.0</static_friction>
 		<dynamic_friction>0.4</dynamic_friction>
