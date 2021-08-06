@@ -22725,7 +22725,7 @@ OBJECT poly
 name "parkingBrakeButton"
 data 12
 Cylinder.001
-texture "txt_steering_handle.png"
+texture "txt_cockpit_steering_handle.png"
 crease 40.000000
 numvert 80
 2.52655 0.70695 0.89893
@@ -59517,10 +59517,10 @@ refs 4
 196 0.9227 0.07036
 kids 0
 OBJECT poly
-name "txt_steering_handle"
+name "txt_cockpit_steering_handle"
 data 9
 Torus.001
-texture "txt_steering_handle.png"
+texture "txt_cockpit_steering_handle.png"
 crease 40.000000
 numvert 2842
 2.53868 0.66236 0.79418
@@ -83175,7 +83175,7 @@ refs 4
 2795 0.216288 0.615413
 kids 0
 OBJECT poly
-name "txt_steering_handleBase"
+name "txt_cockpit_steering_handle_base"
 data 9
 Plane.000
 texture "txt_cockpit_moulding1.rgb"
