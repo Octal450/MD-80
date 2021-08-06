@@ -120,10 +120,9 @@
 	</filter>
 	
 	<filter>
-		<name>LBtoKG</name>
+		<name>Weight KG</name>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<update-interval-secs type="double">0.05</update-interval-secs>
 		<input>
 			<product>
 				<property>fdm/jsbsim/inertia/weight-lbs</property>
@@ -143,6 +142,7 @@
 	
 	<filter>
 		<name>Minimums Plus 50</name>
+		<update-interval-secs>0.1</update-interval-secs>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input> 
@@ -177,6 +177,7 @@
 	
 	<filter>
 		<name>Minimums Minus 50</name>
+		<update-interval-secs>0.1</update-interval-secs>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input> 
@@ -209,13 +210,11 @@
 	
 	<!-- GPWS Controller -->
 	<logic>
-		<!-- Smewhat confusing : this input is not 'are the flaps in landing configration', but rather,
-		are the flaps NOT in a landing configuration'. There is a configuration bit to flip
-		the sense of this, if required. -->
+		<!-- True when flaps are NOT in landing config -->
 		<input>
 			<less-than>
-				<property>/controls/flight/flaps</property>
-				<value>0.68</value>
+				<property>/controls/flight/flaps-input</property>
+				<value>4</value>
 			</less-than>
 		</input>
 		<output>/instrumentation/mk-viii/inputs/discretes/landing-flaps</output>
