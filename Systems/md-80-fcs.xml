@@ -5,8 +5,6 @@
 
 <system name="MD-80: FCS">
 	
-	<property value="25">/systems/electrical/trim-power</property> <!-- Fix prop -->
-	
 	<channel name="Libraries">
 		
 		<fcs_function name="fcs-actual/authority"> <!-- Guesses based on pilot info -->
@@ -461,8 +459,8 @@
 		
 		<switch name="fcs-actual/stabilizer/rate">
 			<default value="0"/>
-			<test value="0.333333"> <!-- 1/3 deg per second for primary, 1/10 deg per second for alternate --> <!-- Fix prop -->
-				/systems/electrical/trim-power ge 25
+			<test value="0.333333"> <!-- 1/3 deg per second for primary, 1/10 deg per second for alternate -->
+				/systems/electrical/bus/emer-ac ge 112
 			</test>
 		</switch>
 		
