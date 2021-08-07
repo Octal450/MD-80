@@ -42,6 +42,35 @@
 			<input>aero/alpha-deg-fixed</input>
 			<c1>10</c1>
 		</lag_filter>
+		
+		<switch name="dfgs/yaw/cmd-on">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				dfgs/afs/enabled eq 1
+				/controls/fctl/switches/yaw-damper eq 0
+			</test>
+			<test value="1">
+				/controls/fctl/switches/yaw-damper eq 1
+			</test>
+		</switch>
+		
+		<switch name="dfgs/yaw/active">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				position/wow eq 0
+				/position/gear-agl-ft ge 50
+				dfgs/yaw/cmd-on eq 1
+				dfgs/power-avail eq 1
+			</test>
+		</switch>
+		
+		<switch name="dfgs/yaw/autoland-switch">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				dfgs/afs/enabled eq 1
+				/it-autoflight/output/lat eq 4
+			</test>
+		</switch>
 	
 	</channel>
 	
@@ -263,35 +292,6 @@
 	</channel>
 	
 	<channel name="DFGS: Yaw Axis and Yaw Damper">
-		
-		<switch name="dfgs/yaw/cmd-on">
-			<default value="0"/>
-			<test logic="AND" value="1">
-				dfgs/afs/enabled eq 1
-				/controls/fctl/switches/yaw-damper eq 0
-			</test>
-			<test value="1">
-				/controls/fctl/switches/yaw-damper eq 1
-			</test>
-		</switch>
-		
-		<switch name="dfgs/yaw/active">
-			<default value="0"/>
-			<test logic="AND" value="1">
-				position/wow eq 0
-				/position/gear-agl-ft ge 50
-				dfgs/yaw/cmd-on eq 1
-				dfgs/power-avail eq 1
-			</test>
-		</switch>
-		
-		<switch name="dfgs/yaw/autoland-switch">
-			<default value="0"/>
-			<test logic="AND" value="1">
-				dfgs/afs/enabled eq 1
-				/it-autoflight/output/lat eq 4
-			</test>
-		</switch>
 		
 		<fcs_function name="dfgs/yaw/rudder-nul">
 			<function>
