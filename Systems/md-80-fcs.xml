@@ -24,7 +24,7 @@
 		<scheduled_gain name="fcs-actual/authority-alpha"> <!-- Guesses based on pilot info -->
 			<input>fcs-actual/authority</input>
 			<table>
-				<independentVar lookup="row">aero/alpha-deg-norm</independentVar>
+				<independentVar lookup="row">aero/alpha-deg-fixed</independentVar>
 				<tableData>
 					16  1.0
 					24  0.1
