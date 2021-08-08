@@ -407,7 +407,7 @@
 		<interpolation>
 			<entry><ind>1</ind><dep>90</dep></entry>
 			<entry><ind>2</ind><dep> 0</dep></entry>
-		</interpolation>   
+		</interpolation>
 		<center>
 			<x-m>2.175</x-m>
 			<y-m>0</y-m>
@@ -888,7 +888,7 @@
 			<entry><ind>2</ind><dep> -9</dep></entry>
 			<entry><ind>3</ind><dep>-15</dep></entry>
 			<entry><ind>4</ind><dep>-29</dep></entry>
-		</interpolation>   
+		</interpolation>
 		<center>
 			<x-m>2.608</x-m>
 			<y-m>0</y-m>
@@ -922,75 +922,15 @@
 		<action>
 			<button>3</button>
 			<binding>
-				<command>property-assign</command>
-				<property>controls/flight/speedbrake-arm</property>
-				<value>0</value>
-			</binding>
-			<binding>
-				<condition>
-					<equals>
-						<property>fdm/jsbsim/spoilers/main-gear-and</property>
-						<value>1</value>
-					</equals>
-				</condition>
-				<command>property-cycle</command>
-				<property>controls/flight/speedbrake</property>
-				<value>0.8</value>
-				<value>0.6</value>
-				<value>0.4</value>
-				<value>0.2</value>
-				<value>0.0</value>
-			</binding>
-			<binding>
-				<condition>
-					<not-equals>
-						<property>fdm/jsbsim/spoilers/main-gear-and</property>
-						<value>1</value>
-					</not-equals>
-				</condition>
-				<command>property-cycle</command>
-				<property>controls/flight/speedbrake</property>
-				<value>0.6</value>
-				<value>0.4</value>
-				<value>0.2</value>
-				<value>0.0</value>
+				<command>nasal</command>
+				<script>libraries.retractSpeedbrake();</script>
 			</binding>
 		</action>
 		<action>
 			<button>4</button>
 			<binding>
-				<command>property-assign</command>
-				<property>controls/flight/speedbrake-arm</property>
-				<value>0</value>
-			</binding>
-			<binding>
-				<condition>
-					<equals>
-						<property>fdm/jsbsim/spoilers/main-gear-and</property>
-						<value>1</value>
-					</equals>
-				</condition>
-				<command>property-cycle</command>
-				<property>controls/flight/speedbrake</property>
-				<value>0.0</value>
-				<value>0.2</value>
-				<value>0.4</value>
-				<value>0.6</value>
-				<value>0.8</value>
-			</binding>
-			<binding>
-				<condition>
-					<not-equals>
-						<property>fdm/jsbsim/spoilers/main-gear-and</property>
-						<value>1</value>
-					</not-equals>
-				</condition>
-				<command>property-cycle</command>
-				<property>controls/flight/speedbrake</property>
-				<value>0.0</value>
-				<value>0.2</value>
-				<value>0.4</value>
-				<value>0.6</value>
+				<command>nasal</command>
+				<script>libraries.deploySpeedbrake();</script>
 			</binding>
 		</action>
 	</animation>

@@ -66,6 +66,9 @@ var Fdm = {
 		Propulsion: {
 			tatC: props.globals.getNode("/fdm/jsbsim/propulsion/tat-c"),
 		},
+		Spoilers: {
+			mainGearAnd: props.globals.getNode("/fdm/jsbsim/spoilers/main-gear-and"),
+		},
 	},
 };
 

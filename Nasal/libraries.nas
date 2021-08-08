@@ -195,9 +195,41 @@ controls.stepSpoilers = func(step) {
 	}
 }
 
+var speedbrakeKey = func() {
+	if (pts.Controls.Flight.speedbrakeArm.getBoolValue()) {
+		pts.Controls.Flight.speedbrakeArm.setBoolValue(0);
+	} else {
+		pts.Controls.Flight.speedbrakeTemp = pts.Controls.Flight.speedbrake.getValue();
+		if (pts.Fdm.JSBsim.Spoilers.mainGearAnd.getBoolValue()) {
+			if (pts.Controls.Flight.speedbrakeTemp < 0.2) {
+				pts.Controls.Flight.speedbrake.setValue(0.2);
+			} else if (pts.Controls.Flight.speedbrakeTemp < 0.4) {
+				pts.Controls.Flight.speedbrake.setValue(0.4);
+			} else if (pts.Controls.Flight.speedbrakeTemp < 0.6) {
+				pts.Controls.Flight.speedbrake.setValue(0.6);
+			} else if (pts.Controls.Flight.speedbrakeTemp < 0.8) {
+				pts.Controls.Flight.speedbrake.setValue(0.8);
+			} else {
+				pts.Controls.Flight.speedbrake.setValue(0);
+			}
+		} else {
+			if (pts.Controls.Flight.speedbrakeTemp < 0.2) {
+				pts.Controls.Flight.speedbrake.setValue(0.2);
+			} else if (pts.Controls.Flight.speedbrakeTemp < 0.4) {
+				pts.Controls.Flight.speedbrake.setValue(0.4);
+			} else if (pts.Controls.Flight.speedbrakeTemp < 0.8) { # Not 0.6!
+				pts.Controls.Flight.speedbrake.setValue(0.8); # Not 0.6!
+			} else {
+				pts.Controls.Flight.speedbrake.setValue(0);
+			}
+		}
+	}
+}
+
 var deploySpeedbrake = func() {
+	pts.Controls.Flight.speedbrakeArm.setBoolValue(0);
 	pts.Controls.Flight.speedbrakeTemp = pts.Controls.Flight.speedbrake.getValue();
-	if (pts.Gear.wow[0].getBoolValue()) {
+	if (pts.Fdm.JSBsim.Spoilers.mainGearAnd.getBoolValue()) {
 		if (pts.Controls.Flight.speedbrakeTemp < 0.2) {
 			pts.Controls.Flight.speedbrake.setValue(0.2);
 		} else if (pts.Controls.Flight.speedbrakeTemp < 0.4) {
@@ -219,8 +251,9 @@ var deploySpeedbrake = func() {
 }
 
 var retractSpeedbrake = func() {
+	pts.Controls.Flight.speedbrakeArm.setBoolValue(0);
 	pts.Controls.Flight.speedbrakeTemp = pts.Controls.Flight.speedbrake.getValue();
-	if (pts.Gear.wow[0].getBoolValue()) {
+	if (pts.Fdm.JSBsim.Spoilers.mainGearAnd.getBoolValue()) {
 		if (pts.Controls.Flight.speedbrakeTemp > 0.6) {
 			pts.Controls.Flight.speedbrake.setValue(0.6);
 		} else if (pts.Controls.Flight.speedbrakeTemp > 0.4) {
