@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+<path>pedestal_lighting.ac</path>
+
+<animation>
+  <type>rotate</type>
+  <object-name>KnobLtsPanel</object-name>
+  <property>controls/lighting/main-integ-norm</property>
+  <interpolation>
+    <entry><ind>0</ind><dep>-145</dep></entry>
+    <entry><ind>1</ind><dep>145</dep></entry>
+  </interpolation>
+  <center>
+    <x-m>0.00757</x-m>
+    <y-m>-0.027583</y-m>
+    <z-m>-0.006946</z-m>
+  </center>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>pick</type>
+  <object-name>KnobLtsPanel</object-name>
+  <action>
+    <button>3</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>controls/lighting/main-integ-norm</property>
+      <step>0.05</step>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+</animation>
+<animation>
+  <type>pick</type>
+  <object-name>KnobLtsPanel</object-name>
+  <action>
+    <button>4</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>controls/lighting/main-integ-norm</property>
+      <step>-0.05</step>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>KnobLtsDigital</object-name>
+  <property>controls/lighting/main-digital-norm</property>
+  <interpolation>
+    <entry><ind>0</ind><dep>-145</dep></entry>
+    <entry><ind>1</ind><dep>145</dep></entry>
+  </interpolation>
+  <center>
+    <x-m>0.00759</x-m>
+    <y-m>0.00058</y-m>
+    <z-m>-0.00704</z-m>
+  </center>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+<animation>
+  <type>pick</type>
+  <object-name>KnobLtsDigital</object-name>
+  <action>
+    <button>3</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>controls/lighting/main-digital-norm</property>
+      <step>0.1</step>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+</animation>
+<animation>
+  <type>pick</type>
+  <object-name>KnobLtsDigital</object-name>
+  <action>
+    <button>4</button>
+    <repeatable>false</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>controls/lighting/main-digital-norm</property>
+      <step>-0.1</step>
+      <min>0</min>
+      <max>1</max>
+      <wrap>false</wrap>
+    </binding>
+  </action>
+</animation>
+
+</PropertyList>
