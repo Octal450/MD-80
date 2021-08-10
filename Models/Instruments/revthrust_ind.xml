@@ -7,20 +7,6 @@
 	<path>revthrust_ind.ac</path>
 	
 	<animation>
-		<type>material</type>
-		<object-name>Shells</object-name>
-		<object-name>FaceEngRevL</object-name>
-		<object-name>FaceEngRevR</object-name>
-		<object-name>FaceEngULL</object-name>
-		<object-name>FaceEngULR</object-name>
-		<emission>
-			<red>0.3</red>
-			<green>0.3</green>
-			<blue>0.3</blue>
-		</emission>
-	</animation>
-	
-	<animation>
 		<type>select</type>
 		<object-name>FaceEngRevLOn</object-name>
 		<condition>

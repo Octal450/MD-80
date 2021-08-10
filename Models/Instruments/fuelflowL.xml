@@ -13,9 +13,9 @@
 		<object-name>Needle</object-name>
 		<emission>
 			<red>1.0</red>
-			<green>0.4</green>
-			<blue>0.1</blue>
-			<factor-prop>controls/lighting/main-integ-norm</factor-prop>
+			<green>0.6</green>
+			<blue>0.3</blue>
+			<factor-prop>controls/lighting/main-panel-norm</factor-prop>
 		</emission>
 	</animation>
 	

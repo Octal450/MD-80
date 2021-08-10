@@ -769,7 +769,7 @@
 	
 	<model>
 		<name>hydraulic panel</name>
-		<path>Aircraft/MD-80/Models/Instruments/hydraulicPanel.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/hydraulic_panel.xml</path>
 		<offsets>
 			<x-m>2.26479</x-m>
 			<y-m>0.315235</y-m>

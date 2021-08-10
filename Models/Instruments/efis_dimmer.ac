@@ -3,12 +3,50 @@ MATERIAL "DefaultWhite.001" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  
 MATERIAL "Matte" rgb 1 1 1  amb 0.5 0.5 0.5  emis 0 0 0  spec 0.4 0.4 0.4  shi 96  trans 0
 MATERIAL "screws" rgb 0.8 0.8 0.8  amb 0.8 0.8 0.8  emis 0 0 0  spec 0.5 0.5 0.5  shi 16  trans 0
 OBJECT world
-kids 6
+kids 7
+OBJECT poly
+name "Integrity"
+data 12
+Cylinder.027
+texture "efis_dimmer_text.png"
+crease 30.000000
+numvert 8
+0.00301585 0.043046 0.006653
+0.00301585 -0.03038 0.019319
+0.00301585 0.03038 0.019319
+0.00301585 -0.043046 0.006653
+0.00301585 0.043046 -0.006653
+0.00301585 -0.043046 -0.006653
+0.00301585 -0.03038 -0.019319
+0.00301585 0.03038 -0.019319
+numsurf 3
+SURF 0x10
+mat 0
+refs 4
+5 0.609464 0.000808078
+6 0.903213 0.147683
+1 0.00711409 0.147683
+3 0.300864 0.000807929
+SURF 0x10
+mat 0
+refs 4
+1 0.00711409 0.147683
+6 0.903213 0.147683
+7 0.903213 0.852255
+2 0.00711406 0.852255
+SURF 0x10
+mat 0
+refs 4
+0 0.300863 0.999129
+2 0.00711406 0.852255
+7 0.903213 0.852255
+4 0.609464 0.999129
+kids 0
 OBJECT poly
 name "Bezel"
 data 12
 Cylinder.027
-texture "efis_dimmer.rgb"
+texture "efis_dimmer.png"
 crease 30.000000
 numvert 16
 0 0.043924 0.007273

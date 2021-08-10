@@ -1355,6 +1355,20 @@
 			<output>/systems/electrical/outputs/transponder</output>
 			<output>/systems/electrical/outputs/turn-coordinator</output>
 		</switch>
+		
+		<switch name="/controls/lighting/main-panel-norm">
+			<default value="0"/>
+			<test value="/controls/lighting/main-panel-knb">
+				/systems/electrical/generic/pwr ge 24
+			</test>
+		</switch>
+		
+		<switch name="/controls/lighting/main-digital-norm">
+			<default value="0"/>
+			<test value="/controls/lighting/main-digital-knb">
+				/systems/electrical/generic/pwr ge 24
+			</test>
+		</switch>
 	
 	</channel>
 	

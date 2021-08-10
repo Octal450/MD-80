@@ -138,7 +138,7 @@
 								setprop("/controls/fuel/switches/pump-fwd-r", 1);
 								setprop("/controls/hydraulics/switches/l-pump", 2);
 								setprop("/controls/hydraulics/switches/r-pump", 2);
-								setprop("/controls/lighting/main-digital-norm", 1);
+								setprop("/controls/lighting/main-digital-knb", 1);
 								settimer(func() {
 									setprop("/controls/engines/engine[0]/cutoff", 0);
 									setprop("/controls/engines/engine[1]/cutoff", 0);

@@ -1,13 +1,27 @@
 <?xml version="1.0"?>
-<PropertyList>
-	<path>hydraulicPanel.ac</path>
 
+<!-- Copyright (c) 2021 Josh Davidson (Octal450) and Jonathan Redpath (legoboyvdlp) -->
+
+<PropertyList>
+	
+	<path>hydraulic_panel.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Integrity</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>0.6</green>
+			<blue>0.3</blue>
+			<factor-prop>controls/lighting/main-panel-norm</factor-prop>
+		</emission>
+	</animation>
+	
 	<animation>
 		<type>pick</type>
 		<object-name>transHydSwitch</object-name>
 		<action>
 			<button>0</button>
-			<button>3</button>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/hydraulics/switches/trans</property>
@@ -17,7 +31,6 @@
 		</action>
 		<action>
 			<button>1</button>
-			<button>4</button>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/hydraulics/switches/trans</property>
@@ -32,8 +45,8 @@
 		<object-name>transHydSwitch</object-name>
 		<property>/controls/hydraulics/switches/trans</property>
 		<interpolation>
-			<entry><ind>1</ind><dep>20</dep></entry>
-			<entry><ind>0</ind><dep>-15</dep></entry>
+			<entry><ind>0</ind><dep>-20</dep></entry>
+			<entry><ind>1</ind><dep> 20</dep></entry>
 		</interpolation>   
 		<center>
 			<x-m>0.00855</x-m>
@@ -41,9 +54,9 @@
 			<z-m>-0.015184</z-m>
 		</center>
 		<axis>
-			<x>0.0</x>
-			<y>-1.0</y>
-			<z>0.0</z>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
 		</axis>
 	</animation>
 	
@@ -52,22 +65,22 @@
 		<object-name>auxHydSwitch</object-name>
 		<action>
 			<button>0</button>
-			<button>3</button>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/hydraulics/switches/aux-pump</property>
+				<value>-1</value>
 				<value>0</value>
 				<value>1</value>
 			</binding>
 		</action>
 		<action>
 			<button>1</button>
-			<button>4</button>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/hydraulics/switches/aux-pump</property>
 				<value>1</value>
 				<value>0</value>
+				<value>-1</value>
 			</binding>
 		</action>
 	</animation>
@@ -77,8 +90,9 @@
 		<object-name>auxHydSwitch</object-name>
 		<property>/controls/hydraulics/switches/aux-pump</property>
 		<interpolation>
-			<entry><ind>1</ind> <dep>20</dep></entry>
-			<entry><ind>0</ind> <dep>0</dep></entry>
+			<entry><ind>-1</ind><dep>-20</dep></entry>
+			<entry><ind> 0</ind><dep>  0</dep></entry>
+			<entry><ind> 1</ind><dep> 20</dep></entry>
 		</interpolation>   
 		<center>
 			<x-m>0.00884</x-m>
@@ -86,9 +100,9 @@
 			<z-m>-0.01566</z-m>
 		</center>
 		<axis>
-			<x>0.0</x>
-			<y>-1.0</y>
-			<z>0.0</z>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
 		</axis>
 	</animation>
 	
@@ -97,7 +111,6 @@
 		<object-name>eng1HydSwitch</object-name>
 		<action>
 			<button>0</button>
-			<button>3</button>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/hydraulics/switches/l-pump</property>
@@ -108,7 +121,6 @@
 		</action>
 		<action>
 			<button>1</button>
-			<button>4</button>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/hydraulics/switches/l-pump</property>
@@ -124,9 +136,9 @@
 		<object-name>eng1HydSwitch</object-name>
 		<property>/controls/hydraulics/switches/l-pump</property>
 		<interpolation>
-			<entry><ind>2</ind> <dep>20</dep></entry>
-			<entry><ind>1</ind> <dep>0</dep></entry>
-			<entry><ind>0</ind> <dep>-20</dep></entry>
+			<entry><ind>0</ind><dep>-20</dep></entry>
+			<entry><ind>1</ind><dep>  0</dep></entry>
+			<entry><ind>2</ind><dep> 20</dep></entry>
 		</interpolation>   
 		<center>
 			<x-m>0.00884</x-m>
@@ -134,9 +146,9 @@
 			<z-m>0.01203</z-m>
 		</center>
 		<axis>
-			<x>0.0</x>
-			<y>-1.0</y>
-			<z>0.0</z>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
 		</axis>
 	</animation>
 	
@@ -145,7 +157,6 @@
 		<object-name>eng2HydSwitch</object-name>
 		<action>
 			<button>0</button>
-			<button>3</button>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/hydraulics/switches/r-pump</property>
@@ -156,7 +167,6 @@
 		</action>
 		<action>
 			<button>1</button>
-			<button>4</button>
 			<binding>
 				<command>property-cycle</command>
 				<property>/controls/hydraulics/switches/r-pump</property>
@@ -172,9 +182,9 @@
 		<object-name>eng2HydSwitch</object-name>
 		<property>/controls/hydraulics/switches/r-pump</property>
 		<interpolation>
-			<entry><ind>2</ind> <dep>20</dep></entry>
-			<entry><ind>1</ind> <dep>0</dep></entry>
-			<entry><ind>0</ind> <dep>-20</dep></entry>
+			<entry><ind>0</ind><dep>-20</dep></entry>
+			<entry><ind>1</ind><dep>  0</dep></entry>
+			<entry><ind>2</ind><dep> 20</dep></entry>
 		</interpolation>   
 		<center>
 			<x-m>0.00884</x-m>
@@ -182,9 +192,10 @@
 			<z-m>0.01203</z-m>
 		</center>
 		<axis>
-			<x>0.0</x>
-			<y>-1.0</y>
-			<z>0.0</z>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
 		</axis>
 	</animation>
+
 </PropertyList>
