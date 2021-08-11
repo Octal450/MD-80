@@ -475,13 +475,13 @@
 		<object-name>FlapLever</object-name>
 		<property>fdm/jsbsim/fcs-actual/flap-lever</property>
 		<interpolation>
-			<entry><ind>0</ind><dep>  0</dep></entry>
-			<entry><ind>1</ind><dep> 22</dep></entry>
-			<entry><ind>2</ind><dep> 34</dep></entry>
-			<entry><ind>3</ind><dep> 40</dep></entry>
-			<entry><ind>4</ind><dep> 54</dep></entry>
-			<entry><ind>5</ind><dep> 66</dep></entry>
-		</interpolation>   
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>1</ind><dep>22</dep></entry>
+			<entry><ind>2</ind><dep>34</dep></entry>
+			<entry><ind>3</ind><dep>40</dep></entry>
+			<entry><ind>4</ind><dep>54</dep></entry>
+			<entry><ind>5</ind><dep>66</dep></entry>
+		</interpolation>
 		<center>
 			<x-m>2.616</x-m>
 			<y-m>0</y-m>
@@ -539,7 +539,7 @@
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
 			<entry><ind>1</ind><dep>55</dep></entry>
-		</interpolation>   
+		</interpolation>
 		<center>
 			<x-m>2.616</x-m>
 			<y-m>0</y-m>
@@ -561,7 +561,7 @@
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
 			<entry><ind>1</ind><dep>55</dep></entry>
-		</interpolation>   
+		</interpolation>
 		<center>
 			<x-m>2.616</x-m>
 			<y-m>0</y-m>
@@ -644,7 +644,7 @@
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
 			<entry><ind>1</ind><dep>90</dep></entry>
-		</interpolation>   
+		</interpolation>
 		<center>
 			<x-m>2.669</x-m>
 			<y-m>0</y-m>
@@ -663,7 +663,7 @@
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
 			<entry><ind>1</ind><dep>90</dep></entry>
-		</interpolation>   
+		</interpolation>
 		<center>
 			<x-m>2.669</x-m>
 			<y-m>0</y-m>
@@ -797,7 +797,7 @@
   <interpolation>
     <entry><ind>1</ind><dep> 0</dep></entry>
     <entry><ind>0</ind><dep>42</dep></entry>
-  </interpolation>   
+  </interpolation>
   <center>
     <x-m>2.608</x-m>
     <y-m>0</y-m>
@@ -829,7 +829,7 @@
   <interpolation>
     <entry><ind>1</ind><dep> 0</dep></entry>
     <entry><ind>0</ind><dep>42</dep></entry>
-  </interpolation>   
+  </interpolation>
   <center>
     <x-m>2.608</x-m>
     <y-m>0</y-m>
@@ -863,7 +863,7 @@
   <interpolation>
     <entry><ind>0</ind><dep>  0</dep></entry>
     <entry><ind>1</ind><dep>-45</dep></entry>
-  </interpolation>   
+  </interpolation>
   <center>
     <x-m>2.608</x-m>
     <y-m>0</y-m>
@@ -966,7 +966,7 @@
   <interpolation>
     <entry><ind>0</ind><dep> 0</dep></entry>
     <entry><ind>1</ind><dep>70</dep></entry>
-  </interpolation>   
+  </interpolation>
   <center>
     <x-m>3.064</x-m>
     <y-m>-0.066</y-m>
@@ -985,7 +985,7 @@
   <interpolation>
     <entry><ind>0</ind><dep> 0</dep></entry>
     <entry><ind>1</ind><dep>70</dep></entry>
-  </interpolation>   
+  </interpolation>
   <center>
     <x-m>3.064</x-m>
     <y-m>0</y-m>
@@ -1074,7 +1074,7 @@
 			<entry><ind> 1</ind><dep> -40</dep></entry>
 			<entry><ind> 2</ind><dep>-105</dep></entry>
 			<entry><ind> 3</ind><dep>-150</dep></entry>
-		</interpolation>   
+		</interpolation>
 		<center>
 			<x-m>3.058</x-m>
 			<y-m>0.123</y-m>
@@ -1352,7 +1352,7 @@
 			<entry><ind>0.0</ind><dep>0.000</dep></entry>
 			<entry><ind>0.9</ind><dep>0.010</dep></entry>
 			<entry><ind>1.0</ind><dep>0.008</dep></entry>
-		</interpolation>   
+		</interpolation>
 		<property>fdm/jsbsim/fcs/brake-lever</property>
 		<axis>
 			<x1-m>2.53712</x1-m>

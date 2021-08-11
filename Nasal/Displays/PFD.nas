@@ -77,8 +77,8 @@ var canvasBase = {
 		return me;
 	},
 	getKeys: func() {
-		return ["AI_background", "AI_bank", "AI_center", "AI_dual_cue", "AI_rising_runway", "AI_scale", "AI_scale_dc", "AI_single_cue", "DH_below", "DH_pointer", "DH_set", "FD_v", "FD_pitch", "FD_roll", "FS_pointer", "FS_scale", "GS_group", "GS_no", "GS_pointer",
-		"GS_scale", "ILS_group", "Inner_Marker", "LOC_no", "LOC_pointer", "LOC_scale", "Middle_Marker", "Outer_Marker", "RA_bars", "RA_scale"];
+		return ["AI_background", "AI_bank", "AI_center", "AI_dual_cue", "AI_rising_runway", "AI_scale", "AI_scale_dc", "AI_single_cue", "DH_below", "DH_pointer", "DH_set", "FD_v", "FD_pitch", "FD_roll", "FS_pointer", "FS_scale", "Gndspd", "GS_group", "GS_no",
+		"GS_pointer", "GS_scale", "ILS_group", "Inner_Marker", "LOC_no", "LOC_pointer", "LOC_scale", "Middle_Marker", "Outer_Marker", "RA_bars", "RA_scale"];
 	},
 	setup: func() {
 		# Hide the pages by default
@@ -191,6 +191,9 @@ var canvasBase = {
 			me["DH_below"].hide();
 			me["DH_set"].hide();
 		}
+		
+		# Groundspeed
+		me["Gndspd"].setText(sprintf("%d", math.round(pts.Velocities.groundspeedKt.getValue())));
 	},
 };
 
