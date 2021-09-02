@@ -86,6 +86,6 @@ We suggest **never** downgrading your aircraft for the best experience. If you m
 
 ### Q. I like increasing the simulation speed on long flights. However, I encounter issues with it occasionally. What's up?
 
-IIncreasing the simulation speed is quite tricky for the simulator. Depending on hardware capabilities it can be incredibly stressful and the algorithms behind the scenes can be challenged quite heavily. If the simulation is running faster than the corresponding algorithms can be computed, many funny (or even ugly things) may happen. **we suggest not setting simulation speed above 4x or below 1/2x at any time**.
+Increasing the simulation speed is quite tricky for the simulator. Depending on hardware capabilities it can be incredibly stressful and the algorithms behind the scenes can be challenged quite heavily. If the simulation is running faster than the corresponding algorithms can be computed, many funny (or even ugly things) may happen. **we suggest not setting simulation speed above 4x or below 1/2x at any time**.
 
 Check your frame rate ("View" menu, option "View Options", toggle "Show frame rate") when increasing the simulation speed. As a rule of thumb, if the frame rate stays constantly above 10fps, you are fine. Keep in mind that already one little phase (and not just the average) where the frame rate drops below 10 frames per second, you are in danger facing issues.
