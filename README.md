@@ -11,5 +11,5 @@ Present pack includes the following McDonnell Douglas MD-80 variants:
 - MD-82
 
 ## Frequently Asked Questions
-For answers on frequently asked questions, refer to our [FAQ page](https://github.com/Octal450/MD-80/blob/master/FAQ.md).
-For frequently asked questions in regard to FlightGear itself (https://wiki.flightgear.org/Frequently_asked_questions).  
+For answers on frequently asked questions about this project, refer to our [FAQ page](https://github.com/Octal450/MD-80/blob/master/FAQ.md).
+For frequently asked questions in regard to FlightGear itself, please refer to (https://wiki.flightgear.org/Frequently_asked_questions).  
