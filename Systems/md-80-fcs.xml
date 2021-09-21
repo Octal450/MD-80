@@ -539,6 +539,44 @@
 			</function>
 		</fcs_function>
 		
+		<fcs_function name="fcs-actual/rudder/control-tab-final-deg">
+			<function>
+				<description>Authority loss due to reverser airflow, using generic value of 30 deg max in the table for flexibility</description>
+				<sum>
+					<table> <!-- Left deflection -->
+						<independentVar lookup="row">/engines/engine[0]/epr-actual</independentVar>
+						<independentVar lookup="column">fcs-actual/rudder/control-tab-cmd-deg</independentVar>
+						<independentVar lookup="table">/engines/engine[0]/reverser-pos-norm</independentVar>
+						<tableData breakPoint="0.01"> <!-- 100% -->
+							    -30  0
+							1.0 -30  0
+							1.9 -30  0
+						</tableData>
+						<tableData breakPoint="1"> <!-- 90%, 60% -->
+							    -30  0
+							1.0 -27  0
+							1.9 -18  0
+						</tableData>
+					</table>
+					<table> <!-- Right deflection -->
+						<independentVar lookup="row">/engines/engine[1]/epr-actual</independentVar>
+						<independentVar lookup="column">fcs-actual/rudder/control-tab-cmd-deg</independentVar>
+						<independentVar lookup="table">/engines/engine[1]/reverser-pos-norm</independentVar>
+						<tableData breakPoint="0.01"> <!-- 100% -->
+							     0  30
+							1.0  0  30
+							1.9  0  30
+						</tableData>
+						<tableData breakPoint="1"> <!-- 90%, 60% -->
+							     0  30
+							1.0  0  27
+							1.9  0  18
+						</tableData>
+					</table>
+				</sum>
+			</function>
+		</fcs_function>
+		
 		<fcs_function name="fcs-actual/rudder/surface-cmd-deg">
 			<function>
 				<ifthen>
@@ -551,7 +589,7 @@
 						<value>22</value>
 					</product>
 					<product> <!-- Aerodynamic Mode -->
-						<property>fcs-actual/rudder/control-tab-cmd-deg</property>
+						<property>fcs-actual/rudder/control-tab-final-deg</property>
 						<value>-1</value>
 						<property>fcs-actual/authority</property>
 					</product>
