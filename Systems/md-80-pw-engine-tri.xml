@@ -537,7 +537,7 @@
 		<switch name="engine/reverse-1/position-rate">
 			<default value="0"/>
 			<test logic="OR" value="0.5">
-				/systems/hydraulics/sys-l-psi ge 1500
+				/systems/hydraulics/sys-l-psi ge 950
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -578,7 +578,7 @@
 		<switch name="engine/reverse-2/position-rate">
 			<default value="0"/>
 			<test logic="OR" value="0.5">
-				/systems/hydraulics/sys-r-psi ge 1500
+				/systems/hydraulics/sys-r-psi ge 950
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
