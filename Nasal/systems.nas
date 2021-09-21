@@ -401,6 +401,57 @@ var HYD = {
 	},
 };
 
+# Pneumatics
+var PNEU = {
+	Fail: {
+		bleedApu: props.globals.getNode("/systems/failures/pneumatics/bleed-apu"),
+		bleedL: props.globals.getNode("/systems/failures/pneumatics/bleed-l"),
+		bleedR: props.globals.getNode("/systems/failures/pneumatics/bleed-r"),
+		packL: props.globals.getNode("/systems/failures/pneumatics/pack-l"),
+		packR: props.globals.getNode("/systems/failures/pneumatics/pack-r"),
+	},
+	Flow: {
+		packL: props.globals.getNode("/systems/pneumatics/pack-l-flow"),
+		packR: props.globals.getNode("/systems/pneumatics/pack-r-flow"),
+	},
+	Psi: {
+		apu: props.globals.getNode("/systems/pneumatics/apu-psi"),
+		bleedL: props.globals.getNode("/systems/pneumatics/bleed-l-psi"),
+		bleedR: props.globals.getNode("/systems/pneumatics/bleed-r-psi"),
+		engL: props.globals.getNode("/systems/pneumatics/eng-l-psi"),
+		engR: props.globals.getNode("/systems/pneumatics/eng-r-psi"),
+		ground: props.globals.getNode("/systems/pneumatics/ground-psi"),
+	},
+	Switch: {
+		bleedApu: props.globals.getNode("/controls/pneumatics/switches/bleed-apu"),
+		bleedL: props.globals.getNode("/controls/pneumatics/switches/bleed-l"),
+		bleedR: props.globals.getNode("/controls/pneumatics/switches/bleed-r"),
+		groundAir: props.globals.getNode("/controls/pneumatics/switches/ground-air"), # No switch in cockpit
+		instrumentFlow: props.globals.getNode("/controls/pneumatics/switches/instrument-flow"),
+		radioRack: props.globals.getNode("/controls/pneumatics/switches/radio-rack"),
+		xFeedL: props.globals.getNode("/controls/pneumatics/switches/x-feed-l"),
+		xFeedR: props.globals.getNode("/controls/pneumatics/switches/x-feed-r"),
+	},
+	init: func() {
+		me.resetFailures();
+		me.Switch.bleedApu.setValue(0);
+		me.Switch.bleedL.setValue(2); # Temporary, until there is cockpit control of this
+		me.Switch.bleedR.setValue(2); # Temporary, until there is cockpit control of this
+		me.Switch.groundAir.setBoolValue(0);
+		me.Switch.instrumentFlow.setValue(0);
+		me.Switch.radioRack.setValue(0);
+		me.Switch.xFeedL.setValue(0);
+		me.Switch.xFeedR.setValue(0);
+	},
+	resetFailures: func() {
+		me.Fail.bleedApu.setBoolValue(0);
+		me.Fail.bleedL.setBoolValue(0);
+		me.Fail.bleedR.setBoolValue(0);
+		me.Fail.packL.setBoolValue(0);
+		me.Fail.packR.setBoolValue(0);
+	},
+};
+
 # TRI
 var TRI = {
 	pitchMode: 0,

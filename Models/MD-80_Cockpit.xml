@@ -854,39 +854,35 @@
   </action>
 </animation>
 
-<!-- Fuel X Feed -->
-
-<animation>
-  <type>rotate</type>
-  <object-name>XfeedLever</object-name>
-  <property>controls/fuel/xfeed</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>  0</dep></entry>
-    <entry><ind>1</ind><dep>-45</dep></entry>
-  </interpolation>
-  <center>
-    <x-m>2.608</x-m>
-    <y-m>0</y-m>
-    <z-m>0.630</z-m>
-  </center>
-  <axis>
-    <x>0.0</x>
-    <y>-1.0</y>
-    <z>0.0</z>
-  </axis>
-</animation>
-<animation>
-  <type>pick</type>
-  <object-name>XfeedLever</object-name>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-toggle</command>
-      <property>controls/fuel/xfeed</property>
-    </binding>
-  </action>
-</animation>
+	<!-- Fuel Crossfeed Lever -->
+	<animation>
+		<type>rotate</type>
+		<object-name>XfeedLever</object-name>
+		<property>controls/fuel/switches/x-feed-lever</property>
+		<factor>-45</factor>
+		<center>
+			<x-m>2.608</x-m>
+			<y-m>0</y-m>
+			<z-m>0.630</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>XfeedLever</object-name>
+		<action>
+		<button>0</button>
+		<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/fuel/switches/x-feed</property>
+			</binding>
+		</action>
+	</animation>
 	
 	<!-- Speed Brake -->
 	<animation>
@@ -906,9 +902,9 @@
 			<z-m>0.630</z-m>
 		</center>
 		<axis>
-			<x>0.0</x>
-			<y>-1.0</y>
-			<z>0.0</z>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
 		</axis>
 	</animation>
 	
@@ -958,70 +954,65 @@
 		</axis>
 	</animation>
 	
-<!-- Pneumatic Engine Crossfeed Levers -->
-<animation>
-  <type>rotate</type>
-  <object-name>PneuLeverL</object-name>
-  <property>controls/pneumatic/engine[0]/bleed</property>
-  <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>70</dep></entry>
-  </interpolation>
-  <center>
-    <x-m>3.064</x-m>
-    <y-m>-0.066</y-m>
-    <z-m>0.480</z-m>
-  </center>
-  <axis>
-    <x>0</x>
-    <y>-1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>rotate</type>
-  <object-name>PneuLeverR</object-name>
-  <property>controls/pneumatic/engine[1]/bleed</property>
-  <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>70</dep></entry>
-  </interpolation>
-  <center>
-    <x-m>3.064</x-m>
-    <y-m>0</y-m>
-    <z-m>0.480</z-m>
-  </center>
-  <axis>
-    <x>0</x>
-    <y>-1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>pick</type>
-  <object-name>PneuLeverL</object-name>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-toggle</command>
-      <property>controls/pneumatic/engine[0]/bleed</property>
-    </binding>
-  </action>
-</animation>
-<animation>
-  <type>pick</type>
-  <object-name>PneuLeverR</object-name>
-  <action>
-    <button>0</button>
-    <repeatable>false</repeatable>
-    <binding>
-      <command>property-toggle</command>
-      <property>controls/pneumatic/engine[1]/bleed</property>
-    </binding>
-  </action>
-</animation>
+	<!-- Pneumatic Crossfeed Levers -->
+	<animation>
+		<type>rotate</type>
+		<object-name>PneuLeverL</object-name>
+		<property>controls/pneumatics/switches/x-feed-l-lever</property>
+		<factor>70</factor>
+		<center>
+			<x-m>3.064</x-m>
+			<y-m>-0.066</y-m>
+			<z-m>0.480</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>PneuLeverL</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/pneumatics/switches/x-feed-l</property>
+			</binding>
+		</action>
+	</animation>
 
+	<animation>
+		<type>rotate</type>
+		<object-name>PneuLeverR</object-name>
+		<property>controls/pneumatics/switches/x-feed-r-lever</property>
+		<factor>70</factor>
+		<center>
+			<x-m>3.064</x-m>
+			<y-m>0</y-m>
+			<z-m>0.480</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>PneuLeverR</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/pneumatics/switches/x-feed-r</property>
+			</binding>
+		</action>
+	</animation>
+	
 	<!-- ABS -->
 	<animation>
 		<type>rotate</type>

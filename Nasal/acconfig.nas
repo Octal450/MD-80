@@ -104,6 +104,7 @@ var SYSTEM = {
 		systems.FUEL.resetFailures();
 		systems.GEAR.resetFailures();
 		systems.HYD.resetFailures();
+		systems.PNEU.resetFailures();
 	},
 	showError: func() {
 		libraries.systemsLoop.stop();

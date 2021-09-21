@@ -146,10 +146,7 @@
 			<checkbox>
 				<label>Bleed APU</label>
 				<halign>left</halign>
-				<enable>
-					<property>/systems/acconfig/extra-stuff</property>
-				</enable>
-				<property>/systems/failures/bleed-apu</property>
+				<property>/systems/failures/pneumatics/bleed-apu</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -159,10 +156,7 @@
 			<checkbox>
 				<label>Bleed Eng 1</label>
 				<halign>left</halign>
-				<enable>
-					<property>/systems/acconfig/extra-stuff</property>
-				</enable>
-				<property>/systems/failures/bleed-l</property>
+				<property>/systems/failures/pneumatics/bleed-l</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -172,10 +166,27 @@
 			<checkbox>
 				<label>Bleed Eng 2</label>
 				<halign>left</halign>
-				<enable>
-					<property>/systems/acconfig/extra-stuff</property>
-				</enable>
-				<property>/systems/failures/bleed-r</property>
+				<property>/systems/failures/pneumatics/bleed-r</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Pack L</label>
+				<halign>left</halign>
+				<property>/systems/failures/pneumatics/pack-l</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Pack R</label>
+				<halign>left</halign>
+				<property>/systems/failures/pneumatics/pack-r</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>

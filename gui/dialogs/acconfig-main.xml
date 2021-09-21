@@ -128,6 +128,8 @@
 						<binding>
 							<command>nasal</command>
 							<script>
+								libraries.systemsInit();
+								acconfig.SYSTEM.resetFailures();
 								setprop("/controls/switches/cart", 1);
 								setprop("/controls/electrical/switches/battery", 1);
 								setprop("/controls/electrical/switches/ext-pwr-l", 1);
@@ -138,6 +140,8 @@
 								setprop("/controls/fuel/switches/pump-fwd-r", 1);
 								setprop("/controls/hydraulics/switches/l-pump", 2);
 								setprop("/controls/hydraulics/switches/r-pump", 2);
+								setprop("/controls/pneumatics/switches/x-feed-l", 1);
+								setprop("/controls/pneumatics/switches/x-feed-r", 1);
 								setprop("/controls/lighting/main-digital-knb", 1);
 								settimer(func() {
 									setprop("/controls/engines/engine[0]/cutoff", 0);
@@ -146,6 +150,8 @@
 									setprop("/controls/engines/engine[1]/starter", 0);
 									setprop("/fdm/jsbsim/propulsion/set-running", 0);
 									setprop("/fdm/jsbsim/propulsion/set-running", 1);
+									setprop("/controls/pneumatics/switches/bleed-l", 2);
+									setprop("/controls/pneumatics/switches/bleed-r", 2);
 									setprop("/engines/engine[0]/state", 3);
 									setprop("/engines/engine[1]/state", 3);
 									setprop("/controls/electrical/switches/ext-pwr-l", 0);
@@ -398,9 +404,6 @@
 				<label>Enable External Air</label>
 				<halign>left</halign>
 				<enable>
-					<property>/systems/acconfig/extra-stuff</property>
-				</enable>
-				<!--enable>
 					<and>
 						<or>
 							<equals>
@@ -417,7 +420,7 @@
 							<value>2</value>
 						</less-than>
 					</and>
-				</enable-->
+				</enable>
 				<property>/controls/pneumatics/switches/ground-air</property>
 				<binding>
 					<command>dialog-apply</command>

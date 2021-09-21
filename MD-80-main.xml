@@ -528,6 +528,18 @@
 			<taxi-light type="bool">0</taxi-light>
 			<wing-lights type="double">0</wing-lights>
 		</lighting>
+		<pneumatics n="0">
+			<switches n="0">
+				<bleed-apu type="int">0</bleed-apu>
+				<bleed-l type="int">0</bleed-l>
+				<bleed-r type="int">0</bleed-r>
+				<ground-air type="bool">0</ground-air>
+				<instrument-flow type="bool">0</instrument-flow>
+				<radio-rack type="bool">0</radio-rack>
+				<x-feed-l type="bool">0</x-feed-l>
+				<x-feed-r type="bool">0</x-feed-r>
+			</switches>
+		</pneumatics>
 		<switches n="0">
 			<annun-test type="bool">0</annun-test>
 			<ap-yoke-button1 type="bool">0</ap-yoke-button1>
@@ -1328,6 +1340,13 @@
 				<sys-r-leak type="bool">0</sys-r-leak>
 				<trans type="bool">0</trans>
 			</hydraulics>
+			<pneumatics n="0">
+				<bleed-apu type="bool">0</bleed-apu>
+				<bleed-l type="bool">0</bleed-l>
+				<bleed-r type="bool">0</bleed-r>
+				<pack-l type="bool">0</pack-l>
+				<pack-r type="bool">0</pack-r>
+			</pneumatics>
 		</failures>
 		<hydraulics n="0">
 			<sys-l-qty-input type="double">8</sys-l-qty-input> <!-- Randomized later in sim init -->

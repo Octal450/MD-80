@@ -26,6 +26,7 @@ var systemsInit = func() {
 	systems.FCTL.init();
 	systems.FUEL.init();
 	systems.HYD.init();
+	systems.PNEU.init();
 	dfgs.ITAF.init(0);
 	systems.TRI.init();
 }
@@ -58,9 +59,9 @@ var systemsLoop = maketimer(0.1, func() {
 		if (systems.ELEC.Source.Ext.cart.getBoolValue()) {
 			systems.ELEC.Source.Ext.cart.setBoolValue(0);
 		}
-		#if (systems.PNEU.Switch.groundAir.getBoolValue()) {
-		#	systems.PNEU.Switch.groundAir.setBoolValue(0);
-		#}
+		if (systems.PNEU.Switch.groundAir.getBoolValue()) {
+			systems.PNEU.Switch.groundAir.setBoolValue(0);
+		}
 	}
 });
 
