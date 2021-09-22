@@ -339,7 +339,7 @@
 		<reference>/fdm/jsbsim/engine/ats-cmd-raw</reference>
 		<output>/fdm/jsbsim/engine/ats-cmd[0]</output>
 		<config>
-			<Kp>0.9</Kp>
+			<Kp>1.0</Kp>
 			<Ti>0.75</Ti>
 			<Td>0.0</Td>
 			<u_min>
@@ -388,7 +388,7 @@
 		<reference>/fdm/jsbsim/engine/ats-cmd-raw</reference>
 		<output>/fdm/jsbsim/engine/ats-cmd[1]</output>
 		<config>
-			<Kp>0.9</Kp>
+			<Kp>1.0</Kp>
 			<Ti>0.75</Ti>
 			<Td>0.0</Td>
 			<u_min>

@@ -55,8 +55,8 @@
 				<command>property-adjust</command>
 				<property>fdm/jsbsim/engine/limit/flex-temp</property>
 				<step>1</step>
-				<min>30</min>
-				<max>60</max>
+				<min>1</min>
+				<max>59</max>
 				<wrap>false</wrap>
 			</binding>
 		</action>
@@ -68,8 +68,8 @@
 				<command>property-adjust</command>
 				<property>fdm/jsbsim/engine/limit/flex-temp</property>
 				<step>-1</step>
-				<min>30</min>
-				<max>60</max>
+				<min>1</min>
+				<max>59</max>
 				<wrap>false</wrap>
 			</binding>
 		</action>

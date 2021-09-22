@@ -71,6 +71,54 @@
 				/it-autoflight/output/lat eq 4
 			</test>
 		</switch>
+		
+		<summer name="dfgs/atr/epr-differential">
+			<input>/engines/engine[0]/epr-actual</input>
+			<input>-/engines/engine[1]/epr-actual</input>
+		</summer>
+		
+		<summer name="dfgs/atr/n1-differential">
+			<input>/engines/engine[0]/n1-actual</input>
+			<input>-/engines/engine[1]/n1-actual</input>
+		</summer>
+		
+		<switch name="dfgs/atr/descend-switch">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/it-autoflight/output/vert eq 7
+				/position/gear-agl-ft ge 350
+				/instrumentation/vertical-speed-indicator/vert-speed-fpm le -0.5
+			</test>
+		</switch>
+		
+		<actuator name="dfgs/atr/descend-timer">
+			<input>dfgs/atr/descend-switch</input>
+			<rate_limit sense="incr">0.2</rate_limit> <!-- 5 seconds -->
+			<rate_limit sense="decr">10000</rate_limit> <!-- Instant -->
+		</actuator>
+		
+		<switch name="dfgs/atr/cmd">
+			<default value="dfgs/atr/cmd"/>
+			<test logic="OR" value="0">
+				/it-autoflight/output/athr eq 0
+				/position/gear-agl-ft lt 350
+				<test logic="AND">
+					engine/limit/active-mode-int ne 0
+					engine/limit/active-mode-int ne 5
+				</test>
+			</test>
+			<test logic="AND" value="1">
+				dfgs/atr/epr-differential ge 0.25
+				dfgs/atr/n1-differential ge 7
+			</test>
+			<test logic="AND" value="1">
+				dfgs/atr/epr-differential le -0.25
+				dfgs/atr/n1-differential le -7
+			</test>
+			<test value="1">
+				dfgs/atr/descend-timer eq 1
+			</test>
+		</switch>
 	
 	</channel>
 	

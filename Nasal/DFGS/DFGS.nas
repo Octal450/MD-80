@@ -131,6 +131,7 @@ var Internal = {
 	altDiff: 0,
 	altTemp: 0,
 	altPredicted: props.globals.initNode("/it-autoflight/internal/altitude-predicted", 0, "DOUBLE"),
+	atrCmd: props.globals.getNode("/fdm/jsbsim/dfgs/atr/cmd"),
 	bankLimit: props.globals.initNode("/it-autoflight/internal/bank-limit", 30, "INT"),
 	bankLimitMax: [10, 15, 20, 25, 30],
 	captVs: 0,
@@ -162,6 +163,7 @@ var Output = {
 	apprArm: props.globals.initNode("/it-autoflight/output/appr-armed", 0, "BOOL"),
 	athr: props.globals.initNode("/it-autoflight/output/athr", 0, "BOOL"),
 	athrTemp: 0,
+	atr: props.globals.initNode("/it-autoflight/output/atr", 0, "BOOL"),
 	clamp: props.globals.initNode("/it-autoflight/output/clamp", 0, "BOOL"),
 	fd1: props.globals.initNode("/it-autoflight/output/fd1", 0, "BOOL"),
 	fd1Temp: 0,
@@ -222,6 +224,7 @@ var ITAF = {
 		Output.ap1.setBoolValue(0);
 		Output.ap2.setBoolValue(0);
 		Output.athr.setBoolValue(0);
+		Output.atr.setBoolValue(0);
 		if (t != 1) {
 			Output.fd1.setBoolValue(0);
 			Output.fd2.setBoolValue(0);

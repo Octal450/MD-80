@@ -255,6 +255,7 @@ var Athr = {
 			me.toCheck();
 		} else if (me.retard) {
 			if (Output.thrMode.getValue() != 1) {
+				Output.atr.setBoolValue(0);
 				Output.thrMode.setValue(1);
 				updateFma.thr();
 			}
@@ -300,18 +301,37 @@ var Athr = {
 		if (me.triMode == 0 or me.triMode == 5) {
 			me.toCheck();
 		} else if (!me.retard or dfgs.Output.vert.getValue() == 7) {
+			Output.atr.setBoolValue(0);
 			Output.thrMode.setValue(n);
 		}
 		updateFma.thr();
 	},
 	toCheck: func() {
-		if (pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() < 60 and pts.Fdm.JSBsim.Position.wow.getBoolValue() and Output.vert.getValue() == 7) {
-			if (Output.thrMode.getValue() != 2) {
-				Output.thrMode.setValue(2);
-				updateFma.thr();
+		if (Text.vert.getValue() == "T/O CLB") {
+			if (pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() < 60 and pts.Fdm.JSBsim.Position.wow.getBoolValue()) {
+				if (Output.thrMode.getValue() != 2) {
+					Output.atr.setBoolValue(0);
+					Output.thrMode.setValue(2);
+					updateFma.thr();
+				}
+			} else {
+				if (Internal.atrCmd.getBoolValue()) {
+					if (Output.thrMode.getValue() != 2) {
+						Output.atr.setBoolValue(1);
+						Output.thrMode.setValue(2);
+						updateFma.thr();
+					}
+				} else {
+					if (Output.thrMode.getValue() != 3) {
+						Output.atr.setBoolValue(0);
+						Output.thrMode.setValue(3);
+						updateFma.thr();
+					}
+				}
 			}
 		} else {
 			if (Output.thrMode.getValue() != 3) {
+				Output.atr.setBoolValue(0);
 				Output.thrMode.setValue(3);
 				updateFma.thr();
 			}
