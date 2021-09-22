@@ -657,6 +657,58 @@
 			</function>
 		</fcs_function>
 		
+		<fcs_function name="engine/limit/highest-norm-ref"> <!-- Opposite of EPR Calc -->
+			<function>
+				<quotient>
+					<difference>
+						<max>
+							<property>engine/limit/climb</property>
+							<property>engine/limit/cruise</property>
+							<property>engine/limit/go-around</property>
+							<property>engine/limit/mct</property>
+							<property>engine/limit/takeoff</property>
+						</max>
+						<property>engine/epr/c2</property>
+					</difference>
+					<max> <!-- Prevent divide by 0 -->
+						<property>engine/epr/c1</property>
+						<value>0.001</value>
+					</max>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/highest-norm-input"> <!-- Opposite of EPR Calc -->
+			<function>
+				<pow>
+					<table>
+						<independentVar lookup="row">engine/limit/highest-norm-ref</independentVar>
+						<tableData>
+							0.00     24743.1
+							0.03     81455.7
+							1.00  10571289.8
+						</tableData>
+					</table>
+					<quotient>
+						<value>1</value>
+						<value>3.5</value>
+					</quotient>
+				</pow>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/highest-norm">
+			<function>
+				<table>
+					<independentVar lookup="row">engine/limit/highest-norm-input</independentVar>
+					<tableData>
+						 25.3  0
+						101.6  1
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
 		<fcs_function name="engine/limit/idle-norm-ref"> <!-- Opposite of EPR Calc -->
 			<function>
 				<quotient>
@@ -735,30 +787,8 @@
 			</test>
 		</switch>
 		
-		<fcs_function name="engine/control-1/throttle-weird">
-			<function>
-				<sum>
-					<property>engine/control-1/throttle-output</property>
-					<table>
-						<independentVar lookup="row">engine/control-1/throttle-output</independentVar>
-						<tableData>
-							0.0  0.003
-							0.2  0.007
-							0.5  0.005
-							0.8 -0.006
-							1.0 -0.003
-						</tableData>
-					</table>
-				</sum>
-			</function>
-			<clipto>
-				<min>0</min>
-				<max>1</max>
-			</clipto>
-		</fcs_function>
-		
 		<lag_filter name="engine/control-1/throttle-fdm">
-			<input>engine/control-1/throttle-weird</input>
+			<input>engine/control-1/throttle-output</input>
 			<c1>1.25</c1>
 			<output>fcs/throttle-pos-norm[0]</output>
 		</lag_filter>
@@ -795,30 +825,8 @@
 			</test>
 		</switch>
 		
-		<fcs_function name="engine/control-2/throttle-weird">
-			<function>
-				<sum>
-					<property>engine/control-2/throttle-output</property>
-					<table>
-						<independentVar lookup="row">engine/control-2/throttle-output</independentVar>
-						<tableData>
-							0.0  0.000
-							0.2 -0.007
-							0.5 -0.005
-							0.8  0.006
-							1.0 -0.000
-						</tableData>
-					</table>
-				</sum>
-			</function>
-			<clipto>
-				<min>0</min>
-				<max>1</max>
-			</clipto>
-		</fcs_function>
-		
 		<lag_filter name="engine/control-2/throttle-fdm">
-			<input>engine/control-2/throttle-weird</input>
+			<input>engine/control-2/throttle-output</input>
 			<c1>1.25</c1>
 			<output>fcs/throttle-pos-norm[1]</output>
 		</lag_filter>

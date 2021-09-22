@@ -268,8 +268,9 @@ var doIdleThrust = func() {
 }
 
 var doFullThrust = func() {
-	pts.Controls.Engines.Engine.throttle[0].setValue(1);
-	pts.Controls.Engines.Engine.throttle[1].setValue(1);
+	var highest = TRI.Limit.highestNorm.getValue();
+	pts.Controls.Engines.Engine.throttle[0].setValue(highest);
+	pts.Controls.Engines.Engine.throttle[1].setValue(highest);
 }
 
 # Flight Controls
@@ -470,6 +471,7 @@ var TRI = {
 		cruise: props.globals.getNode("/fdm/jsbsim/engine/limit/cruise"),
 		climb: props.globals.getNode("/fdm/jsbsim/engine/limit/climb"),
 		goAround: props.globals.getNode("/fdm/jsbsim/engine/limit/go-around"),
+		highestNorm: props.globals.getNode("/fdm/jsbsim/engine/limit/highest-norm"),
 		mct: props.globals.getNode("/fdm/jsbsim/engine/limit/mct"),
 		idleNorm: props.globals.getNode("/fdm/jsbsim/engine/limit/idle-norm"),
 		takeoff: props.globals.getNode("/fdm/jsbsim/engine/limit/takeoff"),
