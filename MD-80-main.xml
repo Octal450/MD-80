@@ -1273,6 +1273,9 @@
 			<kts-mach type="bool">0</kts-mach>
 		</input>
 		<output n="0">
+			<ap1 type="bool">0</ap1>
+			<ap2 type="bool">0</ap2>
+			<athr type="bool">0</athr>
 			<thr-mode type="int">0</thr-mode>
 		</output>
 	</it-autoflight>
