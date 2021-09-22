@@ -122,7 +122,7 @@
 				dfgs/atr/epr-differential le -0.25
 				dfgs/atr/n1-differential le -7
 			</test>
-			<test logic="AND" value="1">
+			<test value="1">
 				dfgs/atr/descend-timer eq 1
 			</test>
 		</switch>
