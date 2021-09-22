@@ -25,7 +25,7 @@ Starting in air is not possible with this aircraft.
 
 The simulation is so complex that there is no support for starting it in mid-air. Therefore, please make sure that you start it on the ground, powering it up appropriately.
 
-In case that you want to practice landing, it might be better to fly to your destination and by doing it by landing and performing a missed approach (like real pilots do).
+In case that you want to practice landing, it might be better to fly to your destination, landing, and performing a missed approach (like real pilots do).
 
 ### Q. Error Code: 0x247 appears. Why?
 
