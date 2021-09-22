@@ -5,6 +5,372 @@
 
 <system name="MD-80: Pneumatics">
 	
+	<channel name="Main Pneumatics" execrate="8">
+		
+		<!-- TEMPORARY AUTOMATIC CONTROL OF PACKS BECAUSE NO COCKPIT PANEL -->
+		<switch name="/controls/pneumatics/temporary/supply-l">
+			<default value="0"/>
+			<test value="2">
+				/engines/engine[0]/state eq 3
+			</test>
+			<output>/controls/pneumatics/switches/supply-l</output>
+		</switch>
+		
+		<switch name="/controls/pneumatics/temporary/supply-r">
+			<default value="0"/>
+			<test value="2">
+				/engines/engine[1]/state eq 3
+			</test>
+			<output>/controls/pneumatics/switches/supply-r</output>
+		</switch>
+		
+		<!-- Bleed Inputs -->
+		<pure_gain name="/systems/pneumatics/apu-valve-input">
+			<input>/controls/pneumatics/switches/bleed-apu</input>
+			<gain>1.0</gain>
+			<clipto>
+				<min>0.0</min>
+				<max>1.0</max>
+			</clipto>
+		</pure_gain>
+		
+		<actuator name="/systems/pneumatics/apu-valve">
+			<input>/systems/pneumatics/apu-valve-input</input>
+			<rate_limit>0.333333</rate_limit> <!-- 3 seconds -->
+		</actuator>
+		
+		<switch name="/systems/pneumatics/apu-active">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/pneumatics/apu-valve eq 1
+				/engines/engine[2]/n2-actual ge 93
+				/systems/failures/pneumatics/bleed-apu ne 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/pneumatics/apu-psi">
+			<default value="0"/>
+			<test logic="AND" value="31">
+				/systems/pneumatics/apu-active eq 1
+			</test>
+		</switch>
+		
+		<fcs_function name="/systems/pneumatics/eng-l-psi-cmd">
+			<function>
+				<table>
+					<independentVar lookup="row">/engines/engine[0]/n2-actual</independentVar>
+					<tableData>
+						23   0
+						25  32
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/pneumatics/eng-r-psi-cmd">
+			<function>
+				<table>
+					<independentVar lookup="row">/engines/engine[1]/n2-actual</independentVar>
+					<tableData>
+						23   0
+						25  33
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/pneumatics/eng-l-psi">
+			<default value="0"/>
+			<test logic="AND" value="/systems/pneumatics/eng-l-psi-cmd">
+				/engines/engine[0]/state ge 2
+				/systems/failures/pneumatics/bleed-l ne 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/pneumatics/eng-r-psi">
+			<default value="0"/>
+			<test logic="AND" value="/systems/pneumatics/eng-r-psi-cmd">
+				/engines/engine[1]/state ge 2
+				/systems/failures/pneumatics/bleed-r ne 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/pneumatics/ground-psi">
+			<default value="0"/>
+			<test logic="AND" value="34">
+				/controls/pneumatics/switches/ground-air eq 1
+			</test>
+		</switch>
+		
+		<!-- Crossbleed L Valve -->
+		<actuator name="/systems/pneumatics/x-bleed/x-bleed-l-valve">
+			<input>/controls/pneumatics/switches/x-bleed-l</input>
+			<rate_limit>0.333</rate_limit> <!-- 3 seconds -->
+		</actuator>
+		
+		<switch name="/systems/pneumatics/x-bleed/x-bleed-l-active">
+			<default value="0"/>
+			<test value="1">
+				/systems/pneumatics/x-bleed/x-bleed-l-valve eq 1
+			</test>
+		</switch>
+		
+		<!-- Crossbleed R Valve -->
+		<actuator name="/systems/pneumatics/x-bleed/x-bleed-r-valve">
+			<input>/controls/pneumatics/switches/x-bleed-r</input>
+			<rate_limit>0.333</rate_limit> <!-- 3 seconds -->
+		</actuator>
+		
+		<switch name="/systems/pneumatics/x-bleed/x-bleed-r-active">
+			<default value="0"/>
+			<test value="1">
+				/systems/pneumatics/x-bleed/x-bleed-r-valve eq 1
+			</test>
+		</switch>
+		
+		<!-- Crossbleed Both Logic -->
+		<switch name="/systems/pneumatics/x-bleed/both-active">
+			<default value="0"/>
+			<test test="AND" value="1">
+				/systems/pneumatics/x-bleed/x-bleed-l-active eq 1
+				/systems/pneumatics/x-bleed/x-bleed-r-active eq 1
+			</test>
+		</switch>
+		
+		<!-- Bleed L -->
+		<fcs_function name="/systems/pneumatics/total-l-x-bleed-psi">
+			<function>
+				<max>
+					<product>
+						<property>/systems/pneumatics/eng-r-psi</property>
+						<property>/systems/pneumatics/x-bleed/both-active</property>
+					</product>
+					<product>
+						<max>
+							<property>/systems/pneumatics/apu-psi</property>
+							<property>/systems/pneumatics/ground-psi</property>
+						</max>
+						<property>/systems/pneumatics/x-bleed/x-bleed-l-active</property>
+					</product>
+				</max>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/pneumatics/bleed-l-psi-cmd">
+			<function>
+				<sum>
+					<max>
+						<property>/systems/pneumatics/eng-l-psi</property>
+						<property>/systems/pneumatics/total-l-x-bleed-psi</property>
+					</max>
+					<min>
+						<property>/systems/pneumatics/pack-l-delta-psi</property>
+						<product>
+							<property>/systems/pneumatics/pack-r-delta-psi</property>
+							<property>/systems/pneumatics/x-bleed/both-active</property>
+						</product>
+					</min>
+				</sum>
+			</function>
+			<clipto>
+				<min>0</min>
+				<max>1000</max>
+			</clipto>
+		</fcs_function>
+		
+		<actuator name="/systems/pneumatics/bleed-l-psi">
+			<input>/systems/pneumatics/bleed-l-psi-cmd</input>
+			<rate_limit sense="incr">4.0</rate_limit>
+			<rate_limit sense="decr">1.4</rate_limit>
+			<output>/systems/pneumatics/bleed-l-psi-debug</output>
+		</actuator>
+		
+		<!-- Bleed R -->
+		<fcs_function name="/systems/pneumatics/total-r-x-bleed-psi">
+			<function>
+				<max>
+					<product>
+						<property>/systems/pneumatics/eng-l-psi</property>
+						<property>/systems/pneumatics/x-bleed/both-active</property>
+					</product>
+					<product>
+						<max>
+							<property>/systems/pneumatics/apu-psi</property>
+							<property>/systems/pneumatics/ground-psi</property>
+						</max>
+						<property>/systems/pneumatics/x-bleed/x-bleed-r-active</property>
+					</product>
+				</max>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/pneumatics/bleed-r-psi-cmd">
+			<function>
+				<sum>
+					<max>
+						<property>/systems/pneumatics/eng-r-psi</property>
+						<property>/systems/pneumatics/total-r-x-bleed-psi</property>
+					</max>
+					<min>
+						<property>/systems/pneumatics/pack-r-delta-psi</property>
+						<product>
+							<property>/systems/pneumatics/pack-l-delta-psi</property>
+							<property>/systems/pneumatics/x-bleed/both-active</property>
+						</product>
+					</min>
+				</sum>
+			</function>
+			<clipto>
+				<min>0</min>
+				<max>1000</max>
+			</clipto>
+		</fcs_function>
+		
+		<actuator name="/systems/pneumatics/bleed-r-psi">
+			<input>/systems/pneumatics/bleed-r-psi-cmd</input>
+			<rate_limit sense="incr">4.0</rate_limit>
+			<rate_limit sense="decr">1.4</rate_limit>
+			<output>/systems/pneumatics/bleed-r-psi-debug</output>
+		</actuator>
+		
+		<!-- Pack L -->
+		<fcs_function name="/systems/pneumatics/pack-l-delta-psi">
+			<function>
+				<ifthen>
+					<and>
+						<gt>
+							<property>/controls/pneumatics/switches/supply-l</property>
+							<value>0</value>
+						</gt>
+						<nq>
+							<property>/systems/failures/pneumatics/pack-l</property>
+							<value>1</value>
+						</nq>
+					</and>
+					<table>
+						<independentVar lookup="row">/systems/pneumatics/bleed-l-psi-cmd</independentVar>
+						<tableData>
+							10   0
+							16 -12
+							29 -12
+							35 -18
+						</tableData>
+					</table>
+					<value>0</value>
+				</ifthen>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/pneumatics/pack-l-valve-cmd">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/pneumatics/bleed-l-psi-cmd ge 10.5
+				/controls/pneumatics/switches/supply-l gt 0
+				/systems/failures/pneumatics/pack-l ne 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/pneumatics/pack-l-valve">
+			<input>/systems/pneumatics/pack-l-valve-cmd</input>
+			<rate_limit>0.333</rate_limit> <!-- 3 seconds -->
+		</actuator>
+		
+		<switch name="/systems/pneumatics/pack-l-flow-cmd">
+			<default value="0"/>
+			<test value="18">
+				/systems/pneumatics/pack-l-valve-cmd gt 0
+			</test>
+		</switch>
+		
+		<actuator name="/systems/pneumatics/pack-l-flow">
+			<input>/systems/pneumatics/pack-l-flow-cmd</input>
+			<rate_limit sense="incr">4.1</rate_limit>
+			<rate_limit sense="decr">4.3</rate_limit>
+			<output>/systems/pneumatics/pack-l-flow-debug</output>
+		</actuator>
+		
+		<fcs_function name="/systems/pneumatics/jsbsim-bleed-factor-1">
+			<function>
+				<table>
+					<independentVar lookup="row">/systems/pneumatics/pack-l-flow</independentVar>
+					<tableData>
+						 0  0.002
+						10  0.030
+					</tableData>
+				</table>
+			</function>
+			<output>propulsion/engine[0]/bleed-factor</output>
+		</fcs_function>
+		
+		<!-- Pack R -->
+		<fcs_function name="/systems/pneumatics/pack-r-delta-psi">
+			<function>
+				<ifthen>
+					<and>
+						<gt>
+							<property>/controls/pneumatics/switches/supply-r</property>
+							<value>0</value>
+						</gt>
+						<nq>
+							<property>/systems/failures/pneumatics/pack-r</property>
+							<value>1</value>
+						</nq>
+					</and>
+					<table>
+						<independentVar lookup="row">/systems/pneumatics/bleed-r-psi-cmd</independentVar>
+						<tableData>
+							10   0
+							16 -12
+							29 -12
+							35 -18
+						</tableData>
+					</table>
+					<value>0</value>
+				</ifthen>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/pneumatics/pack-r-valve-cmd">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/pneumatics/bleed-r-psi-cmd ge 10.5
+				/controls/pneumatics/switches/supply-r gt 0
+				/systems/failures/pneumatics/pack-r ne 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/pneumatics/pack-r-valve">
+			<input>/systems/pneumatics/pack-r-valve-cmd</input>
+			<rate_limit>0.333</rate_limit> <!-- 3 seconds -->
+		</actuator>
+		
+		<switch name="/systems/pneumatics/pack-r-flow-cmd">
+			<default value="0"/>
+			<test value="18">
+				/systems/pneumatics/pack-r-valve-cmd gt 0
+			</test>
+		</switch>
+		
+		<actuator name="/systems/pneumatics/pack-r-flow">
+			<input>/systems/pneumatics/pack-r-flow-cmd</input>
+			<rate_limit sense="incr">4.1</rate_limit>
+			<rate_limit sense="decr">4.3</rate_limit>
+			<output>/systems/pneumatics/pack-r-flow-debug</output>
+		</actuator>
+		
+		<fcs_function name="/systems/pneumatics/jsbsim-bleed-factor-2">
+			<function>
+				<table>
+					<independentVar lookup="row">/systems/pneumatics/pack-r-flow</independentVar>
+					<tableData>
+						 0  0.002
+						10  0.030
+					</tableData>
+				</table>
+			</function>
+			<output>propulsion/engine[1]/bleed-factor</output>
+		</fcs_function>
 	
+	</channel>
 
 </system>

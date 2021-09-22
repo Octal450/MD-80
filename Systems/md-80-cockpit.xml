@@ -65,13 +65,13 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/pneumatics/switches/x-feed-l-lever">
-			<input>/controls/pneumatics/switches/x-feed-l</input>
+		<lag_filter name="/controls/pneumatics/switches/x-bleed-l-lever">
+			<input>/controls/pneumatics/switches/x-bleed-l</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/pneumatics/switches/x-feed-r-lever">
-			<input>/controls/pneumatics/switches/x-feed-r</input>
+		<lag_filter name="/controls/pneumatics/switches/x-bleed-r-lever">
+			<input>/controls/pneumatics/switches/x-bleed-r</input>
 			<c1>20</c1>
 		</lag_filter>
 	

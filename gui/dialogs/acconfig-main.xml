@@ -140,8 +140,8 @@
 								setprop("/controls/fuel/switches/pump-fwd-r", 1);
 								setprop("/controls/hydraulics/switches/l-pump", 2);
 								setprop("/controls/hydraulics/switches/r-pump", 2);
-								setprop("/controls/pneumatics/switches/x-feed-l", 1);
-								setprop("/controls/pneumatics/switches/x-feed-r", 1);
+								setprop("/controls/pneumatics/switches/x-bleed-l", 1);
+								setprop("/controls/pneumatics/switches/x-bleed-r", 1);
 								setprop("/controls/lighting/main-digital-knb", 1);
 								settimer(func() {
 									setprop("/controls/engines/engine[0]/cutoff", 0);

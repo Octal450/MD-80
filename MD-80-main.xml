@@ -531,13 +531,15 @@
 		<pneumatics n="0">
 			<switches n="0">
 				<bleed-apu type="int">0</bleed-apu>
-				<bleed-l type="int">0</bleed-l>
-				<bleed-r type="int">0</bleed-r>
+				<cabin-temp type="double">0.5</cabin-temp>
+				<cockpit-temp type="double">0.5</cockpit-temp>
 				<ground-air type="bool">0</ground-air>
 				<instrument-flow type="bool">0</instrument-flow>
 				<radio-rack type="bool">0</radio-rack>
-				<x-feed-l type="bool">0</x-feed-l>
-				<x-feed-r type="bool">0</x-feed-r>
+				<supply-l type="int">0</supply-l>
+				<supply-r type="int">0</supply-r>
+				<x-bleed-l type="bool">0</x-bleed-l>
+				<x-bleed-r type="bool">0</x-bleed-r>
 			</switches>
 		</pneumatics>
 		<switches n="0">

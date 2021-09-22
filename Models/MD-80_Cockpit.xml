@@ -954,11 +954,11 @@
 		</axis>
 	</animation>
 	
-	<!-- Pneumatic Crossfeed Levers -->
+	<!-- Pneumatic Crossbleed Levers -->
 	<animation>
 		<type>rotate</type>
 		<object-name>PneuLeverL</object-name>
-		<property>controls/pneumatics/switches/x-feed-l-lever</property>
+		<property>controls/pneumatics/switches/x-bleed-l-lever</property>
 		<factor>70</factor>
 		<center>
 			<x-m>3.064</x-m>
@@ -979,7 +979,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/pneumatics/switches/x-feed-l</property>
+				<property>controls/pneumatics/switches/x-bleed-l</property>
 			</binding>
 		</action>
 	</animation>
@@ -987,7 +987,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>PneuLeverR</object-name>
-		<property>controls/pneumatics/switches/x-feed-r-lever</property>
+		<property>controls/pneumatics/switches/x-bleed-r-lever</property>
 		<factor>70</factor>
 		<center>
 			<x-m>3.064</x-m>
@@ -1008,7 +1008,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/pneumatics/switches/x-feed-r</property>
+				<property>controls/pneumatics/switches/x-bleed-r</property>
 			</binding>
 		</action>
 	</animation>

@@ -424,24 +424,28 @@ var PNEU = {
 	},
 	Switch: {
 		bleedApu: props.globals.getNode("/controls/pneumatics/switches/bleed-apu"),
-		bleedL: props.globals.getNode("/controls/pneumatics/switches/bleed-l"),
-		bleedR: props.globals.getNode("/controls/pneumatics/switches/bleed-r"),
+		cabinTemp: props.globals.getNode("/controls/pneumatics/switches/cabin-temp"),
+		cockpitTemp: props.globals.getNode("/controls/pneumatics/switches/cockpit-temp"),
 		groundAir: props.globals.getNode("/controls/pneumatics/switches/ground-air"), # No switch in cockpit
 		instrumentFlow: props.globals.getNode("/controls/pneumatics/switches/instrument-flow"),
 		radioRack: props.globals.getNode("/controls/pneumatics/switches/radio-rack"),
-		xFeedL: props.globals.getNode("/controls/pneumatics/switches/x-feed-l"),
-		xFeedR: props.globals.getNode("/controls/pneumatics/switches/x-feed-r"),
+		supplyL: props.globals.getNode("/controls/pneumatics/switches/supply-l"),
+		supplyR: props.globals.getNode("/controls/pneumatics/switches/supply-r"),
+		xBleedL: props.globals.getNode("/controls/pneumatics/switches/x-bleed-l"),
+		xBleedR: props.globals.getNode("/controls/pneumatics/switches/x-bleed-r"),
 	},
 	init: func() {
 		me.resetFailures();
 		me.Switch.bleedApu.setValue(0);
-		me.Switch.bleedL.setValue(2); # Temporary, until there is cockpit control of this
-		me.Switch.bleedR.setValue(2); # Temporary, until there is cockpit control of this
+		me.Switch.cabinTemp.setValue(0.5);
+		me.Switch.cockpitTemp.setValue(0.5);
 		me.Switch.groundAir.setBoolValue(0);
 		me.Switch.instrumentFlow.setValue(0);
 		me.Switch.radioRack.setValue(0);
-		me.Switch.xFeedL.setValue(0);
-		me.Switch.xFeedR.setValue(0);
+		me.Switch.supplyL.setValue(0);
+		me.Switch.supplyR.setValue(0);
+		me.Switch.xBleedL.setValue(0);
+		me.Switch.xBleedR.setValue(0);
 	},
 	resetFailures: func() {
 		me.Fail.bleedApu.setBoolValue(0);

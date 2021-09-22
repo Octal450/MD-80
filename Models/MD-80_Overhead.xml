@@ -392,6 +392,51 @@
 	</animation>
 	
 	<animation>
+		<type>pick</type>
+		<object-name>SwAPU_Air</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/pneumatics/switches/bleed-apu</property>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/pneumatics/switches/bleed-apu</property>
+				<value>2</value>
+				<value>1</value>
+				<value>0</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>SwAPU_Air</object-name>
+		<property>controls/pneumatics/switches/bleed-apu</property>
+		<factor>25</factor> 
+		<center>
+			<x-m>2.890</x-m>
+			<y-m>0</y-m>
+			<z-m>1.582</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
 		<type>rotate</type>
 		<object-name>APU_RPM</object-name>
 		<property>systems/apu/n1-actual</property>
@@ -634,29 +679,6 @@
 	</animation>
 	
 	<!-- Below all broke -->
-
-
-
-
-<animation>
-  <type>rotate</type>
-  <object-name>SwAPU_Air</object-name>
-  <property>controls/switches/apu-air</property>
-  <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>25</dep></entry>
-  </interpolation>   
-  <center>
-    <x-m>2.890</x-m>
-    <y-m>0</y-m>
-    <z-m>1.582</z-m>
-  </center>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
 
 <animation>
   <type>rotate</type>
