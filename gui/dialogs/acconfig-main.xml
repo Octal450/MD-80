@@ -150,8 +150,8 @@
 									setprop("/controls/engines/engine[1]/starter", 0);
 									setprop("/fdm/jsbsim/propulsion/set-running", 0);
 									setprop("/fdm/jsbsim/propulsion/set-running", 1);
-									setprop("/controls/pneumatics/switches/bleed-l", 2);
-									setprop("/controls/pneumatics/switches/bleed-r", 2);
+									#setprop("/controls/pneumatics/switches/supply-l", 2);
+									#setprop("/controls/pneumatics/switches/supply-r", 2);
 									setprop("/engines/engine[0]/state", 3);
 									setprop("/engines/engine[1]/state", 3);
 									setprop("/controls/electrical/switches/ext-pwr-l", 0);

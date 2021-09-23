@@ -28,7 +28,6 @@
 			<input>/systems/hydraulics/sys-l-qty-cmd</input>
 			<rate_limit sense="incr">100</rate_limit> <!-- Instant -->
 			<rate_limit sense="decr">/systems/hydraulics/sys-l-qty-decr-rate</rate_limit>
-			<output>/systems/hydraulics/sys-l-qty-debug</output>
 		</actuator>
 		
 		<!-- SYS R -->
@@ -50,7 +49,6 @@
 			<input>/systems/hydraulics/sys-r-qty-cmd</input>
 			<rate_limit sense="incr">100</rate_limit> <!-- Instant -->
 			<rate_limit sense="decr">/systems/hydraulics/sys-r-qty-decr-rate</rate_limit>
-			<output>/systems/hydraulics/sys-r-qty-debug</output>
 		</actuator>
 	
 	</channel>
@@ -127,7 +125,6 @@
 			<input>/systems/hydraulics/sys-l-psi-cmd</input>
 			<rate_limit sense="incr">/systems/hydraulics/sys-incr-rate</rate_limit>
 			<rate_limit sense="decr">/systems/hydraulics/sys-decr-rate</rate_limit>
-			<output>/systems/hydraulics/sys-l-psi-debug</output>
 		</actuator>
 		
 		<!-- SYS R -->
@@ -204,7 +201,6 @@
 			<input>/systems/hydraulics/sys-r-psi-cmd</input>
 			<rate_limit sense="incr">/systems/hydraulics/sys-incr-rate</rate_limit>
 			<rate_limit sense="decr">/systems/hydraulics/sys-decr-rate</rate_limit>
-			<output>/systems/hydraulics/sys-r-psi-debug</output>
 		</actuator>
 		
 		<!-- Trans Pump -->

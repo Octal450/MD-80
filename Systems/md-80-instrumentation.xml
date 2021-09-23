@@ -1605,7 +1605,12 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 	
 	</channel>
 	
-	<channel name="Cockpit Indications" execrate="8">
+	<channel name="Misc Cockpit Indications" execrate="8">
+		
+		<lag_filter name="/instrumentation/pneu/x-bleed-psi">
+			<input>/systems/pneumatics/x-bleed/psi</input>
+			<c1>15</c1>
+		</lag_filter>
 		
 		<fcs_function name="inertia/weight-lbs-fmt">
 			<function>
