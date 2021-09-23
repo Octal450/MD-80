@@ -1210,7 +1210,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		
 		<switch name="/instrumentation/epr[0]/epr-bug-input">
 			<default value="/instrumentation/epr[0]/epr-bug-input"/>
-			<test value="engine/limit/active-ind-cmd">
+			<test value="engine/limit/active">
 				/instrumentation/epr[0]/power-avail eq 1
 			</test>
 		</switch>
@@ -1290,7 +1290,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		
 		<switch name="/instrumentation/epr[1]/epr-bug-input">
 			<default value="/instrumentation/epr[1]/epr-bug-input"/>
-			<test value="engine/limit/active-ind-cmd">
+			<test value="engine/limit/active">
 				/instrumentation/epr[1]/power-avail eq 1
 			</test>
 		</switch>

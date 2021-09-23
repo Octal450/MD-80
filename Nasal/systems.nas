@@ -464,7 +464,7 @@ var TRI = {
 	Limit: {
 		active: props.globals.getNode("/fdm/jsbsim/engine/limit/active"),
 		activeMode: props.globals.getNode("/fdm/jsbsim/engine/limit/active-mode"),
-		activeModeInt: props.globals.getNode("/fdm/jsbsim/engine/limit/active-mode-int"), # -1 NONE, 0 T/O, 1 G/A, 2 MCT, 3 CLB, 4 CRZ, 5 T/O FLX
+		activeModeInt: props.globals.getNode("/fdm/jsbsim/engine/limit/active-mode-int"), # -1 NONE, 0 T/O, 1 G/A, 2 MCT, 3 CLB, 4 CRZ, 5 T/O FLX, 6 TEST
 		activeModeIntTemp: 0,
 		activeModeLast: "T/O",
 		activeNorm: props.globals.getNode("/fdm/jsbsim/engine/limit/active-norm"),
@@ -479,6 +479,13 @@ var TRI = {
 	init: func() {
 		me.Limit.activeModeInt.setValue(0);
 		me.Limit.activeMode.setValue("T/O");
+	},
+	testBtn: func(d) {
+		if (d) {
+			me.Limit.activeModeInt.setValue(6);
+		} else {
+			me.Limit.activeModeInt.setValue(-1);
+		}
 	},
 	updateTxt: func() {
 		me.Limit.activeModeIntTemp = me.Limit.activeModeInt.getValue();
@@ -499,6 +506,8 @@ var TRI = {
 		} else if (me.Limit.activeModeIntTemp == 5) {
 			me.Limit.activeMode.setValue("T/O"); # Check
 			dfgs.Athr.toCheck();
+		} else if (me.Limit.activeModeIntTemp == 6) {
+			me.Limit.activeMode.setValue("---");
 		}
 		dfgs.Athr.limitChanged(me.Limit.activeModeLast, me.Limit.activeMode.getValue());
 	},

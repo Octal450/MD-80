@@ -52,6 +52,14 @@
 					<property>/fdm/jsbsim/dfgs/power-avail</property>
 					<value>1</value>
 				</equals>
+				<not-equals>
+					<property>fdm/jsbsim/engine/limit/active-mode-int</property>
+					<value>-1</value>
+				</not-equals>
+				<not-equals>
+					<property>fdm/jsbsim/engine/limit/active-mode-int</property>
+					<value>6</value>
+				</not-equals>
 				<or>
 					<equals>
 						<property>/engines/engine[0]/state</property>

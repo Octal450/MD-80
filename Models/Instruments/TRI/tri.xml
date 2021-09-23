@@ -235,6 +235,45 @@
 	</animation>
 	
 	<animation>
+		<type>pick</type>
+		<object-name>testBtn</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<equals>
+						<property>fdm/jsbsim/dfgs/power-avail</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<command>nasal</command>
+				<script>systems.TRI.testBtn(1);</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/tri/test-btn</property>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>nasal</command>
+					<script>systems.TRI.testBtn(0);</script>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/tri/test-btn</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
 		<type>select</type>
 		<object-name>toOn</object-name>
 		<object-name>flxOn</object-name>
@@ -424,6 +463,18 @@
 		</axis>
 	</animation>
 	
+	<animation>
+		<type>translate</type>
+		<object-name>testBtn</object-name>
+		<property>controls/tri/test-btn</property>
+		<factor>-0.002</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
 	<!-- Indications -->
 	<animation>
 		<type>select</type>
@@ -516,10 +567,16 @@
 		<type>select</type>
 		<object-name>Flag</object-name>
 		<condition>
-			<not-equals>
-				<property>fdm/jsbsim/dfgs/power-avail</property>
-				<value>1</value>
-			</not-equals>
+			<or>
+				<not-equals>
+					<property>fdm/jsbsim/dfgs/power-avail</property>
+					<value>1</value>
+				</not-equals>
+				<equals>
+					<property>fdm/jsbsim/engine/limit/active-mode-int</property>
+					<value>-1</value>
+				</equals>
+			</or>
 		</condition>
 	</animation>
 
