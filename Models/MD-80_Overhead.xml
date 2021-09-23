@@ -457,12 +457,13 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>APU_EGT</object-name>
-		<property>systems/apu/egt-actual</property>
+		<property>instrumentation/apu-egt/egt</property>
 		<interpolation>
-			<entry><ind>  0</ind><dep>  0</dep></entry>
-			<entry><ind>350</ind><dep> 72</dep></entry>
-			<entry><ind>400</ind><dep> 95</dep></entry>
-			<entry><ind>800</ind><dep>275</dep></entry>
+			<entry><ind>  0</ind><dep> 19.5</dep></entry>
+			<entry><ind>300</ind><dep> 64.5</dep></entry>
+			<entry><ind>350</ind><dep> 72.0</dep></entry>
+			<entry><ind>400</ind><dep> 87.5</dep></entry>
+			<entry><ind>800</ind><dep>267.0</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>2.93745</x1-m>

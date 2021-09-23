@@ -467,7 +467,7 @@
 		<type>translate</type>
 		<object-name>testBtn</object-name>
 		<property>controls/tri/test-btn</property>
-		<factor>-0.002</factor>
+		<factor>-0.001</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
@@ -565,7 +565,18 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>Flag</object-name>
+		<object-name>FlagRat</object-name>
+		<condition>
+			<not-equals>
+				<property>fdm/jsbsim/dfgs/power-avail</property>
+				<value>1</value>
+			</not-equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>FlagEpr</object-name>
 		<condition>
 			<or>
 				<not-equals>

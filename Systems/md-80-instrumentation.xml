@@ -1370,6 +1370,26 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<input>/instrumentation/egt[1]/egt-input</input>
 			<c1>10</c1>
 		</lag_filter>
+		
+		<!-- APU EGT Gauge -->
+		<switch name="/instrumentation/apu-egt/power-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/dc-bat ge 24
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/apu-egt/egt-input">
+			<default value="/instrumentation/apu-egt/egt-input"/>
+			<test value="/systems/apu/egt-actual">
+				/instrumentation/apu-egt/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/apu-egt/egt">
+			<input>/instrumentation/apu-egt/egt-input</input>
+			<c1>10</c1>
+		</lag_filter>
 	
 	</channel>
 	
@@ -1463,14 +1483,24 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 	
 	<channel name="TRI and FLEX" execrate="4">
 		
-		<switch name="/controls/tri/rat">
-			<default value="/controls/tri/rat"/>
+		<!-- TRI -->
+		<switch name="/controls/tri/rat-cmd">
+			<default value="/controls/tri/rat-cmd"/>
+			<test logic="AND" value="12">
+				dfgs/power-avail eq 1
+				engine/limit/active-mode-int eq 6
+			</test>
 			<test value="propulsion/tat-c">
 				dfgs/power-avail eq 1
 			</test>
 		</switch>
 		
-		<!-- TRI -->
+		<actuator name="/controls/tri/rat">
+			<input>/controls/tri/rat-cmd</input>
+			<rate_limit>125</rate_limit>
+			<lag>15</lag>
+		</actuator>
+		
 		<fcs_function name="/controls/tri/rat-fixed">
 			<function>
 				<sum>

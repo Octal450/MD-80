@@ -115,7 +115,7 @@ OBJECT poly
 name "APU_EGT_FACE"
 data 12
 Cylinder.062
-texture "apu_egt.rgb"
+texture "apu_egt.jpg"
 crease 30.000000
 numvert 9
 2.95441 1.61473 0.04052
@@ -181,7 +181,7 @@ OBJECT poly
 name "APU_EGT"
 data 10
 Circle.001
-texture "apu_egt.rgb"
+texture "apu_egt.jpg"
 crease 30.000000
 numvert 11
 2.93389 1.60329 0.06017
@@ -18372,7 +18372,7 @@ OBJECT poly
 name "PneuPress"
 data 10
 Circle.003
-texture "apu_egt.rgb"
+texture "apu_egt.jpg"
 crease 30.000000
 numvert 11
 2.7337 1.50118 0.20323

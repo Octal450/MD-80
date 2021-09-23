@@ -478,7 +478,7 @@ refs 4
 1 0.792969 0.59375
 kids 0
 OBJECT poly
-name "Flag"
+name "FlagEpr"
 loc 0.00292969 0.00892199 9.28871e-05
 texture "flag.png"
 crease 45.000000
@@ -497,7 +497,7 @@ refs 4
 0 1 0
 kids 0
 OBJECT poly
-name "Flag"
+name "FlagRat"
 loc 0.00292969 0.0345077 -0.000589375
 texture "flag.png"
 crease 45.000000
