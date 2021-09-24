@@ -3,7 +3,7 @@
 <!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
 <!-- Copyright (c) 2021 Josh Davidson (Octal450) -->
 
-<PropertyList>
+<PropertyList> <!-- Tilt: 63 deg -->
 	
 	<path>mesh_overhead.ac</path>
 	
@@ -28,10 +28,11 @@
 	
 	<animation>
 		<type>material</type>
-		<object-name>APU_EGT</object-name>
-		<object-name>APU_EGT_FACE</object-name>
-		<object-name>APU_RPM</object-name>
-		<object-name>APU_RPM_FACE</object-name>
+		<object-name>ApuEgt</object-name>
+		<object-name>ApuEgtFace</object-name>
+		<object-name>ApuRpm</object-name>
+		<object-name>ApuRpm2</object-name>
+		<object-name>ApuRpmFace</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.6</green>
@@ -438,40 +439,52 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>APU_RPM</object-name>
-		<property>systems/apu/n1-actual</property>
-		<interpolation>
-			<entry><ind>  0</ind><dep>  0</dep></entry>
-			<entry><ind>110</ind><dep>297</dep></entry>
-		</interpolation>
+		<object-name>ApuRpm</object-name>
+		<property>instrumentation/apu-n/n</property>
+		<factor>2.7</factor> <!-- 270 degrees for 100%, so 2.7 for 1 -->
 		<axis>
-			<x1-m>2.93745</x1-m>
+			<x1-m>2.93707</x1-m>
 			<y1-m>-0.002</y1-m>
-			<z1-m>1.60511</z1-m>
-			<x2-m>2.93706</x2-m>
+			<z1-m>1.60562</z1-m>
+			<x2-m>2.93689</x2-m>
 			<y2-m>-0.002</y2-m>
-			<z2-m>1.60589</z2-m>
+			<z2-m>1.60598</z2-m>
 		</axis>
 	</animation>
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>APU_EGT</object-name>
+		<object-name>ApuRpm2</object-name>
+		<property>instrumentation/apu-n/n</property>
+		<factor>36</factor> <!-- 360 degrees for 10%, so 3.6 for 1 -->
+		<axis>
+			<x1-m>2.94789</x1-m>
+			<y1-m>-0.0118</y1-m>
+			<z1-m>1.61114</z1-m>
+			<x2-m>2.94732</x2-m>
+			<y2-m>-0.0118</y2-m>
+			<z2-m>1.61222</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>ApuEgt</object-name>
 		<property>instrumentation/apu-egt/egt</property>
 		<interpolation>
-			<entry><ind>  0</ind><dep> 19.5</dep></entry>
-			<entry><ind>300</ind><dep> 64.5</dep></entry>
-			<entry><ind>350</ind><dep> 72.0</dep></entry>
-			<entry><ind>400</ind><dep> 87.5</dep></entry>
-			<entry><ind>800</ind><dep>267.0</dep></entry>
+			<entry><ind>  0</ind><dep>-45.0</dep></entry>
+			<entry><ind>300</ind><dep>  0.0</dep></entry>
+			<entry><ind>350</ind><dep>  7.5</dep></entry>
+			<entry><ind>400</ind><dep> 22.5</dep></entry>
+			<entry><ind>800</ind><dep>202.5</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>2.93745</x1-m>
+			<x1-m>2.93707</x1-m>
 			<y1-m>-0.06</y1-m>
-			<z1-m>1.60511</z1-m>
-			<x2-m>2.93706</x2-m>
+			<z1-m>1.60562</z1-m>
+			<x2-m>2.93689</x2-m>
 			<y2-m>-0.06</y2-m>
-			<z2-m>1.60589</z2-m>
+			<z2-m>1.60598</z2-m>
 		</axis>
 	</animation>
 	

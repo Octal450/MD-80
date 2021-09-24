@@ -1326,6 +1326,12 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<input>engine/n2-actual-2</input>
 			<c1>15</c1>
 		</lag_filter>
+		
+		<!-- APU N Gauge -->
+		<lag_filter name="/instrumentation/apu-n/n">
+			<input>/systems/apu/n1-actual</input>
+			<c1>15</c1>
+		</lag_filter>
 	
 	</channel>
 	
