@@ -193,11 +193,43 @@
 	
 	<!-- Because overwriting from JSBsim doesn't work -->
 	<filter>
+		<name>Engine 1 Cutoff</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>/systems/ignition/cutoff-1</input>
+		<output>/controls/engines/engine[0]/cutoff</output>
+	</filter>
+	
+	<filter>
+		<name>Engine 2 Cutoff</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>/systems/ignition/cutoff-2</input>
+		<output>/controls/engines/engine[1]/cutoff</output>
+	</filter>
+	
+	<filter>
 		<name>APU Cutoff</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>/systems/apu/cutoff</input>
 		<output>/controls/engines/engine[2]/cutoff</output>
+	</filter>
+	
+	<filter>
+		<name>Engine 1 Starter</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>/systems/ignition/starter-jsb-1</input>
+		<output>/controls/engines/engine[0]/starter</output>
+	</filter>
+	
+	<filter>
+		<name>Engine 2 Starter</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>/systems/ignition/starter-jsb-2</input>
+		<output>/controls/engines/engine[1]/starter</output>
 	</filter>
 	
 	<filter>

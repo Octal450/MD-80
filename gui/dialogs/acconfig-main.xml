@@ -144,16 +144,10 @@
 								setprop("/controls/pneumatics/switches/x-bleed-r", 1);
 								setprop("/controls/lighting/main-digital-knb", 1);
 								settimer(func() {
-									setprop("/controls/engines/engine[0]/cutoff", 0);
-									setprop("/controls/engines/engine[1]/cutoff", 0);
-									setprop("/controls/engines/engine[0]/starter", 0);
-									setprop("/controls/engines/engine[1]/starter", 0);
-									setprop("/fdm/jsbsim/propulsion/set-running", 0);
-									setprop("/fdm/jsbsim/propulsion/set-running", 1);
+									systems.IGNITION.fastStart(0);
+									systems.IGNITION.fastStart(1);
 									#setprop("/controls/pneumatics/switches/supply-l", 2);
 									#setprop("/controls/pneumatics/switches/supply-r", 2);
-									setprop("/engines/engine[0]/state", 3);
-									setprop("/engines/engine[1]/state", 3);
 									setprop("/controls/electrical/switches/ext-pwr-l", 0);
 									setprop("/controls/electrical/switches/ext-pwr-r", 0);
 									setprop("/controls/switches/cart", 0);

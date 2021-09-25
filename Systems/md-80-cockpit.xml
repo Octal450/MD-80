@@ -39,6 +39,16 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="engine/engine-cutoff[0]">
+			<input>/controls/engines/engine[0]/cutoff-switch</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="engine/engine-cutoff[1]">
+			<input>/controls/engines/engine[1]/cutoff-switch</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="fcs-actual/flap-lever">
 			<input>/controls/flight/flaps-input</input>
 			<c1>20</c1>

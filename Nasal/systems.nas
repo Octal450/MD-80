@@ -402,6 +402,24 @@ var HYD = {
 	},
 };
 
+# Ignition
+var IGNITION = {
+	cutoff1: props.globals.getNode("/systems/ignition/cutoff-1"),
+	cutoff2: props.globals.getNode("/systems/ignition/cutoff-2"),
+	starter1: props.globals.getNode("/systems/ignition/starter-1"),
+	starter2: props.globals.getNode("/systems/ignition/starter-2"),
+	Switch: {
+		ign: props.globals.getNode("/controls/ignition/ign"),
+	},
+	init: func() {
+		me.Switch.ign.setBoolValue(0);
+	},
+	fastStart: func(n) {
+		ENGINE.cutoffSwitch[n].setBoolValue(0);
+		pts.Fdm.JSBsim.Propulsion.setRunning.setValue(n);
+	},
+};
+
 # Pneumatics
 var PNEU = {
 	Fail: {

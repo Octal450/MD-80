@@ -50,7 +50,7 @@
 		
 		<switch name="/systems/pneumatics/apu-psi">
 			<default value="0"/>
-			<test logic="AND" value="31">
+			<test logic="AND" value="43">
 				/systems/pneumatics/apu-active eq 1
 			</test>
 		</switch>
@@ -61,7 +61,7 @@
 					<independentVar lookup="row">/engines/engine[0]/n2-actual</independentVar>
 					<tableData>
 						23   0
-						25  32
+						25  42
 					</tableData>
 				</table>
 			</function>
@@ -81,7 +81,7 @@
 					<independentVar lookup="row">/engines/engine[1]/n2-actual</independentVar>
 					<tableData>
 						23   0
-						25  33
+						25  41
 					</tableData>
 				</table>
 			</function>
@@ -97,7 +97,7 @@
 		
 		<switch name="/systems/pneumatics/ground-psi">
 			<default value="0"/>
-			<test logic="AND" value="34">
+			<test logic="AND" value="44">
 				/controls/pneumatics/switches/ground-air eq 1
 			</test>
 		</switch>

@@ -2717,6 +2717,7 @@ refs 4
 kids 0
 OBJECT poly
 name "CADC"
+loc -0.100702 0.12681 0
 data 19
 RudderTrim.mesh.000
 texture "cockpit_oh_cadc.png"
@@ -4251,6 +4252,7 @@ refs 4
 kids 0
 OBJECT poly
 name "CADC_PANEL"
+loc -0.100702 0.12681 0
 data 8
 Cube.003
 texture "cockpit_oh_cadc.png"
@@ -7365,6 +7367,7 @@ refs 4
 kids 0
 OBJECT poly
 name "CADC_PANEL_GLARE"
+loc -0.100702 0.12681 0
 data 5
 Plane
 texture "cadc_glare.png"
@@ -7385,6 +7388,7 @@ refs 4
 kids 0
 OBJECT poly
 name "CVR_PANEL"
+loc -0.100702 0.12681 0
 data 8
 Cube.000
 texture "cockpit_oh_cvr.png"
@@ -13589,6 +13593,7 @@ refs 4
 kids 0
 OBJECT poly
 name "CVR_PANEL_GLARE"
+loc -0.100702 0.12681 0
 data 9
 Plane.002
 texture "cvr_glare.png"
@@ -13709,6 +13714,7 @@ refs 3
 kids 0
 OBJECT poly
 name "EFIS_NORM"
+loc -0.100702 0.12681 0
 data 19
 RudderTrim.mesh.001
 texture "cockpit_oh_cadc.png"
@@ -15077,6 +15083,7 @@ refs 8
 kids 0
 OBJECT poly
 name "EFIS_NORM_GLARE"
+loc -0.100702 0.12681 0
 data 19
 RudderTrim.mesh.018
 texture "cadc_glare.png"
@@ -15801,6 +15808,7 @@ refs 3
 kids 0
 OBJECT poly
 name "FD_CMD"
+loc -0.100702 0.12681 0
 data 15
 CU1_curve_.1255
 texture "cockpit_oh_cadc.png"
@@ -18109,6 +18117,7 @@ refs 4
 kids 0
 OBJECT poly
 name "FD_CMD_GLARE"
+loc -0.100702 0.12681 0
 data 14
 CU1_curve_.010
 texture "cadc_glare.png"

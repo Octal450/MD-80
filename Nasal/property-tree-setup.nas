@@ -64,6 +64,7 @@ var Fdm = {
 			wowTemp: 0,
 		},
 		Propulsion: {
+			setRunning: props.globals.getNode("/fdm/jsbsim/propulsion/set-running"),
 			tatC: props.globals.getNode("/fdm/jsbsim/propulsion/tat-c"),
 		},
 		Spoilers: {

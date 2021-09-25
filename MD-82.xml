@@ -169,7 +169,6 @@
 	</propulsion>
 	
 	<system file="md-80-libraries"/>
-	<system file="glass-effect"/>
 	<system file="md-80-electrical"/>
 	<system file="md-80-fuel"/>
 	<system file="md-80-hydraulics"/>
@@ -177,10 +176,12 @@
 	<system file="md-80-dfgs"/>
 	<system file="md-80-fcs"/>
 	<system file="md-80-spoiler"/>
-	<system file="md-80-pw-engine-tri"/>
+	<system file="md-80-ignition"/>
+	<system file="md-80-217a-engine-tri"/>
 	<system file="md-80-apu"/>
 	<system file="md-80-cockpit"/>
 	<system file="md-80-instrumentation"/>
+	<system file="glass-effect"/>
 	
 	<flight_control name="none"/>
 	<aerodynamics file="Systems/md-80-aerodynamics.xml"/>

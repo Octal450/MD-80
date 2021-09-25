@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-80 Ignition -->
+<!-- Copyright (c) 2021 Josh Davidson (Octal450) -->
+
+<system name="MD-80: Ignition">
+	
+	<channel name="Ignition" execrate="8">
+		
+		<switch name="/systems/ignition/ign-hi"> <!-- Starting -->
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/emer-ac ge 112
+				position/wow eq 1
+				/controls/ignition/ign eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/emer-ac ge 112
+				/controls/ignition/ign eq -1
+			</test>
+		</switch>
+		
+		<switch name="/systems/ignition/ign-lo"> <!-- Continuous -->
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/emer-ac ge 112
+				/controls/ignition/ign ne 0
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/ignition/ign-avail">
+			<input>/systems/ignition/ign-hi</input>
+			<gain>1.0</gain>
+		</pure_gain>
+	
+	</channel>
+	
+	<channel name="Engine Start/Stop"> <!-- Do NOT execrate! -->
+		
+		<!-- Engine 1 -->
+		<switch name="/systems/ignition/cutoff-1">
+			<default value="1"/>
+			<test logic="AND" value="0">
+				/controls/engines/engine[0]/cutoff-switch eq 0
+				propulsion/tank[3]/contents-lbs ge 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/ignition/start-valve-1-cmd">
+			<default value="/controls/engines/engine[0]/start-switch"/>
+			<test logic="OR" value="0">
+				/systems/pneumatics/bleed-l-psi lt 20
+				/systems/electrical/bus/dc-bat lt 24
+				<test value="AND">
+					/systems/electrical/bus/emer-ac lt 112
+					/systems/electrical/sources/idg-l/output-volt lt 112
+				</test>
+			</test>
+			<test logic="AND" value="0"> <!-- So that starting is aborting if cutoff placed to off -->
+				/systems/ignition/cutoff-1 eq 1
+				/engines/engine[0]/state ge 2
+			</test>
+			<output>/controls/engines/engine[0]/start-switch</output>
+		</switch>
+		
+		<actuator name="/systems/ignition/start-valve-1">
+			<input>/systems/ignition/start-valve-1-cmd</input>
+			<rate_limit sense="incr">1</rate_limit>
+			<rate_limit sense="decr">1000</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/ignition/starter-1">
+			<default value="0"/>
+			<test value="1">
+				/systems/ignition/start-valve-1 eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/ignition/starter-jsb-1">
+			<default value="/systems/ignition/start-valve-1"/>
+			<test logic="AND" value="1"> <!-- Because JSBsim will kill the engine if we cut out early, suggested release is 40 -->
+				/engines/engine[0]/n2-actual ge 38
+				/systems/ignition/cutoff-1 eq 0
+			</test>
+		</switch>
+		
+		<switch name="/systems/ignition/state-1">
+			<default value="0"/>
+			<test logic="AND" value="3">
+				/systems/ignition/cutoff-1 eq 0
+				/engines/engine[0]/n2-actual ge 50
+			</test>
+			<test logic="AND" value="2">
+				/systems/ignition/cutoff-1 eq 0
+				/systems/ignition/starter-jsb-1 eq 1
+			</test>
+			<test value="1">
+				/systems/ignition/starter-jsb-1 eq 1
+			</test>
+			<output>/engines/engine[0]/state</output>
+		</switch>
+		
+		<!-- Engine 1 -->
+		<switch name="/systems/ignition/cutoff-2">
+			<default value="1"/>
+			<test logic="AND" value="0">
+				/controls/engines/engine[1]/cutoff-switch eq 0
+				propulsion/tank[4]/contents-rbs ge 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/ignition/start-valve-2-cmd">
+			<default value="/controls/engines/engine[1]/start-switch"/>
+			<test logic="OR" value="0">
+				/systems/pneumatics/bleed-r-psi lt 20
+				/systems/electrical/bus/dc-bat lt 24
+				<test value="AND">
+					/systems/electrical/bus/emer-ac lt 112
+					/systems/electrical/sources/idg-r/output-volt lt 112
+				</test>
+			</test>
+			<test logic="AND" value="0"> <!-- So that starting is aborting if cutoff placed to off -->
+				/systems/ignition/cutoff-2 eq 1
+				/engines/engine[1]/state ge 2
+			</test>
+			<output>/controls/engines/engine[1]/start-switch</output>
+		</switch>
+		
+		<actuator name="/systems/ignition/start-valve-2">
+			<input>/systems/ignition/start-valve-2-cmd</input>
+			<rate_limit sense="incr">1</rate_limit>
+			<rate_limit sense="decr">1000</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/ignition/starter-2">
+			<default value="0"/>
+			<test value="1">
+				/systems/ignition/start-valve-2 eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/ignition/starter-jsb-2">
+			<default value="/systems/ignition/start-valve-2"/>
+			<test logic="AND" value="1"> <!-- Because JSBsim will kill the engine if we cut out early, suggested release is 40 -->
+				/engines/engine[1]/n2-actual ge 38
+				/systems/ignition/cutoff-2 eq 0
+			</test>
+		</switch>
+		
+		<switch name="/systems/ignition/state-2">
+			<default value="0"/>
+			<test logic="AND" value="3">
+				/systems/ignition/cutoff-2 eq 0
+				/engines/engine[1]/n2-actual ge 50
+			</test>
+			<test logic="AND" value="2">
+				/systems/ignition/cutoff-2 eq 0
+				/systems/ignition/starter-jsb-2 eq 1
+			</test>
+			<test value="1">
+				/systems/ignition/starter-jsb-2 eq 1
+			</test>
+			<output>/engines/engine[1]/state</output>
+		</switch>
+	
+	</channel>
+
+</system>

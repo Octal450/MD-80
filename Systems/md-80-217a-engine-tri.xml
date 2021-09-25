@@ -3,7 +3,7 @@
 <!-- McDonnell Douglas MD-80 JT8D-217A Engine/TRI -->
 <!-- Copyright (c) 2021 Josh Davidson (Octal450) -->
 
-<system name="MD-80: PW Engine/TRI">
+<system name="MD-80: 217A Engine/TRI">
 	
 	<property value="45">engine/limit/flex-temp</property>
 	<property value="30">engine/limit/rated-temp</property>

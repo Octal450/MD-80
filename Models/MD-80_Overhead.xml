@@ -48,7 +48,7 @@
 		<condition>
 			<greater-than>
 				<property>systems/apu/n1-actual</property>
-				<value>92.9</value>
+				<value>94.9</value>
 			</greater-than>
 		</condition>
 	</animation>
@@ -710,66 +710,107 @@
 		</axis>
 	</animation>
 	
-	<!-- Below all broke -->
-
-<animation>
-  <type>rotate</type>
-  <object-name>SwIgn</object-name>
-  <property>controls/engines/ignition</property>
-  <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>25</dep></entry>
-  </interpolation>   
-  <center>
-    <x-m>2.771</x-m>
-    <y-m>0</y-m>
-    <z-m>1.521</z-m>
-  </center>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>SwEngStartL</object-name>
-  <property>controls/engines/engine[0]/start-switch</property>
-  <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>25</dep></entry>
-  </interpolation>   
-  <center>
-    <x-m>2.758</x-m>
-    <y-m>0</y-m>
-    <z-m>1.514</z-m>
-  </center>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>SwEngStartR</object-name>
-  <property>controls/engines/engine[1]/start-switch</property>
-  <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>25</dep></entry>
-  </interpolation>   
-  <center>
-    <x-m>2.758</x-m>
-    <y-m>0</y-m>
-    <z-m>1.514</z-m>
-  </center>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>SwIgn</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/ignition/ign</property>
+				<value>-1</value>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/ignition/ign</property>
+				<value>1</value>
+				<value>0</value>
+				<value>-1</value>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>SwIgn</object-name>
+		<property>controls/ignition/ign</property>
+		<factor>25</factor> 
+		<center>
+			<x-m>2.771</x-m>
+			<y-m>0</y-m>
+			<z-m>1.521</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>SwEngStartL</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/engines/engine[0]/start-switch</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>SwEngStartL</object-name>
+		<property>controls/engines/engine[0]/start-switch</property>
+		<factor>25</factor>
+		<center>
+			<x-m>2.758</x-m>
+			<y-m>0</y-m>
+			<z-m>1.514</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>SwEngStartR</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/engines/engine[1]/start-switch</property>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>SwEngStartR</object-name>
+		<property>controls/engines/engine[1]/start-switch</property>
+		<factor>25</factor>
+		<center>
+			<x-m>2.758</x-m>
+			<y-m>0</y-m>
+			<z-m>1.514</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
 </PropertyList>
