@@ -117,8 +117,8 @@ var Input = {
 	latTemp: 3,
 	mach: props.globals.initNode("/it-autoflight/input/mach", 0.5, "DOUBLE"),
 	machFlch: props.globals.initNode("/it-autoflight/input/mach-flch", 0.5, "DOUBLE"),
-	pitch: props.globals.initNode("/it-autoflight/input/pitch", 0, "DOUBLE"),
-	pitchAbs: props.globals.initNode("/it-autoflight/input/pitch-abs", 0, "DOUBLE"), # Set by property rule
+	pitch: props.globals.initNode("/it-autoflight/input/pitch", 0, "INT"),
+	pitchAbs: props.globals.initNode("/it-autoflight/input/pitch-abs", 0, "INT"), # Set by property rule
 	radioSelTemp: 0,
 	toga: props.globals.initNode("/it-autoflight/input/toga", 0, "BOOL"),
 	trk: props.globals.initNode("/it-autoflight/input/trk", 0, "BOOL"),
@@ -277,9 +277,7 @@ var ITAF = {
 		}
 		
 		# Turbulance Mode Revision
-		if (Output.latTemp == 6 and Output.vertTemp != 5) {
-			me.setLatMode(3);
-		} else if (Output.latTemp != 6 and Output.vertTemp == 5) {
+		if (Output.latTemp != 6 and Output.vertTemp == 5) {
 			me.setVertMode(1);
 		}
 		
@@ -900,7 +898,7 @@ var ITAF = {
 		Input.vs.setValue(math.clamp(math.round(Internal.vs.getValue(), 100), -6000, 6000));
 	},
 	syncPitch: func() {
-		Input.pitch.setValue(math.clamp(math.round(Orientation.pitchDeg.getValue(), 0.1), -9.9, 9.9));
+		Input.pitch.setValue(math.clamp(math.round(Orientation.pitchDeg.getValue(), 0.1), -10, 25));
 	},
 	# Custom Stuff Below
 	updateLatText: func(t) {

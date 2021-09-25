@@ -1074,10 +1074,16 @@
 		<object-name>VSDigit4</object-name>
 		<object-name>VSDigitMinus</object-name>
 		<condition>
-			<not-equals>
-				<property>it-autoflight/output/vert</property>
-				<value>4</value>
-			</not-equals>
+			<and>
+				<not-equals>
+					<property>it-autoflight/output/vert</property>
+					<value>4</value>
+				</not-equals>
+				<not-equals>
+					<property>it-autoflight/output/vert</property>
+					<value>5</value>
+				</not-equals>
+			</and>
 		</condition>
 	</animation>
 	
@@ -1116,6 +1122,65 @@
 		<property>it-autoflight/input/vs-fma</property>
 		<factor>0.001</factor>
 		<step>100</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- Pitch Mode: VS -->
+	<animation>
+		<type>select</type>
+		<object-name>PitchModeTurb</object-name>
+		<object-name>TurbDigit1</object-name>
+		<object-name>TurbDigit2</object-name>
+		<object-name>TurbDigit3</object-name>
+		<object-name>TurbDigit4</object-name>
+		<object-name>TurbDigitMinus</object-name>
+		<condition>
+			<equals>
+				<property>it-autoflight/output/vert</property>
+				<value>5</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>TurbDigitMinus</object-name>
+		<condition>
+			<and>
+				<less-than>
+					<property>it-autoflight/input/pitch</property>
+					<value>-0.01</value>
+				</less-than>
+				<greater-than>
+					<property>it-autoflight/input/pitch-abs</property>
+					<value>0</value>
+				</greater-than>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>TurbDigit1</object-name>
+		<property>it-autoflight/input/pitch-abs</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>TurbDigit2</object-name>
+		<property>it-autoflight/input/pitch-abs</property>
+		<factor>0.1</factor>
+		<step>1</step>
 		<axis>
 			<x>0</x>
 			<y>1</y>

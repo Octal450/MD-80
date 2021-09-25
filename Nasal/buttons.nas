@@ -27,7 +27,9 @@ var apPanel = {
 	ktsFlchTemp: 0,
 	machTemp: 0,
 	machFlchTemp: 0,
+	pitchTemp: 0,
 	vertTemp: 0,
+	vsTemp: 0,
 	apSwitch: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			if (dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue()) {
@@ -157,7 +159,7 @@ var apPanel = {
 		}
 	},
 	autoLand: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcpPower.getoolValue()) {
 			me.latTemp = dfgs.Output.lat.getValue();
 			me.vertTemp = dfgs.Output.vert.getValue();
 			if ((me.latTemp == 2 or me.latTemp == 4) and (dfgs.Output.apprArm.getBoolValue() or me.vertTemp == 2 or me.vertTemp == 6)) { # Check logic
@@ -198,7 +200,18 @@ var apPanel = {
 					}
 				}
 			} else if (me.vertTemp == 5) {
-				# TODO
+				if (abs(d) == 10) {
+					me.pitchTemp = dfgs.Input.pitch.getValue() + (d * 0.5);
+				} else {
+					me.pitchTemp = dfgs.Input.pitch.getValue() + d;
+				}
+				if (me.pitchTemp < -10) {
+					dfgs.Input.pitch.setValue(-10);
+				} else if (me.pitchTemp > 25) {
+					dfgs.Input.pitch.setValue(25);
+				} else {
+					dfgs.Input.pitch.setValue(me.pitchTemp);
+				}
 			} else {
 				dfgs.Input.vert.setValue(1);
 			}

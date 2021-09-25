@@ -580,18 +580,12 @@
 		</enable>
 		<input>
 			<expression>
-				<div>
-					<floor>
-						<sum>
-							<product>
-								<property>/orientation/pitch-deg</property>
-								<value>10</value>
-							</product>
-							<value>0.5</value>
-						</sum>
-					</floor>
-					<value>10</value>
-				</div>
+				<floor>
+					<sum>
+						<property>/orientation/pitch-deg</property>
+						<value>0.5</value>
+					</sum>
+				</floor>
 			</expression>
 		</input>
 		<output>/it-autoflight/input/pitch</output>
