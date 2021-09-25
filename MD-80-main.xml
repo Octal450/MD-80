@@ -484,7 +484,7 @@
 			<aileron-drives-tiller type="bool">0</aileron-drives-tiller>
 			<elevator-trim type="double">-0.26</elevator-trim>
 			<elevator-trim-lever type="int">0</elevator-trim-lever>
-			<dial-a-flap type="double">15</dial-a-flap> <!-- Rounded in md-80-fcs.xml -->
+			<dial-a-flap type="double">0</dial-a-flap> <!-- Rounded in md-80-fcs.xml -->
 			<speedbrake-arm type="bool">0</speedbrake-arm>
 		</flight>
 		<fuel n="0">
@@ -531,6 +531,7 @@
 			<landing-light-n type="double">0</landing-light-n>
 			<landing-light-r type="double">0</landing-light-r>
 			<logo-lights type="bool">0</logo-lights>
+			<main-digital-knb type="double">1</main-digital-knb>
 			<position-strobe-light type="double">0</position-strobe-light>
 			<taxi-light type="bool">0</taxi-light>
 			<wing-lights type="double">0</wing-lights>

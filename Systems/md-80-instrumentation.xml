@@ -41,8 +41,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- Airspeed Indicator 1 -->
 		<switch name="/instrumentation/airspeed-indicator[0]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/emer-ac ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -160,8 +161,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- Airspeed Indicator 2 -->
 		<switch name="/instrumentation/airspeed-indicator[1]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/ac-r ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -283,8 +285,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- Attitude Indicator 1 -->
 		<switch name="/instrumentation/ai[0]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/emer-ac ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -393,8 +396,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- Attitude Indicator 2 -->
 		<switch name="/instrumentation/ai[1]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/ac-r ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -569,8 +573,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- Radio Altimeter 1 -->
 		<switch name="/instrumentation/agl[0]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/emer-ac ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -625,8 +630,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- Radio Altimeter 2 -->
 		<switch name="/instrumentation/agl[1]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/ac-r ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -685,8 +691,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- Altimeter 1 -->
 		<switch name="/instrumentation/altimeter[0]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/emer-ac ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -710,8 +717,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- Altimeter 2 -->
 		<switch name="/instrumentation/altimeter[1]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/ac-r ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -735,8 +743,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- Altimeter Standby -->
 		<switch name="/instrumentation/altimeter[2]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/dc-trans ge 24
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -764,8 +773,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- Radio Magnetic Indicator 1 -->
 		<switch name="/instrumentation/rmi[0]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/ac-r ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -820,8 +830,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- Radio Magnetic Indicator 2 -->
 		<switch name="/instrumentation/rmi[1]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/emer-ac ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -880,8 +891,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- Horizontal Situation Indicator 1 -->
 		<switch name="/instrumentation/hsi[0]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/emer-ac ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -983,8 +995,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- Horizontal Situation Indicator 2 -->
 		<switch name="/instrumentation/hsi[1]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/ac-r ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -1090,8 +1103,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- Vertical Speed Indicator 1 -->
 		<switch name="/instrumentation/vertical-speed-indicator[0]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/emer-ac ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -1115,8 +1129,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- Vertical Speed Indicator 2 -->
 		<switch name="/instrumentation/vertical-speed-indicator[1]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/ac-r ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -1144,8 +1159,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- EPR Gauge 1 -->
 		<switch name="/instrumentation/epr[0]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/ac-l ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -1224,8 +1240,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- EPR Gauge 2 -->
 		<switch name="/instrumentation/epr[1]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/ac-r ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -1340,8 +1357,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- EGT Gauge 1 -->
 		<switch name="/instrumentation/egt[0]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/emer-dc ge 24
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -1360,8 +1378,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- EGT Gauge 2 -->
 		<switch name="/instrumentation/egt[1]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/emer-dc ge 24
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -1380,8 +1399,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- APU EGT Gauge -->
 		<switch name="/instrumentation/apu-egt/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/dc-bat ge 24
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -1404,8 +1424,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- FF Gauge 1 -->
 		<switch name="/instrumentation/ff[0]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/ac-l ge 24
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -1424,8 +1445,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- FF Gauge 2 -->
 		<switch name="/instrumentation/ff[1]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/ac-r ge 24
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -1448,8 +1470,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- Oil Pressure Gauge 1 -->
 		<switch name="/instrumentation/op[0]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/ac-l ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
@@ -1468,8 +1491,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<!-- Oil Pressure Gauge 2 -->
 		<switch name="/instrumentation/op[1]/power-avail">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/systems/electrical/bus/ac-r ge 112
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		

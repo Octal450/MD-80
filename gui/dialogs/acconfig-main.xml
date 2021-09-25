@@ -121,7 +121,7 @@
 				<group>
 					<layout>vbox</layout>
 					
-					<button> <!-- Temporary in case you shut down by accident as VC startup doesn't work yet -->
+					<!--button>
 						<halign>center</halign>
 						<legend>Magic Startup</legend>
 						<pref-width>140</pref-width>
@@ -162,14 +162,8 @@
 						<binding>
 							<command>dialog-close</command>
 						</binding>
-					</button>
-					<text>
-						<label>Panel States will</label>
-					</text>
-					<text>
-						<label>be added soon.</label>
-					</text>
-					<!--button>
+					</button-->
+					<button>
 						<halign>center</halign>
 						<legend>Cold and Dark</legend>
 						<pref-width>140</pref-width>
@@ -248,7 +242,7 @@
 						<binding>
 							<command>dialog-close</command>
 						</binding>
-					</button-->
+					</button>
 				</group>
 			</group>
 		</group>

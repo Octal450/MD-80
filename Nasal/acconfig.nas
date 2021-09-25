@@ -237,21 +237,189 @@ var OPTIONS = {
 
 # Panel States specifically designed to work with IntegratedSystems design
 var PANEL = {
+	engTimer: 10,
+	l1: nil,
 	stop: 1,
 	cancel: func() {
 		me.stop = 1; # Kill timers
-	},
-	panelBase: func(t) {
 		
-	},
-	coldDark: func() {
+		# Kill listeners
+		if (me.l1 != nil) {
+			removelistener(me.l1);
+			me.l1 = nil; # Important
+		}
 		
+		me.panelBase(0, 1); # Don't disable stop
+		
+		pts.Services.Chocks.enable.setBoolValue(1);
+		systems.ENGINE.cutoffSwitch[0].setBoolValue(1);
+		systems.ENGINE.cutoffSwitch[1].setBoolValue(1);
+		
+		fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
+		fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-init"}));
+		
+		settimer(func() { # Give things a moment to settle
+			fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-init"}));
+			spinningT.stop();
+			SYSTEM.autoConfigRunning.setBoolValue(0);
+		}, 2);
+	},
+	panelBase: func(t, s = 0) {
+		if (s != 1) {
+			me.stop = 0;
+		}
+		
+		SYSTEM.autoConfigRunning.setBoolValue(1);
+		spinningT.start();
+		fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psloaded"}));
+		fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-psload"}));
+		systems.doIdleThrust();
+		libraries.systemsInit();
+		pts.Controls.Flight.speedbrake.setValue(0);
+		if (t == 1) {
+			pts.Controls.Flight.elevatorTrim.setValue(-0.26); # About 3.25ANU
+			pts.Controls.Flight.flaps.setValue(0.36); # 11/MID
+			pts.Controls.Flight.speedbrakeArm.setBoolValue(1);
+		} else {
+			pts.Controls.Flight.elevatorTrim.setValue(-0.26); # About 3.25ANU
+			pts.Controls.Flight.flaps.setValue(0);
+			pts.Controls.Flight.speedbrakeArm.setBoolValue(0);
+		}
+		systems.GEAR.Switch.leverCockpit.setValue(3);
+	},
+	coldDark: func(s = 0) {
+		me.panelBase(0);
+		
+		pts.Services.Chocks.enable.setBoolValue(1);
+		systems.ENGINE.cutoffSwitch[0].setBoolValue(1);
+		systems.ENGINE.cutoffSwitch[1].setBoolValue(1);
+		
+		settimer(func() { # Give things a moment to settle
+			fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
+			spinningT.stop();
+			if (!s) {
+				fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-psloaded"}));
+			}
+			SYSTEM.autoConfigRunning.setBoolValue(0);
+			me.stop = 1;
+		}, 4); # Let analog gauges go to the right place
 	},
 	beforeStart: func() {
+		me.panelBase(0);
 		
+		pts.Services.Chocks.enable.setBoolValue(1);
+		systems.ELEC.Switch.battery.setBoolValue(1);
+		systems.FUEL.Switch.pumpStart.setBoolValue(1);
+		systems.APU.fastStart();
+		pts.Controls.Lighting.beacon.setBoolValue(1);
+		pts.Controls.Lighting.positionStrobeLight.setValue(0.5);
+		pts.Controls.Switches.seatbeltSign.setBoolValue(1);
+		
+		systems.ENGINE.cutoffSwitch[0].setBoolValue(1);
+		systems.ENGINE.cutoffSwitch[1].setBoolValue(1);
+		
+		me.l1 = setlistener("/engines/engine[2]/state", func() {
+			if (systems.APU.state.getValue() == 3) {
+				removelistener(me.l1);
+				me.l1 = nil; # Important
+				systems.ELEC.Switch.apuPwrL.setBoolValue(1);
+				systems.ELEC.Switch.apuPwrR.setBoolValue(1);
+				systems.FUEL.Switch.pumpAftL.setBoolValue(1);
+				systems.FUEL.Switch.pumpAftR.setBoolValue(1);
+				systems.FUEL.Switch.pumpFwdL.setBoolValue(1);
+				systems.FUEL.Switch.pumpFwdR.setBoolValue(1);
+				if (pts.Fdm.JSBsim.Propulsion.Tank.contentLbs[1].getValue() > 10) {
+					systems.FUEL.Switch.pumpAftC.setBoolValue(1);
+					systems.FUEL.Switch.pumpFwdC.setBoolValue(1);
+				}
+				systems.FUEL.Switch.pumpStart.setBoolValue(0);
+				systems.PNEU.Switch.bleedApu.setValue(1);
+				systems.PNEU.Switch.xBleedL.setValue(1);
+				systems.PNEU.Switch.xBleedR.setValue(1);
+				fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
+				spinningT.stop();
+				fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-psloaded"}));
+				SYSTEM.autoConfigRunning.setBoolValue(0);
+				me.stop = 1;
+			}
+		});
 	},
 	afterStart: func(t) {
+		me.panelBase(t);
 		
+		pts.Services.Chocks.enable.setBoolValue(0);
+		systems.ELEC.Switch.battery.setBoolValue(1);
+		systems.ELEC.Source.Ext.cart.setBoolValue(1); # autoConfigRunning cancels disable check in libraries.nas
+		systems.ELEC.Switch.extPwrL.setBoolValue(1);
+		systems.ELEC.Switch.extPwrR.setBoolValue(1);
+		pts.Controls.Switches.seatbeltSign.setBoolValue(1);
+		pts.Controls.Lighting.beacon.setBoolValue(1);
+		pts.Controls.Lighting.positionStrobeLight.setValue(0.5);
+		systems.FUEL.Switch.pumpAftL.setBoolValue(1);
+		systems.FUEL.Switch.pumpAftR.setBoolValue(1);
+		systems.FUEL.Switch.pumpFwdL.setBoolValue(1);
+		systems.FUEL.Switch.pumpFwdR.setBoolValue(1);
+		if (pts.Fdm.JSBsim.Propulsion.Tank.contentLbs[1].getValue() > 10) {
+			systems.FUEL.Switch.pumpAftC.setBoolValue(1);
+			systems.FUEL.Switch.pumpFwdC.setBoolValue(1);
+		}
+		systems.IGNITION.Switch.ign.setValue(1);
+		systems.PNEU.Switch.xBleedL.setValue(1);
+		systems.PNEU.Switch.xBleedR.setValue(1);
+		
+		if (pts.Engines.Engine.state[0].getValue() != 3 or pts.Engines.Engine.state[1].getValue() != 3) {
+			engTimer = 10;
+			settimer(func() {
+				if (!me.stop) {
+					systems.IGNITION.fastStart(0);
+					systems.IGNITION.fastStart(1);
+				}
+			}, 0.5);
+		} else {
+			engTimer = 1;
+		}
+		
+		me.l1 = setlistener("/engines/engine[1]/state", func() {
+			if (pts.Engines.Engine.state[1].getValue() == 3) {
+				removelistener(me.l1);
+				me.l1 = nil; # Important
+				systems.ELEC.Source.Ext.cart.setBoolValue(0);
+				systems.ELEC.Switch.extPwrL.setBoolValue(0);
+				systems.ELEC.Switch.extPwrR.setBoolValue(0);
+				systems.IGNITION.Switch.ign.setValue(0);
+				# XPDR TA/RA
+				
+				if (t == 1) {
+					pts.Controls.Lighting.positionStrobeLight.setValue(1);
+					pts.Controls.Lighting.landingLightL.setValue(1);
+					pts.Controls.Lighting.landingLightN.setValue(1);
+					pts.Controls.Lighting.landingLightR.setValue(1);
+				} else {
+					pts.Controls.Lighting.landingLightL.setValue(0.5);
+					pts.Controls.Lighting.landingLightN.setValue(0.5);
+					pts.Controls.Lighting.landingLightR.setValue(0.5);
+				}
+				
+				settimer(func() {
+					if (!me.stop) {
+						if (t == 1) {
+							systems.BRAKES.Switch.abs.setValue(-1); # T/O
+							systems.BRAKES.Switch.arm.setBoolValue(1);
+						}
+					}
+				}, 1);
+				
+				settimer(func() { # Give things a moment to settle
+					if (!me.stop) {
+						fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
+						spinningT.stop();
+						fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-psloaded"}));
+						SYSTEM.autoConfigRunning.setBoolValue(0);
+						me.stop = 1;
+					}
+				}, engTimer);
+			}
+		});
 	},
 };
 
@@ -264,18 +432,6 @@ setlistener("/sim/signals/fdm-initialized", func() {
 
 setlistener("/sim/signals/reinit", func(s) {
 	if (!s.getBoolValue() and libraries.initDone) {
-		#PANEL.coldDark(1);
-		
-		libraries.systemsInit();
-		pts.Services.Chocks.enable.setBoolValue(1);
-		setprop("/controls/lighting/main-digital-norm", 0);
-		settimer(func() {
-			setprop("/controls/engines/engine[0]/cutoff", 1);
-			setprop("/controls/engines/engine[1]/cutoff", 1);
-			setprop("/controls/engines/engine[0]/starter", 0);
-			setprop("/controls/engines/engine[1]/starter", 0);
-			setprop("/engines/engine[0]/state", 0);
-			setprop("/engines/engine[1]/state", 0);
-		}, 1);
+		PANEL.coldDark(1);
 	}
 });

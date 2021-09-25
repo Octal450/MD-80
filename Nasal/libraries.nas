@@ -31,6 +31,7 @@ var systemsInit = func() {
 	systems.PNEU.init();
 	dfgs.ITAF.init(0);
 	systems.TRI.init();
+	libraries.variousReset();
 }
 
 var fdmInit = setlistener("sim/signals/fdm-initialized", func() {

@@ -14,10 +14,10 @@
 	<n2spinup>10</n2spinup> <!-- Take longer so that n1 stays at ignition% for a bit -->
 	<n1startrate>1.448</n1startrate> <!-- ~65 seconds -->
 	<n2startrate>1.308</n2startrate> <!-- ~65 seconds -->
-	<idlen1>99.99</idlen1>
-	<idlen2>99.99</idlen2>
-	<maxn1>100</maxn1>
-	<maxn2>100</maxn2>
+	<idlen1>99.5</idlen1>
+	<idlen2>99.5</idlen2>
+	<maxn1>99.6</maxn1>
+	<maxn2>99.6</maxn2>
 	<augmented>0</augmented>
 	<injected>0</injected>
 	<disable-windmill>1</disable-windmill>

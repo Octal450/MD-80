@@ -3,7 +3,16 @@
 
 # Resets buttons to the default values
 var variousReset = func() {
-	pts.Controls.Flight.dialAFlap.setValue(15);
+	pts.Controls.Flight.dialAFlap.setValue(0);
+	pts.Controls.Lighting.beacon.setBoolValue(0);
+	pts.Controls.Lighting.landingLightL.setValue(0);
+	pts.Controls.Lighting.landingLightN.setValue(0);
+	pts.Controls.Lighting.landingLightR.setValue(0);
+	pts.Controls.Lighting.logoLights.setBoolValue(0);
+	pts.Controls.Lighting.mainDigitalKnb.setValue(1);
+	pts.Controls.Lighting.positionStrobeLight.setValue(0);
+	pts.Controls.Lighting.taxiLight.setBoolValue(0);
+	pts.Controls.Lighting.wingLights.setValue(0);
 	pts.Controls.Switches.minimums.setValue(200);
 	pts.Controls.Switches.noSmokingSign.setValue(1); # Smoking is bad!
 	pts.Controls.Switches.seatbeltSign.setValue(0);

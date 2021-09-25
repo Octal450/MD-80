@@ -24,6 +24,17 @@ var Controls = {
 		lever: props.globals.getNode("/controls/gear/lever"),
 		leverCockpit: props.globals.getNode("/controls/gear/lever-cockpit"),
 	},
+	Lighting: {
+		beacon: props.globals.getNode("/controls/lighting/beacon"),
+		landingLightL: props.globals.getNode("/controls/lighting/landing-light-l"),
+		landingLightN: props.globals.getNode("/controls/lighting/landing-light-n"),
+		landingLightR: props.globals.getNode("/controls/lighting/landing-light-r"),
+		logoLights: props.globals.getNode("/controls/lighting/logo-lights"),
+		mainDigitalKnb: props.globals.getNode("/controls/lighting/main-digital-knb"),
+		positionStrobeLight: props.globals.getNode("/controls/lighting/position-strobe-light"),
+		taxiLight: props.globals.getNode("/controls/lighting/taxi-light"),
+		wingLights: props.globals.getNode("/controls/lighting/wing-lights"),
+	},
 	Misc: {
 		minimumsLatch: props.globals.getNode("/controls/misc/minimums-latch"),
 	},
@@ -33,6 +44,19 @@ var Controls = {
 		seatbeltSign: props.globals.getNode("/controls/switches/seatbelt-sign"),
 	},
 };
+
+var Engines = {
+	Engine: {
+		egtActual: [props.globals.getNode("/engines/engine[0]/egt-actual"), props.globals.getNode("/engines/engine[1]/egt-actual")],
+		eprActual: [props.globals.getNode("/engines/engine[0]/epr-actual"), props.globals.getNode("/engines/engine[1]/epr-actual")],
+		ffActual: [props.globals.getNode("/engines/engine[0]/ff-actual"), props.globals.getNode("/engines/engine[1]/ff-actual")],
+		n1Actual: [props.globals.getNode("/engines/engine[0]/n1-actual"), props.globals.getNode("/engines/engine[1]/n1-actual")],
+		n2Actual: [props.globals.getNode("/engines/engine[0]/n2-actual"), props.globals.getNode("/engines/engine[1]/n2-actual")],
+		oilPsi: [props.globals.getNode("/engines/engine[0]/oil-psi"), props.globals.getNode("/engines/engine[1]/oil-psi")],
+		state: [props.globals.getNode("/engines/engine[0]/state"), props.globals.getNode("/engines/engine[1]/state")],
+	},
+};
+
 
 var Fdm = {
 	JSBsim: {
@@ -58,6 +82,9 @@ var Fdm = {
 		},
 		Propulsion: {
 			setRunning: props.globals.getNode("/fdm/jsbsim/propulsion/set-running"),
+			Tank: {
+				contentLbs: [props.globals.getNode("/fdm/jsbsim/propulsion/tank[0]/contents-lbs"), props.globals.getNode("/fdm/jsbsim/propulsion/tank[1]/contents-lbs"), props.globals.getNode("/fdm/jsbsim/propulsion/tank[2]/contents-lbs")], 
+			},
 			tatC: props.globals.getNode("/fdm/jsbsim/propulsion/tat-c"),
 		},
 		Spoilers: {

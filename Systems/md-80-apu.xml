@@ -175,7 +175,7 @@
 		
 		<lag_filter name="/systems/apu/egt-actual">
 			<input>/systems/apu/egt-cmd</input>
-			<c1>0.35</c1>
+			<c1>engine/egt-c1</c1>
 			<output>/engines/engine[2]/egt-actual</output>
 		</lag_filter>
 		
