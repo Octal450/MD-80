@@ -5,13 +5,6 @@
 # Usage Example: pts.Class.SubClass.node.getValue()
 
 var Controls = {
-	Engines: {
-		Engine: {
-			reverseLever: [props.globals.getNode("/controls/engines/engine[0]/reverse-lever"), props.globals.getNode("/controls/engines/engine[1]/reverse-lever")],
-			reverseLeverTemp: [0, 0],
-			throttle: [props.globals.getNode("/controls/engines/engine[0]/throttle"), props.globals.getNode("/controls/engines/engine[1]/throttle")],
-		},
-	},
 	Flight: {
 		aileronDrivesTiller: props.globals.getNode("/controls/flight/aileron-drives-tiller"),
 		autoCoordination: props.globals.getNode("/controls/flight/auto-coordination", 1),

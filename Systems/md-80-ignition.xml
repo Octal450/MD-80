@@ -60,7 +60,6 @@
 				/systems/ignition/cutoff-1 eq 1
 				/engines/engine[0]/state ge 2
 			</test>
-			<output>/controls/engines/engine[0]/start-switch</output>
 		</switch>
 		
 		<actuator name="/systems/ignition/start-valve-1">
@@ -123,7 +122,6 @@
 				/systems/ignition/cutoff-2 eq 1
 				/engines/engine[1]/state ge 2
 			</test>
-			<output>/controls/engines/engine[1]/start-switch</output>
 		</switch>
 		
 		<actuator name="/systems/ignition/start-valve-2">
