@@ -336,6 +336,8 @@ var PANEL = {
 				systems.PNEU.Switch.bleedApu.setValue(1);
 				systems.PNEU.Switch.xBleedL.setValue(1);
 				systems.PNEU.Switch.xBleedR.setValue(1);
+				dfgs.Input.fd1.setBoolValue(1);
+				dfgs.Input.fd2.setBoolValue(1);
 				fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
 				spinningT.stop();
 				fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-psloaded"}));
@@ -386,8 +388,12 @@ var PANEL = {
 				systems.ELEC.Source.Ext.cart.setBoolValue(0);
 				systems.ELEC.Switch.extPwrL.setBoolValue(0);
 				systems.ELEC.Switch.extPwrR.setBoolValue(0);
+				systems.HYD.Switch.lPump.setValue(2);
+				systems.HYD.Switch.rPump.setValue(2);
 				systems.IGNITION.Switch.ign.setValue(0);
 				# XPDR TA/RA
+				dfgs.Input.fd1.setBoolValue(1);
+				dfgs.Input.fd2.setBoolValue(1);
 				
 				if (t == 1) {
 					pts.Controls.Lighting.positionStrobeLight.setValue(1);
@@ -405,6 +411,7 @@ var PANEL = {
 						if (t == 1) {
 							systems.BRAKES.Switch.abs.setValue(-1); # T/O
 							systems.BRAKES.Switch.arm.setBoolValue(1);
+							dfgs.Input.toga.setValue(1);
 						}
 					}
 				}, 1);
