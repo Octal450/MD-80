@@ -47,38 +47,46 @@ var SYSTEM = {
 		}
 		
 		fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-init"}));
-		spinningT.stop();
+		fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-init-gauge"}));
 		
-		me.errorCheck();
-		OPTIONS.read();
-		
-		if (!CONFIG.noUpdateCheck) { # Update Checks Enabled
-			if (me.Error.outOfDate) {
-				fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-update"}));
-			} else if (me.Error.code.getValue() == "0x000") {
-				if (OPTIONS.savedRevision.getValue() < me.revisionTemp) {
-					fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-updated"}));
-				} else if (!OPTIONS.welcomeSkip.getBoolValue()) {
-					fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-welcome"}));
+		# Now lets let all the analog gauges go to the right place
+		me.autoConfigRunning.setBoolValue(1);
+		settimer(func() {
+			me.autoConfigRunning.setBoolValue(0);
+			fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-init-gauge"}));
+			spinningT.stop();
+			
+			me.errorCheck();
+			OPTIONS.read();
+			
+			if (!CONFIG.noUpdateCheck) { # Update Checks Enabled
+				if (me.Error.outOfDate) {
+					fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-update"}));
+				} else if (me.Error.code.getValue() == "0x000") {
+					if (OPTIONS.savedRevision.getValue() < me.revisionTemp) {
+						fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-updated"}));
+					} else if (!OPTIONS.welcomeSkip.getBoolValue()) {
+						fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-welcome"}));
+					}
+					
+					# Only do on successful init
+					RENDERING.check();
+					OPTIONS.savedRevision.setValue(me.revisionTemp);
+					OPTIONS.write();
 				}
-				
-				# Only do on successful init
-				RENDERING.check();
-				OPTIONS.savedRevision.setValue(me.revisionTemp);
-				OPTIONS.write();
-			}
-		} else { # No Update Checks
-			if (me.Error.code.getValue() == "0x000") {
-				if (!OPTIONS.welcomeSkip.getBoolValue()) {
-					fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-welcome"}));
+			} else { # No Update Checks
+				if (me.Error.code.getValue() == "0x000") {
+					if (!OPTIONS.welcomeSkip.getBoolValue()) {
+						fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-welcome"}));
+					}
+					
+					# Only do on successful init
+					RENDERING.check();
+					OPTIONS.savedRevision.setValue(me.revisionTemp);
+					OPTIONS.write();
 				}
-				
-				# Only do on successful init
-				RENDERING.check();
-				OPTIONS.savedRevision.setValue(me.revisionTemp);
-				OPTIONS.write();
 			}
-		}
+		}, 4);
 	},
 	errorCheck: func() {
 		if (!me.versionCheck()) {

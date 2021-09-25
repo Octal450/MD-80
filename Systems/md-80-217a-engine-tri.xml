@@ -1086,6 +1086,36 @@
 			<input>engine/oil-psi-cmd-2</input>
 			<lag>0.5</lag>
 		</actuator>
+		
+		<fcs_function name="/engines/engine[0]/oil-qty">
+			<function>
+				<sum>
+					<property>/engines/engine[0]/oil-qty-input</property>
+					<table>
+						<independentVar lookup="row">/engines/engine[0]/n2-actual</independentVar>
+						<tableData>
+							30.0  0
+							54.2 -2
+						</tableData>
+					</table>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/engines/engine[1]/oil-qty">
+			<function>
+				<sum>
+					<property>/engines/engine[1]/oil-qty-input</property>
+					<table>
+						<independentVar lookup="row">/engines/engine[1]/n2-actual</independentVar>
+						<tableData>
+							30.0  0
+							54.2 -2
+						</tableData>
+					</table>
+				</sum>
+			</function>
+		</fcs_function>
 	
 	</channel>
 

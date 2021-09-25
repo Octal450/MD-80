@@ -1,4 +1,4 @@
-# McDonnell Douglas MD-80 Master System
+# McDonnell Douglas MD-80 Systems
 # Copyright (c) 2021 Josh Davidson (Octal450)
 
 # APU
@@ -285,6 +285,8 @@ var ENGINE = {
 		me.reverseLever[1].setBoolValue(0);
 		me.startSwitch[0].setBoolValue(0);
 		me.startSwitch[1].setBoolValue(0);
+		pts.Engines.Engine.oilQtyInput[0].setValue(math.round((rand() * 4) + 14 , 0.1)); # Random between 14 and 18
+		pts.Engines.Engine.oilQtyInput[1].setValue(math.round((rand() * 4) + 14 , 0.1)); # Random between 14 and 18
 	},
 };
 

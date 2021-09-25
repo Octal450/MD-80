@@ -10,20 +10,6 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 
 <system name="MD-80: Instrumentation">
 	
-	<!-- So they start at the right place -->
-	<property value="-200">/instrumentation/agl[0]/minimums-input</property>
-	<property value="-200">/instrumentation/agl[1]/minimums-input</property>
-	<property value="100">/instrumentation/airspeed-indicator[0]/bug-kts-input</property>
-	<property value="340">/instrumentation/airspeed-indicator[0]/vmo-mmo-input</property>
-	<property value="100">/instrumentation/airspeed-indicator[1]/bug-kts-input</property>
-	<property value="340">/instrumentation/airspeed-indicator[1]/vmo-mmo-input</property>
-	<property value="0.996">/instrumentation/epr[0]/epr-input</property>
-	<property value="0.996">/instrumentation/epr[1]/epr-input</property>
-	<property value="1.95">/instrumentation/epr[0]/epr-bug-input</property>
-	<property value="1.95">/instrumentation/epr[1]/epr-bug-input</property>
-	<property value="1.95">/controls/tri/limit-active</property>
-	<property value="15">/controls/tri/rat</property>
-	
 	<channel name="Airspeed Indicators" execrate="2">
 		
 		<fcs_function name="/it-autoflight/input/mach-kts-equiv">
@@ -1507,6 +1493,52 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<lag_filter name="/instrumentation/op[1]/op">
 			<input>/instrumentation/op[1]/op-input</input>
 			<c1>15</c1>
+		</lag_filter>
+	
+	</channel>
+	
+	<channel name="Oil Quantity Gauges" execrate="4">
+		
+		<!-- Oil Quantity Gauge 1 -->
+		<switch name="/instrumentation/oq[0]/power-avail">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/ac-l ge 112
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/oq[0]/oq-input">
+			<default value="/instrumentation/oq[0]/oq-input"/>
+			<test value="/engines/engine[0]/oil-qty">
+				/instrumentation/oq[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/oq[0]/oq">
+			<input>/instrumentation/oq[0]/oq-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<!-- Oil Quantity Gauge 2 -->
+		<switch name="/instrumentation/oq[1]/power-avail">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/ac-r ge 112
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/oq[1]/oq-input">
+			<default value="/instrumentation/oq[1]/oq-input"/>
+			<test value="/engines/engine[1]/oil-qty">
+				/instrumentation/oq[1]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/oq[1]/oq">
+			<input>/instrumentation/oq[1]/oq-input</input>
+			<c1>20</c1>
 		</lag_filter>
 	
 	</channel>
