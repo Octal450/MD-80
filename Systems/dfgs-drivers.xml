@@ -566,6 +566,38 @@
 	</filter>
 	
 	<filter>
+		<name>Pitch Turbulance Sync</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<enable>
+			<condition>
+				<not-equals>
+					<property>/it-autoflight/output/vert</property>
+					<value>5</value>
+				</not-equals>
+			</condition>
+		</enable>
+		<input>
+			<expression>
+				<div>
+					<floor>
+						<sum>
+							<product>
+								<property>/orientation/pitch-deg</property>
+								<value>10</value>
+							</product>
+							<value>0.5</value>
+						</sum>
+					</floor>
+					<value>10</value>
+				</div>
+			</expression>
+		</input>
+		<output>/it-autoflight/input/pitch</output>
+	</filter>
+	
+	<filter>
 		<name>Vertical Speed Filter</name>
 		<debug>false</debug>
 		<type>noise-spike</type>
@@ -674,18 +706,18 @@
 	</filter>
 	
 	<filter>
-		<name>FPA Abs</name>
+		<name>Pitch Abs</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<update-interval-secs type="double">0.02</update-interval-secs>
 		<input>
 			<expression>
 				<abs>
-					<property>/it-autoflight/input/fpa</property>
+					<property>/it-autoflight/input/pitch</property>
 				</abs>
 			</expression>
 		</input>
-		<output>/it-autoflight/input/fpa-abs</output>
+		<output>/it-autoflight/input/pitch-abs</output>
 	</filter>
 	
 	<filter>
@@ -1067,6 +1099,20 @@
 		<name>FD Pitch</name>
 		<debug>false</debug>
 		<type>noise-spike</type>
+		<input>
+			<condition>
+				<equals>
+					<property>/it-autoflight/output/vert</property>
+					<value>5</value>
+				</equals>
+			</condition>
+			<expression>
+				<difference>
+					<property>/it-autoflight/input/pitch</property>
+					<property>/orientation/pitch-deg</property>
+				</difference>
+			</expression>
+		</input>
 		<input>
 			<expression>
 				<product>

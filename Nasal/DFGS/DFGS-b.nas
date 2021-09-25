@@ -57,6 +57,9 @@ var updateFma = {
 		} else if (me.rollText == "G/A") {
 			Fma.rollA.setValue("GO");
 			Fma.rollB.setValue("RND");
+		} else if (me.rollText == "LVL") {
+			Fma.rollA.setValue("WNG");
+			Fma.rollB.setValue("LVL");
 		}
 	},
 	pitch: func() {
@@ -104,6 +107,9 @@ var updateFma = {
 		} else if (me.pitchText == "ROLLOUT") {
 			Fma.pitchA.setValue("ROL");
 			Fma.pitchB.setValue("OUT");
+		} else if (me.pitchText == "PITCH") {
+			Fma.pitchA.setValue("TURB");
+			Fma.pitchB.setValue("");
 		}
 	},
 	arm: func() {

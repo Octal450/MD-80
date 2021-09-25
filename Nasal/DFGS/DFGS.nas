@@ -54,6 +54,10 @@ var Misc = {
 	flapDegTemp: 0,
 };
 
+var Orientation = {
+	pitchDeg: props.globals.getNode("/orientation/pitch-deg"),
+};
+
 var Position = {
 	gearAglFtTemp: 0,
 	gearAglFt: props.globals.getNode("/position/gear-agl-ft", 1),
@@ -103,8 +107,6 @@ var Input = {
 	bankLimitSwTemp: 0,
 	fd1: props.globals.initNode("/it-autoflight/input/fd1", 0, "BOOL"),
 	fd2: props.globals.initNode("/it-autoflight/input/fd2", 0, "BOOL"),
-	fpa: props.globals.initNode("/it-autoflight/input/fpa", 0, "DOUBLE"),
-	fpaAbs: props.globals.initNode("/it-autoflight/input/fpa-abs", 0, "DOUBLE"), # Set by property rule
 	hdg: props.globals.initNode("/it-autoflight/input/hdg", 0, "INT"),
 	hdgCalc: 0,
 	kts: props.globals.initNode("/it-autoflight/input/kts", 100, "INT"),
@@ -115,6 +117,8 @@ var Input = {
 	latTemp: 3,
 	mach: props.globals.initNode("/it-autoflight/input/mach", 0.5, "DOUBLE"),
 	machFlch: props.globals.initNode("/it-autoflight/input/mach-flch", 0.5, "DOUBLE"),
+	pitch: props.globals.initNode("/it-autoflight/input/pitch", 0, "DOUBLE"),
+	pitchAbs: props.globals.initNode("/it-autoflight/input/pitch-abs", 0, "DOUBLE"), # Set by property rule
 	radioSelTemp: 0,
 	toga: props.globals.initNode("/it-autoflight/input/toga", 0, "BOOL"),
 	trk: props.globals.initNode("/it-autoflight/input/trk", 0, "BOOL"),
@@ -215,7 +219,7 @@ var ITAF = {
 			Input.fd2.setBoolValue(0);
 		}
 		Input.vs.setValue(0);
-		Input.fpa.setValue(0);
+		Input.pitch.setValue(0);
 		Input.altArmed.setBoolValue(0);
 		Input.lat.setValue(3);
 		Input.vert.setValue(1);
@@ -270,6 +274,13 @@ var ITAF = {
 		# VOR/ILS Revision
 		if (Output.latTemp == 2 or Output.latTemp == 4 or Output.vertTemp == 2 or Output.vertTemp == 6) {
 			me.checkRadioRevision(Output.latTemp, Output.vertTemp);
+		}
+		
+		# Turbulance Mode Revision
+		if (Output.latTemp == 6 and Output.vertTemp != 5) {
+			me.setLatMode(3);
+		} else if (Output.latTemp != 6 and Output.vertTemp == 5) {
+			me.setVertMode(1);
 		}
 		
 		Output.ap1Temp = Output.ap1.getBoolValue();
@@ -643,6 +654,12 @@ var ITAF = {
 			me.updateLocArm(0);
 			me.updateApprArm(0);
 			Output.lat.setValue(5);
+		} else if (n == 6) { # LVL
+			me.updateLnavArm(0);
+			me.updateLocArm(0);
+			me.updateApprArm(0);
+			Output.lat.setValue(6);
+			me.updateLatText("LVL");
 		}
 	},
 	setVertMode: func(n) {
@@ -695,15 +712,17 @@ var ITAF = {
 			} else {
 				me.syncKtsFlch();
 			}
-		} else if (n == 5) { # FPA
+		} else if (n == 5) { # Pitch
+			Input.altArmed.setBoolValue(0);
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
 			me.updateApprArm(0);
 			me.updateAutoLand(0);
 			Output.vert.setValue(5);
-			me.updateVertText("FPA");
-			me.syncFpa();
+			me.updateVertText("PITCH");
+			me.syncPitch();
 			Athr.setMode(0); # Thrust
+			me.athrMaster(0);
 		} else if (n == 6) { # FLARE/ROLLOUT
 			Input.altArmed.setBoolValue(0);
 			Internal.flchActive = 0;
@@ -880,8 +899,8 @@ var ITAF = {
 	syncVs: func() {
 		Input.vs.setValue(math.clamp(math.round(Internal.vs.getValue(), 100), -6000, 6000));
 	},
-	syncFpa: func() {
-		Input.fpa.setValue(math.clamp(math.round(Internal.fpa.getValue(), 0.1), -9.9, 9.9));
+	syncPitch: func() {
+		Input.pitch.setValue(math.clamp(math.round(Orientation.pitchDeg.getValue(), 0.1), -9.9, 9.9));
 	},
 	# Custom Stuff Below
 	updateLatText: func(t) {

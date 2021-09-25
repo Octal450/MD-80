@@ -114,7 +114,7 @@
 	</filter>
 	
 	<filter>
-		<name>IT-CONTROLLER: Align/Rollout/Takeoff</name>
+		<name>IT-CONTROLLER: Align/Rollout/Takeoff/Wings Level</name>
 		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -128,6 +128,10 @@
 					<equals>
 						<property>/it-autoflight/output/lat</property>
 						<value>5</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/lat</property>
+						<value>6</value>
 					</equals>
 				</or>
 			</condition>

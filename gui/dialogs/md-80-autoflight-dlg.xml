@@ -448,6 +448,7 @@
 		<button>
 			<legend>Push</legend>
 			<pref-width>80</pref-width>
+			<pref-height>25</pref-height>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apPanel.spdPush();</script>
@@ -456,6 +457,7 @@
 		<button>
 			<legend>SPD SEL</legend>
 			<pref-width>75</pref-width>
+			<pref-height>25</pref-height>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apPanel.spd();</script>
@@ -464,6 +466,7 @@
 		<button>
 			<legend>MACH SEL</legend>
 			<pref-width>75</pref-width>
+			<pref-height>25</pref-height>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apPanel.mach();</script>
@@ -477,6 +480,7 @@
 		<button>
 			<legend>ATS Off</legend>
 			<pref-width>80</pref-width>
+			<pref-height>25</pref-height>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apPanel.atDisc();</script>
@@ -485,6 +489,7 @@
 		<button>
 			<legend>EPR LIM</legend>
 			<pref-width>75</pref-width>
+			<pref-height>25</pref-height>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apPanel.eprLim();</script>
@@ -493,6 +498,7 @@
 		<button>
 			<legend>FMS OVRD</legend>
 			<pref-width>75</pref-width>
+			<pref-height>25</pref-height>
 			<enable>
 				<property>/systems/unused/unused-button</property>
 			</enable>
@@ -713,6 +719,7 @@
 		<button>
 			<legend>Push</legend>
 			<pref-width>75</pref-width>
+			<pref-height>25</pref-height>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apPanel.hdgPush();</script>
@@ -721,6 +728,7 @@
 		<button>
 			<legend>Pull</legend>
 			<pref-width>75</pref-width>
+			<pref-height>25</pref-height>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apPanel.hdgPull();</script>
@@ -729,6 +737,7 @@
 		<button>
 			<legend>NAV</legend>
 			<pref-width>80</pref-width>
+			<pref-height>25</pref-height>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apPanel.nav();</script>
@@ -742,6 +751,7 @@
 		<button>
 			<legend>VOR/LOC</legend>
 			<pref-width>75</pref-width>
+			<pref-height>25</pref-height>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apPanel.vorLoc();</script>
@@ -750,6 +760,7 @@
 		<button>
 			<legend>ILS</legend>
 			<pref-width>75</pref-width>
+			<pref-height>25</pref-height>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apPanel.ils();</script>
@@ -758,6 +769,7 @@
 		<button>
 			<legend>AUTO LAND</legend>
 			<pref-width>80</pref-width>
+			<pref-height>25</pref-height>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apPanel.autoLand();</script>
@@ -849,7 +861,8 @@
 		
 		<button>
 			<legend>Push</legend>
-			<pref-width>75</pref-width>
+			<pref-width>57</pref-width>
+			<pref-height>25</pref-height>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apPanel.altPush();</script>
@@ -857,18 +870,32 @@
 		</button>
 		<button>
 			<legend>Pull</legend>
-			<pref-width>75</pref-width>
+			<pref-width>57</pref-width>
+			<pref-height>25</pref-height>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apPanel.altPull();</script>
 			</binding>
 		</button>
 		<button>
-			<legend>ALT HOLD</legend>
-			<pref-width>80</pref-width>
+			<legend>TURB</legend>
+			<pref-width>57</pref-width>
+			<pref-height>25</pref-height>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.apPanel.altHold();</script>
+				<script>libraries.apPanel.turb();</script>
+			</binding>
+		</button>
+		<button>
+			<legend>PERF</legend>
+			<pref-width>57</pref-width>
+			<pref-height>25</pref-height>
+			<enable>
+				<property>/systems/unused/unused-button</property>
+			</enable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.perf();</script>
 			</binding>
 		</button>
 	</group>
@@ -879,28 +906,28 @@
 		<button>
 			<legend>VERT SPD</legend>
 			<pref-width>75</pref-width>
+			<pref-height>25</pref-height>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apPanel.vertSpd();</script>
+			</binding>
+		</button>
+		<button>
+			<legend>ALT HOLD</legend>
+			<pref-width>80</pref-width>
+			<pref-height>25</pref-height>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.altHold();</script>
 			</binding>
 		</button>
 		<button>
 			<legend>IAS MACH</legend>
 			<pref-width>75</pref-width>
+			<pref-height>25</pref-height>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.apPanel.iasMach();</script>
-			</binding>
-		</button>
-		<button>
-			<legend>VNAV</legend>
-			<pref-width>80</pref-width>
-			<enable>
-				<property>/systems/unused/unused-button</property>
-			</enable>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.apPanel.vertSpd();</script>
 			</binding>
 		</button>
 	</group>
@@ -1057,6 +1084,101 @@
 					<property>/it-autoflight/output/vert</property>
 					<value>4</value>
 				</not-equals>
+			</enable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.vsAdjust(10);</script>
+			</binding>
+		</button>
+	</group>
+	
+	<group>
+		<layout>table</layout>
+		
+		<text>
+			<row>0</row>
+			<col>0</col>
+			<label>Pitch: </label>
+		</text>
+		
+		<button>
+			<row>0</row>
+			<col>1</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;&lt;</legend>
+			<enable>
+				<equals>
+					<property>/it-autoflight/output/vert</property>
+					<value>5</value>
+				</equals>
+			</enable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.vsAdjust(-10);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>2</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;</legend>
+			<enable>
+				<equals>
+					<property>/it-autoflight/output/vert</property>
+					<value>5</value>
+				</equals>
+			</enable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.vsAdjust(-1);</script>
+			</binding>
+		</button>
+
+		<input>
+			<row>0</row>
+			<col>3</col>
+			<pref-width>55</pref-width>
+			<property>/it-autoflight/input/pitch</property>
+			<live>true</live>
+			<enable>
+				<equals>
+					<property>/it-autoflight/output/vert</property>
+					<value>5</value>
+				</equals>
+			</enable>
+		</input>
+		
+		<button>
+			<row>0</row>
+			<col>4</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;</legend>
+			<enable>
+				<equals>
+					<property>/it-autoflight/output/vert</property>
+					<value>5</value>
+				</equals>
+			</enable>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.vsAdjust(1);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>5</col>
+			<halign>left</halign>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;&gt;</legend>
+			<enable>
+				<equals>
+					<property>/it-autoflight/output/vert</property>
+					<value>5</value>
+				</equals>
 			</enable>
 			<binding>
 				<command>nasal</command>
