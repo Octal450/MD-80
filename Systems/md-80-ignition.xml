@@ -105,7 +105,7 @@
 			<default value="1"/>
 			<test logic="AND" value="0">
 				/controls/engines/engine[1]/cutoff-switch eq 0
-				propulsion/tank[4]/contents-rbs ge 1
+				propulsion/tank[4]/contents-lbs ge 1
 			</test>
 		</switch>
 		
