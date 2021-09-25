@@ -121,48 +121,6 @@
 				<group>
 					<layout>vbox</layout>
 					
-					<!--button>
-						<halign>center</halign>
-						<legend>Magic Startup</legend>
-						<pref-width>140</pref-width>
-						<binding>
-							<command>nasal</command>
-							<script>
-								libraries.systemsInit();
-								acconfig.SYSTEM.resetFailures();
-								setprop("/controls/switches/cart", 1);
-								setprop("/controls/electrical/switches/battery", 1);
-								setprop("/controls/electrical/switches/ext-pwr-l", 1);
-								setprop("/controls/electrical/switches/ext-pwr-r", 1);
-								setprop("/controls/fuel/switches/pump-aft-l", 1);
-								setprop("/controls/fuel/switches/pump-aft-r", 1);
-								setprop("/controls/fuel/switches/pump-fwd-l", 1);
-								setprop("/controls/fuel/switches/pump-fwd-r", 1);
-								setprop("/controls/hydraulics/switches/l-pump", 2);
-								setprop("/controls/hydraulics/switches/r-pump", 2);
-								setprop("/controls/pneumatics/switches/x-bleed-l", 1);
-								setprop("/controls/pneumatics/switches/x-bleed-r", 1);
-								setprop("/controls/lighting/main-digital-knb", 1);
-								settimer(func() {
-									systems.IGNITION.fastStart(0);
-									systems.IGNITION.fastStart(1);
-									#setprop("/controls/pneumatics/switches/supply-l", 2);
-									#setprop("/controls/pneumatics/switches/supply-r", 2);
-									setprop("/controls/electrical/switches/ext-pwr-l", 0);
-									setprop("/controls/electrical/switches/ext-pwr-r", 0);
-									setprop("/controls/switches/cart", 0);
-									setprop("/it-autoflight/input/fd1", 1);
-									setprop("/it-autoflight/input/fd2", 1);
-								}, 0.5);
-								settimer(func() {
-									setprop("/services/chocks/enable", 0);
-								}, 10);
-							</script>
-						</binding>
-						<binding>
-							<command>dialog-close</command>
-						</binding>
-					</button-->
 					<button>
 						<halign>center</halign>
 						<legend>Cold and Dark</legend>
