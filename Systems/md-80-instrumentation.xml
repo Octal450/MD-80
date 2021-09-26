@@ -1549,7 +1549,10 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<switch name="/controls/tri/rat-cmd">
 			<default value="/controls/tri/rat-cmd"/>
 			<test logic="AND" value="12">
-				dfgs/power-avail eq 1
+				<test logic="OR">
+					dfgs/power-avail eq 1
+					/systems/acconfig/autoconfig-running eq 1
+				</test>
 				engine/limit/active-mode-int eq 6
 			</test>
 			<test value="propulsion/tat-c">
@@ -1603,8 +1606,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		
 		<switch name="/controls/tri/limit-active">
 			<default value="/controls/tri/limit-active"/>
-			<test value="engine/limit/active-ind">
+			<test logic="OR" value="engine/limit/active-ind">
 				dfgs/power-avail eq 1
+				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
