@@ -47,7 +47,7 @@ refs 4
 kids 0
 OBJECT poly
 name "thr2.screen"
-loc 0.000150713 -0.00188133 0.0552696
+loc 0.000150713 -0.00188133 0.056807
 data 10
 ND.screenL
 texture "screen.png"
@@ -68,7 +68,7 @@ refs 4
 kids 0
 OBJECT poly
 name "pitch2.screen"
-loc 0.000150713 -0.00188133 -0.0498336
+loc 0.000150713 -0.00188133 -0.0502759
 data 10
 ND.screenL
 texture "screen.png"

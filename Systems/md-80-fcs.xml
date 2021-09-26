@@ -641,7 +641,7 @@
 				/controls/flight/flaps ge 0.36
 				/controls/flight/flaps lt 0.52
 			</test>
-			<test logic="AND" value="3"> <!-- Dial A Flap -->
+			<test logic="AND" value="3"> <!-- 15/EXT -->
 				/controls/flight/flaps ge 0.52
 				/controls/flight/flaps lt 0.68
 			</test>
@@ -654,7 +654,7 @@
 			</test>
 		</switch>
 		
-		<fcs_function name="/controls/flight/dial-a-flap-int">
+		<fcs_function name="/controls/flight/dial-a-flap-int"> <!-- Not used yet -->
 			<function>
 				<integer>
 					<sum>

@@ -535,9 +535,9 @@ var TRI = {
 		} else if (me.Limit.activeModeIntTemp == 2) {
 			me.Limit.activeMode.setValue("MCT");
 		} else if (me.Limit.activeModeIntTemp == 3) {
-			me.Limit.activeMode.setValue("CL");
+			me.Limit.activeMode.setValue("CL ");
 		} else if (me.Limit.activeModeIntTemp == 4) {
-			me.Limit.activeMode.setValue("CR");
+			me.Limit.activeMode.setValue("CR ");
 		} else if (me.Limit.activeModeIntTemp == 5) {
 			me.Limit.activeMode.setValue("T/O"); # Check
 			dfgs.Athr.toCheck();
