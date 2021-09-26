@@ -674,7 +674,7 @@
 			<test value="11">
 				/controls/flight/flaps-input eq 2
 			</test>
-			<test value="/controls/flight/dial-a-flap-int"> 
+			<test value="15"> 
 				/controls/flight/flaps-input eq 3
 			</test>
 			<test value="28">
