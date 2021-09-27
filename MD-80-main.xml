@@ -432,6 +432,15 @@
 				<master type="int">0</master>
 			</switches>
 		</apu>
+		<dfgs n="0">
+			<lights n="0">
+				<art type="bool">0</art>
+				<art-ready type="bool">0</art-ready>
+			</lights>
+			<switches n="0">
+				<art type="bool">1</art>
+			</switches>
+		</dfgs>
 		<electrical n="0">
 			<switches n="0">
 				<ac-tie type="bool">1</ac-tie>

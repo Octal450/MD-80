@@ -1,8 +1,8 @@
 AC3Db
-MATERIAL "ac3dmat1.002" rgb 1 1 1  amb 0.8 0.8 0.8  emis 0 0 0  spec 0 0 0  shi 64  trans 0
+MATERIAL "ac3dmat1.002" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 64  trans 0
 MATERIAL "ac3dmat1.001" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 64  trans 0
 OBJECT world
-kids 9
+kids 10
 OBJECT group
 name "clBtn"
 kids 3
@@ -609,18 +609,18 @@ box.mesh
 texture "tri-text.png"
 crease 45.000000
 numvert 4
-0.00286 0.05675 -0.02883
+0.00286 -0.0446975 -0.02883
+0.00286 -0.0446974 0.02883
 0.00286 0.05675 0.02883
-0.00286 -0.05675 0.02883
-0.00286 -0.05675 -0.02883
+0.00286 0.05675 -0.02883
 numsurf 1
 SURF 0x10
 mat 1
 refs 4
-1 0.013672 1
-2 0.013672 0
-3 0.523438 0
-0 0.523438 1
+0 0.523438 0.10619
+3 0.523438 1
+2 0.013672 1
+1 0.013672 0.10619
 kids 0
 OBJECT group
 name "mctBtn"
@@ -2421,4 +2421,24 @@ refs 3
 15 0.111445 0.488073
 14 0.141896 0.540815
 20 0.080994 0.540815
+kids 0
+OBJECT poly
+name "NoMode"
+data 8
+box.mesh
+texture "tri-text.png"
+crease 45.000000
+numvert 4
+0.00286 -0.0518999 0.02883
+0.00286 -0.0518999 -0.02883
+0.00286 -0.0446974 0.02883
+0.00286 -0.0446975 -0.02883
+numsurf 1
+SURF 0x10
+mat 1
+refs 4
+1 0.523438 0.0427322
+3 0.523438 0.10619
+2 0.013672 0.10619
+0 0.013672 0.0427322
 kids 0

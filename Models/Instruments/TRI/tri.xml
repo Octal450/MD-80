@@ -565,6 +565,7 @@
 	
 	<animation>
 		<type>select</type>
+		<object-name>FlagEpr</object-name>
 		<object-name>FlagRat</object-name>
 		<condition>
 			<not-equals>
@@ -576,16 +577,16 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>FlagEpr</object-name>
+		<object-name>NoMode</object-name>
 		<condition>
 			<or>
-				<not-equals>
-					<property>fdm/jsbsim/dfgs/power-avail</property>
-					<value>1</value>
-				</not-equals>
 				<equals>
 					<property>fdm/jsbsim/engine/limit/active-mode-int</property>
 					<value>-1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
 				</equals>
 			</or>
 		</condition>

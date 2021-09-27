@@ -399,6 +399,8 @@ var PANEL = {
 				systems.HYD.Switch.lPump.setValue(2);
 				systems.HYD.Switch.rPump.setValue(2);
 				systems.IGNITION.Switch.ign.setValue(0);
+				systems.PNEU.Switch.xBleedL.setValue(0);
+				systems.PNEU.Switch.xBleedR.setValue(0);
 				# XPDR TA/RA
 				dfgs.Input.fd1.setBoolValue(1);
 				dfgs.Input.fd2.setBoolValue(1);
