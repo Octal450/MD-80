@@ -73,6 +73,20 @@
 			</or>
 		</condition>
 	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>FaceWNTOn</object-name>
+		<condition>
+			<!--or-->
+				<!-- On when one wheel is turning 20% slower than the others -->
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			<!--or-->
+		</condition>
+	</animation>
 
 </PropertyList>
 
