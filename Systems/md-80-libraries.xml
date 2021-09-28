@@ -39,12 +39,35 @@
 			<output>/position/gear-agl-m</output> <!-- So flight recorder can override it -->
 		</pure_gain>
 		
-		<actuator name="/gear/gear[0]/wow-timer">
-			<input>/gear/gear[0]/wow</input>
-			<rate_limit sense="incr">0.05</rate_limit> <!-- 20 seconds-->
-			<rate_limit sense="decr">1000</rate_limit>
-			<output>/gear/gear[0]/wow-timer-out</output>
+		<fcs_function name="/gear/gear[0]/wow-timer-cmd">
+			<function>
+				<sum> <!-- Inverter, so that it is 1 at sim start -->
+					<product>
+						<property>gear/unit[0]/WOW</property>
+						<value>-1</value>
+					</product>
+					<value>1</value>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<actuator name="/gear/gear[0]/wow-timer-pos">
+			<input>/gear/gear[0]/wow-timer-cmd</input>
+			<rate_limit sense="incr">1000</rate_limit>
+			<rate_limit sense="decr">0.05</rate_limit> <!-- 20 seconds-->
 		</actuator>
+		
+		<fcs_function name="/gear/gear[0]/wow-timer">
+			<function>
+				<sum> <!-- Inverter, so that it is 1 at sim start -->
+					<product>
+						<property>/gear/gear[0]/wow-timer-pos</property>
+						<value>-1</value>
+					</product>
+					<value>1</value>
+				</sum>
+			</function>
+		</fcs_function>
 	
 	</channel>
 	

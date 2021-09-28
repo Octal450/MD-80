@@ -12,6 +12,7 @@
 	<property value="1">engine/epr/c2</property> <!-- Done in property rule because its easier to tune -->
 	<property value="0">engine/ats-cmd-1</property>
 	<property value="0">engine/ats-cmd-2</property>
+	<property value="0">engine/art/active</property>
 	
 	<channel name="Thrust Limits">
 		
@@ -291,9 +292,10 @@
 		
 		<switch name="engine/limit/takeoff-final-ref">
 			<default value="engine/limit/takeoff-ref"/>
-			<!--test value="engine/limit/takeoff-max-ref">
-				ART OFF
-			</test-->
+			<test logic="OR" value="engine/limit/takeoff-max-ref">
+				/controls/dfgs/switches/art ne 1
+				engine/art/active eq 1
+			</test>
 			<test value="engine/limit/takeoff-flex-ref">
 				engine/limit/active-mode-int eq 5
 			</test>
@@ -636,6 +638,182 @@
 	
 	</channel>
 	
+	<channel name="Automatic Reserve Thrust">
+		
+		<fcs_function name="engine/art/max-norm-ref"> <!-- Opposite of EPR Calc -->
+			<function>
+				<quotient>
+					<difference>
+						<quotient>
+							<integer>
+								<sum>
+									<product>
+										<property>engine/limit/takeoff-max-ref</property>
+										<value>1000</value>
+									</product>
+									<value>0.5</value> <!-- Make it round correctly -->
+								</sum>
+							</integer>
+							<value>1000</value>
+						</quotient>
+						<property>engine/epr/c2</property>
+					</difference>
+					<max> <!-- Prevent divide by 0 -->
+						<property>engine/epr/c1</property>
+						<value>0.001</value>
+					</max>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/art/max-norm-input"> <!-- Opposite of EPR Calc -->
+			<function>
+				<pow>
+					<table>
+						<independentVar lookup="row">engine/art/max-norm-ref</independentVar>
+						<tableData>
+							0.00     24743.1
+							0.03     81455.7
+							1.00  10571289.8
+						</tableData>
+					</table>
+					<quotient>
+						<value>1</value>
+						<value>3.5</value>
+					</quotient>
+				</pow>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/art/max-norm">
+			<function>
+				<table>
+					<independentVar lookup="row">engine/art/max-norm-input</independentVar>
+					<tableData>
+						 25.3  0
+						101.6  1
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/art/normal-norm-ref"> <!-- Opposite of EPR Calc -->
+			<function>
+				<quotient>
+					<difference>
+						<quotient>
+							<integer>
+								<sum>
+									<product>
+										<property>engine/limit/takeoff-ref</property>
+										<value>1000</value>
+									</product>
+									<value>0.5</value> <!-- Make it round correctly -->
+								</sum>
+							</integer>
+							<value>1000</value>
+						</quotient>
+						<property>engine/epr/c2</property>
+					</difference>
+					<max> <!-- Prevent divide by 0 -->
+						<property>engine/epr/c1</property>
+						<value>0.001</value>
+					</max>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/art/normal-norm-input"> <!-- Opposite of EPR Calc -->
+			<function>
+				<pow>
+					<table>
+						<independentVar lookup="row">engine/art/normal-norm-ref</independentVar>
+						<tableData>
+							0.00     24743.1
+							0.03     81455.7
+							1.00  10571289.8
+						</tableData>
+					</table>
+					<quotient>
+						<value>1</value>
+						<value>3.5</value>
+					</quotient>
+				</pow>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/art/normal-norm">
+			<function>
+				<table>
+					<independentVar lookup="row">engine/art/normal-norm-input</independentVar>
+					<tableData>
+						 25.3  0
+						101.6  1
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<summer name="engine/art/offset">
+			<input>engine/art/max-norm</input>
+			<input>-engine/art/normal-norm</input>
+			<clipto>
+				<min>0.0</min>
+				<max>1.0</max>
+			</clipto>
+		</summer>
+		
+		<switch name="engine/art/armed">
+			<default value="1"/>
+			<test logic="OR" value="0">
+				dfgs/power-avail eq 0
+				/controls/dfgs/switches/art ne 1
+				/engines/engine[0]/state ne 3
+				/engines/engine[1]/state ne 3
+				/gear/gear[0]/wow-timer lt 1
+				fcs/slat-pos-deg lt 0.01
+				engine/limit/active-mode-int ne 0
+			</test>
+			<output>/controls/dfgs/lights/art-ready</output>
+		</switch>
+		
+		<switch name="engine/art/n1-switch">
+			<default value="engine/art/n1-switch"/>
+			<test logic="AND" value="0">
+				/engines/engine[0]/n1-actual lt 49
+				/engines/engine[1]/n1-actual lt 49
+			</test>
+			<test logic="AND" value="1">
+				/engines/engine[0]/n1-actual gt 64
+				/engines/engine[1]/n1-actual gt 64
+			</test>
+		</switch>
+		
+		<summer name="engine/art/n1-error">
+			<input>/engines/engine[0]/n1-actual</input>
+			<input>-/engines/engine[1]/n1-actual</input>
+		</summer>
+		
+		<switch name="engine/art/active">
+			<default value="engine/art/active"/>
+			<test logic="OR" value="0">
+				engine/art/armed ne 1
+				engine/art/n1-switch ne 1
+			</test>
+			<test logic="OR" value="1">
+				engine/art/n1-error le -30
+				engine/art/n1-error ge 30
+			</test>
+			<output>/controls/dfgs/lights/art</output>
+		</switch>
+		
+		<pure_gain name="engine/art/output">
+			<input>engine/art/offset</input>
+			<gain>engine/art/active</gain>
+		</pure_gain>
+	
+	</channel>
+	
 	<channel name="Engine Control">
 		
 		<fcs_function name="engine/limit/active-norm-ref"> <!-- Opposite of EPR Calc -->
@@ -794,8 +972,17 @@
 			</test>
 		</switch>
 		
-		<pure_gain name="engine/control-1/throttle-pos-appr">
+		<summer name="engine/control-1/throttle-pos-art">
 			<input>engine/control-1/throttle-pos</input>
+			<input>engine/art/output</input>
+			<clipto>
+				<min>0.0</min>
+				<max>1.0</max>
+			</clipto>
+		</summer>
+		
+		<pure_gain name="engine/control-1/throttle-pos-appr">
+			<input>engine/control-1/throttle-pos-art</input>
 			<gain>1.0</gain>
 			<clipto>
 				<min>0.18219</min>
@@ -804,7 +991,7 @@
 		</pure_gain>
 		
 		<switch name="engine/control-1/throttle-output">
-			<default value="engine/control-1/throttle-pos"/>
+			<default value="engine/control-1/throttle-pos-art"/>
 			<test value="engine/reverse-1/throttle-rev">
 				engine/reverse-1/position-norm ne 0
 			</test>
@@ -832,8 +1019,17 @@
 			</test>
 		</switch>
 		
-		<pure_gain name="engine/control-2/throttle-pos-appr">
+		<summer name="engine/control-2/throttle-pos-art">
 			<input>engine/control-2/throttle-pos</input>
+			<input>engine/art/output</input>
+			<clipto>
+				<min>0.0</min>
+				<max>1.0</max>
+			</clipto>
+		</summer>
+		
+		<pure_gain name="engine/control-2/throttle-pos-appr">
+			<input>engine/control-2/throttle-pos-art</input>
 			<gain>1.0</gain>
 			<clipto>
 				<min>0.18219</min>
@@ -842,7 +1038,7 @@
 		</pure_gain>
 		
 		<switch name="engine/control-2/throttle-output">
-			<default value="engine/control-2/throttle-pos"/>
+			<default value="engine/control-2/throttle-pos-art"/>
 			<test value="engine/reverse-2/throttle-rev">
 				engine/reverse-2/position-norm ne 0
 			</test>
