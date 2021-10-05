@@ -319,7 +319,7 @@ var Athr = {
 				}
 			} else {
 				if (Internal.atrCmd.getBoolValue()) {
-					systems.TRI.Limit.activeModeInt.setValue(1);
+					systems.TRI.setMode(1);
 					Output.thrMode.setValue(2);
 					updateFma.thr();
 				} else {

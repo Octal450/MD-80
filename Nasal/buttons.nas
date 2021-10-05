@@ -3,6 +3,7 @@
 
 # Resets buttons to the default values
 var variousReset = func() {
+	pts.Controls.Dfgs.Switches.art.setBoolValue(1);
 	pts.Controls.Flight.dialAFlap.setValue(0);
 	pts.Controls.Lighting.beacon.setBoolValue(0);
 	pts.Controls.Lighting.landingLightL.setValue(0);

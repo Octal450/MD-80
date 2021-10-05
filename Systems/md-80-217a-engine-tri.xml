@@ -292,12 +292,12 @@
 		
 		<switch name="engine/limit/takeoff-final-ref">
 			<default value="engine/limit/takeoff-ref"/>
+			<test value="engine/limit/takeoff-flex-ref">
+				engine/limit/active-mode-int eq 5
+			</test>
 			<test logic="OR" value="engine/limit/takeoff-max-ref">
 				/controls/dfgs/switches/art ne 1
 				engine/art/active eq 1
-			</test>
-			<test value="engine/limit/takeoff-flex-ref">
-				engine/limit/active-mode-int eq 5
 			</test>
 		</switch>
 		
@@ -763,20 +763,6 @@
 			</clipto>
 		</summer>
 		
-		<switch name="engine/art/armed">
-			<default value="1"/>
-			<test logic="OR" value="0">
-				dfgs/power-avail eq 0
-				/controls/dfgs/switches/art ne 1
-				/engines/engine[0]/state ne 3
-				/engines/engine[1]/state ne 3
-				/gear/gear[0]/wow-timer lt 1
-				fcs/slat-pos-deg lt 0.01
-				engine/limit/active-mode-int ne 0
-			</test>
-			<output>/controls/dfgs/lights/art-ready</output>
-		</switch>
-		
 		<switch name="engine/art/n1-switch">
 			<default value="engine/art/n1-switch"/>
 			<test logic="AND" value="0">
@@ -786,6 +772,43 @@
 			<test logic="AND" value="1">
 				/engines/engine[0]/n1-actual gt 64
 				/engines/engine[1]/n1-actual gt 64
+			</test>
+		</switch>
+		
+		<switch name="engine/art/state-switch">
+			<default value="engine/art/state-switch"/>
+			<test value="0">
+				engine/art/n1-switch eq 0
+				<test logic="OR">
+					/engines/engine[0]/state ne 3
+					/engines/engine[1]/state ne 3
+				</test>
+			</test>
+			<test logic="AND" value="1">
+				/engines/engine[0]/state eq 3
+				/engines/engine[1]/state eq 3
+			</test>
+		</switch>
+		
+		<switch name="engine/art/wow-switch">
+			<default value="engine/art/wow-switch"/>
+			<test logic="AND" value="0">
+				/gear/gear[0]/wow-timer lt 1
+				engine/limit/active-mode-int ne 0
+			</test>
+			<test logic="AND" value="1">
+				/gear/gear[0]/wow-timer eq 1
+			</test>
+		</switch>
+		
+		<switch name="engine/art/armed">
+			<default value="1"/>
+			<test logic="OR" value="0">
+				dfgs/power-avail eq 0
+				/controls/dfgs/switches/art ne 1
+				fcs/slat-pos-deg lt 0.01
+				engine/art/state-switch eq 0
+				engine/art/wow-switch eq 0
 			</test>
 		</switch>
 		
@@ -805,6 +828,15 @@
 				engine/art/n1-error ge 30
 			</test>
 			<output>/controls/dfgs/lights/art</output>
+		</switch>
+		
+		<switch name="engine/art/armed-light">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				engine/art/armed eq 1
+				engine/art/active ne 1
+			</test>
+			<output>/controls/dfgs/lights/art-ready</output>
 		</switch>
 		
 		<pure_gain name="engine/art/output">

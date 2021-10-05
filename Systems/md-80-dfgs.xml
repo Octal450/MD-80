@@ -109,6 +109,7 @@
 		<switch name="dfgs/atr/cmd">
 			<default value="0"/>
 			<test logic="OR" value="0">
+				/controls/dfgs/lights/art eq 1
 				/it-autoflight/output/athr eq 0
 				/position/gear-agl-ft lt 350
 				/engines/engine[0]/epr-actual ge dfgs/atr/go-around-buffer

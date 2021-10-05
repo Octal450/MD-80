@@ -38,7 +38,7 @@
 		<object-name>FuelCutoffL</object-name>
 		<object-name>FuelCutoffR</object-name>
 		<object-name>GlareShield</object-name>
-		<object-name>ABS_knob</object-name>
+		<object-name>ABSKnob</object-name>
 		<object-name>Lamp</object-name>
 		<object-name>LampABS</object-name>
 		<object-name>LGLever</object-name>
@@ -66,7 +66,7 @@
 		<object-name>SeatCushionsP</object-name>
 		<object-name>SeatP</object-name>
 		<object-name>SpdBrakeLever</object-name>
-		<object-name>ABS_arm</object-name>
+		<object-name>ABSArm</object-name>
 		<object-name>ThrottleL</object-name>
 		<object-name>ThrottleR</object-name>
 		<object-name>ThrottleRevL</object-name>
@@ -83,7 +83,7 @@
 		<object-name>TogaL</object-name>
 		<object-name>TogaR</object-name>
 		<object-name>SteeringHandle</object-name>
-		<object-name>parkingBrakeButton</object-name>
+		<object-name>ParkingBrakeButton</object-name>
 		<emission>
 			<red>0.6</red>
 			<green>0.6</green>
@@ -1015,7 +1015,7 @@
 	<!-- ABS -->
 	<animation>
 		<type>rotate</type>
-		<object-name>ABS_arm</object-name>
+		<object-name>ABSArm</object-name>
 		<property>controls/gear/abs/armed</property>
 		<factor>50</factor>
 		<center>
@@ -1031,7 +1031,7 @@
 	</animation>
 	<animation>
 		<type>pick</type>
-		<object-name>ABS_arm</object-name>
+		<object-name>ABSArm</object-name>
 		<action> <!-- Switch sound done in master-system.nas -->
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -1056,7 +1056,7 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>ABS_knob</object-name>
+		<object-name>ABSKnob</object-name>
 		<property>controls/gear/abs/knob</property>
 		<interpolation>
 			<entry><ind>-1</ind><dep>  40</dep></entry>
@@ -1078,7 +1078,7 @@
 	</animation>
 	<animation>
 		<type>pick</type>
-		<object-name>ABS_knob</object-name>
+		<object-name>ABSKnob</object-name>
 		<action>
 			<button>0</button>
 			<button>3</button>
@@ -1297,7 +1297,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SteeringHandle</object-name>
-		<object-name>parkingBrakeButton</object-name>
+		<object-name>ParkingBrakeButton</object-name>
 		<factor>82</factor>
 		<property>fdm/jsbsim/fcs-actual/tiller-handle</property>
 		<axis>
@@ -1312,7 +1312,7 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>parkingBrakeButton</object-name>
+		<object-name>ParkingBrakeButton</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -1337,7 +1337,7 @@
 	
 	<animation>
 		<type>translate</type>
-		<object-name>parkingBrakeButton</object-name>
+		<object-name>ParkingBrakeButton</object-name>
 		<interpolation>
 			<entry><ind>0.0</ind><dep>0.000</dep></entry>
 			<entry><ind>0.9</ind><dep>0.010</dep></entry>
@@ -1417,6 +1417,39 @@
 				<value>1</value>
 			</equals>
 		</condition>
+	</animation>
+	
+	<!-- ART Switch -->
+	<animation>
+		<type>rotate</type>
+		<object-name>ARTSwitch</object-name>
+		<property>controls/dfgs/switches/art</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 25</dep></entry>
+			<entry><ind>1</ind><dep>-25</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.19565</x-m>
+			<y-m>0</y-m>
+			<z-m>1.01287</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>ARTSwitch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/dfgs/switches/art</property>
+			</binding>
+		</action>
 	</animation>
 
 </PropertyList>

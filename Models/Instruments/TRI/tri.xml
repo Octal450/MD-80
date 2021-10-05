@@ -31,9 +31,8 @@
 						<value>1</value>
 					</equals>
 				</condition>
-				<command>property-assign</command>
-				<property>fdm/jsbsim/engine/limit/active-mode-int</property>
-				<value>0</value>
+				<command>nasal</command>
+				<script>systems.TRI.setMode(0);</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -67,9 +66,8 @@
 						<value>1</value>
 					</equals>
 				</condition>
-				<command>property-assign</command>
-				<property>fdm/jsbsim/engine/limit/active-mode-int</property>
-				<value>5</value>
+				<command>nasal</command>
+				<script>systems.TRI.setMode(5);</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -103,9 +101,8 @@
 						<value>1</value>
 					</equals>
 				</condition>
-				<command>property-assign</command>
-				<property>fdm/jsbsim/engine/limit/active-mode-int</property>
-				<value>1</value>
+				<command>nasal</command>
+				<script>systems.TRI.setMode(1);</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -139,9 +136,8 @@
 						<value>1</value>
 					</equals>
 				</condition>
-				<command>property-assign</command>
-				<property>fdm/jsbsim/engine/limit/active-mode-int</property>
-				<value>2</value>
+				<command>nasal</command>
+				<script>systems.TRI.setMode(2);</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -175,9 +171,8 @@
 						<value>1</value>
 					</equals>
 				</condition>
-				<command>property-assign</command>
-				<property>fdm/jsbsim/engine/limit/active-mode-int</property>
-				<value>3</value>
+				<command>nasal</command>
+				<script>systems.TRI.setMode(3);</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -211,9 +206,8 @@
 						<value>1</value>
 					</equals>
 				</condition>
-				<command>property-assign</command>
-				<property>fdm/jsbsim/engine/limit/active-mode-int</property>
-				<value>4</value>
+				<command>nasal</command>
+				<script>systems.TRI.setMode(4);</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>

@@ -507,8 +507,8 @@
 		<path>Aircraft/MD-80/Models/Instruments/otL.xml</path>
 		<offsets>
 			<x-m>2.221</x-m>
-			<y-m>0.28</y-m>
-			<z-m>0.899</z-m>
+			<y-m>0.276</y-m>
+			<z-m>0.898</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
@@ -539,7 +539,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/landing_gear_ind.xml</path>
 		<offsets>
 			<x-m>2.197</x-m>
-			<y-m>0.171</y-m>
+			<y-m>0.2</y-m>
 			<z-m>1.008</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -562,7 +562,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/FMA/FMA2.xml</path>
 		<offsets>
 			<x-m>2.210</x-m>
-			<y-m>0.330</y-m>
+			<y-m>0.332</y-m>
 			<z-m>0.952</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>

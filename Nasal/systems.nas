@@ -515,11 +515,30 @@ var TRI = {
 		me.Limit.activeModeInt.setValue(0);
 		me.Limit.activeMode.setValue("T/O");
 	},
+	loop: func() {
+		if (me.Limit.activeModeInt.getValue() == 5) {
+			if (pts.Controls.Dfgs.Switches.art.getBoolValue()) {
+				me.setMode(-1);
+			}
+		}
+	},
+	setMode: func(m) {
+		if (m == 5) {
+			if (pts.Controls.Dfgs.Switches.art.getBoolValue()) {
+				me.Limit.activeModeInt.setValue(-1);
+			} else {
+				me.Limit.activeModeInt.setValue(5);
+			}
+		} else {
+			me.Limit.activeModeInt.setValue(m);
+		}
+		me.updateTxt();
+	},
 	testBtn: func(d) {
 		if (d) {
-			me.Limit.activeModeInt.setValue(6);
+			me.setMode(6);
 		} else {
-			me.Limit.activeModeInt.setValue(-1);
+			me.setMode(-1);
 		}
 	},
 	updateTxt: func() {
@@ -547,7 +566,3 @@ var TRI = {
 		dfgs.Athr.limitChanged(me.Limit.activeModeLast, me.Limit.activeMode.getValue());
 	},
 };
-
-setlistener("/fdm/jsbsim/engine/limit/active-mode-int", func() {
-	TRI.updateTxt();
-}, 0, 0);

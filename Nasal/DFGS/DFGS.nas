@@ -857,7 +857,7 @@ var ITAF = {
 		Output.vertTemp = Output.vert.getValue();
 		Misc.flapDegTemp = Misc.flapDeg.getValue();
 		if (Gear.wow0Timer.getValue() < 1 and Output.vertTemp != 7 and Position.gearAglFt.getValue() < 1500 and Misc.flapDegTemp >= 25.9) {
-			systems.TRI.Limit.activeModeInt.setValue(1); # G/A
+			systems.TRI.setMode(1); # G/A
 			me.setLatMode(5);
 			me.updateLatText("G/A");
 			me.setVertMode(7); # Must be before kicking AP off

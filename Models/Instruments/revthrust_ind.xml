@@ -8,6 +8,23 @@
 	
 	<animation>
 		<type>select</type>
+		<object-name>FaceARTOn</object-name>
+		<object-name>FaceARTReadyOn</object-name>
+		<object-name>FaceEngRevLOn</object-name>
+		<object-name>FaceEngRevROn</object-name>
+		<object-name>FaceEngULLOn</object-name>
+		<object-name>FaceEngULROn</object-name>
+		<object-name>FaceWNTOn</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/bus/dc-bat</property>
+				<value>24</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
 		<object-name>FaceEngRevLOn</object-name>
 		<condition>
 			<or>
@@ -85,6 +102,40 @@
 					<value>1</value>
 				</equals>
 			<!--or-->
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>FaceARTReadyOn</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/dfgs/lights/art-ready</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>FaceARTOn</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>controls/dfgs/lights/art</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
 		</condition>
 	</animation>
 
