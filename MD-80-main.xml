@@ -23,11 +23,11 @@
 				<nick>Buckaroo</nick>
 			</author>
 		</authors>
-		<chase-distance-m type="double">-80.0</chase-distance-m>
+		<chase-distance-m type="double">-80</chase-distance-m>
 		<current-view>
-			<z-offset-default type="float">80.0</z-offset-default>
-			<z-offset-min-m type="float">20.0</z-offset-min-m>
-			<z-offset-max-m type="float">300.0</z-offset-max-m>
+			<z-offset-default type="float">80</z-offset-default>
+			<z-offset-min-m type="float">20</z-offset-min-m>
+			<z-offset-max-m type="float">300</z-offset-max-m>
 		</current-view>
 		<flight-recorder include="Systems/flight-recorder.xml"/>
 		<gui n="0" include="gui/it-gui.xml"/>
