@@ -1083,6 +1083,12 @@
 	</input>
 	
 	<instrumentation n="0">
+		<ai n="0">
+			<test-btn type="bool">0</test-btn>
+		</ai>
+		<ai n="1">
+			<test-btn type="bool">0</test-btn>
+		</ai>
 		<airspeed-indicator n="0">
 			<indicated-mach type="double">0</indicated-mach>
 			<indicated-speed-kt type="double">0</indicated-speed-kt>

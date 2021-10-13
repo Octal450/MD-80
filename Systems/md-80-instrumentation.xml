@@ -287,11 +287,61 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<c1>2</c1>
 		</lag_filter>
 		
+		<switch name="/instrumentation/ai[0]/test-rate">
+			<default value="5"/>
+			<test logic="AND" value="10000">
+				/instrumentation/ai[0]/power-pos lt 1
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/ai[0]/test">
+			<input>/instrumentation/ai[0]/test-btn</input>
+			<rate_limit>/instrumentation/ai[0]/test-rate</rate_limit>
+		</actuator>
+		
+		<fcs_function name="/instrumentation/ai[0]/pitch-cmd-deg">
+			<function>
+				<sum>
+					<property>/orientation/pitch-deg</property>
+					<product>
+						<property>/instrumentation/ai[0]/test</property>
+						<difference>
+							<value>10</value>
+							<property>/orientation/pitch-deg</property>
+						</difference>
+					</product>
+				</sum>
+			</function>
+			<clipto>
+				<min>-90</min>
+				<max>90</max>
+			</clipto>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/ai[0]/roll-cmd-deg">
+			<function>
+				<sum>
+					<property>/orientation/roll-deg</property>
+					<product>
+						<property>/instrumentation/ai[0]/test</property>
+						<difference>
+							<value>20</value>
+							<property>/orientation/roll-deg</property>
+						</difference>
+					</product>
+				</sum>
+			</function>
+			<clipto>
+				<min>-180</min>
+				<max>180</max>
+			</clipto>
+		</fcs_function>
+		
 		<fcs_function name="/instrumentation/ai[0]/pitch-deg">
 			<function>
 				<product>
 					<property>/instrumentation/ai[0]/power</property>
-					<property>/orientation/pitch-deg</property>
+					<property>/instrumentation/ai[0]/pitch-cmd-deg</property>
 				</product>
 			</function>
 			<clipto>
@@ -304,7 +354,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<function>
 				<product>
 					<property>/instrumentation/ai[0]/power</property>
-					<property>/orientation/roll-deg</property>
+					<property>/instrumentation/ai[0]/roll-cmd-deg</property>
 				</product>
 			</function>
 			<clipto>
@@ -398,11 +448,61 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<c1>5</c1>
 		</lag_filter>
 		
+		<switch name="/instrumentation/ai[1]/test-rate">
+			<default value="5"/>
+			<test logic="AND" value="10000">
+				/instrumentation/ai[1]/power-pos lt 1
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/ai[1]/test">
+			<input>/instrumentation/ai[1]/test-btn</input>
+			<rate_limit>/instrumentation/ai[1]/test-rate</rate_limit>
+		</actuator>
+		
+		<fcs_function name="/instrumentation/ai[1]/pitch-cmd-deg">
+			<function>
+				<sum>
+					<property>/orientation/pitch-deg</property>
+					<product>
+						<property>/instrumentation/ai[1]/test</property>
+						<difference>
+							<value>10</value>
+							<property>/orientation/pitch-deg</property>
+						</difference>
+					</product>
+				</sum>
+			</function>
+			<clipto>
+				<min>-90</min>
+				<max>90</max>
+			</clipto>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/ai[1]/roll-cmd-deg">
+			<function>
+				<sum>
+					<property>/orientation/roll-deg</property>
+					<product>
+						<property>/instrumentation/ai[1]/test</property>
+						<difference>
+							<value>20</value>
+							<property>/orientation/roll-deg</property>
+						</difference>
+					</product>
+				</sum>
+			</function>
+			<clipto>
+				<min>-180</min>
+				<max>180</max>
+			</clipto>
+		</fcs_function>
+		
 		<fcs_function name="/instrumentation/ai[1]/pitch-deg">
 			<function>
 				<product>
 					<property>/instrumentation/ai[1]/power</property>
-					<property>/orientation/pitch-deg</property>
+					<property>/instrumentation/ai[1]/pitch-cmd-deg</property>
 				</product>
 			</function>
 			<clipto>
@@ -415,7 +515,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<function>
 				<product>
 					<property>/instrumentation/ai[1]/power</property>
-					<property>/orientation/roll-deg</property>
+					<property>/instrumentation/ai[1]/roll-cmd-deg</property>
 				</product>
 			</function>
 			<clipto>

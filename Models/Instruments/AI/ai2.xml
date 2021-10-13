@@ -265,6 +265,22 @@
 		<type>select</type>
 		<object-name>CmptrFlag</object-name>
 		<object-name>GyroFlag</object-name>
+		<condition>
+			<or>
+				<not-equals>
+					<property>instrumentation/ai[1]/power-avail</property>
+					<value>1</value>
+				</not-equals>
+				<greater-than>
+					<property>instrumentation/ai[1]/test</property>
+					<value>0</value>
+				</greater-than>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
 		<object-name>RTFlag</object-name>
 		<condition>
 			<not-equals>
@@ -272,6 +288,43 @@
 				<value>1</value>
 			</not-equals>
 		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>TestBtn</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>instrumentation/ai[1]/test-btn</property>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>instrumentation/ai[1]/test-btn</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>TestBtn</object-name>
+		<property>instrumentation/ai[1]/test-btn</property>
+		<factor>-0.002</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
 	</animation>
 
 </PropertyList>
