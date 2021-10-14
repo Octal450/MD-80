@@ -824,7 +824,7 @@
 	</model>
 	
 <!-- Pedestal -->
-<model>
+<!--model>
   <name>comm1</name>
   <path>Aircraft/MD-80/Models/Instruments/comm1.xml</path>
   <offsets>
@@ -899,6 +899,6 @@
     <z-m>0.600</z-m>
     <pitch-deg>-75</pitch-deg>
   </offsets>
-</model>
+</model-->
 
 </PropertyList>
