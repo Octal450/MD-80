@@ -1,0 +1,105 @@
+AC3Db
+MATERIAL "bezel" rgb 1.000 1.000 1.000  amb 0.800 0.800 0.800  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 64 trans 0.000
+OBJECT world
+name "Blender_exporter_v3.3__ff.ac"
+kids 5
+OBJECT poly
+name "fu1"
+data 8
+fu1.mesh
+crease 45.0
+texture "digits.png"
+numvert 4
+0.00027 -0.00375 0.01637
+0.00027 -0.00375 0.01132
+0.00027 0.00375 0.01637
+0.00027 0.00375 0.01132
+numsurf 1
+SURF 0X10
+mat 0
+refs 4
+1 0.257812 0.90625
+3 0.257812 0.992188
+2 0.203125 0.992188
+0 0.203125 0.90625
+kids 0
+OBJECT poly
+name "fu2"
+data 8
+fu2.mesh
+crease 45.0
+texture "digits.png"
+numvert 4
+0.00027 -0.00375 0.00441
+0.00027 -0.00375 0.00945
+0.00027 0.00375 0.00945
+0.00027 0.00375 0.00441
+numsurf 1
+SURF 0X10
+mat 0
+refs 4
+0 0.257812 0.90625
+3 0.257812 0.992188
+2 0.203125 0.992188
+1 0.203125 0.90625
+kids 0
+OBJECT poly
+name "fu3"
+data 8
+fu3.mesh
+crease 45.0
+texture "digits.png"
+numvert 4
+0.00027 -0.00375 -0.00252
+0.00027 -0.00375 0.00252
+0.00027 0.00375 0.00252
+0.00027 0.00375 -0.00252
+numsurf 1
+SURF 0X10
+mat 0
+refs 4
+0 0.257812 0.90625
+3 0.257812 0.992188
+2 0.203125 0.992188
+1 0.203125 0.90625
+kids 0
+OBJECT poly
+name "fu4"
+data 8
+fu4.mesh
+crease 45.0
+texture "digits.png"
+numvert 4
+0.00027 -0.00375 -0.00945
+0.00027 -0.00375 -0.00441
+0.00027 0.00375 -0.00441
+0.00027 0.00375 -0.00945
+numsurf 1
+SURF 0X10
+mat 0
+refs 4
+0 0.257812 0.90625
+3 0.257812 0.992188
+2 0.203125 0.992188
+1 0.203125 0.90625
+kids 0
+OBJECT poly
+name "fu5"
+data 8
+fu5.mesh
+crease 45.0
+texture "digits.png"
+numvert 4
+0.00027 -0.00375 -0.01637
+0.00027 -0.00375 -0.01132
+0.00027 0.00375 -0.01132
+0.00027 0.00375 -0.01637
+numsurf 1
+SURF 0X10
+mat 0
+refs 4
+0 0.257812 0.90625
+3 0.257812 0.992188
+2 0.203125 0.992188
+1 0.203125 0.90625
+kids 0

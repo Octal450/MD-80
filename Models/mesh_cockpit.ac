@@ -8456,7 +8456,7 @@ refs 4
 45 0.501333 0.598742
 kids 0
 OBJECT poly
-name "fuelUsedReset"
+name "FuelUsedReset"
 loc 0.348235 0.1209 -0.0295053
 data 13
 fuelUsedReset

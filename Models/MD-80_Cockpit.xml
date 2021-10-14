@@ -1451,5 +1451,46 @@
 			</binding>
 		</action>
 	</animation>
+	
+	<!-- Fuel Used Reset Switch -->
+	<animation>
+		<type>rotate</type>
+		<object-name>FuelUsedReset</object-name>
+		<property>controls/engines/fu-reset</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 25</dep></entry>
+			<entry><ind>1</ind><dep>-25</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.24961</x-m>
+			<y-m>0</y-m>
+			<z-m>0.78057</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FuelUsedReset</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/engines/fu-reset</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/engines/fu-reset</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
 
 </PropertyList>

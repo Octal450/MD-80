@@ -43,7 +43,7 @@ OBJECT poly
 name "ActDigit1"
 data 8
 Cube.008
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000193 0.005806 0.054925
@@ -63,7 +63,7 @@ OBJECT poly
 name "ActDigit2"
 data 8
 Cube.009
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000194 0.005806 0.043681
@@ -83,7 +83,7 @@ OBJECT poly
 name "ActDigit3"
 data 8
 Cube.010
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000194 0.005806 0.032437
@@ -103,7 +103,7 @@ OBJECT poly
 name "ActDigit4"
 data 8
 Cube.011
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000194 0.005806 0.021193
@@ -123,7 +123,7 @@ OBJECT poly
 name "ActDigit5"
 data 8
 Cube.012
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000194 0.005806 0.009949
@@ -523,7 +523,7 @@ OBJECT poly
 name "DecimalActive"
 data 8
 Cube.017
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000434 0.007862 0.031251
@@ -543,7 +543,7 @@ OBJECT poly
 name "DecimalStdby"
 data 8
 Cube.021
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000434 0.007862 -0.044978
@@ -583,7 +583,7 @@ OBJECT poly
 name "StdbyDigit1"
 data 8
 Cube.020
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000193 0.005806 -0.021304
@@ -603,7 +603,7 @@ OBJECT poly
 name "StdbyDigit2"
 data 8
 Cube.019
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000194 0.005806 -0.032548
@@ -623,7 +623,7 @@ OBJECT poly
 name "StdbyDigit3"
 data 8
 Cube.018
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000194 0.005806 -0.043792
@@ -643,7 +643,7 @@ OBJECT poly
 name "StdbyDigit4"
 data 8
 Cube.015
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000194 0.005806 -0.055036
@@ -663,7 +663,7 @@ OBJECT poly
 name "StdbyDigit5"
 data 8
 Cube.007
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000194 0.005806 -0.06628

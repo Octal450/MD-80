@@ -43,7 +43,7 @@ OBJECT poly
 name "ActDigit1"
 data 8
 Cube.048
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000193 0.005806 0.043925
@@ -63,7 +63,7 @@ OBJECT poly
 name "ActDigit2"
 data 8
 Cube.049
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000194 0.005806 0.032681
@@ -83,7 +83,7 @@ OBJECT poly
 name "ActDigit3"
 data 8
 Cube.050
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000194 0.005806 0.021437
@@ -503,7 +503,7 @@ OBJECT poly
 name "StdbyDigit1"
 data 8
 Cube.052
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000193 0.005806 -0.032304
@@ -523,7 +523,7 @@ OBJECT poly
 name "StdbyDigit2"
 data 8
 Cube.053
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000194 0.005806 -0.043548
@@ -543,7 +543,7 @@ OBJECT poly
 name "StdbyDigit3"
 data 8
 Cube.054
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.000194 0.005806 -0.054792

@@ -484,7 +484,7 @@ OBJECT poly
 name "FuelC1"
 data 8
 Mesh.023
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 0.00169876 0.0129319
@@ -504,7 +504,7 @@ OBJECT poly
 name "FuelC2"
 data 8
 Mesh.024
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 0.00169876 0.00431063
@@ -524,7 +524,7 @@ OBJECT poly
 name "FuelC3"
 data 8
 Mesh.025
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 0.00169876 -0.00431063
@@ -544,7 +544,7 @@ OBJECT poly
 name "FuelC4"
 data 8
 Mesh.026
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 0.00169876 -0.0129319
@@ -564,7 +564,7 @@ OBJECT poly
 name "FuelC5"
 data 8
 Mesh.021
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 0.00169876 -0.0215531
@@ -584,7 +584,7 @@ OBJECT poly
 name "FuelL1"
 data 8
 Mesh.007
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 0.0209701 0.0373587
@@ -604,7 +604,7 @@ OBJECT poly
 name "FuelL2"
 data 8
 Mesh.008
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 0.0209701 0.0287375
@@ -624,7 +624,7 @@ OBJECT poly
 name "FuelL3"
 data 8
 Mesh.009
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 0.0209701 0.0201163
@@ -644,7 +644,7 @@ OBJECT poly
 name "FuelL4"
 data 8
 Mesh.013
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 0.0209701 0.011495
@@ -664,7 +664,7 @@ OBJECT poly
 name "FuelL5"
 data 8
 Mesh.005
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 0.0209701 0.00287375
@@ -684,7 +684,7 @@ OBJECT poly
 name "FuelR1"
 data 8
 Mesh.019
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 0.0209701 -0.011495
@@ -704,7 +704,7 @@ OBJECT poly
 name "FuelR2"
 data 8
 Mesh.018
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 0.0209701 -0.0201163
@@ -724,7 +724,7 @@ OBJECT poly
 name "FuelR3"
 data 8
 Mesh.017
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 0.0209701 -0.0287375
@@ -744,7 +744,7 @@ OBJECT poly
 name "FuelR4"
 data 8
 Mesh.015
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 0.0209701 -0.0373587
@@ -764,7 +764,7 @@ OBJECT poly
 name "FuelR5"
 data 8
 Mesh.020
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 0.0209701 -0.0459801
@@ -784,7 +784,7 @@ OBJECT poly
 name "FuelT1"
 data 8
 Mesh.030
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 -0.0175726 0.0129319
@@ -804,7 +804,7 @@ OBJECT poly
 name "FuelT2"
 data 8
 Mesh.029
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 -0.0175726 0.00431063
@@ -824,7 +824,7 @@ OBJECT poly
 name "FuelT3"
 data 8
 Mesh.028
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 -0.0175726 -0.00431063
@@ -844,7 +844,7 @@ OBJECT poly
 name "FuelT4"
 data 8
 Mesh.027
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 -0.0175726 -0.0129319
@@ -864,7 +864,7 @@ OBJECT poly
 name "FuelT5"
 data 8
 Mesh.031
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 -0.0175726 -0.0215531
@@ -884,7 +884,7 @@ OBJECT poly
 name "Lbs1"
 data 10
 Mesh.11277
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 -0.0368439 0.0172425
@@ -904,7 +904,7 @@ OBJECT poly
 name "Lbs2"
 data 10
 Mesh.11278
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 -0.0368439 0.00862125
@@ -924,7 +924,7 @@ OBJECT poly
 name "Lbs3"
 data 10
 Mesh.11279
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 -0.0368439 0
@@ -944,7 +944,7 @@ OBJECT poly
 name "Lbs4"
 data 10
 Mesh.11280
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 -0.0368439 -0.00862125
@@ -964,7 +964,7 @@ OBJECT poly
 name "Lbs5"
 data 10
 Mesh.11276
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 -0.0368439 -0.0172425
@@ -984,7 +984,7 @@ OBJECT poly
 name "Lbs6"
 data 10
 Mesh.11281
-texture "digits.rgb"
+texture "digits.png"
 crease 30.000000
 numvert 4
 0.00193843 -0.0368439 -0.0258638

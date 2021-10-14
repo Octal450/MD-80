@@ -1505,7 +1505,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 	
 	</channel>
 	
-	<channel name="FF Gauges" execrate="4">
+	<channel name="FF Gauges" execrate="4"> <!-- TODO: Fuel used should continue where left off when regained power? -->
 		
 		<!-- FF Gauge 1 -->
 		<switch name="/instrumentation/ff[0]/power-avail">
@@ -1528,6 +1528,30 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<c1>7.5</c1>
 		</lag_filter>
 		
+		<switch name="/instrumentation/ff[0]/ff-input">
+			<default value="/instrumentation/ff[0]/ff-input"/>
+			<test value="propulsion/engine[0]/fuel-used-lbs">
+				/instrumentation/ff[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/ff[0]/fu-reset-trim">
+			<default value="/instrumentation/ff[0]/fu-reset-trim"/>
+			<test value="propulsion/engine[0]/fuel-used-lbs">
+				/controls/engines/fu-reset eq 1
+			</test>
+		</switch>
+		
+		<summer name="/instrumentation/ff[0]/fu-cmd">
+			<input>/instrumentation/ff[0]/ff-input</input>
+			<input>-/instrumentation/ff[0]/fu-reset-trim</input>
+		</summer>
+		
+		<lag_filter name="/instrumentation/ff[0]/fu">
+			<input>/instrumentation/ff[0]/fu-cmd</input>
+			<c1>15</c1>
+		</lag_filter>
+		
 		<!-- FF Gauge 2 -->
 		<switch name="/instrumentation/ff[1]/power-avail">
 			<default value="0"/>
@@ -1547,6 +1571,30 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<lag_filter name="/instrumentation/ff[1]/ff">
 			<input>/instrumentation/ff[1]/ff-input</input>
 			<c1>7.5</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/ff[1]/ff-input">
+			<default value="/instrumentation/ff[1]/ff-input"/>
+			<test value="propulsion/engine[1]/fuel-used-lbs">
+				/instrumentation/ff[1]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/ff[1]/fu-reset-trim">
+			<default value="/instrumentation/ff[1]/fu-reset-trim"/>
+			<test value="propulsion/engine[1]/fuel-used-lbs">
+				/controls/engines/fu-reset eq 1
+			</test>
+		</switch>
+		
+		<summer name="/instrumentation/ff[1]/fu-cmd">
+			<input>/instrumentation/ff[1]/ff-input</input>
+			<input>-/instrumentation/ff[1]/fu-reset-trim</input>
+		</summer>
+		
+		<lag_filter name="/instrumentation/ff[1]/fu">
+			<input>/instrumentation/ff[1]/fu-cmd</input>
+			<c1>15</c1>
 		</lag_filter>
 	
 	</channel>

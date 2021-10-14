@@ -206,7 +206,7 @@
 		<property>instrumentation/altimeter[0]/altitude-ft</property>
 		<factor>0.0001</factor>
 		<step>1000</step>
-		<scroll>20</scroll>
+		<scroll>100</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -220,7 +220,7 @@
 		<property>instrumentation/altimeter[0]/altitude-ft</property>
 		<factor>0.00001</factor>
 		<step>10000</step>
-		<scroll>20</scroll>
+		<scroll>100</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>

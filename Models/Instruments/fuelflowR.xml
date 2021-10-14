@@ -10,6 +10,11 @@
 	<animation>
 		<type>material</type>
 		<object-name>Face</object-name>
+		<object-name>fu1</object-name>
+		<object-name>fu2</object-name>
+		<object-name>fu3</object-name>
+		<object-name>fu4</object-name>
+		<object-name>fu5</object-name>
 		<object-name>Needle</object-name>
 		<emission>
 			<red>1.0</red>
@@ -31,6 +36,69 @@
 			<x>-1</x>
 			<y>0</y>
 			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>fu1</object-name>
+		<property>instrumentation/ff[1]/fu</property>
+		<factor>0.00001</factor>
+		<step>10000</step>
+		<scroll>1</scroll>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>fu2</object-name>
+		<property>instrumentation/ff[1]/fu</property>
+		<factor>0.0001</factor>
+		<step>1000</step>
+		<scroll>1</scroll>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>fu3</object-name>
+		<property>instrumentation/ff[1]/fu</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<scroll>1</scroll>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>fu4</object-name>
+		<property>instrumentation/ff[1]/fu</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<scroll>1</scroll>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>fu5</object-name>
+		<property>instrumentation/ff[1]/fu</property>
+		<factor>0.1</factor>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
 		</axis>
 	</animation>
 
