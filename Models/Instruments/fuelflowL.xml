@@ -24,8 +24,8 @@
 		<object-name>Needle</object-name>
 		<property>instrumentation/ff[0]/ff</property>
 		<interpolation>
-			<entry><ind>    0</ind><dep>  0</dep></entry>
-			<entry><ind>16000</ind><dep>288</dep></entry>
+			<entry><ind>    0</ind><dep>-54</dep></entry>
+			<entry><ind>16000</ind><dep>234</dep></entry>
 		</interpolation>
 		<axis>
 			<x>-1</x>
