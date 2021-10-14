@@ -20,15 +20,16 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>KnobLtsPanel</object-name>
+		<object-name>KnobPanel</object-name>
+		<object-name>IntegrityPanel</object-name>
 		<property>controls/lighting/main-panel-knb</property>
 		<interpolation>
-			<entry><ind>0</ind><dep>-145</dep></entry>
-			<entry><ind>1</ind><dep> 145</dep></entry>
+			<entry><ind>0</ind><dep>-135</dep></entry>
+			<entry><ind>1</ind><dep> 135</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>0.00757</x-m>
-			<y-m>-0.027583</y-m>
+			<y-m>-0.0279</y-m>
 			<z-m>-0.006946</z-m>
 		</center>
 		<axis>
@@ -39,7 +40,7 @@
 	</animation>
 	<animation>
 		<type>pick</type>
-		<object-name>KnobLtsPanel</object-name>
+		<object-name>KnobPanel</object-name>
 		<action>
 			<button>0</button>
 			<button>3</button>
@@ -70,15 +71,16 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>KnobLtsDigital</object-name>
+		<object-name>KnobDigital</object-name>
+		<object-name>IntegrityDigital</object-name>
 		<property>controls/lighting/main-digital-knb</property>
 		<interpolation>
-			<entry><ind>0</ind><dep>-145</dep></entry>
-			<entry><ind>1</ind><dep> 145</dep></entry>
+			<entry><ind>0</ind><dep>-135</dep></entry>
+			<entry><ind>1</ind><dep> 135</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>0.00759</x-m>
-			<y-m>0.00058</y-m>
+			<y-m>0.00024</y-m>
 			<z-m>-0.00704</z-m>
 		</center>
 		<axis>
@@ -89,7 +91,7 @@
 	</animation>
 	<animation>
 		<type>pick</type>
-		<object-name>KnobLtsDigital</object-name>
+		<object-name>KnobDigital</object-name>
 		<action>
 			<button>0</button>
 			<button>3</button>
@@ -116,6 +118,29 @@
 				<wrap>false</wrap>
 			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>KnobFlood</object-name>
+		<object-name>KnobFloodTop</object-name>
+		<object-name>IntegrityFlood</object-name>
+		<object-name>IntegrityFloodTop</object-name>
+		<property>controls/lighting/main-flood-knb</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-135</dep></entry>
+			<entry><ind>1</ind><dep> 135</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>0.00757</x-m>
+			<y-m>0.02804</y-m>
+			<z-m>-0.006946</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
 	</animation>
 
 </PropertyList>
