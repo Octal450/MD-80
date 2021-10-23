@@ -1,6 +1,8 @@
 # McDonnell Douglas MD-80 Buttons and Switches
 # Copyright (c) 2021 Josh Davidson (Octal450)
 
+var furt = 0;
+
 # Resets buttons to the default values
 var variousReset = func() {
 	pts.Controls.Dfgs.Switches.art.setBoolValue(1);
@@ -17,6 +19,9 @@ var variousReset = func() {
 	pts.Controls.Switches.minimums.setValue(200);
 	pts.Controls.Switches.noSmokingSign.setValue(1); # Smoking is bad!
 	pts.Controls.Switches.seatbeltSign.setValue(0);
+	furt = math.round((rand() * 6000) + 2000) * -1; # Random between 2000 and 8000
+	pts.Instrumentation.Ff.fuResetTrim[0].setValue(furt);
+	pts.Instrumentation.Ff.fuResetTrim[1].setValue(furt);
 	pts.Instrumentation.Hsi.slavedToGps[0].setBoolValue(0);
 	pts.Instrumentation.Hsi.slavedToGps[1].setBoolValue(0);
 }
