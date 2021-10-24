@@ -576,14 +576,15 @@ refs 4
 kids 0
 OBJECT poly
 name "Bug.kts"
+loc 0.00082 0 0
 data 16
 Bug.kts.mesh.001
 texture "asi-extra.png"
 crease 45.000000
 numvert 3
-0.00082 0.04788 -0.00382
-0.00082 0.04788 0.00382
-0.00082 0.04035 0
+0 0.04788 -0.00357351
+0 0.04788 0.00357351
+0 0.04035 0
 numsurf 1
 SURF 0x10
 mat 1
