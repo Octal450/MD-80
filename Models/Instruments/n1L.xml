@@ -39,8 +39,8 @@
 		<factor>36</factor> <!-- 360 degrees for 10%, so 3.6 for 1 -->
 		<center>
 			<x-m>0</x-m>
-			<y-m>-0.0098</y-m>
-			<z-m>0.01214</z-m>
+			<y-m>-0.00697</y-m>
+			<z-m>0.00978</z-m>
 		</center>
 		<axis>
 			<x>-1</x>
