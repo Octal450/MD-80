@@ -86,7 +86,7 @@ var SYSTEM = {
 					OPTIONS.write();
 				}
 			}
-		}, 4);
+		}, 2);
 	},
 	errorCheck: func() {
 		if (!me.versionCheck()) {
