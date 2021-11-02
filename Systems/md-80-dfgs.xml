@@ -399,11 +399,11 @@
 			<kp>dfgs/yaw/tc-p-gain</kp>
 			<ki>0.0</ki>
 			<kd>dfgs/yaw/tc-d-gain</kd>
+			<output>dfgs/yaw/tc-pd</output>
 			<clipto>
 				<min>-0.2</min>
 				<max>0.2</max>
 			</clipto>
-			<output>dfgs/yaw/tc-pd</output>
 		</pid>
 		
 		<switch name="dfgs/yaw/tc-pd-s">
@@ -651,11 +651,11 @@
 			<ki>0.25</ki>
 			<kd>0.0</kd>
 			<trigger>/gear/abs/brake-cmd-trigger</trigger>
+			<output>/gear/abs/brake-cmd</output>
 			<clipto>
 				<min>0.0</min>
 				<max>1.0</max>
 			</clipto>
-			<output>/gear/abs/brake-cmd</output>
 		</pid>
 		
 		<switch name="/gear/abs/brake-output">
