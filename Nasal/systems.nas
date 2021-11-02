@@ -364,6 +364,10 @@ var GEAR = {
 		lever: props.globals.getNode("/controls/gear/lever"),
 		leverCockpit: props.globals.getNode("/controls/gear/lever-cockpit"),
 	},
+	init: func() {
+		me.resetFailures();
+		me.Switch.brakeParking.setBoolValue(0);
+	},
 	resetFailures: func() {
 		me.Fail.leftActuator.setBoolValue(0);
 		me.Fail.noseActuator.setBoolValue(0);

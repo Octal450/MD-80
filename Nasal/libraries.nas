@@ -26,6 +26,7 @@ var systemsInit = func() {
 	systems.ENGINE.init();
 	systems.FCTL.init();
 	systems.FUEL.init();
+	systems.GEAR.init();
 	systems.HYD.init();
 	systems.IGNITION.init();
 	systems.PNEU.init();
