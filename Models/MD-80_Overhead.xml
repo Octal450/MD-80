@@ -115,7 +115,7 @@
 		<type>select</type>
 		<object-name>extpwravailon</object-name>
 		<condition>
-			<property>controls/switches/cart</property>
+			<property>controls/electrical/switches/ground-cart</property>
 		</condition>
 	</animation>
 	

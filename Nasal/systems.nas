@@ -105,7 +105,6 @@ var ELEC = {
 			volt: props.globals.getNode("/systems/electrical/sources/bat-2/volt"),
 		},
 		Ext: {
-			cart: props.globals.getNode("/controls/switches/cart"),
 			hertz: props.globals.getNode("/systems/electrical/sources/ext/output-hertz"),
 			volt: props.globals.getNode("/systems/electrical/sources/ext/output-volt"),
 		},
@@ -158,6 +157,7 @@ var ELEC = {
 		genApu: props.globals.getNode("/controls/electrical/switches/gen-apu"),
 		genL: props.globals.getNode("/controls/electrical/switches/gen-l"),
 		genR: props.globals.getNode("/controls/electrical/switches/gen-r"),
+		groundCart: props.globals.getNode("/controls/electrical/switches/ground-cart"),
 	},
 	init: func() {
 		me.resetFailures();
@@ -177,9 +177,9 @@ var ELEC = {
 		me.Switch.genApu.setBoolValue(1);
 		me.Switch.genL.setValue(1);
 		me.Switch.genR.setValue(1);
+		me.Switch.groundCart.setBoolValue(0);
 		me.Source.Bat1.percent.setValue(99.9);
 		me.Source.Bat2.percent.setValue(99.9);
-		me.Source.Ext.cart.setBoolValue(0);
 	},
 	resetFailures: func() {
 		me.Switch.csdL.setBoolValue(1);

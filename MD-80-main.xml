@@ -459,6 +459,7 @@
 				<gen-apu type="bool">1</gen-apu>
 				<gen-l type="int">1</gen-l>
 				<gen-r type="int">1</gen-r>
+				<ground-cart type="bool">0</ground-cart>
 			</switches>
 		</electrical>
 		<engines n="0">
@@ -564,7 +565,6 @@
 			<annun-test type="bool">0</annun-test>
 			<ap-yoke-button1 type="bool">0</ap-yoke-button1>
 			<ap-yoke-button2 type="bool">0</ap-yoke-button2>
-			<cart type="bool">0</cart>
 			<modekb type="int">2</modekb> <!-- For temporary ND -->
 			<modekb2 type="int">2</modekb2> <!-- For temporary ND -->
 			<minimums type="int">200</minimums>

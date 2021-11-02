@@ -156,6 +156,13 @@ var Position = {
 	gearAglFt: props.globals.getNode("/position/gear-agl-ft"),
 };
 
+var Services = {
+	Chocks: {
+		enable: props.globals.getNode("/services/chocks/enable"),
+		enableTemp: 1,
+	},
+};
+
 var Sim = {
 	CurrentView: {
 		fieldOfView: props.globals.getNode("/sim/current-view/field-of-view", 1),
@@ -201,13 +208,6 @@ var Sim = {
 		Config: {
 			defaultFieldOfViewDeg: props.globals.getNode("/sim/view/config/default-field-of-view-deg", 1),
 		},
-	},
-};
-
-var Services = {
-	Chocks: {
-		enable: props.globals.getNode("/services/chocks/enable"),
-		enableTemp: 1,
 	},
 };
 

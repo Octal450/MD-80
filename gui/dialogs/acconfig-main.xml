@@ -316,7 +316,7 @@
 			<checkbox>
 				<label>Enable External Power Box</label>
 				<halign>left</halign>
-				<property>/controls/switches/cart</property>
+				<property>/controls/electrical/switches/ground-cart</property>
 				<enable>
 					<and>
 						<or>
