@@ -1537,7 +1537,8 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		
 		<switch name="/instrumentation/ff[0]/fu-reset-trim">
 			<default value="/instrumentation/ff[0]/fu-reset-trim"/>
-			<test value="propulsion/engine[0]/fuel-used-lbs">
+			<test logic="AND" value="propulsion/engine[0]/fuel-used-lbs">
+				/instrumentation/ff[0]/power-avail eq 1
 				/controls/engines/fu-reset eq 1
 			</test>
 		</switch>
@@ -1582,7 +1583,8 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		
 		<switch name="/instrumentation/ff[1]/fu-reset-trim">
 			<default value="/instrumentation/ff[1]/fu-reset-trim"/>
-			<test value="propulsion/engine[1]/fuel-used-lbs">
+			<test logic="AND" value="propulsion/engine[1]/fuel-used-lbs">
+				/instrumentation/ff[1]/power-avail eq 1
 				/controls/engines/fu-reset eq 1
 			</test>
 		</switch>
