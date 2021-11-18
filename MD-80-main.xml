@@ -1323,7 +1323,6 @@
 				<flight-director type="string">Single Cue</flight-director>
 				<keyboard-mode type="bool">0</keyboard-mode>
 				<du n="0">
-					<enable-shaders type="bool">true</enable-shaders>
 					<nd-fps type="double">20</nd-fps>
 					<pfd-fps type="double">20</pfd-fps>
 				</du>
