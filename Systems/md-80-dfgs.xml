@@ -321,6 +321,7 @@
 			<test logic="OR" value="0">
 				position/wow eq 1
 				dfgs/power-avail eq 0
+				fcs/slat-pos-deg lt 1
 			</test>
 			<test logic="AND" value="0">
 				aero/alpha-deg gt 12
