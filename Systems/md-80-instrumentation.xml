@@ -1263,36 +1263,22 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<c1>20</c1>
 		</lag_filter>
 		
-		<fcs_function name="/instrumentation/epr[0]/epr-fixed">
-			<function>
-				<sum>
-					<property>/instrumentation/epr[0]/epr-input</property>
-					<value>0.003</value>
-				</sum>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="/instrumentation/epr[0]/epr-d100">
-			<function>
-				<integer>
-					<property>/instrumentation/epr[0]/epr-fixed</property>
-				</integer>
-			</function>
-		</fcs_function>
+		<pure_gain name="/instrumentation/epr[0]/epr-d100">
+			<input>/instrumentation/epr[0]/epr-input</input>
+			<gain>1.0</gain>
+		</pure_gain>
 		
 		<fcs_function name="/instrumentation/epr[0]/epr-d10">
 			<function>
-				<integer>
-					<product>
-						<difference>
-							<property>/instrumentation/epr[0]/epr-fixed</property>
-							<integer>
-								<property>/instrumentation/epr[0]/epr-fixed</property>
-							</integer>
-						</difference>
-						<value>10</value>
-					</product>
-				</integer>
+				<product>
+					<difference>
+						<property>/instrumentation/epr[0]/epr-input</property>
+						<integer>
+							<property>/instrumentation/epr[0]/epr-input</property>
+						</integer>
+					</difference>
+					<value>10</value>
+				</product>
 			</function>
 		</fcs_function>
 		
@@ -1301,7 +1287,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 				<product>
 					<fraction>
 						<product>
-							<property>/instrumentation/epr[0]/epr-input</property> <!-- Not epr-fixed on purpose! -->
+							<property>/instrumentation/epr[0]/epr-input</property> <!-- Not epr-d100 on purpose! -->
 							<value>10</value>
 						</product>
 					</fraction>
@@ -1344,36 +1330,22 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<c1>20</c1>
 		</lag_filter>
 		
-		<fcs_function name="/instrumentation/epr[1]/epr-fixed">
-			<function>
-				<sum>
-					<property>/instrumentation/epr[1]/epr-input</property>
-					<value>0.003</value>
-				</sum>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="/instrumentation/epr[1]/epr-d100">
-			<function>
-				<integer>
-					<property>/instrumentation/epr[1]/epr-fixed</property>
-				</integer>
-			</function>
-		</fcs_function>
+		<pure_gain name="/instrumentation/epr[1]/epr-d100">
+			<input>/instrumentation/epr[1]/epr-input</input>
+			<gain>1.0</gain>
+		</pure_gain>
 		
 		<fcs_function name="/instrumentation/epr[1]/epr-d10">
 			<function>
-				<integer>
-					<product>
-						<difference>
-							<property>/instrumentation/epr[1]/epr-fixed</property>
-							<integer>
-								<property>/instrumentation/epr[1]/epr-fixed</property>
-							</integer>
-						</difference>
-						<value>10</value>
-					</product>
-				</integer>
+				<product>
+					<difference>
+						<property>/instrumentation/epr[1]/epr-input</property>
+						<integer>
+							<property>/instrumentation/epr[1]/epr-input</property>
+						</integer>
+					</difference>
+					<value>10</value>
+				</product>
 			</function>
 		</fcs_function>
 		
@@ -1382,7 +1354,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 				<product>
 					<fraction>
 						<product>
-							<property>/instrumentation/epr[1]/epr-input</property> <!-- Not epr-fixed on purpose! -->
+							<property>/instrumentation/epr[1]/epr-input</property> <!-- Not epr-d100 on purpose! -->
 							<value>10</value>
 						</product>
 					</fraction>
