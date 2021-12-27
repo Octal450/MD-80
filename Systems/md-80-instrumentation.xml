@@ -1287,7 +1287,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 				<product>
 					<fraction>
 						<product>
-							<property>/instrumentation/epr[0]/epr-input</property> <!-- Not epr-d100 on purpose! -->
+							<property>/instrumentation/epr[0]/epr-input</property>
 							<value>10</value>
 						</product>
 					</fraction>
@@ -1354,7 +1354,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 				<product>
 					<fraction>
 						<product>
-							<property>/instrumentation/epr[1]/epr-input</property> <!-- Not epr-d100 on purpose! -->
+							<property>/instrumentation/epr[1]/epr-input</property>
 							<value>10</value>
 						</product>
 					</fraction>
