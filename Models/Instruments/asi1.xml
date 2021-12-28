@@ -78,6 +78,7 @@
 		<property>instrumentation/airspeed-indicator[0]/mach-digit-d100</property>
 		<factor>0.0695</factor>
 		<step>1</step>
+		<scroll>0.01</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -91,6 +92,7 @@
 		<property>instrumentation/airspeed-indicator[0]/mach-digit-d10</property>
 		<factor>0.0695</factor>
 		<step>1</step>
+		<scroll>0.1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>

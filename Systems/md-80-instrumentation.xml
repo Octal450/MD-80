@@ -75,44 +75,38 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		
 		<fcs_function name="/instrumentation/airspeed-indicator[0]/mach-digit-d100">
 			<function>
-				<integer>
-					<quotient>
-						<property>/instrumentation/airspeed-indicator[0]/mach-digit-input</property>
-						<value>100</value>
-					</quotient>
-				</integer>
+				<quotient>
+					<property>/instrumentation/airspeed-indicator[0]/mach-digit-input</property>
+					<value>100</value>
+				</quotient>
 			</function>
 		</fcs_function>
 		
 		<fcs_function name="/instrumentation/airspeed-indicator[0]/mach-digit-d10">
 			<function>
-				<integer>
-					<product>
-						<fraction>
-							<quotient>
-								<property>/instrumentation/airspeed-indicator[0]/mach-digit-input</property>
-								<value>100</value>
-							</quotient>
-						</fraction>
-						<value>10</value>
-					</product>
-				</integer>
+				<product>
+					<fraction>
+						<quotient>
+							<property>/instrumentation/airspeed-indicator[0]/mach-digit-input</property>
+							<value>100</value>
+						</quotient>
+					</fraction>
+					<value>10</value>
+				</product>
 			</function>
 		</fcs_function>
 		
 		<fcs_function name="/instrumentation/airspeed-indicator[0]/mach-digit-d1">
 			<function>
-				<integer>
-					<product>
-						<fraction>
-							<quotient>
-								<property>/instrumentation/airspeed-indicator[0]/mach-digit-input</property>
-								<value>10</value>
-							</quotient>
-						</fraction>
-						<value>10</value>
-					</product>
-				</integer>
+				<product>
+					<fraction>
+						<quotient>
+							<property>/instrumentation/airspeed-indicator[0]/mach-digit-input</property>
+							<value>10</value>
+						</quotient>
+					</fraction>
+					<value>10</value>
+				</product>
 			</function>
 		</fcs_function>
 		
@@ -195,44 +189,38 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		
 		<fcs_function name="/instrumentation/airspeed-indicator[1]/mach-digit-d100">
 			<function>
-				<integer>
-					<quotient>
-						<property>/instrumentation/airspeed-indicator[1]/mach-digit-input</property>
-						<value>100</value>
-					</quotient>
-				</integer>
+				<quotient>
+					<property>/instrumentation/airspeed-indicator[1]/mach-digit-input</property>
+					<value>100</value>
+				</quotient>
 			</function>
 		</fcs_function>
 		
 		<fcs_function name="/instrumentation/airspeed-indicator[1]/mach-digit-d10">
 			<function>
-				<integer>
-					<product>
-						<fraction>
-							<quotient>
-								<property>/instrumentation/airspeed-indicator[1]/mach-digit-input</property>
-								<value>100</value>
-							</quotient>
-						</fraction>
-						<value>10</value>
-					</product>
-				</integer>
+				<product>
+					<fraction>
+						<quotient>
+							<property>/instrumentation/airspeed-indicator[1]/mach-digit-input</property>
+							<value>100</value>
+						</quotient>
+					</fraction>
+					<value>10</value>
+				</product>
 			</function>
 		</fcs_function>
 		
 		<fcs_function name="/instrumentation/airspeed-indicator[1]/mach-digit-d1">
 			<function>
-				<integer>
-					<product>
-						<fraction>
-							<quotient>
-								<property>/instrumentation/airspeed-indicator[1]/mach-digit-input</property>
-								<value>10</value>
-							</quotient>
-						</fraction>
-						<value>10</value>
-					</product>
-				</integer>
+				<product>
+					<fraction>
+						<quotient>
+							<property>/instrumentation/airspeed-indicator[1]/mach-digit-input</property>
+							<value>10</value>
+						</quotient>
+					</fraction>
+					<value>10</value>
+				</product>
 			</function>
 		</fcs_function>
 		
