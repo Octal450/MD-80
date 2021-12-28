@@ -55,7 +55,7 @@
 		<type>textranslate</type>
 		<object-name>epr1</object-name>
 		<property>instrumentation/epr[0]/epr-d100</property>
-		<factor>0.0695</factor>
+		<factor>0.0697</factor>
 		<step>1</step>
 		<scroll>0.01</scroll>
 		<axis>
@@ -69,7 +69,7 @@
 		<type>textranslate</type>
 		<object-name>epr2</object-name>
 		<property>instrumentation/epr[0]/epr-d10</property>
-		<factor>0.0695</factor>
+		<factor>0.0697</factor>
 		<step>1</step>
 		<scroll>0.1</scroll>
 		<axis>
@@ -83,7 +83,7 @@
 		<type>textranslate</type>
 		<object-name>epr3</object-name>
 		<property>instrumentation/epr[0]/epr-d1</property>
-		<factor>0.0695</factor>
+		<factor>0.0697</factor>
 		<step>0.01</step>
 		<axis>
 			<x>0</x>

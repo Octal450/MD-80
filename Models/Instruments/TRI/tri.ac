@@ -1,5 +1,5 @@
 AC3Db
-MATERIAL "ac3dmat1.002" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 64  trans 0
+MATERIAL "ac3dmat1.001" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 64  trans 0
 MATERIAL "ac3dmat1.001" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 64  trans 0
 OBJECT world
 kids 10
@@ -410,217 +410,6 @@ refs 4
 1 0.910156 0.820312
 2 0.820312 0.820312
 3 0.820312 0.730469
-kids 0
-OBJECT group
-name "LightingGroup"
-kids 5
-OBJECT group
-name "eprDigits"
-kids 3
-OBJECT poly
-name "epr1"
-data 13
-epr1.mesh.015
-texture "tri.jpg"
-crease 45.000000
-numvert 4
-0.00281 0.0028 0.00329
-0.00281 0.0028 0.00879
-0.00281 0.01546 0.00329
-0.00281 0.01546 0.00879
-numsurf 1
-SURF 0x10
-mat 0
-refs 4
-3 0.775391 0.59375
-1 0.775391 0.541016
-0 0.792969 0.541016
-2 0.792969 0.59375
-kids 0
-OBJECT poly
-name "epr2"
-data 13
-epr1.mesh.016
-texture "tri.jpg"
-crease 45.000000
-numvert 4
-0.00281 0.01546 0.00221
-0.00281 0.01546 -0.00329
-0.00281 0.0028 0.00221
-0.00281 0.0028 -0.00329
-numsurf 1
-SURF 0x10
-mat 0
-refs 4
-0 0.775391 0.59375
-2 0.775391 0.541016
-3 0.792969 0.541016
-1 0.792969 0.59375
-kids 0
-OBJECT poly
-name "epr3"
-data 13
-epr1.mesh.017
-texture "tri.jpg"
-crease 45.000000
-numvert 4
-0.00281 0.01546 -0.00329
-0.00281 0.01546 -0.00879
-0.00281 0.0028 -0.00329
-0.00281 0.0028 -0.00879
-numsurf 1
-SURF 0x10
-mat 0
-refs 4
-0 0.775391 0.59375
-2 0.775391 0.541016
-3 0.792969 0.541016
-1 0.792969 0.59375
-kids 0
-OBJECT poly
-name "FlagEpr"
-loc 0.00292969 0.00892199 9.28871e-05
-texture "flag.png"
-crease 45.000000
-numvert 4
-0 -0.00178543 -0.0091803
-0 -0.00178543 0.0091803
-0 0.00178543 0.0091803
-0 0.00178543 -0.0091803
-numsurf 1
-SURF 0x30
-mat 0
-refs 4
-3 1 1
-2 0 1
-1 0 0
-0 1 0
-kids 0
-OBJECT poly
-name "FlagRat"
-loc 0.00292969 0.0345077 -0.000589375
-texture "flag.png"
-crease 45.000000
-numvert 4
-0 -0.00231087 -0.0157862
-0 -0.00231087 0.0157862
-0 0.00231087 0.0157862
-0 0.00231087 -0.0157862
-numsurf 1
-SURF 0x30
-mat 0
-refs 4
-3 1 1
-2 0 1
-1 0 0
-0 1 0
-kids 0
-OBJECT group
-name "ratDigits"
-kids 4
-OBJECT poly
-name "rat1"
-loc 0 0 0.01934
-data 13
-epr1.mesh.018
-texture "tri.jpg"
-crease 45.000000
-numvert 4
-0.00281 0.04075 -0.00417
-0.00281 0.04075 -0.00967
-0.00281 0.02809 -0.00417
-0.00281 0.02809 -0.00967
-numsurf 1
-SURF 0x10
-mat 0
-refs 4
-0 0.775391 0.59375
-2 0.775391 0.541016
-3 0.792969 0.541016
-1 0.792969 0.59375
-kids 0
-OBJECT poly
-name "rat2"
-loc 0 0 0.01934
-data 13
-epr1.mesh.019
-texture "tri.jpg"
-crease 45.000000
-numvert 4
-0.00281 0.04075 -0.00967
-0.00281 0.04075 -0.01517
-0.00281 0.02809 -0.00967
-0.00281 0.02809 -0.01517
-numsurf 1
-SURF 0x10
-mat 0
-refs 4
-0 0.775391 0.59375
-2 0.775391 0.541016
-3 0.792969 0.541016
-1 0.792969 0.59375
-kids 0
-OBJECT poly
-name "ratMinus"
-loc 0 0 -0.01248
-data 17
-ratMinus.mesh.003
-texture "tri.jpg"
-crease 45.000000
-numvert 4
-0.00281 0.0312 0.01652
-0.00281 0.0312 -0.00404
-0.00281 0.03764 -0.00404
-0.00281 0.03764 0.01652
-numsurf 1
-SURF 0x10
-mat 0
-refs 4
-3 0.84375 0.396484
-0 0.84375 0.355469
-1 0.974609 0.355469
-2 0.974609 0.396484
-kids 0
-OBJECT poly
-name "ratPlus"
-loc 0 0 -0.01248
-data 16
-ratPlus.mesh.003
-texture "tri.jpg"
-crease 45.000000
-numvert 4
-0.00281 0.03764 -0.00404
-0.00281 0.03764 0.01652
-0.00281 0.0312 -0.00404
-0.00281 0.0312 0.01652
-numsurf 1
-SURF 0x10
-mat 0
-refs 4
-2 0.974609 0.398438
-0 0.974609 0.4375
-1 0.84375 0.4375
-3 0.84375 0.398438
-kids 0
-OBJECT poly
-name "Text"
-data 8
-box.mesh
-texture "tri-text.png"
-crease 45.000000
-numvert 4
-0.00286 -0.0446975 -0.02883
-0.00286 -0.0446974 0.02883
-0.00286 0.05675 0.02883
-0.00286 0.05675 -0.02883
-numsurf 1
-SURF 0x10
-mat 1
-refs 4
-0 0.523438 0.10619
-3 0.523438 1
-2 0.013672 1
-1 0.013672 0.10619
 kids 0
 OBJECT group
 name "mctBtn"
@@ -2441,4 +2230,238 @@ refs 4
 3 0.523438 0.10619
 2 0.013672 0.10619
 0 0.013672 0.0427322
+kids 0
+OBJECT group
+name "LightingGroup"
+kids 5
+OBJECT group
+name "eprDigits"
+kids 4
+OBJECT poly
+name "epr1"
+loc 0.0023 0.0250895 0.0127543
+data 9
+epr3.mesh
+texture "tri-digits.jpg"
+crease 45.000000
+numvert 4
+0.00051 -0.0222895 -0.00824451
+0.00051 -0.0222895 -0.00274451
+0.00051 -0.00962951 -0.00824451
+0.00051 -0.00962951 -0.00274451
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0.007812 0.238281
+1 0.007812 0.132812
+0 0.0625 0.132812
+2 0.0625 0.238281
+kids 0
+OBJECT poly
+name "epr2"
+loc 0.0023 0.0250895 0.00617435
+data 9
+epr3.mesh
+texture "tri-digits.jpg"
+crease 45.000000
+numvert 4
+0.00051 -0.0222895 -0.00824451
+0.00051 -0.0222895 -0.00274451
+0.00051 -0.00962951 -0.00824451
+0.00051 -0.00962951 -0.00274451
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0.007812 0.238281
+1 0.007812 0.132812
+0 0.0625 0.132812
+2 0.0625 0.238281
+kids 0
+OBJECT poly
+name "epr3"
+loc 0.0023 0.0250895 0.000674354
+data 9
+epr3.mesh
+texture "tri-digits.jpg"
+crease 45.000000
+numvert 4
+0.00051 -0.0222895 -0.00824451
+0.00051 -0.0222895 -0.00274451
+0.00051 -0.00962951 -0.00824451
+0.00051 -0.00962951 -0.00274451
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0.007812 0.238281
+1 0.007812 0.132812
+0 0.0625 0.132812
+2 0.0625 0.238281
+kids 0
+OBJECT poly
+name "eprLines"
+data 9
+epr3.mesh
+texture "tri-digits.jpg"
+crease 45.000000
+numvert 4
+0.00281 0.01546 -0.00757
+0.00281 0.01546 -0.00949
+0.00281 0.0028 -0.00757
+0.00281 0.0028 -0.00949
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.09082 0.238281
+2 0.09082 0.132812
+3 0.110352 0.132812
+1 0.110352 0.238281
+kids 0
+OBJECT poly
+name "FlagEpr"
+loc 0.00292969 0.00892199 0.00025631
+texture "flag.png"
+crease 45.000000
+numvert 4
+0 -0.00178543 -0.00967057
+0 -0.00178543 0.00967057
+0 0.00178543 0.00967057
+0 0.00178543 -0.00967057
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+3 1 1
+2 0 1
+1 0 0
+0 1 0
+kids 0
+OBJECT poly
+name "FlagRat"
+loc 0.00292969 0.0345077 -0.000589374
+texture "flag.png"
+crease 45.000000
+numvert 4
+0 -0.00231087 -0.0157862
+0 -0.00231087 0.0157862
+0 0.00231087 0.0157862
+0 0.00231087 -0.0157862
+numsurf 1
+SURF 0x30
+mat 0
+refs 4
+3 1 1
+2 0 1
+1 0 0
+0 1 0
+kids 0
+OBJECT group
+name "ratDigits"
+kids 4
+OBJECT poly
+name "rat1"
+loc 0.0023 0.0503795 0.0179145
+data 9
+epr3.mesh
+texture "tri-digits.jpg"
+crease 45.000000
+numvert 4
+0.00051 -0.0222895 -0.00824451
+0.00051 -0.0222895 -0.00274451
+0.00051 -0.00962951 -0.00824451
+0.00051 -0.00962951 -0.00274451
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0.007812 0.238281
+1 0.007812 0.132812
+0 0.0625 0.132812
+2 0.0625 0.238281
+kids 0
+OBJECT poly
+name "rat2"
+loc 0.0023 0.0503795 0.0124145
+data 9
+epr3.mesh
+texture "tri-digits.jpg"
+crease 45.000000
+numvert 4
+0.00051 -0.0222895 -0.00824451
+0.00051 -0.0222895 -0.00274451
+0.00051 -0.00962951 -0.00824451
+0.00051 -0.00962951 -0.00274451
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0.007812 0.238281
+1 0.007812 0.132812
+0 0.0625 0.132812
+2 0.0625 0.238281
+kids 0
+OBJECT poly
+name "ratMinus"
+loc 0 0 -0.01248
+data 17
+ratMinus.mesh.003
+texture "tri.jpg"
+crease 45.000000
+numvert 4
+0.00281 0.0312 0.01652
+0.00281 0.0312 -0.00404
+0.00281 0.03764 -0.00404
+0.00281 0.03764 0.01652
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+3 0.84375 0.396484
+0 0.84375 0.355469
+1 0.974609 0.355469
+2 0.974609 0.396484
+kids 0
+OBJECT poly
+name "ratPlus"
+loc 0 0 -0.01248
+data 16
+ratPlus.mesh.003
+texture "tri.jpg"
+crease 45.000000
+numvert 4
+0.00281 0.03764 -0.00404
+0.00281 0.03764 0.01652
+0.00281 0.0312 -0.00404
+0.00281 0.0312 0.01652
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+2 0.974609 0.398438
+0 0.974609 0.4375
+1 0.84375 0.4375
+3 0.84375 0.398438
+kids 0
+OBJECT poly
+name "Text"
+data 8
+box.mesh
+texture "tri-text.png"
+crease 45.000000
+numvert 4
+0.00286 -0.0446975 -0.02883
+0.00286 -0.0446974 0.02883
+0.00286 0.05675 0.02883
+0.00286 0.05675 -0.02883
+numsurf 1
+SURF 0x10
+mat 1
+refs 4
+0 0.523438 0.10619
+3 0.523438 1
+2 0.013672 1
+1 0.013672 0.10619
 kids 0

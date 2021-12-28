@@ -496,8 +496,9 @@
 		<type>textranslate</type>
 		<object-name>rat1</object-name>
 		<property>controls/tri/rat-d10</property>
-		<factor>0.0348</factor>
+		<factor>0.0695</factor>
 		<step>1</step>
+		<scroll>0.1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -509,7 +510,7 @@
 		<type>textranslate</type>
 		<object-name>rat2</object-name>
 		<property>controls/tri/rat-d1</property>
-		<factor>0.0348</factor>
+		<factor>0.0695</factor>
 		<step>1</step>
 		<axis>
 			<x>0</x>
@@ -522,8 +523,9 @@
 		<type>textranslate</type>
 		<object-name>epr1</object-name>
 		<property>controls/tri/limit-d100</property>
-		<factor>0.0348</factor>
+		<factor>0.0697</factor>
 		<step>1</step>
+		<scroll>0.01</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -535,8 +537,9 @@
 		<type>textranslate</type>
 		<object-name>epr2</object-name>
 		<property>controls/tri/limit-d10</property>
-		<factor>0.0348</factor>
+		<factor>0.0697</factor>
 		<step>1</step>
+		<scroll>0.1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -547,9 +550,10 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>epr3</object-name>
+		<object-name>eprLines</object-name>
 		<property>controls/tri/limit-d1</property>
-		<factor>0.0348</factor>
-		<step>1</step>
+		<factor>0.0697</factor>
+		<step>0.01</step>
 		<axis>
 			<x>0</x>
 			<y>1</y>

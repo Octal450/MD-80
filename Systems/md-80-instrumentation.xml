@@ -1668,47 +1668,43 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</test>
 		</switch>
 		
-		<actuator name="/controls/tri/rat">
-			<input>/controls/tri/rat-cmd</input>
-			<rate_limit>125</rate_limit>
-			<lag>15</lag>
-		</actuator>
-		
 		<fcs_function name="/controls/tri/rat-fixed">
 			<function>
 				<sum>
 					<abs>
-						<property>/controls/tri/rat</property>
+						<property>/controls/tri/rat-cmd</property>
 					</abs>
 					<value>0.5</value> <!-- Make it round correctly -->
 				</sum>
 			</function>
 		</fcs_function>
 		
+		<actuator name="/controls/tri/rat">
+			<input>/controls/tri/rat-fixed</input>
+			<rate_limit>125</rate_limit>
+			<lag>15</lag>
+		</actuator>
+		
 		<fcs_function name="/controls/tri/rat-d10">
 			<function>
-				<integer>
-					<quotient>
-						<property>/controls/tri/rat-fixed</property>
-						<value>10</value>
-					</quotient>
-				</integer>
+				<quotient>
+					<property>/controls/tri/rat</property>
+					<value>10</value>
+				</quotient>
 			</function>
 		</fcs_function>
 		
 		<fcs_function name="/controls/tri/rat-d1">
 			<function>
-				<integer>
-					<product>
-						<fraction>
-							<quotient>
-								<property>/controls/tri/rat-fixed</property>
-								<value>10</value>
-							</quotient>
-						</fraction>
-						<value>10</value>
-					</product>
-				</integer>
+				<product>
+					<fraction>
+						<quotient>
+							<property>/controls/tri/rat</property>
+							<value>10</value>
+						</quotient>
+					</fraction>
+					<value>10</value>
+				</product>
 			</function>
 		</fcs_function>
 		
@@ -1720,52 +1716,36 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</test>
 		</switch>
 		
-		<fcs_function name="/controls/tri/limit-fixed">
-			<function>
-				<sum>
-					<property>/controls/tri/limit-active</property>
-					<value>0.005</value> <!-- Make it round correctly -->
-				</sum>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="/controls/tri/limit-d100">
-			<function>
-				<integer>
-					<property>/controls/tri/limit-fixed</property>
-				</integer>
-			</function>
-		</fcs_function>
+		<pure_gain name="/controls/tri/limit-d100">
+			<input>/controls/tri/limit-active</input>
+			<gain>1.0</gain>
+		</pure_gain>
 		
 		<fcs_function name="/controls/tri/limit-d10">
 			<function>
-				<integer>
-					<product>
-						<difference>
-							<property>/controls/tri/limit-fixed</property>
-							<integer>
-								<property>/controls/tri/limit-fixed</property>
-							</integer>
-						</difference>
-						<value>10</value>
-					</product>
-				</integer>
+				<product>
+					<difference>
+						<property>/controls/tri/limit-active</property>
+						<integer>
+							<property>/controls/tri/limit-active</property>
+						</integer>
+					</difference>
+					<value>10</value>
+				</product>
 			</function>
 		</fcs_function>
 		
 		<fcs_function name="/controls/tri/limit-d1">
 			<function>
-				<integer>
-					<product>
-						<fraction>
-							<product>
-								<property>/controls/tri/limit-fixed</property>
-								<value>10</value>
-							</product>
-						</fraction>
-						<value>10</value>
-					</product>
-				</integer>
+				<product>
+					<fraction>
+						<product>
+							<property>/controls/tri/limit-active</property>
+							<value>10</value>
+						</product>
+					</fraction>
+					<value>10</value>
+				</product>
 			</function>
 		</fcs_function>
 		
