@@ -2239,7 +2239,7 @@ name "eprDigits"
 kids 4
 OBJECT poly
 name "epr1"
-loc 0.0023 0.0250895 0.0127543
+loc 0.0023 0.0250895 0.0125892
 data 9
 epr3.mesh
 texture "tri-digits.jpg"
@@ -2260,7 +2260,7 @@ refs 4
 kids 0
 OBJECT poly
 name "epr2"
-loc 0.0023 0.0250895 0.00617435
+loc 0.0023 0.0250895 0.00600925
 data 9
 epr3.mesh
 texture "tri-digits.jpg"
@@ -2281,7 +2281,7 @@ refs 4
 kids 0
 OBJECT poly
 name "epr3"
-loc 0.0023 0.0250895 0.000674354
+loc 0.0023 0.0250895 0.000509256
 data 9
 epr3.mesh
 texture "tri-digits.jpg"
@@ -2302,15 +2302,16 @@ refs 4
 kids 0
 OBJECT poly
 name "eprLines"
+loc 0.00281 0 -0.00146778
 data 9
 epr3.mesh
 texture "tri-digits.jpg"
 crease 45.000000
 numvert 4
-0.00281 0.01546 -0.00757
-0.00281 0.01546 -0.00949
-0.00281 0.0028 -0.00757
-0.00281 0.0028 -0.00949
+0 0.01546 -0.00626731
+0 0.01546 -0.00785691
+0 0.0028 -0.00626731
+0 0.0028 -0.00785691
 numsurf 1
 SURF 0x10
 mat 0
