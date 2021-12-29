@@ -10,7 +10,7 @@ kids 3
 OBJECT poly
 name "flex2"
 loc -0.000958563 0.0233343 -0.0821731
-texture "digits-roll.png"
+texture "digits-roll.jpg"
 crease 45.000000
 numvert 4
 0 -0.0621608 0.233361
@@ -29,7 +29,7 @@ kids 0
 OBJECT poly
 name "flex1"
 loc -0.000958563 0.0233343 -0.0711296
-texture "digits-roll.png"
+texture "digits-roll.jpg"
 crease 45.000000
 numvert 4
 0 -0.0778449 0.226547

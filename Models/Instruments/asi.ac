@@ -8,7 +8,7 @@ OBJECT poly
 name "Mach1"
 data 14
 mach1.mesh.001
-texture "digits-roll.png"
+texture "digits-roll.jpg"
 crease 45.000000
 numvert 4
 0.00084 0.01757 0.00326
@@ -28,7 +28,7 @@ OBJECT poly
 name "Mach2"
 data 14
 mach2.mesh.001
-texture "digits-roll.png"
+texture "digits-roll.jpg"
 crease 45.000000
 numvert 4
 0.00084 0.01757 -0.00255
@@ -48,7 +48,7 @@ OBJECT poly
 name "Mach3"
 data 14
 mach3.mesh.001
-texture "digits-roll.png"
+texture "digits-roll.jpg"
 crease 45.000000
 numvert 4
 0.00084 0.02686 -0.00327

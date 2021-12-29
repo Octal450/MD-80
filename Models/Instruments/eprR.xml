@@ -26,8 +26,8 @@
 		<object-name>Needle</object-name>
 		<property>instrumentation/epr[1]/epr</property>
 		<interpolation>
-			<entry><ind>0.8</ind><dep>  0</dep></entry>
-			<entry><ind>2.5</ind><dep>255</dep></entry>
+			<entry><ind>0.8</ind><dep>-31.50</dep></entry>
+			<entry><ind>2.5</ind><dep>210.75</dep></entry>
 		</interpolation>
 		<axis>
 			<x>-1</x>
@@ -41,8 +41,8 @@
 		<object-name>eprLimit</object-name>
 		<property>instrumentation/epr[1]/epr-bug</property>
 		<interpolation>
-			<entry><ind>0.8</ind><dep>  0</dep></entry>
-			<entry><ind>2.5</ind><dep>255</dep></entry>
+			<entry><ind>0.8</ind><dep>-31.50</dep></entry>
+			<entry><ind>2.5</ind><dep>210.75</dep></entry>
 		</interpolation>
 		<axis>
 			<x>-1</x>
@@ -82,6 +82,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>epr3</object-name>
+		<object-name>eprLines</object-name>
 		<property>instrumentation/epr[1]/epr-d1</property>
 		<factor>0.0697</factor>
 		<step>0.01</step>

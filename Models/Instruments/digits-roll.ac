@@ -6,7 +6,7 @@ OBJECT poly
 name "rect"
 data 9
 rect.mesh
-texture "digits-roll.png"
+texture "digits-roll.jpg"
 crease 45.000000
 numvert 4
 0 0.05176 0.00183
