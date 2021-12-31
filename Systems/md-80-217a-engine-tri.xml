@@ -13,6 +13,8 @@
 	<property value="0">engine/ats-cmd-1</property>
 	<property value="0">engine/ats-cmd-2</property>
 	<property value="0">engine/art/active</property>
+	<property value="0">/instrumentation/epr[0]/power-avail</property>
+	<property value="0">/instrumentation/epr[1]/power-avail</property>
 	
 	<channel name="Thrust Limits">
 		
@@ -992,6 +994,64 @@
 		</fcs_function>
 		
 		<!-- Engine 1 -->
+		<fcs_function name="engine/limit/man-1-norm-ref"> <!-- Opposite of EPR Calc -->
+			<function>
+				<quotient>
+					<difference>
+						<property>/controls/engines/engine[0]/man-epr</property>
+						<property>engine/epr/c2</property>
+					</difference>
+					<max> <!-- Prevent divide by 0 -->
+						<property>engine/epr/c1</property>
+						<value>0.001</value>
+					</max>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/man-1-norm-input"> <!-- Opposite of EPR Calc -->
+			<function>
+				<pow>
+					<table>
+						<independentVar lookup="row">engine/limit/man-1-norm-ref</independentVar>
+						<tableData>
+							0.00     24743.1
+							0.03     81455.7
+							1.00  10571289.8
+						</tableData>
+					</table>
+					<quotient>
+						<value>1</value>
+						<value>3.5</value>
+					</quotient>
+				</pow>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/man-1-norm">
+			<function>
+				<table>
+					<independentVar lookup="row">engine/limit/man-1-norm-input</independentVar>
+					<tableData>
+						 25.3  0
+						101.6  1
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<switch name="engine/control-1/athr-max">
+			<default value="engine/limit/active-norm"/>
+			<test logic="AND" value="engine/limit/man-1-norm">
+				/instrumentation/epr[0]/power-avail eq 1
+				/controls/engines/engine[0]/man-epr-set eq 1
+			</test>
+			<clipto>
+				<min>engine/limit/idle-norm</min>
+				<max>10</max>
+			</clipto>
+		</switch>
+		
 		<switch name="engine/control-1/throttle-pos">
 			<default value="/controls/engines/engine[0]/throttle"/>
 			<test value="0">
@@ -1039,6 +1099,64 @@
 		</lag_filter>
 		
 		<!-- Engine 2 -->
+		<fcs_function name="engine/limit/man-2-norm-ref"> <!-- Opposite of EPR Calc -->
+			<function>
+				<quotient>
+					<difference>
+						<property>/controls/engines/engine[1]/man-epr</property>
+						<property>engine/epr/c2</property>
+					</difference>
+					<max> <!-- Prevent divide by 0 -->
+						<property>engine/epr/c1</property>
+						<value>0.001</value>
+					</max>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/man-2-norm-input"> <!-- Opposite of EPR Calc -->
+			<function>
+				<pow>
+					<table>
+						<independentVar lookup="row">engine/limit/man-2-norm-ref</independentVar>
+						<tableData>
+							0.00     24743.1
+							0.03     81455.7
+							1.00  10571289.8
+						</tableData>
+					</table>
+					<quotient>
+						<value>1</value>
+						<value>3.5</value>
+					</quotient>
+				</pow>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/man-2-norm">
+			<function>
+				<table>
+					<independentVar lookup="row">engine/limit/man-2-norm-input</independentVar>
+					<tableData>
+						 25.3  0
+						101.6  1
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<switch name="engine/control-2/athr-max">
+			<default value="engine/limit/active-norm"/>
+			<test logic="AND" value="engine/limit/man-2-norm">
+				/instrumentation/epr[1]/power-avail eq 1
+				/controls/engines/engine[1]/man-epr-set eq 1
+			</test>
+			<clipto>
+				<min>engine/limit/idle-norm</min>
+				<max>10</max>
+			</clipto>
+		</switch>
+		
 		<switch name="engine/control-2/throttle-pos">
 			<default value="/controls/engines/engine[1]/throttle"/>
 			<test value="0">

@@ -141,6 +141,22 @@
 		<max-rate-of-change>2</max-rate-of-change>
 	</filter>
 	
+	<filter>
+		<name>A/THR Max Command</name>
+		<debug>false</debug>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<max>
+					<property>/fdm/jsbsim/engine/control-1/athr-max</property>
+					<property>/fdm/jsbsim/engine/control-2/athr-max</property>
+				</max>
+			</expression>
+		</input>
+		<output>/it-autoflight/internal/athr-max</output>
+	</filter>
+	
 	<pid-controller>
 		<name>IT-CONTROLLER: Knots</name>
 		<debug>false</debug>
@@ -170,7 +186,7 @@
 			<Ti>9.0</Ti>
 			<Td>0.00001</Td>
 			<u_min>/fdm/jsbsim/engine/limit/idle-norm</u_min>
-			<u_max>/fdm/jsbsim/engine/limit/active-norm</u_max>
+			<u_max>/it-autoflight/internal/athr-max</u_max>
 		</config>
 	</pid-controller>
 	
@@ -209,7 +225,7 @@
 			<Ti>9.0</Ti>
 			<Td>0.00001</Td>
 			<u_min>/fdm/jsbsim/engine/limit/idle-norm</u_min>
-			<u_max>/fdm/jsbsim/engine/limit/active-norm</u_max>
+			<u_max>/it-autoflight/internal/athr-max</u_max>
 		</config>
 	</pid-controller>
 	
@@ -281,7 +297,7 @@
 				</and>
 			</condition>
 		</enable>
-		<input>/fdm/jsbsim/engine/limit/active-norm</input>
+		<input>/it-autoflight/internal/athr-max</input>
 		<output>/fdm/jsbsim/engine/ats-cmd-raw</output>
 		<max-rate-of-change>0.15</max-rate-of-change>
 	</filter>
@@ -336,7 +352,14 @@
 			</condition>
 		</enable>
 		<input>/fdm/jsbsim/engine/power-norm[0]</input>
-		<reference>/fdm/jsbsim/engine/ats-cmd-raw</reference>
+		<reference>
+			<expression>
+				<min> <!-- For per engine manual EPR limit -->
+					<property>/fdm/jsbsim/engine/ats-cmd-raw</property>
+					<property>/fdm/jsbsim/engine/control-1/athr-max</property>
+				</min>
+			</expression>
+		</reference>
 		<output>/fdm/jsbsim/engine/ats-cmd[0]</output>
 		<config>
 			<Kp>1.0</Kp>
@@ -385,7 +408,14 @@
 			</condition>
 		</enable>
 		<input>/fdm/jsbsim/engine/power-norm[1]</input>
-		<reference>/fdm/jsbsim/engine/ats-cmd-raw</reference>
+		<reference>
+			<expression>
+				<min> <!-- For per engine manual EPR limit -->
+					<property>/fdm/jsbsim/engine/ats-cmd-raw</property>
+					<property>/fdm/jsbsim/engine/control-2/athr-max</property>
+				</min>
+			</expression>
+		</reference>
 		<output>/fdm/jsbsim/engine/ats-cmd[1]</output>
 		<config>
 			<Kp>1.0</Kp>

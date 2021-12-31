@@ -1284,8 +1284,50 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</function>
 		</fcs_function>
 		
+		<lag_filter name="/instrumentation/epr[0]/cmd-input">
+			<input>/controls/engines/engine[0]/man-epr</input>
+			<c1>40</c1>
+		</lag_filter>
+		
+		<pure_gain name="/instrumentation/epr[0]/cmd-d100">
+			<input>/instrumentation/epr[0]/cmd-input</input>
+			<gain>1.0</gain>
+		</pure_gain>
+		
+		<fcs_function name="/instrumentation/epr[0]/cmd-d10">
+			<function>
+				<product>
+					<difference>
+						<property>/instrumentation/epr[0]/cmd-input</property>
+						<integer>
+							<property>/instrumentation/epr[0]/cmd-input</property>
+						</integer>
+					</difference>
+					<value>10</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/epr[0]/cmd-d1">
+			<function>
+				<product>
+					<fraction>
+						<product>
+							<property>/instrumentation/epr[0]/cmd-input</property>
+							<value>10</value>
+						</product>
+					</fraction>
+					<value>10</value>
+				</product>
+			</function>
+		</fcs_function>
+		
 		<switch name="/instrumentation/epr[0]/epr-bug-input">
 			<default value="/instrumentation/epr[0]/epr-bug-input"/>
+			<test logic="AND" value="/controls/engines/engine[0]/man-epr">
+				/instrumentation/epr[0]/power-avail eq 1
+				/controls/engines/engine[0]/man-epr-set eq 1
+			</test>
 			<test value="engine/limit/active">
 				/instrumentation/epr[0]/power-avail eq 1
 			</test>
@@ -1351,8 +1393,50 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</function>
 		</fcs_function>
 		
+		<lag_filter name="/instrumentation/epr[1]/cmd-input">
+			<input>/controls/engines/engine[1]/man-epr</input>
+			<c1>40</c1>
+		</lag_filter>
+		
+		<pure_gain name="/instrumentation/epr[1]/cmd-d100">
+			<input>/instrumentation/epr[1]/cmd-input</input>
+			<gain>1.0</gain>
+		</pure_gain>
+		
+		<fcs_function name="/instrumentation/epr[1]/cmd-d10">
+			<function>
+				<product>
+					<difference>
+						<property>/instrumentation/epr[1]/cmd-input</property>
+						<integer>
+							<property>/instrumentation/epr[1]/cmd-input</property>
+						</integer>
+					</difference>
+					<value>10</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/instrumentation/epr[1]/cmd-d1">
+			<function>
+				<product>
+					<fraction>
+						<product>
+							<property>/instrumentation/epr[1]/cmd-input</property>
+							<value>10</value>
+						</product>
+					</fraction>
+					<value>10</value>
+				</product>
+			</function>
+		</fcs_function>
+		
 		<switch name="/instrumentation/epr[1]/epr-bug-input">
 			<default value="/instrumentation/epr[1]/epr-bug-input"/>
+			<test logic="AND" value="/controls/engines/engine[1]/man-epr">
+				/instrumentation/epr[1]/power-avail eq 1
+				/controls/engines/engine[1]/man-epr-set eq 1
+			</test>
 			<test value="engine/limit/active">
 				/instrumentation/epr[1]/power-avail eq 1
 			</test>

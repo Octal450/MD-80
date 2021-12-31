@@ -276,17 +276,38 @@ var doFullThrust = func() {
 # Engines Misc
 var ENGINE = {
 	cutoffSwitch: [props.globals.getNode("/controls/engines/engine[0]/cutoff-switch"), props.globals.getNode("/controls/engines/engine[1]/cutoff-switch")],
+	eprTemp: 0,
+	fuReset: props.globals.getNode("/controls/engines/fu-reset"),
+	manEpr: [props.globals.getNode("/controls/engines/engine[0]/man-epr"), props.globals.getNode("/controls/engines/engine[1]/man-epr")],
+	manEprSet: [props.globals.getNode("/controls/engines/engine[0]/man-epr-set"), props.globals.getNode("/controls/engines/engine[1]/man-epr-set")],
 	reverseLever: [props.globals.getNode("/controls/engines/engine[0]/reverse-lever"), props.globals.getNode("/controls/engines/engine[1]/reverse-lever")],
 	reverseLeverTemp: [0, 0],
 	startSwitch: [props.globals.getNode("/controls/engines/engine[0]/start-switch"), props.globals.getNode("/controls/engines/engine[1]/start-switch")],
 	throttle: [props.globals.getNode("/controls/engines/engine[0]/throttle"), props.globals.getNode("/controls/engines/engine[1]/throttle")],
 	init: func() {
+		me.fuReset.setBoolValue(0);
+		me.manEpr[0].setValue(2);
+		me.manEpr[1].setValue(2);
+		me.manEprSet[0].setBoolValue(0);
+		me.manEprSet[1].setBoolValue(0);
 		me.reverseLever[0].setBoolValue(0);
 		me.reverseLever[1].setBoolValue(0);
 		me.startSwitch[0].setBoolValue(0);
 		me.startSwitch[1].setBoolValue(0);
 		pts.Engines.Engine.oilQtyInput[0].setValue(math.round((rand() * 4) + 14 , 0.1)); # Random between 14 and 18
 		pts.Engines.Engine.oilQtyInput[1].setValue(math.round((rand() * 4) + 14 , 0.1)); # Random between 14 and 18
+	},
+	adjustManEpr: func(n, d) {
+		if (me.manEprSet[n].getBoolValue() and pts.Instrumentation.Epr.powerAvail[n].getBoolValue()) {
+			me.eprTemp = math.round(me.manEpr[n].getValue() + (d * 0.01), (abs(d * 0.01))); # Kill floating point error
+			if (me.eprTemp < 1) {
+				me.manEpr[n].setValue(1);
+			} else if (me.eprTemp > 2.5) {
+				me.manEpr[n].setValue(2.5);
+			} else {
+				me.manEpr[n].setValue(me.eprTemp);
+			}
+		}
 	},
 };
 
@@ -498,8 +519,10 @@ var PNEU = {
 
 # TRI
 var TRI = {
+	Control: {
+		athrMax: [props.globals.getNode("/fdm/jsbsim/engine/control-1/athr-max"), props.globals.getNode("/fdm/jsbsim/engine/control-2/athr-max")],
+	},
 	pitchMode: 0,
-	throttleCompareMax: props.globals.getNode("/fdm/jsbsim/engine/throttle-compare-max"),
 	Limit: {
 		active: props.globals.getNode("/fdm/jsbsim/engine/limit/active"),
 		activeMode: props.globals.getNode("/fdm/jsbsim/engine/limit/active-mode"),
@@ -515,6 +538,7 @@ var TRI = {
 		idleNorm: props.globals.getNode("/fdm/jsbsim/engine/limit/idle-norm"),
 		takeoff: props.globals.getNode("/fdm/jsbsim/engine/limit/takeoff"),
 	},
+	throttleCompareMax: props.globals.getNode("/fdm/jsbsim/engine/throttle-compare-max"),
 	init: func() {
 		me.Limit.activeModeInt.setValue(0);
 		me.Limit.activeMode.setValue("T/O");

@@ -10,7 +10,7 @@ OBJECT poly
 name "cyl"
 data 12
 Cylinder.011
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 25
 -0.00041 -0.01538 -0.1257
@@ -200,7 +200,7 @@ OBJECT poly
 name "head"
 data 13
 head.mesh.001
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 45.000000
 numvert 240
 0.01207 -0.01601 -0.13348
@@ -1925,7 +1925,7 @@ OBJECT poly
 name "AltHoldSel"
 data 8
 Cube.003
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 8
 -0.00599 0.00502 -0.08279
@@ -1977,7 +1977,7 @@ OBJECT poly
 name "APSelector"
 data 19
 APSelector.mesh.001
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 45.000000
 numvert 40
 -0.0096 -0.0318 -0.08209
@@ -2252,7 +2252,7 @@ OBJECT poly
 name "APSwitch"
 data 8
 Cube.035
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 51
 0.00451 -0.01632 -0.07636
@@ -2569,7 +2569,7 @@ OBJECT poly
 name "ATSwitch"
 data 8
 Cube.133
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 51
 0.00451 -0.01632 0.08223
@@ -2886,7 +2886,7 @@ OBJECT poly
 name "AutoLandSel"
 data 8
 Cube.006
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 8
 -0.00598 -0.03071 0.04642
@@ -2941,7 +2941,7 @@ OBJECT poly
 name "base"
 data 17
 cylinder.mesh.001
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 45.000000
 numvert 41
 -0.00521 -0.01908 0.01667
@@ -3251,7 +3251,7 @@ OBJECT poly
 name "cyl.001"
 data 12
 Cylinder.012
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 25
 0.0082 -0.01786 0.02367
@@ -3441,7 +3441,7 @@ OBJECT poly
 name "cyl.002"
 data 12
 Cylinder.013
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 25
 -0.01131 -0.01539 -0.12445
@@ -4717,7 +4717,7 @@ OBJECT poly
 name "EprLimSel"
 data 8
 Cube.013
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 8
 -0.00599 -0.03071 0.1237
@@ -4769,7 +4769,7 @@ OBJECT poly
 name "FD1Switch"
 data 12
 Cylinder.028
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 80.000000
 numvert 13
 -0.00682 0.00463 0.14969
@@ -4869,7 +4869,7 @@ OBJECT poly
 name "FD2Switch"
 data 12
 Cylinder.001
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 80.000000
 numvert 13
 0.00647 0.00463 -0.15069
@@ -4969,7 +4969,7 @@ OBJECT poly
 name "FGCP"
 data 8
 Cube.081
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 268
 -0.00795 0.00207 -0.14168
@@ -6998,7 +6998,7 @@ OBJECT poly
 name "FmsOvrdSel"
 data 8
 Cube.015
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 8
 -0.00599 -0.03071 0.14158
@@ -7053,7 +7053,7 @@ OBJECT poly
 name "cyl.003"
 data 12
 Cylinder.014
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 25
 0.00304 -0.01785 0.02134
@@ -7243,7 +7243,7 @@ OBJECT poly
 name "head.001"
 data 8
 Cube.077
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 25
 0.01207 -0.01786 0.01701
@@ -7433,7 +7433,7 @@ OBJECT poly
 name "IasMachSel"
 data 8
 Cube.016
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 8
 -0.00598 -0.0129 -0.0649
@@ -7485,7 +7485,7 @@ OBJECT poly
 name "IlsSel"
 data 8
 Cube.080
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 8
 -0.00598 -0.0129 0.04642
@@ -7537,7 +7537,7 @@ OBJECT poly
 name "MachSel"
 data 8
 Cube.078
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 8
 -0.00599 -0.0129 0.1237
@@ -7589,7 +7589,7 @@ OBJECT poly
 name "Nav1CrsKnob"
 data 12
 Cylinder.015
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 25
 0.00223 -0.02212 0.191
@@ -7779,7 +7779,7 @@ OBJECT poly
 name "Nav1Knob1"
 data 12
 Cylinder.016
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 25
 0.00401 -0.01525 0.25
@@ -7969,7 +7969,7 @@ OBJECT poly
 name "Nav1Knob2"
 data 12
 Cylinder.017
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 25
 0.01201 -0.01524 0.25
@@ -8159,7 +8159,7 @@ OBJECT poly
 name "Nav2CrsKnob"
 data 12
 Cylinder.018
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 25
 0.00223 -0.02211 -0.256
@@ -8349,7 +8349,7 @@ OBJECT poly
 name "Nav2Knob1"
 data 12
 Cylinder.019
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 25
 0.00401 -0.01525 -0.198
@@ -8539,7 +8539,7 @@ OBJECT poly
 name "Nav2Knob2"
 data 12
 Cylinder.020
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 25
 0.01201 -0.01524 -0.198
@@ -8729,7 +8729,7 @@ OBJECT poly
 name "NavSel"
 data 8
 Cube.017
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 8
 -0.00599 0.00502 0.06411
@@ -8781,7 +8781,7 @@ OBJECT poly
 name "PerfSel"
 data 8
 Cube.020
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 8
 -0.00598 -0.03071 -0.0649
@@ -8833,7 +8833,7 @@ OBJECT poly
 name "Pitch.knob"
 data 16
 VS.knob.mesh.001
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 45.000000
 numvert 340
 -0.02211 -2e-05 -0.04115
@@ -11721,7 +11721,7 @@ OBJECT poly
 name "cyl.004"
 data 12
 Cylinder.021
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 25
 -0.00634 -0.01785 0.10679
@@ -11911,7 +11911,7 @@ OBJECT poly
 name "head.002"
 data 8
 Cube.079
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 25
 0.00259 -0.01786 0.10232
@@ -12101,7 +12101,7 @@ OBJECT poly
 name "SpdSel"
 data 8
 Cube.018
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 8
 -0.00599 0.00502 0.1237
@@ -12153,7 +12153,7 @@ OBJECT poly
 name "SwACLts"
 data 12
 Cylinder.022
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 80.000000
 numvert 13
 0.00338 0.00639 -0.35007
@@ -12253,7 +12253,7 @@ OBJECT poly
 name "SwFloodLtsL"
 data 12
 Cylinder.023
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 80.000000
 numvert 13
 0.00338 0.01771 -0.29482
@@ -12353,7 +12353,7 @@ OBJECT poly
 name "SwFloodLtsR"
 data 12
 Cylinder.024
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 80.000000
 numvert 13
 0.00338 0.01771 -0.3266
@@ -15881,7 +15881,7 @@ OBJECT poly
 name "SwNavLts"
 data 12
 Cylinder.027
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 80.000000
 numvert 30
 0.00103 0.0083 -0.3731
@@ -17821,7 +17821,7 @@ OBJECT poly
 name "SwWingLts"
 data 12
 Cylinder.029
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 80.000000
 numvert 25
 0.0043 -0.01041 -0.29842
@@ -18017,7 +18017,7 @@ OBJECT poly
 name "TurbSel"
 data 8
 Cube.019
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 8
 -0.00598 -0.03071 -0.15481
@@ -18069,7 +18069,7 @@ OBJECT poly
 name "VertSpdSel"
 data 8
 Cube.021
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 8
 -0.00599 0.00502 -0.0649
@@ -18121,7 +18121,7 @@ OBJECT poly
 name "VorLocSel"
 data 8
 Cube.022
-texture "fgcp.jpg"
+texture "fgcp.png"
 crease 30.000000
 numvert 8
 -0.00599 0.00502 0.04642

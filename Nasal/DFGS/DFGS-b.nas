@@ -280,16 +280,16 @@ var Athr = {
 		} else if (Input.kts.getValue() <= pts.Fdm.JSBsim.Dfgs.Speeds.vmin.getValue() and !me.ktsMach) {
 			Fma.thrA.setValue("ALFA");
 			Fma.thrB.setValue("SPD");
-		} else if (me.atsCmdRawPid <= systems.TRI.Limit.idleNorm.getValue() + 0.005) {
-			Fma.thrA.setValue("LOW");
-			Fma.thrB.setValue("LIM");
-		} else if (me.atsCmdRawPid >= systems.TRI.Limit.activeNorm.getValue() - 0.005) {
+		} else if (me.atsCmdRawPid >= systems.TRI.Control.athrMax[0].getValue() - 0.005 or me.atsCmdRawPid >= systems.TRI.Control.athrMax[1].getValue() - 0.005) {
 			if (me.ktsMach) {
 				Fma.thrA.setValue("MACH");
 			} else {
 				Fma.thrA.setValue("SPD");
 			}
 			Fma.thrB.setValue("ATL");
+		} else if (me.atsCmdRawPid <= systems.TRI.Limit.idleNorm.getValue() + 0.005) {
+			Fma.thrA.setValue("LOW");
+			Fma.thrB.setValue("LIM");
 		} else {
 			if (me.ktsMach) {
 				Fma.thrA.setValue("MACH");

@@ -115,6 +115,9 @@ var Instrumentation = {
 		settingInhg: props.globals.getNode("/instrumentation/altimeter/setting-inhg"),
 		std: props.globals.getNode("/instrumentation/altimeter/std"),
 	},
+	Epr: {
+		powerAvail: [props.globals.getNode("/instrumentation/epr[0]/power-avail"), props.globals.getNode("/instrumentation/epr[1]/power-avail")],
+	},
 	Ff: {
 		fuResetTrim: [props.globals.getNode("/instrumentation/ff[0]/fu-reset-trim"), props.globals.getNode("/instrumentation/ff[1]/fu-reset-trim")],
 	},

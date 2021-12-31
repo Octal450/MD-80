@@ -11,8 +11,8 @@
 		<type>material</type>
 		<object-name>Face</object-name>
 		<object-name>Needle</object-name>
-		<object-name>eprLimit</object-name>
-		<object-name>eprDigits</object-name>
+		<object-name>EprLimit</object-name>
+		<object-name>Digits</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.6</green>
@@ -38,7 +38,7 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>eprLimit</object-name>
+		<object-name>EprLimit</object-name>
 		<property>instrumentation/epr[1]/epr-bug</property>
 		<interpolation>
 			<entry><ind>0.8</ind><dep>-31.50</dep></entry>
@@ -91,6 +91,155 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>cmd1</object-name>
+		<object-name>cmd2</object-name>
+		<object-name>cmd3</object-name>
+		<condition>
+			<and>
+				<property>instrumentation/epr[1]/power-avail</property>
+				<property>controls/engines/engine[1]/man-epr-set</property>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>cmd1</object-name>
+		<property>instrumentation/epr[1]/cmd-d100</property>
+		<factor>0.0697</factor>
+		<step>1</step>
+		<scroll>0.01</scroll>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>cmd2</object-name>
+		<property>instrumentation/epr[1]/cmd-d10</property>
+		<factor>0.0697</factor>
+		<step>1</step>
+		<scroll>0.1</scroll>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>textranslate</type>
+		<object-name>cmd3</object-name>
+		<property>instrumentation/epr[1]/cmd-d1</property>
+		<factor>0.0697</factor>
+		<step>0.01</step>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>EprKnob</object-name>
+		<property>instrumentation/epr[1]/rotate</property>
+		<factor>-11.25</factor>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.01892</y-m>
+			<z-m>-0.01884</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>EprKnob</object-name>
+		<property>controls/engines/engine[1]/man-epr-set</property>
+		<factor>0.007</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>EprKnob</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/engines/engine[1]/man-epr-set</property>
+			</binding>
+		</action>
+		<action>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<condition>
+					<not><property>devices/status/keyboard/shift</property></not>
+				</condition>
+				<command>nasal</command>
+				<script>systems.ENGINE.adjustManEpr(1, 1);</script>
+			</binding>
+			<binding>
+				<condition>
+					<property>devices/status/keyboard/shift</property>
+				</condition>
+				<command>nasal</command>
+				<script>systems.ENGINE.adjustManEpr(1, 10);</script>
+			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/epr[1]/rotate</property>
+				<step>1</step>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<condition>
+					<not><property>devices/status/keyboard/shift</property></not>
+				</condition>
+				<command>nasal</command>
+				<script>systems.ENGINE.adjustManEpr(1, -1);</script>
+			</binding>
+			<binding>
+				<condition>
+					<property>devices/status/keyboard/shift</property>
+				</condition>
+				<command>nasal</command>
+				<script>systems.ENGINE.adjustManEpr(1, -10);</script>
+			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/epr[1]/rotate</property>
+				<step>-1</step>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
 	</animation>
 
 </PropertyList>
