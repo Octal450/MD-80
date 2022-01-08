@@ -460,11 +460,11 @@ var update = maketimer(0.05, func() { # 20FPS
 var showPfd1 = func() {
 	var dlg = canvas.Window.new([512, 400], "dialog").set("resize", 1);
 	dlg.setCanvas(pfd1Display);
-	dlg.set("title", "Captain's PFD");
+	dlg.set("title", "Captains PFD");
 }
 
 var showPfd2 = func() {
 	var dlg = canvas.Window.new([512, 400], "dialog").set("resize", 1);
 	dlg.setCanvas(pfd2Display);
-	dlg.set("title", "First Officers's PFD");
+	dlg.set("title", "First Officers PFD");
 }
