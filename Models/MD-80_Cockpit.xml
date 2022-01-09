@@ -1374,7 +1374,7 @@
 		<object-name>Slat.Auto</object-name>
 		<condition>
 			<equals>
-				<property>controls/flight/slat-indicator</property>
+				<property>instrumentation/flap-slat/slat</property>
 				<value>3</value>
 			</equals>
 		</condition>
@@ -1386,11 +1386,11 @@
 		<condition>
 			<or>
 				<equals>
-					<property>controls/flight/slat-indicator</property>
+					<property>instrumentation/flap-slat/slat</property>
 					<value>2</value>
 				</equals>
 				<equals>
-					<property>controls/flight/slat-indicator</property>
+					<property>instrumentation/flap-slat/slat</property>
 					<value>3</value>
 				</equals>
 			</or>
@@ -1402,7 +1402,7 @@
 		<object-name>Slat.Land</object-name>
 		<condition>
 			<equals>
-				<property>controls/flight/slat-indicator</property>
+				<property>instrumentation/flap-slat/slat</property>
 				<value>4</value>
 			</equals>
 		</condition>
@@ -1413,7 +1413,7 @@
 		<object-name>Slat.Takeoff</object-name>
 		<condition>
 			<equals>
-				<property>controls/flight/slat-indicator</property>
+				<property>instrumentation/flap-slat/slat</property>
 				<value>1</value>
 			</equals>
 		</condition>

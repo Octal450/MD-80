@@ -1737,6 +1737,71 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 	
 	</channel>
 	
+	<channel name="Flap and Slat Gauge" execrate="4">
+		
+		<switch name="/instrumentation/flap-slat/power-avail-l">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/ac-l ge 112
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/flap-slat/flap-l-input">
+			<default value="/instrumentation/flap-slat/flap-l-input"/>
+			<test value="fcs/flap-pos-deg">
+				/instrumentation/flap-slat/power-avail-l eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/flap-slat/flap-l">
+			<input>/instrumentation/flap-slat/flap-l-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/flap-slat/power-avail-r">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/ac-r ge 112
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/flap-slat/flap-r-input">
+			<default value="/instrumentation/flap-slat/flap-r-input"/>
+			<test value="fcs/flap-pos-deg">
+				/instrumentation/flap-slat/power-avail-l eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/flap-slat/flap-r">
+			<input>/instrumentation/flap-slat/flap-r-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/flap-slat/slat">
+			<default value="2"/> <!-- Disag -->
+			<test logic="AND" value="4"> <!-- Land -->
+				fcs/slat-pos-deg ge 19.9
+				/controls/flight/flaps-input gt 3
+			</test>
+			<test logic="AND" value="1"> <!-- Takeoff -->
+				fcs/slat-pos-deg ge 9.9
+				fcs/slat-pos-deg le 10.1
+				/controls/flight/slats-cmd eq 10
+			</test>
+			<test logic="AND" value="1"> <!-- Takeoff -->
+				fcs/slat-pos-deg ge 19.9
+				/controls/flight/slats-cmd eq 20
+			</test>
+			<test logic="AND" value="0"> <!-- Off -->
+				fcs/slat-pos-deg lt 0.1
+				/controls/flight/flaps-input eq 0
+			</test>
+		</switch>
+	
+	</channel>
+	
 	<channel name="TRI and FLEX" execrate="4">
 		
 		<!-- TRI -->
@@ -1896,27 +1961,6 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 				</product>
 			</function>
 		</fcs_function>
-		
-		<switch name="/controls/flight/slat-indicator">
-			<default value="2"/> <!-- Disag -->
-			<test logic="AND" value="4"> <!-- Land -->
-				fcs/slat-pos-deg ge 19.9
-				/controls/flight/flaps-input gt 3
-			</test>
-			<test logic="AND" value="1"> <!-- Takeoff -->
-				fcs/slat-pos-deg ge 9.9
-				fcs/slat-pos-deg le 10.1
-				/controls/flight/slats-cmd eq 10
-			</test>
-			<test logic="AND" value="1"> <!-- Takeoff -->
-				fcs/slat-pos-deg ge 19.9
-				/controls/flight/slats-cmd eq 20
-			</test>
-			<test logic="AND" value="0"> <!-- Off -->
-				fcs/slat-pos-deg lt 0.1
-				/controls/flight/flaps-input eq 0
-			</test>
-		</switch>
 	
 	</channel>
 
