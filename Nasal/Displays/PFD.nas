@@ -77,8 +77,8 @@ var canvasBase = {
 		return me;
 	},
 	getKeys: func() {
-		return ["AI_background", "AI_bank", "AI_center", "AI_dual_cue", "AI_rising_runway", "AI_scale", "AI_scale_dc", "AI_single_cue", "DH_below", "DH_pointer", "DH_set", "FD_v", "FD_pitch", "FD_roll", "FS_pointer", "FS_scale", "Gndspd", "GS_group", "GS_no",
-		"GS_pointer", "GS_scale", "ILS_group", "Inner_Marker", "LOC_no", "LOC_pointer", "LOC_scale", "Middle_Marker", "Outer_Marker", "RA_bars", "RA_scale"];
+		return ["AI_arrow_dn", "AI_arrow_up", "AI_background", "AI_bank", "AI_center", "AI_dual_cue", "AI_rising_runway", "AI_scale", "AI_scale_dc", "AI_single_cue", "DH_below", "DH_pointer", "DH_set", "FD_v", "FD_pitch", "FD_roll", "FS_pointer", "FS_scale",
+		"Gndspd", "GS_group", "GS_no", "GS_pointer", "GS_scale", "ILS_group", "Inner_Marker", "LOC_no", "LOC_pointer", "LOC_scale", "Middle_Marker", "Outer_Marker", "RA_bars", "RA_scale"];
 	},
 	setup: func() {
 		# Hide the pages by default
@@ -135,6 +135,17 @@ var canvasBase = {
 		me.aiScaleRot.setRotation(-Value.Ai.roll * D2R, AICenter);
 		
 		me["AI_bank"].setRotation(-Value.Ai.roll * D2R);
+		
+		if (Value.Ai.pitch > 30) {
+			me["AI_arrow_dn"].show();
+			me["AI_arrow_up"].hide();
+		} else if (Value.Ai.pitch < -10) {
+			me["AI_arrow_dn"].hide();
+			me["AI_arrow_up"].show();
+		} else {
+			me["AI_arrow_dn"].hide();
+			me["AI_arrow_up"].hide();
+		}
 		
 		# Marker Beacons
 		if (pts.Instrumentation.MarkerBeacon.inner.getBoolValue()) {
