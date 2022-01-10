@@ -70,9 +70,10 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>DH100</object-name>
-		<property>controls/switches/minimums</property>
+		<property>instrumentation/agl[0]/minimums-text</property>
 		<factor>0.001</factor>
 		<step>100</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -81,9 +82,10 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>DH10</object-name>
-		<property>controls/switches/minimums</property>
+		<property>instrumentation/agl[0]/minimums-text</property>
 		<factor>0.01</factor>
 		<step>10</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -92,9 +94,10 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>DH1</object-name>
-		<property>controls/switches/minimums</property>
+		<property>instrumentation/agl[0]/minimums-text</property>
 		<factor>0.1</factor>
 		<step>1</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>

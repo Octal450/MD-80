@@ -94,9 +94,10 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>inhg01</object-name>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<factor>0.01</factor>
-		<step>10</step>
+		<property>instrumentation/altimeter[1]/setting-inhg-text</property>
+		<factor>0.0001</factor>
+		<step>1000</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -107,9 +108,10 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>inhg02</object-name>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<factor>0.1</factor>
-		<step>1</step>
+		<property>instrumentation/altimeter[1]/setting-inhg-text</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -120,9 +122,10 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>inhg03</object-name>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<factor>1.0</factor>
-		<step>0.1</step>
+		<property>instrumentation/altimeter[1]/setting-inhg-text</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -133,117 +136,70 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>inhg04</object-name>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<factor>10.0</factor>
-		<step>0.01</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<!--animation>
-		<type>textranslate</type>
-		<object-name>mb01</object-name>
-		<property>instrumentation/altimeter/millibars</property>
-		<factor>0.0001</factor>
-		<step>1000</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<type>textranslate</type>
-		<object-name>mb02</object-name>
-		<property>instrumentation/altimeter/millibars</property>
-		<factor>0.001</factor>
-		<step>100</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<type>textranslate</type>
-		<object-name>mb03</object-name>
-		<property>instrumentation/altimeter/millibars</property>
-		<factor>0.01</factor>
-		<step>10</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<type>textranslate</type>
-		<object-name>mb04</object-name>
-		<property>instrumentation/altimeter/millibars</property>
+		<property>instrumentation/altimeter[1]/setting-inhg-text</property>
 		<factor>0.1</factor>
 		<step>1</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
 			<z>0</z>
 		</axis>
-	</animation-->
+	</animation>
 	
 	<animation>
-		<name>Altitude pressure 10's</name>
 		<type>textranslate</type>
 		<object-name>mb01</object-name>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<factor>0.0033863886</factor>
-		<step>29.5329983</step>
+		<property>instrumentation/altimeter[1]/setting-hpa-text</property>
+		<factor>0.0001</factor>
+		<step>1000</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
+			<z>0</z>
 		</axis>
 	</animation>
-	
+
 	<animation>
-		<name>Altitude pressure 1's</name>
 		<type>textranslate</type>
 		<object-name>mb02</object-name>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<factor>0.033863886</factor>
-		<step>2.9529983</step>
+		<property>instrumentation/altimeter[1]/setting-hpa-text</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
+			<z>0</z>
 		</axis>
 	</animation>
-	
+
 	<animation>
-		<name>Altitude pressure .1's</name>
 		<type>textranslate</type>
 		<object-name>mb03</object-name>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<factor>0.338639</factor>
-		<step>0.2952998</step>
+		<property>instrumentation/altimeter[1]/setting-hpa-text</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
+			<z>0</z>
 		</axis>
 	</animation>
-	
+
 	<animation>
-		<name>Altitude pressure .01's</name>
 		<type>textranslate</type>
 		<object-name>mb04</object-name>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<factor>3.38639</factor>
-		<step>0.02952998</step>
+		<property>instrumentation/altimeter[1]/setting-hpa-text</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
+			<z>0</z>
 		</axis>
 	</animation>
 	

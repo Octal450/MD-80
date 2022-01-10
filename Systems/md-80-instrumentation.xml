@@ -701,6 +701,11 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<c1>15</c1>
 		</lag_filter>
 		
+		<lag_filter name="/instrumentation/agl[0]/minimums-text">
+			<input>/controls/switches/minimums</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<!-- Radio Altimeter 2 -->
 		<switch name="/instrumentation/agl[1]/power-avail">
 			<default value="0"/>
@@ -757,6 +762,11 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<input>/instrumentation/agl[1]/minimums-actuator</input>
 			<c1>15</c1>
 		</lag_filter>
+		
+		<lag_filter name="/instrumentation/agl[1]/minimums-text">
+			<input>/controls/switches/minimums</input>
+			<c1>20</c1>
+		</lag_filter>
 	
 	</channel>
 	
@@ -788,6 +798,41 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<c1>15</c1>
 		</lag_filter>
 		
+		<fcs_function name="/instrumentation/altimeter[0]/setting-inhg-input">
+			<function>
+				<floor>
+					<sum>
+						<product>
+							<property>/instrumentation/altimeter[0]/setting-inhg</property>
+							<value>100</value>
+						</product>
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/instrumentation/altimeter[0]/setting-inhg-text">
+			<input>/instrumentation/altimeter[0]/setting-inhg-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<fcs_function name="/instrumentation/altimeter[0]/setting-hpa-input">
+			<function>
+				<floor>
+					<sum>
+						<property>/instrumentation/altimeter[0]/setting-hpa</property>
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/instrumentation/altimeter[0]/setting-hpa-text">
+			<input>/instrumentation/altimeter[0]/setting-hpa-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<!-- Altimeter 2 -->
 		<switch name="/instrumentation/altimeter[1]/power-avail">
 			<default value="0"/>
@@ -814,6 +859,41 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<c1>15</c1>
 		</lag_filter>
 		
+		<fcs_function name="/instrumentation/altimeter[1]/setting-inhg-input">
+			<function>
+				<floor>
+					<sum>
+						<product>
+							<property>/instrumentation/altimeter[0]/setting-inhg</property> <!-- Fix me when they are seperate -->
+							<value>100</value>
+						</product>
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/instrumentation/altimeter[1]/setting-inhg-text">
+			<input>/instrumentation/altimeter[1]/setting-inhg-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<fcs_function name="/instrumentation/altimeter[1]/setting-hpa-input">
+			<function>
+				<floor>
+					<sum>
+						<property>/instrumentation/altimeter[0]/setting-hpa</property> <!-- Fix me when they are seperate -->
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/instrumentation/altimeter[1]/setting-hpa-text">
+			<input>/instrumentation/altimeter[1]/setting-hpa-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<!-- Altimeter Standby -->
 		<switch name="/instrumentation/altimeter[2]/power-avail">
 			<default value="0"/>
@@ -838,6 +918,41 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<lag_filter name="/instrumentation/altimeter[2]/altitude-ft">
 			<input>/instrumentation/altimeter[2]/altitude-ft-actuator</input>
 			<c1>15</c1>
+		</lag_filter>
+		
+		<fcs_function name="/instrumentation/altimeter[2]/setting-inhg-input">
+			<function>
+				<floor>
+					<sum>
+						<product>
+							<property>/instrumentation/altimeter[0]/setting-inhg</property> <!-- Fix me when they are seperate -->
+							<value>100</value>
+						</product>
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/instrumentation/altimeter[2]/setting-inhg-text">
+			<input>/instrumentation/altimeter[2]/setting-inhg-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<fcs_function name="/instrumentation/altimeter[2]/setting-hpa-input">
+			<function>
+				<floor>
+					<sum>
+						<property>/instrumentation/altimeter[0]/setting-hpa</property> <!-- Fix me when they are seperate -->
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/instrumentation/altimeter[2]/setting-hpa-text">
+			<input>/instrumentation/altimeter[2]/setting-hpa-input</input>
+			<c1>20</c1>
 		</lag_filter>
 	
 	</channel>

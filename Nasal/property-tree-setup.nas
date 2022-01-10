@@ -78,9 +78,6 @@ var Fdm = {
 		},
 		Engine: {
 			atsCmdRawPid: props.globals.initNode("/fdm/jsbsim/engine/ats-cmd-raw-pid", 0, "DOUBLE"),
-			Limit: {
-				flexTemp: props.globals.getNode("/fdm/jsbsim/engine/limit/flex-temp"),
-			},
 			throttleLever: [props.globals.getNode("/fdm/jsbsim/engine/throttle-lever[0]"), props.globals.getNode("/fdm/jsbsim/engine/throttle-lever[1]")],
 		},
 		Position: {

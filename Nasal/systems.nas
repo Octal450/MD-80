@@ -532,6 +532,7 @@ var TRI = {
 		activeNorm: props.globals.getNode("/fdm/jsbsim/engine/limit/active-norm"),
 		cruise: props.globals.getNode("/fdm/jsbsim/engine/limit/cruise"),
 		climb: props.globals.getNode("/fdm/jsbsim/engine/limit/climb"),
+		flexTemp: props.globals.getNode("/fdm/jsbsim/engine/limit/flex-temp"),
 		goAround: props.globals.getNode("/fdm/jsbsim/engine/limit/go-around"),
 		highestNorm: props.globals.getNode("/fdm/jsbsim/engine/limit/highest-norm"),
 		mct: props.globals.getNode("/fdm/jsbsim/engine/limit/mct"),

@@ -32,6 +32,43 @@
 	</animation>
 	
 	<animation>
+		<type>pick</type>
+		<object-name>flex1</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					<![CDATA[
+						var flex = systems.TRI.Limit.flexTemp.getValue();
+						var digit = left(sprintf("%02d", flex), 1);
+						if (digit >= 5) systems.TRI.Limit.flexTemp.setValue(0 ~ right(sprintf("%02d", flex), 1));
+						else systems.TRI.Limit.flexTemp.setValue((digit + 1) ~ right(sprintf("%02d", flex), 1));
+					]]>
+				</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>
+					<![CDATA[
+						var flex = systems.TRI.Limit.flexTemp.getValue();
+						var digit = left(sprintf("%02d", flex), 1);
+						if (digit <= 0) systems.TRI.Limit.flexTemp.setValue(5 ~ right(sprintf("%02d", flex), 1));
+						else systems.TRI.Limit.flexTemp.setValue((digit - 1) ~ right(sprintf("%02d", flex), 1));
+					]]>
+				</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
 		<type>textranslate</type>
 		<object-name>flex2</object-name>
 		<property>controls/tri/flex-d1</property>
@@ -46,18 +83,21 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>flexGroup</object-name>
+		<object-name>flex2</object-name>
 		<action>
 			<button>0</button>
 			<button>3</button>
 			<repeatable>true</repeatable>
 			<binding>
-				<command>property-adjust</command>
-				<property>fdm/jsbsim/engine/limit/flex-temp</property>
-				<step>1</step>
-				<min>1</min>
-				<max>59</max>
-				<wrap>false</wrap>
+				<command>nasal</command>
+				<script>
+					<![CDATA[
+						var flex = systems.TRI.Limit.flexTemp.getValue();
+						var digit = right(sprintf("%02d", flex), 1);
+						if (digit >= 9) systems.TRI.Limit.flexTemp.setValue(left(sprintf("%02d", flex), 1) ~ 0);
+						else systems.TRI.Limit.flexTemp.setValue(left(sprintf("%02d", flex), 1) ~ (digit + 1));
+					]]>
+				</script>
 			</binding>
 		</action>
 		<action>
@@ -65,12 +105,15 @@
 			<button>4</button>
 			<repeatable>true</repeatable>
 			<binding>
-				<command>property-adjust</command>
-				<property>fdm/jsbsim/engine/limit/flex-temp</property>
-				<step>-1</step>
-				<min>1</min>
-				<max>59</max>
-				<wrap>false</wrap>
+				<command>nasal</command>
+				<script>
+					<![CDATA[
+						var flex = systems.TRI.Limit.flexTemp.getValue();
+						var digit = right(sprintf("%02d", flex), 1);
+						if (digit <= 0) systems.TRI.Limit.flexTemp.setValue(left(sprintf("%02d", flex), 1) ~ 9);
+						else systems.TRI.Limit.flexTemp.setValue(left(sprintf("%02d", flex), 1) ~ (digit - 1));
+					]]>
+				</script>
 			</binding>
 		</action>
 	</animation>

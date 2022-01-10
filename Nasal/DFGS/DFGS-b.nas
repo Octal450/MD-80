@@ -155,14 +155,14 @@ var updateFma = {
 		if (me.thrTemp == 3) {
 			Fma.thrA.setValue("CLMP");
 			if (systems.TRI.Limit.activeModeInt.getValue() == 5) {
-				Fma.thrB.setValue("  " ~ sprintf("%02d", pts.Fdm.JSBsim.Engine.Limit.flexTemp.getValue()));
+				Fma.thrB.setValue("  " ~ sprintf("%02d", systems.TRI.Limit.flexTemp.getValue()));
 			} else {
 				Fma.thrB.setValue("");
 			}
 		} else if (me.thrTemp == 2) {
 			Fma.thrA.setValue("EPR");
 			if (systems.TRI.Limit.activeModeInt.getValue() == 5) {
-				Fma.thrB.setValue("  " ~ sprintf("%02d", pts.Fdm.JSBsim.Engine.Limit.flexTemp.getValue()));
+				Fma.thrB.setValue("  " ~ sprintf("%02d", systems.TRI.Limit.flexTemp.getValue()));
 			} else {
 				Fma.thrB.setValue(systems.TRI.Limit.activeMode.getValue());
 			}
@@ -220,7 +220,7 @@ setlistener("/it-autoflight/input/kts-mach-flch", func() {
 setlistener("/fdm/jsbsim/engine/limit/flex-temp", func() {
 	updateFma.thrTemp = Output.thrMode.getValue();
 	if ((updateFma.thrTemp == 2 or updateFma.thrTemp == 3) and systems.TRI.Limit.activeModeInt.getValue() == 5) {
-		Fma.thrB.setValue("  " ~ sprintf("%02d", pts.Fdm.JSBsim.Engine.Limit.flexTemp.getValue()));
+		Fma.thrB.setValue("  " ~ sprintf("%02d", systems.TRI.Limit.flexTemp.getValue()));
 	}
 }, 0, 0);
 
