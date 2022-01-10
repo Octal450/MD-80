@@ -362,7 +362,7 @@
 		</reference>
 		<output>/fdm/jsbsim/engine/ats-cmd[0]</output>
 		<config>
-			<Kp>1.0</Kp>
+			<Kp>0.9</Kp>
 			<Ti>0.75</Ti>
 			<Td>0.0</Td>
 			<u_min>
@@ -370,7 +370,7 @@
 					<max>
 						<difference>
 							<property>/fdm/jsbsim/engine/power-norm[0]</property>
-							<value>0.2</value>
+							<value>0.175</value>
 						</difference>
 						<value>0</value>
 					</max>
@@ -381,7 +381,7 @@
 					<min>
 						<sum>
 							<property>/fdm/jsbsim/engine/power-norm[0]</property>
-							<value>0.2</value>
+							<value>0.175</value>
 						</sum>
 						<value>1</value>
 					</min>
@@ -418,7 +418,7 @@
 		</reference>
 		<output>/fdm/jsbsim/engine/ats-cmd[1]</output>
 		<config>
-			<Kp>1.0</Kp>
+			<Kp>0.9</Kp>
 			<Ti>0.75</Ti>
 			<Td>0.0</Td>
 			<u_min>
@@ -426,7 +426,7 @@
 					<max>
 						<difference>
 							<property>/fdm/jsbsim/engine/power-norm[1]</property>
-							<value>0.2</value>
+							<value>0.175</value>
 						</difference>
 						<value>0</value>
 					</max>
@@ -437,7 +437,7 @@
 					<min>
 						<sum>
 							<property>/fdm/jsbsim/engine/power-norm[1]</property>
-							<value>0.2</value>
+							<value>0.175</value>
 						</sum>
 						<value>1</value>
 					</min>
