@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2022 Josh Davidson (Octal450) -->
+
+<PropertyList>
+	
+	<path>floor_light.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Integrity</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>0.6</green>
+			<blue>0.3</blue>
+			<factor-prop>controls/lighting/fo-panel-norm</factor-prop>
+		</emission>
+	</animation>
+
+</PropertyList>

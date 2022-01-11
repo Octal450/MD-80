@@ -14,7 +14,7 @@
 			<red>1.0</red>
 			<green>0.6</green>
 			<blue>0.3</blue>
-			<factor-prop>controls/lighting/main-panel-norm</factor-prop>
+			<factor-prop>controls/lighting/fo-panel-norm</factor-prop>
 		</emission>
 	</animation>
 	
@@ -22,7 +22,7 @@
 		<type>rotate</type>
 		<object-name>KnobPanel</object-name>
 		<object-name>IntegrityPanel</object-name>
-		<property>controls/lighting/main-panel-knb</property>
+		<property>controls/lighting/fo-panel-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -47,7 +47,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/main-panel-knb</property>
+				<property>controls/lighting/fo-panel-knb</property>
 				<step>0.05</step>
 				<min>0</min>
 				<max>1</max>
@@ -60,7 +60,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/main-panel-knb</property>
+				<property>controls/lighting/fo-panel-knb</property>
 				<step>-0.05</step>
 				<min>0</min>
 				<max>1</max>
@@ -73,7 +73,7 @@
 		<type>rotate</type>
 		<object-name>KnobDigital</object-name>
 		<object-name>IntegrityDigital</object-name>
-		<property>controls/lighting/main-digital-knb</property>
+		<property>controls/lighting/fo-digital-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -98,7 +98,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/main-digital-knb</property>
+				<property>controls/lighting/fo-digital-knb</property>
 				<step>0.1</step>
 				<min>0</min>
 				<max>1</max>
@@ -111,7 +111,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/main-digital-knb</property>
+				<property>controls/lighting/fo-digital-knb</property>
 				<step>-0.1</step>
 				<min>0</min>
 				<max>1</max>
@@ -126,7 +126,7 @@
 		<object-name>KnobFloodTop</object-name>
 		<object-name>IntegrityFlood</object-name>
 		<object-name>IntegrityFloodTop</object-name>
-		<property>controls/lighting/main-flood-knb</property>
+		<property>controls/lighting/fo-flood-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>

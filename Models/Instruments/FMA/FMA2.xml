@@ -11,6 +11,34 @@
     </effect>
 	
 	<animation>
+		<type>material</type>
+		<object-name>arm2.screen</object-name>
+		<object-name>pitch2.screen</object-name>
+		<object-name>roll2.screen</object-name>
+		<object-name>thr2.screen</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>1.0</green>
+			<blue>1.0</blue>
+			<factor-prop>controls/lighting/fo-digital-norm</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>arm2.screen</object-name>
+		<object-name>pitch2.screen</object-name>
+		<object-name>roll2.screen</object-name>
+		<object-name>thr2.screen</object-name>
+		<condition>
+			<greater-than>
+				<property>controls/lighting/fo-digital-norm</property>
+				<value>0.01</value>
+			</greater-than>
+		</condition>
+	</animation>
+	
+	<animation>
 		<type>pick</type>
 		<object-name>rstBtn</object-name>
 		<action>

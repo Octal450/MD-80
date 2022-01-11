@@ -11,6 +11,34 @@
     </effect>
 	
 	<animation>
+		<type>material</type>
+		<object-name>arm1.screen</object-name>
+		<object-name>pitch1.screen</object-name>
+		<object-name>roll1.screen</object-name>
+		<object-name>thr1.screen</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>1.0</green>
+			<blue>1.0</blue>
+			<factor-prop>controls/lighting/capt-digital-norm</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>arm1.screen</object-name>
+		<object-name>pitch1.screen</object-name>
+		<object-name>roll1.screen</object-name>
+		<object-name>thr1.screen</object-name>
+		<condition>
+			<greater-than>
+				<property>controls/lighting/capt-digital-norm</property>
+				<value>0.01</value>
+			</greater-than>
+		</condition>
+	</animation>
+	
+	<animation>
 		<type>pick</type>
 		<object-name>rstBtn</object-name>
 		<action>

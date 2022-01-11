@@ -38,7 +38,7 @@
 	
 	<model>
 		<name>clock</name>
-		<path>Aircraft/MD-80/Models/Instruments/clock.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/clock1.xml</path>
 		<offsets>
 			<x-m>2.248</x-m>
 			<y-m>-0.734</y-m>
@@ -246,7 +246,7 @@
 	
 	<model>
 		<name>lighting_panel_L</name>
-		<path>Aircraft/MD-80/Models/Instruments/panel_lighting.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/panel_lighting_l.xml</path>
 		<offsets>
 			<x-m>2.26953</x-m>
 			<y-m>-0.865</y-m>
@@ -257,7 +257,7 @@
 	
 	<model>
 		<name>floorlight</name>
-		<path>Aircraft/MD-80/Models/Instruments/floor_light.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/floor_light1.xml</path>
 		<offsets>
 			<x-m>2.245</x-m>
 			<y-m>-0.837</y-m>
@@ -268,7 +268,7 @@
 	
 	<model>
 		<name>staticair</name>
-		<path>Aircraft/MD-80/Models/Instruments/staticair_panel.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/staticair_panel1.xml</path>
 		<offsets>
 			<x-m>2.2561</x-m>
 			<y-m>-0.852</y-m>
@@ -657,7 +657,7 @@
 	
 	<model>
 		<name>clock_R</name>
-		<path>Aircraft/MD-80/Models/Instruments/clock.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/clock2.xml</path>
 		<offsets>
 			<x-m>2.248</x-m>
 			<y-m>0.732</y-m>
@@ -780,7 +780,7 @@
 	
 	<model>
 		<name>lighting_panel_R</name>
-		<path>Aircraft/MD-80/Models/Instruments/panel_lighting.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/panel_lighting_r.xml</path>
 		<offsets>
 			<x-m>2.26953</x-m>
 			<y-m>0.86145</y-m>
@@ -791,7 +791,7 @@
 	
 	<model>
 		<name>floorlight_R</name>
-		<path>Aircraft/MD-80/Models/Instruments/floor_light.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/floor_light2.xml</path>
 		<offsets>
 			<x-m>2.245</x-m>
 			<y-m>0.79523</y-m>
@@ -802,7 +802,7 @@
 	
 	<model>
 		<name>staticair_R</name>
-		<path>Aircraft/MD-80/Models/Instruments/staticair_panel.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/staticair_panel2.xml</path>
 		<offsets>
 			<x-m>2.2561</x-m>
 			<y-m>0.82515</y-m>
@@ -888,17 +888,17 @@
     <z-m>0.624</z-m>
     <pitch-deg>-75</pitch-deg>
   </offsets>
-</model>
-
-<model>
-  <name>lighting_panel_P</name>
-  <path>Aircraft/MD-80/Models/Instruments/pedestal_lighting.xml</path>
-  <offsets>
-    <x-m>2.988</x-m>
-    <y-m>-0.074</y-m>
-    <z-m>0.600</z-m>
-    <pitch-deg>-75</pitch-deg>
-  </offsets>
 </model-->
+
+	<model>
+		<name>lighting_panel_P</name>
+		<path>Aircraft/MD-80/Models/Instruments/pedestal_lighting.xml</path>
+		<offsets>
+			<x-m>2.988</x-m>
+			<y-m>-0.074</y-m>
+			<z-m>0.600</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+	</model>
 
 </PropertyList>

@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<path>clock.ac</path>
+
+<animation>
+  <type>material</type>
+  <object-name>Clock.Face</object-name>
+  <object-name>Clock.Hour</object-name>
+  <object-name>Clock.Minute</object-name>
+  <object-name>Clock.Second</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>0.6</green>
+			<blue>0.3</blue>
+			<factor-prop>controls/lighting/capt-panel-norm</factor-prop>
+		</emission>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>Clock.Hour</object-name>
+  <property>instrumentation/clock/indicated-sec</property>
+  <factor>0.00833333333333333</factor>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>Clock.Minute</object-name>
+  <property>instrumentation/clock/indicated-sec</property>
+  <factor>0.1</factor>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>Clock.Second</object-name>
+  <property>instrumentation/clock/indicated-sec</property>
+  <factor>6</factor>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+<animation>
+  <type>rotate</type>
+  <object-name>Clock.Knob</object-name>
+  <property>instrumentation/clock/offset-sec</property>
+  <interpolation>
+    <entry><ind>-43200</ind><dep>-180</dep></entry>
+    <entry><ind>     0</ind><dep>   0</dep></entry>
+    <entry><ind> 43200</ind><dep> 180</dep></entry>
+  </interpolation>
+  <center>
+    <x-m>0</x-m>
+    <y-m>-0.03</y-m>
+    <z-m>-0.03</z-m>
+  </center>
+  <axis>
+    <x>-1</x>
+    <y>0</y>
+    <z>0</z>
+  </axis>
+</animation>
+
+</PropertyList>
+

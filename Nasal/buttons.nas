@@ -8,11 +8,14 @@ var variousReset = func() {
 	pts.Controls.Dfgs.Switches.art.setBoolValue(1);
 	pts.Controls.Flight.dialAFlap.setValue(0);
 	pts.Controls.Lighting.beacon.setBoolValue(0);
+	pts.Controls.Lighting.captDigitalKnb.setValue(1);
+	pts.Controls.Lighting.fgcpDigitalKnb.setValue(1);
+	pts.Controls.Lighting.foDigitalKnb.setValue(1);
 	pts.Controls.Lighting.landingLightL.setValue(0);
 	pts.Controls.Lighting.landingLightN.setValue(0);
 	pts.Controls.Lighting.landingLightR.setValue(0);
 	pts.Controls.Lighting.logoLights.setBoolValue(0);
-	pts.Controls.Lighting.mainDigitalKnb.setValue(1);
+	pts.Controls.Lighting.pedestalDigitalKnb.setValue(1);
 	pts.Controls.Lighting.positionStrobeLight.setValue(0);
 	pts.Controls.Lighting.taxiLight.setBoolValue(0);
 	pts.Controls.Lighting.wingLights.setValue(0);

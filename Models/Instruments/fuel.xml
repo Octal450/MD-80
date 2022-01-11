@@ -14,7 +14,7 @@
 			<red>1.0</red>
 			<green>1.0</green>
 			<blue>1.0</blue>
-			<factor-prop>controls/lighting/main-digital-norm</factor-prop>
+			<factor-prop>controls/lighting/pedestal-digital-norm</factor-prop>
 		</emission>
 	</animation>
 	
@@ -28,7 +28,7 @@
 					<value>25</value>
 				</greater-than-equals>
 				<greater-than>
-					<property>controls/lighting/main-digital-norm</property>
+					<property>controls/lighting/pedestal-digital-norm</property>
 					<value>0.01</value>
 				</greater-than>
 			</and>

@@ -14,7 +14,7 @@
 			<red>1.0</red>
 			<green>0.6</green>
 			<blue>0.3</blue>
-			<factor-prop>controls/lighting/main-panel-norm</factor-prop>
+			<factor-prop>controls/lighting/fgcp-panel-norm</factor-prop>
 		</emission>
 	</animation>
 	
@@ -25,7 +25,7 @@
 			<red>1.0</red>
 			<green>1.0</green>
 			<blue>1.0</blue>
-			<factor-prop>controls/lighting/main-digital-norm</factor-prop>
+			<factor-prop>controls/lighting/fgcp-digital-norm</factor-prop>
 		</emission>
 	</animation>
 	
@@ -39,11 +39,112 @@
 					<value>25</value>
 				</greater-than-equals>
 				<greater-than>
-					<property>controls/lighting/main-digital-norm</property>
+					<property>controls/lighting/fgcp-digital-norm</property>
 					<value>0.01</value>
 				</greater-than>
 			</and>
 		</condition>
+	</animation>
+	
+	<!-- Dimmers -->
+	<animation>
+		<type>rotate</type>
+		<object-name>KnobPanel</object-name>
+		<property>controls/lighting/fgcp-panel-knb</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-135</dep></entry>
+			<entry><ind>1</ind><dep> 135</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.02409</x-m>
+			<y-m>0.01372</y-m>
+			<z-m>0</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>KnobPanel</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/fgcp-panel-knb</property>
+				<step>0.05</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/fgcp-panel-knb</property>
+				<step>-0.05</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>KnobDigital</object-name>
+		<property>controls/lighting/fgcp-digital-knb</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-135</dep></entry>
+			<entry><ind>1</ind><dep> 135</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.02409</x-m>
+			<y-m>0.03871</y-m>
+			<z-m>0</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>KnobDigital</object-name>
+		<action>
+			<button>0</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/fgcp-digital-knb</property>
+				<step>0.05</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/fgcp-digital-knb</property>
+				<step>-0.05</step>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
 	</animation>
 	
 	<!-- NAV1 Digits -->

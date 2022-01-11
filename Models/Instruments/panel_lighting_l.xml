@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 
+<!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
 <!-- Copyright (c) 2022 Josh Davidson (Octal450) -->
 
 <PropertyList>
 	
-	<path>pedestal_lighting.ac</path>
+	<path>panel_lighting.ac</path>
 	
 	<animation>
 		<type>material</type>
@@ -13,7 +14,7 @@
 			<red>1.0</red>
 			<green>0.6</green>
 			<blue>0.3</blue>
-			<factor-prop>controls/lighting/pedestal-panel-norm</factor-prop>
+			<factor-prop>controls/lighting/capt-panel-norm</factor-prop>
 		</emission>
 	</animation>
 	
@@ -21,7 +22,7 @@
 		<type>rotate</type>
 		<object-name>KnobPanel</object-name>
 		<object-name>IntegrityPanel</object-name>
-		<property>controls/lighting/pedestal-panel-knb</property>
+		<property>controls/lighting/capt-panel-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -46,7 +47,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/pedestal-panel-knb</property>
+				<property>controls/lighting/capt-panel-knb</property>
 				<step>0.05</step>
 				<min>0</min>
 				<max>1</max>
@@ -59,58 +60,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/pedestal-panel-knb</property>
-				<step>-0.05</step>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
-		<object-name>KnobPanelTop</object-name>
-		<object-name>IntegrityPanelTop</object-name>
-		<property>controls/lighting/center-panel-knb</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>-135</dep></entry>
-			<entry><ind>1</ind><dep> 135</dep></entry>
-		</interpolation>
-		<center>
-			<x-m>0.00757</x-m>
-			<y-m>-0.0278</y-m>
-			<z-m>-0.00646</z-m>
-		</center>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>KnobPanelTop</object-name>
-		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/lighting/center-panel-knb</property>
-				<step>0.05</step>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/lighting/center-panel-knb</property>
+				<property>controls/lighting/capt-panel-knb</property>
 				<step>-0.05</step>
 				<min>0</min>
 				<max>1</max>
@@ -123,7 +73,7 @@
 		<type>rotate</type>
 		<object-name>KnobDigital</object-name>
 		<object-name>IntegrityDigital</object-name>
-		<property>controls/lighting/pedestal-digital-knb</property>
+		<property>controls/lighting/capt-digital-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -148,8 +98,8 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/pedestal-digital-knb</property>
-				<step>0.05</step>
+				<property>controls/lighting/capt-digital-knb</property>
+				<step>0.1</step>
 				<min>0</min>
 				<max>1</max>
 				<wrap>false</wrap>
@@ -161,8 +111,8 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/pedestal-digital-knb</property>
-				<step>-0.05</step>
+				<property>controls/lighting/capt-digital-knb</property>
+				<step>-0.1</step>
 				<min>0</min>
 				<max>1</max>
 				<wrap>false</wrap>
@@ -173,8 +123,10 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>KnobFlood</object-name>
+		<object-name>KnobFloodTop</object-name>
 		<object-name>IntegrityFlood</object-name>
-		<property>controls/lighting/pedestal-flood-knb</property>
+		<object-name>IntegrityFloodTop</object-name>
+		<property>controls/lighting/capt-flood-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>

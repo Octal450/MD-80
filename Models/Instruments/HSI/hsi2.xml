@@ -13,7 +13,7 @@
 			<red>1.0</red>
 			<green>0.6</green>
 			<blue>0.3</blue>
-			<factor-prop>controls/lighting/main-panel-norm</factor-prop>
+			<factor-prop>controls/lighting/fo-panel-norm</factor-prop>
 		</emission>
 	</animation>
 	
@@ -29,7 +29,7 @@
 			<red>1.0</red>
 			<green>1.0</green>
 			<blue>1.0</blue>
-			<factor-prop>controls/lighting/main-digital-norm</factor-prop>
+			<factor-prop>controls/lighting/fo-digital-norm</factor-prop>
 		</emission>
 	</animation>
 	
@@ -43,7 +43,7 @@
 					<value>1</value>
 				</equals>
 				<greater-than>
-					<property>controls/lighting/main-digital-norm</property>
+					<property>controls/lighting/fo-digital-norm</property>
 					<value>0.01</value>
 				</greater-than>
 			</and>
