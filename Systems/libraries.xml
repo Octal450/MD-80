@@ -120,19 +120,6 @@
 	</filter>
 	
 	<filter>
-		<name>Weight KG</name>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<product>
-				<property>fdm/jsbsim/inertia/weight-lbs</property>
-				<value>0.45359237</value>
-			</product>
-		</input>
-		<output>fdm/jsbsim/inertia/weight-kg</output>
-	</filter>
-	
-	<filter>
 		<name>Vertical Speed Indicator</name>
 		<type>exponential</type>
 		<input>/it-autoflight/internal/vert-speed-fpm</input>
