@@ -94,7 +94,7 @@
 		</engine>
 		
 		<!-- Fuel Tank Capacities from FCOM -->
-		<tank type="FUEL">    <!-- Left Tank -->
+		<tank type="FUEL"> <!-- Left Tank -->
 			<location unit="M">
 				<x>23.802</x>
 				<y>-5.03595</y>
@@ -107,7 +107,7 @@
 			<type>JET-A1</type>
 			<temperature>50</temperature>
 		</tank>
-		<tank type="FUEL">    <!-- Center Tank -->
+		<tank type="FUEL"> <!-- Center Tank -->
 			<location unit="M">
 				<x>23.802</x>
 				<y>0</y>
@@ -120,7 +120,7 @@
 			<type>JET-A1</type>
 			<temperature>50</temperature>
 		</tank>
-		<tank type="FUEL">    <!-- Right Tank -->
+		<tank type="FUEL"> <!-- Right Tank -->
 			<location unit="M">
 				<x>23.802</x>
 				<y>5.03595</y>
@@ -133,7 +133,7 @@
 			<type>JET-A1</type>
 			<temperature>50</temperature>
 		</tank>
-		<tank type="FUEL">    <!-- Engine 1 Pipe -->
+		<tank type="FUEL"> <!-- Engine 1 Pipe -->
 			<location unit="M">
 				<x>23.802</x>
 				<y>0</y>
@@ -144,7 +144,7 @@
 			<priority>1</priority>
 			<type>JET-A1</type>
 		</tank>
-		<tank type="FUEL">    <!-- Engine 2 Pipe -->
+		<tank type="FUEL"> <!-- Engine 2 Pipe -->
 			<location unit="M">
 				<x>23.802</x>
 				<y>0</y>
@@ -155,7 +155,7 @@
 			<priority>1</priority>
 			<type>JET-A1</type>
 		</tank>
-		<tank type="FUEL">    <!-- APU Pipe -->
+		<tank type="FUEL"> <!-- APU Pipe -->
 			<location unit="M">
 				<x>23.802</x>
 				<y>0</y>
