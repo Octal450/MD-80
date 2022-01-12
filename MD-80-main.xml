@@ -65,14 +65,7 @@
 					</item>
 				</menu>
 				<menu n="102">
-					<label>FGCP/FMS</label>
-					<item>
-						<label>FGCP Panel</label>
-						<binding>
-							<command>dialog-show</command>
-							<dialog-name>autopilot</dialog-name>
-						</binding>
-					</item>
+					<label>FMS</label>
 					<item>
 						<label>Route Manager</label>
 						<binding>
@@ -99,6 +92,24 @@
 						<binding>
 							<command>nasal</command>
 							<script>canvas_pfd.showPfd2();</script>
+						</binding>
+					</item>
+					<item>
+						<label>Panels:</label>
+						<enabled type="bool">false</enabled>
+					</item>
+					<item>
+						<label>FGCP Panel</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>autopilot</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>FGCP Panel (Canvas)</label>
+						<binding>
+							<command>nasal</command>
+							<script>panel2d.fgcpDialog.open();</script>
 						</binding>
 					</item>
 				</menu>
@@ -1447,6 +1458,10 @@
 		<autopush_route>
 			<file>Aircraft/MD-80/Nasal/Autopush/route.nas</file>
 		</autopush_route>
+		<panel2d>
+			<file>Aircraft/MD-80/gui/canvas/common.nas</file>
+			<file>Aircraft/MD-80/gui/canvas/fgcp.nas</file>
+		</panel2d>
 	</nasal>
 
 </PropertyList>
