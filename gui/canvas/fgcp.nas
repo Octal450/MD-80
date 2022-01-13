@@ -22,8 +22,8 @@ var fgcpCanvas = {
 		return m;
 	},
 	getKeys: func() {
-		return ["Ap", "ApSel", "AltHold", "Alt_7seg", "Alt_thousand_7seg", "AutoLand", "AutoThrot", "Display", "EprLim", "Fd1", "Fd2", "Hdg_7seg", "IasMach", "Ils", "MachSel", "Nav", "Perf", "PitchMode_16seg", "Pitch_7seg", "SpdSel", "Spd_7seg", "Toga", "Turb",
-		"VertSpd", "VorLoc"];
+		return ["Ap", "ApSel", "AltHold", "AltKnob", "Alt_7seg", "Alt_thousand_7seg", "AutoLand", "AutoThrot", "Display", "EprLim", "Fd1", "Fd2", "Hdg_7seg", "IasMach", "Ils", "MachSel", "Nav", "Perf", "PitchMode_16seg", "PitchKnob", "Pitch_7seg", "SpdKnob",
+		"SpdSel", "Spd_7seg", "Toga", "Turb", "VertSpd", "VorLoc"];
 	},
 	close: func() {
 		me._dialogUpdateT.stop();
@@ -109,6 +109,47 @@ var fgcpCanvas = {
 		});
 		me["Fd2"].addEventListener("click", func(e) {
 			dfgs.Input.fd2.setBoolValue(!dfgs.Input.fd2.getBoolValue());
+		});
+		
+		# Speed Knob
+		me["SpdKnob"].addEventListener("click", func(e) {
+			if (e.shiftKey or e.button == 1) {
+				libraries.apPanel.spdPull();
+			} else if (e.button == 0) {
+				libraries.apPanel.spdPush();
+			}
+		});
+		me["SpdKnob"].addEventListener("wheel", func(e) {
+			if (e.shiftKey) {
+				libraries.apPanel.spdAdjust(10 * e.deltaY);
+			} else {
+				libraries.apPanel.spdAdjust(1 * e.deltaY);
+			}
+		});
+		
+		# Pitch Knob
+		me["PitchKnob"].addEventListener("wheel", func(e) {
+			if (e.shiftKey) {
+				libraries.apPanel.vsAdjust(-10 * e.deltaY); # Inverted
+			} else {
+				libraries.apPanel.vsAdjust(-1 * e.deltaY); # Inverted
+			}
+		});
+		
+		# Altitude Knob
+		me["AltKnob"].addEventListener("click", func(e) {
+			if (e.shiftKey or e.button == 1) {
+				libraries.apPanel.altPull();
+			} else if (e.button == 0) {
+				libraries.apPanel.altPush();
+			}
+		});
+		me["AltKnob"].addEventListener("wheel", func(e) {
+			if (e.shiftKey) {
+				libraries.apPanel.altAdjust(1 * e.deltaY);
+			} else {
+				libraries.apPanel.altAdjust(10 * e.deltaY);
+			}
 		});
 		
 		me._update();
