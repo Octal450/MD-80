@@ -4,7 +4,7 @@
 var fgcpCanvas = {
 	new: func() {
 		var m = {parents: [fgcpCanvas]};
-		m._title = "FGCP Panel";
+		m._title = "FGCP Panel (Beta)";
 		m._dialog = nil;
 		m._canvas = nil;
 		m._svg = nil;
@@ -12,13 +12,18 @@ var fgcpCanvas = {
 		m._svgKeys = nil;
 		m._key = nil;
 		m._dialogUpdate = maketimer(0.07, m, fgcpCanvas._update);
-		m._ovrd = [0, 0];
+		m._alt = 0;
+		m._pitch = 0;
+		m._pitchD = 0;
 		m._vert = 0;
+		m._vs = 0;
+		m._vsD = 0;
 		
 		return m;
 	},
 	getKeys: func() {
-		return ["AltHold", "AutoLand", "EprLim", "IasMach", "Ils", "MachSel", "Nav", "Perf", "SpdSel", "Turb", "VertSpd", "VorLoc"];
+		return ["Ap", "ApSel", "AltHold", "Alt_7seg", "Alt_thousand_7seg", "AutoLand", "AutoThrot", "Display", "EprLim", "Fd1", "Fd2", "Hdg_7seg", "IasMach", "Ils", "MachSel", "Nav", "Perf", "PitchMode_16seg", "Pitch_7seg", "SpdSel", "Spd_7seg", "Toga", "Turb",
+		"VertSpd", "VorLoc"];
 	},
 	close: func() {
 		me._dialogUpdateT.stop();
@@ -41,64 +46,151 @@ var fgcpCanvas = {
 		me._svgKeys = me.getKeys();
 		foreach(me._key; me._svgKeys) {
 			me[me._key] = me._svg.getElementById(me._key);
+			if (find("_7seg", me._key) != -1) me[me._key].setFont("Std7SegCustom.ttf");
+			else if (find("_16seg", me._key) != -1) me[me._key].setFont("Std16SegCustom.ttf");
 		}
 		
 		# Set up clickspots
+		me["Toga"].addEventListener("click", func(e) {
+			libraries.apPanel.toga();
+		});
+		
 		# Left Buttons
 		me["SpdSel"].addEventListener("click", func(e) {
 			libraries.apPanel.spd();
-			libraries.Sound.btn1();
 		});
 		me["MachSel"].addEventListener("click", func(e) {
 			libraries.apPanel.mach();
-			libraries.Sound.btn1();
 		});
 		me["EprLim"].addEventListener("click", func(e) {
 			libraries.apPanel.eprLim();
-			libraries.Sound.btn1();
+		});
+		
+		me["Fd1"].addEventListener("click", func(e) {
+			dfgs.Input.fd1.setBoolValue(!dfgs.Input.fd1.getBoolValue());
+		});
+		me["AutoThrot"].addEventListener("click", func(e) {
+			dfgs.Input.athr.setBoolValue(!dfgs.Input.athr.getBoolValue());
 		});
 		
 		# Center Buttons
 		me["Nav"].addEventListener("click", func(e) {
 			libraries.apPanel.nav();
-			libraries.Sound.btn1();
 		});
 		me["VorLoc"].addEventListener("click", func(e) {
 			libraries.apPanel.vorLoc();
-			libraries.Sound.btn1();
 		});
 		me["Ils"].addEventListener("click", func(e) {
 			libraries.apPanel.ils();
-			libraries.Sound.btn1();
 		});
 		me["AutoLand"].addEventListener("click", func(e) {
 			libraries.apPanel.autoLand();
-			libraries.Sound.btn1();
 		});
 		
 		# Right Buttons
 		me["VertSpd"].addEventListener("click", func(e) {
 			libraries.apPanel.vertSpd();
-			libraries.Sound.btn1();
 		});
 		me["IasMach"].addEventListener("click", func(e) {
 			libraries.apPanel.iasMach();
-			libraries.Sound.btn1();
 		});
 		me["AltHold"].addEventListener("click", func(e) {
 			libraries.apPanel.altHold();
-			libraries.Sound.btn1();
 		});
 		me["Turb"].addEventListener("click", func(e) {
 			libraries.apPanel.turb();
-			libraries.Sound.btn1();
+		});
+		
+		me["Ap"].addEventListener("click", func(e) {
+			libraries.apPanel.apSwitch();
+		});
+		me["ApSel"].addEventListener("click", func(e) {
+			libraries.apPanel.apSelector();
+		});
+		me["Fd2"].addEventListener("click", func(e) {
+			dfgs.Input.fd2.setBoolValue(!dfgs.Input.fd2.getBoolValue());
 		});
 		
 		me._update();
 		me._dialogUpdate.start();
 	},
 	_update: func() {
+		if (systems.ELEC.Generic.fgcpPower.getValue() >= 24) {
+			if (pts.Controls.Switches.annunTest.getBoolValue()) {
+				me["Hdg_7seg"].setText("888");
+				me["Spd_7seg"].setText(".888");
+				me["PitchMode_16seg"].setText("¤"); # Shows all segments
+				me["Pitch_7seg"].setText("-8888");
+			} else {
+				# Speed
+				if (dfgs.Input.ktsMach.getBoolValue()) {
+					me["Spd_7seg"].setText("." ~ sprintf("%03d", dfgs.Input.mach.getValue() * 1000));
+				} else {
+					me["Spd_7seg"].setText(sprintf("%03d", dfgs.Input.kts.getValue()));
+				}
+				
+				# Heading
+				me["Hdg_7seg"].setText(sprintf("%03d", dfgs.Input.hdg.getValue()));
+				
+				# Pitch
+				me._vert = dfgs.Output.vert.getValue();
+				if (me._vert == 4) {
+					if (dfgs.Input.ktsMachFlch.getBoolValue()) {
+						me["PitchMode_16seg"].setText("M");
+						me["Pitch_7seg"].setText("." ~ sprintf("%03d", dfgs.Input.machFlch.getValue() * 1000));
+					} else {
+						me["PitchMode_16seg"].setText("S");
+						me["Pitch_7seg"].setText(sprintf("%03d", dfgs.Input.ktsFlch.getValue()));
+					}
+				} else if (me._vert == 5) {
+					me._pitch = dfgs.Input.pitch.getValue();
+					me._pitchD = math.round(abs(me._pitch), 0.1);
+					
+					me["PitchMode_16seg"].setText("P");
+					if (me._pitch < 0 and me._pitchD > 0) {
+						me["Pitch_7seg"].setText("-" ~ sprintf("%02d", abs(me._pitchD)));
+					} else {
+						me["Pitch_7seg"].setText(sprintf("%02d", abs(me._pitchD)));
+					}
+				} else {
+					me._vs = dfgs.Input.vs.getValue();
+					me._vsD = math.round(abs(me._vs), 100);
+					
+					me["PitchMode_16seg"].setText("V");
+					if (me._vs < 0 and me._vsD > 0) {
+						me["Pitch_7seg"].setText("-" ~ sprintf("%04d", me._vsD));
+					} else {
+						me["Pitch_7seg"].setText(sprintf("%04d", me._vsD));
+					}
+				}
+				
+				# Altitude
+				me._alt = dfgs.Input.alt.getValue();
+				me["Alt_7seg"].setText(right(sprintf("%03d", me._alt), 3));
+				if (me._alt < 1000) {
+					me["Alt_thousand_7seg"].setText("=");
+				} else if (me._alt < 10000) {
+					me["Alt_thousand_7seg"].setText("=" ~ sprintf("%d", math.floor(me._alt / 1000)));
+				} else {
+					me["Alt_thousand_7seg"].setText(sprintf("%d", math.floor(me._alt / 1000)));
+				}
+			}
+			
+			me["Display"].show();
+		} else {
+			me["Display"].hide();
+		}
 		
+		# Flight Director Controls
+		me["Fd1"].setRotation(dfgs.Output.fd1.getValue() * 180 * D2R);
+		me["Fd2"].setRotation(dfgs.Output.fd2.getValue() * 180 * D2R);
+		
+		# Autothrottle Controls
+		me["AutoThrot"].setRotation(dfgs.Output.athr.getValue() * 180 * D2R);
+		
+		# Autopilot Controls
+		me["Ap"].setRotation(math.max(dfgs.Output.ap1.getValue(), dfgs.Output.ap2.getValue()) * 180 * D2R);
+		me["ApSel"].setRotation((((dfgs.Input.activeAp.getValue() - 1) * -60) + 30) * D2R);
 	},
 };
 

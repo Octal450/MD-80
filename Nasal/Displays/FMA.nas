@@ -32,7 +32,7 @@ var Value = {
 var canvasBase = {
 	init: func(canvasGroup, file) {
 		var font_mapper = func(family, weight) {
-			return "FMA.ttf";
+			return "Std16SegCustom.ttf";
 		};
 		
 		canvas.parsesvg(canvasGroup, file, {"font-mapper": font_mapper});

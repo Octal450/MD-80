@@ -47,6 +47,7 @@ var Controls = {
 		minimumsLatch: props.globals.getNode("/controls/misc/minimums-latch"),
 	},
 	Switches: {
+		annunTest: props.globals.getNode("/controls/switches/annun-test"),
 		minimums: props.globals.getNode("/controls/switches/minimums"),
 		noSmokingSign: props.globals.getNode("/controls/switches/no-smoking-sign"),
 		seatbeltSign: props.globals.getNode("/controls/switches/seatbelt-sign"),

@@ -515,7 +515,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>FD1Switch</object-name>
-		<property>it-autoflight/input/fd1</property>
+		<property>it-autoflight/output/fd1</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 30</dep></entry>
 			<entry><ind>1</ind><dep>-30</dep></entry>
@@ -552,7 +552,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>FD2Switch</object-name>
-		<property>it-autoflight/input/fd2</property>
+		<property>it-autoflight/output/fd2</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 30</dep></entry>
 			<entry><ind>1</ind><dep>-30</dep></entry>
@@ -847,7 +847,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ATSwitch</object-name>
-		<property>it-autoflight/input/athr</property>
+		<property>it-autoflight/output/athr</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 25</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
