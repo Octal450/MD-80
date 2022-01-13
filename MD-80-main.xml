@@ -101,15 +101,15 @@
 					<item>
 						<label>FGCP Panel</label>
 						<binding>
-							<command>dialog-show</command>
-							<dialog-name>autopilot</dialog-name>
+							<command>nasal</command>
+							<script>panel2d.fgcpDialog.open();</script>
 						</binding>
 					</item>
 					<item>
-						<label>FGCP Panel (Canvas)</label>
+						<label>FGCP Panel (Legacy)</label>
 						<binding>
-							<command>nasal</command>
-							<script>panel2d.fgcpDialog.open();</script>
+							<command>dialog-show</command>
+							<dialog-name>autopilot</dialog-name>
 						</binding>
 					</item>
 				</menu>

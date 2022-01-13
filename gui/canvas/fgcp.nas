@@ -4,7 +4,7 @@
 var fgcpCanvas = {
 	new: func() {
 		var m = {parents: [fgcpCanvas]};
-		m._title = "FGCP Panel (Beta)";
+		m._title = "FGCP Panel";
 		m._dialog = nil;
 		m._canvas = nil;
 		m._svg = nil;
@@ -13,6 +13,7 @@ var fgcpCanvas = {
 		m._key = nil;
 		m._dialogUpdate = maketimer(0.07, m, fgcpCanvas._update);
 		m._alt = 0;
+		m._blim = 0;
 		m._pitch = 0;
 		m._pitchD = 0;
 		m._vert = 0;
@@ -22,8 +23,8 @@ var fgcpCanvas = {
 		return m;
 	},
 	getKeys: func() {
-		return ["Ap", "ApSel", "AltHold", "AltKnob", "Alt_7seg", "Alt_thousand_7seg", "AutoLand", "AutoThrot", "Display", "EprLim", "Fd1", "Fd2", "Hdg_7seg", "IasMach", "Ils", "MachSel", "Nav", "Perf", "PitchMode_16seg", "PitchKnob", "Pitch_7seg", "SpdKnob",
-		"SpdSel", "Spd_7seg", "Toga", "Turb", "VertSpd", "VorLoc"];
+		return ["Ap", "ApSel", "AltHold", "AltKnob", "Alt_7seg", "Alt_thousand_7seg", "AutoLand", "AutoThrot", "BankLimit", "BankLimitKnob","Display", "EprLim", "Fd1", "Fd2", "HdgKnob", "Hdg_7seg", "IasMach", "Ils", "MachSel", "Nav", "Perf", "PitchMode_16seg",
+		"PitchKnob", "Pitch_7seg", "SpdKnob", "SpdSel", "Spd_7seg", "Toga", "Turb", "VertSpd", "VorLoc"];
 	},
 	close: func() {
 		me._dialogUpdateT.stop();
@@ -127,6 +128,40 @@ var fgcpCanvas = {
 			}
 		});
 		
+		# Heading Knob
+		me["HdgKnob"].addEventListener("click", func(e) {
+			if (e.shiftKey or e.button == 1) {
+				libraries.apPanel.hdgPull();
+			} else if (e.button == 0) {
+				libraries.apPanel.hdgPush();
+			}
+		});
+		me["HdgKnob"].addEventListener("wheel", func(e) {
+			if (e.shiftKey) {
+				libraries.apPanel.hdgAdjust(10 * e.deltaY);
+			} else {
+				libraries.apPanel.hdgAdjust(1 * e.deltaY);
+			}
+		});
+		
+		# Bank Limit
+		me["BankLimitKnob"].addEventListener("click", func(e) {
+			me._blim = dfgs.Input.bankLimitSw.getValue();
+			if (e.shiftKey or e.button == 1) {
+				if (me._blim > 0) {
+					dfgs.Input.bankLimitSw.setValue(me._blim - 1);
+				} else {
+					dfgs.Input.bankLimitSw.setValue(4);
+				}
+			} else {
+				if (me._blim < 4) {
+					dfgs.Input.bankLimitSw.setValue(me._blim + 1);
+				} else {
+					dfgs.Input.bankLimitSw.setValue(0);
+				}
+			}
+		});
+		
 		# Pitch Knob
 		me["PitchKnob"].addEventListener("wheel", func(e) {
 			if (e.shiftKey) {
@@ -222,14 +257,13 @@ var fgcpCanvas = {
 			me["Display"].hide();
 		}
 		
-		# Flight Director Controls
+		# Bank Limit
+		me["BankLimit"].setRotation(((dfgs.Input.bankLimitSw.getValue() * 27.5) - 55) * D2R);
+		
+		# On/Off Controls
 		me["Fd1"].setRotation(dfgs.Output.fd1.getValue() * 180 * D2R);
 		me["Fd2"].setRotation(dfgs.Output.fd2.getValue() * 180 * D2R);
-		
-		# Autothrottle Controls
 		me["AutoThrot"].setRotation(dfgs.Output.athr.getValue() * 180 * D2R);
-		
-		# Autopilot Controls
 		me["Ap"].setRotation(math.max(dfgs.Output.ap1.getValue(), dfgs.Output.ap2.getValue()) * 180 * D2R);
 		me["ApSel"].setRotation((((dfgs.Input.activeAp.getValue() - 1) * -60) + 30) * D2R);
 	},
