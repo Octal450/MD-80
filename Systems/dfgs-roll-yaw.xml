@@ -7,7 +7,6 @@
 	<!-- Roll Axis -->
 	<filter>
 		<name>IT-CONTROLLER: Heading/LNAV</name>
-		<debug>false</debug>
 		<type>gain</type>
 		<gain>
 			<expression>
@@ -64,7 +63,6 @@
 	
 	<filter>
 		<name>IT-CONTROLLER: VOR/LOC</name>
-		<debug>false</debug>
 		<type>gain</type>
 		<gain>
 			<expression>
@@ -115,7 +113,6 @@
 	
 	<filter>
 		<name>IT-CONTROLLER: Align/Rollout/Takeoff/Wings Level</name>
-		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<enable>
@@ -142,7 +139,6 @@
 	
 	<filter>
 		<name>System Command: Roll Target Inactive Sync</name>
-		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<enable>
@@ -178,7 +174,6 @@
 	
 	<filter>
 		<name>System Command: Target Roll Filter</name>
-		<debug>false</debug>
 		<type>noise-spike</type>
 		<input>/it-autoflight/internal/target-roll-deg</input>
 		<output>/it-autoflight/internal/target-roll</output>
@@ -225,19 +220,17 @@
 	
 	<filter>
 		<name>System Command: Roll Rate Target</name>
-		<debug>false</debug>
 		<type>gain</type>
-		<gain>-0.7</gain>
+		<gain>-0.8</gain>
 		<input>/orientation/roll-deg</input>
 		<reference>/it-autoflight/internal/target-roll</reference>
 		<output>/it-autoflight/internal/roll-rate</output>
-		<min>-4.8</min>
-		<max>4.8</max>
+		<min>-5</min>
+		<max>5</max>
 	</filter>
 	
 	<pid-controller>
 		<name>System Command: Aileron Air</name>
-		<debug>false</debug>
 		<enable>
 			<condition>
 				<and>
@@ -307,7 +300,6 @@
 	
 	<filter>
 		<name>System Command: Aileron Inactive Sync</name>
-		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<enable>
@@ -330,7 +322,6 @@
 	
 	<filter>
 		<name>System Command: Aileron Filter</name>
-		<debug>false</debug>
 		<type>noise-spike</type>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
@@ -371,7 +362,6 @@
 	<!-- Yaw Axis -->
 	<pi-simple-controller>
 		<name>IT-CONTROLLER: Yaw VOR/LOC</name>
-		<debug>false</debug>
 		<enable>
 			<condition>
 				<and>
@@ -420,7 +410,6 @@
 	
 	<filter>
 		<name>System Command: Rudder</name>
-		<debug>false</debug>
 		<type>noise-spike</type>
 		<input>
 			<condition>

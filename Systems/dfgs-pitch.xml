@@ -7,7 +7,6 @@
 	<!-- Pitch Axis -->
 	<filter>
 		<name>IT-CONTROLLER: Altitude Capture/Hold</name>
-		<debug>false</debug>
 		<type>gain</type>
 		<gain>-5</gain>
 		<input>
@@ -62,7 +61,6 @@
 	
 	<pid-controller>
 		<name>IT-CONTROLLER: Speed By Pitch</name>
-		<debug>false</debug>
 		<enable>
 			<condition>
 				<property>/it-autoflight/internal/flch-active</property>
@@ -134,7 +132,6 @@
 	
 	<filter>
 		<name>Speed By Pitch Inactive Sync</name>
-		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<enable>
@@ -189,7 +186,6 @@
 	
 	<filter>
 		<name>Target FPM</name>
-		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
@@ -257,7 +253,6 @@
 	
 	<pid-controller>
 		<name>IT-CONTROLLER: FPM Hold</name>
-		<debug>false</debug>
 		<enable>
 			<condition>
 				<and>
@@ -385,7 +380,6 @@
 	
 	<filter>
 		<name>System Command: Pitch Target Inactive Sync</name>
-		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<enable>
@@ -426,7 +420,6 @@
 	
 	<filter>
 		<name>IT-CONTROLLER: Pitch Turbulance</name>
-		<debug>false</debug>
 		<type>noise-spike</type>
 		<input>
 			<condition>
@@ -493,7 +486,6 @@
 	
 	<filter>
 		<name>System Command: Pitch Rate Target</name>
-		<debug>false</debug>
 		<type>gain</type>
 		<gain>-0.5</gain>
 		<input>/orientation/pitch-deg</input>
@@ -514,7 +506,6 @@
 	
 	<pid-controller>
 		<name>System Command: Elevator</name>
-		<debug>false</debug>
 		<enable>
 			<condition>
 				<and>
@@ -572,7 +563,6 @@
 	
 	<filter>
 		<name>System Command: Elevator Inactive Sync</name>
-		<debug>false</debug>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<enable>
@@ -595,7 +585,6 @@
 	
 	<filter>
 		<name>System Command: Elevator Filter</name>
-		<debug>false</debug>
 		<type>noise-spike</type>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
@@ -629,7 +618,6 @@
 	
 	<filter>
 		<name>System Command: Elevator Trim</name>
-		<debug>false</debug>
 		<type>noise-spike</type>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
