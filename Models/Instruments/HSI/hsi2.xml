@@ -208,14 +208,10 @@
 		<condition>
 			<and>
 				<equals>
-					<property>instrumentation/hsi[1]/power-avail</property>
+					<property>instrumentation/hsi[0]/power-avail</property>
 					<value>1</value>
 				</equals>
-				<greater-than-equals>
-					<property>systems/electrical/outputs/dme[0]</property>
-					<value>24</value>
-				</greater-than-equals>
-				<property>instrumentation/dme[0]/in-range</property>
+				<property>instrumentation/dme[0]/available</property>
 			</and>
 		</condition>
 	</animation>
@@ -226,16 +222,10 @@
 		<condition>
 			<and>
 				<equals>
-					<property>instrumentation/hsi[1]/power-avail</property>
+					<property>instrumentation/hsi[0]/power-avail</property>
 					<value>1</value>
 				</equals>
-				<or>
-					<less-than>
-						<property>systems/electrical/outputs/dme[0]</property>
-						<value>24</value>
-					</less-than>
-					<not><property>instrumentation/dme[0]/in-range</property></not>
-				</or>
+				<not><property>instrumentation/dme[0]/available</property></not>
 			</and>
 		</condition>
 	</animation>
@@ -303,14 +293,10 @@
 		<condition>
 			<and>
 				<equals>
-					<property>instrumentation/hsi[1]/power-avail</property>
+					<property>instrumentation/hsi[0]/power-avail</property>
 					<value>1</value>
 				</equals>
-				<greater-than-equals>
-					<property>systems/electrical/outputs/dme[1]</property>
-					<value>24</value>
-				</greater-than-equals>
-				<property>instrumentation/dme[1]/in-range</property>
+				<property>instrumentation/dme[1]/available</property>
 			</and>
 		</condition>
 	</animation>
@@ -321,16 +307,10 @@
 		<condition>
 			<and>
 				<equals>
-					<property>instrumentation/hsi[1]/power-avail</property>
+					<property>instrumentation/hsi[0]/power-avail</property>
 					<value>1</value>
 				</equals>
-				<or>
-					<less-than>
-						<property>systems/electrical/outputs/dme[1]</property>
-						<value>24</value>
-					</less-than>
-					<not><property>instrumentation/dme[1]/in-range</property></not>
-				</or>
+				<not><property>instrumentation/dme[1]/available</property></not>
 			</and>
 		</condition>
 	</animation>

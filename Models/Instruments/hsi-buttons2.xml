@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2022 Josh Davidson (Octal450) and Sascha Reiszner (WoodSTokk) -->
+
+<PropertyList>
+	
+	<path>hsi-buttons.ac</path>
+	
+	<animation>
+		<type>select</type>
+		<object-name>NavSrc.Fms</object-name>
+		<object-name>NavSrc.Nav</object-name>
+		<condition>
+			<property>instrumentation/hsi[1]/power-avail</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>NavSrc</object-name>
+		<action>
+			<button>0</button>
+			<binding>
+				<condition>
+					<property>instrumentation/hsi[1]/power-avail</property>
+				</condition>
+				<command>property-cycle</command>
+				<property>instrumentation/hsi[1]/slaved-to-gps</property>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/hsi[1]/nav-src-button</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/hsi[1]/nav-src-button</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>NavSrc</object-name>
+		<property>controls/hsi[1]/nav-src-button</property>
+		<factor>-0.002</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>NavSrc.Fms</object-name>
+		<condition>
+			<property>instrumentation/hsi[1]/slaved-to-gps</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>NavSrc.Nav</object-name>
+		<condition>
+			<not><property>instrumentation/hsi[1]/slaved-to-gps</property></not>
+		</condition>
+	</animation>
+
+</PropertyList>

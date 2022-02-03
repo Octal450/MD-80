@@ -268,11 +268,27 @@
 		<output>/instrumentation/efis[1]/inputs/rh-vor-adf</output>
 	</filter>
 	
-	<!-- HSI -->
+	<!-- DME -->
 	<filter>
 		<name>DME 1</name>
 		<type>gain</type>
 		<gain>1.0</gain>
+		<input>
+			<condition>
+				<property>instrumentation/hsi[0]/slaved-to-gps</property>
+			</condition>
+			<expression>
+				<floor>
+					<sum>
+						<product>
+							<property>/autopilot/route-manager/wp[0]/dist</property>
+							<value>10</value>
+						</product>
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</expression>
+		</input>
 		<input>
 			<expression>
 				<floor>
@@ -295,6 +311,22 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
+			<condition>
+				<property>instrumentation/hsi[1]/slaved-to-gps</property>
+			</condition>
+			<expression>
+				<floor>
+					<sum>
+						<product>
+							<property>/autopilot/route-manager/wp[0]/dist</property>
+							<value>10</value>
+						</product>
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</expression>
+		</input>
+		<input>
 			<expression>
 				<floor>
 					<sum>
@@ -310,5 +342,45 @@
 		<output>/instrumentation/dme[1]/indicated-distance-nm-x10</output>
 		<max>9999</max>
 	</filter>
+	
+	<logic>
+		<input>
+			<or>
+				<and>
+					<not><property>instrumentation/hsi[0]/slaved-to-gps</property></not>
+					<greater-than-equals>
+						<property>systems/electrical/outputs/dme[0]</property>
+						<value>24</value>
+					</greater-than-equals>
+					<property>instrumentation/dme[0]/in-range</property>
+				</and>
+				<and>
+					<property>instrumentation/hsi[0]/slaved-to-gps</property>
+					<property>autopilot/route-manager/active</property>
+				</and>
+			</or>
+		</input>
+		<output>/instrumentation/dme[0]/available</output>
+	</logic>
+	
+	<logic>
+		<input>
+			<or>
+				<and>
+					<not><property>instrumentation/hsi[1]/slaved-to-gps</property></not>
+					<greater-than-equals>
+						<property>systems/electrical/outputs/dme[1]</property>
+						<value>24</value>
+					</greater-than-equals>
+					<property>instrumentation/dme[1]/in-range</property>
+				</and>
+				<and>
+					<property>instrumentation/hsi[1]/slaved-to-gps</property>
+					<property>autopilot/route-manager/active</property>
+				</and>
+			</or>
+		</input>
+		<output>/instrumentation/dme[1]/available</output>
+	</logic>
 
 </PropertyList>
