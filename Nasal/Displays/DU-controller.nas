@@ -5,6 +5,10 @@
 var DUController = {
 	errorActive: 0,
 	flightDirector: "SINGLE CUE",
+	pwrSource: {
+		acR: 0,
+		emerAc: 0,
+	},
 	showNd1: props.globals.initNode("/instrumentation/nd/show-nd1", 0, "BOOL"),
 	showNd2: props.globals.initNode("/instrumentation/nd/show-nd2", 0, "BOOL"),
 	updatePfd1: 0,
@@ -35,45 +39,53 @@ var DUController = {
 		
 		if (pts.Options.panel.getValue() == "EFIS") {
 			if (!me.errorActive) {
-				if (systems.ELEC.Bus.emerAc.getValue() >= 112) {
+				me.pwrSource.acR = systems.ELEC.Bus.acR.getValue();
+				me.pwrSource.emerAc = systems.ELEC.Bus.emerAc.getValue();
+				
+				if (me.pwrSource.emerAc >= 112 and pts.Instrumentation.Du.pfdDimmer[0].getValue() > 0.01) {
 					if (!me.updatePfd1) {
 						me.updatePfd1 = 1;
 						canvas_pfd.pfd1.update();
 						canvas_pfd.pfd1.page.show();
-					}
-					
-					if (!me.updateNd1) {
-						me.updateNd1 = 1;
-						me.showNd1.setBoolValue(1); # Temporary
 					}
 				} else {
 					if (me.updatePfd1) {
 						me.updatePfd1 = 0;
 						canvas_pfd.pfd1.page.hide();
 					}
+				}
+				
+				if (me.pwrSource.emerAc >= 112 and pts.Instrumentation.Du.ndDimmer[0].getValue() > 0.01) {
+					if (!me.updateNd1) {
+						me.updateNd1 = 1;
+						me.showNd1.setBoolValue(1); # Temporary
+					}
+				} else {
 					if (me.updateNd1) {
 						me.updateNd1 = 0;
 						me.showNd1.setBoolValue(0); # Temporary
 					}
 				}
 				
-				if (systems.ELEC.Bus.acR.getValue() >= 112) {
+				if (me.pwrSource.acR >= 112 and pts.Instrumentation.Du.pfdDimmer[1].getValue() > 0.01) {
 					if (!me.updatePfd2) {
 						me.updatePfd2 = 1;
 						canvas_pfd.pfd2.update();
 						canvas_pfd.pfd2.page.show();
-					}
-					
-					if (!me.updateNd2) {
-						me.updateNd2 = 1;
-						me.showNd2.setBoolValue(1); # Temporary
 					}
 				} else {
 					if (me.updatePfd2) {
 						me.updatePfd2 = 0;
 						canvas_pfd.pfd2.page.hide();
 					}
-					
+				}
+				
+				if (me.pwrSource.acR >= 112 and pts.Instrumentation.Du.ndDimmer[1].getValue() > 0.01) {
+					if (!me.updateNd2) {
+						me.updateNd2 = 1;
+						me.showNd2.setBoolValue(1); # Temporary
+					}
+				} else {
 					if (me.updateNd2) {
 						me.updateNd2 = 0;
 						me.showNd2.setBoolValue(0); # Temporary

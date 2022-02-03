@@ -22,6 +22,10 @@ var variousReset = func() {
 	pts.Controls.Switches.minimums.setValue(200);
 	pts.Controls.Switches.noSmokingSign.setValue(1); # Smoking is bad!
 	pts.Controls.Switches.seatbeltSign.setValue(0);
+	pts.Instrumentation.Du.ndDimmer[0].setValue(1);
+	pts.Instrumentation.Du.ndDimmer[1].setValue(1);
+	pts.Instrumentation.Du.pfdDimmer[0].setValue(1);
+	pts.Instrumentation.Du.pfdDimmer[1].setValue(1);
 	furt = math.round((rand() * 6000) + 2000) * -1; # Random between 2000 and 8000
 	pts.Instrumentation.Ff.fuResetTrim[0].setValue(furt);
 	pts.Instrumentation.Ff.fuResetTrim[1].setValue(furt);

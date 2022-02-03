@@ -173,7 +173,7 @@
 	
 	<model>
 		<name>efisdim</name>
-		<path>Aircraft/MD-80/Models/Instruments/efis_dimmer.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/efis_dimmer_1.xml</path>
 		<condition>
 			<equals>
 				<property>options/panel</property>
@@ -724,7 +724,7 @@
 	
 	<model>
 		<name>efisdim_R</name>
-		<path>Aircraft/MD-80/Models/Instruments/efis_dimmer.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/efis_dimmer_2.xml</path>
 		<condition>
 			<equals>
 				<property>options/panel</property>

@@ -1177,6 +1177,12 @@
 			<serviceable type="bool">true</serviceable>
 			<volume type="double">0</volume>
 		</dme>
+		<du n="0">
+			<nd1-dimmer type="double">1</nd1-dimmer>
+			<nd2-dimmer type="double">1</nd2-dimmer>
+			<pfd1-dimmer type="double">1</pfd1-dimmer>
+			<pfd2-dimmer type="double">1</pfd2-dimmer>
+		</du>
 		<efis n="0">
 			<mins-rotate type="int">50000</mins-rotate>
 		</efis>

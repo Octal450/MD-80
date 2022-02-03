@@ -116,6 +116,10 @@ var Instrumentation = {
 		settingInhg: props.globals.getNode("/instrumentation/altimeter/setting-inhg"),
 		std: props.globals.getNode("/instrumentation/altimeter/std"),
 	},
+	Du: {
+		ndDimmer: [props.globals.getNode("/instrumentation/du/nd1-dimmer"), props.globals.getNode("/instrumentation/du/nd2-dimmer")],
+		pfdDimmer: [props.globals.getNode("/instrumentation/du/pfd1-dimmer"), props.globals.getNode("/instrumentation/du/pfd2-dimmer")],
+	},
 	Epr: {
 		powerAvail: [props.globals.getNode("/instrumentation/epr[0]/power-avail"), props.globals.getNode("/instrumentation/epr[1]/power-avail")],
 	},
