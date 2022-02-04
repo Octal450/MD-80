@@ -72,6 +72,12 @@
 	<model>
 		<name>hsibuttons</name>
 		<path>Aircraft/MD-80/Models/Instruments/hsi-buttons1.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>Analog</value>
+			</equals>
+		</condition>
 		<offsets>
 			<x-m>2.27</x-m>
 			<y-m>-0.643</y-m>
@@ -781,6 +787,12 @@
 	<model>
 		<name>hsibuttons_R</name>
 		<path>Aircraft/MD-80/Models/Instruments/hsi-buttons2.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>Analog</value>
+			</equals>
+		</condition>
 		<offsets>
 			<x-m>2.27</x-m>
 			<y-m>0.641</y-m>
