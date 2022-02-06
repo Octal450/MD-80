@@ -19,7 +19,7 @@
 		<z>0.0014</z>
 	</location>
 	
-	<pointmass name="Crew">
+	<pointmass name="Cockpit Crew">
 		<weight unit="LBS">320</weight>
 		<location name="POINTMASS" unit="M">
 			<x>2.95138</x>
