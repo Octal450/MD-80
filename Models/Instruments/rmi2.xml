@@ -14,8 +14,8 @@
 		<object-name>Needle1</object-name>
 		<object-name>Needle2</object-name>
 		<object-name>Legend</object-name>
-		<object-name>Knob1</object-name>
-		<object-name>Knob2</object-name>
+		<object-name>Knob1_Legend</object-name>
+		<object-name>Knob2_Legend</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.6</green>

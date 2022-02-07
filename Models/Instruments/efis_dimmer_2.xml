@@ -10,6 +10,9 @@
 	<animation>
 		<type>material</type>
 		<object-name>Integrity</object-name>
+		<object-name>KnobND_Legend</object-name>
+		<object-name>KnobPFD_Legend</object-name>
+		<object-name>KnobWX_Legend</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.6</green>
