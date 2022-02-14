@@ -710,7 +710,7 @@ var ITAF = {
 			} else {
 				me.syncKtsFlch();
 			}
-		} else if (n == 5) { # Pitch
+		} else if (n == 5) { # PITCH
 			Input.altArmed.setBoolValue(0);
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
