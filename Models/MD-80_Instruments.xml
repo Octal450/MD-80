@@ -39,10 +39,33 @@
 	<model>
 		<name>clock</name>
 		<path>Aircraft/MD-80/Models/Instruments/clock1.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>EFIS</value>
+			</equals>
+		</condition>
 		<offsets>
 			<x-m>2.248</x-m>
-			<y-m>-0.734</y-m>
+			<y-m>-0.717</y-m>
 			<z-m>0.765</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>clock_A</name>
+		<path>Aircraft/MD-80/Models/Instruments/clock1.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>Analog</value>
+			</equals>
+		</condition>
+		<offsets>
+			<x-m>2.226</x-m>
+			<y-m>-0.742</y-m>
+			<z-m>0.868</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
@@ -79,9 +102,9 @@
 			</equals>
 		</condition>
 		<offsets>
-			<x-m>2.27</x-m>
-			<y-m>-0.643</y-m>
-			<z-m>0.683</z-m>
+			<x-m>2.251</x-m>
+			<y-m>-0.737</y-m>
+			<z-m>0.773</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
@@ -182,7 +205,7 @@
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
-			<y-m>-0.350</y-m>
+			<y-m>-0.346</y-m>
 			<z-m>0.856</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -216,7 +239,7 @@
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
-			<y-m>-0.4175</y-m>
+			<y-m>-0.415</y-m>
 			<z-m>0.856</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -673,17 +696,6 @@
 	</model>
 	
 	<model>
-		<name>clock_R</name>
-		<path>Aircraft/MD-80/Models/Instruments/clock2.xml</path>
-		<offsets>
-			<x-m>2.248</x-m>
-			<y-m>0.732</y-m>
-			<z-m>0.765</z-m>
-			<pitch-deg>-12</pitch-deg>
-		</offsets>
-	</model>
-	
-	<model>
 		<name>asi_R</name>
 		<path>Aircraft/MD-80/Models/Instruments/asi2.xml</path>
 		<offsets>
@@ -733,7 +745,7 @@
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
-			<y-m>0.677</y-m>
+			<y-m>0.681</y-m>
 			<z-m>0.856</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -767,7 +779,41 @@
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
-			<y-m>0.6095</y-m>
+			<y-m>0.612</y-m>
+			<z-m>0.856</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>clock_R</name>
+		<path>Aircraft/MD-80/Models/Instruments/clock2.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>EFIS</value>
+			</equals>
+		</condition>
+		<offsets>
+			<x-m>2.248</x-m>
+			<y-m>0.715</y-m>
+			<z-m>0.765</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>clock_R_A</name>
+		<path>Aircraft/MD-80/Models/Instruments/clock2.xml</path>
+		<condition>
+			<equals>
+				<property>options/panel</property>
+				<value>Analog</value>
+			</equals>
+		</condition>
+		<offsets>
+			<x-m>2.229</x-m>
+			<y-m>0.759</y-m>
 			<z-m>0.856</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -794,9 +840,9 @@
 			</equals>
 		</condition>
 		<offsets>
-			<x-m>2.27</x-m>
-			<y-m>0.641</y-m>
-			<z-m>0.683</z-m>
+			<x-m>2.251</x-m>
+			<y-m>0.735</y-m>
+			<z-m>0.773</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
