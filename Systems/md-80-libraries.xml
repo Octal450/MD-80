@@ -27,7 +27,7 @@
 			<function>
 				<difference>
 					<property>/position/altitude-agl-ft</property>
-					<value>9.065</value>
+					<value>10.1</value>
 				</difference>
 			</function>
 			<output>/position/gear-agl-ft</output> <!-- So flight recorder can override it -->

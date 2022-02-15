@@ -41,9 +41,9 @@
      inkscape:window-height="1018"
      id="namedview371"
      showgrid="false"
-     inkscape:zoom="2.8284272"
-     inkscape:cx="659.10977"
-     inkscape:cy="462.5344"
+     inkscape:zoom="0.50000001"
+     inkscape:cx="434.07073"
+     inkscape:cy="560.17436"
      inkscape:window-x="1592"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -2521,13 +2521,29 @@
      id="AI_arrow_dn"
      d="m 515.92501,484.02647 148.97952,-145.34241 -34.14754,0 -114.83198,111.1948 -114.83196,-111.19447 -34.14756,0 z"
      style="fill:none;fill-opacity:1;stroke:#ff42a5;stroke-width:10.71230412;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-  <path
-     sodipodi:nodetypes="ccccc"
-     inkscape:connector-curvature="0"
+  <g
      id="AI_single_cue"
-     d="m 512.93744,406.0231 5.97512,-10e-6 189.54644,67.05391 -385.068,0 z"
-     style="fill:#635513;fill-opacity:1;stroke:#dbb500;stroke-width:4.80800009;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     inkscape:label="#rect4570" />
+     inkscape:label="#g4547">
+    <path
+       inkscape:label="#rect4570"
+       style="fill:#635513;fill-opacity:1;stroke:#dbb500;stroke-width:4.80800009;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 512.93744,406.0231 5.97512,-10e-6 189.54644,67.05391 -385.068,0 z"
+       id="rect4570"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       sodipodi:nodetypes="ccc"
+       inkscape:connector-curvature="0"
+       id="path4558"
+       d="m 323.391,473.077 192.534,-45.4 192.534,45.4"
+       style="fill:none;fill-rule:evenodd;stroke:#dbb500;stroke-width:4.80800009;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path4561"
+       d="m 515.925,405.85869 0,21.98685"
+       style="fill:none;fill-rule:evenodd;stroke:#dbb500;stroke-width:4.80800009;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  </g>
   <g
      inkscape:label="#g4579"
      id="FD_v"
@@ -2647,16 +2663,4 @@
          id="tspan4559"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:103.99999619%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';fill:#ffffff">GS</tspan></text>
   </g>
-  <path
-     style="fill:none;fill-rule:evenodd;stroke:#dbb500;stroke-width:4.80800009;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="m 323.391,473.077 192.534,-45.4 192.534,45.4"
-     id="path4558"
-     inkscape:connector-curvature="0"
-     sodipodi:nodetypes="ccc" />
-  <path
-     style="fill:none;fill-rule:evenodd;stroke:#dbb500;stroke-width:4.80800009;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="m 515.925,405.85869 0,21.98685"
-     id="path4561"
-     inkscape:connector-curvature="0"
-     sodipodi:nodetypes="cc" />
 </svg>

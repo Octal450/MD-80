@@ -120,7 +120,7 @@ var canvasBase = {
 			me["FS_scale"].setTranslation(619.7825, 0);
 			me["GS_group"].setTranslation(-619.7825, 0);
 			Value.Ai.risingRunwayMultiplier = 1.2;
-			Value.Ai.risingRunwayOffset = 7.545; # Align it properly
+			Value.Ai.risingRunwayOffset = 12.066; # Align it properly
 		}
 		
 		Value.Ai.pitch = pts.Orientation.pitchDeg.getValue();
