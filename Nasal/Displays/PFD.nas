@@ -15,6 +15,9 @@ var Value = {
 		risingRunwayOffset: 0,
 		roll: 0,
 	},
+	Misc: {
+		lat: 0,
+	},
 	Nav: {
 		Freq: {
 			selected: [0, 0],
@@ -78,7 +81,7 @@ var canvasBase = {
 	},
 	getKeys: func() {
 		return ["AI_arrow_dn", "AI_arrow_up", "AI_background", "AI_bank", "AI_center", "AI_dual_cue", "AI_rising_runway", "AI_scale", "AI_scale_dc", "AI_single_cue", "DH_below", "DH_pointer", "DH_set", "FD_v", "FD_pitch", "FD_roll", "FS_pointer", "FS_scale",
-		"Gndspd", "GS_group", "GS_no", "GS_pointer", "GS_scale", "ILS_group", "Inner_Marker", "LOC_no", "LOC_pointer", "LOC_scale", "Middle_Marker", "Outer_Marker", "RA_bars", "RA_scale"];
+		"Gndspd", "GS_group", "GS_no", "GS_pointer", "GS_scale", "ILS_group", "Inner_Marker", "LOC_no", "LOC_pointer", "LOC_scale", "Middle_Marker", "NAV_ILS", "NAV_pointer", "NAV_scale", "Outer_Marker", "RA_bars", "RA_scale"];
 	},
 	setup: func() {
 		# Hide the pages by default
@@ -217,6 +220,7 @@ var canvasPfd1 = {
 	},
 	update: func() {
 		# Provide the value to here and the base
+		Value.Misc.lat = dfgs.Output.lat.getValue();
 		Value.Ra.agl = pts.Position.gearAglFt.getValue();
 		
 		if (dfgs.Output.fd1.getBoolValue()) {
@@ -247,40 +251,49 @@ var canvasPfd1 = {
 		Value.Nav.Freq.selected[0] = pts.Instrumentation.Nav.Frequencies.selectedMhzFmtX100[0].getValue();
 		Value.Nav.Freq.selectedDecimal[0] = right("" ~ Value.Nav.Freq.selected[0], 2);
 		Value.Nav.Freq.selectedInteger[0] = math.floor(Value.Nav.Freq.selected[0]);
-		
-		if (Value.Nav.Freq.selectedInteger[0] < 11200 and (Value.Nav.Freq.selectedDecimal[0] == 10 or Value.Nav.Freq.selectedDecimal[0] == 15 or Value.Nav.Freq.selectedDecimal[0] == 30 or Value.Nav.Freq.selectedDecimal[0] == 35 or Value.Nav.Freq.selectedDecimal[0] == 50 or Value.Nav.Freq.selectedDecimal[0] == 55 or Value.Nav.Freq.selectedDecimal[0] == 70 or Value.Nav.Freq.selectedDecimal[0] == 75 or Value.Nav.Freq.selectedDecimal[0] == 90 or Value.Nav.Freq.selectedDecimal[0] == 95)) {
-			me["ILS_group"].show();
-		} else {
-			me["ILS_group"].hide();
-		}
-		
+		Value.Nav.gsInRange[0] = pts.Instrumentation.Nav.gsInRange[0].getBoolValue();
 		Value.Nav.headingNeedleDeflectionNorm[0] = pts.Instrumentation.Nav.headingNeedleDeflectionNorm[0].getValue();
 		Value.Nav.inRange[0] = pts.Instrumentation.Nav.inRange[0].getBoolValue();
 		Value.Nav.signalQuality[0] = pts.Instrumentation.Nav.signalQualityNorm[0].getValue();
-		if (Value.Nav.inRange[0] and Value.Nav.signalQuality[0] > 0.99) {
-			me["AI_rising_runway"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[0] * 156, (math.clamp(Value.Ra.agl, 0, 200) * Value.Ai.risingRunwayMultiplier) + Value.Ai.risingRunwayOffset);
-			me["AI_rising_runway"].show();
-			me["LOC_pointer"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[0] * 156, 0);
-			me["LOC_pointer"].show();
-			me["LOC_no"].hide();
-			me["LOC_scale"].show();
-		} else {
-			me["AI_rising_runway"].hide();
-			me["LOC_pointer"].hide();
-			me["LOC_no"].show();
-			me["LOC_scale"].hide();
-		}
 		
-		Value.Nav.gsInRange[0] = pts.Instrumentation.Nav.gsInRange[0].getBoolValue();
-		if (Value.Nav.gsInRange[0] and Value.Nav.signalQuality[0] > 0.99 and pts.Instrumentation.Nav.hasGs[0].getBoolValue()) {
-			me["GS_pointer"].setTranslation(0, pts.Instrumentation.Nav.gsNeedleDeflectionNorm[0].getValue() * -148);
-			me["GS_pointer"].show();
-			me["GS_no"].hide();
-			me["GS_scale"].show();
+		if (!Value.Nav.inRange[0] and Value.Misc.lat == 1) {
+			me["ILS_group"].hide();
+			me["NAV_ILS"].setText("NAV");
+			me["NAV_pointer"].setTranslation(pts.Instrumentation.Nav.headingNeedleDeflectionNorm[2].getValue() * 148, 0);
+			me["NAV_scale"].show();
+		} else if (Value.Nav.Freq.selectedInteger[0] < 11200 and (Value.Nav.Freq.selectedDecimal[0] == 10 or Value.Nav.Freq.selectedDecimal[0] == 15 or Value.Nav.Freq.selectedDecimal[0] == 30 or Value.Nav.Freq.selectedDecimal[0] == 35 or Value.Nav.Freq.selectedDecimal[0] == 50 or Value.Nav.Freq.selectedDecimal[0] == 55 or Value.Nav.Freq.selectedDecimal[0] == 70 or Value.Nav.Freq.selectedDecimal[0] == 75 or Value.Nav.Freq.selectedDecimal[0] == 90 or Value.Nav.Freq.selectedDecimal[0] == 95)) {
+			if (Value.Nav.inRange[0] and Value.Nav.signalQuality[0] > 0.99) {
+				me["AI_rising_runway"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[0] * 156, (math.clamp(Value.Ra.agl, 0, 200) * Value.Ai.risingRunwayMultiplier) + Value.Ai.risingRunwayOffset);
+				me["AI_rising_runway"].show();
+				me["LOC_pointer"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[0] * 156, 0);
+				me["LOC_pointer"].show();
+				me["LOC_no"].hide();
+				me["LOC_scale"].show();
+			} else {
+				me["AI_rising_runway"].hide();
+				me["LOC_pointer"].hide();
+				me["LOC_no"].show();
+				me["LOC_scale"].hide();
+			}
+			
+			if (Value.Nav.gsInRange[0] and Value.Nav.signalQuality[0] > 0.99 and pts.Instrumentation.Nav.hasGs[0].getBoolValue()) {
+				me["GS_pointer"].setTranslation(0, pts.Instrumentation.Nav.gsNeedleDeflectionNorm[0].getValue() * -148);
+				me["GS_pointer"].show();
+				me["GS_no"].hide();
+				me["GS_scale"].show();
+			} else {
+				me["GS_pointer"].hide();
+				me["GS_no"].show();
+				me["GS_scale"].hide();
+			}
+			
+			me["ILS_group"].show();
+			me["NAV_ILS"].setText("ILS");
+			me["NAV_scale"].hide();
 		} else {
-			me["GS_pointer"].hide();
-			me["GS_no"].show();
-			me["GS_scale"].hide();
+			me["ILS_group"].hide();
+			me["NAV_ILS"].setText("");
+			me["NAV_scale"].hide();
 		}
 		
 		me.updateBase();
@@ -295,6 +308,10 @@ var canvasPfd2 = {
 		return m;
 	},
 	update: func() {
+		# Provide the value to here and the base
+		Value.Misc.lat = dfgs.Output.lat.getValue();
+		Value.Ra.agl = pts.Position.gearAglFt.getValue();
+		
 		if (dfgs.Output.fd2.getBoolValue()) {
 			if (systems.DUController.flightDirector == "Dual Cue") {
 				me["FD_v"].hide();
@@ -323,40 +340,49 @@ var canvasPfd2 = {
 		Value.Nav.Freq.selected[1] = pts.Instrumentation.Nav.Frequencies.selectedMhzFmtX100[1].getValue();
 		Value.Nav.Freq.selectedDecimal[1] = right("" ~ Value.Nav.Freq.selected[1], 2);
 		Value.Nav.Freq.selectedInteger[1] = math.floor(Value.Nav.Freq.selected[1]);
-		
-		if (Value.Nav.Freq.selectedInteger[1] < 11200 and (Value.Nav.Freq.selectedDecimal[1] == 10 or Value.Nav.Freq.selectedDecimal[1] == 15 or Value.Nav.Freq.selectedDecimal[1] == 30 or Value.Nav.Freq.selectedDecimal[1] == 35 or Value.Nav.Freq.selectedDecimal[1] == 50 or Value.Nav.Freq.selectedDecimal[1] == 55 or Value.Nav.Freq.selectedDecimal[1] == 70 or Value.Nav.Freq.selectedDecimal[1] == 75 or Value.Nav.Freq.selectedDecimal[1] == 90 or Value.Nav.Freq.selectedDecimal[1] == 95)) {
-			me["ILS_group"].show();
-		} else {
-			me["ILS_group"].hide();
-		}
-		
+		Value.Nav.gsInRange[1] = pts.Instrumentation.Nav.gsInRange[1].getBoolValue();
 		Value.Nav.headingNeedleDeflectionNorm[1] = pts.Instrumentation.Nav.headingNeedleDeflectionNorm[1].getValue();
 		Value.Nav.inRange[1] = pts.Instrumentation.Nav.inRange[1].getBoolValue();
 		Value.Nav.signalQuality[1] = pts.Instrumentation.Nav.signalQualityNorm[1].getValue();
-		if (Value.Nav.inRange[1] and Value.Nav.signalQuality[1] > 0.99) {
-			me["AI_rising_runway"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[1] * 156, (math.clamp(Value.Ra.agl, 0, 200) * Value.Ai.risingRunwayMultiplier) + Value.Ai.risingRunwayOffset);
-			me["AI_rising_runway"].show();
-			me["LOC_pointer"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[1] * 156, 0);
-			me["LOC_pointer"].show();
-			me["LOC_no"].hide();
-			me["LOC_scale"].show();
-		} else {
-			me["AI_rising_runway"].hide();
-			me["LOC_pointer"].hide();
-			me["LOC_no"].show();
-			me["LOC_scale"].hide();
-		}
 		
-		Value.Nav.gsInRange[1] = pts.Instrumentation.Nav.gsInRange[1].getBoolValue();
-		if (Value.Nav.gsInRange[1] and Value.Nav.signalQuality[1] > 0.99 and pts.Instrumentation.Nav.hasGs[1].getBoolValue()) {
-			me["GS_pointer"].show();
-			me["GS_pointer"].setTranslation(0, pts.Instrumentation.Nav.gsNeedleDeflectionNorm[1].getValue() * -148);
-			me["GS_no"].hide();
-			me["GS_scale"].show();
+		if (!Value.Nav.inRange[1] and Value.Misc.lat == 1) {
+			me["ILS_group"].hide();
+			me["NAV_ILS"].setText("NAV");
+			me["NAV_pointer"].setTranslation(pts.Instrumentation.Nav.headingNeedleDeflectionNorm[2].getValue() * 148, 0);
+			me["NAV_scale"].show();
+		} else if (Value.Nav.Freq.selectedInteger[1] < 11200 and (Value.Nav.Freq.selectedDecimal[1] == 10 or Value.Nav.Freq.selectedDecimal[1] == 15 or Value.Nav.Freq.selectedDecimal[1] == 30 or Value.Nav.Freq.selectedDecimal[1] == 35 or Value.Nav.Freq.selectedDecimal[1] == 50 or Value.Nav.Freq.selectedDecimal[1] == 55 or Value.Nav.Freq.selectedDecimal[1] == 70 or Value.Nav.Freq.selectedDecimal[1] == 75 or Value.Nav.Freq.selectedDecimal[1] == 90 or Value.Nav.Freq.selectedDecimal[1] == 95)) {
+			if (Value.Nav.inRange[1] and Value.Nav.signalQuality[1] > 0.99) {
+				me["AI_rising_runway"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[1] * 156, (math.clamp(Value.Ra.agl, 0, 200) * Value.Ai.risingRunwayMultiplier) + Value.Ai.risingRunwayOffset);
+				me["AI_rising_runway"].show();
+				me["LOC_pointer"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[1] * 156, 0);
+				me["LOC_pointer"].show();
+				me["LOC_no"].hide();
+				me["LOC_scale"].show();
+			} else {
+				me["AI_rising_runway"].hide();
+				me["LOC_pointer"].hide();
+				me["LOC_no"].show();
+				me["LOC_scale"].hide();
+			}
+			
+			if (Value.Nav.gsInRange[1] and Value.Nav.signalQuality[1] > 0.99 and pts.Instrumentation.Nav.hasGs[1].getBoolValue()) {
+				me["GS_pointer"].setTranslation(0, pts.Instrumentation.Nav.gsNeedleDeflectionNorm[1].getValue() * -148);
+				me["GS_pointer"].show();
+				me["GS_no"].hide();
+				me["GS_scale"].show();
+			} else {
+				me["GS_pointer"].hide();
+				me["GS_no"].show();
+				me["GS_scale"].hide();
+			}
+			
+			me["ILS_group"].show();
+			me["NAV_ILS"].setText("ILS");
+			me["NAV_scale"].hide();
 		} else {
-			me["GS_pointer"].hide();
-			me["GS_no"].show();
-			me["GS_scale"].hide();
+			me["ILS_group"].hide();
+			me["NAV_ILS"].setText("");
+			me["NAV_scale"].hide();
 		}
 		
 		me.updateBase();
