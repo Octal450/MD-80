@@ -183,7 +183,7 @@
 		<object-name>HeadingFlag</object-name>
 		<condition>
 			<not-equals>
-				<property>instrumentation/hsi[1]/power-avail</property>
+				<property>instrumentation/hsi[1]/heading-avail</property>
 				<value>1</value>
 			</not-equals>
 		</condition>
