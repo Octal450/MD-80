@@ -128,7 +128,7 @@
 	
 	<!-- RMI -->
 	<filter>
-		<name>RMI NAV 1 Error</name>
+		<name>RMI 1 NAV 1 Error</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
@@ -137,13 +137,12 @@
 			</condition>
 			<property>/instrumentation/nav[0]/heading-deg</property>
 			<offset>
-				<property>/orientation/heading-deg</property>
+				<property>/instrumentation/rmi[0]/heading-true-input</property>
 				<scale>-1.0</scale>
 			</offset>
 		</input>
 		<input>0</input>
 		<output>/instrumentation/rmi[0]/nav1-error</output>
-		<output>/instrumentation/rmi[1]/nav1-error</output>
 		<period>
 			<min>-180</min>
 			<max>180</max>
@@ -151,7 +150,7 @@
 	</filter>
 	
 	<filter>
-		<name>RMI NAV 2 Error</name>
+		<name>RMI 1 NAV 2 Error</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
@@ -160,12 +159,55 @@
 			</condition>
 			<property>/instrumentation/nav[1]/heading-deg</property>
 			<offset>
-				<property>/orientation/heading-deg</property>
+				<property>/instrumentation/rmi[0]/heading-true-input</property>
 				<scale>-1.0</scale>
 			</offset>
 		</input>
 		<input>0</input>
 		<output>/instrumentation/rmi[0]/nav2-error</output>
+		<period>
+			<min>-180</min>
+			<max>180</max>
+		</period>
+	</filter>
+	
+	<filter>
+		<name>RMI 2 NAV 1 Error</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<property>/instrumentation/nav[0]/in-range</property>
+			</condition>
+			<property>/instrumentation/nav[0]/heading-deg</property>
+			<offset>
+				<property>/instrumentation/rmi[1]/heading-true-input</property>
+				<scale>-1.0</scale>
+			</offset>
+		</input>
+		<input>0</input>
+		<output>/instrumentation/rmi[1]/nav1-error</output>
+		<period>
+			<min>-180</min>
+			<max>180</max>
+		</period>
+	</filter>
+	
+	<filter>
+		<name>RMI 2 NAV 2 Error</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<property>/instrumentation/nav[1]/in-range</property>
+			</condition>
+			<property>/instrumentation/nav[1]/heading-deg</property>
+			<offset>
+				<property>/instrumentation/rmi[1]/heading-true-input</property>
+				<scale>-1.0</scale>
+			</offset>
+		</input>
+		<input>0</input>
 		<output>/instrumentation/rmi[1]/nav2-error</output>
 		<period>
 			<min>-180</min>

@@ -934,12 +934,30 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</test>
 		</switch>
 		
+		<switch name="/instrumentation/rmi[0]/heading-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<test logic="AND" value="1"> <!-- Uses AHRS 2 -->
+				/instrumentation/rmi[0]/power-avail eq 1
+				/systems/ahrs[1]/aligned eq 1
+			</test>
+		</switch>
+		
 		<switch name="/instrumentation/rmi[0]/heading-input">
 			<default value="/instrumentation/rmi[0]/heading-input"/>
 			<test value="/orientation/heading-magnetic-deg">
-				/instrumentation/rmi[0]/power-avail eq 1
+				/instrumentation/rmi[0]/heading-avail eq 1
 			</test>
 			<output>/instrumentation/rmi[0]/heading-linear</output>
+		</switch>
+		
+		<switch name="/instrumentation/rmi[0]/heading-true-input">
+			<default value="/instrumentation/rmi[0]/heading-true-input"/>
+			<test value="/orientation/heading-deg">
+				/instrumentation/rmi[0]/heading-avail eq 1
+			</test>
 		</switch>
 		
 		<!--linear_actuator name="/instrumentation/rmi[0]/heading-linear-cmd">
@@ -991,12 +1009,30 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</test>
 		</switch>
 		
+		<switch name="/instrumentation/rmi[1]/heading-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<test logic="AND" value="1"> <!-- Uses AHRS 1 -->
+				/instrumentation/rmi[1]/power-avail eq 1
+				/systems/ahrs[0]/aligned eq 1
+			</test>
+		</switch>
+		
 		<switch name="/instrumentation/rmi[1]/heading-input">
 			<default value="/instrumentation/rmi[1]/heading-input"/>
 			<test value="/orientation/heading-magnetic-deg">
-				/instrumentation/rmi[1]/power-avail eq 1
+				/instrumentation/rmi[1]/heading-avail eq 1
 			</test>
 			<output>/instrumentation/rmi[1]/heading-linear</output>
+		</switch>
+		
+		<switch name="/instrumentation/rmi[1]/heading-true-input">
+			<default value="/instrumentation/rmi[1]/heading-true-input"/>
+			<test value="/orientation/heading-deg">
+				/instrumentation/rmi[1]/heading-avail eq 1
+			</test>
 		</switch>
 		
 		<!--linear_actuator name="/instrumentation/rmi[1]/heading-linear-cmd">
@@ -1052,10 +1088,21 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</test>
 		</switch>
 		
+		<switch name="/instrumentation/hsi[0]/heading-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<test logic="AND" value="1">
+				/instrumentation/hsi[0]/power-avail eq 1
+				/systems/ahrs[0]/aligned eq 1
+			</test>
+		</switch>
+		
 		<switch name="/instrumentation/hsi[0]/heading-input">
 			<default value="/instrumentation/hsi[0]/heading-input"/>
 			<test value="/orientation/heading-magnetic-deg">
-				/instrumentation/hsi[0]/power-avail eq 1
+				/instrumentation/hsi[0]/heading-avail eq 1
 			</test>
 			<output>/instrumentation/hsi[0]/heading-linear</output>
 		</switch>
@@ -1156,10 +1203,21 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</test>
 		</switch>
 		
+		<switch name="/instrumentation/hsi[1]/heading-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<test logic="AND" value="1">
+				/instrumentation/hsi[1]/power-avail eq 1
+				/systems/ahrs[1]/aligned eq 1
+			</test>
+		</switch>
+		
 		<switch name="/instrumentation/hsi[1]/heading-input">
 			<default value="/instrumentation/hsi[1]/heading-input"/>
 			<test value="/orientation/heading-magnetic-deg">
-				/instrumentation/hsi[1]/power-avail eq 1
+				/instrumentation/hsi[1]/heading-avail eq 1
 			</test>
 			<output>/instrumentation/hsi[1]/heading-linear</output>
 		</switch>
