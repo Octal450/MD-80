@@ -265,91 +265,68 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</test>
 		</switch>
 		
-		<actuator name="/instrumentation/ai[0]/power-pos">
-			<input>/instrumentation/ai[0]/power-avail</input>
-			<rate_limit>5</rate_limit>
-		</actuator>
-		
-		<lag_filter name="/instrumentation/ai[0]/power">
-			<input>/instrumentation/ai[0]/power-pos</input>
-			<c1>2</c1>
-		</lag_filter>
-		
-		<switch name="/instrumentation/ai[0]/test-rate">
-			<default value="5"/>
-			<test logic="AND" value="10000">
-				/instrumentation/ai[0]/power-pos lt 1
+		<switch name="/instrumentation/ai[0]/att-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<test logic="AND" value="1">
+				/instrumentation/ai[0]/power-avail eq 1
+				/systems/ahrs[0]/aligned eq 1
 			</test>
 		</switch>
 		
-		<actuator name="/instrumentation/ai[0]/test">
-			<input>/instrumentation/ai[0]/test-btn</input>
-			<rate_limit>/instrumentation/ai[0]/test-rate</rate_limit>
+		<switch name="/instrumentation/ai[0]/pitch-deg-cmd">
+			<default value="/instrumentation/ai[0]/pitch-deg-cmd"/>
+			<test logic="AND" value="10">
+				/instrumentation/ai[0]/power-avail eq 1
+				/instrumentation/ai[0]/test-btn eq 1
+			</test>
+			<test logic="AND" value="0">
+				/instrumentation/ai[0]/power-avail eq 1
+				/instrumentation/ai[0]/att-avail eq 0
+			</test>
+			<test logic="AND" value="/orientation/pitch-deg">
+				/instrumentation/ai[0]/power-avail eq 1
+				/instrumentation/ai[0]/att-avail eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/ai[0]/pitch-deg-pos">
+			<input>/instrumentation/ai[0]/pitch-deg-cmd</input>
+			<rate_limit>270</rate_limit>
 		</actuator>
 		
-		<fcs_function name="/instrumentation/ai[0]/pitch-cmd-deg">
-			<function>
-				<sum>
-					<property>/orientation/pitch-deg</property>
-					<product>
-						<property>/instrumentation/ai[0]/test</property>
-						<difference>
-							<value>10</value>
-							<property>/orientation/pitch-deg</property>
-						</difference>
-					</product>
-				</sum>
-			</function>
-			<clipto>
-				<min>-90</min>
-				<max>90</max>
-			</clipto>
-		</fcs_function>
+		<lag_filter name="/instrumentation/ai[0]/pitch-deg">
+			<input>/instrumentation/ai[0]/pitch-deg-pos</input>
+			<c1>40</c1>
+		</lag_filter>
 		
-		<fcs_function name="/instrumentation/ai[0]/roll-cmd-deg">
-			<function>
-				<sum>
-					<property>/orientation/roll-deg</property>
-					<product>
-						<property>/instrumentation/ai[0]/test</property>
-						<difference>
-							<value>20</value>
-							<property>/orientation/roll-deg</property>
-						</difference>
-					</product>
-				</sum>
-			</function>
-			<clipto>
-				<min>-180</min>
-				<max>180</max>
-			</clipto>
-		</fcs_function>
+		<switch name="/instrumentation/ai[0]/roll-deg-cmd">
+			<default value="/instrumentation/ai[0]/roll-deg-cmd"/>
+			<test logic="AND" value="20">
+				/instrumentation/ai[0]/power-avail eq 1
+				/instrumentation/ai[0]/test-btn eq 1
+			</test>
+			<test logic="AND" value="-90">
+				/instrumentation/ai[0]/power-avail eq 1
+				/instrumentation/ai[0]/att-avail eq 0
+			</test>
+			<test logic="AND" value="/orientation/roll-deg">
+				/instrumentation/ai[0]/power-avail eq 1
+				/instrumentation/ai[0]/att-avail eq 1
+			</test>
+		</switch>
 		
-		<fcs_function name="/instrumentation/ai[0]/pitch-deg">
-			<function>
-				<product>
-					<property>/instrumentation/ai[0]/power</property>
-					<property>/instrumentation/ai[0]/pitch-cmd-deg</property>
-				</product>
-			</function>
-			<clipto>
-				<min>-90</min>
-				<max>90</max>
-			</clipto>
-		</fcs_function>
+		<actuator name="/instrumentation/ai[0]/roll-deg-pos">
+			<input>/instrumentation/ai[0]/roll-deg-cmd</input>
+			<rate_limit>540</rate_limit>
+		</actuator>
 		
-		<fcs_function name="/instrumentation/ai[0]/roll-deg">
-			<function>
-				<product>
-					<property>/instrumentation/ai[0]/power</property>
-					<property>/instrumentation/ai[0]/roll-cmd-deg</property>
-				</product>
-			</function>
-			<clipto>
-				<min>-180</min>
-				<max>180</max>
-			</clipto>
-		</fcs_function>
+		<lag_filter name="/instrumentation/ai[0]/roll-deg">
+			<input>/instrumentation/ai[0]/roll-deg-pos</input>
+			<c1>40</c1>
+		</lag_filter>
 		
 		<switch name="/instrumentation/ai[0]/loc-deviation-cmd">
 			<default value="0"/>
@@ -426,91 +403,68 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</test>
 		</switch>
 		
-		<actuator name="/instrumentation/ai[1]/power-pos">
-			<input>/instrumentation/ai[1]/power-avail</input>
-			<rate_limit>2</rate_limit>
-		</actuator>
-		
-		<lag_filter name="/instrumentation/ai[1]/power">
-			<input>/instrumentation/ai[1]/power-pos</input>
-			<c1>5</c1>
-		</lag_filter>
-		
-		<switch name="/instrumentation/ai[1]/test-rate">
-			<default value="5"/>
-			<test logic="AND" value="10000">
-				/instrumentation/ai[1]/power-pos lt 1
+		<switch name="/instrumentation/ai[1]/att-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<test logic="AND" value="1">
+				/instrumentation/ai[1]/power-avail eq 1
+				/systems/ahrs[1]/aligned eq 1
 			</test>
 		</switch>
 		
-		<actuator name="/instrumentation/ai[1]/test">
-			<input>/instrumentation/ai[1]/test-btn</input>
-			<rate_limit>/instrumentation/ai[1]/test-rate</rate_limit>
+		<switch name="/instrumentation/ai[1]/pitch-deg-cmd">
+			<default value="/instrumentation/ai[1]/pitch-deg-cmd"/>
+			<test logic="AND" value="10">
+				/instrumentation/ai[1]/power-avail eq 1
+				/instrumentation/ai[1]/test-btn eq 1
+			</test>
+			<test logic="AND" value="0">
+				/instrumentation/ai[1]/power-avail eq 1
+				/instrumentation/ai[1]/att-avail eq 0
+			</test>
+			<test logic="AND" value="/orientation/pitch-deg">
+				/instrumentation/ai[1]/power-avail eq 1
+				/instrumentation/ai[1]/att-avail eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/ai[1]/pitch-deg-pos">
+			<input>/instrumentation/ai[1]/pitch-deg-cmd</input>
+			<rate_limit>270</rate_limit>
 		</actuator>
 		
-		<fcs_function name="/instrumentation/ai[1]/pitch-cmd-deg">
-			<function>
-				<sum>
-					<property>/orientation/pitch-deg</property>
-					<product>
-						<property>/instrumentation/ai[1]/test</property>
-						<difference>
-							<value>10</value>
-							<property>/orientation/pitch-deg</property>
-						</difference>
-					</product>
-				</sum>
-			</function>
-			<clipto>
-				<min>-90</min>
-				<max>90</max>
-			</clipto>
-		</fcs_function>
+		<lag_filter name="/instrumentation/ai[1]/pitch-deg">
+			<input>/instrumentation/ai[1]/pitch-deg-pos</input>
+			<c1>40</c1>
+		</lag_filter>
 		
-		<fcs_function name="/instrumentation/ai[1]/roll-cmd-deg">
-			<function>
-				<sum>
-					<property>/orientation/roll-deg</property>
-					<product>
-						<property>/instrumentation/ai[1]/test</property>
-						<difference>
-							<value>20</value>
-							<property>/orientation/roll-deg</property>
-						</difference>
-					</product>
-				</sum>
-			</function>
-			<clipto>
-				<min>-180</min>
-				<max>180</max>
-			</clipto>
-		</fcs_function>
+		<switch name="/instrumentation/ai[1]/roll-deg-cmd">
+			<default value="/instrumentation/ai[1]/roll-deg-cmd"/>
+			<test logic="AND" value="20">
+				/instrumentation/ai[1]/power-avail eq 1
+				/instrumentation/ai[1]/test-btn eq 1
+			</test>
+			<test logic="AND" value="-90">
+				/instrumentation/ai[1]/power-avail eq 1
+				/instrumentation/ai[1]/att-avail eq 0
+			</test>
+			<test logic="AND" value="/orientation/roll-deg">
+				/instrumentation/ai[1]/power-avail eq 1
+				/instrumentation/ai[1]/att-avail eq 1
+			</test>
+		</switch>
 		
-		<fcs_function name="/instrumentation/ai[1]/pitch-deg">
-			<function>
-				<product>
-					<property>/instrumentation/ai[1]/power</property>
-					<property>/instrumentation/ai[1]/pitch-cmd-deg</property>
-				</product>
-			</function>
-			<clipto>
-				<min>-90</min>
-				<max>90</max>
-			</clipto>
-		</fcs_function>
+		<actuator name="/instrumentation/ai[1]/roll-deg-pos">
+			<input>/instrumentation/ai[1]/roll-deg-cmd</input>
+			<rate_limit>540</rate_limit>
+		</actuator>
 		
-		<fcs_function name="/instrumentation/ai[1]/roll-deg">
-			<function>
-				<product>
-					<property>/instrumentation/ai[1]/power</property>
-					<property>/instrumentation/ai[1]/roll-cmd-deg</property>
-				</product>
-			</function>
-			<clipto>
-				<min>-180</min>
-				<max>180</max>
-			</clipto>
-		</fcs_function>
+		<lag_filter name="/instrumentation/ai[1]/roll-deg">
+			<input>/instrumentation/ai[1]/roll-deg-pos</input>
+			<c1>40</c1>
+		</lag_filter>
 		
 		<switch name="/instrumentation/ai[1]/loc-deviation-cmd">
 			<default value="0"/>
@@ -597,7 +551,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<c1>1</c1>
 		</lag_filter>
 		
-		<fcs_function name="/instrumentation/stby-ai/pitch-deg">
+		<fcs_function name="/instrumentation/stby-ai/pitch-deg-cmd">
 			<function>
 				<sum>
 					<value>20</value>
@@ -610,13 +564,19 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 					</product>
 				</sum>
 			</function>
-			<clipto>
-				<min>-90</min>
-				<max>90</max>
-			</clipto>
 		</fcs_function>
 		
-		<fcs_function name="/instrumentation/stby-ai/roll-deg">
+		<actuator name="/instrumentation/stby-ai/pitch-deg-pos">
+			<input>/instrumentation/stby-ai/pitch-deg-cmd</input>
+			<rate_limit>270</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/stby-ai/pitch-deg">
+			<input>/instrumentation/stby-ai/pitch-deg-pos</input>
+			<c1>40</c1>
+		</lag_filter>
+		
+		<fcs_function name="/instrumentation/stby-ai/roll-deg-cmd">
 			<function>
 				<sum>
 					<value>40</value>
@@ -629,11 +589,17 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 					</product>
 				</sum>
 			</function>
-			<clipto>
-				<min>-180</min>
-				<max>180</max>
-			</clipto>
 		</fcs_function>
+		
+		<actuator name="/instrumentation/stby-ai/roll-deg-pos">
+			<input>/instrumentation/stby-ai/roll-deg-cmd</input>
+			<rate_limit>540</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/stby-ai/roll-deg">
+			<input>/instrumentation/stby-ai/roll-deg-pos</input>
+			<c1>40</c1>
+		</lag_filter>
 	
 	</channel>
 	

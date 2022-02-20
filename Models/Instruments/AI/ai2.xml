@@ -56,7 +56,7 @@
         <condition>
 			<and>
 				<equals>
-					<property>instrumentation/ai[1]/power-avail</property>
+					<property>instrumentation/ai[1]/att-avail</property>
 					<value>1</value>
 				</equals>
 				<property>it-autoflight/output/fd2</property>
@@ -266,16 +266,10 @@
 		<object-name>CmptrFlag</object-name>
 		<object-name>GyroFlag</object-name>
 		<condition>
-			<or>
-				<not-equals>
-					<property>instrumentation/ai[1]/power-avail</property>
-					<value>1</value>
-				</not-equals>
-				<greater-than>
-					<property>instrumentation/ai[1]/test</property>
-					<value>0</value>
-				</greater-than>
-			</or>
+			<not-equals>
+				<property>instrumentation/ai[1]/att-avail</property>
+				<value>1</value>
+			</not-equals>
 		</condition>
 	</animation>
 	

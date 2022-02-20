@@ -365,10 +365,16 @@
 		</pure_gain>
 		
 		<!-- APU Gen -->
-		<pure_gain name="/systems/electrical/sources/apu/drive-rpm">
-			<input>/engines/engine[2]/n2-actual</input>
-			<gain>80</gain> <!-- 8000rpm at 100% -->
-		</pure_gain>
+		<scheduled_gain name="/systems/electrical/sources/apu/drive-rpm">
+			<input>/engines/engine[2]/n1-actual</input>
+			<table> <!-- 115v 8000rpm at 98.6% -->
+				<independentVar lookup="row">/engines/engine[2]/n1-actual</independentVar>
+				<tableData> <!-- 112v avail at 95% -->
+					95.0  82.02
+					98.6  81.14
+				</tableData>
+			</table>
+		</scheduled_gain>
 		
 		<fcs_function name="/systems/electrical/sources/apu/pmg-volt">
 			<function>

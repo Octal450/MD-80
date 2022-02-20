@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-80 Attitude Heading Reference System -->
+<!-- Copyright (c) 2022 Josh Davidson (Octal450) -->
+
+<system name="MD-80: AHRS">
+	
+	<property value="0">/systems/ahrs[0]/aligned</property>
+	<property value="0">/systems/ahrs[1]/aligned</property>
+	
+	<channel name="Logic" execrate="8">
+		
+		<switch name="/systems/ahrs-common/align-time">
+			<default value="1"/> <!-- 45 seconds -->
+			<test value="22.5"> <!-- 2 seconds -->
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/ahrs[0]/powered-src">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/ac-l ge 112
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/dc-bat ge 24
+				/controls/electrical/switches/emer-pwr eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/ahrs[0]/lost-power-timer">
+			<input>/systems/ahrs[0]/powered-src</input>
+			<rate_limit sense="incr">100</rate_limit>
+			<rate_limit sense="decr">2</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/ahrs[0]/powered">
+			<default value="0"/>
+			<test value="1">
+				/systems/ahrs[0]/lost-power-timer gt 0
+			</test>
+		</switch>
+		
+		<switch name="/systems/ahrs[1]/powered-src">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/ac-r ge 112
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/ahrs[1]/lost-power-timer">
+			<input>/systems/ahrs[1]/powered-src</input>
+			<rate_limit sense="incr">100</rate_limit>
+			<rate_limit sense="decr">2</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/ahrs[1]/powered">
+			<default value="0"/>
+			<test value="1">
+				/systems/ahrs[1]/lost-power-timer gt 0
+			</test>
+		</switch>
+	
+	</channel>
+	
+	<channel name="AHRS 1 Alignment" execrate="8">
+		
+		<switch name="/systems/ahrs[0]/can-align"> <!-- Flip flop, so that if it can't aligned, switch must be reset to off -->
+			<default value="/systems/ahrs[0]/can-align"/>
+			<test logic="OR" value="1">
+				/systems/ahrs[0]/aligned eq 1
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<test logic="OR" value="0">
+				/orientation/pitch-rate-degps lt -1
+				/orientation/pitch-rate-degps gt 1
+				/orientation/roll-rate-degps lt -1
+				/orientation/roll-rate-degps gt 1
+				/velocities/groundspeed-kt gt 2
+			</test>
+			<test logic="AND" value="1"> <!-- Only reset when on ground and unpowered -->
+				/systems/ahrs[0]/powered ne 1
+				position/wow eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/ahrs[0]/align-cmd">
+			<default value="0"/>
+			<test logic="AND" value="0"> <!-- Cancel align if not aligned and can't align -->
+				/systems/ahrs[0]/aligned ne 1
+				/systems/ahrs[0]/can-align ne 1
+			</test>
+			<test logic="OR" value="1">
+				/systems/ahrs[0]/powered eq 1
+				position/wow eq 0
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/ahrs[0]/align-timer-input">
+			<input>/systems/ahrs[0]/align-cmd</input>
+			<gain>45</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/ahrs[0]/align-timer">
+			<input>/systems/ahrs[0]/align-timer-input</input>
+			<rate_limit sense="incr">/systems/ahrs-common/align-time</rate_limit>
+			<rate_limit sense="decr">100000</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/ahrs[0]/aligned">
+			<default value="0"/>
+			<test value="1">
+				/systems/ahrs[0]/align-timer eq 45
+			</test>
+		</switch>
+		
+		<switch name="/systems/ahrs[0]/aligning">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/ahrs[0]/align-cmd eq 1
+				/systems/ahrs[0]/aligned ne 1
+			</test>
+		</switch>
+	
+	</channel>
+	
+	<channel name="AHRS 2 Alignment" execrate="8">
+		
+		<switch name="/systems/ahrs[1]/can-align"> <!-- Flip flop, so that if it can't aligned, switch must be reset to off -->
+			<default value="/systems/ahrs[1]/can-align"/>
+			<test logic="OR" value="1">
+				/systems/ahrs[1]/aligned eq 1
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<test logic="OR" value="0">
+				/orientation/pitch-rate-degps lt -1
+				/orientation/pitch-rate-degps gt 1
+				/orientation/roll-rate-degps lt -1
+				/orientation/roll-rate-degps gt 1
+				/velocities/groundspeed-kt gt 2
+			</test>
+			<test logic="AND" value="1"> <!-- Only reset when on ground and unpowered -->
+				/systems/ahrs[1]/powered ne 1
+				position/wow eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/ahrs[1]/align-cmd">
+			<default value="0"/>
+			<test logic="AND" value="0"> <!-- Cancel align if not aligned and can't align -->
+				/systems/ahrs[1]/aligned ne 1
+				/systems/ahrs[1]/can-align ne 1
+			</test>
+			<test logic="OR" value="1">
+				/systems/ahrs[1]/powered eq 1
+				position/wow eq 0
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/ahrs[1]/align-timer-input">
+			<input>/systems/ahrs[1]/align-cmd</input>
+			<gain>45</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/ahrs[1]/align-timer">
+			<input>/systems/ahrs[1]/align-timer-input</input>
+			<rate_limit sense="incr">/systems/ahrs-common/align-time</rate_limit>
+			<rate_limit sense="decr">100000</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/ahrs[1]/aligned">
+			<default value="0"/>
+			<test value="1">
+				/systems/ahrs[1]/align-timer eq 45
+			</test>
+		</switch>
+		
+		<switch name="/systems/ahrs[1]/aligning">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/ahrs[1]/align-cmd eq 1
+				/systems/ahrs[1]/aligned ne 1
+			</test>
+		</switch>
+	
+	</channel>
+
+</system>

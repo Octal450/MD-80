@@ -1,6 +1,13 @@
 # McDonnell Douglas MD-80 Systems
 # Copyright (c) 2022 Josh Davidson (Octal450)
 
+# AHRS
+var AHRS = {
+	Ahrs: {
+		aligned: [props.globals.getNode("/systems/ahrs[0]/aligned"), props.globals.getNode("/systems/ahrs[1]/aligned")],
+	},
+};
+
 # APU
 var APU = {
 	autoConnect: 0,

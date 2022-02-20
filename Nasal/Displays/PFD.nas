@@ -80,8 +80,9 @@ var canvasBase = {
 		return me;
 	},
 	getKeys: func() {
-		return ["AI_arrow_dn", "AI_arrow_up", "AI_background", "AI_bank", "AI_center", "AI_dual_cue", "AI_rising_runway", "AI_scale", "AI_scale_dc", "AI_single_cue", "DH_below", "DH_pointer", "DH_set", "FD_v", "FD_pitch", "FD_roll", "FS_pointer", "FS_scale",
-		"Gndspd", "GS_group", "GS_no", "GS_pointer", "GS_scale", "ILS_group", "Inner_Marker", "LOC_no", "LOC_pointer", "LOC_scale", "Middle_Marker", "NAV_ILS", "NAV_pointer", "NAV_scale", "Outer_Marker", "RA_bars", "RA_scale"];
+		return ["AI_arrow_dn", "AI_arrow_up", "AI_background", "AI_bank", "AI_center", "AI_dual_cue", "AI_error", "AI_group", "AI_group2", "AI_group3", "AI_rising_runway", "AI_scale", "AI_scale_dc", "AI_single_cue", "DH_below", "DH_pointer", "DH_set", "FD_v",
+		"FD_pitch", "FD_roll", "FS_pointer", "FS_scale", "Gndspd", "GS_group", "GS_no", "GS_pointer", "GS_scale", "ILS_group", "Inner_Marker", "LOC_no", "LOC_pointer", "LOC_scale", "Middle_Marker", "NAV_ILS", "NAV_pointer", "NAV_scale", "Outer_Marker", "RA_bars",
+		"RA_scale"];
 	},
 	setup: func() {
 		# Hide the pages by default
@@ -223,28 +224,40 @@ var canvasPfd1 = {
 		Value.Misc.lat = dfgs.Output.lat.getValue();
 		Value.Ra.agl = pts.Position.gearAglFt.getValue();
 		
-		if (dfgs.Output.fd1.getBoolValue()) {
-			if (systems.DUController.flightDirector == "Dual Cue") {
-				me["FD_v"].hide();
-				
-				me["FD_pitch"].setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
-				me["FD_roll"].setTranslation(dfgs.Fd.rollBar.getValue() * 2.6, 0);
-				
-				me["FD_pitch"].show();
-				me["FD_roll"].show();
+		if (systems.AHRS.Ahrs.aligned[0].getBoolValue()) {
+			if (dfgs.Output.fd1.getBoolValue()) {
+				if (systems.DUController.flightDirector == "Dual Cue") {
+					me["FD_v"].hide();
+					
+					me["FD_pitch"].setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
+					me["FD_roll"].setTranslation(dfgs.Fd.rollBar.getValue() * 2.6, 0);
+					
+					me["FD_pitch"].show();
+					me["FD_roll"].show();
+				} else {
+					me.fdVTrans.setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
+					me.fdVRot.setRotation(dfgs.Fd.rollBar.getValue() * D2R, me["AI_center"].getCenter());
+					
+					me["FD_v"].show();
+					
+					me["FD_pitch"].hide();
+					me["FD_roll"].hide();
+				}
 			} else {
-				me.fdVTrans.setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
-				me.fdVRot.setRotation(dfgs.Fd.rollBar.getValue() * D2R, me["AI_center"].getCenter());
-				
-				me["FD_v"].show();
-				
+				me["FD_v"].hide();
 				me["FD_pitch"].hide();
 				me["FD_roll"].hide();
 			}
+			
+			me["AI_error"].hide();
+			me["AI_group"].show();
+			me["AI_group2"].show();
+			me["AI_group3"].show();
 		} else {
-			me["FD_v"].hide();
-			me["FD_pitch"].hide();
-			me["FD_roll"].hide();
+			me["AI_error"].show();
+			me["AI_group"].hide();
+			me["AI_group2"].hide();
+			me["AI_group3"].hide();
 		}
 		
 		# ILS
@@ -312,28 +325,40 @@ var canvasPfd2 = {
 		Value.Misc.lat = dfgs.Output.lat.getValue();
 		Value.Ra.agl = pts.Position.gearAglFt.getValue();
 		
-		if (dfgs.Output.fd2.getBoolValue()) {
-			if (systems.DUController.flightDirector == "Dual Cue") {
-				me["FD_v"].hide();
-				
-				me["FD_pitch"].setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
-				me["FD_roll"].setTranslation(dfgs.Fd.rollBar.getValue() * 2.6, 0);
-				
-				me["FD_pitch"].show();
-				me["FD_roll"].show();
+		if (systems.AHRS.Ahrs.aligned[1].getBoolValue()) {
+			if (dfgs.Output.fd2.getBoolValue()) {
+				if (systems.DUController.flightDirector == "Dual Cue") {
+					me["FD_v"].hide();
+					
+					me["FD_pitch"].setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
+					me["FD_roll"].setTranslation(dfgs.Fd.rollBar.getValue() * 2.6, 0);
+					
+					me["FD_pitch"].show();
+					me["FD_roll"].show();
+				} else {
+					me.fdVTrans.setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
+					me.fdVRot.setRotation(dfgs.Fd.rollBar.getValue() * D2R, me["AI_center"].getCenter());
+					
+					me["FD_v"].show();
+					
+					me["FD_pitch"].hide();
+					me["FD_roll"].hide();
+				}
 			} else {
-				me.fdVTrans.setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
-				me.fdVRot.setRotation(dfgs.Fd.rollBar.getValue() * D2R, me["AI_center"].getCenter());
-				
-				me["FD_v"].show();
-				
+				me["FD_v"].hide();
 				me["FD_pitch"].hide();
 				me["FD_roll"].hide();
 			}
+			
+			me["AI_error"].hide();
+			me["AI_group"].show();
+			me["AI_group2"].show();
+			me["AI_group3"].show();
 		} else {
-			me["FD_v"].hide();
-			me["FD_pitch"].hide();
-			me["FD_roll"].hide();
+			me["AI_error"].show();
+			me["AI_group"].hide();
+			me["AI_group2"].hide();
+			me["AI_group3"].hide();
 		}
 		
 		# ILS
