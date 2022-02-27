@@ -38,12 +38,12 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1018"
+     inkscape:window-height="1017"
      id="namedview371"
      showgrid="false"
-     inkscape:zoom="1"
-     inkscape:cx="776.38484"
-     inkscape:cy="745.39892"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="666.10167"
+     inkscape:cy="333.46567"
      inkscape:window-x="1592"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -1098,6 +1098,30 @@
            d="m 540.0917,1407.349 -48.3324,0"
            style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:4.89099979;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       </g>
+    </g>
+    <g
+       id="AI_rising_runway"
+       inkscape:label="#g5119"
+       style="stroke:#ff42a5;stroke-opacity:1"
+       transform="matrix(1.2680138,0,0,1.3434846,-18.612762,-120.93348)">
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path5111"
+         d="m 416.41616,437.9499 -9.54952,16.6871 -47.26724,0 9.55,-16.687 z"
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ff42a5;stroke-width:6;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ff42a5;stroke-width:6;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 426.6947,437.9499 9.55,16.6871 47.26702,0 -9.55,-16.687 z"
+         id="path5115"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ff42a5;stroke-width:6;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 430.13408,458.42259 0,168.8993 -17.15705,0 0,-168.8993 8.57852,-14.99394 z"
+         id="path5117"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccc" />
     </g>
   </g>
   <rect
@@ -2582,30 +2606,6 @@
   <g
      id="AI_group3"
      inkscape:label="#g4586">
-    <g
-       id="AI_rising_runway"
-       inkscape:label="#g5119"
-       style="stroke:#ff42a5;stroke-opacity:1"
-       transform="matrix(1.2680138,0,0,1.3434846,-18.612762,-120.93348)">
-      <path
-         sodipodi:nodetypes="ccccc"
-         inkscape:connector-curvature="0"
-         id="path5111"
-         d="m 416.41616,437.9499 -9.54952,16.6871 -47.26724,0 9.55,-16.687 z"
-         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ff42a5;stroke-width:6;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <path
-         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ff42a5;stroke-width:6;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         d="m 426.6947,437.9499 9.55,16.6871 47.26702,0 -9.55,-16.687 z"
-         id="path5115"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="ccccc" />
-      <path
-         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ff42a5;stroke-width:6;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         d="m 430.13408,458.42259 0,168.8993 -17.15705,0 0,-168.8993 8.57852,-14.99394 z"
-         id="path5117"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="cccccc" />
-    </g>
     <rect
        style="fill:#ff42a5;fill-opacity:1;stroke:none;stroke-width:2.87749815;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="FD_pitch"
