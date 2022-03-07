@@ -103,7 +103,7 @@
 			<capacity unit="LBS">9259</capacity>
 			<contents unit="LBS">6000</contents>
 			<standpipe unit="LBS">31</standpipe>
-			<priority>2</priority>
+			<priority>1</priority>
 			<type>JET-A1</type>
 			<temperature>50</temperature>
 		</tank>
@@ -129,7 +129,7 @@
 			<capacity unit="LBS">9259</capacity>
 			<contents unit="LBS">6000</contents>
 			<standpipe unit="LBS">31</standpipe>
-			<priority>2</priority>
+			<priority>1</priority>
 			<type>JET-A1</type>
 			<temperature>50</temperature>
 		</tank>
