@@ -313,15 +313,6 @@
 			</condition>
 			<property>/it-autoflight/internal/target-fpm-vs</property>
 		</reference>
-		<reference>
-			<condition>
-				<equals>
-					<property>/it-autoflight/output/vert</property>
-					<value>5</value>
-				</equals>
-			</condition>
-			<property>/it-autoflight/internal/target-fpm-fpa</property>
-		</reference>
 		<reference>/it-autoflight/internal/target-common-fpm</reference>
 		<output>/it-autoflight/internal/target-pitch-deg</output>
 		<config>
