@@ -26,6 +26,7 @@
 	<logic>
 		<input>
 			<and>
+				<property>/it-autoflight/output/apfd-on</property>
 				<or>
 					<equals>
 						<property>/it-autoflight/output/vert</property>
@@ -34,24 +35,6 @@
 					<equals>
 						<property>/it-autoflight/output/vert</property>
 						<value>7</value>
-					</equals>
-				</or>
-				<or>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/fd1</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/fd2</property>
-						<value>1</value>
 					</equals>
 				</or>
 			</and>
@@ -256,6 +239,7 @@
 		<enable>
 			<condition>
 				<and>
+					<property>/it-autoflight/output/ap-on</property>
 					<equals>
 						<property>/gear/gear[1]/wow</property>
 						<value>0</value>
@@ -268,16 +252,6 @@
 						<property>/it-autoflight/output/vert</property>
 						<value>5</value>
 					</not-equals>
-					<or>
-						<equals>
-							<property>/it-autoflight/output/ap1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap2</property>
-							<value>1</value>
-						</equals>
-					</or>
 				</and>
 			</condition>
 		</enable>
@@ -386,6 +360,7 @@
 			<condition>
 				<not>
 					<and>
+						<property>/it-autoflight/output/ap-on</property>
 						<equals>
 							<property>/gear/gear[1]/wow</property>
 							<value>0</value>
@@ -398,16 +373,6 @@
 							<property>/it-autoflight/output/vert</property>
 							<value>5</value>
 						</not-equals>
-						<or>
-							<equals>
-								<property>/it-autoflight/output/ap1</property>
-								<value>1</value>
-							</equals>
-							<equals>
-								<property>/it-autoflight/output/ap2</property>
-								<value>1</value>
-							</equals>
-						</or>
 					</and>
 				</not>
 			</condition>
@@ -424,24 +389,7 @@
 		<input>
 			<condition>
 				<and>
-					<or>
-						<equals>
-							<property>/it-autoflight/output/ap1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap2</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/fd1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/fd2</property>
-							<value>1</value>
-						</equals>
-					</or>
+					<property>/it-autoflight/output/apfd-on</property>
 					<equals>
 						<property>/it-autoflight/output/vert</property>
 						<value>5</value>
@@ -455,24 +403,7 @@
 		<max-rate-of-change>
 			<condition>
 				<and>
-					<or>
-						<equals>
-							<property>/it-autoflight/output/ap1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap2</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/fd1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/fd2</property>
-							<value>1</value>
-						</equals>
-					</or>
+					<property>/it-autoflight/output/apfd-on</property>
 					<equals>
 						<property>/it-autoflight/output/vert</property>
 						<value>5</value>
@@ -504,25 +435,37 @@
 		<max>1.5</max>
 	</filter>
 	
+	<filter>
+		<name>System Command: Elevator Air Inactive Sync</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<enable>
+			<condition>
+				<not>
+					<and>
+						<property>/it-autoflight/output/ap-on</property>
+						<equals>
+							<property>/gear/gear[0]/wow</property>
+							<value>0</value>
+						</equals>
+					</and>
+				</not>
+			</condition>
+		</enable>
+		<input>/controls/flight/elevator</input>
+		<output>/it-autoflight/internal/elevator-cmd</output>
+	</filter>
+	
 	<pid-controller>
 		<name>System Command: Elevator</name>
 		<enable>
 			<condition>
 				<and>
+					<property>/it-autoflight/output/ap-on</property>
 					<equals>
 						<property>/gear/gear[0]/wow</property>
 						<value>0</value>
 					</equals>
-					<or>
-						<equals>
-							<property>/it-autoflight/output/ap1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap2</property>
-							<value>1</value>
-						</equals>
-					</or>
 				</and>
 			</condition>
 		</enable>
@@ -567,16 +510,7 @@
 		<gain>1.0</gain>
 		<enable>
 			<condition>
-				<and>
-					<not-equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>1</value>
-					</not-equals>
-					<not-equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>1</value>
-					</not-equals>
-				</and>
+				<not><property>/it-autoflight/output/ap-on</property></not>
 			</condition>
 		</enable>
 		<input>/controls/flight/elevator</input>
@@ -586,20 +520,10 @@
 	<filter>
 		<name>System Command: Elevator Filter</name>
 		<type>noise-spike</type>
-		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
 		<enable>
 			<condition>
-				<or>
-					<equals>
-						<property>/it-autoflight/output/ap1</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/output/ap2</property>
-						<value>1</value>
-					</equals>
-				</or>
+				<property>/it-autoflight/output/ap-on</property>
 			</condition>
 		</enable>
 		<input>
@@ -619,11 +543,11 @@
 	<filter>
 		<name>System Command: Elevator Trim</name>
 		<type>noise-spike</type>
-		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
 		<enable>
 			<condition>
 				<and>
+					<property>/it-autoflight/output/ap-on</property>
 					<equals>
 						<property>/gear/gear[1]/wow</property>
 						<value>0</value>
@@ -632,16 +556,6 @@
 						<property>/gear/gear[2]/wow</property>
 						<value>0</value>
 					</equals>
-					<or>
-						<equals>
-							<property>/it-autoflight/output/ap1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap2</property>
-							<value>1</value>
-						</equals>
-					</or>
 					<or>
 						<greater-than>
 							<property>/it-autoflight/internal/elevator-cmd</property>

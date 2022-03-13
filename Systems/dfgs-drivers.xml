@@ -75,6 +75,46 @@
 		<output>/it-autoflight/input/athr-avail</output>
 	</logic>
 	
+	<logic>
+		<input>
+			<or>
+				<equals>
+					<property>/it-autoflight/output/ap1</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/output/ap2</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/output/fd1</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/output/fd2</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</input>
+		<output>/it-autoflight/output/apfd-on</output>
+	</logic>
+	
+	<logic>
+		<input>
+			<or>
+				<equals>
+					<property>/it-autoflight/output/ap1</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/output/ap2</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</input>
+		<output>/it-autoflight/output/ap-on</output>
+	</logic>
+	
 	<!-- Predictors -->
 	<predict-simple>
 		<name>Knots 5 Second Predictor</name>
@@ -332,24 +372,7 @@
 							<value>7</value>
 						</equals>
 					</or>
-					<or>
-						<equals>
-							<property>/it-autoflight/output/ap1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap2</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/fd1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/fd2</property>
-							<value>1</value>
-						</equals>
-					</or>
+					<property>/it-autoflight/output/apfd-on</property>
 					<equals>
 						<property>/gear/gear[1]/wow</property>
 						<value>0</value>
@@ -589,16 +612,7 @@
 		<input>
 			<condition>
 				<and>
-					<or>
-						<equals>
-							<property>/it-autoflight/output/ap1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap2</property>
-							<value>1</value>
-						</equals>
-					</or>
+					<property>/it-autoflight/output/ap-on</property>
 					<equals>
 						<property>/it-autoflight/output/vert</property>
 						<value>1</value>
@@ -620,16 +634,7 @@
 		<max-rate-of-change>
 			<condition>
 				<and>
-					<or>
-						<equals>
-							<property>/it-autoflight/output/ap1</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/it-autoflight/output/ap2</property>
-							<value>1</value>
-						</equals>
-					</or>
+					<property>/it-autoflight/output/ap-on</property>
 					<equals>
 						<property>/it-autoflight/output/vert</property>
 						<value>1</value>
@@ -653,7 +658,7 @@
 		<name>VS Abs</name>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<update-interval-secs type="double">0.02</update-interval-secs>
+		<update-interval-secs>0.02</update-interval-secs>
 		<input>
 			<expression>
 				<abs>
@@ -668,7 +673,7 @@
 		<name>VS Fma</name>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<update-interval-secs type="double">0.02</update-interval-secs>
+		<update-interval-secs>0.02</update-interval-secs>
 		<input>
 			<expression>
 				<product>
@@ -692,7 +697,7 @@
 		<name>Pitch Abs</name>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<update-interval-secs type="double">0.02</update-interval-secs>
+		<update-interval-secs>0.02</update-interval-secs>
 		<input>
 			<expression>
 				<abs>
@@ -707,7 +712,7 @@
 		<name>Mach x1000</name>
 		<type>gain</type>
 		<gain>1000</gain>
-		<update-interval-secs type="double">0.02</update-interval-secs>
+		<update-interval-secs>0.02</update-interval-secs>
 		<input>/it-autoflight/input/mach</input>
 		<output>/it-autoflight/input/mach-x1000</output>
 	</filter>
@@ -716,7 +721,7 @@
 		<name>Mach Flch x1000</name>
 		<type>gain</type>
 		<gain>1000</gain>
-		<update-interval-secs type="double">0.02</update-interval-secs>
+		<update-interval-secs>0.02</update-interval-secs>
 		<input>/it-autoflight/input/mach-flch</input>
 		<output>/it-autoflight/input/mach-flch-x1000</output>
 	</filter>
