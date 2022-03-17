@@ -861,7 +861,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		</lag_filter>
 		
 		<!-- Altimeter Standby -->
-		<switch name="/instrumentation/altimeter[2]/power-avail">
+		<switch name="/instrumentation/stby-alt/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
 				/systems/electrical/bus/dc-trans ge 24
@@ -869,24 +869,24 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</test>
 		</switch>
 		
-		<switch name="/instrumentation/altimeter[2]/altitude-ft-input">
-			<default value="/instrumentation/altimeter[2]/altitude-ft-input"/>
+		<switch name="/instrumentation/stby-alt/altitude-ft-input">
+			<default value="/instrumentation/stby-alt/altitude-ft-input"/>
 			<test value="/instrumentation/altimeter[0]/indicated-altitude-ft"> <!-- Fix me when they are seperate -->
-				/instrumentation/altimeter[2]/power-avail eq 1
+				/instrumentation/stby-alt/power-avail eq 1
 			</test>
 		</switch>
 		
-		<actuator name="/instrumentation/altimeter[2]/altitude-ft-actuator">
-			<input>/instrumentation/altimeter[2]/altitude-ft-input</input>
+		<actuator name="/instrumentation/stby-alt/altitude-ft-actuator">
+			<input>/instrumentation/stby-alt/altitude-ft-input</input>
 			<rate_limit>1500</rate_limit>
 		</actuator>
 		
-		<lag_filter name="/instrumentation/altimeter[2]/altitude-ft">
-			<input>/instrumentation/altimeter[2]/altitude-ft-actuator</input>
+		<lag_filter name="/instrumentation/stby-alt/altitude-ft">
+			<input>/instrumentation/stby-alt/altitude-ft-actuator</input>
 			<c1>15</c1>
 		</lag_filter>
 		
-		<fcs_function name="/instrumentation/altimeter[2]/setting-inhg-input">
+		<fcs_function name="/instrumentation/stby-alt/setting-inhg-input">
 			<function>
 				<floor>
 					<sum>
@@ -900,12 +900,12 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</function>
 		</fcs_function>
 		
-		<lag_filter name="/instrumentation/altimeter[2]/setting-inhg-text">
-			<input>/instrumentation/altimeter[2]/setting-inhg-input</input>
+		<lag_filter name="/instrumentation/stby-alt/setting-inhg-text">
+			<input>/instrumentation/stby-alt/setting-inhg-input</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<fcs_function name="/instrumentation/altimeter[2]/setting-hpa-input">
+		<fcs_function name="/instrumentation/stby-alt/setting-hpa-input">
 			<function>
 				<floor>
 					<sum>
@@ -916,8 +916,8 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</function>
 		</fcs_function>
 		
-		<lag_filter name="/instrumentation/altimeter[2]/setting-hpa-text">
-			<input>/instrumentation/altimeter[2]/setting-hpa-input</input>
+		<lag_filter name="/instrumentation/stby-alt/setting-hpa-text">
+			<input>/instrumentation/stby-alt/setting-hpa-input</input>
 			<c1>20</c1>
 		</lag_filter>
 	

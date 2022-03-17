@@ -331,7 +331,7 @@
 	
 	<model>
 		<name>stbyalt</name>
-		<path>Aircraft/MD-80/Models/Instruments/altimeter3.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/stbyalt.xml</path>
 		<offsets>
 			<x-m>2.235</x-m>
 			<y-m>-0.18</y-m>
