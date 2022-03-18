@@ -1433,7 +1433,7 @@
   <type>translate</type>
   <object-name>SlatsL</object-name>
   <object-name>SlatStrutsL</object-name>
-  <property>sim/multiplay/generic/float[9]</property>
+  <property>sim/multiplay/generic/float[6]</property>
   <interpolation>
     <entry><ind>  0</ind><dep>0.0</dep></entry>
     <entry><ind>0.5</ind><dep>0.4</dep></entry>
@@ -1449,7 +1449,7 @@
   <type>translate</type>
   <object-name>SlatsR</object-name>
   <object-name>SlatStrutsR</object-name>
-  <property>sim/multiplay/generic/float[9]</property>
+  <property>sim/multiplay/generic/float[6]</property>
   <interpolation>
     <entry><ind>  0</ind><dep>0.0</dep></entry>
     <entry><ind>0.5</ind><dep>0.4</dep></entry>
@@ -1466,7 +1466,7 @@
   <type>rotate</type>
   <object-name>SlatsL</object-name>
   <object-name>SlatStrutsL</object-name>
-  <property>sim/multiplay/generic/float[9]</property>
+  <property>sim/multiplay/generic/float[6]</property>
   <interpolation>
     <entry><ind>  0</ind><dep>0.0</dep></entry>
     <entry><ind>0.5</ind><dep>1.2</dep></entry>
@@ -1487,7 +1487,7 @@
   <type>rotate</type>
   <object-name>SlatsL</object-name>
   <object-name>SlatStrutsL</object-name>
-  <property>sim/multiplay/generic/float[9]</property>
+  <property>sim/multiplay/generic/float[6]</property>
   <interpolation>
     <entry><ind>  0</ind><dep>0.0</dep></entry>
     <entry><ind>0.5</ind><dep>0.28</dep></entry>
@@ -1509,7 +1509,7 @@
   <type>rotate</type>
   <object-name>SlatsR</object-name>
   <object-name>SlatStrutsR</object-name>
-  <property>sim/multiplay/generic/float[9]</property>
+  <property>sim/multiplay/generic/float[6]</property>
   <interpolation>
     <entry><ind>  0</ind><dep>0.0</dep></entry>
     <entry><ind>0.5</ind><dep>1.2</dep></entry>
@@ -1530,7 +1530,7 @@
   <type>rotate</type>
   <object-name>SlatsR</object-name>
   <object-name>SlatStrutsR</object-name>
-  <property>sim/multiplay/generic/float[9]</property>
+  <property>sim/multiplay/generic/float[6]</property>
   <interpolation>
     <entry><ind>  0</ind><dep>0.0</dep></entry>
     <entry><ind>0.5</ind><dep>0.28</dep></entry>
@@ -2145,7 +2145,7 @@
 		<object-name>LGNTires</object-name>
 		<object-name>LGNTorqueBarLow</object-name>
 		<object-name>LGNTorqueBarUp</object-name>
-		<property>sim/multiplay/generic/float[10]</property>
+		<property>sim/multiplay/generic/float[5]</property>
 		<factor>-82</factor>
 		<axis>
 			<x1-m>2.382</x1-m>
@@ -2308,7 +2308,7 @@
 		<condition>
 			<property>gear/gear[0]/wow</property>
 		</condition>
-		<property>gear/gear[0]/rollspeed-ms</property>
+		<property>sim/multiplay/generic/float[0]</property>
 		<factor>-20.0</factor>
 		<center>
 			<x-m>2.397</x-m>
@@ -2519,10 +2519,7 @@
 	<animation>
 		<type>spin</type>
 		<object-name>LGLTires</object-name>
-		<condition>
-			<property>gear/gear[1]/wow</property>
-		</condition>
-		<property>gear/gear[1]/rollspeed-ms</property>
+		<property>sim/multiplay/generic/float[1]</property>
 		<factor>-14.0</factor>
 		<center>
 			<x-m>24.389</x-m>
@@ -2733,10 +2730,7 @@
 	<animation>
 		<type>spin</type>
 		<object-name>LGRTires</object-name>
-		<condition>
-			<property>gear/gear[2]/wow</property>
-		</condition>
-		<property>gear/gear[2]/rollspeed-ms</property>
+		<property>sim/multiplay/generic/float[2]</property>
 		<factor>-14.0</factor>
 		<center>
 			<x-m>24.389</x-m>
