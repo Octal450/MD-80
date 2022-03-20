@@ -10,6 +10,7 @@ var pfd2Error = nil;
 
 var Value = {
 	Ai: {
+		center: nil,
 		pitch: 0,
 		risingRunwayMultiplier: 0,
 		risingRunwayOffset: 0,
@@ -66,6 +67,8 @@ var canvasBase = {
 				me[key].set("clip-frame", canvas.Element.PARENT);
 			}
 		}
+		
+		Value.Ai.center = me["AI_center"].getCenter();
 		
 		me.aiBackgroundTrans = me["AI_background"].createTransform();
 		me.aiBackgroundRot = me["AI_background"].createTransform();
@@ -131,13 +134,11 @@ var canvasBase = {
 		Value.Ai.pitch = pts.Orientation.pitchDeg.getValue();
 		Value.Ai.roll = pts.Orientation.rollDeg.getValue();
 		
-		AICenter = me["AI_center"].getCenter();
-		
 		me.aiBackgroundTrans.setTranslation(0, math.clamp(Value.Ai.pitch * 12.345, -240, 240)); # According to a pilot, it don't go the whole way
-		me.aiBackgroundRot.setRotation(-Value.Ai.roll * D2R, AICenter);
+		me.aiBackgroundRot.setRotation(-Value.Ai.roll * D2R, Value.Ai.center);
 		
 		me.aiScaleTrans.setTranslation(0, Value.Ai.pitch * 12.345);
-		me.aiScaleRot.setRotation(-Value.Ai.roll * D2R, AICenter);
+		me.aiScaleRot.setRotation(-Value.Ai.roll * D2R, Value.Ai.center);
 		
 		me["AI_bank"].setRotation(-Value.Ai.roll * D2R);
 		
