@@ -22,13 +22,6 @@ var Controls = {
 		speedbrakeArm: props.globals.getNode("/controls/flight/speedbrake-arm"),
 		speedbrakeTemp: 0,
 	},
-	Gear: {
-		brakeParking: props.globals.getNode("/controls/gear/brake-parking"),
-		brakeLeft: props.globals.getNode("/controls/gear/brake-left"),
-		brakeRight: props.globals.getNode("/controls/gear/brake-right"),
-		lever: props.globals.getNode("/controls/gear/lever"),
-		leverCockpit: props.globals.getNode("/controls/gear/lever-cockpit"),
-	},
 	Lighting: {
 		beacon: props.globals.getNode("/controls/lighting/beacon"),
 		captDigitalKnb: props.globals.getNode("/controls/lighting/capt-digital-knb"),
