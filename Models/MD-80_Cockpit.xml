@@ -1210,13 +1210,13 @@
 		<factor>-12</factor>
 		<center>
 			<x-m>2.626</x-m>
-			<y-m>0.0</y-m>
+			<y-m>0</y-m>
 			<z-m>0.230</z-m>
 		</center>
 		<axis>
-			<x>0.0</x>
-			<y>1.0</y>
-			<z>0.0</z>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
 		</axis>
 	</animation>
 	
@@ -1226,16 +1226,16 @@
 		<object-name>YokeTrimL</object-name>
 		<object-name>apoff</object-name>
 		<property>fdm/jsbsim/fcs-actual/aileron-yoke</property>
-		<factor>90</factor>
+		<factor>-90</factor>
 		<center>
 			<x-m>0</x-m>
 			<y-m>-0.5</y-m>
 			<z-m>0.8709</z-m>
 		</center>
 		<axis>
-			<x>-1.0</x>
-			<y>0.0</y>
-			<z>0.0</z>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
 		</axis>
 	</animation>
 	
@@ -1250,13 +1250,13 @@
 		<factor>-12</factor>
 		<center>
 			<x-m>2.626</x-m>
-			<y-m>0.0</y-m>
+			<y-m>0</y-m>
 			<z-m>0.230</z-m>
 		</center>
 		<axis>
-			<x>0.0</x>
-			<y>1.0</y>
-			<z>0.0</z>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
 		</axis>
 	</animation>
 	
@@ -1266,16 +1266,16 @@
 		<object-name>YokeTrimR</object-name>
 		<object-name>apoff2</object-name>
 		<property>fdm/jsbsim/fcs-actual/aileron-yoke</property>
-		<factor>90</factor>
+		<factor>-90</factor>
 		<center>
-			<x-m>0.0</x-m>
+			<x-m>0</x-m>
 			<y-m>0.5</y-m>
 			<z-m>0.8709</z-m>
 		</center>
 		<axis>
-			<x>-1.0</x>
-			<y>0.0</y>
-			<z>0.0</z>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
 		</axis>
 	</animation>
 	
