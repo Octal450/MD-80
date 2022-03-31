@@ -3,11 +3,6 @@
 <!-- McDonnell Douglas MD-80 Instrumentation -->
 <!-- Copyright (c) 2022 Josh Davidson (Octal450) -->
 
-<!--
-Linear Actuators are commented out because they are broken in current 2020.3. 
-Once FGFS ver with them fixed is out on stable, we will enable and enforce that ver
--->
-
 <system name="MD-80: Instrumentation">
 	
 	<channel name="Airspeed Indicators" execrate="2">
@@ -950,7 +945,6 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<test value="/orientation/heading-magnetic-deg">
 				/instrumentation/rmi[0]/heading-avail eq 1
 			</test>
-			<output>/instrumentation/rmi[0]/heading-linear</output>
 		</switch>
 		
 		<switch name="/instrumentation/rmi[0]/heading-true-input">
@@ -960,7 +954,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</test>
 		</switch>
 		
-		<!--linear_actuator name="/instrumentation/rmi[0]/heading-linear-cmd">
+		<linear_actuator name="/instrumentation/rmi[0]/heading-linear-cmd">
 			<input>/instrumentation/rmi[0]/heading-input</input>
 			<module>360</module>
 		</linear_actuator>
@@ -973,7 +967,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<lag_filter name="/instrumentation/rmi[0]/heading-linear">
 			<input>/instrumentation/rmi[0]/heading-linear-actuator</input>
 			<c1>10</c1>
-		</lag_filter-->
+		</lag_filter>
 		
 		<!-- TODO: Figure out how to use linear actuator from -180 to 180 -->
 		<switch name="/instrumentation/rmi[0]/nav1-input">
@@ -1025,7 +1019,6 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<test value="/orientation/heading-magnetic-deg">
 				/instrumentation/rmi[1]/heading-avail eq 1
 			</test>
-			<output>/instrumentation/rmi[1]/heading-linear</output>
 		</switch>
 		
 		<switch name="/instrumentation/rmi[1]/heading-true-input">
@@ -1035,7 +1028,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			</test>
 		</switch>
 		
-		<!--linear_actuator name="/instrumentation/rmi[1]/heading-linear-cmd">
+		<linear_actuator name="/instrumentation/rmi[1]/heading-linear-cmd">
 			<input>/instrumentation/rmi[1]/heading-input</input>
 			<module>360</module>
 		</linear_actuator>
@@ -1048,7 +1041,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<lag_filter name="/instrumentation/rmi[1]/heading-linear">
 			<input>/instrumentation/rmi[1]/heading-linear-actuator</input>
 			<c1>10</c1>
-		</lag_filter-->
+		</lag_filter>
 		
 		<!-- TODO: Figure out how to use linear actuator from -180 to 180 -->
 		<switch name="/instrumentation/rmi[1]/nav1-input">
@@ -1104,10 +1097,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<test value="/orientation/heading-magnetic-deg">
 				/instrumentation/hsi[0]/heading-avail eq 1
 			</test>
-			<output>/instrumentation/hsi[0]/heading-linear</output>
 		</switch>
 		
-		<!--linear_actuator name="/instrumentation/hsi[0]/heading-linear-cmd">
+		<linear_actuator name="/instrumentation/hsi[0]/heading-linear-cmd">
 			<input>/instrumentation/hsi[0]/heading-input</input>
 			<module>360</module>
 		</linear_actuator>
@@ -1120,17 +1112,16 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<lag_filter name="/instrumentation/hsi[0]/heading-linear">
 			<input>/instrumentation/hsi[0]/heading-linear-actuator</input>
 			<c1>10</c1>
-		</lag_filter-->
+		</lag_filter>
 		
 		<switch name="/instrumentation/hsi[0]/heading-bug-input">
 			<default value="/instrumentation/hsi[0]/heading-bug-input"/>
 			<test value="/it-autoflight/input/hdg">
 				/instrumentation/hsi[0]/power-avail eq 1
 			</test>
-			<output>/instrumentation/hsi[0]/heading-bug-linear</output>
 		</switch>
 		
-		<!--linear_actuator name="/instrumentation/hsi[0]/heading-bug-linear-cmd">
+		<linear_actuator name="/instrumentation/hsi[0]/heading-bug-linear-cmd">
 			<input>/instrumentation/hsi[0]/heading-bug-input</input>
 			<module>360</module>
 		</linear_actuator>
@@ -1138,7 +1129,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<lag_filter name="/instrumentation/hsi[0]/heading-bug-linear">
 			<input>/instrumentation/hsi[0]/heading-bug-linear-cmd</input>
 			<c1>20</c1>
-		</lag_filter-->
+		</lag_filter>
 		
 		<switch name="/instrumentation/hsi[0]/course-input">
 			<default value="/instrumentation/hsi[0]/course-input"/>
@@ -1149,10 +1140,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<test value="/instrumentation/nav[0]/radials/selected-deg">
 				/instrumentation/hsi[0]/power-avail eq 1
 			</test>
-			<output>/instrumentation/hsi[0]/course-linear</output>
 		</switch>
 		
-		<!--linear_actuator name="/instrumentation/hsi[0]/course-linear-cmd">
+		<linear_actuator name="/instrumentation/hsi[0]/course-linear-cmd">
 			<input>/instrumentation/hsi[0]/course-input</input>
 			<module>360</module>
 		</linear_actuator>
@@ -1160,7 +1150,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<lag_filter name="/instrumentation/hsi[0]/course-linear">
 			<input>/instrumentation/hsi[0]/course-linear-cmd</input>
 			<c1>20</c1>
-		</lag_filter-->
+		</lag_filter>
 		
 		<switch name="/instrumentation/hsi[0]/loc-deviation-cmd">
 			<default value="0"/>
@@ -1219,10 +1209,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<test value="/orientation/heading-magnetic-deg">
 				/instrumentation/hsi[1]/heading-avail eq 1
 			</test>
-			<output>/instrumentation/hsi[1]/heading-linear</output>
 		</switch>
 		
-		<!--linear_actuator name="/instrumentation/hsi[1]/heading-linear-cmd">
+		<linear_actuator name="/instrumentation/hsi[1]/heading-linear-cmd">
 			<input>/instrumentation/hsi[1]/heading-input</input>
 			<module>360</module>
 		</linear_actuator>
@@ -1235,17 +1224,16 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<lag_filter name="/instrumentation/hsi[1]/heading-linear">
 			<input>/instrumentation/hsi[1]/heading-linear-actuator</input>
 			<c1>10</c1>
-		</lag_filter-->
+		</lag_filter>
 		
 		<switch name="/instrumentation/hsi[1]/heading-bug-input">
 			<default value="/instrumentation/hsi[1]/heading-bug-input"/>
 			<test value="/it-autoflight/input/hdg">
 				/instrumentation/hsi[1]/power-avail eq 1
 			</test>
-			<output>/instrumentation/hsi[1]/heading-bug-linear</output>
 		</switch>
 		
-		<!--linear_actuator name="/instrumentation/hsi[1]/heading-bug-linear-cmd">
+		<linear_actuator name="/instrumentation/hsi[1]/heading-bug-linear-cmd">
 			<input>/instrumentation/hsi[1]/heading-bug-input</input>
 			<module>360</module>
 		</linear_actuator>
@@ -1253,7 +1241,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<lag_filter name="/instrumentation/hsi[1]/heading-bug-linear">
 			<input>/instrumentation/hsi[1]/heading-bug-linear-cmd</input>
 			<c1>20</c1>
-		</lag_filter-->
+		</lag_filter>
 		
 		<switch name="/instrumentation/hsi[1]/course-input">
 			<default value="/instrumentation/hsi[1]/course-input"/>
@@ -1264,10 +1252,9 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 			<test value="/instrumentation/nav[1]/radials/selected-deg">
 				/instrumentation/hsi[1]/power-avail eq 1
 			</test>
-			<output>/instrumentation/hsi[1]/course-linear</output>
 		</switch>
 		
-		<!--linear_actuator name="/instrumentation/hsi[1]/course-linear-cmd">
+		<linear_actuator name="/instrumentation/hsi[1]/course-linear-cmd">
 			<input>/instrumentation/hsi[1]/course-input</input>
 			<module>360</module>
 		</linear_actuator>
@@ -1275,7 +1262,7 @@ Once FGFS ver with them fixed is out on stable, we will enable and enforce that 
 		<lag_filter name="/instrumentation/hsi[1]/course-linear">
 			<input>/instrumentation/hsi[1]/course-linear-cmd</input>
 			<c1>20</c1>
-		</lag_filter-->
+		</lag_filter>
 		
 		<switch name="/instrumentation/hsi[1]/loc-deviation-cmd">
 			<default value="0"/>
