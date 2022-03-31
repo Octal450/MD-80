@@ -1343,18 +1343,6 @@
 				<command>property-toggle</command>
 				<property>controls/gear/brake-parking</property>
 			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/gear/brake-parking-switch</property>
-				<value>1</value>
-			</binding>
-			<mod-up>
-				<binding>
-					<command>property-assign</command>
-					<property>controls/gear/brake-parking-switch</property>
-					<value>0</value>
-				</binding>
-			</mod-up>
 		</action>
 	</animation>
 	
@@ -1362,9 +1350,9 @@
 		<type>translate</type>
 		<object-name>ParkingBrakeButton</object-name>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.000</dep></entry>
-			<entry><ind>0.9</ind><dep>0.010</dep></entry>
-			<entry><ind>1.0</ind><dep>0.008</dep></entry>
+			<entry><ind>1.0</ind><dep>0.000</dep></entry>
+			<entry><ind>0.1</ind><dep>0.010</dep></entry>
+			<entry><ind>0.0</ind><dep>0.008</dep></entry>
 		</interpolation>
 		<property>fdm/jsbsim/fcs/brake-lever</property>
 		<axis>
