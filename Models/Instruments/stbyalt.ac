@@ -3,7 +3,7 @@ MATERIAL "bezel" rgb 0.14902 0.14902 0.14902  amb 0.0941176 0.0941176 0.0941176 
 MATERIAL "ac3dmat1.003" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.025 0.025 0.025  shi 64  trans 0
 MATERIAL "ac3dmat1.003" rgb 1 1 1  amb 0.8 0.8 0.8  emis 0 0 0  spec 0.025 0.025 0.025  shi 64  trans 0
 OBJECT world
-kids 5
+kids 4
 OBJECT poly
 name "BaroKnob"
 data 12
@@ -156,31 +156,10 @@ refs 4
 6 0.512646 0.488127
 7 0.520129 0.488127
 kids 0
-OBJECT poly
-name "alt3"
-loc 0.000990001 -0.00613626 0.0135551
-data 8
-Mesh.006
-texture "altimeter-digits.png"
-crease 30.000000
-numvert 4
-0 0.00995031 -0.00859432
-0 0.00995031 -0.00308022
-0 0.00249296 -0.00859432
-0 0.00249296 -0.00308022
-numsurf 1
-SURF 0x0
-mat 1
-refs 4
-2 0.071289 0.0343689
-0 0.071289 0.10235
-1 0.024414 0.10235
-3 0.024414 0.0343689
-kids 0
 OBJECT group
 name "LightingGroup"
 loc -5.01289e-05 -0.0005145 0.000549671
-kids 14
+kids 15
 OBJECT poly
 name "alt1"
 loc 5.01299e-05 0.00051483 -0.000548172
@@ -205,6 +184,27 @@ kids 0
 OBJECT poly
 name "alt2"
 loc 0.00104013 -0.00562176 0.0206896
+data 8
+Mesh.006
+texture "altimeter-digits.png"
+crease 30.000000
+numvert 4
+0 0.00995031 -0.00859432
+0 0.00995031 -0.00308022
+0 0.00249296 -0.00859432
+0 0.00249296 -0.00308022
+numsurf 1
+SURF 0x0
+mat 1
+refs 4
+2 0.071289 0.0343689
+0 0.071289 0.10235
+1 0.024414 0.10235
+3 0.024414 0.0343689
+kids 0
+OBJECT poly
+name "alt3"
+loc 0.00104013 -0.00562176 0.0130054
 data 8
 Mesh.006
 texture "altimeter-digits.png"

@@ -31,23 +31,12 @@
 	</animation>
 	
 	<animation>
-		<type>select</type>
-		<object-name>Neg</object-name>
-		<condition>
-			<less-than>
-				<property>instrumentation/stby-alt/altitude-ft</property>
-				<value>-0.5</value>
-			</less-than>
-		</condition>
-	</animation>
-	
-	<animation>
 		<type>textranslate</type>
 		<object-name>alt1</object-name>
 		<property>instrumentation/stby-alt/altitude-ft</property>
 		<factor>0.00001</factor>
 		<step>10000</step>
-		<scroll>10</scroll>
+		<scroll>20</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -60,7 +49,7 @@
 		<property>instrumentation/stby-alt/altitude-ft</property>
 		<factor>0.0001</factor>
 		<step>1000</step>
-		<scroll>10</scroll>
+		<scroll>20</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -73,7 +62,7 @@
 		<property>instrumentation/stby-alt/altitude-ft</property>
 		<factor>0.001</factor>
 		<step>100</step>
-		<scroll>10</scroll>
+		<scroll>20</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>

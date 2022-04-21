@@ -26,20 +26,15 @@
 		</emission>
 	</animation>
 	
-	<animation>
+	<!--animation>
 		<type>material</type>
-		<object-name>ApuEgt</object-name>
-		<object-name>ApuEgtFace</object-name>
-		<object-name>ApuRpm</object-name>
-		<object-name>ApuRpm2</object-name>
-		<object-name>ApuRpmFace</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.6</green>
 			<blue>0.3</blue>
-			<factor-prop>controls/lighting/capt-panel-norm</factor-prop>
+			<factor-prop>controls/lighting/</factor-prop>
 		</emission>
-	</animation>
+	</animation-->
 	
 	<!-- Electrical -->
 	<animation>
