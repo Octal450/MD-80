@@ -24,6 +24,7 @@
 			</author>
 		</authors>
 		<chase-distance-m type="double">-80</chase-distance-m>
+		<checklists include="MD-80-Checklists.xml"/>
 		<current-view>
 			<z-offset-default type="float">80</z-offset-default>
 			<z-offset-min-m type="float">20</z-offset-min-m>
@@ -55,13 +56,6 @@
 						<binding>
 							<command>dialog-show</command>
 							<dialog-name>acconfig-main</dialog-name>
-						</binding>
-					</item>
-					<item>
-						<label>About This Aircraft</label>
-						<binding>
-							<command>dialog-show</command>
-							<dialog-name>acconfig-about</dialog-name>
 						</binding>
 					</item>
 				</menu>
@@ -939,6 +933,14 @@
 						setprop("/controls/engines/engine[0]/throttle", getprop("/controls/engines/engine[0]/throttle") + 0.01);
 						setprop("/controls/engines/engine[1]/throttle", getprop("/controls/engines/engine[0]/throttle") + 0.01); # Not a typo, always use engine[0] as a reference
 					</script>
+				</binding>
+			</key>
+			<key n="67">
+				<name>C</name>
+				<desc>Open checklist dialog</desc>
+				<binding>
+					<command>dialog-show</command>
+					<dialog-name>checklist</dialog-name>
 				</binding>
 			</key>
 			<key n="68">

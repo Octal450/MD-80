@@ -111,6 +111,10 @@
 		</text>
 		<text>
 			<halign>left</halign>
+			<label>SHIFT + C - Open Checklist Dialog</label>
+		</text>
+		<text>
+			<halign>left</halign>
 			<label>CTRL + D - Disconnect Autothrottle</label>
 		</text>
 		<text>

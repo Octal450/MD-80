@@ -1,0 +1,539 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2022 Josh Davidson (Octal450) -->
+<!-- Source: USA Jet MD-80 Checklists -->
+
+<PropertyList>
+	
+    <checklist>
+		<title>ACCEPTANCE</title>
+		<page>
+			<item>
+				<name>PREFLIGHT</name>
+				<value>COMPLETE</value>
+			</item>
+			<item>
+				<name>LOGBOOK</name>
+				<value>CHECKED &amp; ONBOARD</value>
+			</item>
+			<item>
+				<name>O2 MASKS</name>
+				<value>CHECKED</value>
+			</item>
+			<item>
+				<name>INSTRUMENT SELECTORS</name>
+				<value>NORMAL</value>
+			</item>
+			<item>
+				<name>ENGINE SYNC</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>YAW DAMPER</name>
+				<value>ON</value>
+			</item>
+			<item>
+				<name>ANTI-SKID</name>
+				<value>ARM</value>
+			</item>
+			<item>
+				<name>ELECTRICAL PANEL</name>
+				<value>AUTO, OPEN, OFF</value>
+			</item>
+			<item>
+				<name>BATTERY SWITCH</name>
+				<value>ON &amp; LOCKED</value>
+			</item>
+			<item>
+				<name>EMERGENCY LIGHTS</name>
+				<value>ARM</value>
+			</item>
+			<item>
+				<name>SEATBELT &amp; NO SMOKING SIGNS</name>
+				<value>ON</value>
+			</item>
+			<item>
+				<name>LANDING GEAR</name>
+				<value>DOWN &amp; GREEN</value>
+			</item>
+		</page>
+	</checklist>
+	
+    <checklist>
+		<title>BEFORE START</title>
+		<page>
+			<item>
+				<name>CIRCUIT BREAKERS</name>
+				<value>CHECKED</value>
+			</item>
+			<item>
+				<name>STALL WARNING</name>
+				<value>CHECKED</value>
+			</item>
+			<item>
+				<name>AIR CONDITIONING</name>
+				<value>AUTO, AUTO, OFF</value>
+			</item>
+			<item>
+				<name>PRESSURIZATION</name>
+				<value>SET</value>
+			</item>
+			<item>
+				<name>ANTI-ICE</name>
+				<value>CAPTAIN, SET</value>
+			</item>
+			<item>
+				<name>ANNUN/DIGITAL LIGHTS</name>
+				<value>CHECKED</value>
+			</item>
+			<item>
+				<name>ENGINE/SYSTEM INSTRUMENTS</name>
+				<value>CHECKED</value>
+			</item>
+			<item>
+				<name>FUEL QUANTITY</name>
+				<value>CHECKED</value>
+			</item>
+			<item>
+				<name>BRAKES/BRAKE TEMPS</name>
+				<value>SET, CHECKED</value>
+			</item>
+			<item>
+				<name>TAKEOFF WARNING</name>
+				<value>CHECKED</value>
+			</item>
+			<item>
+				<name>FUEL X-FEED</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>FLIGHT INSTRUMENTS</name>
+				<value>CHECKED, CROSSCHECKED</value>
+			</item>
+			<item>
+				<name>NAV/COMM RADIOS, TRANSPONDER</name>
+				<value>SET</value>
+			</item>
+			<item>
+				<name>ZFW</name>
+				<value>SET, VERIFIED</value>
+			</item>
+			<item>
+				<name>FLAP TAKEOFF SELECTOR</name>
+				<value>STOW/SET</value>
+			</item>
+			<item>
+				<name>TRIM</name>
+				<value>ZERO, ZERO, SET</value>
+			</item>
+			<item>
+				<name>PMS/FMS</name>
+				<value>SET, VERIFIED</value>
+			</item>
+			<item>
+				<name>COMPANY DISPATCH</name>
+				<value>RELEASED</value>
+			</item>
+			<item>
+				<name>BRIEFING</name>
+				<value>COMPLETE</value>
+			</item>
+		</page>
+	</checklist>
+	
+    <checklist>
+		<title>START</title>
+		<page>
+			<item>
+				<name>DOORS</name>
+				<value>CLOSED &amp; ARMED</value>
+			</item>
+			<item>
+				<name>PNEU X-FEED VALVES</name>
+				<value>OPEN</value>
+			</item>
+			<item>
+				<name>TRANSPONDER</name>
+				<value>SET &amp; ON</value>
+			</item>
+			<item>
+				<name>BEACON</name>
+				<value>ON</value>
+			</item>
+			<item>
+				<name>FUEL PUMPS</name>
+				<value>SET</value>
+			</item>
+			<item>
+				<name>IGNITION</name>
+				<value>SYS A/B</value>
+			</item>
+			<item>
+				<name>PNEU PRESSURE</name>
+				<value>CHECKED</value>
+			</item>
+		</page>
+	</checklist>
+	
+    <checklist>
+		<title>BEFORE TAXI</title>
+		<page>
+			<item>
+				<name>IGNITION</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>APU</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>ELECTRICAL POWER</name>
+				<value>CHECKED</value>
+			</item>
+			<item>
+				<name>AIR CONDITIONING SUPPLY</name>
+				<value>AUTO (HP BLEED OFF)</value>
+			</item>
+			<item>
+				<name>ANTI-ICE</name>
+				<value>OFF/ON</value>
+			</item>
+			<item>
+				<name>ANNUNCIATOR PANEL</name>
+				<value>CHECKED</value>
+			</item>
+			<item>
+				<name>DFGS/FMA</name>
+				<value>SET, TAK OFF, TAK OFF</value>
+			</item>
+			<item>
+				<name>TO DATA, TRP, ART</name>
+				<value>CONFIRMED &amp; SET</value>
+			</item>
+			<item>
+				<name>HYDRAULIC PRESSURE &amp; PUMPS</name>
+				<value>CHECKED, HI/ON</value>
+			</item>
+			<item>
+				<name>PNEU X-FEED VALVES</name>
+				<value>CLOSED</value>
+			</item>
+			<item>
+				<name>SEAT/SEATBELT/WINDOW</name>
+				<value>SECURE</value>
+			</item>
+		</page>
+	</checklist>
+	
+    <checklist>
+		<title>BEFORE TAKEOFF</title>
+		<page>
+			<item>
+				<name>FLIGHT CONTROLS</name>
+				<value>CHECKED</value>
+			</item>
+			<item>
+				<name>FLAPS &amp; SLATS</name>
+				<value>SET, TO</value>
+			</item>
+			<item>
+				<name>SPOILERS</name>
+				<value>ARMED</value>
+			</item>
+			<item>
+				<name>AUTOBRAKES</name>
+				<value>T.O. &amp; ARMED</value>
+			</item>
+			<item>
+				<name>RWY/FIX/ALT</name>
+				<value>SET, ARMED</value>
+			</item>
+			<item>
+				<name>IGNITION</name>
+				<value>BOTH (OVRD)</value>
+			</item>
+			<item>
+				<name>ANNUNCIATOR PANEL</name>
+				<value>CHECKED</value>
+			</item>
+			<item>
+				<name>LIGHTS</name>
+				<value>AS REQUIRED</value>
+			</item>
+		</page>
+	</checklist>
+	
+    <checklist>
+		<title>CLIMB</title>
+		<page>
+			<item>
+				<name>IGNITION</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>FUEL PUMPS</name>
+				<value>SET</value>
+			</item>
+			<item>
+				<name>PRESSURIZATION</name>
+				<value>CHECKED</value>
+			</item>
+			<item>
+				<name>ANNUNCIATOR PANEL</name>
+				<value>CHECKED</value>
+			</item>
+			<item>
+				<name>TRP</name>
+				<value>CL</value>
+			</item>
+			<item>
+				<name>ART</name>
+				<value>AUTO</value>
+			</item>
+			<item>
+				<name>LANDING GEAR</name>
+				<value>UP &amp; LIGHTS OUT</value>
+			</item>
+			<item>
+				<name>FLAPS &amp; SLATS</name>
+				<value>UP &amp; RETRACT</value>
+			</item>
+			<item>
+				<name>SPOILERS</name>
+				<value>DISARMED</value>
+			</item>
+			<item>
+				<name>AUTOBRAKES</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>FLAP TAKEOFF SELECTOR</name>
+				<value>STOW</value>
+			</item>
+			<item>
+				<name>HYDRAULIC PUMPS</name>
+				<value>OFF &amp; LOW</value>
+			</item>
+			<item>
+				<name>AT TRANSITION ALTITUDE</name>
+			</item>
+			<item>
+				<name>ALTIMETERS</name>
+				<value>SET &amp; CROSSCHECKED</value>
+			</item>
+			<item>
+				<name>LIGHTS</name>
+				<value>AS REQUIRED</value>
+			</item>
+		</page>
+	</checklist>
+	
+    <checklist>
+		<title>DESCENT</title>
+		<page>
+			<item>
+				<name>ENGINE SYNC</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>ALTIMETERS</name>
+				<value>SET &amp; CROSSCHECKED</value>
+			</item>
+			<item>
+				<name>PRESSURIZATION</name>
+				<value>SET</value>
+			</item>
+			<item>
+				<name>TRP</name>
+				<value>GA</value>
+			</item>
+			<item>
+				<name>HYDRAULIC PUMPS</name>
+				<value>ON &amp; HI</value>
+			</item>
+			<item>
+				<name>AIRSPEED BUGS</name>
+				<value>VREF SET</value>
+			</item>
+			<item>
+				<name>MINIMUMS/DH</name>
+				<value>SET</value>
+			</item>
+			<item>
+				<name>BRIEFING</name>
+				<value>COMPLETE</value>
+			</item>
+		</page>
+	</checklist>
+	
+    <checklist>
+		<title>APPROACH</title>
+		<page>
+			<item>
+				<name>FUEL PUMPS</name>
+				<value>SET</value>
+			</item>
+			<item>
+				<name>LIGHTS</name>
+				<value>AS REQUIRED</value>
+			</item>
+			<item>
+				<name>SEATBELT SIGNS</name>
+				<value>ON</value>
+			</item>
+			<item>
+				<name>APPROACH FREQUENCY &amp; COURSE</name>
+				<value>SET</value>
+			</item>
+		</page>
+	</checklist>
+	
+    <checklist>
+		<title>BEFORE LANDING</title>
+		<page>
+			<item>
+				<name>IGNITION</name>
+				<value>BOTH (OVRD)</value>
+			</item>
+			<item>
+				<name>ANNUNCIATOR PANEL/FMA</name>
+				<value>CHECKED</value>
+			</item>
+			<item>
+				<name>LANDING GEAR</name>
+				<value>DOWN &amp; 3 GREEN</value>
+			</item>
+			<item>
+				<name>SPOILERS</name>
+				<value>ARMED</value>
+			</item>
+			<item>
+				<name>AUTOBRAKES</name>
+				<value>OFF/MIN/MED/MAX &amp; ARMED</value>
+			</item>
+			<item>
+				<name>FLAPS &amp; SLATS</name>
+				<value>SET, LAND</value>
+			</item>
+		</page>
+	</checklist>
+	
+    <checklist>
+		<title>AFTER LANDING</title>
+		<page>
+			<item>
+				<name>IGNITION</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>APU</name>
+				<value>ON</value>
+			</item>
+			<item>
+				<name>SPOILERS</name>
+				<value>RETRACTED &amp; DISARMED</value>
+			</item>
+			<item>
+				<name>AUTOBRAKES</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>RADAR</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>FLAPS &amp; SLATS</name>
+				<value>UP &amp; RETRACTED</value>
+			</item>
+		</page>
+	</checklist>
+	
+    <checklist>
+		<title>PARKING</title>
+		<page>
+			<item>
+				<name>PARKING BRAKE</name>
+				<value>OFF/ON</value>
+			</item>
+			<item>
+				<name>FUEL CUTOFFS</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>AIR CONDITIONING</name>
+				<value>SET</value>
+			</item>
+			<item>
+				<name>FUEL PUMPS</name>
+				<value>SET</value>
+			</item>
+			<item>
+				<name>ANTI-ICE</name>
+				<value>SET</value>
+			</item>
+			<item>
+				<name>BEACON</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>HYDRAULIC PUMPS</name>
+				<value>OFF &amp; HI</value>
+			</item>
+			<item>
+				<name>TRANSPONDER</name>
+				<value>STBY</value>
+			</item>
+			<item>
+				<name>SLIDES</name>
+				<value>DISARMED</value>
+			</item>
+		</page>
+	</checklist>
+	
+    <checklist>
+		<title>SECURING</title>
+		<page>
+			<item>
+				<name>AIR CONDITIONING</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>FUEL PUMPS</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>ANTI-ICE</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>EMERGENCY LIGHTS</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>FLIGHT DIRECTORS</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>INTEGRAL LIGHTS</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>OXYGEN BOTTLE</name>
+				<value>CLOSED</value>
+			</item>
+			<item>
+				<name>APU</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>BATTERY SWITCH</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>PRESSURIZATION</name>
+				<value>MANUAL &amp; VALVE CLOSED</value>
+			</item>
+		</page>
+	</checklist>
+
+</PropertyList>
