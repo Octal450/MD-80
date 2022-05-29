@@ -15,6 +15,13 @@
 			<output>/controls/flight/speedbrake-arm</output>
 		</switch>
 		
+		<switch name="spoilers/max-lever">
+			<default value="3"/>
+			<test value="4">
+				gear/unit[0]/WOW eq 1
+			</test>
+		</switch>
+		
 		<switch name="spoilers/lever-input">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -32,6 +39,10 @@
 			<test value="4">
 				/controls/flight/speedbrake ge 0.8
 			</test>
+			<clipto>
+				<min>0</min>
+				<max>spoilers/max-lever</max>
+			</clipto>
 		</switch>
 		
 		<switch name="spoilers/main-gear-or">

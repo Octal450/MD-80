@@ -36,7 +36,7 @@
 		<property>instrumentation/stby-alt/altitude-ft</property>
 		<factor>0.00001</factor>
 		<step>10000</step>
-		<scroll>20</scroll>
+		<scroll>50</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -49,7 +49,7 @@
 		<property>instrumentation/stby-alt/altitude-ft</property>
 		<factor>0.0001</factor>
 		<step>1000</step>
-		<scroll>20</scroll>
+		<scroll>50</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -61,8 +61,6 @@
 		<object-name>alt3</object-name>
 		<property>instrumentation/stby-alt/altitude-ft</property>
 		<factor>0.001</factor>
-		<step>100</step>
-		<scroll>20</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
