@@ -16,16 +16,6 @@
 	
 	<propulsion>
 		<engine file="jt8d-217a_1">
-			<location unit="M">
-				<x>23.902</x>
-				<y>-1.4</y>
-				<z>0.0014</z>
-			</location>
-			<orient unit="DEG">
-				<roll>0</roll>
-				<pitch>2.2</pitch>
-				<yaw>0</yaw>
-			</orient>
 			<feed>3</feed>
 			<thruster file="direct">
 				<location unit="M">
@@ -42,16 +32,6 @@
 		</engine>
 		
 		<engine file="jt8d-217a_2">
-			<location unit="M">
-				<x>23.902</x>
-				<y>1.4</y>
-				<z>0.0014</z>
-			</location>
-			<orient unit="DEG">
-				<roll>0</roll>
-				<pitch>2.2</pitch>
-				<yaw>0</yaw>
-			</orient>
 			<feed>4</feed>
 			<thruster file="direct">
 				<location unit="M">
@@ -68,16 +48,6 @@
 		</engine>
 		
 		<engine file="gtcp85-98dhf">
-			<location unit="M">
-				<x>35.4694</x>
-				<y>1.2879</y>
-				<z>1.15571</z>
-			</location>
-			<orient unit="DEG">
-				<roll>0</roll>
-				<pitch>0</pitch>
-				<yaw>0</yaw>
-			</orient>
 			<feed>5</feed>
 			<thruster file="direct">
 				<location unit="M">
