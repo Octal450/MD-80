@@ -1817,6 +1817,52 @@
 	
 	</channel>
 	
+	<channel name="Oil Temperature Gauges" execrate="4">
+		
+		<!-- Oil Temperature Gauge 1 -->
+		<switch name="/instrumentation/ot[0]/power-avail">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/ac-l ge 112
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/ot[0]/ot-input">
+			<default value="/instrumentation/ot[0]/ot-input"/>
+			<test value="/engines/engine[0]/oil-temp">
+				/instrumentation/ot[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/ot[0]/ot">
+			<input>/instrumentation/ot[0]/ot-input</input>
+			<c1>15</c1>
+		</lag_filter>
+		
+		<!-- Oil Temperature Gauge 2 -->
+		<switch name="/instrumentation/ot[1]/power-avail">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/ac-r ge 112
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/ot[1]/ot-input">
+			<default value="/instrumentation/ot[1]/ot-input"/>
+			<test value="/engines/engine[1]/oil-temp">
+				/instrumentation/ot[1]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/ot[1]/ot">
+			<input>/instrumentation/ot[1]/ot-input</input>
+			<c1>15</c1>
+		</lag_filter>
+	
+	</channel>
+	
 	<channel name="Oil Quantity Gauges" execrate="4">
 		
 		<!-- Oil Quantity Gauge 1 -->
