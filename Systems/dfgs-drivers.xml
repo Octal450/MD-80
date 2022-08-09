@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Copyright (c) 2020 Joshua Davidson (Octal450) -->
+<!-- Copyright (c) 2022 Josh Davidson (Octal450) -->
 
 <PropertyList>
 	
@@ -295,7 +295,40 @@
 		</input>
 		<input>/it-autoflight/internal/kts-rate-raw</input>
 		<output>/it-autoflight/internal/kts-rate</output>
-		<filter-time>0.08</filter-time>
+		<filter-time>0.16</filter-time>
+	</filter>
+	
+	<filter>
+		<name>Mach Rate</name>
+		<type>derivative</type>
+		<input>/velocities/mach</input>
+		<output>/it-autoflight/internal/mach-rate-raw</output>
+		<filter-time>1.0</filter-time>
+	</filter>
+	
+	<filter>
+		<name>Mach Rate Gain</name>
+		<type>gain</type>
+		<gain>750</gain>
+		<input>/it-autoflight/internal/mach-rate-raw</input>
+		<output>/it-autoflight/internal/mach-rate-gain</output>
+	</filter>
+	
+	<filter>
+		<name>Mach Rate Lag</name>
+		<type>exponential</type>
+		<input>
+			<condition>
+				<equals>
+					<property>/gear/gear[0]/wow</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<value>3</value> <!-- On ground, we want upwards guidance only -->
+		</input>
+		<input>/it-autoflight/internal/mach-rate-gain</input>
+		<output>/it-autoflight/internal/mach-rate</output>
+		<filter-time>0.16</filter-time>
 	</filter>
 	
 	<filter>
@@ -315,7 +348,7 @@
 						<property>/fdm/jsbsim/dfgs/speeds/vss1_3</property>
 						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
 					</difference>
-					<value>0.08</value>
+					<value>0.1</value>
 				</product>
 			</expression>
 		</input>
@@ -332,7 +365,7 @@
 						<property>/it-autoflight/input/mach-flch</property>
 						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
 					</difference>
-					<value>80</value>
+					<value>100</value>
 				</product>
 			</expression>
 		</input>
@@ -343,7 +376,7 @@
 						<property>/it-autoflight/input/kts-flch</property>
 						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
 					</difference>
-					<value>0.08</value>
+					<value>0.1</value>
 				</product>
 			</expression>
 		</input>
@@ -383,7 +416,7 @@
 					</equals>
 				</and>
 			</condition>
-			<value>2.5</value>
+			<value>1.5</value>
 		</max-rate-of-change>
 		<max-rate-of-change>100</max-rate-of-change>
 	</filter>
