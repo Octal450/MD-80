@@ -3575,7 +3575,7 @@ OBJECT poly
 name "CDUCasings"
 data 9
 Plane.020
-texture "txt_cockpit_palette.rgb"
+texture "txt_cockpit_palette.png"
 crease 45.000000
 numvert 80
 2.40955 0.59355 -0.09225
@@ -4133,7 +4133,7 @@ OBJECT poly
 name "CDUs"
 data 9
 Plane.009
-texture "txt_cockpit_cdu.rgb"
+texture "txt_cockpit_cdu.png"
 crease 45.000000
 numvert 16
 2.43468 0.70312 -0.23784
@@ -4200,7 +4200,7 @@ OBJECT poly
 name "FDFloorCarpet"
 data 8
 Mesh.002
-texture "txt_cockpit_carpet.rgb"
+texture "txt_cockpit_carpet.png"
 crease 30.000000
 numvert 20
 2.71393 0.2 -0.30511
@@ -5008,7 +5008,7 @@ OBJECT poly
 name "FlightDeck"
 data 10
 Mesh.11311
-texture "txt_cockpit_palette.rgb"
+texture "txt_cockpit_palette.png"
 crease 60.000000
 numvert 542
 1.96582 0.28328 0.94017
@@ -9188,7 +9188,7 @@ OBJECT poly
 name "FlightDeckBulkhead"
 data 8
 Mesh.192
-texture "txt_cockpit_palette.rgb"
+texture "txt_cockpit_palette.png"
 crease 30.000000
 numvert 34
 4.0375 1.9181 -0.30404
@@ -11329,7 +11329,7 @@ OBJECT poly
 name "GlareShield"
 data 10
 Mesh.11312
-texture "txt_cockpit_palette.rgb"
+texture "txt_cockpit_palette.png"
 crease 30.000000
 numvert 198
 2.49518 1.20704 -0.35986
@@ -19442,7 +19442,7 @@ OBJECT poly
 name "Moulding.001"
 data 9
 Plane.032
-texture "txt_cockpit_palette.rgb"
+texture "txt_cockpit_palette.png"
 crease 45.000000
 numvert 282
 3.03314 0.586 1.07465
@@ -21377,7 +21377,7 @@ OBJECT poly
 name "PanelMainC"
 data 9
 Plane.025
-texture "txt_cockpit_palette.rgb"
+texture "txt_cockpit_palette.png"
 crease 30.000000
 numvert 45
 2.22387 0.87859 0.18877
@@ -22814,7 +22814,7 @@ OBJECT poly
 name "PanelMainD"
 data 9
 Plane.027
-texture "txt_cockpit_palette.rgb"
+texture "txt_cockpit_palette.png"
 crease 30.000000
 numvert 14
 2.20183 0.98237 0.41717
@@ -22904,7 +22904,7 @@ OBJECT poly
 name "PanelMainL"
 data 9
 Plane.019
-texture "txt_cockpit_palette.rgb"
+texture "txt_cockpit_palette.png"
 crease 30.000000
 numvert 124
 2.30965 0.58198 0.78302
@@ -23695,7 +23695,7 @@ OBJECT poly
 name "PanelMainR"
 data 9
 Plane.024
-texture "txt_cockpit_palette.rgb"
+texture "txt_cockpit_palette.png"
 crease 30.000000
 numvert 124
 2.30965 0.58198 -0.78302
@@ -25042,7 +25042,7 @@ OBJECT poly
 name "PedalCover"
 data 8
 Tube.073
-texture "txt_cockpit_palette.rgb"
+texture "txt_cockpit_palette.png"
 crease 45.000000
 numvert 1012
 1.87707 0.2 0.56501
@@ -39518,7 +39518,7 @@ OBJECT poly
 name "PedestalBase_0"
 data 8
 Tube.028
-texture "txt_cockpit_palette.rgb"
+texture "txt_cockpit_palette.png"
 crease 30.000000
 numvert 206
 3.04209 0.2 -0.07621
@@ -51309,7 +51309,7 @@ OBJECT poly
 name "SeatCP"
 data 8
 Cube.010
-texture "txt_cockpit_palette.rgb"
+texture "txt_cockpit_palette.png"
 crease 60.000000
 numvert 276
 2.8401 0.22407 -0.76437
@@ -58101,7 +58101,7 @@ OBJECT poly
 name "SeatP"
 data 8
 Cube.127
-texture "txt_cockpit_palette.rgb"
+texture "txt_cockpit_palette.png"
 crease 60.000000
 numvert 276
 2.8401 0.22407 0.2361

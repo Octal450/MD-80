@@ -18617,7 +18617,7 @@ OBJECT poly
 name "PanelOverhead.001"
 data 9
 Plane.001
-texture "txt_cockpit_palette.rgb"
+texture "txt_cockpit_palette.png"
 crease 30.000000
 numvert 22
 2.55499 1.41235 0.26269
