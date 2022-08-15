@@ -136,21 +136,6 @@
 			<value>0</value>
 		</min>
 		<min>-100000</min>
-		<max>
-			<condition>
-				<or>
-					<equals>
-						<property>/gear/gear[1]/wow</property>
-						<value>1</value>
-					</equals>
-					<equals>
-						<property>/gear/gear[2]/wow</property>
-						<value>1</value>
-					</equals>
-				</or>
-			</condition>
-			<value>1000</value>
-		</max>
 		<max>100000</max>
 	</filter>
 	

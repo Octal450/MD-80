@@ -278,7 +278,7 @@
 		<type>exponential</type>
 		<input>/velocities/airspeed-kt</input>
 		<output>/it-autoflight/internal/kts-input-lag</output>
-		<filter-time>0.32</filter-time>
+		<filter-time>0.16</filter-time>
 	</filter>
 	
 	<filter>
@@ -307,7 +307,7 @@
 					<value>1</value>
 				</equals>
 			</condition>
-			<value>3</value> <!-- On ground, we want upwards guidance only -->
+			<value>4</value> <!-- On ground, we want upwards guidance only -->
 		</input>
 		<input>/it-autoflight/internal/kts-rate-raw</input>
 		<output>/it-autoflight/internal/kts-rate</output>
@@ -319,7 +319,7 @@
 		<type>exponential</type>
 		<input>/velocities/mach</input>
 		<output>/it-autoflight/internal/mach-input-lag</output>
-		<filter-time>0.32</filter-time>
+		<filter-time>0.16</filter-time>
 	</filter>
 	
 	<filter>
@@ -356,7 +356,7 @@
 					<value>1</value>
 				</equals>
 			</condition>
-			<value>3</value> <!-- On ground, we want upwards guidance only -->
+			<value>4</value> <!-- On ground, we want upwards guidance only -->
 		</input>
 		<input>/it-autoflight/internal/mach-rate-gain</input>
 		<output>/it-autoflight/internal/mach-rate</output>
@@ -1099,7 +1099,7 @@
 				<product>
 					<table>
 						<property>/orientation/pitch-deg</property>
-						<entry><ind> 1</ind><dep>4.6</dep></entry>
+						<entry><ind> 1</ind><dep>1.9</dep></entry>
 						<entry><ind>10</ind><dep>0.0</dep></entry>
 					</table>
 					<table>
