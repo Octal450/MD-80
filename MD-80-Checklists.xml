@@ -250,7 +250,7 @@
 			</item>
 			<item>
 				<name>IGNITION</name>
-				<value>BOTH (OVRD)</value>
+				<value>OVRD</value>
 			</item>
 			<item>
 				<name>ANNUNCIATOR PANEL</name>
@@ -393,7 +393,7 @@
 		<page>
 			<item>
 				<name>IGNITION</name>
-				<value>BOTH (OVRD)</value>
+				<value>OVRD</value>
 			</item>
 			<item>
 				<name>ANNUNCIATOR PANEL/FMA</name>
