@@ -95,13 +95,16 @@
 		<type>select</type>
 		<object-name>FaceWNTOn</object-name>
 		<condition>
-			<!--or-->
-				<!-- On when one wheel is turning 20% slower than the others -->
+			<or>
+				<equals>
+					<property>systems/warnings/wheel-not-turning/active</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
 				</equals>
-			<!--or-->
+			</or>
 		</condition>
 	</animation>
 	

@@ -143,6 +143,76 @@
 				fcs/flap-pos-deg ge 26
 			</test>
 		</switch>
+		
+		<!-- Wheel Not Turning -->
+		<fcs_function name="/systems/warnings/wheel-not-turning/n-l-avg">
+			<function>
+				<avg>
+					<property>gear/unit[0]/wheel-speed-fps</property>
+					<property>gear/unit[1]/wheel-speed-fps</property>
+				</avg>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/warnings/wheel-not-turning/n-r-avg">
+			<function>
+				<avg>
+					<property>gear/unit[0]/wheel-speed-fps</property>
+					<property>gear/unit[2]/wheel-speed-fps</property>
+				</avg>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/warnings/wheel-not-turning/l-r-avg">
+			<function>
+				<avg>
+					<property>gear/unit[1]/wheel-speed-fps</property>
+					<property>gear/unit[2]/wheel-speed-fps</property>
+				</avg>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/warnings/wheel-not-turning/l-r-q-n">
+			<function>
+				<quotient>
+					<property>/systems/warnings/wheel-not-turning/l-r-avg</property>
+					<property>gear/unit[0]/wheel-speed-fps</property>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/warnings/wheel-not-turning/n-r-q-l">
+			<function>
+				<quotient>
+					<property>/systems/warnings/wheel-not-turning/n-r-avg</property>
+					<property>gear/unit[1]/wheel-speed-fps</property>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/warnings/wheel-not-turning/n-l-q-r">
+			<function>
+				<quotient>
+					<property>/systems/warnings/wheel-not-turning/n-l-avg</property>
+					<property>gear/unit[2]/wheel-speed-fps</property>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/warnings/wheel-not-turning/active"> <!-- If any is greater than 20% slower (1.2 quotient) while WOW -->
+			<default value="0"/>
+			<test logic="OR" value="0">
+				gear/unit[0]/WOW eq 0
+				gear/unit[1]/WOW eq 0
+				gear/unit[2]/WOW eq 0
+				/instrumentation/airspeed-indicator/indicated-speed-kt lt 30
+			</test>
+			<test logic="OR" value="1">
+				/systems/warnings/wheel-not-turning/l-r-q-n ge 1.2
+				/systems/warnings/wheel-not-turning/n-r-q-l ge 1.2
+				/systems/warnings/wheel-not-turning/n-l-q-r ge 1.2
+			</test>
+		</switch>
 	
 	</channel>
 	
