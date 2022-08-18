@@ -10,11 +10,13 @@ var pfd2Error = nil;
 
 var Value = {
 	Ai: {
+		alpha: 0,
 		center: nil,
 		pitch: 0,
 		risingRunwayMultiplier: 0,
 		risingRunwayOffset: 0,
 		roll: 0,
+		stallAlphaDeg: 0,
 	},
 	Misc: {
 		lat: 0,
@@ -84,9 +86,9 @@ var canvasBase = {
 		return me;
 	},
 	getKeys: func() {
-		return ["AI_arrow_dn", "AI_arrow_up", "AI_background", "AI_bank", "AI_center", "AI_dual_cue", "AI_error", "AI_group", "AI_group2", "AI_group3", "AI_rising_runway", "AI_scale", "AI_scale_dc", "AI_single_cue", "DH_below", "DH_pointer", "DH_set", "FD_v",
-		"FD_pitch", "FD_roll", "FS_pointer", "FS_scale", "Gndspd", "GS_group", "GS_no", "GS_pointer", "GS_scale", "ILS_group", "Inner_Marker", "LOC_no", "LOC_pointer", "LOC_scale", "Middle_Marker", "NAV_ILS", "NAV_pointer", "NAV_scale", "Outer_Marker", "RA_bars",
-		"RA_scale"];
+		return ["AI_arrow_dn", "AI_arrow_up", "AI_background", "AI_bank", "AI_center", "AI_dual_cue", "AI_error", "AI_group", "AI_group2", "AI_group3", "AI_PLI", "AI_PLI_dual", "AI_PLI_single", "AI_rising_runway", "AI_scale", "AI_scale_dc", "AI_single_cue",
+		"DH_below", "DH_pointer", "DH_set", "FD_v", "FD_pitch", "FD_roll", "FS_pointer", "FS_scale", "Gndspd", "GS_group", "GS_no", "GS_pointer", "GS_scale", "ILS_group", "Inner_Marker", "LOC_no", "LOC_pointer", "LOC_scale", "Middle_Marker", "NAV_ILS",
+		"NAV_pointer", "NAV_scale", "Outer_Marker", "RA_bars", "RA_scale"];
 	},
 	setup: func() {
 		# Hide the pages by default
@@ -131,8 +133,10 @@ var canvasBase = {
 			Value.Ai.risingRunwayOffset = 12.066; # Align it properly
 		}
 		
+		Value.Ai.alpha = pts.Fdm.JSBsim.Aero.alphaDegDampedPli.getValue();
 		Value.Ai.pitch = pts.Orientation.pitchDeg.getValue();
 		Value.Ai.roll = pts.Orientation.rollDeg.getValue();
+		Value.Ai.stallAlphaDeg = pts.Fdm.JSBsim.Dfgs.stallAlphaDeg.getValue();
 		
 		me.aiBackgroundTrans.setTranslation(0, math.clamp(Value.Ai.pitch * 12.345, -240, 240)); # According to a pilot, it don't go the whole way
 		me.aiBackgroundRot.setRotation(-Value.Ai.roll * D2R, Value.Ai.center);
@@ -141,6 +145,26 @@ var canvasBase = {
 		me.aiScaleRot.setRotation(-Value.Ai.roll * D2R, Value.Ai.center);
 		
 		me["AI_bank"].setRotation(-Value.Ai.roll * D2R);
+		
+		if (pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() >= 60 and pts.Controls.Flight.flapsInput.getValue() > 0) {
+			me["AI_PLI"].setTranslation(0, math.clamp(Value.Ai.stallAlphaDeg - Value.Ai.alpha, -20, 20) * -12.345);
+			if (Value.Ai.alpha >= Value.Ai.stallAlphaDeg) {
+				me["AI_PLI"].setColor(1,0,0);
+			} else {
+				me["AI_PLI"].setColor(1,1,1);
+			}
+			
+			if (systems.DUController.flightDirector == "Dual Cue") {
+				me["AI_PLI_dual"].show();
+				me["AI_PLI_single"].hide();
+			} else {
+				me["AI_PLI_dual"].hide();
+				me["AI_PLI_single"].show();
+			}
+		} else {
+			me["AI_PLI_dual"].hide();
+			me["AI_PLI_single"].hide();
+		}
 		
 		if (Value.Ai.pitch > 30) {
 			me["AI_arrow_dn"].show();

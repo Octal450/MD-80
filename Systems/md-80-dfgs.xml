@@ -43,6 +43,11 @@
 			<c1>10</c1>
 		</lag_filter>
 		
+		<lag_filter name="aero/alpha-deg-damped-pli">
+			<input>aero/alpha-deg</input> <!-- Don't use fixed, avoids jump when nose gear lifts -->
+			<c1>10</c1>
+		</lag_filter>
+		
 		<switch name="dfgs/yaw/cmd-on">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -259,6 +264,23 @@
 				<max>100000</max>
 			</clipto>
 		</pure_gain>
+		
+		<fcs_function name="dfgs/stall-alpha-deg">
+			<function>
+				<table>
+					<independentVar lookup="row">atmosphere/density-altitude</independentVar>
+					<tableData>
+						    0  15.3
+						43000   8.1
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<pure_gain name="dfgs/stall-dis-alpha-deg">
+			<input>dfgs/stall-alpha-deg</input>
+			<gain>0.9</gain> <!-- 90% -->
+		</pure_gain>
 	
 	</channel>
 	
@@ -321,14 +343,11 @@
 			<test logic="OR" value="0">
 				position/wow eq 1
 				dfgs/power-avail eq 0
-				fcs/slat-pos-deg lt 1
-			</test>
-			<test logic="AND" value="0">
-				aero/alpha-deg gt 12
-				aero/alpha-deg le 15
+				/controls/flight/flaps-input eq 0
+				aero/alpha-deg-damped le dfgs/stall-dis-alpha-deg
 			</test>
 			<test logic="AND" value="1">
-				aero/alpha-deg gt 18
+				aero/alpha-deg-damped ge dfgs/stall-alpha-deg
 				position/wow ne 1
 			</test>
 		</switch>

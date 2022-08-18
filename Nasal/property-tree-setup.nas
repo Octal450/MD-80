@@ -64,11 +64,15 @@ var Engines = {
 
 var Fdm = {
 	JSBsim: {
+		Aero: {
+			alphaDegDampedPli: props.globals.getNode("/fdm/jsbsim/aero/alpha-deg-damped-pli"),
+		},
 		Dfgs: {
 			Speeds: {
 				vmin: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin"),
 				vminMach: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin-mach"),
 			},
+			stallAlphaDeg: props.globals.getNode("/fdm/jsbsim/dfgs/stall-alpha-deg"),
 			StickPusher: {
 				active: props.globals.getNode("/fdm/jsbsim/dfgs/stick-pusher/active"),
 			},
