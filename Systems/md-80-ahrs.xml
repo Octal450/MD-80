@@ -67,7 +67,7 @@
 	
 	<channel name="AHRS 1 Alignment" execrate="8">
 		
-		<switch name="/systems/ahrs[0]/can-align"> <!-- Flip flop, so that if it can't aligned, switch must be reset to off -->
+		<switch name="/systems/ahrs[0]/can-align"> <!-- Flip flop, so that if it can't aligned, power must be cycled -->
 			<default value="/systems/ahrs[0]/can-align"/>
 			<test logic="OR" value="1">
 				/systems/ahrs[0]/aligned eq 1
@@ -128,7 +128,7 @@
 	
 	<channel name="AHRS 2 Alignment" execrate="8">
 		
-		<switch name="/systems/ahrs[1]/can-align"> <!-- Flip flop, so that if it can't aligned, switch must be reset to off -->
+		<switch name="/systems/ahrs[1]/can-align"> <!-- Flip flop, so that if it can't aligned, power must be cycled -->
 			<default value="/systems/ahrs[1]/can-align"/>
 			<test logic="OR" value="1">
 				/systems/ahrs[1]/aligned eq 1
