@@ -391,12 +391,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>IRS Aligns Instantly</label>
+				<label>Auto Arm Altitude</label>
 				<halign>left</halign>
-				<enable>
-					<property>/systems/acconfig/extra-stuff</property>
-				</enable>
-				<property>/systems/acconfig/options/irs-align-instantly</property>
+				<property>/systems/acconfig/options/auto-arm-alt</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>

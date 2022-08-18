@@ -1045,6 +1045,15 @@ setlistener("/it-autoflight/input/hdg", func() {
 
 setlistener("/it-autoflight/internal/alt", func() {
 	setprop("/autopilot/settings/target-altitude-ft", getprop("/it-autoflight/internal/alt"));
+	
+	if (pts.Systems.Acconfig.Options.autoArmAlt.getBoolValue() and !Input.altArmed.getBoolValue()) {
+		settimer(func() {
+			Output.vertTemp = Output.vert.getValue();
+			if (Output.vertTemp != 0 and Output.vertTemp != 2 and Output.vertTemp != 6) {
+				Input.altArmed.setBoolValue(1);
+			}
+		}, 1);
+	}
 }, 0, 0);
 
 var loopTimer = maketimer(0.1, ITAF, ITAF.loop);
