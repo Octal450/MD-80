@@ -683,12 +683,14 @@
 			<test value="40">
 				/controls/flight/flaps-input eq 5
 			</test>
+			<output>dfgs/flaps-cmd</output>
 		</switch>
 		
 		<switch name="/controls/flight/slats-cmd">
 			<default value="0"/>
-			<test value="20"> <!-- 14 or greater -->
+			<test logic="OR" value="20"> <!-- 14 or greater -->
 				/controls/flight/flaps-cmd ge 14
+				dfgs/auto-slat-ext eq 1
 			</test>
 			<test value="10">
 				/controls/flight/flaps-input ge 1

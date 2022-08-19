@@ -5,6 +5,7 @@
 
 <system name="MD-80: DFGS">
 	
+	<property value="0">dfgs/flaps-cmd</property>
 	<property value="0">/gear/abs/disarm</property>
 	
 	<!-- Default gains for tuning -->
@@ -277,10 +278,21 @@
 			</function>
 		</fcs_function>
 		
-		<pure_gain name="dfgs/stall-dis-alpha-deg">
+		<pure_gain name="dfgs/stall-appr-alpha-deg">
 			<input>dfgs/stall-alpha-deg</input>
 			<gain>0.9</gain> <!-- 90% -->
 		</pure_gain>
+		
+		<switch name="dfgs/auto-slat-ext">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				aero/alpha-deg-damped ge dfgs/stall-appr-alpha-deg
+				position/wow eq 0
+				/instrumentation/airspeed-indicator/indicated-speed-kt le 240
+				dfgs/flaps-cmd ge 1
+				dfgs/flaps-cmd lt 14
+			</test>
+		</switch>
 	
 	</channel>
 	
@@ -344,7 +356,7 @@
 				position/wow eq 1
 				dfgs/power-avail eq 0
 				/controls/flight/flaps-input eq 0
-				aero/alpha-deg-damped le dfgs/stall-dis-alpha-deg
+				aero/alpha-deg-damped le dfgs/stall-appr-alpha-deg
 			</test>
 			<test logic="AND" value="1">
 				aero/alpha-deg-damped ge dfgs/stall-alpha-deg

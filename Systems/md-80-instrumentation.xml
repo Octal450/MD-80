@@ -1953,6 +1953,9 @@
 		
 		<switch name="/instrumentation/flap-slat/slat">
 			<default value="2"/> <!-- Disag -->
+			<test value="3"> <!-- Auto and Disag -->
+				dfgs/auto-slat-ext eq 1
+			</test>
 			<test logic="AND" value="4"> <!-- Land -->
 				fcs/slat-pos-deg ge 19.9
 				/controls/flight/flaps-input gt 3
