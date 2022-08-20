@@ -5,6 +5,8 @@
 
 <system name="MD-80: Instrumentation">
 	
+	<property>/instrumentation/airspeed-indicator/indicated-mach-slow</property>
+	
 	<channel name="Airspeed Indicators" execrate="2">
 		
 		<fcs_function name="/it-autoflight/input/mach-kts-equiv">
@@ -47,26 +49,33 @@
 		
 		<switch name="/instrumentation/airspeed-indicator[0]/mach-input">
 			<default value="/instrumentation/airspeed-indicator[0]/mach-input"/>
-			<test value="/instrumentation/airspeed-indicator/indicated-mach">
+			<test value="/instrumentation/airspeed-indicator/indicated-mach-slow">
 				/instrumentation/airspeed-indicator[0]/power-avail eq 1
 			</test>
 		</switch>
 		
-		<fcs_function name="/instrumentation/airspeed-indicator[0]/mach-digit-input">
+		<fcs_function name="/instrumentation/airspeed-indicator[0]/mach-digit-cmd">
 			<function>
-				<sum>
-					<product>
-						<property>/instrumentation/airspeed-indicator[0]/mach-input</property>
-						<value>1000</value>
-					</product>
-					<value>0.5</value>
-				</sum>
+				<integer>
+					<sum>
+						<product>
+							<property>/instrumentation/airspeed-indicator[0]/mach-input</property>
+							<value>1000</value>
+						</product>
+						<value>0.5</value>
+					</sum>
+				</integer>
 			</function>
 			<clipto>
 				<min>149</min>
 				<max>999</max>
 			</clipto>
 		</fcs_function>
+		
+		<lag_filter name="/instrumentation/airspeed-indicator[0]/mach-digit-input">
+			<input>/instrumentation/airspeed-indicator[0]/mach-digit-cmd</input>
+			<c1>20</c1>
+		</lag_filter>
 		
 		<fcs_function name="/instrumentation/airspeed-indicator[0]/mach-digit-d100">
 			<function>
@@ -161,26 +170,33 @@
 		
 		<switch name="/instrumentation/airspeed-indicator[1]/mach-input">
 			<default value="/instrumentation/airspeed-indicator[1]/mach-input"/>
-			<test value="/instrumentation/airspeed-indicator/indicated-mach">
+			<test value="/instrumentation/airspeed-indicator/indicated-mach-slow">
 				/instrumentation/airspeed-indicator[1]/power-avail eq 1
 			</test>
 		</switch>
 		
-		<fcs_function name="/instrumentation/airspeed-indicator[1]/mach-digit-input">
+		<fcs_function name="/instrumentation/airspeed-indicator[1]/mach-digit-cmd">
 			<function>
-				<sum>
-					<product>
-						<property>/instrumentation/airspeed-indicator[1]/mach-input</property>
-						<value>1000</value>
-					</product>
-					<value>0.5</value>
-				</sum>
+				<integer>
+					<sum>
+						<product>
+							<property>/instrumentation/airspeed-indicator[1]/mach-input</property>
+							<value>1000</value>
+						</product>
+						<value>0.5</value>
+					</sum>
+				</integer>
 			</function>
 			<clipto>
 				<min>149</min>
 				<max>999</max>
 			</clipto>
 		</fcs_function>
+		
+		<lag_filter name="/instrumentation/airspeed-indicator[1]/mach-digit-input">
+			<input>/instrumentation/airspeed-indicator[1]/mach-digit-cmd</input>
+			<c1>20</c1>
+		</lag_filter>
 		
 		<fcs_function name="/instrumentation/airspeed-indicator[1]/mach-digit-d100">
 			<function>

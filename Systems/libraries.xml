@@ -178,6 +178,15 @@
 		<output>/controls/switches/minimums-minus-50</output>
 	</filter>
 	
+	<filter>
+		<name>Mach Slow</name>
+		<update-interval-secs>1.0</update-interval-secs>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>/instrumentation/airspeed-indicator/indicated-mach</input>
+		<output>/instrumentation/airspeed-indicator/indicated-mach-slow</output>
+	</filter>
+	
 	<!-- Because overwriting from JSBsim doesn't work -->
 	<filter>
 		<name>Engine 1 Cutoff</name>
