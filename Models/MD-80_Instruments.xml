@@ -18,6 +18,17 @@
 	</model>
 	
 	<model>
+		<name>brake_press</name>
+		<path>Aircraft/MD-80/Models/Instruments/brake-press.xml</path>
+		<offsets>
+			<x-m>2.193</x-m>
+			<y-m>-0.293</y-m>
+			<z-m>1.024</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
 		<name>L_efis</name>
 		<path>Aircraft/MD-80/Models/Instruments/EFIS/efis_L.xml</path>
 		<condition>
