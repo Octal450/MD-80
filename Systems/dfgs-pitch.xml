@@ -635,10 +635,11 @@
 	<filter>
 		<name>Mach Trim</name>
 		<type>gain</type>
+		<gain>1.0</gain>
 		<input>
 			<expression>
 				<table>
-					<abs><property>/velocities/mach</property></abs>
+					<property>/velocities/mach</property>
 					<entry><ind>0.80</ind><dep> 0.0</dep></entry>
 					<entry><ind>0.85</ind><dep>-0.1</dep></entry>
 				</table>
