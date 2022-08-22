@@ -357,6 +357,7 @@
 				dfgs/power-avail eq 0
 				/controls/flight/flaps-input eq 0
 				aero/alpha-deg-damped le dfgs/stall-appr-alpha-deg
+				/accelerations/pilot-g le 0.6
 			</test>
 			<test logic="AND" value="1">
 				aero/alpha-deg-damped ge dfgs/stall-alpha-deg
@@ -366,7 +367,8 @@
 		
 		<switch name="dfgs/stick-pusher/active">
 			<default value="0"/>
-			<test value="1"> <!-- TODO: Add electrical etc -->
+			<test logic="AND" value="1">
+				dfgs/power-avail eq 1
 				dfgs/stick-pusher/alpha-latch eq 1
 			</test>
 		</switch>

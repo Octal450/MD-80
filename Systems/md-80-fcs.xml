@@ -104,7 +104,7 @@
 			</test>
 		</switch>
 		
-		<scheduled_gain name="dfgs/mach-trim/output-final"> <!-- So that we still get full -1 to 1 deflection -->
+		<scheduled_gain name="fcs-actual/elevator/mach-trim"> <!-- So that we still get full -1 to 1 deflection -->
 			<input>dfgs/mach-trim/output</input>
 			<table>
 				<independentVar lookup="row">fcs-actual/elevator/yoke-switch</independentVar>
@@ -116,10 +116,21 @@
 			</table>
 		</scheduled_gain>
 		
+		<scheduled_gain name="fcs-actual/elevator/stick-pusher"> <!-- To allow pilot to override -->
+			<input>dfgs/stick-pusher/output</input>
+			<table>
+				<independentVar lookup="row">fcs-actual/elevator/yoke-switch</independentVar>
+				<tableData>
+					  -1  0.5
+					   0  1.0
+				</tableData>
+			</table>
+		</scheduled_gain>
+		
 		<summer name="fcs-actual/elevator/yoke-sum">
 			<input>fcs-actual/elevator/yoke-switch</input>
-			<input>dfgs/stick-pusher/output</input>
-			<input>dfgs/mach-trim/output-final</input>
+			<input>fcs-actual/elevator/stick-pusher</input>
+			<input>fcs-actual/elevator/mach-trim</input>
 			<clipto>
 				<min>-1.0</min>
 				<max>1.0</max>
@@ -257,7 +268,7 @@
 		</switch>
 		
 		<pure_gain name="fcs-actual/elevator/pwr-cmd-deg">
-			<input>fcs-actual/elevator/yoke-switch</input> <!-- Don't use the lagged version -->
+			<input>fcs-actual/elevator/yoke-sum</input> <!-- Don't use the lagged version -->
 			<gain>22.5</gain>
 			<clipto>
 				<min>10</min>
