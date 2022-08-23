@@ -21,6 +21,18 @@
 			</function>
 		</fcs_function>
 		
+		<fcs_function name="fcs-actual/aero-lag"> <!-- Guesses based on pilot info -->
+			<function>
+				<table>
+					<independentVar lookup="row">aero/qbar-psf</independentVar>
+					<tableData>
+						 90  10
+						450  17
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
 		<scheduled_gain name="fcs-actual/authority-alpha"> <!-- Guesses based on pilot info -->
 			<input>fcs-actual/authority</input>
 			<table>
@@ -244,7 +256,7 @@
 		<actuator name="fcs-actual/aileron-l/surface-final-actuator">
 			<input>fcs-actual/aileron-l/surface-cmd-deg</input>
 			<rate_limit>fcs-actual/surface-rate</rate_limit>
-			<lag>10</lag>
+			<lag>fcs-actual/aero-lag</lag>
 			<output>fcs-actual/aileron-l/surface-final-deg</output>
 		</actuator>
 		
@@ -299,7 +311,7 @@
 		</switch>
 		
 		<switch name="fcs-actual/elevator-l/lag">
-			<default value="10"/> <!-- For aerodynamically flown -->
+			<default value="fcs-actual/aero-lag"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="20">
 				/systems/hydraulics/sys-l-psi ge 950
 				fcs-actual/elevator/pwr-active eq 1
@@ -393,7 +405,7 @@
 		</switch>
 		
 		<switch name="fcs-actual/elevator-r/lag">
-			<default value="10"/> <!-- For aerodynamically flown -->
+			<default value="fcs-actual/aero-lag"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="20"> <!-- Not a typo, left hydraulic on both -->
 				/systems/hydraulics/sys-l-psi ge 950
 				fcs-actual/elevator/pwr-active eq 1
@@ -621,7 +633,7 @@
 		</switch>
 		
 		<switch name="fcs-actual/rudder/lag">
-			<default value="10"/> <!-- For aerodynamically flown -->
+			<default value="fcs-actual/aero-lag"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="20">
 				fcs-actual/rudder/pwr-active eq 1
 			</test>
