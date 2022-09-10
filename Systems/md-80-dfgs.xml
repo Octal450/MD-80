@@ -406,9 +406,8 @@
 		
 		<switch name="dfgs/yaw/r-switched">
 			<default value="dfgs/yaw/r-washout"/>
-			<test logic="OR" value="0">
+			<test value="0">
 				dfgs/yaw/active ne 1
-				dfgs/yaw/autoland-switch eq 1
 			</test>
 		</switch>
 		
