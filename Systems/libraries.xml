@@ -145,8 +145,7 @@
 	
 	<filter>
 		<name>Minimums Horn</name>
-		<type>gain</type>
-		<gain>1.0</gain>
+		<type>exponential</type>
 		<input>
 			<expression>
 				<table>
@@ -160,6 +159,7 @@
 			</expression>
 		</input>
 		<output>/controls/switches/minimums-horn-pitch</output>
+		<filter-time>0.08</filter-time>
 	</filter>
 	
 	<filter>
