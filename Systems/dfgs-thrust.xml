@@ -441,8 +441,8 @@
 		<input>
 			<expression>
 				<max>
-					<property>/fdm/jsbsim/engine/throttle-lever[0]</property>
-					<property>/fdm/jsbsim/engine/throttle-lever[1]</property>
+					<property>/controls/cockpit/throttle-lever[0]</property>
+					<property>/controls/cockpit/throttle-lever[1]</property>
 				</max>
 			</expression>
 		</input>
@@ -493,7 +493,7 @@
 			</condition>
 			<property>/fdm/jsbsim/engine/ats-cmd[0]</property>
 		</input>
-		<input>/fdm/jsbsim/engine/throttle-lever[0]</input>
+		<input>/controls/cockpit/throttle-lever[0]</input>
 		<output>/fdm/jsbsim/engine/ats-cmd-1</output>
 		<max-rate-of-change>
 			<condition>
@@ -555,7 +555,7 @@
 			</condition>
 			<property>/fdm/jsbsim/engine/ats-cmd[1]</property>
 		</input>
-		<input>/fdm/jsbsim/engine/throttle-lever[1]</input>
+		<input>/controls/cockpit/throttle-lever[1]</input>
 		<output>/fdm/jsbsim/engine/ats-cmd-2</output>
 		<max-rate-of-change>
 			<condition>
