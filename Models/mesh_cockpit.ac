@@ -62009,7 +62009,7 @@ refs 4
 88 0.784774 0.592048
 kids 0
 OBJECT poly
-name "txt_cockpit_steering_handle"
+name "SteeringHandle"
 data 9
 Torus.001
 texture "txt_cockpit_steering_handle.png"
@@ -85667,7 +85667,7 @@ refs 4
 631 0.899323 0.723413
 kids 0
 OBJECT poly
-name "txt_cockpit_steering_handle_base"
+name "SteeringHandleBase"
 data 9
 Plane.000
 texture "txt_cockpit_moulding1.rgb"

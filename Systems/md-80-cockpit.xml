@@ -7,93 +7,313 @@
 	
 	<channel name="Animations">
 		
-		<lag_filter name="fcs-actual/elevator-trim-lever">
-			<input>/controls/flight/elevator-trim-lever</input>
+		<!-- General -->
+		<lag_filter name="/controls/cockpit/active-ap">
+			<input>/it-autoflight/input/active-ap</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="fcs-actual/tiller-handle">
-			<input>fcs-actual/tiller/handle</input>
+		<fcs_function name="/controls/cockpit/ap-cmd">
+			<function>
+				<max>
+					<property>/it-autoflight/output/ap1</property>
+					<property>/it-autoflight/output/ap2</property>
+				</max>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/controls/cockpit/ap">
+			<input>/controls/cockpit/ap-cmd</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="engine/throttle-lever[0]">
-			<input>engine/control-1/throttle-pos</input>
-			<c1>20</c1>
-			<output>engine/throttle-lever-feedback[0]</output>
-		</lag_filter>
-		
-		<lag_filter name="engine/throttle-lever[1]">
-			<input>engine/control-2/throttle-pos</input>
-			<c1>20</c1>
-			<output>engine/throttle-lever-feedback[1]</output>
-		</lag_filter>
-		
-		<lag_filter name="engine/reverse-lever[0]">
-			<input>/controls/engines/engine[0]/reverse-lever</input>
+		<lag_filter name="/controls/cockpit/art">
+			<input>/controls/dfgs/switches/art</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="engine/reverse-lever[1]">
-			<input>/controls/engines/engine[1]/reverse-lever</input>
+		<lag_filter name="/controls/cockpit/athr">
+			<input>/it-autoflight/input/athr</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="engine/engine-cutoff[0]">
-			<input>/controls/engines/engine[0]/cutoff-switch</input>
+		<lag_filter name="/controls/cockpit/beacon">
+			<input>/controls/lighting/beacon</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="engine/engine-cutoff[1]">
-			<input>/controls/engines/engine[1]/cutoff-switch</input>
+		<lag_filter name="/controls/cockpit/brake-pedal-left">
+			<input>/controls/gear/brake-left</input>
+			<c1>5</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/brake-pedal-right">
+			<input>/controls/gear/brake-right</input>
+			<c1>5</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/fd1">
+			<input>/it-autoflight/input/fd1</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="fcs-actual/flap-lever">
-			<input>/controls/flight/flaps-input</input>
+		<lag_filter name="/controls/cockpit/fd2">
+			<input>/it-autoflight/input/fd2</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="spoilers/main-lever">
-			<input>spoilers/lever-cmd</input>
+		<linear_actuator name="/controls/cockpit/flex-d1-linear">
+			<input>/controls/tri/flex-d1</input>
+			<module>10</module>
+		</linear_actuator>
+		
+		<lag_filter name="/controls/cockpit/flex-d1-lag">
+			<input>/controls/cockpit/flex-d1-linear</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="spoilers/lever-arm">
-			<input>/controls/flight/speedbrake-arm</input>
+		<fcs_function name="/controls/cockpit/flex-d1"> <!-- Undo the linear actuator for textranslate -->
+			<function> <!-- Modulo 10 without rounding -->
+				<difference>
+					<property>/controls/cockpit/flex-d1-lag</property>
+					<product>
+						<floor>
+							<quotient>
+								<property>/controls/cockpit/flex-d1-lag</property>
+								<value>10</value>
+							</quotient>
+						</floor>
+						<value>10</value>
+					</product>
+				</difference>
+			</function>
+		</fcs_function>
+		
+		<linear_actuator name="/controls/cockpit/flex-d10-linear">
+			<input>/controls/tri/flex-d10</input>
+			<module>6</module>
+		</linear_actuator>
+		
+		<lag_filter name="/controls/cockpit/flex-d10-lag">
+			<input>/controls/cockpit/flex-d10-linear</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<actuator name="fcs/brake-lever">
+		<fcs_function name="/controls/cockpit/flex-d10"> <!-- Undo the linear actuator for textranslate -->
+			<function> <!-- Modulo 6 without rounding -->
+				<difference>
+					<property>/controls/cockpit/flex-d10-lag</property>
+					<product>
+						<floor>
+							<quotient>
+								<property>/controls/cockpit/flex-d10-lag</property>
+								<value>6</value>
+							</quotient>
+						</floor>
+						<value>6</value>
+					</product>
+				</difference>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/controls/cockpit/fu-reset">
+			<input>/controls/engines/fu-reset</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/ground-flood-light-l">
+			<input>/controls/lighting/ground-flood-light-l</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/ground-flood-light-r">
+			<input>/controls/lighting/ground-flood-light-r</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/hyd-aux-pump">
+			<input>/controls/hydraulics/switches/aux-pump</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/hyd-l-pump">
+			<input>/controls/hydraulics/switches/l-pump</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/hyd-r-pump">
+			<input>/controls/hydraulics/switches/r-pump</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/hyd-trans">
+			<input>/controls/hydraulics/switches/trans</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/landing-light-l">
+			<input>/controls/lighting/landing-light-l</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/landing-light-n">
+			<input>/controls/lighting/landing-light-n</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/landing-light-r">
+			<input>/controls/lighting/landing-light-r</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/nd1-dimmer">
+			<input>/instrumentation/du/nd1-dimmer</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/nd2-dimmer">
+			<input>/instrumentation/du/nd2-dimmer</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/pfd1-dimmer">
+			<input>/instrumentation/du/pfd1-dimmer</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/pfd2-dimmer">
+			<input>/instrumentation/du/pfd2-dimmer</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/landing-light-r">
+			<input>/controls/lighting/landing-light-r</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/position-strobe-light">
+			<input>/controls/lighting/position-strobe-light</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/vor-adf-1[0]">
+			<input>/instrumentation/rmi[0]/vor-adf-1</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/vor-adf-1[1]">
+			<input>/instrumentation/rmi[1]/vor-adf-1</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/vor-adf-2[0]">
+			<input>/instrumentation/rmi[0]/vor-adf-2</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/vor-adf-2[1]">
+			<input>/instrumentation/rmi[1]/vor-adf-2</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/wing-lights">
+			<input>/controls/lighting/wing-lights</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<!-- Pedestal -->
+		<lag_filter name="/controls/cockpit/abs-armed">
+			<input>/controls/gear/abs/armed</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/abs-knob">
+			<input>/controls/gear/abs/knob</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<actuator name="/controls/cockpit/brake-lever">
 			<input>/controls/gear/brake-parking</input>
 			<rate_limit>2.5</rate_limit>
 			<lag>20</lag>
 		</actuator>
 		
-		<lag_filter name="/controls/fuel/switches/x-feed-lever">
-			<input>/controls/fuel/switches/x-feed</input>
+		<lag_filter name="/controls/cockpit/elevator-trim-lever">
+			<input>/controls/flight/elevator-trim-lever</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/pneumatics/switches/x-bleed-l-lever">
+		<lag_filter name="/controls/cockpit/engine-cutoff[0]">
+			<input>/controls/engines/engine[0]/cutoff-switch</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/engine-cutoff[1]">
+			<input>/controls/engines/engine[1]/cutoff-switch</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/flaps-lever-rotate">
+			<input>/controls/flight/flaps-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/flaps-lever-translate">
+			<input>/controls/cockpit/flaps-lever-translate-cmd</input>
+			<c1>30</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/reverse-lever[0]">
+			<input>/controls/engines/engine[0]/reverse-lever</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/reverse-lever[1]">
+			<input>/controls/engines/engine[1]/reverse-lever</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/throttle-lever[0]">
+			<input>engine/control-1/throttle-pos</input>
+			<c1>20</c1>
+			<output>engine/throttle-lever-feedback[0]</output>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/throttle-lever[1]">
+			<input>engine/control-2/throttle-pos</input>
+			<c1>20</c1>
+			<output>engine/throttle-lever-feedback[1]</output>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/spoilers-lever-rotate">
+			<input>spoilers/lever-cmd</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/spoilers-lever-translate">
+			<input>/controls/flight/speedbrake-arm</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/x-bleed-l-lever">
 			<input>/controls/pneumatics/switches/x-bleed-l</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/pneumatics/switches/x-bleed-r-lever">
+		<lag_filter name="/controls/cockpit/x-bleed-r-lever">
 			<input>/controls/pneumatics/switches/x-bleed-r</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/x-feed-lever">
+			<input>/controls/fuel/switches/x-feed</input>
 			<c1>20</c1>
 		</lag_filter>
 	
 	</channel>
 	
 	<channel name="Animations Execrate 4" execrate="4">
-		
-		<lag_filter name="/it-autoflight/input/active-ap-lag">
-			<input>/it-autoflight/input/active-ap</input>
-			<c1>20</c1>
-		</lag_filter>
-		
+			
 		<switch name="/gear/abs/lights/disarm">
 			<default value="0"/>
 			<test logic="AND" value="1">

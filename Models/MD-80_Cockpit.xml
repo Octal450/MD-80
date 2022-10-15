@@ -496,7 +496,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>FlapLever</object-name>
-		<property>fdm/jsbsim/fcs-actual/flap-lever</property>
+		<property>/controls/cockpit/flaps-lever-rotate</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
 			<entry><ind>1</ind><dep>22</dep></entry>
@@ -518,47 +518,78 @@
 	</animation>
 	
 	<animation>
-		<type>pick</type>
+		<type>translate</type>
 		<object-name>FlapLever</object-name>
-		<action>
-			<button>0</button>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>controls.flapsDown(1)</script>
-			</binding>
-			<mod-up>
-				<binding>
-					<command>nasal</command>
-					<script>controls.flapsDown(0)</script>
-				</binding>
-			</mod-up>
-		</action>
-		<action>
-			<button>1</button>
-			<button>3</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>controls.flapsDown(-1)</script>
-			</binding>
-			<mod-up>
-				<binding>
-					<command>nasal</command>
-					<script>controls.flapsDown(0)</script>
-				</binding>
-			</mod-up>
-		</action>
+		<property>/controls/cockpit/flaps-lever-translate</property>
+		<factor>0.01</factor>
+		<axis>
+			<x1-m>2.56535</x1-m>
+			<y1-m>0</y1-m>
+			<z1-m>0.71202</z1-m>
+			<x2-m>2.53992</x2-m>
+			<y2-m>0</y2-m>
+			<z2-m>0.74234</z2-m>
+		</axis>
 	</animation>
 	
+	<animation>
+		<type>knob</type>
+		<object-name>FlapLever</object-name>
+		<drag-direction>vertical</drag-direction>
+		<drag-scale-px>30</drag-scale-px>
+		<increase>
+			<binding>
+				<command>nasal</command>
+				<script>controls.flapsDown(-1);</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/controls/cockpit/flaps-lever-translate-cmd</property>
+				<value>1</value>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>nasal</command>
+				<script>controls.flapsDown(1);</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>/controls/cockpit/flaps-lever-translate-cmd</property>
+				<value>1</value>
+			</binding>
+		</decrease>
+		<release>
+			<binding>
+				<command>property-assign</command>
+				<property>/controls/cockpit/flaps-lever-translate-cmd</property>
+				<value>0</value>
+			</binding>
+		</release>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>ThrottleL</object-name>
+		<drag-direction>vertical</drag-direction>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[0]/throttle</property>
+				<factor>0.02</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>ThrottleL</object-name>
 		<object-name>ThrottleRevL</object-name>
 		<object-name>AToffL</object-name>
 		<object-name>TogaL</object-name>
-		<property>fdm/jsbsim/engine/throttle-lever[0]</property>
+		<property>controls/cockpit/throttle-lever[0]</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
 			<entry><ind>1</ind><dep>55</dep></entry>
@@ -569,10 +600,45 @@
 			<z-m>0.654</z-m>
 		</center>
 		<axis>
-			<x>0.0</x>
-			<y>-1.0</y>
-			<z>0.0</z>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
 		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>ThrottleRevL</object-name>
+		<property>controls/cockpit/reverse-lever[0]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>1</ind><dep>90</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.669</x-m>
+			<y-m>0</y-m>
+			<z-m>0.836</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation> 
+	
+	<animation>
+		<type>knob</type>
+		<object-name>ThrottleR</object-name>
+		<drag-direction>vertical</drag-direction>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/engines/engine[1]/throttle</property>
+				<factor>0.02</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
 	</animation>
 	<animation>
 		<type>rotate</type>
@@ -580,7 +646,7 @@
 		<object-name>ThrottleRevR</object-name>
 		<object-name>AToffR</object-name>
 		<object-name>TogaR</object-name>
-		<property>fdm/jsbsim/engine/throttle-lever[1]</property>
+		<property>controls/cockpit/throttle-lever[1]</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
 			<entry><ind>1</ind><dep>55</dep></entry>
@@ -591,79 +657,15 @@
 			<z-m>0.654</z-m>
 		</center>
 		<axis>
-			<x>0.0</x>
-			<y>-1.0</y>
-			<z>0.0</z>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
 		</axis>
 	</animation>
-	
-	<animation>
-		<type>pick</type>
-		<object-name>ThrottleL</object-name>
-		<object-name>ThrottleRevL</object-name>
-		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine[0]/throttle</property>
-				<step>0.02</step>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine[0]/throttle</property>
-				<step>-0.02</step>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
-			</binding>
-		</action>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>ThrottleR</object-name>
-		<object-name>ThrottleRevR</object-name>
-		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine[1]/throttle</property>
-				<step>0.02</step>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/engines/engine[1]/throttle</property>
-				<step>-0.02</step>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
-			</binding>
-		</action>
-	</animation>
-	
 	<animation>
 		<type>rotate</type>
-		<object-name>ThrottleRevL</object-name>
-		<property>fdm/jsbsim/engine/reverse-lever[0]</property>
+		<object-name>ThrottleRevR</object-name>
+		<property>controls/cockpit/reverse-lever[1]</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
 			<entry><ind>1</ind><dep>90</dep></entry>
@@ -674,28 +676,9 @@
 			<z-m>0.836</z-m>
 		</center>
 		<axis>
-			<x>0.0</x>
-			<y>1.0</y>
-			<z>0.0</z>
-		</axis>
-	</animation> 
-	<animation>
-		<type>rotate</type>
-		<object-name>ThrottleRevR</object-name>
-		<property>fdm/jsbsim/engine/reverse-lever[1]</property>
-		<interpolation>
-			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>90</dep></entry>
-		</interpolation>
-		<center>
-			<x-m>2.669</x-m>
-			<y-m>0</y-m>
-			<z-m>0.836</z-m>
-		</center>
-		<axis>
-			<x>0.0</x>
-			<y>1.0</y>
-			<z>0.0</z>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
 		</axis>
 	</animation>
 	
@@ -797,7 +780,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>PitchTrim</object-name>
-		<property>fdm/jsbsim/fcs-actual/elevator-trim-lever</property>
+		<property>controls/cockpit/elevator-trim-lever</property>
 		<factor>20</factor>  
 		<center>
 			<x-m>2.616</x-m>
@@ -813,9 +796,11 @@
 
 	<!-- Fuel Cutoff -->
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>FuelCutoffL</object-name>
-		<property>fdm/jsbsim/engine/engine-cutoff[0]</property>
+		<property>controls/cockpit/engine-cutoff[0]</property>
+		<drag-direction>vertical</drag-direction>
+		<drag-scale-px>30</drag-scale-px>
 		<interpolation>
 			<entry><ind>0</ind><dep>42</dep></entry>
 			<entry><ind>1</ind><dep> 0</dep></entry>
@@ -830,24 +815,24 @@
 			<y>-1</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>FuelCutoffL</object-name>
 		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
 			<binding>
-				<command>property-toggle</command>
+				<command>property-adjust</command>
 				<property>controls/engines/engine[0]/cutoff-switch</property>
+				<factor>-1</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
 			</binding>
 		</action>
 	</animation>
 	
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>FuelCutoffR</object-name>
-		<property>fdm/jsbsim/engine/engine-cutoff[1]</property>
+		<property>controls/cockpit/engine-cutoff[1]</property>
+		<drag-direction>vertical</drag-direction>
+		<drag-scale-px>30</drag-scale-px>
 		<interpolation>
 			<entry><ind>0</ind><dep>42</dep></entry>
 			<entry><ind>1</ind><dep> 0</dep></entry>
@@ -862,25 +847,25 @@
 			<y>-1</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>FuelCutoffR</object-name>
 		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
 			<binding>
-				<command>property-toggle</command>
+				<command>property-adjust</command>
 				<property>controls/engines/engine[1]/cutoff-switch</property>
+				<factor>-1</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
 			</binding>
 		</action>
 	</animation>
 
 	<!-- Fuel Crossfeed Lever -->
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>XfeedLever</object-name>
-		<property>controls/fuel/switches/x-feed-lever</property>
+		<property>controls/cockpit/x-feed-lever</property>
+		<drag-direction>vertical</drag-direction>
+		<drag-scale-px>30</drag-scale-px>
 		<factor>-45</factor>
 		<center>
 			<x-m>2.608</x-m>
@@ -892,44 +877,19 @@
 			<y>-1</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>XfeedLever</object-name>
 		<action>
-		<button>0</button>
-		<repeatable>false</repeatable>
 			<binding>
-				<command>property-toggle</command>
+				<command>property-adjust</command>
 				<property>controls/fuel/switches/x-feed</property>
+				<factor>-1</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
 			</binding>
 		</action>
 	</animation>
 	
 	<!-- Speed Brake -->
-	<animation>
-		<type>rotate</type>
-		<object-name>SpdBrakeLever</object-name>
-		<property>fdm/jsbsim/spoilers/main-lever</property>
-		<interpolation>
-			<entry><ind>0</ind><dep> 20</dep></entry>
-			<entry><ind>1</ind><dep> -2</dep></entry>
-			<entry><ind>2</ind><dep> -9</dep></entry>
-			<entry><ind>3</ind><dep>-15</dep></entry>
-			<entry><ind>4</ind><dep>-29</dep></entry>
-		</interpolation>
-		<center>
-			<x-m>2.608</x-m>
-			<y-m>0</y-m>
-			<z-m>0.630</z-m>
-		</center>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
 	<animation>
 		<type>pick</type>
 		<object-name>SpdBrakeLever</object-name>
@@ -963,11 +923,34 @@
 			</binding>
 		</action>
 	</animation>
-
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>SpdBrakeLever</object-name>
+		<property>controls/cockpit/spoilers-lever-rotate</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 20</dep></entry>
+			<entry><ind>1</ind><dep> -2</dep></entry>
+			<entry><ind>2</ind><dep> -9</dep></entry>
+			<entry><ind>3</ind><dep>-15</dep></entry>
+			<entry><ind>4</ind><dep>-29</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.608</x-m>
+			<y-m>0</y-m>
+			<z-m>0.630</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
 	<animation>
 		<type>translate</type>
 		<object-name>SpdBrakeLever</object-name>
-		<property>fdm/jsbsim/spoilers/lever-arm</property>
+		<property>controls/cockpit/spoilers-lever-translate</property>
 		<factor>0.02</factor>
 		<axis>
 			<x>0</x>
@@ -978,9 +961,11 @@
 	
 	<!-- Pneumatic Crossbleed Levers -->
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>PneuLeverL</object-name>
-		<property>controls/pneumatics/switches/x-bleed-l-lever</property>
+		<property>controls/cockpit/x-bleed-l-lever</property>
+		<drag-direction>vertical</drag-direction>
+		<drag-scale-px>30</drag-scale-px>
 		<factor>70</factor>
 		<center>
 			<x-m>3.064</x-m>
@@ -992,24 +977,24 @@
 			<y>-1</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>PneuLeverL</object-name>
 		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
 			<binding>
-				<command>property-toggle</command>
+				<command>property-adjust</command>
 				<property>controls/pneumatics/switches/x-bleed-l</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
 			</binding>
 		</action>
 	</animation>
 
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>PneuLeverR</object-name>
-		<property>controls/pneumatics/switches/x-bleed-r-lever</property>
+		<property>controls/cockpit/x-bleed-r-lever</property>
+		<drag-direction>vertical</drag-direction>
+		<drag-scale-px>30</drag-scale-px>
 		<factor>70</factor>
 		<center>
 			<x-m>3.064</x-m>
@@ -1021,25 +1006,24 @@
 			<y>-1</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>PneuLeverR</object-name>
 		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
 			<binding>
-				<command>property-toggle</command>
+				<command>property-adjust</command>
 				<property>controls/pneumatics/switches/x-bleed-r</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
 			</binding>
 		</action>
 	</animation>
 	
 	<!-- ABS -->
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>ABSArm</object-name>
-		<property>controls/gear/abs/armed</property>
+		<property>controls/cockpit/abs-armed</property>
+		<drag-direction>vertical</drag-direction>
 		<factor>50</factor>
 		<center>
 			<x-m>3.02175</x-m>
@@ -1051,36 +1035,35 @@
 			<y>-1</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>ABSArm</object-name>
 		<action> <!-- Switch sound done in master-system.nas -->
-			<button>0</button>
-			<repeatable>false</repeatable>
 			<binding>
-				<command>property-toggle</command>
+				<command>property-adjust</command>
 				<property>controls/gear/abs/armed</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
 			</binding>
 			<binding>
 				<command>property-assign</command>
 				<property>controls/gear/abs/armed-momentary</property>
 				<value>1</value>
 			</binding>
-			<mod-up>
-				<binding>
-					<command>property-assign</command>
-					<property>controls/gear/abs/armed-momentary</property>
-					<value>0</value>
-				</binding>
-			</mod-up>
 		</action>
+		<release>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/gear/abs/armed-momentary</property>
+				<value>0</value>
+			</binding>
+		</release>
 	</animation>
 	
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>ABSKnob</object-name>
-		<property>controls/gear/abs/knob</property>
+		<property>controls/cockpit/abs-knob</property>
+		<drag-scale-px>15</drag-scale-px>
 		<interpolation>
 			<entry><ind>-1</ind><dep>  40</dep></entry>
 			<entry><ind> 0</ind><dep>   0</dep></entry>
@@ -1098,34 +1081,14 @@
 			<y>0</y>
 			<z>0.966</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>ABSKnob</object-name>
 		<action>
-			<button>0</button>
-			<button>3</button>
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/gear/abs/knob</property>
-				<step>1</step>
+				<factor>1</factor>
 				<min>-1</min>
 				<max>3</max>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.knb1();</script>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/gear/abs/knob</property>
-				<step>-1</step>
-				<min>-1</min>
-				<max>3</max>
+				<wrap>false</wrap>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1182,6 +1145,23 @@
 	
 	<animation>
 		<type>rotate</type>
+		<object-name>PedalL</object-name>
+		<property>controls/cockpit/brake-pedal-left</property>
+		<factor>-40</factor>
+		<center>
+			<x-m>2.11216</x-m>
+			<y-m>0</y-m>
+			<z-m>0.35438</z-m>
+		</center>
+		<axis>
+			<x>0</x> 
+			<y>1</y> 
+			<z>0</z> 
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
 		<object-name>PedalR</object-name>
 		<object-name>PedalRodR</object-name>
 		<property>fdm/jsbsim/fcs-actual/rudder-pedal</property>
@@ -1195,6 +1175,23 @@
 			<x>0</x>
 			<y>1</y>
 			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>PedalR</object-name>
+		<property>controls/cockpit/brake-pedal-right</property>
+		<factor>-40</factor>
+		<center>
+			<x-m>2.11216</x-m>
+			<y-m>0</y-m>
+			<z-m>0.35438</z-m>
+		</center>
+		<axis>
+			<x>0</x> 
+			<y>1</y> 
+			<z>0</z> 
 		</axis>
 	</animation>
 	
@@ -1322,7 +1319,7 @@
 		<object-name>SteeringHandle</object-name>
 		<object-name>ParkingBrakeButton</object-name>
 		<factor>82</factor>
-		<property>fdm/jsbsim/fcs-actual/tiller-handle</property>
+		<property>controls/cockpit/tiller-handle</property>
 		<axis>
 			<x1-m>2.53712</x1-m>
 			<y1-m>-0.91446</y1-m>
@@ -1354,7 +1351,7 @@
 			<entry><ind>0.1</ind><dep>0.010</dep></entry>
 			<entry><ind>0.0</ind><dep>0.008</dep></entry>
 		</interpolation>
-		<property>fdm/jsbsim/fcs/brake-lever</property>
+		<property>controls/cockpit/brake-lever</property>
 		<axis>
 			<x1-m>2.53712</x1-m>
 			<y1-m>-0.91446</y1-m>
@@ -1432,9 +1429,10 @@
 	
 	<!-- ART Switch -->
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>ARTSwitch</object-name>
-		<property>controls/dfgs/switches/art</property>
+		<property>controls/cockpit/art</property>
+		<drag-direction>vertical</drag-direction>
 		<interpolation>
 			<entry><ind>0</ind><dep> 25</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -1449,25 +1447,28 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>ARTSwitch</object-name>
 		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
 			<binding>
-				<command>property-toggle</command>
+				<command>property-adjust</command>
 				<property>controls/dfgs/switches/art</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
 	
 	<!-- Fuel Used Reset Switch -->
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>FuelUsedReset</object-name>
-		<property>controls/engines/fu-reset</property>
+		<property>controls/cockpit/fu-reset</property>
+		<drag-direction>vertical</drag-direction>
 		<interpolation>
 			<entry><ind>0</ind><dep> 25</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -1482,26 +1483,39 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>FuelUsedReset</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
+		<increase>
 			<binding>
 				<command>property-assign</command>
 				<property>controls/engines/fu-reset</property>
 				<value>1</value>
 			</binding>
-			<mod-up>
-				<binding>
-					<command>property-assign</command>
-					<property>controls/engines/fu-reset</property>
-					<value>0</value>
-				</binding>
-			</mod-up>
-		</action>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/engines/fu-reset</property>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</decrease>
+		<release>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/engines/fu-reset</property>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</release>
 	</animation>
 
 </PropertyList>

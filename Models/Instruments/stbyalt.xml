@@ -180,10 +180,10 @@
 	</animation>
 	
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>BaroKnob</object-name>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<factor>500</factor>
+		<property>instrumentation/altimeter[2]/baro-rotate</property>
+		<factor>11.25</factor>
 		<center>
 			<x-m>0</x-m>
 			<y-m>0.03169</y-m>
@@ -194,73 +194,22 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	
-	<!-- TODO: Redo -->
-	<animation>
-		<type>pick</type>
-		<object-name>BaroKnob</object-name>
 		<action>
-			<button>0</button>
-			<repeatable>true</repeatable>
-			<interval-sec>0.2</interval-sec>
 			<binding>
-			<command>property-adjust</command>
-			<property>instrumentation/altimeter/setting-inhg</property>
-			<step>0.01</step>
-			<min>26.0</min>
-			<max>33.0</max>
-			<wrap>false</wrap>
+				<command>property-adjust</command>
+				<property>instrumentation/altimeter/setting-inhg</property>
+				<factor>0.01</factor>
+				<min>26</min>
+				<max>33</max>
+				<wrap>false</wrap>
 			</binding>
-		</action>
-	</animation>
-
-	<animation>
-		<type>pick</type>
-		<object-name>BaroKnob</object-name>
-		<action>
-			<button>1</button>
-			<repeatable>true</repeatable>
-			<interval-sec>0.2</interval-sec>
 			<binding>
-			<command>property-adjust</command>
-			<property>instrumentation/altimeter/setting-inhg</property>
-			<step>-0.01</step>
-			<min>26.0</min>
-			<max>33.0</max>
-			<wrap>false</wrap>
-			</binding>
-		</action>
-	</animation>
-
-	<animation>
-		<type>pick</type>
-		<object-name>BaroKnob</object-name>
-		<action>
-			<button>3</button>
-			<binding>
-			<command>property-adjust</command>
-			<property>instrumentation/altimeter/setting-inhg</property>
-			<step>0.01</step>
-			<min>26.0</min>
-			<max>33.0</max>
-			<wrap>false</wrap>
-			</binding>
-		</action>
-	</animation>
-
-	<animation>
-		<type>pick</type>
-		<object-name>BaroKnob</object-name>
-		<action>
-			<button>4</button>
-			<binding>
-			<command>property-adjust</command>
-			<property>instrumentation/altimeter/setting-inhg</property>
-			<step>-0.01</step>
-			<min>26.0</min>
-			<max>33.0</max>
-			<wrap>false</wrap>
+				<command>property-adjust</command>
+				<property>instrumentation/altimeter[2]/baro-rotate</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
 			</binding>
 		</action>
 	</animation>

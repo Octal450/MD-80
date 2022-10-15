@@ -48,7 +48,7 @@
 	
 	<!-- Dimmers -->
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>KnobPanel</object-name>
 		<property>controls/lighting/fgcp-panel-knb</property>
 		<interpolation>
@@ -65,31 +65,11 @@
 			<y>0</y>
 			<z>1</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>KnobPanel</object-name>
 		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable>false</repeatable>
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/lighting/fgcp-panel-knb</property>
-				<step>0.05</step>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/lighting/fgcp-panel-knb</property>
-				<step>-0.05</step>
+				<factor>0.05</factor>
 				<min>0</min>
 				<max>1</max>
 				<wrap>false</wrap>
@@ -98,7 +78,7 @@
 	</animation>
 	
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>KnobDigital</object-name>
 		<property>controls/lighting/fgcp-digital-knb</property>
 		<interpolation>
@@ -115,31 +95,11 @@
 			<y>0</y>
 			<z>1</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>KnobDigital</object-name>
 		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable>false</repeatable>
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/lighting/fgcp-digital-knb</property>
-				<step>0.05</step>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-adjust</command>
-				<property>controls/lighting/fgcp-digital-knb</property>
-				<step>-0.05</step>
+				<factor>0.05</factor>
 				<min>0</min>
 				<max>1</max>
 				<wrap>false</wrap>
@@ -215,7 +175,7 @@
 	
 	<!-- NAV1 Freq Knobs -->
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>Nav1Knob1</object-name>
 		<property>instrumentation/fgcp/nav1-major-rotate</property>
 		<factor>-11.25</factor>
@@ -229,53 +189,22 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>Nav1Knob1</object-name>
 		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable>false</repeatable>
 			<binding>
 				<condition>
-					<property>/systems/electrical/outputs/fgcp-power</property>
+					<property>systems/electrical/outputs/fgcp-power</property>
 				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
-				<step>1</step>
-				<min>107.95</min>
-				<max>117.95</max>
+				<factor>1</factor>
+				<min>108</min>
+				<max>118</max>
 				<wrap>true</wrap>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
 				<property>instrumentation/fgcp/nav1-major-rotate</property>
-				<step>1</step>
-				<min>0</min>
-				<max>100000</max>
-				<wrap>true</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<condition>
-					<property>/systems/electrical/outputs/fgcp-power</property>
-				</condition>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
-				<step>-1</step>
-				<min>107.95</min>
-				<max>117.95</max>
-				<wrap>true</wrap>
-			</binding>
-			<binding>
-				<command>property-adjust</command>
-				<property>instrumentation/fgcp/nav1-major-rotate</property>
-				<step>-1</step>
+				<factor>1</factor>
 				<min>0</min>
 				<max>100000</max>
 				<wrap>true</wrap>
@@ -284,7 +213,7 @@
 	</animation>
 	
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>Nav1Knob2</object-name>
 		<property>instrumentation/fgcp/nav1-minor-rotate</property>
 		<factor>-11.25</factor>
@@ -298,53 +227,22 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>Nav1Knob2</object-name>
 		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable>false</repeatable>
 			<binding>
 				<condition>
-					<property>/systems/electrical/outputs/fgcp-power</property>
+					<property>systems/electrical/outputs/fgcp-power</property>
 				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
-				<step>0.05</step>
-				<min>107.95</min>
-				<max>117.95</max>
+				<factor>0.05</factor>
+				<min>108</min>
+				<max>118</max>
 				<wrap>true</wrap>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
 				<property>instrumentation/fgcp/nav1-minor-rotate</property>
-				<step>1</step>
-				<min>0</min>
-				<max>100000</max>
-				<wrap>true</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<condition>
-					<property>/systems/electrical/outputs/fgcp-power</property>
-				</condition>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
-				<step>-0.05</step>
-				<min>107.95</min>
-				<max>117.95</max>
-				<wrap>true</wrap>
-			</binding>
-			<binding>
-				<command>property-adjust</command>
-				<property>instrumentation/fgcp/nav1-minor-rotate</property>
-				<step>-1</step>
+				<factor>1</factor>
 				<min>0</min>
 				<max>100000</max>
 				<wrap>true</wrap>
@@ -391,7 +289,7 @@
 	
 	<!-- NAV1 CRS Knob -->
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>Nav1CrsKnob</object-name>
 		<property>instrumentation/fgcp/nav1-crs-rotate</property>
 		<factor>-11.25</factor>
@@ -405,39 +303,14 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	
-	<animation>
-		<type>pick</type>
-		<object-name>Nav1CrsKnob</object-name>
 		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable>true</repeatable>
 			<binding>
 				<condition>
-					<and>
-						<not><property>devices/status/keyboard/shift</property></not>
-						<property>/systems/electrical/outputs/fgcp-power</property>
-					</and>
+					<property>systems/electrical/outputs/fgcp-power</property>
 				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[0]/radials/selected-deg</property>
-				<step>1</step>
-				<min>1</min>
-				<max>361</max>
-				<wrap>true</wrap>
-			</binding>
-			<binding>
-				<condition>
-					<and>
-						<property>devices/status/keyboard/shift</property>
-						<property>/systems/electrical/outputs/fgcp-power</property>
-					</and>
-				</condition>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[0]/radials/selected-deg</property>
-				<step>10</step>
+				<factor>1</factor>
 				<min>1</min>
 				<max>361</max>
 				<wrap>true</wrap>
@@ -445,48 +318,7 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>instrumentation/fgcp/nav1-crs-rotate</property>
-				<step>1</step>
-				<min>0</min>
-				<max>100000</max>
-				<wrap>true</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable>true</repeatable>
-			<binding>
-				<condition>
-					<and>
-						<not><property>devices/status/keyboard/shift</property></not>
-						<property>/systems/electrical/outputs/fgcp-power</property>
-					</and>
-				</condition>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[0]/radials/selected-deg</property>
-				<step>-1</step>
-				<min>1</min>
-				<max>361</max>
-				<wrap>true</wrap>
-			</binding>
-			<binding>
-				<condition>
-					<and>
-						<property>devices/status/keyboard/shift</property>
-						<property>/systems/electrical/outputs/fgcp-power</property>
-					</and>
-				</condition>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[0]/radials/selected-deg</property>
-				<step>-10</step>
-				<min>1</min>
-				<max>361</max>
-				<wrap>true</wrap>
-			</binding>
-			<binding>
-				<command>property-adjust</command>
-				<property>instrumentation/fgcp/nav1-crs-rotate</property>
-				<step>-1</step>
+				<factor>1</factor>
 				<min>0</min>
 				<max>100000</max>
 				<wrap>true</wrap>
@@ -496,26 +328,53 @@
 	
 	<!-- Flight Director Switches -->
 	<animation>
-		<type>pick</type>
+		<type>knob</type>
 		<object-name>FD1Switch</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
+		<property>controls/cockpit/fd1</property>
+		<drag-direction>vertical</drag-direction>
+		<interpolation>
+			<entry><ind>0</ind><dep> 30</dep></entry>
+			<entry><ind>1</ind><dep>-30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.00682</x-m>
+			<y-m>0</y-m>
+			<z-m>0.00463</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<increase>
 			<binding>
-				<command>property-toggle</command>
+				<command>property-assign</command>
 				<property>it-autoflight/input/fd1</property>
+				<value>1</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
 			</binding>
-		</action>
+		</increase>
+		<decrease>
+			<binding>
+				<command>property-assign</command>
+				<property>it-autoflight/input/fd1</property>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</decrease>
 	</animation>
 	
 	<animation>
-		<type>rotate</type>
-		<object-name>FD1Switch</object-name>
-		<property>it-autoflight/output/fd1</property>
+		<type>knob</type>
+		<object-name>FD2Switch</object-name>
+		<property>controls/cockpit/fd2</property>
+		<drag-direction>vertical</drag-direction>
 		<interpolation>
 			<entry><ind>0</ind><dep> 30</dep></entry>
 			<entry><ind>1</ind><dep>-30</dep></entry>
@@ -530,43 +389,26 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	
-	<animation>
-		<type>pick</type>
-		<object-name>FD2Switch</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
+		<increase>
 			<binding>
-				<command>property-toggle</command>
+				<command>property-assign</command>
 				<property>it-autoflight/input/fd2</property>
+				<value>1</value>
 			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>property-assign</command>
+				<property>it-autoflight/input/fd2</property>
+				<value>0</value>
+			</binding>
+		</decrease>
+		<action>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
-		<object-name>FD2Switch</object-name>
-		<property>it-autoflight/output/fd2</property>
-		<interpolation>
-			<entry><ind>0</ind><dep> 30</dep></entry>
-			<entry><ind>1</ind><dep>-30</dep></entry>
-		</interpolation>
-		<center>
-			<x-m>-0.00682</x-m>
-			<y-m>0</y-m>
-			<z-m>0.00463</z-m>
-		</center>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
 	</animation>
 	
 	<!-- Speed Buttons -->
@@ -828,26 +670,10 @@
 	
 	<!-- Autothrottle Switch -->
 	<animation>
-		<type>pick</type>
+		<type>knob</type>
 		<object-name>ATSwitch</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>it-autoflight/input/athr</property>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
-		<object-name>ATSwitch</object-name>
-		<property>it-autoflight/output/athr</property>
+		<property>controls/cockpit/athr</property>
+		<drag-direction>vertical</drag-direction>
 		<interpolation>
 			<entry><ind>0</ind><dep> 25</dep></entry>
 			<entry><ind>1</ind><dep>-25</dep></entry>
@@ -862,6 +688,26 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
+		<increase>
+			<binding>
+				<command>property-assign</command>
+				<property>it-autoflight/input/athr</property>
+				<value>1</value>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>property-assign</command>
+				<property>it-autoflight/input/athr</property>
+				<value>0</value>
+			</binding>
+		</decrease>
+		<action>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
 	</animation>
 	
 	<!-- Lateral Buttons -->
@@ -1422,66 +1268,10 @@
 	
 	<!-- Pitch Knob -->
 	<animation>
-		<type>pick</type>
-		<object-name>Pitch.knob</object-name>
-		<action>
-			<button>3</button>
-			<repeatable>true</repeatable>
-			<binding>
-				<condition>
-					<not><property>devices/status/keyboard/shift</property></not>
-				</condition>
-				<command>nasal</command>
-				<script>libraries.apPanel.vsAdjust(-1);</script>
-			</binding>
-			<binding>
-				<condition>
-					<property>devices/status/keyboard/shift</property>
-				</condition>
-				<command>nasal</command>
-				<script>libraries.apPanel.vsAdjust(-10);</script>
-			</binding>
-			<binding>
-				<command>property-adjust</command>
-				<property>instrumentation/fgcp/vs-rotate</property>
-				<step>1</step>
-				<min>0</min>
-				<max>100000</max>
-				<wrap>true</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>4</button>
-			<repeatable>true</repeatable>
-			<binding>
-				<condition>
-					<not><property>devices/status/keyboard/shift</property></not>
-				</condition>
-				<command>nasal</command>
-				<script>libraries.apPanel.vsAdjust(1);</script>
-			</binding>
-			<binding>
-				<condition>
-					<property>devices/status/keyboard/shift</property>
-				</condition>
-				<command>nasal</command>
-				<script>libraries.apPanel.vsAdjust(10);</script>
-			</binding>
-			<binding>
-				<command>property-adjust</command>
-				<property>instrumentation/fgcp/vs-rotate</property>
-				<step>-1</step>
-				<min>0</min>
-				<max>100000</max>
-				<wrap>true</wrap>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>Pitch.knob</object-name>
 		<property>instrumentation/fgcp/vs-rotate</property>
+		<drag-direction>vertical</drag-direction>
 		<factor>11.25</factor>
 		<center>
 			<x-m>-0.01584</x-m>
@@ -1493,6 +1283,34 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
+		<increase>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.vsAdjust(-1);</script>
+			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/fgcp/vs-rotate</property>
+				<step>1</step>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.apPanel.vsAdjust(1);</script>
+			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/fgcp/vs-rotate</property>
+				<step>-1</step>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</decrease>
 	</animation>
 	
 	<!-- Vertical Buttons -->
@@ -1562,34 +1380,14 @@
 	
 	<!-- Autopilot Switch -->
 	<animation>
-		<type>pick</type>
+		<type>knob</type>
 		<object-name>APSwitch</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>
-					libraries.apPanel.apSwitch();
-					libraries.Sound.switch1();
-				</script>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
-		<object-name>APSwitch</object-name>
-		<expression>
-			<table>
-				<max>
-					<property>it-autoflight/output/ap1</property>
-					<property>it-autoflight/output/ap2</property>
-				</max>
-				<entry><ind>0</ind><dep> 25</dep></entry>
-				<entry><ind>1</ind><dep>-25</dep></entry>
-			</table>
-		</expression>
+		<property>controls/cockpit/ap</property>
+		<drag-direction>vertical</drag-direction>
+		<interpolation>
+			<entry><ind>0</ind><dep> 25</dep></entry>
+			<entry><ind>1</ind><dep>-25</dep></entry>
+		</interpolation>
 		<center>
 			<x-m>-0.00815</x-m>
 			<y-m>0</y-m>
@@ -1600,28 +1398,45 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
+		<increase>
+			<binding>
+				<condition>
+					<equals>
+						<property>controls/cockpit/ap-cmd</property>
+						<value>0</value>
+					</equals>
+				</condition>
+				<command>nasal</command>
+				<script>
+					libraries.apPanel.apSwitch();
+					libraries.Sound.switch1();
+				</script>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<condition>
+					<equals>
+						<property>controls/cockpit/ap-cmd</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<command>nasal</command>
+				<script>
+					libraries.apPanel.apSwitch();
+					libraries.Sound.switch1();
+				</script>
+			</binding>
+		</decrease>
 	</animation>
 	
 	<!-- Autopilot Selector -->
 	<animation>
-		<type>pick</type>
-		<object-name>APSelector</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.apPanel.apSelector();</script>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>APSelector</object-name>
 		<expression>
 			<table>
-				<property>it-autoflight/input/active-ap-lag</property>
+				<property>controls/cockpit/active-ap</property>
 				<entry><ind>1</ind><dep>-25</dep></entry>
 				<entry><ind>2</ind><dep> 25</dep></entry>
 			</table>
@@ -1636,6 +1451,36 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
+		<increase>
+			<binding>
+				<condition>
+					<equals>
+						<property>it-autoflight/input/active-ap</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<command>nasal</command>
+				<script>
+					libraries.apPanel.apSelector();
+					libraries.Sound.switch1();
+				</script>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<condition>
+					<equals>
+						<property>it-autoflight/input/active-ap</property>
+						<value>2</value>
+					</equals>
+				</condition>
+				<command>nasal</command>
+				<script>
+					libraries.apPanel.apSelector();
+					libraries.Sound.switch1();
+				</script>
+			</binding>
+		</decrease>
 	</animation>
 	
 	<!-- Altitude Knob -->
@@ -1963,7 +1808,7 @@
 	
 	<!-- NAV2 Freq Knobs -->
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>Nav2Knob1</object-name>
 		<property>instrumentation/fgcp/nav2-major-rotate</property>
 		<factor>-11.25</factor>
@@ -1977,53 +1822,22 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>Nav2Knob1</object-name>
 		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable>false</repeatable>
 			<binding>
 				<condition>
-					<property>/systems/electrical/outputs/fgcp-power</property>
+					<property>systems/electrical/outputs/fgcp-power</property>
 				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-				<step>1</step>
-				<min>107.95</min>
-				<max>117.95</max>
+				<factor>1</factor>
+				<min>108</min>
+				<max>118</max>
 				<wrap>true</wrap>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
 				<property>instrumentation/fgcp/nav2-major-rotate</property>
-				<step>1</step>
-				<min>0</min>
-				<max>100000</max>
-				<wrap>true</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<condition>
-					<property>/systems/electrical/outputs/fgcp-power</property>
-				</condition>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-				<step>-1</step>
-				<min>107.95</min>
-				<max>117.95</max>
-				<wrap>true</wrap>
-			</binding>
-			<binding>
-				<command>property-adjust</command>
-				<property>instrumentation/fgcp/nav2-major-rotate</property>
-				<step>-1</step>
+				<factor>1</factor>
 				<min>0</min>
 				<max>100000</max>
 				<wrap>true</wrap>
@@ -2032,7 +1846,7 @@
 	</animation>
 	
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>Nav2Knob2</object-name>
 		<property>instrumentation/fgcp/nav2-minor-rotate</property>
 		<factor>-11.25</factor>
@@ -2046,53 +1860,22 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>Nav2Knob2</object-name>
 		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable>false</repeatable>
 			<binding>
 				<condition>
-					<property>/systems/electrical/outputs/fgcp-power</property>
+					<property>systems/electrical/outputs/fgcp-power</property>
 				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-				<step>0.05</step>
-				<min>107.95</min>
-				<max>117.95</max>
+				<factor>0.05</factor>
+				<min>108</min>
+				<max>118</max>
 				<wrap>true</wrap>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
 				<property>instrumentation/fgcp/nav2-minor-rotate</property>
-				<step>1</step>
-				<min>0</min>
-				<max>100000</max>
-				<wrap>true</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<condition>
-					<property>/systems/electrical/outputs/fgcp-power</property>
-				</condition>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-				<step>-0.05</step>
-				<min>107.95</min>
-				<max>117.95</max>
-				<wrap>true</wrap>
-			</binding>
-			<binding>
-				<command>property-adjust</command>
-				<property>instrumentation/fgcp/nav2-minor-rotate</property>
-				<step>-1</step>
+				<factor>1</factor>
 				<min>0</min>
 				<max>100000</max>
 				<wrap>true</wrap>
@@ -2139,7 +1922,7 @@
 	
 	<!-- NAV2 CRS Knob -->
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>Nav2CrsKnob</object-name>
 		<property>instrumentation/fgcp/nav2-crs-rotate</property>
 		<factor>-11.25</factor>
@@ -2153,39 +1936,14 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	
-	<animation>
-		<type>pick</type>
-		<object-name>Nav2CrsKnob</object-name>
 		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable>true</repeatable>
 			<binding>
 				<condition>
-					<and>
-						<not><property>devices/status/keyboard/shift</property></not>
-						<property>/systems/electrical/outputs/fgcp-power</property>
-					</and>
+					<property>systems/electrical/outputs/fgcp-power</property>
 				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[1]/radials/selected-deg</property>
-				<step>1</step>
-				<min>1</min>
-				<max>361</max>
-				<wrap>true</wrap>
-			</binding>
-			<binding>
-				<condition>
-					<and>
-						<property>devices/status/keyboard/shift</property>
-						<property>/systems/electrical/outputs/fgcp-power</property>
-					</and>
-				</condition>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[1]/radials/selected-deg</property>
-				<step>10</step>
+				<factor>1</factor>
 				<min>1</min>
 				<max>361</max>
 				<wrap>true</wrap>
@@ -2193,48 +1951,7 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>instrumentation/fgcp/nav2-crs-rotate</property>
-				<step>1</step>
-				<min>0</min>
-				<max>100000</max>
-				<wrap>true</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable>true</repeatable>
-			<binding>
-				<condition>
-					<and>
-						<not><property>devices/status/keyboard/shift</property></not>
-						<property>/systems/electrical/outputs/fgcp-power</property>
-					</and>
-				</condition>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[1]/radials/selected-deg</property>
-				<step>-1</step>
-				<min>1</min>
-				<max>361</max>
-				<wrap>true</wrap>
-			</binding>
-			<binding>
-				<condition>
-					<and>
-						<property>devices/status/keyboard/shift</property>
-						<property>/systems/electrical/outputs/fgcp-power</property>
-					</and>
-				</condition>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[1]/radials/selected-deg</property>
-				<step>-10</step>
-				<min>1</min>
-				<max>361</max>
-				<wrap>true</wrap>
-			</binding>
-			<binding>
-				<command>property-adjust</command>
-				<property>instrumentation/fgcp/nav2-crs-rotate</property>
-				<step>-1</step>
+				<factor>1</factor>
 				<min>0</min>
 				<max>100000</max>
 				<wrap>true</wrap>
@@ -2244,210 +1961,108 @@
 	
 	<!-- Lighting -->
 	<animation>
-		<name>Left landing light pick</name>
-		<type>pick</type>
+		<name>Landing Light Rotate</name>
+		<type>knob</type>
 		<object-name>SwLdgLtsL</object-name>
 		<object-name>SwLdgLtsL.bump</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>/controls/lighting/landing-light-l</property>
-				<value>0.0</value>
-				<value>0.5</value>
-				<value>1.0</value>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>/controls/lighting/landing-light-l</property>
-				<value>1.0</value>
-				<value>0.5</value>
-				<value>0.0</value>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<name>Right landing light pick</name>
-		<type>pick</type>
-		<object-name>SwLdgLtsR</object-name>
-		<object-name>SwLdgLtsR.bump</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>/controls/lighting/landing-light-r</property>
-				<value>0.0</value>
-				<value>0.5</value>
-				<value>1.0</value>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>/controls/lighting/landing-light-r</property>
-				<value>1.0</value>
-				<value>0.5</value>
-				<value>0.0</value>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<name>Nose landing light pick</name>
-		<type>pick</type>
-		<object-name>SwNoseLts</object-name>
-		<object-name>SwNoseLts.bump</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>/controls/lighting/landing-light-n</property>
-				<value>0.0</value>
-				<value>0.5</value>
-				<value>1.0</value>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>/controls/lighting/landing-light-n</property>
-				<value>1.0</value>
-				<value>0.5</value>
-				<value>0.0</value>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
-			</binding>
-		</action>
-	</animation>
-
-	<animation>
-		<name>landing light rotate</name>
-		<type>rotate</type>
-		<object-name>SwLdgLtsL</object-name>
-		<object-name>SwLdgLtsL.bump</object-name>
-		<property>/controls/lighting/landing-light-l</property>
+		<property>controls/cockpit/landing-light-l</property>
+		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>0</ind><dep>35</dep></entry>
-			<entry><ind>1</ind><dep>-35</dep></entry>
+			<entry><ind>0</ind><dep>-35</dep></entry>
+			<entry><ind>1</ind><dep> 35</dep></entry>
 		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
 		<center>
 			<x-m>-0.00798</x-m>
-			<y-m>-0.379129</y-m>
+			<y-m>0</y-m>
 			<z-m>0.003556</z-m>
 		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/landing-light-l</property> 
+				<factor>-0.5</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
 	</animation>
 
 	<animation>
-		<name>landing light rotate</name>
-		<type>rotate</type>
+		<name>Landing Light Rotate</name>
+		<type>knob</type>
 		<object-name>SwLdgLtsR</object-name>
 		<object-name>SwLdgLtsR.bump</object-name>
-		<property>/controls/lighting/landing-light-r</property>
+		<property>controls/cockpit/landing-light-r</property>
+		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>0</ind><dep>35</dep></entry>
-			<entry><ind>1</ind><dep>-35</dep></entry>
+			<entry><ind>0</ind><dep>-35</dep></entry>
+			<entry><ind>1</ind><dep> 35</dep></entry>
 		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
 		<center>
 			<x-m>-0.00798</x-m>
-			<y-m>-0.351358</y-m>
+			<y-m>0</y-m>
 			<z-m>0.003556</z-m>
 		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/landing-light-r</property>
+				<factor>-0.5</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
 	</animation>
 
 	<animation>
-		<name>landing light rotate</name>
-		<type>rotate</type>
+		<name>Landing Light Rotate</name>
+		<type>knob</type>
 		<object-name>SwNoseLts</object-name>
 		<object-name>SwNoseLts.bump</object-name>
-		<property>/controls/lighting/landing-light-n</property>
+		<property>controls/cockpit/landing-light-n</property>
+		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>0</ind><dep>35</dep></entry>
-			<entry><ind>1</ind><dep>-35</dep></entry>
+			<entry><ind>0</ind><dep>-35</dep></entry>
+			<entry><ind>1</ind><dep> 35</dep></entry>
 		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
 		<center>
 			<x-m>-0.00798</x-m>
-			<y-m>-0.304921</y-m>
+			<y-m>0</y-m>
 			<z-m>0.003564</z-m>
 		</center>
-	</animation>
-	
-	<animation>
-		<name>Ground Flood Light Pick L</name>
-		<type>pick</type>
-		<object-name>SwFloodLtsL</object-name>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
 		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
 			<binding>
-				<command>property-toggle</command>
-				<property>/controls/lighting/ground-flood-light-l</property>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<name>Ground Flood Light Pick R</name>
-		<type>pick</type>
-		<object-name>SwFloodLtsR</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-toggle</command>
-				<property>/controls/lighting/ground-flood-light-r</property>
+				<command>property-adjust</command>
+				<property>controls/lighting/landing-light-n</property>
+				<factor>-0.5</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -2457,58 +2072,82 @@
 	</animation>
 
 	<animation>
-		<name>Flood Light rotate L</name>
-		<type>rotate</type>
+		<name>Flood Light Rotate L</name>
+		<type>knob</type>
 		<object-name>SwFloodLtsL</object-name>
-		<property>/controls/lighting/ground-flood-light-l</property>
+		<property>controls/cockpit/ground-flood-light-l</property>
+		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>0</ind><dep>0</dep></entry>
-			<entry><ind>1</ind><dep>-70</dep></entry>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>1</ind><dep>70</dep></entry>
 		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
 		<center>
 			<x-m>-0.008647</x-m>
-			<y-m>0.29482</y-m>
+			<y-m>0</y-m>
 			<z-m>0.0121</z-m>
 		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<increase>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/lighting/ground-flood-light-l</property>
+				<value>0</value>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/lighting/ground-flood-light-l</property>
+				<value>1</value>
+			</binding>
+		</decrease>
+		<action>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
 	</animation>
 
 	<animation>
-		<name>Flood Light rotate R</name>
-		<type>rotate</type>
+		<name>Flood Light Rotate R</name>
+		<type>knob</type>
 		<object-name>SwFloodLtsR</object-name>
-		<property>/controls/lighting/ground-flood-light-r</property>
+		<property>controls/cockpit/ground-flood-light-r</property>
+		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>0</ind><dep>0</dep></entry>
-			<entry><ind>1</ind><dep>-70</dep></entry>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>1</ind><dep>70</dep></entry>
 		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
 		<center>
 			<x-m>-0.008647</x-m>
-			<y-m>0.3266</y-m>
+			<y-m></y-m>
 			<z-m>0.0121</z-m>
 		</center>
-	</animation>
-	
-	<animation>
-		<name>Anti Coll Lights Pick</name>
-		<type>pick</type>
-		<object-name>SwACLts</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<increase>
 			<binding>
-				<command>property-toggle</command>
-				<property>/controls/lighting/beacon</property>
+				<command>property-assign</command>
+				<property>controls/lighting/ground-flood-light-r</property>
+				<value>0</value>
 			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/lighting/ground-flood-light-r</property>
+				<value>1</value>
+			</binding>
+		</decrease>
+		<action>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
@@ -2518,54 +2157,39 @@
 
 	<animation>
 		<name>Anti Coll Lights Rotate</name>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>SwACLts</object-name>
-		<property>/controls/lighting/beacon</property>
+		<property>controls/cockpit/beacon</property>
+		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>0</ind><dep>0</dep></entry>
-			<entry><ind>1</ind><dep>-70</dep></entry>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>1</ind><dep>70</dep></entry>
 		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
 		<center>
 			<x-m>-0.008653</x-m>
 			<y-m>0.35007</y-m>
 			<z-m>0.000777</z-m>
 		</center>
-	</animation>
-	
-	<animation>
-		<name>Position Lights Pick</name>
-		<type>pick</type>
-		<object-name>SwNavLts</object-name>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<increase>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/lighting/beacon</property>
+				<value>0</value>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/lighting/beacon</property>
+				<value>1</value>
+			</binding>
+		</decrease>
 		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>/controls/lighting/position-strobe-light</property>
-				<value>0.0</value>
-				<value>0.5</value>
-				<value>1.0</value>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>/controls/lighting/position-strobe-light</property>
-				<value>1.0</value>
-				<value>0.5</value>
-				<value>0.0</value>
-			</binding>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
@@ -2575,81 +2199,74 @@
 
 	<animation>
 		<name>Position Lights Rotate</name>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>SwNavLts</object-name>
-		<property>/controls/lighting/position-strobe-light</property>
+		<property>controls/cockpit/position-strobe-light</property>
+		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>0</ind><dep>0</dep></entry>
-			<entry><ind>0.5</ind><dep>-35</dep></entry>
-			<entry><ind>1</ind><dep>-70</dep></entry>
+			<entry><ind>0.0</ind><dep> 0</dep></entry>
+			<entry><ind>1.0</ind><dep>70</dep></entry>
 		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
 		<center>
 			<x-m>-0.008653</x-m>
-			<y-m>0.37152</y-m>
+			<y-m>0</y-m>
 			<z-m>0.000777</z-m>
 		</center>
-	</animation>
-	
-	<animation>
-		<name>Wing Lights Pick</name>
-		<type>pick</type>
-		<object-name>SwWingLts</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>/controls/lighting/wing-lights</property>
-				<value>0.0</value>
-				<value>0.5</value>
-				<value>1.0</value>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>/controls/lighting/wing-lights</property>
-				<value>1.0</value>
-				<value>0.5</value>
-				<value>0.0</value>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<name>Anti Coll Lights Rotate</name>
-		<type>rotate</type>
-		<object-name>SwWingLts</object-name>
-		<property>/controls/lighting/wing-lights</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0</dep></entry>
-			<entry><ind>1</ind><dep>-70</dep></entry>
-		</interpolation>
 		<axis>
 			<x>0</x>
-			<y>-1</y>
+			<y>1</y>
 			<z>0</z>
 		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/position-strobe-light</property>
+				<factor>-0.5</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<name>Wing Lights Rotate</name>
+		<type>knob</type>
+		<object-name>SwWingLts</object-name>
+		<property>controls/cockpit/wing-lights</property>
+		<drag-direction>vertical</drag-direction>
+		<interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>1</ind><dep>70</dep></entry>
+		</interpolation>
 		<center>
 			<x-m>-0.008653</x-m>
-			<y-m>0.29842</y-m>
+			<y-m>0</y-m>
 			<z-m>-0.01645</z-m>
 		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/lighting/wing-lights</property>
+				<factor>-0.5</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
 	</animation>
 
 </PropertyList>

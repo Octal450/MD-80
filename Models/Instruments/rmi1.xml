@@ -59,9 +59,9 @@
 	</animation>
 	
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>Knob1</object-name>
-		<property>instrumentation/rmi[0]/vor-adf-1</property>
+		<property>controls/cockpit/vor-adf-1[0]</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>120</dep></entry>
 			<entry><ind>1</ind><dep>-30</dep></entry>
@@ -76,24 +76,22 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>Knob1</object-name>
 		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
 			<binding>
-				<command>property-toggle</command>
+				<command>property-adjust</command>
 				<property>instrumentation/rmi[0]/vor-adf-1</property>
+				<factor>-1</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
 			</binding>
 		</action>
 	</animation>
 	
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>Knob2</object-name>
-		<property>instrumentation/rmi[0]/vor-adf-2</property>
+		<property>controls/cockpit/vor-adf-2[0]</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>120</dep></entry>
 			<entry><ind>1</ind><dep>-30</dep></entry>
@@ -108,16 +106,14 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>Knob2</object-name>
 		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
 			<binding>
-				<command>property-toggle</command>
+				<command>property-adjust</command>
 				<property>instrumentation/rmi[0]/vor-adf-2</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
 			</binding>
 		</action>
 	</animation>

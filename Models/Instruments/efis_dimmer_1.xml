@@ -22,88 +22,9 @@
 	</animation>
 	
 	<animation>
-		<type>pick</type>
+		<type>knob</type>
 		<object-name>KnobDH</object-name>
-		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<condition>
-					<and>
-						<property>systems/electrical/outputs/efis</property>
-						<not><property>devices/status/keyboard/shift</property></not>
-					</and>
-				</condition>
-				<command>property-adjust</command>
-				<property>controls/switches/minimums</property>
-				<step>1</step>
-				<max>999</max>
-			</binding>
-			<binding>
-				<condition>
-					<and>
-						<property>systems/electrical/outputs/efis</property>
-						<property>devices/status/keyboard/shift</property>
-					</and>
-				</condition>
-				<command>property-adjust</command>
-				<property>controls/switches/minimums</property>
-				<step>10</step>
-				<max>999</max>
-			</binding>
-			<binding>
-				<command>property-adjust</command>
-				<property>instrumentation/efis/mins-rotate</property>
-				<step>1</step>
-				<min>0</min>
-				<max>100000</max>
-				<wrap>true</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable>true</repeatable>
-			<binding>
-				<condition>
-					<and>
-						<property>systems/electrical/outputs/efis</property>
-						<not><property>devices/status/keyboard/shift</property></not>
-					</and>
-				</condition>
-				<command>property-adjust</command>
-				<property>controls/switches/minimums</property>
-				<step>-1</step>
-				<min>0</min>
-			</binding>
-			<binding>
-				<condition>
-					<and>
-						<property>systems/electrical/outputs/efis</property>
-						<property>devices/status/keyboard/shift</property>
-					</and>
-				</condition>
-				<command>property-adjust</command>
-				<property>controls/switches/minimums</property>
-				<step>-10</step>
-				<min>0</min>
-			</binding>
-			<binding>
-				<command>property-adjust</command>
-				<property>instrumentation/efis/mins-rotate</property>
-				<step>-1</step>
-				<min>0</min>
-				<max>100000</max>
-				<wrap>true</wrap>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
-		<object-name>KnobDH</object-name>
-		<property>instrumentation/efis/mins-rotate</property>
+		<property>instrumentation/efis/mins-l-rotate</property>
 		<factor>11.25</factor>
 		<center>
 			<x-m>0</x-m>
@@ -115,49 +36,34 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
+		<action>
+			<binding>
+				<condition>
+					<property>systems/electrical/outputs/efis</property>
+				</condition>
+				<command>property-adjust</command>
+				<property>controls/switches/minimums</property>
+				<factor>1</factor>
+				<min>10</min>
+				<max>999</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/efis/mins-l-rotate</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
 	</animation>
-	
+		
 	<!-- Right now, only 0 and 1 are supported due to the display shaders -->
     <animation>
-		<type>pick</type>
+		<type>knob</type>
 		<object-name>KnobPFD</object-name>
-		<action>
-			<button>0</button>
-			<button>1</button>
-			<button>3</button>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>instrumentation/du/pfd1-dimmer</property>
-				<value>0</value>
-				<value>1</value>
-			</binding>
-		</action>
-	</animation>
-	
-    <animation>
-		<type>pick</type>
-		<object-name>KnobND</object-name>
-		<action>
-			<button>0</button>
-			<button>1</button>
-			<button>3</button>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-cycle</command>
-				<property>instrumentation/du/nd1-dimmer</property>
-				<value>0</value>
-				<value>1</value>
-			</binding>
-		</action>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
-		<object-name>KnobPFD</object-name>
-		<property>instrumentation/du/pfd1-dimmer</property>
+		<property>controls/cockpit/pfd1-dimmer</property>
 		<factor>270</factor>
 		<center>
 			<x-m>0.008</x-m>
@@ -169,12 +75,22 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/du/pfd1-dimmer</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
 	</animation>
 	
-	<animation>
-		<type>rotate</type>
+    <animation>
+		<type>knob</type>
 		<object-name>KnobND</object-name>
-		<property>instrumentation/du/nd1-dimmer</property>
+		<property>controls/cockpit/nd1-dimmer</property>
 		<factor>270</factor>
 		<center>
 			<x-m>0.002</x-m>
@@ -186,6 +102,16 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/du/nd1-dimmer</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
 	</animation>
 
 </PropertyList>

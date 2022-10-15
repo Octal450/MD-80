@@ -105,9 +105,9 @@
 	</animation>
 	
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>Knob</object-name>
-		<property>instrumentation/efis/mins-rotate</property>
+		<property>instrumentation/efis/mins-r-rotate</property>
 		<factor>11.25</factor>
 		<center>
 			<x-m>0</x-m>
@@ -119,68 +119,22 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	
-	<animation>
-		<type>pick</type>
-		<object-name>Knob</object-name>
 		<action>
-			<button>0</button>
-			<button>3</button>
-			<repeatable>false</repeatable>
 			<binding>
 				<condition>
-					<not><property>devices/status/keyboard/shift</property></not>
+					<property>systems/electrical/outputs/efis</property>
 				</condition>
 				<command>property-adjust</command>
 				<property>controls/switches/minimums</property>
-				<step>1</step>
+				<factor>1</factor>
+				<min>10</min>
 				<max>999</max>
-			</binding>
-			<binding>
-				<condition>
-					<property>devices/status/keyboard/shift</property>
-				</condition>
-				<command>property-adjust</command>
-				<property>controls/switches/minimums</property>
-				<step>10</step>
-				<max>999</max>
+				<wrap>false</wrap>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/efis/mins-rotate</property>
-				<step>1</step>
-				<min>0</min>
-				<max>100000</max>
-				<wrap>true</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<button>4</button>
-			<repeatable>true</repeatable>
-			<binding>
-				<condition>
-					<not><property>devices/status/keyboard/shift</property></not>
-				</condition>
-				<command>property-adjust</command>
-				<property>controls/switches/minimums</property>
-				<step>-1</step>
-				<min>0</min>
-			</binding>
-			<binding>
-				<condition>
-					<property>devices/status/keyboard/shift</property>
-				</condition>
-				<command>property-adjust</command>
-				<property>controls/switches/minimums</property>
-				<step>-10</step>
-				<min>0</min>
-			</binding>
-			<binding>
-				<command>property-adjust</command>
-				<property>instrumentation/efis/mins-rotate</property>
-				<step>-1</step>
+				<property>instrumentation/efis/mins-r-rotate</property>
+				<factor>1</factor>
 				<min>0</min>
 				<max>100000</max>
 				<wrap>true</wrap>

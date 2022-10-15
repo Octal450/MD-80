@@ -434,6 +434,9 @@
 				<master type="int">0</master>
 			</switches>
 		</apu>
+		<cockpit n="0">
+			<flaps-lever-translate-cmd type="double">0</flaps-lever-translate-cmd>
+		</cockpit>
 		<dfgs n="0">
 			<lights n="0">
 				<art type="bool">0</art>
@@ -1117,10 +1120,14 @@
 			<indicated-speed-kt type="double">0</indicated-speed-kt>
 		</airspeed-indicator>
 		<altimeter n="0">
-			<inhg type="bool">1</inhg>
+			<baro-rotate type="int">49984</baro-rotate> <!-- So the symbol is upright -->
 			<indicated-altitude-ft type="double">0</indicated-altitude-ft>
-			<oldqnh type="double">29.92</oldqnh>
-			<std type="bool">0</std>
+		</altimeter>
+		<altimeter n="1">
+			<baro-rotate type="int">49984</baro-rotate> <!-- So the symbol is upright -->
+		</altimeter>
+		<altimeter n="2">
+			<baro-rotate type="int">49984</baro-rotate> <!-- So the symbol is upright -->
 		</altimeter>
 		<chrono n="0">
 			<started type="bool">0</started>
@@ -1183,7 +1190,8 @@
 			<pfd2-dimmer type="double">1</pfd2-dimmer>
 		</du>
 		<efis n="0">
-			<mins-rotate type="int">50000</mins-rotate>
+			<mins-l-rotate type="int">49984</mins-l-rotate> <!-- So the symbol is upright -->
+			<mins-r-rotate type="int">49984</mins-r-rotate> <!-- So the symbol is upright -->
 		</efis>
 		<encoder n="0">
 			<serviceable type="bool">1</serviceable>
@@ -1329,6 +1337,9 @@
 	
 	<it-autoflight>
 		<input n="0">
+			<athr type="bool">0</athr>
+			<fd1 type="bool">0</fd1>
+			<fd2 type="bool">0</fd2>
 			<hdg type="int">360</hdg>
 			<kts-mach type="bool">0</kts-mach>
 		</input>
