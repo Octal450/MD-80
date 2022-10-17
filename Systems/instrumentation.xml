@@ -33,7 +33,7 @@
 					<value>7</value>
 				</equals>
 			</condition>
-			<property>/fdm/jsbsim/dfgs/speeds/vss1_3</property>
+			<property>/fdm/jsbsim/dfgs/speeds/vss1_2</property>
 		</input>
 		<input>
 			<condition>

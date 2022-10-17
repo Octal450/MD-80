@@ -377,7 +377,7 @@
 			<expression>
 				<product>
 					<difference>
-						<property>/fdm/jsbsim/dfgs/speeds/vss1_3</property>
+						<property>/fdm/jsbsim/dfgs/speeds/vss1_2</property>
 						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
 					</difference>
 					<value>0.1</value>
