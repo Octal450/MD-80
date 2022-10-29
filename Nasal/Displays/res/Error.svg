@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -39,12 +39,12 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1030"
+     inkscape:window-height="1009"
      id="namedview371"
      showgrid="false"
      inkscape:zoom="0.70710678"
-     inkscape:cx="834.95008"
-     inkscape:cy="338.6757"
+     inkscape:cx="508.26674"
+     inkscape:cy="451.81279"
      inkscape:window-x="1592"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -130,12 +130,12 @@
        y="575.88538"
        x="79.906578"
        sodipodi:role="line"
-       id="tspan4148">information..</tspan></text>
+       id="tspan4148">information.</tspan></text>
   <text
      transform="scale(0.999996,1.000004)"
      inkscape:label="#text4335"
      sodipodi:linespacing="125%"
-     id="Error_Code"
+     id="text4208"
      y="719.5752"
      x="77.844131"
      style="font-style:normal;font-weight:normal;font-size:76px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -144,13 +144,13 @@
        y="719.5752"
        x="77.844131"
        sodipodi:role="line"
-       id="tspan4244">0x000</tspan></text>
+       id="tspan4244">MD-80</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:76px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="359.89081"
      y="719.57513"
-     id="text4153"
+     id="text4207"
      sodipodi:linespacing="125%"
      inkscape:label="#text4335"
      transform="scale(0.99999591,1.0000041)"><tspan

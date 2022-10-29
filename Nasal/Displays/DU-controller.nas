@@ -31,8 +31,6 @@ var DUController = {
 		# Now show the error
 		canvas_pfd.pfd1Error.page.show();
 		canvas_pfd.pfd2Error.page.show();
-		canvas_pfd.pfd1Error.update();
-		canvas_pfd.pfd2Error.update();
 	},
 	loop: func() {
 		me.flightDirector = pts.Systems.Acconfig.Options.flightDirector.getValue();

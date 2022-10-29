@@ -498,6 +498,7 @@
 		<property>controls/tri/rat-d10</property>
 		<factor>0.0695</factor>
 		<step>1</step>
+		<scroll>0.1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -510,7 +511,6 @@
 		<object-name>rat2</object-name>
 		<property>controls/tri/rat-d1</property>
 		<factor>0.0695</factor>
-		<step>1</step>
 		<axis>
 			<x>0</x>
 			<y>1</y>

@@ -453,12 +453,6 @@ var canvasPfd1Error = {
 		};
 		
 		canvas.parsesvg(canvasGroup, file, {"font-mapper": font_mapper});
-		
-		var svgKeys = me.getKeys();
-		foreach(var key; svgKeys) {
-			me[key] = canvasGroup.getElementById(key);
-		}
-		
 		me.page = canvasGroup;
 		
 		return me;
@@ -469,12 +463,6 @@ var canvasPfd1Error = {
 		
 		return m;
 	},
-	getKeys: func() {
-		return ["Error_Code"];
-	},
-	update: func() {
-		me["Error_Code"].setText(acconfig.SYSTEM.Error.code.getValue());
-	},
 };
 
 var canvasPfd2Error = {
@@ -484,12 +472,6 @@ var canvasPfd2Error = {
 		};
 		
 		canvas.parsesvg(canvasGroup, file, {"font-mapper": font_mapper});
-		
-		var svgKeys = me.getKeys();
-		foreach(var key; svgKeys) {
-			me[key] = canvasGroup.getElementById(key);
-		}
-		
 		me.page = canvasGroup;
 		
 		return me;
@@ -499,12 +481,6 @@ var canvasPfd2Error = {
 		m.init(canvasGroup, file);
 		
 		return m;
-	},
-	getKeys: func() {
-		return ["Error_Code"];
-	},
-	update: func() {
-		me["Error_Code"].setText(acconfig.SYSTEM.Error.code.getValue());
 	},
 };
 
@@ -554,11 +530,11 @@ var update = maketimer(0.05, func() { # 20FPS
 var showPfd1 = func() {
 	var dlg = canvas.Window.new([512, 400], "dialog").set("resize", 1);
 	dlg.setCanvas(pfd1Display);
-	dlg.set("title", "Captains PFD");
+	dlg.set("title", "Captain's PFD");
 }
 
 var showPfd2 = func() {
 	var dlg = canvas.Window.new([512, 400], "dialog").set("resize", 1);
 	dlg.setCanvas(pfd2Display);
-	dlg.set("title", "First Officers PFD");
+	dlg.set("title", "First Officer's PFD");
 }

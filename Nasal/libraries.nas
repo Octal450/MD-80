@@ -41,6 +41,7 @@ var fdmInit = setlistener("sim/signals/fdm-initialized", func() {
 	systemsLoop.start();
 	canvas_pfd.init();
 	canvas_fma.init();
+	acconfig.SYSTEM.finalInit();
 	removelistener(fdmInit);
 	initDone = 1;
 });

@@ -2010,12 +2010,14 @@
 		
 		<fcs_function name="/controls/tri/rat-fixed">
 			<function>
-				<sum>
-					<abs>
-						<property>/controls/tri/rat-cmd</property>
-					</abs>
-					<value>0.5</value> <!-- Make it round correctly -->
-				</sum>
+				<integer>
+					<sum>
+						<abs>
+							<property>/controls/tri/rat-cmd</property>
+						</abs>
+						<value>0.5</value> <!-- Make it round correctly -->
+					</sum>
+				</integer>
 			</function>
 		</fcs_function>
 		
