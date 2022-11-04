@@ -70,6 +70,14 @@
 						<value>3</value>
 					</equals>
 				</or>
+				<less-than>
+					<property>/engines/engine[0]/reverser-pos-norm</property>
+					<value>0.01</value>
+				</less-than>
+				<less-than>
+					<property>/engines/engine[1]/reverser-pos-norm</property>
+					<value>0.01</value>
+				</less-than>
 			</and>
 		</input>
 		<output>/it-autoflight/input/athr-avail</output>
