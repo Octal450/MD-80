@@ -686,6 +686,7 @@
     <animation>
         <type>pick</type>
         <object-name>PitchTrim.dn</object-name>
+        <object-name>PitchTrim.dn.001</object-name>
 		<action>
 			<repeatable>true</repeatable>
 			<button>0</button>
@@ -733,6 +734,7 @@
 	<animation>
 		<type>pick</type>
 		<object-name>PitchTrim.up</object-name>
+        <object-name>PitchTrim.up.001</object-name>
 		<action>
 			<repeatable>true</repeatable>
 			<button>0</button>
