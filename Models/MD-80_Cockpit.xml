@@ -139,13 +139,13 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/switches/ap-yoke-button1</property>
+				<property>controls/cockpit/ap-disc-1</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>controls/switches/ap-yoke-button1</property>
+					<property>controls/cockpit/ap-disc-1</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -155,7 +155,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>apoff</object-name>
-		<property>controls/switches/ap-yoke-button1</property>
+		<property>controls/cockpit/ap-disc-1</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-0.001</dep></entry>
 			<entry><ind>1</ind><dep> 0.001</dep></entry>
@@ -179,13 +179,13 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/switches/ap-yoke-button2</property>
+				<property>controls/cockpit/ap-disc-2</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 				<command>property-assign</command>
-					<property>controls/switches/ap-yoke-button2</property>
+					<property>controls/cockpit/ap-disc-2</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -195,47 +195,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>apoff2</object-name>
-		<property>controls/switches/ap-yoke-button2</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>-0.001</dep></entry>
-			<entry><ind>1</ind><dep> 0.001</dep></entry>
-		</interpolation>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>pick</type>
-		<object-name>apoff2</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.apPanel.apDisc();</script>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/switches/ap-yoke-button2</property>
-				<value>1</value>
-			</binding>
-			<mod-up>
-				<binding>
-				<command>property-assign</command>
-					<property>controls/switches/ap-yoke-button2</property>
-					<value>0</value>
-				</binding>
-			</mod-up>
-		</action>
-	</animation>
-
-	<animation>
-		<type>translate</type>
-		<object-name>apoff2</object-name>
-		<property>controls/switches/ap-yoke-button2</property>
+		<property>controls/cockpit/ap-disc-2</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-0.001</dep></entry>
 			<entry><ind>1</ind><dep> 0.001</dep></entry>
@@ -260,13 +220,13 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/switches/ats-lever1</property>
+				<property>controls/cockpit/at-disc-1</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>controls/switches/ats-lever1</property>
+					<property>controls/cockpit/at-disc-1</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -276,7 +236,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>AToffL</object-name>
-		<property>controls/switches/ats-lever1</property>
+		<property>controls/cockpit/at-disc-1</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0.000</dep></entry>
 			<entry><ind>1</ind><dep>0.002</dep></entry>
@@ -300,13 +260,13 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/switches/ats-lever2</property>
+				<property>controls/cockpit/at-disc-2</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>controls/switches/ats-lever2</property>
+					<property>controls/cockpit/at-disc-2</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -316,7 +276,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>AToffR</object-name>
-		<property>controls/switches/ats-lever2</property>
+		<property>controls/cockpit/at-disc-2</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0.000</dep></entry>
 			<entry><ind>1</ind><dep>-0.002</dep></entry>
@@ -341,13 +301,13 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/switches/toga-btn1</property>
+				<property>controls/cockpit/toga-1</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>controls/switches/toga-btn1</property>
+					<property>controls/cockpit/toga-1</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -357,7 +317,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>TogaL</object-name>
-		<property>controls/switches/toga-btn1</property>
+		<property>controls/cockpit/toga-1</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0.000</dep></entry>
 			<entry><ind>1</ind><dep>0.002</dep></entry>
@@ -381,13 +341,13 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/switches/toga-btn2</property>
+				<property>controls/cockpit/toga-2</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>controls/switches/toga-btn2</property>
+					<property>controls/cockpit/toga-2</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -397,7 +357,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>TogaR</object-name>
-		<property>controls/switches/toga-btn2</property>
+		<property>controls/cockpit/toga-2</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0.000</dep></entry>
 			<entry><ind>1</ind><dep>0.002</dep></entry>
