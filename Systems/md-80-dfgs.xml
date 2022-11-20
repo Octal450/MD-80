@@ -6,6 +6,8 @@
 <system name="MD-80: DFGS">
 	
 	<property value="0">dfgs/flaps-cmd</property>
+	<property value="0">engine/throttle-lever-feedback[0]</property>
+	<property value="0">engine/throttle-lever-feedback[1]</property>
 	<property value="0">/gear/abs/disarm</property>
 	
 	<!-- Default gains for tuning -->
