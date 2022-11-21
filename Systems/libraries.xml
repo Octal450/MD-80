@@ -112,14 +112,6 @@
 	</filter>
 	
 	<filter>
-		<name>TAS</name>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>/instrumentation/airspeed-indicator/true-speed-kt</input>
-		<output>/velocities/TAS</output>
-	</filter>
-	
-	<filter>
 		<name>Vertical Speed Indicator</name>
 		<type>exponential</type>
 		<input>/it-autoflight/internal/vert-speed-fpm</input>
