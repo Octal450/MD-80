@@ -107,13 +107,6 @@
 							<script>panel2d.fgcpDialog.open();</script>
 						</binding>
 					</item>
-					<item>
-						<label>FGCP Panel (Legacy)</label>
-						<binding>
-							<command>dialog-show</command>
-							<dialog-name>autopilot</dialog-name>
-						</binding>
-					</item>
 				</menu>
 				<menu n="104">
 					<label>Utilities</label>
@@ -988,6 +981,22 @@
 					<script>libraries.resetView();</script>
 				</binding>
 			</key>
+			<key n="101">
+				<name>e</name>
+				<desc>Thrust Levers Idle</desc>
+				<binding>
+					<command>nasal</command>
+					<script>systems.doIdleThrust();</script>
+				</binding>
+			</key>
+			<key n="102">
+				<name>f</name>
+				<desc>Thrust Lever Full</desc>
+				<binding>
+					<command>nasal</command>
+					<script>systems.doFullThrust();</script>
+				</binding>
+			</key>
 			<key n="120">
 				<name>x</name>
 				<desc>Decrease field of view</desc>
@@ -1020,20 +1029,12 @@
 					<script>systems.doRevThrust();</script>
 				</binding>
 			</key>
-			<key n="101">
-				<name>e</name>
-				<desc>Thrust Levers Idle</desc>
+			<key n="267">
+				<name>F11</name>
+				<desc>FGCP Panel</desc>
 				<binding>
 					<command>nasal</command>
-					<script>systems.doIdleThrust();</script>
-				</binding>
-			</key>
-			<key n="102">
-				<name>f</name>
-				<desc>Thrust Lever Full</desc>
-				<binding>
-					<command>nasal</command>
-					<script>systems.doFullThrust();</script>
+					<script>panel2d.fgcpDialog.open();</script>
 				</binding>
 			</key>
 			<key n="362">

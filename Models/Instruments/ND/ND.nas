@@ -18,7 +18,6 @@ var nd_display = {};
 # note: it is NOT sufficient to just add new switches here, the backend code in navdisplay.mfd also
 # needs to know what to do with them !
 # refer to incomplete symbol implementations to learn how they work (e.g. WXR, STA)
-
       var myCockpit_switches = {
     # symbolic alias : relative property (as used in bindings), initial value, type
     'toggle_range':         {path: '/inputs/range-nm', value:40, type:'INT'},
@@ -45,8 +44,6 @@ var nd_display = {};
 # entry point, this will set up all ND instances
 
 var _list = setlistener("sim/signals/fdm-initialized", func() {
-
-
     # get a handle to the NavDisplay in canvas namespace (for now), see $FG_ROOT/Nasal/canvas/map/navdisplay.mfd
     var ND = canvas.NavDisplay;
 
@@ -89,12 +86,9 @@ var _list = setlistener("sim/signals/fdm-initialized", func() {
     removelistener(_list); # run ONCE
 }); # fdm-initialized listener callback
 
-
 var showNd = func(pilot='cpt') {
-	var dlg = canvas.Window.new([512, 400], "dialog");
+	var dlg = canvas.Window.new([512, 400], "dialog", nil, 0).set("resize", 1);
 	dlg.setCanvas(nd_display[pilot]);
 	if (pilot == "fo") dlg.set("title", "First Officer's ND");
 	else dlg.set("title", "Captain's ND");
 }
-
-
