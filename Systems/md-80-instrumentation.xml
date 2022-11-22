@@ -404,8 +404,9 @@
 		
 		<switch name="/instrumentation/ai[0]/slip-skid-cmd">
 			<default value="/fdm/jsbsim/aero/beta-deg"/>
-			<test value="0">
+			<test logic="OR" value="0">
 				/instrumentation/ai[0]/power-avail ne 1
+				/systems/ahrs[0]/aligned ne 1
 			</test>
 			<test value="/instrumentation/ai[0]/slip-skid-Ny">
 				position/wow eq 1
@@ -554,8 +555,9 @@
 		
 		<switch name="/instrumentation/ai[1]/slip-skid-cmd">
 			<default value="/fdm/jsbsim/aero/beta-deg"/>
-			<test value="0">
+			<test logic="OR" value="0">
 				/instrumentation/ai[1]/power-avail ne 1
+				/systems/ahrs[1]/aligned ne 1
 			</test>
 			<test value="/instrumentation/ai[1]/slip-skid-Ny">
 				position/wow eq 1
