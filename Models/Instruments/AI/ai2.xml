@@ -133,7 +133,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>FastSlow</object-name>
-		<property>instrumentation/pfd/fast-slow</property>
+		<property>instrumentation/ai[1]/fast-slow</property>
 		<factor>-0.0017</factor>
 		<axis>
 			<x>0</x>

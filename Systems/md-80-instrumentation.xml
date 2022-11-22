@@ -385,6 +385,18 @@
 			<c1>10</c1>
 		</lag_filter>
 		
+		<switch name="/instrumentation/ai[0]/fast-slow-cmd">
+			<default value="0"/>
+			<test logic="AND" value="/it-autoflight/output/fast-slow">
+				/instrumentation/ai[0]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/ai[0]/fast-slow">
+			<input>/instrumentation/ai[0]/fast-slow-cmd</input>
+			<c1>10</c1>
+		</lag_filter>
+		
 		<pure_gain name="/instrumentation/ai[0]/slip-skid-Ny">
 			<input>accelerations/Ny</input>
 			<gain>-25</gain>
@@ -520,6 +532,18 @@
 		
 		<lag_filter name="/instrumentation/ai[1]/gs-deviation">
 			<input>/instrumentation/ai[1]/gs-deviation-cmd</input>
+			<c1>10</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/ai[1]/fast-slow-cmd">
+			<default value="0"/>
+			<test logic="AND" value="/it-autoflight/output/fast-slow">
+				/instrumentation/ai[1]/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/ai[1]/fast-slow">
+			<input>/instrumentation/ai[1]/fast-slow-cmd</input>
 			<c1>10</c1>
 		</lag_filter>
 		

@@ -1168,5 +1168,92 @@
 		<max>15</max>
 		<max-rate-of-change>10</max-rate-of-change>
 	</filter>
+	
+	<filter>
+		<name>Fast Slow Indicator Input</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<equals>
+					<property>/it-autoflight/output/vert</property>
+					<value>7</value>
+				</equals>
+			</condition>
+			<property>/fdm/jsbsim/dfgs/speeds/vss1_2</property>
+		</input>
+		<input>
+			<condition>
+				<and>
+					<equals>
+						<property>/it-autoflight/output/vert</property>
+						<value>4</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/input/kts-mach-flch</property>
+						<value>1</value>
+					</equals>
+				</and>
+			</condition>
+			<expression>
+				<product>
+					<div>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+					</div>
+					<property>/it-autoflight/input/mach-flch</property>
+				</product>
+			</expression>
+		</input>
+		<input>
+			<condition>
+				<equals>
+					<property>/it-autoflight/output/vert</property>
+					<value>4</value>
+				</equals>
+			</condition>
+			<property>/it-autoflight/input/kts-flch</property>
+		</input>
+		<input>
+			<condition>
+				<equals>
+					<property>/it-autoflight/input/kts-mach</property>
+					<value>1</value>
+				</equals>
+			</condition>
+			<expression>
+				<product>
+					<div>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+					</div>
+					<property>/it-autoflight/input/mach</property>
+				</product>
+			</expression>
+		</input>
+		<input>/it-autoflight/input/kts</input>
+		<output>/it-autoflight/output/fast-slow-input</output>
+		<min>/fdm/jsbsim/dfgs/speeds/vmin</min>
+		<max>/fdm/jsbsim/dfgs/speeds/vmo-mmo</max>
+	</filter>
+	
+	<filter>
+		<name>Fast Slow Indicator Error</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>/it-autoflight/output/fast-slow-input</input>
+		<reference>/instrumentation/airspeed-indicator/indicated-speed-kt</reference>
+		<output>/it-autoflight/output/fast-slow-raw</output>
+		<min>-10</min>
+		<max>10</max>
+	</filter>
+	
+	<filter>
+		<name>Fast Slow Indicator Lag</name>
+		<type>exponential</type>
+		<input>/it-autoflight/output/fast-slow-raw</input>
+		<output>/it-autoflight/output/fast-slow</output>
+		<filter-time>0.32</filter-time>
+	</filter>
 
 </PropertyList>

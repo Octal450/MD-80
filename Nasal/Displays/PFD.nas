@@ -110,7 +110,7 @@ var canvasBase = {
 		if (dfgs.Fma.thrA.getValue() == "RETD") {
 			me["FS_scale"].hide();
 		} else {
-			me["FS_pointer"].setTranslation(0, pts.Instrumentation.Pfd.fastSlow.getValue() * 13.1);
+			me["FS_pointer"].setTranslation(0, dfgs.Output.fastSlow.getValue() * 13.1);
 			me["FS_scale"].show();
 		}
 		

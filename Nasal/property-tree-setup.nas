@@ -161,9 +161,6 @@ var Instrumentation = {
 		navLoc: [props.globals.getNode("/instrumentation/nav[0]/nav-loc"), props.globals.getNode("/instrumentation/nav[1]/nav-loc")],
 		signalQualityNorm: [props.globals.getNode("/instrumentation/nav[0]/signal-quality-norm"), props.globals.getNode("/instrumentation/nav[1]/signal-quality-norm")],
 	},
-	Pfd: {
-		fastSlow: props.globals.initNode("/instrumentation/pfd/fast-slow", 0, "DOUBLE"),
-	},
 };
 
 var Options = {
