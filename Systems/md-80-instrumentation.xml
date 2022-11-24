@@ -5,8 +5,6 @@
 
 <system name="MD-80: Instrumentation">
 	
-	<property>/instrumentation/airspeed-indicator/indicated-mach-slow</property>
-	
 	<channel name="Airspeed Indicators" execrate="2">
 		
 		<fcs_function name="/it-autoflight/input/mach-kts-equiv">

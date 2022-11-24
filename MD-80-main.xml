@@ -637,7 +637,23 @@
 	
 	<fdm n="0">
 		<jsbsim n="0">
+			<dfgs n="0">
+				<afs n="0">
+					<pitch-cmd type="double">0</pitch-cmd>
+					<roll-cmd type="double">0</roll-cmd>
+					<yaw-cmd type="double">0</yaw-cmd>
+				</afs>
+				<mach-trim n="0">
+					<output type="double">0</output>
+				</mach-trim>
+			</dfgs>
 			<engine n="0">
+				<ats-cmd-1 type="double">0</ats-cmd-1>
+				<ats-cmd-2 type="double">0</ats-cmd-2>
+				<epr n="0">
+					<c1 type="double">1</c1>
+					<c2 type="double">1</c2>
+				</epr>
 				<limit n="0">
 					<active-mode type="string">T/O</active-mode>
 					<active-mode-int type="int">0</active-mode-int>
@@ -1123,6 +1139,7 @@
 		</ai>
 		<airspeed-indicator n="0">
 			<indicated-mach type="double">0</indicated-mach>
+			<indicated-mach-slow type="double">0</indicated-mach-slow>
 			<indicated-speed-kt type="double">0</indicated-speed-kt>
 		</airspeed-indicator>
 		<altimeter n="0">

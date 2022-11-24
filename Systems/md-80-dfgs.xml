@@ -15,12 +15,6 @@
 	<property value="0">dfgs/yaw/tc-p-gain-tune</property>
 	<property value="0">dfgs/yaw/tc-d-gain-tune</property>
 	
-	<!-- DFGS stuff -->
-	<property value="0">dfgs/mach-trim/output</property>
-	<property value="0">dfgs/afs/roll-cmd</property>
-	<property value="0">dfgs/afs/pitch-cmd</property>
-	<property value="0">dfgs/afs/yaw-cmd</property>
-	
 	<channel name="Libraries">
 		
 		<switch name="dfgs/power-avail">

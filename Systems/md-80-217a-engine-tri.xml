@@ -8,10 +8,6 @@
 	<property value="45">engine/limit/flex-temp</property>
 	<property value="30">engine/limit/rated-temp</property>
 	<property value="1">engine/limit/idle</property>
-	<property value="1">engine/epr/c1</property> <!-- Done in property rule because its easier to tune -->
-	<property value="1">engine/epr/c2</property> <!-- Done in property rule because its easier to tune -->
-	<property value="0">engine/ats-cmd-1</property>
-	<property value="0">engine/ats-cmd-2</property>
 	<property value="0">engine/art/active</property>
 	<property value="0">/instrumentation/epr[0]/power-avail</property>
 	<property value="0">/instrumentation/epr[1]/power-avail</property>
