@@ -397,7 +397,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>LGLever</object-name>
-		<property>controls/gear/lever-animation</property>
+		<property>controls/cockpit/gear-lever</property>
 		<interpolation>
 			<entry><ind>1</ind><dep>90</dep></entry>
 			<entry><ind>2</ind><dep> 0</dep></entry>
@@ -417,7 +417,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>LGLever</object-name>
-		<property>controls/gear/lever-animation</property>
+		<property>controls/cockpit/gear-lever</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0.00</dep></entry>
 			<entry><ind>1</ind><dep>0.01</dep></entry>

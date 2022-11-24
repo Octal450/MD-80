@@ -103,23 +103,6 @@
 	</predict-simple>
 	
 	<filter>
-		<name>Gear Lever</name>
-		<update-interval-secs>0.02</update-interval-secs>
-		<type>noise-spike</type>
-		<input>/controls/gear/lever-cockpit</input>
-		<output>/controls/gear/lever-animation</output>
-		<max-rate-of-change>4.5</max-rate-of-change>
-	</filter>
-	
-	<filter>
-		<name>Vertical Speed Indicator</name>
-		<type>exponential</type>
-		<input>/it-autoflight/internal/vert-speed-fpm</input>
-		<output>/instrumentation/vertical-speed-indicator/vert-speed-fpm</output>
-		<filter-time>1.28</filter-time>
-	</filter>
-	
-	<filter>
 		<name>Minimums Plus 50</name>
 		<update-interval-secs>0.1</update-interval-secs>
 		<type>gain</type>
