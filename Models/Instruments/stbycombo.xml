@@ -8,22 +8,7 @@
 	
 	<animation>
 		<type>material</type>
-		<object-name>alttxt</object-name>
-		<object-name>alttxt.001</object-name>
-		<object-name>alttxt.002</object-name>
-		<object-name>alttxt.003</object-name>
-		<object-name>alttxt.004</object-name>
-		<object-name>face</object-name>
-		<object-name>iastape</object-name>
-		<object-name>inhg.001</object-name>
-		<object-name>inhg.002</object-name>
-		<object-name>inhg.003</object-name>
-		<object-name>inhg.004</object-name>
-		<object-name>kpa.001</object-name>
-		<object-name>kpa.002</object-name>
-		<object-name>kpa.003</object-name>
-		<object-name>kpa.004</object-name>
-		<object-name>needle</object-name>
+		<object-name>LightingGroup</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.6</green>
