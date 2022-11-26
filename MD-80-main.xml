@@ -1390,6 +1390,7 @@
 					<show-route type="bool">1</show-route>
 					<show-wingtip type="bool">1</show-wingtip>
 				</autopush>
+				<combined-standby type="bool">0</combined-standby>
 				<flight-director type="string">Single Cue</flight-director>
 				<keyboard-mode type="bool">0</keyboard-mode>
 				<du n="0">

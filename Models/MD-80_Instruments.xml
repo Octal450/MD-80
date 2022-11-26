@@ -343,6 +343,23 @@
 	<model>
 		<name>stbyalt</name>
 		<path>Aircraft/MD-80/Models/Instruments/stbyalt.xml</path>
+		<condition>
+			<not><property>systems/acconfig/options/combined-standby</property></not>
+		</condition>
+		<offsets>
+			<x-m>2.235</x-m>
+			<y-m>-0.18</y-m>
+			<z-m>0.823</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>stbycombo</name>
+		<path>Aircraft/MD-80/Models/Instruments/stbycombo.xml</path>
+		<condition>
+			<property>systems/acconfig/options/combined-standby</property>
+		</condition>
 		<offsets>
 			<x-m>2.235</x-m>
 			<y-m>-0.18</y-m>

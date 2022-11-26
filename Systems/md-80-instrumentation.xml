@@ -260,6 +260,32 @@
 			<input>/instrumentation/airspeed-indicator[1]/bug-kts-input</input>
 			<c1>20</c1>
 		</lag_filter>
+		
+		<!-- Airspeed Indicator Standby -->
+		<switch name="/instrumentation/stby-asi/power-avail">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/dc-trans ge 24
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/stby-asi/speed-kt-input">
+			<default value="/instrumentation/stby-asi/speed-kt-input"/>
+			<test value="/instrumentation/airspeed-indicator/indicated-speed-kt">
+				/instrumentation/stby-asi/power-avail eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/stby-asi/speed-kt-actuator">
+			<input>/instrumentation/stby-asi/speed-kt-input</input>
+			<rate_limit>100</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/instrumentation/stby-asi/speed-kt">
+			<input>/instrumentation/stby-asi/speed-kt-actuator</input>
+			<c1>20</c1>
+		</lag_filter>
 	
 	</channel>
 	

@@ -4,24 +4,16 @@
 
 <PropertyList>
 	
-	<path>stbyalt.ac</path>
-	
-	<animation>
-		<type>scale</type>
-		<x-offset>1.05</x-offset>
-		<y-offset>1.05</y-offset>
-		<z-offset>1.05</z-offset>
-	</animation>
+	<path>stbycombo.ac</path>
 	
 	<animation>
 		<type>material</type>
-		<object-name>ALT.face</object-name>
-		<object-name>ALT.needle</object-name>
 		<object-name>alttxt</object-name>
 		<object-name>alttxt.001</object-name>
 		<object-name>alttxt.002</object-name>
 		<object-name>alttxt.003</object-name>
 		<object-name>alttxt.004</object-name>
+		<object-name>face</object-name>
 		<object-name>iastape</object-name>
 		<object-name>inhg.001</object-name>
 		<object-name>inhg.002</object-name>
@@ -31,35 +23,35 @@
 		<object-name>kpa.002</object-name>
 		<object-name>kpa.003</object-name>
 		<object-name>kpa.004</object-name>
+		<object-name>needle</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.6</green>
 			<blue>0.3</blue>
-			<factor-prop>controls/lighting/capt-panel-norm</factor-prop>
+			<factor-prop>controls/lighting/center-panel-norm</factor-prop>
 		</emission>
 	</animation>
 	
 	<animation>
 		<type>textranslate</type>
 		<object-name>iastape</object-name>
-		<property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+		<property>instrumentation/stby-asi/speed-kt</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.0</dep></entry>
-			<entry><ind>60.0</ind><dep>0.0244</dep></entry>
-			<entry><ind>300.0</ind><dep>0.4120</dep></entry>
-			<entry><ind>580</ind><dep>0.8697</dep></entry>
+			<entry><ind> 43</ind><dep>0.000</dep></entry>
+			<entry><ind> 60</ind><dep>0.027</dep></entry>
+			<entry><ind>300</ind><dep>0.413</dep></entry>
+			<entry><ind>460</ind><dep>0.675</dep></entry>
 		</interpolation>
 		<axis>
 			<x>0</x>
 			<y>-1</y>
-			<z>0</z>
 		</axis>
 	</animation>
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>ALT.needle</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
+		<object-name>needle</object-name>
+		<property>instrumentation/stby-alt/altitude-ft</property>
 		<factor>0.36</factor>
 		<axis>
 			<x>-1</x>
@@ -75,74 +67,35 @@
 	
 	<animation>
 		<type>textranslate</type>
-		<object-name>alttxt.004</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
-		<factor>0.1</factor>
+		<object-name>alttxt</object-name>
+		<property>instrumentation/stby-alt/altitude-ft</property>
+		<factor>0.00001</factor>
+		<step>10000</step>
+		<scroll>50</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>alttxt.003</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
-		<factor>0.01</factor>
-		<step>10</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>alttxt.002</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
-		<factor>0.001</factor>
-		<step>100</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
 		</axis>
 	</animation>
 	
 	<animation>
 		<type>textranslate</type>
 		<object-name>alttxt.001</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
+		<property>instrumentation/stby-alt/altitude-ft</property>
 		<factor>0.0001</factor>
-		<step>1000</step>
 		<axis>
 			<x>0</x>
 			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>alttxt</object-name>
-		<property>instrumentation/altimeter/indicated-altitude-ft</property>
-		<factor>0.00001</factor>
-		<step>10000</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
 		</axis>
 	</animation>
 	
 	<animation>
 		<type>textranslate</type>
 		<object-name>inhg.001</object-name>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<factor>0.01</factor>
-		<step>10</step>
+		<property>instrumentation/stby-alt/setting-inhg-text</property>
+		<factor>0.0001</factor>
+		<step>1000</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -153,9 +106,10 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>inhg.002</object-name>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<factor>0.1</factor>
-		<step>1</step>
+		<property>instrumentation/stby-alt/setting-inhg-text</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -166,9 +120,10 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>inhg.003</object-name>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<factor>1.0</factor>
-		<step>0.1</step>
+		<property>instrumentation/stby-alt/setting-inhg-text</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -179,9 +134,10 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>inhg.004</object-name>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<factor>10.0</factor>
-		<step>0.01</step>
+		<property>instrumentation/stby-alt/setting-inhg-text</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -192,9 +148,10 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>kpa.001</object-name>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<factor>0.0033863886</factor>
-		<step>29.5329983</step>
+		<property>instrumentation/stby-alt/setting-hpa-text</property>
+		<factor>0.0001</factor>
+		<step>1000</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -205,9 +162,10 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>kpa.002</object-name>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<factor>0.033863886</factor>
-		<step>2.9529983</step>
+		<property>instrumentation/stby-alt/setting-hpa-text</property>
+		<factor>0.001</factor>
+		<step>100</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -218,9 +176,10 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>kpa.003</object-name>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<factor>0.338639</factor>
-		<step>0.2952998</step>
+		<property>instrumentation/stby-alt/setting-hpa-text</property>
+		<factor>0.01</factor>
+		<step>10</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -231,9 +190,10 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>kpa.004</object-name>
-		<property>instrumentation/altimeter/setting-inhg</property>
-		<factor>3.38639</factor>
-		<step>0.02952998</step>
+		<property>instrumentation/stby-alt/setting-hpa-text</property>
+		<factor>0.1</factor>
+		<step>1</step>
+		<scroll>1</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -241,56 +201,37 @@
 		</axis>
 	</animation>
 	
-	<!-- Hotspots -->
 	<animation>
-		<type>pick</type>
+		<type>knob</type>
 		<object-name>BaroKnob</object-name>
+		<property>instrumentation/altimeter[2]/baro-rotate</property>
+		<factor>11.25</factor>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.03161</y-m>
+			<z-m>-0.03146</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
 		<action>
-			<button>0</button>
-			<repeatable>true</repeatable>
-			<interval-sec>0.2</interval-sec>
 			<binding>
 				<command>property-adjust</command>
 				<property>instrumentation/altimeter/setting-inhg</property>
-				<step>0.01</step>
-				<min>26.0</min>
-				<max>33.0</max>
+				<factor>0.01</factor>
+				<min>26</min>
+				<max>33</max>
 				<wrap>false</wrap>
 			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<repeatable>true</repeatable>
-			<interval-sec>0.2</interval-sec>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/altimeter/setting-inhg</property>
-				<step>-0.01</step>
-				<min>26.0</min>
-				<max>33.0</max>
-				<wrap>false</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>3</button>
-			<binding>
-				<command>property-adjust</command>
-				<property>instrumentation/altimeter/setting-inhg</property>
-				<step>0.01</step>
-				<min>26.0</min>
-				<max>33.0</max>
-				<wrap>false</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>4</button>
-			<binding>
-				<command>property-adjust</command>
-				<property>instrumentation/altimeter/setting-inhg</property>
-				<step>-0.01</step>
-				<min>26.0</min>
-				<max>33.0</max>
-				<wrap>false</wrap>
+				<property>instrumentation/altimeter[2]/baro-rotate</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
 			</binding>
 		</action>
 	</animation>

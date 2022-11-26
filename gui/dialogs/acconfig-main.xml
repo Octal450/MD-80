@@ -391,6 +391,20 @@
 			</checkbox>
 			
 			<checkbox>
+				<label>Combined Standby</label>
+				<halign>left</halign>
+				<property>/systems/acconfig/options/combined-standby</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>acconfig.OPTIONS.write();</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
 				<label>Auto Arm Altitude</label>
 				<halign>left</halign>
 				<property>/systems/acconfig/options/auto-arm-alt</property>
