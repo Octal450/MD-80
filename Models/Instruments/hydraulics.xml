@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2022 Josh Davidson (Octal450) -->
+
+<PropertyList>
+	
+	<path>hydraulics.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Integrity</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>0.6</green>
+			<blue>0.3</blue>
+			<factor-prop>controls/lighting/fo-panel-norm</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>transHydSwitch</object-name>
+		<property>/controls/cockpit/hyd-trans</property>
+		<drag-direction>vertical</drag-direction>
+		<interpolation>
+			<entry><ind>0</ind><dep>-20</dep></entry>
+			<entry><ind>1</ind><dep> 20</dep></entry>
+		</interpolation>   
+		<center>
+			<x-m>0.00316</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.00281</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-adjust</command>
+				<property>/controls/hydraulics/switches/trans</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>eng1HydSwitch</object-name>
+		<property>/controls/cockpit/hyd-l-pump</property>
+		<drag-direction>vertical</drag-direction>
+		<interpolation>
+			<entry><ind>0</ind><dep>-20</dep></entry>
+			<entry><ind>1</ind><dep>  0</dep></entry>
+			<entry><ind>2</ind><dep> 20</dep></entry>
+		</interpolation>   
+		<center>
+			<x-m>0.00316</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.00352</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-adjust</command>
+				<property>/controls/hydraulics/switches/l-pump</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>2</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>eng2HydSwitch</object-name>
+		<property>/controls/cockpit/hyd-r-pump</property>
+		<drag-direction>vertical</drag-direction>
+		<interpolation>
+			<entry><ind>0</ind><dep>-20</dep></entry>
+			<entry><ind>1</ind><dep>  0</dep></entry>
+			<entry><ind>2</ind><dep> 20</dep></entry>
+		</interpolation>   
+		<center>
+			<x-m>0.00316</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.00352</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-adjust</command>
+				<property>/controls/hydraulics/switches/r-pump</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>2</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>auxHydSwitch</object-name>
+		<property>/controls/cockpit/hyd-aux-pump</property>
+		<drag-direction>vertical</drag-direction>
+		<interpolation>
+			<entry><ind>-1</ind><dep>-20</dep></entry>
+			<entry><ind> 0</ind><dep>  0</dep></entry>
+			<entry><ind> 1</ind><dep> 20</dep></entry>
+		</interpolation>   
+		<center>
+			<x-m>0.00316</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.00352</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<action>
+			<button>0</button>
+			<binding>
+				<command>property-adjust</command>
+				<property>/controls/hydraulics/switches/aux-pump</property>
+				<factor>1</factor>
+				<min>-1</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+	</animation>
+
+</PropertyList>

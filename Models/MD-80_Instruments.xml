@@ -876,12 +876,12 @@
 	</model>
 	
 	<model>
-		<name>hydraulic panel</name>
-		<path>Aircraft/MD-80/Models/Instruments/hydraulic_panel.xml</path>
+		<name>hydraulics</name>
+		<path>Aircraft/MD-80/Models/Instruments/hydraulics.xml</path>
 		<offsets>
-			<x-m>2.26479</x-m>
-			<y-m>0.315235</y-m>
-			<z-m>0.677944</z-m>
+			<x-m>2.253</x-m>
+			<y-m>0.291</y-m>
+			<z-m>0.737</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
