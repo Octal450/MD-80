@@ -23,8 +23,8 @@
 		<object-name>Needle</object-name>
 		<property>instrumentation/op[1]/op</property>
 		<interpolation>
-			<entry><ind>  0</ind><dep>-205</dep></entry>
-			<entry><ind>100</ind><dep>  50</dep></entry>
+			<entry><ind>  0</ind><dep>-25.714</dep></entry>
+			<entry><ind>100</ind><dep>231.428</dep></entry>
 		</interpolation>
 		<axis>
 			<x>-1</x>
