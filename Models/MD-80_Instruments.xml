@@ -592,6 +592,27 @@
 	</model>
 	
 	<model>
+		<name>hydpressL</name>
+		<path>Aircraft/MD-80/Models/Instruments/hyd-press-l.xml</path>
+		<offsets>
+			<x-m>2.245</x-m>
+			<y-m>0.257</y-m>
+			<z-m>0.783</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	<model>
+		<name>hydpressR</name>
+		<path>Aircraft/MD-80/Models/Instruments/hyd-press-r.xml</path>
+		<offsets>
+			<x-m>2.245</x-m>
+			<y-m>0.314</y-m>
+			<z-m>0.783</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
 		<name>fuel</name>
 		<path>Aircraft/MD-80/Models/Instruments/fuel.xml</path>
 		<offsets>

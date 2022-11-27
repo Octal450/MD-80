@@ -2043,6 +2043,52 @@
 	
 	</channel>
 	
+	<channel name="Hydraulic Pressure Gauges" execrate="4">
+		
+		<!-- Left Hydraulic Pressure Gauge -->
+		<switch name="/instrumentation/hyd-press/power-avail-l">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/ac-l ge 112
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/hyd-press/psi-input-l">
+			<default value="/instrumentation/hyd-press/psi-input-l"/>
+			<test value="/systems/hydraulics/sys-l-psi">
+				/instrumentation/hyd-press/power-avail-l eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/hyd-press/psi-l">
+			<input>/instrumentation/hyd-press/psi-input-l</input>
+			<c1>10</c1>
+		</lag_filter>
+		
+		<!-- Right Hydraulic Pressure Gauge -->
+		<switch name="/instrumentation/hyd-press/power-avail-r">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/ac-r ge 112
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/hyd-press/psi-input-r">
+			<default value="/instrumentation/hyd-press/psi-input-r"/>
+			<test value="/systems/hydraulics/sys-r-psi">
+				/instrumentation/hyd-press/power-avail-r eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/hyd-press/psi-r">
+			<input>/instrumentation/hyd-press/psi-input-r</input>
+			<c1>10</c1>
+		</lag_filter>
+	
+	</channel>
+	
 	<channel name="TRI and FLEX" execrate="4">
 		
 		<!-- TRI -->
