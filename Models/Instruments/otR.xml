@@ -21,9 +21,8 @@
 		<object-name>Needle</object-name>
 		<property>instrumentation/ot[1]/ot</property>
 		<interpolation>
-			<entry><ind> 20</ind><dep>-225</dep></entry>
-			<entry><ind>134</ind><dep> -27</dep></entry>
-			<entry><ind>170</ind><dep>  50</dep></entry>
+			<entry><ind> 20</ind><dep>-224.25</dep></entry>
+			<entry><ind>170</ind><dep>  34.50</dep></entry>
 		</interpolation>
 		<axis>
 			<x>-1</x>
