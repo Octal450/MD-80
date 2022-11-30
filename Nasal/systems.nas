@@ -440,8 +440,8 @@ var HYD = {
 	},
 	init: func() {
 		me.resetFailures();
-		me.Qty.sysLInput.setValue(math.round((rand() * 4) + 8 , 0.1)); # Random between 8 and 12
-		me.Qty.sysRInput.setValue(math.round((rand() * 4) + 8 , 0.1)); # Random between 8 and 12
+		me.Qty.sysLInput.setValue(math.round((rand() * 8) + 10 , 0.1)); # Random between 10 and 18
+		me.Qty.sysRInput.setValue(math.round((rand() * 8) + 10 , 0.1)); # Random between 10 and 18
 		me.Switch.auxPump.setValue(0);
 		me.Switch.lPump.setValue(0);
 		me.Switch.rPump.setValue(0);

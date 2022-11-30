@@ -613,6 +613,27 @@
 	</model>
 	
 	<model>
+		<name>hydqtyL</name>
+		<path>Aircraft/MD-80/Models/Instruments/hyd-qty-l.xml</path>
+		<offsets>
+			<x-m>2.264</x-m>
+			<y-m>0.269</y-m>
+			<z-m>0.69</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	<model>
+		<name>hydqtyR</name>
+		<path>Aircraft/MD-80/Models/Instruments/hyd-qty-r.xml</path>
+		<offsets>
+			<x-m>2.264</x-m>
+			<y-m>0.326</y-m>
+			<z-m>0.69</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
 		<name>fuel</name>
 		<path>Aircraft/MD-80/Models/Instruments/fuel.xml</path>
 		<offsets>

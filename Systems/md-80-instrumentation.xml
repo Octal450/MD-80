@@ -2043,7 +2043,7 @@
 	
 	</channel>
 	
-	<channel name="Hydraulic Pressure Gauges" execrate="4">
+	<channel name="Hydraulic Gauges" execrate="4">
 		
 		<!-- Left Hydraulic Pressure Gauge -->
 		<switch name="/instrumentation/hyd-press/power-avail-l">
@@ -2085,6 +2085,48 @@
 		<lag_filter name="/instrumentation/hyd-press/psi-r">
 			<input>/instrumentation/hyd-press/psi-input-r</input>
 			<c1>10</c1>
+		</lag_filter>
+		
+		<!-- Left Hydraulic Quantity Gauge -->
+		<switch name="/instrumentation/hyd-qty/power-avail-l">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/ac-l ge 112
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/hyd-qty/qty-input-l">
+			<default value="/instrumentation/hyd-qty/qty-input-l"/>
+			<test value="/systems/hydraulics/sys-l-qty">
+				/instrumentation/hyd-qty/power-avail-l eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/hyd-qty/qty-l">
+			<input>/instrumentation/hyd-qty/qty-input-l</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<!-- Right Hydraulic Quantity Gauge -->
+		<switch name="/instrumentation/hyd-qty/power-avail-r">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/ac-r ge 112
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/hyd-qty/qty-input-r">
+			<default value="/instrumentation/hyd-qty/qty-input-r"/>
+			<test value="/systems/hydraulics/sys-r-qty">
+				/instrumentation/hyd-qty/power-avail-r eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/hyd-qty/qty-r">
+			<input>/instrumentation/hyd-qty/qty-input-r</input>
+			<c1>20</c1>
 		</lag_filter>
 	
 	</channel>

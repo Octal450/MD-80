@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2022 Josh Davidson (Octal450) -->
+
+<PropertyList>
+	
+	<path>hyd-qty.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>Needle</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>0.6</green>
+			<blue>0.3</blue>
+			<factor-prop>controls/lighting/fo-panel-norm</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle</object-name>
+		<property>instrumentation/hyd-qty/qty-r</property>
+		<interpolation>
+			<entry><ind> 0</ind><dep>-77</dep></entry>
+			<entry><ind>14</ind><dep> 26</dep></entry>
+			<entry><ind>16</ind><dep> 45</dep></entry>
+			<entry><ind>18</ind><dep> 72</dep></entry>
+			<entry><ind>19</ind><dep>103</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+</PropertyList>
+
