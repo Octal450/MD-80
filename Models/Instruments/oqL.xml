@@ -23,9 +23,8 @@
 		<object-name>Needle</object-name>
 		<property>instrumentation/oq[0]/oq</property>
 		<interpolation>
-			<entry><ind> 0</ind><dep>-49</dep></entry>
-			<entry><ind> 8</ind><dep>  0</dep></entry>
-			<entry><ind>16</ind><dep> 49</dep></entry>
+			<entry><ind> 0</ind><dep>-48</dep></entry>
+			<entry><ind>18</ind><dep> 60</dep></entry>
 		</interpolation>
 		<axis>
 			<x>-1</x>
@@ -34,7 +33,7 @@
 		</axis>
 		<center>
 			<x-m>0</x-m>
-			<y-m>0.01</y-m>
+			<y-m>0.00973</y-m>
 			<z-m>0</z-m>
 		</center>
 	</animation>
