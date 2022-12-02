@@ -425,7 +425,7 @@ var PANEL = {
 							dfgs.Input.toga.setValue(1);
 						}
 					}
-				}, 1);
+				}, 0.5);
 				
 				settimer(func() { # Give things a moment to settle
 					if (!me.stop) {
