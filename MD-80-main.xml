@@ -1144,10 +1144,14 @@
 		</airspeed-indicator>
 		<altimeter n="0">
 			<baro-rotate type="int">49984</baro-rotate> <!-- So the symbol is upright -->
+			<bug-input type="int">0</bug-input>
+			<bug-rotate type="int">49984</bug-rotate> <!-- So the symbol is upright -->
 			<indicated-altitude-ft type="double">0</indicated-altitude-ft>
 		</altimeter>
 		<altimeter n="1">
 			<baro-rotate type="int">49984</baro-rotate> <!-- So the symbol is upright -->
+			<bug-input type="int">0</bug-input>
+			<bug-rotate type="int">49984</bug-rotate> <!-- So the symbol is upright -->
 		</altimeter>
 		<altimeter n="2">
 			<baro-rotate type="int">49984</baro-rotate> <!-- So the symbol is upright -->

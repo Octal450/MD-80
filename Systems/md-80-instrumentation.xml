@@ -860,6 +860,16 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<linear_actuator name="/instrumentation/altimeter[0]/bug-linear-cmd">
+			<input>/instrumentation/altimeter[0]/bug-input</input>
+			<module>1000</module>
+		</linear_actuator>
+		
+		<lag_filter name="/instrumentation/altimeter[0]/bug-linear">
+			<input>/instrumentation/altimeter[0]/bug-linear-cmd</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<!-- Altimeter 2 -->
 		<switch name="/instrumentation/altimeter[1]/power-avail">
 			<default value="0"/>
@@ -918,6 +928,16 @@
 		
 		<lag_filter name="/instrumentation/altimeter[1]/setting-hpa-text">
 			<input>/instrumentation/altimeter[1]/setting-hpa-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<linear_actuator name="/instrumentation/altimeter[1]/bug-linear-cmd">
+			<input>/instrumentation/altimeter[1]/bug-input</input>
+			<module>1000</module>
+		</linear_actuator>
+		
+		<lag_filter name="/instrumentation/altimeter[1]/bug-linear">
+			<input>/instrumentation/altimeter[1]/bug-linear-cmd</input>
 			<c1>20</c1>
 		</lag_filter>
 		

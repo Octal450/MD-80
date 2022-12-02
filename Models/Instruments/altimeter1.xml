@@ -24,9 +24,21 @@
 		<property>instrumentation/altimeter[0]/altitude-ft</property>
 		<factor>0.36</factor>
 		<axis>
-			<x>-1.0</x>
+			<x>-1</x>
 			<y>0</y>
-			<z>0.0</z>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Bug</object-name>
+		<property>instrumentation/altimeter[0]/bug-linear</property>
+		<factor>0.36</factor>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
 		</axis>
 	</animation>
 	
@@ -204,6 +216,17 @@
 	</animation>
 	
 	<animation>
+		<type>select</type>
+		<object-name>Flag</object-name>
+		<condition>
+			<not-equals>
+				<property>instrumentation/altimeter[0]/power-avail</property>
+				<value>1</value>
+			</not-equals>
+		</condition>
+	</animation>
+	
+	<animation>
 		<type>knob</type>
 		<object-name>BaroKnob</object-name>
 		<property>instrumentation/altimeter[0]/baro-rotate</property>
@@ -239,14 +262,38 @@
 	</animation>
 	
 	<animation>
-		<type>select</type>
-		<object-name>Flag</object-name>
-		<condition>
-			<not-equals>
-				<property>instrumentation/altimeter[0]/power-avail</property>
-				<value>1</value>
-			</not-equals>
-		</condition>
+		<type>knob</type>
+		<object-name>BugKnob</object-name>
+		<property>instrumentation/altimeter[0]/bug-rotate</property>
+		<factor>11.25</factor>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.03169</y-m>
+			<z-m>-0.03154</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/altimeter[0]/bug-input</property>
+				<factor>10</factor>
+				<min>0</min>
+				<max>1000</max>
+				<wrap>true</wrap>
+			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/altimeter[0]/bug-rotate</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
 	</animation>
 
 </PropertyList>

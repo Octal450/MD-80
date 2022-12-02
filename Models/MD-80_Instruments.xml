@@ -270,6 +270,9 @@
 	<model>
 		<name>stbyasi</name>
 		<path>Aircraft/MD-80/Models/Instruments/stbyasi.xml</path>
+		<condition>
+			<not><property>systems/acconfig/options/combined-standby</property></not>
+		</condition>
 		<offsets>
 			<x-m>2.248</x-m>
 			<y-m>-0.295</y-m>

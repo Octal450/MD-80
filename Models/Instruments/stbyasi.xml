@@ -20,16 +20,6 @@
 	</animation>
 	
 	<animation>
-		<type>select</type>
-		<object-name>Bezel_35</object-name>
-		<object-name>Face</object-name>
-		<object-name>Needle</object-name>
-		<condition>
-			<not><property>systems/acconfig/options/combined-standby</property></not>
-		</condition>
-	</animation>
-	
-	<animation>
 		<type>rotate</type>
 		<object-name>Needle</object-name>
 		<property>instrumentation/stby-asi/speed-kt</property>
