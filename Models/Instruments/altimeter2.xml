@@ -227,6 +227,17 @@
 	</animation>
 	
 	<animation>
+		<type>material</type>
+		<object-name>Alert</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>1.0</green>
+			<blue>0</blue>
+			<factor-prop>instrumentation/altimeter[0]/alert-light</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
 		<type>knob</type>
 		<object-name>BaroKnob</object-name>
 		<property>instrumentation/altimeter[1]/baro-rotate</property>
