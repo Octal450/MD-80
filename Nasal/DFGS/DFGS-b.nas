@@ -113,7 +113,8 @@ var updateFma = {
 		}
 	},
 	arm: func() {
-		if (Input.autoLand.getBoolValue() and Text.vert.getValue() != "LAND") {
+		me.pitchText = Text.vert.getValue();
+		if (Input.autoLand.getBoolValue() and me.pitchText != "LAND" and me.pitchText != "ROLLOUT") {
 			Fma.armA.setValue("LND");
 			me.altArm();
 		} else if (Output.apprArm.getBoolValue()) {
