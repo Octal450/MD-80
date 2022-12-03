@@ -17,11 +17,6 @@
 		</emission>
 	</animation>
 	
-	<effect>
-		<inherits-from>Effects/model-transparent</inherits-from>
-		<object-name>HSI.hdgbug</object-name>
-	</effect>
-	
 	<animation>
 		<type>material</type>
 		<object-name>Display</object-name>
