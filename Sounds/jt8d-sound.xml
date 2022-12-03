@@ -1423,6 +1423,53 @@
 			<max-dist>100.0</max-dist>
 		</caws>
 	    <caws>
+			<name>Altitude Alert</name>
+			<path>Aircraft/MD-80/Sounds/CAWS/altitude-alert.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<equals>
+						<property>/systems/warnings/altitude-alert</property>
+						<value>2</value>
+					</equals>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>24</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</caws>
+	    <caws>
+			<name>Altitude Tone</name>
+			<path>Aircraft/MD-80/Sounds/CAWS/altitude-tone.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<and>
+						<equals>
+							<property>/systems/warnings/altitude-alert</property>
+							<value>1</value>
+						</equals>
+						<property>/systems/warnings/altitude-alert-aural-1</property>
+					</and>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>24</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+			<volume>
+				<factor>8</factor>
+			</volume>
+			<reference-dist>20.0</reference-dist>
+			<max-dist>100.0</max-dist>
+		</caws>
+	    <caws>
 			<name>Landing Gear Warning</name>
 			<path>Aircraft/MD-80/Sounds/CAWS/landing-gear.wav</path>
 			<mode>once</mode>

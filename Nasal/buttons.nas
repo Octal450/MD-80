@@ -233,6 +233,8 @@ var apPanel = {
 	altPush: func() {
 		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
 			dfgs.Input.altArmed.setBoolValue(0);
+			systems.WARNINGS.altitudeAlertCaptured.setValue(0); # Reset out of captured state
+			if (systems.WARNINGS.altitudeAlert.getValue() == 2) systems.WARNINGS.altitudeAlert.setValue(0); # Cancel altitude alert deviation alarm
 		}
 	},
 	altPull: func() {

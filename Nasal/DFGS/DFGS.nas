@@ -131,10 +131,12 @@ var Input = {
 
 var Internal = {
 	alt: props.globals.initNode("/it-autoflight/internal/alt", 10000, "INT"),
+	altAlert: props.globals.initNode("/it-autoflight/internal/alt-alert", 0, "INT"),
+	altAlertAural: props.globals.initNode("/it-autoflight/internal/alt-alert-aural", 0, "BOOL"),
 	altCaptureActive: 0,
 	altDiff: 0,
-	altTemp: 0,
 	altPredicted: props.globals.initNode("/it-autoflight/internal/altitude-predicted", 0, "DOUBLE"),
+	altTemp: 0,
 	atrCmd: props.globals.getNode("/fdm/jsbsim/dfgs/atr/cmd"),
 	bankLimit: props.globals.initNode("/it-autoflight/internal/bank-limit", 30, "INT"),
 	bankLimitMax: [10, 15, 20, 25, 30],
@@ -246,6 +248,7 @@ var ITAF = {
 		updateFma.arm();
 		me.updateLatText("HDG");
 		me.updateVertText("V/S");
+		systems.WARNINGS.altitudeAlert.setValue(0); # Cancel altitude alert
 		loopTimer.start();
 		slowLoopTimer.start();
 	},
@@ -1046,6 +1049,8 @@ setlistener("/it-autoflight/input/hdg", func() {
 
 setlistener("/it-autoflight/internal/alt", func() {
 	setprop("/autopilot/settings/target-altitude-ft", getprop("/it-autoflight/internal/alt"));
+	systems.WARNINGS.altitudeAlertCaptured.setValue(0); # Reset out of captured state
+	if (systems.WARNINGS.altitudeAlert.getValue() == 2) systems.WARNINGS.altitudeAlert.setValue(0); # Cancel altitude alert deviation alarm
 	
 	if (pts.Systems.Acconfig.Options.autoArmAlt.getBoolValue() and !Input.altArmed.getBoolValue()) {
 		settimer(func() {

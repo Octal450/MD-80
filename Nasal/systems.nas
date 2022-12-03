@@ -608,3 +608,9 @@ var TRI = {
 		dfgs.Athr.limitChanged(me.Limit.activeModeLast, me.Limit.activeMode.getValue());
 	},
 };
+
+# Warnings
+var WARNINGS = {
+	altitudeAlert: props.globals.getNode("/systems/warnings/altitude-alert"),
+	altitudeAlertCaptured: props.globals.getNode("/systems/warnings/altitude-alert-captured"),
+};

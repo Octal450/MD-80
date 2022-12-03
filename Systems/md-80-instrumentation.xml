@@ -870,6 +870,21 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<switch name="/instrumentation/altimeter[0]/alert-light">
+			<default value="0"/>
+			<test value="0">
+				/instrumentation/altimeter[0]/power-avail eq 0
+			</test>
+			<test logic="OR" value="1">
+				/controls/switches/annun-test eq 1
+				/systems/warnings/altitude-alert eq 1
+				<test logic="AND">
+					/systems/warnings/altitude-alert eq 2
+					libraries/blink-med eq 1
+				</test>
+			</test>
+		</switch>
+		
 		<!-- Altimeter 2 -->
 		<switch name="/instrumentation/altimeter[1]/power-avail">
 			<default value="0"/>
@@ -940,6 +955,21 @@
 			<input>/instrumentation/altimeter[1]/bug-linear-cmd</input>
 			<c1>20</c1>
 		</lag_filter>
+		
+		<switch name="/instrumentation/altimeter[1]/alert-light">
+			<default value="0"/>
+			<test value="0">
+				/instrumentation/altimeter[1]/power-avail eq 0
+			</test>
+			<test logic="OR" value="1">
+				/controls/switches/annun-test eq 1
+				/systems/warnings/altitude-alert eq 1
+				<test logic="AND">
+					/systems/warnings/altitude-alert eq 2
+					libraries/blink-med eq 1
+				</test>
+			</test>
+		</switch>
 		
 		<!-- Altimeter Standby -->
 		<switch name="/instrumentation/stby-alt/power-avail">
