@@ -1077,7 +1077,7 @@
 		
 		<actuator name="/instrumentation/rmi[0]/heading-linear-actuator">
 			<input>/instrumentation/rmi[0]/heading-linear-cmd</input>
-			<rate_limit>90</rate_limit>
+			<rate_limit>180</rate_limit>
 		</actuator>
 		
 		<lag_filter name="/instrumentation/rmi[0]/heading-linear">
@@ -1085,7 +1085,6 @@
 			<c1>10</c1>
 		</lag_filter>
 		
-		<!-- TODO: Figure out how to use linear actuator from -180 to 180 -->
 		<switch name="/instrumentation/rmi[0]/nav1-input">
 			<default value="0"/>
 			<test logic="AND" value="/instrumentation/rmi[0]/nav1-error">
@@ -1095,8 +1094,28 @@
 			<test value="/instrumentation/rmi[0]/adf1-error">
 				/instrumentation/rmi[0]/power-avail eq 1
 			</test>
-			<output>/instrumentation/rmi[0]/nav1-linear</output>
 		</switch>
+		
+		<linear_actuator name="/instrumentation/rmi[0]/nav1-linear-cmd">
+			<input>/instrumentation/rmi[0]/nav1-input</input>
+			<bias>180</bias>
+			<module>360</module>
+			<rate>0.5</rate>
+		</linear_actuator>
+		
+		<fcs_function name="/instrumentation/rmi[0]/nav1-linear-bias">
+			<function>
+				<difference>
+					<property>/instrumentation/rmi[0]/nav1-linear-cmd</property>
+					<value>180</value>
+				</difference>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/instrumentation/rmi[0]/nav1-linear">
+			<input>/instrumentation/rmi[0]/nav1-linear-bias</input>
+			<c1>10</c1>
+		</lag_filter>
 		
 		<switch name="/instrumentation/rmi[0]/nav2-input">
 			<default value="0"/>
@@ -1107,8 +1126,28 @@
 			<test value="/instrumentation/rmi[0]/adf2-error">
 				/instrumentation/rmi[0]/power-avail eq 1
 			</test>
-			<output>/instrumentation/rmi[0]/nav2-linear</output>
 		</switch>
+		
+		<linear_actuator name="/instrumentation/rmi[0]/nav2-linear-cmd">
+			<input>/instrumentation/rmi[0]/nav2-input</input>
+			<bias>180</bias>
+			<module>360</module>
+			<rate>0.5</rate>
+		</linear_actuator>
+		
+		<fcs_function name="/instrumentation/rmi[0]/nav2-linear-bias">
+			<function>
+				<difference>
+					<property>/instrumentation/rmi[0]/nav2-linear-cmd</property>
+					<value>180</value>
+				</difference>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/instrumentation/rmi[0]/nav2-linear">
+			<input>/instrumentation/rmi[0]/nav2-linear-bias</input>
+			<c1>10</c1>
+		</lag_filter>
 		
 		<!-- Radio Magnetic Indicator 2 -->
 		<switch name="/instrumentation/rmi[1]/power-avail">
@@ -1151,7 +1190,7 @@
 		
 		<actuator name="/instrumentation/rmi[1]/heading-linear-actuator">
 			<input>/instrumentation/rmi[1]/heading-linear-cmd</input>
-			<rate_limit>90</rate_limit>
+			<rate_limit>180</rate_limit>
 		</actuator>
 		
 		<lag_filter name="/instrumentation/rmi[1]/heading-linear">
@@ -1159,7 +1198,6 @@
 			<c1>10</c1>
 		</lag_filter>
 		
-		<!-- TODO: Figure out how to use linear actuator from -180 to 180 -->
 		<switch name="/instrumentation/rmi[1]/nav1-input">
 			<default value="0"/>
 			<test logic="AND" value="/instrumentation/rmi[1]/nav1-error">
@@ -1169,8 +1207,28 @@
 			<test value="/instrumentation/rmi[1]/adf1-error">
 				/instrumentation/rmi[1]/power-avail eq 1
 			</test>
-			<output>/instrumentation/rmi[1]/nav1-linear</output>
 		</switch>
+		
+		<linear_actuator name="/instrumentation/rmi[1]/nav1-linear-cmd">
+			<input>/instrumentation/rmi[1]/nav1-input</input>
+			<bias>180</bias>
+			<module>360</module>
+			<rate>0.5</rate>
+		</linear_actuator>
+		
+		<fcs_function name="/instrumentation/rmi[1]/nav1-linear-bias">
+			<function>
+				<difference>
+					<property>/instrumentation/rmi[1]/nav1-linear-cmd</property>
+					<value>180</value>
+				</difference>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/instrumentation/rmi[1]/nav1-linear">
+			<input>/instrumentation/rmi[1]/nav1-linear-bias</input>
+			<c1>10</c1>
+		</lag_filter>
 		
 		<switch name="/instrumentation/rmi[1]/nav2-input">
 			<default value="0"/>
@@ -1181,8 +1239,28 @@
 			<test value="/instrumentation/rmi[1]/adf2-error">
 				/instrumentation/rmi[1]/power-avail eq 1
 			</test>
-			<output>/instrumentation/rmi[1]/nav2-linear</output>
 		</switch>
+		
+		<linear_actuator name="/instrumentation/rmi[1]/nav2-linear-cmd">
+			<input>/instrumentation/rmi[1]/nav2-input</input>
+			<bias>180</bias>
+			<module>360</module>
+			<rate>0.5</rate>
+		</linear_actuator>
+		
+		<fcs_function name="/instrumentation/rmi[1]/nav2-linear-bias">
+			<function>
+				<difference>
+					<property>/instrumentation/rmi[1]/nav2-linear-cmd</property>
+					<value>180</value>
+				</difference>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/instrumentation/rmi[1]/nav2-linear">
+			<input>/instrumentation/rmi[1]/nav2-linear-bias</input>
+			<c1>10</c1>
+		</lag_filter>
 	
 	</channel>
 	
@@ -1222,7 +1300,7 @@
 		
 		<actuator name="/instrumentation/hsi[0]/heading-linear-actuator">
 			<input>/instrumentation/hsi[0]/heading-linear-cmd</input>
-			<rate_limit>90</rate_limit>
+			<rate_limit>180</rate_limit>
 		</actuator>
 		
 		<lag_filter name="/instrumentation/hsi[0]/heading-linear">
@@ -1334,7 +1412,7 @@
 		
 		<actuator name="/instrumentation/hsi[1]/heading-linear-actuator">
 			<input>/instrumentation/hsi[1]/heading-linear-cmd</input>
-			<rate_limit>90</rate_limit>
+			<rate_limit>180</rate_limit>
 		</actuator>
 		
 		<lag_filter name="/instrumentation/hsi[1]/heading-linear">
