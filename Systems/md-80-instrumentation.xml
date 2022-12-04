@@ -1318,6 +1318,7 @@
 		<linear_actuator name="/instrumentation/hsi[0]/heading-bug-linear-cmd">
 			<input>/instrumentation/hsi[0]/heading-bug-input</input>
 			<module>360</module>
+			<rate>0.5</rate>
 		</linear_actuator>
 		
 		<lag_filter name="/instrumentation/hsi[0]/heading-bug-linear">
@@ -1339,6 +1340,7 @@
 		<linear_actuator name="/instrumentation/hsi[0]/course-linear-cmd">
 			<input>/instrumentation/hsi[0]/course-input</input>
 			<module>360</module>
+			<rate>0.5</rate>
 		</linear_actuator>
 		
 		<lag_filter name="/instrumentation/hsi[0]/course-linear">
@@ -1430,6 +1432,7 @@
 		<linear_actuator name="/instrumentation/hsi[1]/heading-bug-linear-cmd">
 			<input>/instrumentation/hsi[1]/heading-bug-input</input>
 			<module>360</module>
+			<rate>0.5</rate>
 		</linear_actuator>
 		
 		<lag_filter name="/instrumentation/hsi[1]/heading-bug-linear">
@@ -1451,6 +1454,7 @@
 		<linear_actuator name="/instrumentation/hsi[1]/course-linear-cmd">
 			<input>/instrumentation/hsi[1]/course-input</input>
 			<module>360</module>
+			<rate>0.5</rate>
 		</linear_actuator>
 		
 		<lag_filter name="/instrumentation/hsi[1]/course-linear">
