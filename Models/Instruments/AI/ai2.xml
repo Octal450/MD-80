@@ -167,9 +167,8 @@
 	<animation>
 		<type>translate</type>
 		<object-name>Runway</object-name>
-		<object-name>Runway2</object-name>
 		<property>instrumentation/ai[1]/loc-deviation</property>
-		<factor>0.00153</factor>
+		<factor>0.00137</factor>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -182,8 +181,8 @@
 		<object-name>Runway</object-name>
 		<property>instrumentation/ai[1]/rising-runway</property>
 		<interpolation>
-			<entry><ind>  0</ind><dep>0.03517</dep></entry>
-			<entry><ind>200</ind><dep>0.00000</dep></entry>
+			<entry><ind>  0</ind><dep> 0.0000</dep></entry>
+			<entry><ind>200</ind><dep>-0.0262</dep></entry>
 		</interpolation>
 		<axis>
 			<x>0</x>
@@ -268,17 +267,6 @@
 		<condition>
 			<not-equals>
 				<property>instrumentation/ai[1]/att-avail</property>
-				<value>1</value>
-			</not-equals>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>RTFlag</object-name>
-		<condition>
-			<not-equals>
-				<property>instrumentation/ai[1]/power-avail</property>
 				<value>1</value>
 			</not-equals>
 		</condition>
