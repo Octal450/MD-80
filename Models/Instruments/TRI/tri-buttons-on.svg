@@ -16,29 +16,29 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="tri-buttons-on.svg"
-   inkscape:export-filename="C:\Users\MAIN\Desktop\Aircraft\MD-80\Models\Instruments\TRI\tri-buttons-on.png"
+   inkscape:export-filename="D:\Aircraft\MD-80\Models\Instruments\TRI\tri-buttons-on.png"
    inkscape:export-xdpi="47.380241"
    inkscape:export-ydpi="47.380241">
   <defs
      id="defs4" />
   <sodipodi:namedview
      id="base"
-     pagecolor="#ffffff"
+     pagecolor="#000000"
      bordercolor="#666666"
      borderopacity="1.0"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6"
-     inkscape:cx="-2.7026163"
-     inkscape:cy="56.695002"
+     inkscape:zoom="1.4"
+     inkscape:cx="263.64166"
+     inkscape:cy="43.136171"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
-     inkscape:window-width="1536"
-     inkscape:window-height="801"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
      inkscape:window-x="1592"
-     inkscape:window-y="1072"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -52,7 +52,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -61,13 +61,6 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-67.7174,-534.70563)">
-    <rect
-       style="fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:8;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect4164"
-       width="524.26801"
-       height="87.378197"
-       x="67.7174"
-       y="534.70563" />
     <g
        id="g4147"
        transform="translate(-2.3214286,0)"
@@ -78,9 +71,9 @@
          id="text4158"
          y="592.93561"
          x="112.26746"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
          xml:space="preserve"><tspan
-           style="line-height:100%;text-align:center;text-anchor:middle"
+           style="line-height:100%;text-align:center;text-anchor:middle;fill:#ffe680;fill-opacity:1;"
            y="592.93561"
            x="112.26746"
            id="tspan4160"
@@ -88,7 +81,7 @@
       <text
          transform="scale(0.99999641,1.0000036)"
          xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
          x="199.64609"
          y="573.23633"
          id="text4178"
@@ -97,27 +90,27 @@
            sodipodi:role="line"
            x="199.64609"
            y="573.23633"
-           style="line-height:100%;text-align:center;text-anchor:middle">TO</tspan><tspan
+           style="line-height:100%;text-align:center;text-anchor:middle;fill:#ffe680;fill-opacity:1;">TO</tspan><tspan
            id="tspan4210"
            sodipodi:role="line"
            x="199.64609"
            y="613.23633"
-           style="line-height:100%;text-align:center;text-anchor:middle">FLX</tspan></text>
+           style="line-height:100%;text-align:center;text-anchor:middle;fill:#ffe680;fill-opacity:1;">FLX</tspan></text>
       <text
          sodipodi:linespacing="100%"
          id="text4184"
          y="592.93561"
          x="287.02335"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
          xml:space="preserve"><tspan
-           style="line-height:100%;text-align:center;text-anchor:middle"
+           style="line-height:100%;text-align:center;text-anchor:middle;fill:#ffe680;fill-opacity:1;"
            y="592.93561"
            x="287.02335"
            id="tspan4186"
            sodipodi:role="line">GA</tspan></text>
       <text
          xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
          x="374.40134"
          y="592.93561"
          id="text4190"
@@ -126,22 +119,22 @@
            id="tspan4192"
            x="374.40134"
            y="592.93561"
-           style="line-height:100%;text-align:center;text-anchor:middle">MCT</tspan></text>
+           style="line-height:100%;text-align:center;text-anchor:middle;fill:#ffe680;fill-opacity:1;">MCT</tspan></text>
       <text
          sodipodi:linespacing="100%"
          id="text4196"
          y="592.93561"
          x="462.03189"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
          xml:space="preserve"><tspan
-           style="line-height:100%;text-align:center;text-anchor:middle"
+           style="line-height:100%;text-align:center;text-anchor:middle;fill:#ffe680;fill-opacity:1;"
            y="592.93561"
            x="462.03189"
            id="tspan4198"
            sodipodi:role="line">CL</tspan></text>
       <text
          xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffe680;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
          x="549.15729"
          y="592.93561"
          id="text4202"
@@ -150,7 +143,7 @@
            id="tspan4204"
            x="549.15729"
            y="592.93561"
-           style="line-height:100%;text-align:center;text-anchor:middle">CR</tspan></text>
+           style="line-height:100%;text-align:center;text-anchor:middle;fill:#ffe680;fill-opacity:1;">CR</tspan></text>
     </g>
   </g>
 </svg>

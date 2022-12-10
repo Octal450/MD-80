@@ -10,7 +10,7 @@ OBJECT poly
 name "clBlock"
 data 16
 clBlock.mesh.003
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 8
 0.00019 -0.02929 -0.00694
@@ -69,7 +69,7 @@ OBJECT poly
 name "clOff"
 data 14
 clOff.mesh.005
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 4
 0.00641 -0.03011 -0.00613
@@ -89,7 +89,7 @@ OBJECT poly
 name "clOn"
 data 14
 clOff.mesh.006
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 4
 0.00642 -0.03011 -0.00613
@@ -112,7 +112,7 @@ OBJECT poly
 name "crBlock"
 data 16
 crBlock.mesh.003
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 8
 0.00019 -0.02929 -0.02323
@@ -171,7 +171,7 @@ OBJECT poly
 name "crOff"
 data 14
 crOff.mesh.005
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 4
 0.00641 -0.03011 -0.02242
@@ -191,7 +191,7 @@ OBJECT poly
 name "crOn"
 data 14
 crOff.mesh.006
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 4
 0.00642 -0.03011 -0.02242
@@ -214,7 +214,7 @@ OBJECT poly
 name "flxBlock"
 data 17
 flxBlock.mesh.003
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 8
 0.00019 -0.01301 -0.00694
@@ -273,7 +273,7 @@ OBJECT poly
 name "flxOff"
 data 15
 flxOff.mesh.005
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 4
 0.00641 -0.01383 -0.00613
@@ -293,7 +293,7 @@ OBJECT poly
 name "flxOn"
 data 15
 flxOff.mesh.006
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 4
 0.00642 -0.01383 -0.00613
@@ -316,7 +316,7 @@ OBJECT poly
 name "gaBlock"
 data 16
 gaBlock.mesh.003
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 8
 0.00019 -0.01301 -0.02323
@@ -375,7 +375,7 @@ OBJECT poly
 name "gaOff"
 data 14
 gaOff.mesh.005
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 4
 0.00641 -0.01383 -0.02242
@@ -395,7 +395,7 @@ OBJECT poly
 name "gaOn"
 data 14
 gaOff.mesh.006
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 4
 0.00642 -0.01383 -0.02242
@@ -418,7 +418,7 @@ OBJECT poly
 name "mctBlock"
 data 17
 mctBlock.mesh.003
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 8
 0.00019 -0.02929 0.00934
@@ -477,7 +477,7 @@ OBJECT poly
 name "mctOff"
 data 15
 mctOff.mesh.005
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 4
 0.00641 -0.03011 0.01016
@@ -497,7 +497,7 @@ OBJECT poly
 name "mctOn"
 data 15
 mctOff.mesh.006
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 4
 0.00642 -0.03011 0.01016
@@ -517,7 +517,7 @@ OBJECT poly
 name "testBtn"
 data 16
 testBtn.mesh.003
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 42
 0.00462 -0.00152 -0.01777
@@ -951,7 +951,7 @@ OBJECT poly
 name "toBlock"
 data 16
 toBlock.mesh.003
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 8
 0.00019 -0.01301 0.00934
@@ -1010,7 +1010,7 @@ OBJECT poly
 name "toOff"
 data 14
 toOff.mesh.005
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 4
 0.00641 -0.01383 0.01016
@@ -1030,7 +1030,7 @@ OBJECT poly
 name "toOn"
 data 14
 toOff.mesh.006
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 4
 0.00642 -0.01383 0.01016
@@ -1053,7 +1053,7 @@ OBJECT poly
 name "box"
 data 12
 box.mesh.001
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 160
 -0.01143 0.05612 0.02278
@@ -2409,7 +2409,7 @@ name "ratMinus"
 loc 0 0 -0.01248
 data 17
 ratMinus.mesh.003
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 4
 0.00281 0.0312 0.01652
@@ -2430,7 +2430,7 @@ name "ratPlus"
 loc 0 0 -0.01248
 data 16
 ratPlus.mesh.003
-texture "tri.jpg"
+texture "tri.png"
 crease 45.000000
 numvert 4
 0.00281 0.03764 -0.00404
