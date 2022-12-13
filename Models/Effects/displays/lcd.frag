@@ -50,8 +50,8 @@ vec3 rotateHue (in vec4 color) {
     color.b = dot (yIQ, kYIQToB);
 
     // reduce contrast by alot
-    color.png = ((color.png - 0.5) * 0.1) + 0.5;
-    return color.png;
+    color.rgb = ((color.rgb - 0.5) * 0.1) + 0.5;
+    return color.rgb;
 }
 
 // todo: rembrandt and stuff
@@ -66,11 +66,11 @@ void main (void) {
     float angle = degrees(acos(dot(N,eye)));//angle between normal and viewer
     vec3 color = vec3(0.0,0.0,0.0);
     if (angle <= innerAngle) {
-        color = texel.png;
+        color = texel.rgb;
     } else if (angle <= outerAngle) {
         vec3 hsl = rotateHue(texel);
         float amount = (angle - innerAngle)/(outerAngle-innerAngle);
-        color = mix(texel.png, hsl, amount);
+        color = mix(texel.rgb, hsl, amount);
     } else if (angle <= blackAngle) {
         vec3 hsl = rotateHue(texel);
         float amount = (angle - outerAngle)/(blackAngle-outerAngle);
@@ -78,10 +78,10 @@ void main (void) {
     }
 
     // apply contrast
-    color.png = ((color.png - 0.5) * contrast) + 0.5;
+    color.rgb = ((color.rgb - 0.5) * contrast) + 0.5;
 
     color = pow(color, gammaInv);
-    color = color * gl_FrontMaterial.emission.png;
+    color = color * gl_FrontMaterial.emission.rgb;
 
     float phong = 0.0;
     vec3 Lphong = normalize(gl_LightSource[0].position.xyz);
@@ -92,20 +92,20 @@ void main (void) {
         phong = clamp(phong, 0.0, 1.0);
     }
     vec4 specular = gl_FrontMaterial.specular * gl_LightSource[0].diffuse * phong;
-    vec3 ambient = gl_FrontMaterial.ambient.png * gl_LightSource[0].ambient.png * gl_LightSource[0].ambient.png * 2.0;//hack but works, pitch black at night. :)
+    vec3 ambient = gl_FrontMaterial.ambient.rgb * gl_LightSource[0].ambient.rgb * gl_LightSource[0].ambient.rgb * 2.0;//hack but works, pitch black at night. :)
 
     vec3 L = normalize((gl_ModelViewMatrixInverse * gl_LightSource[0].position).xyz);
     N = normalize((gl_ModelViewMatrixTranspose * vec4(N,0.0)).xyz);
     float nDotVP = dot(N,L);
     nDotVP = max(0.0, nDotVP);
-    vec3 diffuse = gl_FrontMaterial.diffuse.png * gl_LightSource[0].diffuse.png * nDotVP;
+    vec3 diffuse = gl_FrontMaterial.diffuse.rgb * gl_LightSource[0].diffuse.rgb * nDotVP;
 
-    color = clamp(color+specular.png+ambient, 0.0, 1.0); // +diffuse broken on non-NVIDIA
+    color = clamp(color+specular.rgb+ambient, 0.0, 1.0); // +diffuse broken on non-NVIDIA
 
     vec4 dustTexel = texture2D(dust_texture, gl_TexCoord[0].st);
-    dustTexel.png *= gl_LightSource[0].diffuse.png * nDotVP;
+    dustTexel.rgb *= gl_LightSource[0].diffuse.rgb * nDotVP;
     dustTexel.a = clamp(dustTexel.a * dirt_factor * (1.0 - 0.4 * max(0.0,dot(normalize(VNormal), Lphong)))*(length(vec3(1.0))/1.76),0.0,1.0); 
-    color.png =  mix(color.png, dustTexel.png,  dustTexel.a );
+    color.rgb =  mix(color.rgb, dustTexel.rgb,  dustTexel.a );
     //color.a = max(color.a, dustTexel.a);
     texel.a = max(texel.a, dustTexel.a);
     if (use_als > 0 && use_filters > 0) {
