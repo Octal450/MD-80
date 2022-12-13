@@ -3930,7 +3930,7 @@ refs 4
 kids 0
 OBJECT poly
 name "CmptrFlag"
-loc 0.000779475 0 0
+loc 0.00133395 0 0
 data 9
 Plane.018
 texture "flagtext.png"
@@ -4072,7 +4072,7 @@ refs 4
 kids 0
 OBJECT poly
 name "GyroFlag"
-loc 0.000779475 0 0
+loc 0.00133395 0 0
 data 9
 Plane.020
 texture "flagtext.png"
@@ -4567,7 +4567,7 @@ refs 3
 kids 0
 OBJECT poly
 name "RollIndex"
-loc -0.000470917 0 -1.49999e-05
+loc -0.00111949 0 -1.49999e-05
 data 9
 Plane.027
 texture "ai.png"

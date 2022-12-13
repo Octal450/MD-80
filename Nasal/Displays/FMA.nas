@@ -58,16 +58,14 @@ var canvasBase = {
 		Value.apOn = dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue();
 		Value.atsOn = dfgs.Output.athr.getBoolValue();
 		
-		if (systems.ELEC.Generic.fma[0].getValue() >= 24) { # TODO, split
+		if (systems.ELEC.Generic.fma[0].getValue() >= 24) {
 			if (Value.atsOn or Value.activeModeInt == 5) { # For showing flex digit
 				thrL.update();
 				thrL.page.show();
-				thrR.update();
-				thrR.page.show();
 			} else {
 				thrL.page.hide();
-				thrR.page.hide();
 			}
+			
 			if (dfgs.Output.fd1.getBoolValue() or Value.apOn) {
 				armL.update();
 				armL.page.show();
@@ -80,6 +78,21 @@ var canvasBase = {
 				pitchL.page.hide();
 				rollL.page.hide();
 			}
+		} else {
+			armL.page.hide();
+			pitchL.page.hide();
+			rollL.page.hide();
+			thrL.page.hide();
+		}
+		
+		if (systems.ELEC.Generic.fma[1].getValue() >= 24) {
+			if (Value.atsOn or Value.activeModeInt == 5) { # For showing flex digit
+				thrR.update();
+				thrR.page.show();
+			} else {
+				thrR.page.hide();
+			}
+			
 			if (dfgs.Output.fd2.getBoolValue() or Value.apOn) {
 				armR.update();
 				armR.page.show();
@@ -93,13 +106,9 @@ var canvasBase = {
 				rollR.page.hide();
 			}
 		} else {
-			armL.page.hide();
 			armR.page.hide();
-			pitchL.page.hide();
 			pitchR.page.hide();
-			rollL.page.hide();
 			rollR.page.hide();
-			thrL.page.hide();
 			thrR.page.hide();
 		}
 	},
