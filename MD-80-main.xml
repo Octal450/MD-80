@@ -1363,6 +1363,10 @@
 	</instrumentation>
 	
 	<it-autoflight>
+		<fd n="0">
+			<pitch-bar type="double">0</pitch-bar>
+			<roll-bar type="double">0</roll-bar>
+		</fd>
 		<input n="0">
 			<athr type="bool">0</athr>
 			<fd1 type="bool">0</fd1>

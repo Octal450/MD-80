@@ -50,24 +50,10 @@
 		</axis>
 	</animation>
 	
-    <animation>
-        <type>select</type>
-        <object-name>FD</object-name>
-        <condition>
-			<and>
-				<equals>
-					<property>instrumentation/ai[0]/att-avail</property>
-					<value>1</value>
-				</equals>
-				<property>it-autoflight/output/fd1</property>
-			</and>
-        </condition>
-    </animation>
-	
 	<animation>
 		<type>translate</type>
 		<object-name>FD</object-name>
-		<property>it-autoflight/fd/pitch-bar</property>
+		<property>instrumentation/ai[0]/fd-pitch</property>
 		<factor>0.001326</factor>
 		<axis>
 			<x>0</x>
@@ -79,7 +65,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>FD</object-name>
-		<property>it-autoflight/fd/roll-bar</property>
+		<property>instrumentation/ai[0]/fd-roll</property>
 		<axis>
 			<x>-1</x>
 			<y>0</y>
