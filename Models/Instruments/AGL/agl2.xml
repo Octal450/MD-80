@@ -60,10 +60,16 @@
 		<type>select</type>
 		<object-name>Flag</object-name>
 		<condition>
-			<not-equals>
-				<property>instrumentation/agl[1]/power-avail</property>
-				<value>1</value>
-			</not-equals>
+			<or>
+				<not-equals>
+					<property>instrumentation/agl[1]/power-avail</property>
+					<value>1</value>
+				</not-equals>
+				<greater-than>
+					<property>instrumentation/agl[1]/altitude-ft</property>
+					<value>3000</value>
+				</greater-than>
+			</or>
 		</condition>
 	</animation>
 	
