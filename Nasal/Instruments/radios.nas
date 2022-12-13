@@ -3,11 +3,11 @@
 
 var COMM = {
 	adjustDecimal: func(n, d) {
-		var input = split(".", sprintf("%3.2f", pts.Instrumentation.Comm.Frequencies.standbyMhz[n].getValue()));
+		var input = split(".", sprintf("%3.2f", pts.Instrumentation.Comm.Frequencies.selectedMhzFmt[n].getValue()));
 		var val = input[1] + (5 * d);
 		
 		if (d > 0) {
-			if (val > 96) val = 0;
+			if (val > 95) val = 0;
 		} else if (d < 0) {
 			if (val < 0) val = 95;
 		}
@@ -19,11 +19,11 @@ var COMM = {
 
 var NAV = {
 	adjustDecimal: func(n, d) {
-		var input = split(".", sprintf("%3.2f", pts.Instrumentation.Nav.Frequencies.selectedMhz[n].getValue()));
+		var input = split(".", sprintf("%3.2f", pts.Instrumentation.Nav.Frequencies.selectedMhzFmt[n].getValue()));
 		var val = input[1] + (5 * d);
 		
 		if (d > 0) {
-			if (val > 96) val = 0;
+			if (val > 95) val = 0;
 		} else if (d < 0) {
 			if (val < 0) val = 95;
 		}
