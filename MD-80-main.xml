@@ -1173,23 +1173,33 @@
 		<comm n="0">
 			<frequencies n="0">
 				<selected-mhz type="double">121.4</selected-mhz>
+				<selected-mhz-fmt type="string">121.40</selected-mhz-fmt>
 				<standby-mhz type="double">118.1</standby-mhz>
+				<standby-mhz-fmt type="string">118.10</standby-mhz-fmt>
 			</frequencies>
+			<major-rotate type="int">50000</major-rotate>
+			<minor-rotate type="int">50000</minor-rotate>
 			<serviceable type="bool">true</serviceable>
 			<volume type="double">0</volume>
 		</comm>
 		<comm n="1">
 			<frequencies n="0">
 				<selected-mhz type="double">119.4</selected-mhz>
+				<selected-mhz-fmt type="string">119.40</selected-mhz-fmt>
 				<standby-mhz type="double">122.6</standby-mhz>
+				<standby-mhz-fmt type="string">122.60</standby-mhz-fmt>
 			</frequencies>
+			<major-rotate type="int">50000</major-rotate>
+			<minor-rotate type="int">50000</minor-rotate>
 			<serviceable type="bool">true</serviceable>
 			<volume type="double">0</volume>
 		</comm>
 		<comm n="2">
 			<frequencies n="0">
-				<selected-mhz type="double">0</selected-mhz>
+				<selected-mhz type="double">124.6</selected-mhz>
+				<selected-mhz-fmt type="string">124.60</selected-mhz-fmt>
 				<standby-mhz type="double">123.2</standby-mhz>
+				<standby-mhz-fmt type="string">123.20</standby-mhz-fmt>
 			</frequencies>
 			<serviceable type="bool">true</serviceable>
 			<volume type="double">0</volume>
@@ -1290,7 +1300,6 @@
 			<frequencies n="0">
 				<selected-mhz type="double">111.15</selected-mhz>
 				<selected-mhz-fmt type="string">111.15</selected-mhz-fmt>
-				<selected-mhz-fmt-x100 type="int">11115</selected-mhz-fmt-x100>
 				<standby-mhz type="double">110.95</standby-mhz>
 			</frequencies>
 			<radials n="0">
@@ -1303,7 +1312,6 @@
 			<frequencies n="0">
 				<selected-mhz type="double">109.55</selected-mhz>
 				<selected-mhz-fmt type="string">109.55</selected-mhz-fmt>
-				<selected-mhz-fmt-x100 type="int">10955</selected-mhz-fmt-x100>
 				<standby-mhz type="double">110.55</standby-mhz>
 			</frequencies>
 			<radials n="0">
@@ -1496,6 +1504,9 @@
 		<canvas_fma>
 			<file>Aircraft/MD-80/Nasal/Displays/FMA.nas</file>
 		</canvas_fma>
+		<instruments>
+			<file>Aircraft/MD-80/Nasal/Instruments/radios.nas</file>
+		</instruments>
 		<autopush>
 			<file>Aircraft/MD-80/Nasal/Autopush/autopush.nas</file>
 		</autopush>

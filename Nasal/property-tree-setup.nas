@@ -113,6 +113,13 @@ var Instrumentation = {
 		settingInhg: props.globals.getNode("/instrumentation/altimeter/setting-inhg"),
 		std: props.globals.getNode("/instrumentation/altimeter/std"),
 	},
+	Comm: {
+		Frequencies: {
+			standbyMhz: [props.globals.getNode("/instrumentation/comm[0]/frequencies/standby-mhz"), props.globals.getNode("/instrumentation/comm[1]/frequencies/standby-mhz"), props.globals.getNode("/instrumentation/comm[2]/frequencies/standby-mhz")],
+			standbyMhzFmt: [props.globals.getNode("/instrumentation/comm[0]/frequencies/standby-mhz-fmt"), props.globals.getNode("/instrumentation/comm[1]/frequencies/standby-mhz-fmt"), props.globals.getNode("/instrumentation/comm[2]/frequencies/standby-mhz-fmt")],
+			standbyMhzFmtX100: [props.globals.getNode("/instrumentation/comm[0]/frequencies/standby-mhz-fmt-x100"), props.globals.getNode("/instrumentation/comm[1]/frequencies/standby-mhz-fmt-x100"), props.globals.getNode("/instrumentation/comm[2]/frequencies/standby-mhz-fmt-x100")],
+		},
+	},
 	Du: {
 		ndDimmer: [props.globals.getNode("/instrumentation/du/nd1-dimmer"), props.globals.getNode("/instrumentation/du/nd2-dimmer")],
 		pfdDimmer: [props.globals.getNode("/instrumentation/du/pfd1-dimmer"), props.globals.getNode("/instrumentation/du/pfd2-dimmer")],
@@ -151,6 +158,8 @@ var Instrumentation = {
 	},
 	Nav: {
 		Frequencies: {
+			selectedMhz: [props.globals.getNode("/instrumentation/nav[0]/frequencies/selected-mhz"), props.globals.getNode("/instrumentation/nav[1]/frequencies/selected-mhz")],
+			selectedMhzFmt: [props.globals.getNode("/instrumentation/nav[0]/frequencies/selected-mhz-fmt"), props.globals.getNode("/instrumentation/nav[1]/frequencies/selected-mhz-fmt")],
 			selectedMhzFmtX100: [props.globals.getNode("/instrumentation/nav[0]/frequencies/selected-mhz-fmt-x100"), props.globals.getNode("/instrumentation/nav[1]/frequencies/selected-mhz-fmt-x100")],
 		},
 		headingNeedleDeflectionNorm: [props.globals.getNode("/instrumentation/nav[0]/heading-needle-deflection-norm"), props.globals.getNode("/instrumentation/nav[1]/heading-needle-deflection-norm"), props.globals.getNode("/instrumentation/nav[2]/heading-needle-deflection-norm")],

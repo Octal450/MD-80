@@ -58,7 +58,7 @@ var canvasBase = {
 		Value.apOn = dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue();
 		Value.atsOn = dfgs.Output.athr.getBoolValue();
 		
-		if (systems.ELEC.Generic.fmaPower.getValue() >= 25) {
+		if (systems.ELEC.Generic.fma[0].getValue() >= 24) { # TODO, split
 			if (Value.atsOn or Value.activeModeInt == 5) { # For showing flex digit
 				thrL.update();
 				thrL.page.show();

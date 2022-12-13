@@ -35,8 +35,8 @@
 		<condition>
 			<and>
 				<greater-than-equals>
-					<property>systems/electrical/outputs/fgcp-power</property>
-					<value>25</value>
+					<property>systems/electrical/outputs/fgcp</property>
+					<value>24</value>
 				</greater-than-equals>
 				<greater-than>
 					<property>controls/lighting/fgcp-digital-norm</property>
@@ -166,6 +166,7 @@
 		<property>instrumentation/nav[0]/frequencies/selected-mhz-fmt-x100</property>
 		<factor>0.1</factor>
 		<step>1</step>
+		<bias>0.1</bias>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -192,7 +193,7 @@
 		<action>
 			<binding>
 				<condition>
-					<property>systems/electrical/outputs/fgcp-power</property>
+					<property>systems/electrical/outputs/fgcp</property>
 				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
@@ -227,18 +228,25 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-		<action>
+		<increase>
 			<binding>
 				<condition>
-					<property>systems/electrical/outputs/fgcp-power</property>
+					<property>systems/electrical/outputs/fgcp</property>
 				</condition>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
-				<factor>0.05</factor>
-				<min>108</min>
-				<max>118</max>
-				<wrap>true</wrap>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustDecimal(0, 1);</script>
 			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<condition>
+					<property>systems/electrical/outputs/fgcp</property>
+				</condition>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustDecimal(0, -1);</script>
+			</binding>
+		</decrease>
+		<action>
 			<binding>
 				<command>property-adjust</command>
 				<property>instrumentation/fgcp/nav1-minor-rotate</property>
@@ -306,7 +314,7 @@
 		<action>
 			<binding>
 				<condition>
-					<property>systems/electrical/outputs/fgcp-power</property>
+					<property>systems/electrical/outputs/fgcp</property>
 				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[0]/radials/selected-deg</property>
@@ -1799,6 +1807,7 @@
 		<property>instrumentation/nav[1]/frequencies/selected-mhz-fmt-x100</property>
 		<factor>0.1</factor>
 		<step>1</step>
+		<bias>0.1</bias>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -1825,7 +1834,7 @@
 		<action>
 			<binding>
 				<condition>
-					<property>systems/electrical/outputs/fgcp-power</property>
+					<property>systems/electrical/outputs/fgcp</property>
 				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[1]/frequencies/selected-mhz</property>
@@ -1860,18 +1869,25 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-		<action>
+		<increase>
 			<binding>
 				<condition>
-					<property>systems/electrical/outputs/fgcp-power</property>
+					<property>systems/electrical/outputs/fgcp</property>
 				</condition>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-				<factor>0.05</factor>
-				<min>108</min>
-				<max>118</max>
-				<wrap>true</wrap>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustDecimal(1, 1);</script>
 			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<condition>
+					<property>systems/electrical/outputs/fgcp</property>
+				</condition>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustDecimal(1, -1);</script>
+			</binding>
+		</decrease>
+		<action>
 			<binding>
 				<command>property-adjust</command>
 				<property>instrumentation/fgcp/nav2-minor-rotate</property>
@@ -1939,7 +1955,7 @@
 		<action>
 			<binding>
 				<condition>
-					<property>systems/electrical/outputs/fgcp-power</property>
+					<property>systems/electrical/outputs/fgcp</property>
 				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[1]/radials/selected-deg</property>

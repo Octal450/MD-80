@@ -30,23 +30,6 @@
 		<filter-time>1.28</filter-time>
 	</filter>
 	
-	<!-- FGCP -->
-	<filter>
-		<name>NAV1 x100</name>
-		<type>gain</type>
-		<gain>100</gain>
-		<input>/instrumentation/nav[0]/frequencies/selected-mhz-fmt</input>
-		<output>/instrumentation/nav[0]/frequencies/selected-mhz-fmt-x100</output>
-	</filter>
-	
-	<filter>
-		<name>NAV2 x100</name>
-		<type>gain</type>
-		<gain>100</gain>
-		<input>/instrumentation/nav[1]/frequencies/selected-mhz-fmt</input>
-		<output>/instrumentation/nav[1]/frequencies/selected-mhz-fmt-x100</output>
-	</filter>
-	
 	<!-- RMI -->
 	<filter>
 		<name>RMI 1 NAV 1 Error</name>

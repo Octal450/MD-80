@@ -563,7 +563,7 @@ OBJECT poly
 name "Panel"
 data 8
 Cube.039
-texture "nav_radio.png"
+texture "nav.png"
 crease 30.000000
 numvert 8
 0 0.03115 -0.072875
