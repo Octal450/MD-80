@@ -224,7 +224,7 @@ OBJECT poly
 name "AnnBattOff"
 data 9
 Plane.049
-texture "txt_cockpit_annun2.rgb"
+texture "txt_cockpit_annun2.png"
 crease 30.000000
 numvert 4
 2.6176 1.44358 0.2215
@@ -244,7 +244,7 @@ OBJECT poly
 name "AnnEngValveL"
 data 9
 Plane.050
-texture "txt_cockpit_annun2.rgb"
+texture "txt_cockpit_annun2.png"
 crease 30.000000
 numvert 4
 2.55969 1.41407 0.1485
@@ -264,7 +264,7 @@ OBJECT poly
 name "AnnEngValveR"
 data 9
 Plane.051
-texture "txt_cockpit_annun2.rgb"
+texture "txt_cockpit_annun2.png"
 crease 30.000000
 numvert 4
 2.55969 1.41407 0.1125
@@ -284,7 +284,7 @@ OBJECT poly
 name "AnnFuelLow"
 data 9
 Plane.048
-texture "txt_cockpit_annun2.rgb"
+texture "txt_cockpit_annun2.png"
 crease 30.000000
 numvert 4
 2.6176 1.44358 0.2575
@@ -304,7 +304,7 @@ OBJECT poly
 name "AnnFuelPressL"
 data 9
 Plane.052
-texture "txt_cockpit_annun2.rgb"
+texture "txt_cockpit_annun2.png"
 crease 30.000000
 numvert 4
 2.57127 1.41997 0.1095
@@ -324,7 +324,7 @@ OBJECT poly
 name "AnnFuelPressR"
 data 9
 Plane.053
-texture "txt_cockpit_annun2.rgb"
+texture "txt_cockpit_annun2.png"
 crease 30.000000
 numvert 4
 2.57127 1.41997 0.0735
@@ -344,7 +344,7 @@ OBJECT poly
 name "AnnParkBrake"
 data 9
 Plane.057
-texture "txt_cockpit_annun2.rgb"
+texture "txt_cockpit_annun2.png"
 crease 30.000000
 numvert 4
 2.6176 1.44358 -0.1125
@@ -364,7 +364,7 @@ OBJECT poly
 name "AnnSpoilExt"
 data 9
 Plane.058
-texture "txt_cockpit_annun2.rgb"
+texture "txt_cockpit_annun2.png"
 crease 30.000000
 numvert 4
 2.62922 1.4495 -0.1835
@@ -384,7 +384,7 @@ OBJECT poly
 name "AnnSpoilGnd"
 data 9
 Plane.056
-texture "txt_cockpit_annun2.rgb"
+texture "txt_cockpit_annun2.png"
 crease 30.000000
 numvert 4
 2.59444 1.43178 -0.0005
@@ -404,7 +404,7 @@ OBJECT poly
 name "AnnStartValveL"
 data 9
 Plane.055
-texture "txt_cockpit_annun2.rgb"
+texture "txt_cockpit_annun2.png"
 crease 30.000000
 numvert 4
 2.60602 1.43768 0.0745
@@ -424,7 +424,7 @@ OBJECT poly
 name "AnnStartValveR"
 data 9
 Plane.054
-texture "txt_cockpit_annun2.rgb"
+texture "txt_cockpit_annun2.png"
 crease 30.000000
 numvert 4
 2.60602 1.43768 0.0385
@@ -444,7 +444,7 @@ OBJECT poly
 name "Annunciators"
 data 9
 Plane.044
-texture "txt_cockpit_annun1.rgb"
+texture "txt_cockpit_annun1.png"
 crease 30.000000
 numvert 392
 2.62908 1.44977 0.2225

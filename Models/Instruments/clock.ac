@@ -559,7 +559,7 @@ name "Clock.Face"
 loc 0.00184796 1.01328e-07 3.72529e-10
 data 12
 Cylinder.048
-texture "clock.rgb"
+texture "clock.png"
 crease 30.000000
 numvert 9
 0.000656547 0.0183184 -0.0183184
@@ -626,7 +626,7 @@ name "Clock.Hour"
 loc 0.00184796 1.01328e-07 3.72529e-10
 data 9
 Plane.028
-texture "clock.rgb"
+texture "clock.png"
 crease 30.000000
 numvert 9
 0.000951061 0.00135296 -0.000663621
@@ -672,7 +672,7 @@ name "Clock.Knob"
 loc 0.00184796 -0.00166394 0.0017306
 data 12
 Cylinder.007
-texture "textures_gauge_support.rgb"
+texture "textures_gauge_support.png"
 crease 45.000000
 numvert 16
 0.00105909 -0.0215548 0.0170278
@@ -780,7 +780,7 @@ name "Clock.Minute"
 loc 0.00184796 1.01328e-07 3.72529e-10
 data 9
 Plane.029
-texture "clock.rgb"
+texture "clock.png"
 crease 30.000000
 numvert 9
 0.00111375 0.00135296 -0.000663621
@@ -826,7 +826,7 @@ name "Clock.Second"
 loc 0.00184796 1.01328e-07 3.72529e-10
 data 9
 Plane.030
-texture "clock.rgb"
+texture "clock.png"
 crease 30.000000
 numvert 10
 0.000789658 0.00135296 -0.000663621
@@ -874,7 +874,7 @@ name "Screws_35"
 loc 0.00184796 1.01328e-07 3.72529e-10
 data 12
 Cylinder.029
-texture "textures_gauge_support.rgb"
+texture "textures_gauge_support.png"
 crease 30.000000
 numvert 14
 0.00110908 -0.0318502 0.0116821

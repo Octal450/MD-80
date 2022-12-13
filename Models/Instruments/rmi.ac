@@ -713,7 +713,7 @@ name "Knob1_Knob"
 loc -2.93553e-06 0 0
 data 8
 Tube.001
-texture "txt_knobs.rgb"
+texture "txt_knobs.png"
 crease 30.000000
 numvert 28
 0.0241164 -0.021387 0.03201
@@ -891,7 +891,7 @@ name "Knob1_Legend"
 loc 2.93739e-06 0 0
 data 8
 Tube.001
-texture "txt_knobs_text.rgb"
+texture "txt_knobs_text.png"
 crease 30.000000
 numvert 14
 0.0241164 -0.021387 0.03201
@@ -961,7 +961,7 @@ name "Knob2_Knob"
 loc -2.93553e-06 0 0
 data 8
 Tube.002
-texture "txt_knobs.rgb"
+texture "txt_knobs.png"
 crease 30.000000
 numvert 28
 0.0241164 -0.021387 -0.03299
@@ -1139,7 +1139,7 @@ name "Knob2_Legend"
 loc 2.93693e-06 0 0
 data 8
 Tube.002
-texture "txt_knobs_text.rgb"
+texture "txt_knobs_text.png"
 crease 30.000000
 numvert 14
 0.0241164 -0.021387 -0.03299
@@ -1204,7 +1204,7 @@ OBJECT poly
 name "Legend"
 data 9
 Plane.003
-texture "txt_knobs_text.rgb"
+texture "txt_knobs_text.png"
 crease 30.000000
 numvert 16
 0.00325 -0.0215442 0.0364643
@@ -1418,7 +1418,7 @@ OBJECT poly
 name "Screws_35"
 data 12
 Cylinder.029
-texture "textures_gauge_support.rgb"
+texture "textures_gauge_support.png"
 crease 30.000000
 numvert 28
 0.0005 0.04 0.037267

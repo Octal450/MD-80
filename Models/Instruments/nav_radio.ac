@@ -143,7 +143,7 @@ OBJECT poly
 name "ActKnob1"
 data 12
 Cylinder.007
-texture "txt_knobs.rgb"
+texture "txt_knobs.png"
 crease 30.000000
 numvert 25
 0 -0.018083 0.029196
@@ -333,7 +333,7 @@ OBJECT poly
 name "ActKnob2"
 data 12
 Cylinder.006
-texture "txt_knobs.rgb"
+texture "txt_knobs.png"
 crease 30.000000
 numvert 25
 0.009988 -0.016762 0.031485
@@ -563,7 +563,7 @@ OBJECT poly
 name "Panel"
 data 8
 Cube.039
-texture "nav_radio.rgb"
+texture "nav_radio.png"
 crease 30.000000
 numvert 8
 0 0.03115 -0.072875
@@ -715,7 +715,7 @@ OBJECT poly
 name "StdbyKnob1"
 data 12
 Cylinder.004
-texture "txt_knobs.rgb"
+texture "txt_knobs.png"
 crease 30.000000
 numvert 25
 0 -0.018083 -0.046804
@@ -905,7 +905,7 @@ OBJECT poly
 name "StdbyKnob2"
 data 12
 Cylinder.005
-texture "txt_knobs.rgb"
+texture "txt_knobs.png"
 crease 30.000000
 numvert 25
 0.009988 -0.016762 -0.044515
@@ -1095,7 +1095,7 @@ OBJECT poly
 name "TFRbutton"
 data 8
 Cube.047
-texture "comm.rgb"
+texture "comm.png"
 crease 30.000000
 numvert 8
 0.003193 0.017039 -0.004803

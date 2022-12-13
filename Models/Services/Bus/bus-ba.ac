@@ -7,7 +7,7 @@ OBJECT poly
 name "jour"
 data 4
 jour
-texture "objects.rgb"
+texture "objects.png"
 texrep 1 1
 crease 30.000000
 numvert 96

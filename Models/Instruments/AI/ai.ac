@@ -1486,7 +1486,7 @@ OBJECT poly
 name "Screws"
 data 12
 Cylinder.003
-texture "textures_gauge_support.rgb"
+texture "textures_gauge_support.png"
 crease 30.000000
 numvert 28
 -0.0015 0.06179 0.06651

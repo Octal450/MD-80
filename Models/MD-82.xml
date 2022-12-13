@@ -1360,7 +1360,7 @@
   <object-name>LGNDoorAftR</object-name>
   <property-base>sim/model/livery</property-base>
   <texture-prop>texture</texture-prop>
-  <texture>txt_fuselage.rgb</texture>
+  <texture>txt_fuselage.png</texture>
 </animation>
 <animation>
   <type>material</type>
@@ -1369,7 +1369,7 @@
   <object-name>LGDoorInR</object-name>
   <property-base>sim/model/fairings</property-base>
   <texture-prop>texture</texture-prop>
-  <texture>txt_fuselage_fairing.rgb</texture>
+  <texture>txt_fuselage_fairing.png</texture>
 </animation>
 <animation>
   <type>material</type>
@@ -1380,7 +1380,7 @@
   <object-name>StabFairing</object-name>
   <property-base>sim/model/rudders</property-base>
   <texture-prop>texture</texture-prop>
-  <texture>txt_vstab_engines.rgb</texture>
+  <texture>txt_vstab_engines.png</texture>
 </animation>
 
 
@@ -1397,7 +1397,7 @@
 <animation>
   <type>shader</type>
   <shader>chrome</shader>
-  <texture>Aircraft/MD-80/Models/txt_environment.rgb</texture>
+  <texture>Aircraft/MD-80/Models/txt_environment.png</texture>
   <object-name>WindowsCockpit</object-name>
 </animation>
 -->

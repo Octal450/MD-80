@@ -839,7 +839,7 @@ name "Screws"
 loc 2.93683 1.60609 0.06
 data 12
 Cylinder.045
-texture "textures_gauge_support.rgb"
+texture "textures_gauge_support.png"
 crease 30.000000
 numvert 14
 0.0206175 0.00938284 -0.022606
@@ -1756,7 +1756,7 @@ name "Screws"
 loc 2.93683 1.60609 0.002
 data 12
 Cylinder.045
-texture "textures_gauge_support.rgb"
+texture "textures_gauge_support.png"
 crease 30.000000
 numvert 14
 0.0206175 0.00938284 -0.022606
@@ -2160,7 +2160,7 @@ name "apupwravailoff"
 loc 4.76837e-06 5.00679e-06 0.00131001
 data 8
 Cube.014
-texture "lights.rgb"
+texture "lights2.png"
 crease 30.000000
 numvert 4
 2.9063 1.57772 0.1697
@@ -2181,7 +2181,7 @@ name "apupwravailon"
 loc 4.76837e-06 5.00679e-06 0.00131001
 data 8
 Cube.019
-texture "lights.rgb"
+texture "lights2.png"
 crease 30.000000
 numvert 4
 2.90632 1.57769 0.1697
@@ -15314,7 +15314,7 @@ OBJECT poly
 name "emerpwrlt"
 data 8
 Cube.025
-texture "txt_cockpit_oh_apu.rgb"
+texture "txt_cockpit_oh_apu.png"
 crease 30.000000
 numvert 8
 2.8477 1.55802 0.01016
@@ -15366,7 +15366,7 @@ OBJECT poly
 name "emerpwr"
 data 8
 Cube.024
-texture "txt_cockpit_oh_apu.rgb"
+texture "txt_cockpit_oh_apu.png"
 crease 30.000000
 numvert 56
 2.83412 1.5511 0.06951
@@ -15860,7 +15860,7 @@ OBJECT poly
 name "extpwravailoff"
 data 8
 Cube.015
-texture "lights.rgb"
+texture "lights2.png"
 crease 30.000000
 numvert 4
 2.89082 1.56957 0.19601
@@ -15880,7 +15880,7 @@ OBJECT poly
 name "extpwravailon"
 data 8
 Cube.018
-texture "lights.rgb"
+texture "lights2.png"
 crease 30.000000
 numvert 4
 2.89092 1.56936 0.19601
@@ -18501,7 +18501,7 @@ OBJECT poly
 name "lowerelec"
 data 14
 enginepane.001
-texture "txt_cockpit_oh_elec1.rgb"
+texture "txt_cockpit_oh_elec1.png"
 crease 30.000000
 numvert 16
 2.79194 1.53294 0.09591
@@ -18758,7 +18758,7 @@ OBJECT poly
 name "PNEU_FACE"
 data 12
 Cylinder.137
-texture "pneu.rgb"
+texture "pneu.png"
 crease 30.000000
 numvert 9
 2.74073 1.50631 0.19626
@@ -18877,7 +18877,7 @@ OBJECT poly
 name "QuadAPU"
 data 8
 Cube.022
-texture "txt_cockpit_oh_apu.rgb"
+texture "txt_cockpit_oh_apu.png"
 crease 30.000000
 numvert 20
 2.82968 1.55216 0.04831
@@ -19014,7 +19014,7 @@ OBJECT poly
 name "QuadEng"
 data 8
 Cube.023
-texture "txt_cockpit_oh_eng.rgb"
+texture "txt_cockpit_oh_eng.png"
 crease 30.000000
 numvert 37
 2.77491 1.52697 0.14768
@@ -19249,7 +19249,7 @@ OBJECT poly
 name "QuadEng2"
 data 8
 Cube.027
-texture "txt_cockpit_oh_eng.rgb"
+texture "txt_cockpit_oh_eng.png"
 crease 30.000000
 numvert 19
 2.74449 1.49349 0.16177

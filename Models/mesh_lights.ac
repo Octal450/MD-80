@@ -210,7 +210,7 @@ OBJECT poly
 name "GlowStrobeR"
 data 10
 Mesh.11042
-texture "txt_lights_exterior.rgb"
+texture "txt_lights_exterior.png"
 crease 30.000000
 numvert 12
 27.5081 0.350038 -15.6569
@@ -252,7 +252,7 @@ OBJECT poly
 name "GlowStrobeL"
 data 10
 Mesh.11238
-texture "txt_lights_exterior.rgb"
+texture "txt_lights_exterior.png"
 crease 30.000000
 numvert 12
 27.9963 0.296445 16.0815
@@ -664,7 +664,7 @@ OBJECT poly
 name "GlowStrobeAftR"
 data 10
 Mesh.10977
-texture "txt_lights_exterior.rgb"
+texture "txt_lights_exterior.png"
 crease 30.000000
 numvert 20
 29.4541 -0.395922 -16.7171
@@ -728,7 +728,7 @@ OBJECT poly
 name "GlowStrobeAftL"
 data 8
 Mesh.021
-texture "txt_lights_exterior.rgb"
+texture "txt_lights_exterior.png"
 crease 30.000000
 numvert 20
 28.9541 0.45763 16.8636
@@ -792,7 +792,7 @@ OBJECT poly
 name "GlowBeacon"
 data 10
 Mesh.11246
-texture "txt_lights_exterior.rgb"
+texture "txt_lights_exterior.png"
 crease 30.000000
 numvert 40
 25.199 -1.91553 -0.388009
@@ -911,7 +911,7 @@ OBJECT poly
 name "GlowWingtipAftL"
 data 8
 Mesh.021
-texture "txt_lights_exterior.rgb"
+texture "txt_lights_exterior.png"
 crease 30.000000
 numvert 20
 29.4541 -0.395924 16.01
@@ -975,7 +975,7 @@ OBJECT poly
 name "GlowWingtipAftR"
 data 10
 Mesh.10977
-texture "txt_lights_exterior.rgb"
+texture "txt_lights_exterior.png"
 crease 30.000000
 numvert 20
 28.9541 0.457632 -15.8636
@@ -1039,7 +1039,7 @@ OBJECT poly
 name "GlowWingtipL"
 data 10
 Mesh.11238
-texture "txt_lights_exterior.rgb"
+texture "txt_lights_exterior.png"
 crease 30.000000
 numvert 12
 27.1035 0.296445 16.0279
@@ -1081,7 +1081,7 @@ OBJECT poly
 name "GlowWingtipR"
 data 10
 Mesh.11042
-texture "txt_lights_exterior.rgb"
+texture "txt_lights_exterior.png"
 crease 30.000000
 numvert 12
 27.3035 0.296448 -15.6815

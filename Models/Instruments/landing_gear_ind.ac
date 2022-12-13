@@ -9,7 +9,7 @@ name "FaceDoorOff"
 loc 0.000997418 0 0.0080484
 data 8
 Cube.005
-texture "txt_cockpit_warnings_1.rgb"
+texture "txt_cockpit_warnings_1.png"
 crease 30.000000
 numvert 4
 0.00921669 0.0100605 0.0367717
@@ -30,7 +30,7 @@ name "FaceDoorOn"
 loc 0.00108845 0 0.0080484
 data 8
 Cube.001
-texture "txt_cockpit_warnings_1.rgb"
+texture "txt_cockpit_warnings_1.png"
 crease 30.000000
 numvert 4
 0.00921214 0.0100605 0.0367717
@@ -51,7 +51,7 @@ name "FaceLeftGreen"
 loc 0.00145258 0 0.0080484
 data 8
 Cube.010
-texture "txt_cockpit_warnings_1.rgb"
+texture "txt_cockpit_warnings_1.png"
 crease 30.000000
 numvert 4
 0.00920303 0.0100605 0.0104752
@@ -72,7 +72,7 @@ name "FaceLeftOff"
 loc 0.000997418 0 0.0080484
 data 8
 Cube.006
-texture "txt_cockpit_warnings_1.rgb"
+texture "txt_cockpit_warnings_1.png"
 crease 30.000000
 numvert 4
 0.00922579 0.0100605 0.0104752
@@ -93,7 +93,7 @@ name "FaceLeftRed"
 loc 0.00145258 0 0.0080484
 data 8
 Cube.009
-texture "txt_cockpit_warnings_1.rgb"
+texture "txt_cockpit_warnings_1.png"
 crease 30.000000
 numvert 4
 0.00920303 0.0100605 0.0104752
@@ -114,7 +114,7 @@ name "FaceNoseGreen"
 loc 0.00127052 0 0.0080484
 data 8
 Cube.012
-texture "txt_cockpit_warnings_1.rgb"
+texture "txt_cockpit_warnings_1.png"
 crease 30.000000
 numvert 4
 0.00920759 0.0100605 -0.0111358
@@ -135,7 +135,7 @@ name "FaceNoseOff"
 loc 0.000997418 0 0.0080484
 data 8
 Cube.007
-texture "txt_cockpit_warnings_1.rgb"
+texture "txt_cockpit_warnings_1.png"
 crease 30.000000
 numvert 4
 0.00922124 0.0100605 -0.0111358
@@ -156,7 +156,7 @@ name "FaceNoseRed"
 loc 0.00121511 0 0.0080484
 data 8
 Cube.011
-texture "txt_cockpit_warnings_1.rgb"
+texture "txt_cockpit_warnings_1.png"
 crease 30.000000
 numvert 4
 0.00921036 0.0100605 -0.0111358
@@ -177,7 +177,7 @@ name "FaceRightOff"
 loc 0.000997418 0 0.0080484
 data 8
 Cube.008
-texture "txt_cockpit_warnings_1.rgb"
+texture "txt_cockpit_warnings_1.png"
 crease 30.000000
 numvert 4
 0.00922092 0.0100605 -0.0327475
@@ -198,7 +198,7 @@ name "FaceRightRed"
 loc 0.00114613 0 0.0080484
 data 8
 Cube.013
-texture "txt_cockpit_warnings_1.rgb"
+texture "txt_cockpit_warnings_1.png"
 crease 30.000000
 numvert 4
 0.00921348 0.0100605 -0.0327475
@@ -219,7 +219,7 @@ name "FaceRightGreen"
 loc 0.00125766 0 0.0080484
 data 8
 Cube.014
-texture "txt_cockpit_warnings_1.rgb"
+texture "txt_cockpit_warnings_1.png"
 crease 30.000000
 numvert 4
 0.00920791 0.0100605 -0.0327475

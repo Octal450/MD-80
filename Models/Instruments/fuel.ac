@@ -8,7 +8,7 @@ name "Bezel"
 loc 4.61794e-05 0 0
 data 12
 Cylinder.017
-texture "fuel.rgb"
+texture "fuel.png"
 crease 30.000000
 numvert 60
 0 0.0548818 0.0385064
@@ -1005,7 +1005,7 @@ name "Screws_45"
 loc 4.61794e-05 0 0
 data 12
 Cylinder.030
-texture "textures_gauge_support.rgb"
+texture "textures_gauge_support.png"
 crease 30.000000
 numvert 28
 0.000484607 -0.0501054 -0.0471938

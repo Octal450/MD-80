@@ -974,7 +974,7 @@ name "Screws"
 loc 0 1.09139e-11 -1.45519e-11
 data 12
 Cylinder.045
-texture "textures_gauge_support.rgb"
+texture "textures_gauge_support.png"
 crease 30.000000
 numvert 14
 0.001 0.02263 -0.02261

@@ -11,7 +11,7 @@ name "FaceART"
 loc 0 0.00622384 0
 data 8
 Cube.009
-texture "txt_cockpit_warnings_2.rgb"
+texture "txt_cockpit_warnings_2.png"
 crease 30.000000
 numvert 4
 0.0112005 -0.07042 -0.0805605
@@ -32,7 +32,7 @@ name "FaceARTOn"
 loc 0 0.00622384 0
 data 8
 Cube.010
-texture "txt_cockpit_warnings_2.rgb"
+texture "txt_cockpit_warnings_2.png"
 crease 30.000000
 numvert 4
 0.0114 -0.07042 -0.0604395
@@ -53,7 +53,7 @@ name "FaceARTReady"
 loc 0 0.00622384 0
 data 8
 Cube.001
-texture "txt_cockpit_warnings_2.rgb"
+texture "txt_cockpit_warnings_2.png"
 crease 30.000000
 numvert 4
 0.0112005 -0.07042 -0.0805605
@@ -74,7 +74,7 @@ name "FaceARTReadyOn"
 loc 0 0.00622384 0
 data 8
 Cube.002
-texture "txt_cockpit_warnings_2.rgb"
+texture "txt_cockpit_warnings_2.png"
 crease 30.000000
 numvert 4
 0.0114 -0.07042 -0.0604395
@@ -97,7 +97,7 @@ OBJECT poly
 name "FaceEngRevL"
 data 8
 Cube.003
-texture "txt_cockpit_warnings_1.rgb"
+texture "txt_cockpit_warnings_1.png"
 crease 30.000000
 numvert 4
 0.0112005 0.0079305 0.0805605
@@ -117,7 +117,7 @@ OBJECT poly
 name "FaceEngRevLOn"
 data 8
 Cube.004
-texture "txt_cockpit_warnings_1.rgb"
+texture "txt_cockpit_warnings_1.png"
 crease 30.000000
 numvert 4
 0.0114 0.0079305 0.0805605
@@ -140,7 +140,7 @@ OBJECT poly
 name "FaceEngRevR"
 data 8
 Cube.005
-texture "txt_cockpit_warnings_1.rgb"
+texture "txt_cockpit_warnings_1.png"
 crease 30.000000
 numvert 4
 0.0113715 0.0079305 -0.0604395
@@ -160,7 +160,7 @@ OBJECT poly
 name "FaceEngRevROn"
 data 8
 Cube.006
-texture "txt_cockpit_warnings_1.rgb"
+texture "txt_cockpit_warnings_1.png"
 crease 30.000000
 numvert 4
 0.0114 0.0079305 -0.0604395
@@ -183,7 +183,7 @@ OBJECT poly
 name "FaceEngULL"
 data 8
 Cube.007
-texture "txt_cockpit_warnings_2.rgb"
+texture "txt_cockpit_warnings_2.png"
 crease 30.000000
 numvert 4
 0.0112005 -0.015649 0.0805605
@@ -203,7 +203,7 @@ OBJECT poly
 name "FaceEngULLOn"
 data 8
 Cube.008
-texture "txt_cockpit_warnings_2.rgb"
+texture "txt_cockpit_warnings_2.png"
 crease 30.000000
 numvert 4
 0.0114 -0.015649 0.0805605
@@ -226,7 +226,7 @@ OBJECT poly
 name "FaceEngULR"
 data 8
 Cube.011
-texture "txt_cockpit_warnings_2.rgb"
+texture "txt_cockpit_warnings_2.png"
 crease 30.000000
 numvert 4
 0.0113715 -0.0156395 -0.0604395
@@ -246,7 +246,7 @@ OBJECT poly
 name "FaceEngULROn"
 data 8
 Cube.012
-texture "txt_cockpit_warnings_2.rgb"
+texture "txt_cockpit_warnings_2.png"
 crease 30.000000
 numvert 4
 0.0114 -0.0156395 -0.0604395
@@ -543,7 +543,7 @@ OBJECT poly
 name "FaceWNT"
 data 8
 Cube.019
-texture "txt_cockpit_warnings_2.rgb"
+texture "txt_cockpit_warnings_2.png"
 crease 30.000000
 numvert 4
 0.0112005 -0.0392095 0.0805605
@@ -563,7 +563,7 @@ OBJECT poly
 name "FaceWNTOn"
 data 8
 Cube.020
-texture "txt_cockpit_warnings_2.rgb"
+texture "txt_cockpit_warnings_2.png"
 crease 30.000000
 numvert 4
 0.0114 -0.0392095 0.0805605

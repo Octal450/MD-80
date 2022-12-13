@@ -662,7 +662,7 @@ OBJECT poly
 name "Face"
 data 12
 Cylinder.048
-texture "ft.rgb"
+texture "ft.png"
 crease 30.000000
 numvert 9
 0.000122 0.019477 -0.019477
@@ -774,7 +774,7 @@ OBJECT poly
 name "Screws"
 data 12
 Cylinder.045
-texture "textures_gauge_support.rgb"
+texture "textures_gauge_support.png"
 crease 30.000000
 numvert 14
 0.001 0.02263 -0.022606

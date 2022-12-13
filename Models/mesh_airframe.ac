@@ -11,7 +11,7 @@ OBJECT poly
 name "AileronL"
 data 10
 Mesh.11262
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 111
 26.6077 -0.17206 10.4367
@@ -920,7 +920,7 @@ OBJECT poly
 name "AileronR"
 data 10
 Mesh.11301
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 111
 26.6077 -0.17206 -10.4367
@@ -1829,7 +1829,7 @@ OBJECT poly
 name "AilTabControlL"
 data 10
 Mesh.11260
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 10
 27.4254 -0.29536 10.5607
@@ -1909,7 +1909,7 @@ OBJECT poly
 name "AilTabControlR"
 data 10
 Mesh.11303
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 10
 27.4254 -0.29536 -10.5607
@@ -1989,7 +1989,7 @@ OBJECT poly
 name "AilTabTrimL"
 data 10
 Mesh.11261
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 10
 27.5431 -0.21267 11.855
@@ -2069,7 +2069,7 @@ OBJECT poly
 name "AilTabTrimR"
 data 10
 Mesh.11302
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 10
 27.5431 -0.21267 -11.855
@@ -2149,7 +2149,7 @@ OBJECT poly
 name "ElevatorL"
 data 10
 Mesh.11304
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 30.000000
 numvert 188
 43.88 5.59247 2.42453
@@ -3653,7 +3653,7 @@ OBJECT poly
 name "ElevatorR"
 data 8
 Mesh.669
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 30.000000
 numvert 188
 43.88 5.59247 -2.42453
@@ -5157,7 +5157,7 @@ OBJECT poly
 name "ElTabAntifloatL"
 data 8
 Mesh.594
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 30.000000
 numvert 16
 45.0722 5.44084 5.89523
@@ -5290,7 +5290,7 @@ OBJECT poly
 name "ElTabAntifloatR"
 data 8
 Mesh.599
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 30.000000
 numvert 16
 45.0722 5.44085 -5.89523
@@ -5423,7 +5423,7 @@ OBJECT poly
 name "ElTabControlL"
 data 8
 Mesh.592
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 30.000000
 numvert 16
 43.8476 5.64151 2.3196
@@ -5556,7 +5556,7 @@ OBJECT poly
 name "ElTabControlR"
 data 8
 Mesh.597
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 30.000000
 numvert 16
 43.8476 5.64151 -2.3196
@@ -5689,7 +5689,7 @@ OBJECT poly
 name "ElTabGearedL"
 data 8
 Mesh.601
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 30.000000
 numvert 16
 44.7554 5.50654 4.43518
@@ -5822,7 +5822,7 @@ OBJECT poly
 name "ElTabGearedR"
 data 8
 Mesh.598
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 30.000000
 numvert 16
 44.1568 5.61113 -2.43817
@@ -5955,7 +5955,7 @@ OBJECT poly
 name "EngExhaustL"
 data 8
 Tube.020
-texture "txt_engine.rgb"
+texture "txt_engine.png"
 crease 30.000000
 numvert 33
 35.6029 0.62295 2.7
@@ -6205,7 +6205,7 @@ OBJECT poly
 name "EngExhaustR"
 data 8
 Tube.059
-texture "txt_engine.rgb"
+texture "txt_engine.png"
 crease 30.000000
 numvert 33
 35.6029 0.62296 -2.7
@@ -6455,7 +6455,7 @@ OBJECT poly
 name "EngFanDiskL"
 data 8
 Tube.013
-texture "txt_engine.rgb"
+texture "txt_engine.png"
 crease 30.000000
 numvert 17
 31.5135 0.27829 2.20872
@@ -6577,7 +6577,7 @@ OBJECT poly
 name "EngFanDiskL1"
 data 8
 Tube.017
-texture "txt_engine.rgb"
+texture "txt_engine.png"
 crease 30.000000
 numvert 17
 31.5135 0.27829 2.20872
@@ -6699,7 +6699,7 @@ OBJECT poly
 name "EngFanDiskR"
 data 8
 Tube.088
-texture "txt_engine.rgb"
+texture "txt_engine.png"
 crease 30.000000
 numvert 17
 31.5135 0.27829 -2.20872
@@ -6821,7 +6821,7 @@ OBJECT poly
 name "EngFanDiskR1"
 data 8
 Tube.026
-texture "txt_engine.rgb"
+texture "txt_engine.png"
 crease 30.000000
 numvert 17
 31.5135 0.27829 -2.20872
@@ -6943,7 +6943,7 @@ OBJECT poly
 name "Engines"
 data 8
 Tube.051
-texture "txt_vstab_engines.rgb"
+texture "txt_vstab_engines.png"
 crease 45.000000
 numvert 1392
 34.3361 0.02163 3.50788
@@ -14780,7 +14780,7 @@ OBJECT poly
 name "EngRevDL"
 data 8
 Tube.025
-texture "txt_vstab_engines.rgb"
+texture "txt_vstab_engines.png"
 crease 30.000000
 numvert 60
 36.9211 0.57692 2.13732
@@ -15115,7 +15115,7 @@ OBJECT poly
 name "EngRevDR"
 data 8
 Tube.098
-texture "txt_vstab_engines.rgb"
+texture "txt_vstab_engines.png"
 crease 30.000000
 numvert 60
 36.9211 0.57692 -2.13732
@@ -15450,7 +15450,7 @@ OBJECT poly
 name "EngRevStrutADL"
 data 8
 Cube.016
-texture "txt_vstab_engines.rgb"
+texture "txt_vstab_engines.png"
 crease 30.000000
 numvert 28
 37.2263 0.55754 2.14577
@@ -15647,7 +15647,7 @@ OBJECT poly
 name "EngRevStrutADR"
 data 8
 Cube.142
-texture "txt_vstab_engines.rgb"
+texture "txt_vstab_engines.png"
 crease 30.000000
 numvert 28
 37.2263 0.55754 -2.14577
@@ -15844,7 +15844,7 @@ OBJECT poly
 name "EngRevStrutAVL"
 data 8
 Cube.035
-texture "txt_vstab_engines.rgb"
+texture "txt_vstab_engines.png"
 crease 30.000000
 numvert 28
 37.2195 0.3615 2.18479
@@ -16041,7 +16041,7 @@ OBJECT poly
 name "EngRevStrutAVR"
 data 8
 Cube.141
-texture "txt_vstab_engines.rgb"
+texture "txt_vstab_engines.png"
 crease 30.000000
 numvert 28
 37.2195 0.3615 -2.18479
@@ -16238,7 +16238,7 @@ OBJECT poly
 name "EngRevStrutFDL"
 data 8
 Cube.017
-texture "txt_vstab_engines.rgb"
+texture "txt_vstab_engines.png"
 crease 30.000000
 numvert 28
 36.9915 0.56574 2.14577
@@ -16435,7 +16435,7 @@ OBJECT poly
 name "EngRevStrutFDR"
 data 8
 Cube.144
-texture "txt_vstab_engines.rgb"
+texture "txt_vstab_engines.png"
 crease 30.000000
 numvert 28
 36.9915 0.56574 -2.14577
@@ -16632,7 +16632,7 @@ OBJECT poly
 name "EngRevStrutFVL"
 data 8
 Cube.018
-texture "txt_vstab_engines.rgb"
+texture "txt_vstab_engines.png"
 crease 30.000000
 numvert 28
 36.9846 0.3697 2.18479
@@ -16829,7 +16829,7 @@ OBJECT poly
 name "EngRevStrutFVR"
 data 8
 Cube.143
-texture "txt_vstab_engines.rgb"
+texture "txt_vstab_engines.png"
 crease 30.000000
 numvert 28
 36.9846 0.36971 -2.18479
@@ -17026,7 +17026,7 @@ OBJECT poly
 name "EngRevVL"
 data 8
 Tube.024
-texture "txt_vstab_engines.rgb"
+texture "txt_vstab_engines.png"
 crease 30.000000
 numvert 60
 37.0202 0.00891 2.7
@@ -17361,7 +17361,7 @@ OBJECT poly
 name "EngRevVR"
 data 8
 Tube.099
-texture "txt_vstab_engines.rgb"
+texture "txt_vstab_engines.png"
 crease 30.000000
 numvert 60
 37.0202 0.00891 -2.7
@@ -17696,7 +17696,7 @@ OBJECT poly
 name "FlapDoorL"
 data 8
 Mesh.625
-texture "txt_fuselage_fairing.rgb"
+texture "txt_fuselage_fairing.png"
 crease 45.000000
 numvert 39
 25.5762 -0.94137 1.56779
@@ -17951,7 +17951,7 @@ OBJECT poly
 name "FlapDoorR"
 data 10
 Mesh.11318
-texture "txt_fuselage_fairing.rgb"
+texture "txt_fuselage_fairing.png"
 crease 45.000000
 numvert 39
 25.5762 -0.94137 -1.56779
@@ -18206,7 +18206,7 @@ OBJECT poly
 name "FlapGussetL"
 data 8
 Mesh.722
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 30
 24.8105 -0.59938 5.16414
@@ -18385,7 +18385,7 @@ OBJECT poly
 name "FlapGussetR"
 data 10
 Mesh.11299
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 30
 24.8105 -0.59938 -5.16414
@@ -18564,7 +18564,7 @@ OBJECT poly
 name "FlapHorns2InL"
 data 8
 Mesh.139
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 30
 24.8684 -0.715 4.03755
@@ -18858,7 +18858,7 @@ OBJECT poly
 name "FlapHorns2InR"
 data 10
 Mesh.11316
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 30
 24.8684 -0.715 -4.03755
@@ -19152,7 +19152,7 @@ OBJECT poly
 name "FlapHorns2OutL"
 data 8
 Mesh.138
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 90
 26.2854 -0.41768 10.0006
@@ -20016,7 +20016,7 @@ OBJECT poly
 name "FlapHorns2OutR"
 data 10
 Mesh.11315
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 90
 26.2854 -0.41768 -10.0006
@@ -20880,7 +20880,7 @@ OBJECT poly
 name "FlapIn2L"
 data 10
 Mesh.11319
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 10
 24.7534 -0.43658 5.0149
@@ -20970,7 +20970,7 @@ OBJECT poly
 name "FlapIn2R"
 data 10
 Mesh.11265
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 10
 24.7534 -0.43658 -5.0149
@@ -21060,7 +21060,7 @@ OBJECT poly
 name "FlapInL"
 data 10
 Mesh.11258
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 20
 24.9136 -0.57498 1.62565
@@ -21225,7 +21225,7 @@ OBJECT poly
 name "FlapInR"
 data 10
 Mesh.11298
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 20
 24.9136 -0.57498 -1.62565
@@ -21390,7 +21390,7 @@ OBJECT poly
 name "FlapOut2L"
 data 10
 Mesh.11266
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 10
 24.8918 -0.38187 5.15436
@@ -21480,7 +21480,7 @@ OBJECT poly
 name "FlapOut2R"
 data 10
 Mesh.11306
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 10
 24.8918 -0.38187 -5.15436
@@ -21570,7 +21570,7 @@ OBJECT poly
 name "FlapOutL"
 data 10
 Mesh.11259
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 20
 24.8203 -0.51871 5.1636
@@ -21735,7 +21735,7 @@ OBJECT poly
 name "FlapOutR"
 data 10
 Mesh.11300
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 20
 24.8203 -0.5187 -5.1636
@@ -21900,7 +21900,7 @@ OBJECT poly
 name "Fuselage"
 data 8
 Mesh.212
-texture "txt_fuselage.rgb"
+texture "txt_fuselage.png"
 crease 45.000000
 numvert 757
 35.5816 1.27494 -1.34568
@@ -27778,7 +27778,7 @@ OBJECT poly
 name "LGDoorInL"
 data 10
 Mesh.11320
-texture "txt_fuselage_fairing.rgb"
+texture "txt_fuselage_fairing.png"
 crease 45.000000
 numvert 63
 23.8677 -1.47298 1.39123
@@ -28135,7 +28135,7 @@ OBJECT poly
 name "LGDoorInR"
 data 10
 Mesh.11321
-texture "txt_fuselage_fairing.rgb"
+texture "txt_fuselage_fairing.png"
 crease 45.000000
 numvert 63
 24.1263 -0.9665 -1.62565
@@ -28492,7 +28492,7 @@ OBJECT poly
 name "LGDoorOutL"
 data 10
 Mesh.11294
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 10
 24.1223 -0.96819 1.62566
@@ -28572,7 +28572,7 @@ OBJECT poly
 name "LGDoorOutR"
 data 10
 Mesh.11322
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 10
 24.1223 -0.96819 -1.62566
@@ -28652,7 +28652,7 @@ OBJECT poly
 name "LGLBraceLow"
 data 8
 Cube.001
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 30.000000
 numvert 36
 24.2693 -1.46649 2.47184
@@ -28935,7 +28935,7 @@ OBJECT poly
 name "LGLBraceUp"
 data 8
 Tube.012
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 45.000000
 numvert 60
 24.2034 -1.09159 2.14057
@@ -29409,7 +29409,7 @@ OBJECT poly
 name "LGLStrutLow"
 data 12
 Cylinder.020
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 60.000000
 numvert 88
 24.5448 -2.41493 2.60364
@@ -29898,7 +29898,7 @@ OBJECT poly
 name "LGLStrutUp"
 data 12
 Cylinder.021
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 60.000000
 numvert 161
 24.5448 -1.71913 2.64564
@@ -30912,7 +30912,7 @@ OBJECT poly
 name "LGLTires"
 data 12
 Cylinder.019
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 45.000000
 numvert 454
 24.6845 -2.31891 2.72649
@@ -34671,7 +34671,7 @@ OBJECT poly
 name "LGLTorqueBarLow"
 data 8
 Tube.010
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 45.000000
 numvert 24
 24.5117 -2.45317 2.54518
@@ -34814,7 +34814,7 @@ OBJECT poly
 name "LGLTorqueBarUp"
 data 8
 Tube.011
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 45.000000
 numvert 24
 24.5587 -1.7132 2.58741
@@ -34957,7 +34957,7 @@ OBJECT poly
 name "LGNDoorAftL"
 data 10
 Mesh.11336
-texture "txt_fuselage.rgb"
+texture "txt_fuselage.png"
 crease 30.000000
 numvert 21
 2.7 -1.26588 0
@@ -35076,7 +35076,7 @@ OBJECT poly
 name "LGNDoorAftR"
 data 8
 Mesh.117
-texture "txt_fuselage.rgb"
+texture "txt_fuselage.png"
 crease 30.000000
 numvert 21
 2.01021 -1.17003 -0.3249
@@ -35195,7 +35195,7 @@ OBJECT poly
 name "LGNDoorForL"
 data 10
 Mesh.11345
-texture "txt_fuselage.rgb"
+texture "txt_fuselage.png"
 crease 30.000000
 numvert 32
 0.76912 -0.8923 0.2593
@@ -35386,7 +35386,7 @@ OBJECT poly
 name "LGNDoorForR"
 data 8
 Mesh.116
-texture "txt_fuselage.rgb"
+texture "txt_fuselage.png"
 crease 30.000000
 numvert 32
 0.84042 -0.89021 -0.3249
@@ -35577,7 +35577,7 @@ OBJECT poly
 name "LGNDrag"
 data 8
 Tube.007
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 80.000000
 numvert 16
 2.38576 -1.49203 0.0244
@@ -35658,7 +35658,7 @@ OBJECT poly
 name "LGNStrutLow"
 data 12
 Cylinder.017
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 60.000000
 numvert 88
 2.48365 -2.13597 0.03305
@@ -36147,7 +36147,7 @@ OBJECT poly
 name "LGNStrutUp"
 data 12
 Cylinder.015
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 60.000000
 numvert 168
 2.55208 -1.64904 0.05679
@@ -37288,7 +37288,7 @@ OBJECT poly
 name "LGNTires"
 data 12
 Cylinder.018
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 45.000000
 numvert 324
 2.48796 -1.98759 0.26224
@@ -40021,7 +40021,7 @@ OBJECT poly
 name "LGNTorqueBarLow"
 data 8
 Tube.009
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 45.000000
 numvert 24
 2.45671 -2.15947 0
@@ -40164,7 +40164,7 @@ OBJECT poly
 name "LGNTorqueBarUp"
 data 8
 Tube.008
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 45.000000
 numvert 24
 2.56235 -1.64625 0.02387
@@ -40307,7 +40307,7 @@ OBJECT poly
 name "LGRBraceLow"
 data 8
 Cube.145
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 30.000000
 numvert 36
 24.2693 -1.46649 -2.47184
@@ -40590,7 +40590,7 @@ OBJECT poly
 name "LGRBraceUp"
 data 8
 Tube.016
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 45.000000
 numvert 60
 24.2034 -1.09159 -2.14057
@@ -41064,7 +41064,7 @@ OBJECT poly
 name "LGRStrutLow"
 data 12
 Cylinder.134
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 60.000000
 numvert 88
 24.5448 -2.41493 -2.60364
@@ -41553,7 +41553,7 @@ OBJECT poly
 name "LGRStrutUp"
 data 12
 Cylinder.133
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 60.000000
 numvert 161
 24.5448 -1.71913 -2.64564
@@ -42567,7 +42567,7 @@ OBJECT poly
 name "LGRTires"
 data 12
 Cylinder.135
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 45.000000
 numvert 454
 24.6845 -2.31891 -2.72649
@@ -46326,7 +46326,7 @@ OBJECT poly
 name "LGRTorqueBarLow"
 data 8
 Tube.029
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 45.000000
 numvert 24
 24.5117 -2.45317 -2.54518
@@ -46469,7 +46469,7 @@ OBJECT poly
 name "LGRTorqueBarUp"
 data 8
 Tube.019
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 45.000000
 numvert 24
 24.5587 -1.7132 -2.58741
@@ -46612,7 +46612,7 @@ OBJECT poly
 name "Rudder"
 data 8
 Mesh.688
-texture "txt_vstab_engines.rgb"
+texture "txt_vstab_engines.png"
 crease 30.000000
 numvert 88
 41.7607 5.11925 -0.18968
@@ -47354,7 +47354,7 @@ OBJECT poly
 name "RudderTabControl"
 data 8
 Mesh.554
-texture "txt_vstab_engines.rgb"
+texture "txt_vstab_engines.png"
 crease 30.000000
 numvert 12
 40.6622 1.84117 -0.02661
@@ -47455,7 +47455,7 @@ OBJECT poly
 name "SlatsL"
 data 10
 Mesh.11257
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 72
 21.7508 -0.54649 5.03595
@@ -48056,7 +48056,7 @@ OBJECT poly
 name "SlatsR"
 data 10
 Mesh.11296
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 72
 21.7508 -0.54649 -5.03595
@@ -48657,7 +48657,7 @@ OBJECT poly
 name "SlatStrutsL"
 data 9
 Plane.063
-texture "txt_slatstruts.rgb"
+texture "txt_slatstruts.png"
 crease 30.000000
 numvert 336
 21.7368 -0.45604 5.02247
@@ -49590,7 +49590,7 @@ OBJECT poly
 name "SlatStrutsR"
 data 9
 Plane.064
-texture "txt_slatstruts.rgb"
+texture "txt_slatstruts.png"
 crease 30.000000
 numvert 336
 21.7368 -0.45604 -5.02247
@@ -50523,7 +50523,7 @@ OBJECT poly
 name "SpoilerL1"
 data 10
 Mesh.11264
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 10
 24.8718 -0.48952 2.78769
@@ -50613,7 +50613,7 @@ OBJECT poly
 name "SpoilerL2"
 data 8
 Mesh.000
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 12
 25.6318 -0.22875 7.738
@@ -50689,7 +50689,7 @@ OBJECT poly
 name "SpoilerL3"
 data 10
 Mesh.11307
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 13
 26.2473 -0.21838 9.8802
@@ -50783,7 +50783,7 @@ OBJECT poly
 name "SpoilerR1"
 data 10
 Mesh.11305
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 10
 24.8718 -0.48952 -2.78769
@@ -50873,7 +50873,7 @@ OBJECT poly
 name "SpoilerR2"
 data 8
 Mesh.001
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 12
 25.7861 -0.25815 -7.70316
@@ -50949,7 +50949,7 @@ OBJECT poly
 name "SpoilerR3"
 data 8
 Mesh.002
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 13
 25.6318 -0.22875 -7.73801
@@ -51043,7 +51043,7 @@ OBJECT poly
 name "StabFairing"
 data 8
 Tube.042
-texture "txt_vstab_engines.rgb"
+texture "txt_vstab_engines.png"
 crease 60.000000
 numvert 96
 42.7793 5.81178 -0.21971
@@ -51694,7 +51694,7 @@ OBJECT poly
 name "Stabilizer"
 data 8
 Mesh.658
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 30.000000
 numvert 184
 44.6735 5.4788 5.89436
@@ -52849,7 +52849,7 @@ OBJECT poly
 name "VStabilizer"
 data 10
 Mesh.11346
-texture "txt_vstab_engines.rgb"
+texture "txt_vstab_engines.png"
 crease 30.000000
 numvert 277
 41.6867 4.96575 0.13663
@@ -55242,7 +55242,7 @@ OBJECT poly
 name "WheelWellsMG"
 data 8
 Mesh.636
-texture "txt_hstab_gear.rgb"
+texture "txt_hstab_gear.png"
 crease 45.000000
 numvert 150
 23.9223 -0.91361 2.59895
@@ -56447,7 +56447,7 @@ OBJECT poly
 name "Wing"
 data 10
 Mesh.11348
-texture "txt_wing.rgb"
+texture "txt_wing.png"
 crease 30.000000
 numvert 814
 24.8718 -0.30671 5.03595
@@ -63100,7 +63100,7 @@ OBJECT poly
 name "WingFairing"
 data 10
 Mesh.11349
-texture "txt_fuselage_fairing.rgb"
+texture "txt_fuselage_fairing.png"
 crease 45.000000
 numvert 434
 19.453 -1.27192 0.45478

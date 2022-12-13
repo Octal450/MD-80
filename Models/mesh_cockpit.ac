@@ -22,7 +22,7 @@ OBJECT poly
 name "AirVents"
 data 8
 Tube.087
-texture "txt_cockpit_eyevent.rgb"
+texture "txt_cockpit_eyevent.png"
 crease 30.000000
 numvert 52
 2.35866 0.8939 0.87226
@@ -3361,7 +3361,7 @@ OBJECT poly
 name "AToffL"
 data 8
 Tube.022
-texture "txt_cockpit_throttles.rgb"
+texture "txt_cockpit_throttles.png"
 crease 45.000000
 numvert 16
 2.67121 0.83352 0.01739
@@ -3468,7 +3468,7 @@ OBJECT poly
 name "AToffR"
 data 8
 Tube.072
-texture "txt_cockpit_throttles.rgb"
+texture "txt_cockpit_throttles.png"
 crease 45.000000
 numvert 16
 2.66679 0.83794 -0.05843
@@ -4264,7 +4264,7 @@ OBJECT poly
 name "FDFloorFwd"
 data 8
 Mesh.022
-texture "txt_cockpit_floor1.rgb"
+texture "txt_cockpit_floor1.png"
 crease 30.000000
 numvert 60
 2.05088 0.3432 0.91328
@@ -4529,7 +4529,7 @@ OBJECT poly
 name "FDFloorMetal"
 data 8
 Mesh.196
-texture "txt_cockpit_floor1.rgb"
+texture "txt_cockpit_floor1.png"
 crease 30.000000
 numvert 6
 4.0375 0 -0.30511
@@ -4558,7 +4558,7 @@ OBJECT poly
 name "FDFloorMetal2"
 data 10
 Mesh.11313
-texture "txt_cockpit_dimpledmetal.rgb"
+texture "txt_cockpit_dimpledmetal.png"
 crease 30.000000
 numvert 10
 3.04209 0.2 1.3128
@@ -4605,7 +4605,7 @@ OBJECT poly
 name "FlapLever"
 data 8
 Cube.109
-texture "txt_cockpit_peddrum.rgb"
+texture "txt_cockpit_peddrum.png"
 crease 30.000000
 numvert 52
 2.53353 0.78254 -0.12717
@@ -9410,7 +9410,7 @@ OBJECT poly
 name "FlightDeckDoor"
 data 8
 Mesh.003
-texture "txt_cockpit_1.rgb"
+texture "txt_cockpit_1.png"
 crease 30.000000
 hidden
 numvert 4
@@ -9431,7 +9431,7 @@ OBJECT poly
 name "FuelCutoffL"
 data 8
 Cube.020
-texture "txt_cockpit_throttles.rgb"
+texture "txt_cockpit_throttles.png"
 crease 45.000000
 numvert 47
 2.73876 0.68227 0.01173
@@ -9795,7 +9795,7 @@ OBJECT poly
 name "FuelCutoffR"
 data 8
 Cube.028
-texture "txt_cockpit_throttles.rgb"
+texture "txt_cockpit_throttles.png"
 crease 45.000000
 numvert 47
 2.73876 0.68227 -0.05827
@@ -13057,7 +13057,7 @@ OBJECT poly
 name "ABSKnob"
 data 8
 Cube.008
-texture "txt_cockpit_abs.rgb"
+texture "txt_cockpit_abs.png"
 crease 30.000000
 numvert 56
 3.04392 0.55377 -0.12108
@@ -13407,7 +13407,7 @@ OBJECT poly
 name "LampABS"
 data 12
 Cylinder.132
-texture "txt_cockpit_abs.rgb"
+texture "txt_cockpit_abs.png"
 crease 45.000000
 numvert 50
 2.49363 1.11835 0.55623
@@ -13778,7 +13778,7 @@ OBJECT poly
 name "LampABSon"
 data 12
 Cylinder.131
-texture "txt_cockpit_abs.rgb"
+texture "txt_cockpit_abs.png"
 crease 45.000000
 numvert 50
 2.49363 1.11835 0.55623
@@ -14149,7 +14149,7 @@ OBJECT poly
 name "LGLever"
 data 8
 Cube.052
-texture "txt_cockpit_lglever.rgb"
+texture "txt_cockpit_lglever.png"
 crease 60.000000
 numvert 88
 2.28402 0.83808 -0.23026
@@ -14827,7 +14827,7 @@ OBJECT poly
 name "Moulding"
 data 9
 Plane.037
-texture "txt_cockpit_moulding1.rgb"
+texture "txt_cockpit_moulding1.png"
 crease 45.000000
 numvert 602
 2.47798 1.46648 0.26344
@@ -33123,7 +33123,7 @@ OBJECT poly
 name "PedalL"
 data 8
 Tube.076
-texture "txt_cockpit_pedals.rgb"
+texture "txt_cockpit_pedals.png"
 crease 45.000000
 numvert 412
 2.06591 0.49914 -0.28675
@@ -35888,7 +35888,7 @@ OBJECT poly
 name "PedalR"
 data 8
 Tube.083
-texture "txt_cockpit_pedals.rgb"
+texture "txt_cockpit_pedals.png"
 crease 45.000000
 numvert 412
 2.13493 0.34259 -0.70304
@@ -38653,7 +38653,7 @@ OBJECT poly
 name "PedalRodL"
 data 8
 Tube.079
-texture "txt_cockpit_pedals.rgb"
+texture "txt_cockpit_pedals.png"
 crease 30.000000
 numvert 32
 2.121 0.36322 -0.5
@@ -38858,7 +38858,7 @@ OBJECT poly
 name "PedalRodR"
 data 8
 Tube.080
-texture "txt_cockpit_pedals.rgb"
+texture "txt_cockpit_pedals.png"
 crease 30.000000
 numvert 32
 2.121 0.36322 -0.5
@@ -39063,7 +39063,7 @@ OBJECT poly
 name "PedestalABS"
 data 8
 Tube.031
-texture "txt_cockpit_abs.rgb"
+texture "txt_cockpit_abs.png"
 crease 30.000000
 numvert 17
 3.01805 0.56024 -0.09064
@@ -39150,7 +39150,7 @@ OBJECT poly
 name "PedestalABSGuard"
 data 8
 Tube.004
-texture "txt_cockpit_abs.rgb"
+texture "txt_cockpit_abs.png"
 crease 30.000000
 numvert 48
 3.03148 0.56964 -0.10123
@@ -40906,7 +40906,7 @@ OBJECT poly
 name "PedestalBase_1"
 data 4
 Tube
-texture "txt_cockpit_abs.rgb"
+texture "txt_cockpit_abs.png"
 crease 30.000000
 numvert 32
 3.07557 0.54483 -0.15305
@@ -41052,7 +41052,7 @@ OBJECT poly
 name "PedestalDrum"
 data 8
 Tube.023
-texture "txt_cockpit_peddrum.rgb"
+texture "txt_cockpit_peddrum.png"
 crease 45.000000
 numvert 160
 2.54786 0.74023 -0.06984
@@ -42067,7 +42067,7 @@ OBJECT poly
 name "PedestalDrumFace"
 data 8
 Tube.002
-texture "txt_cockpit_peddrum.rgb"
+texture "txt_cockpit_peddrum.png"
 crease 45.000000
 numvert 66
 2.51119 0.70808 -0.194
@@ -50591,7 +50591,7 @@ OBJECT poly
 name "PneuLeverL"
 data 8
 Cube.138
-texture "txt_cockpit_throttles.rgb"
+texture "txt_cockpit_throttles.png"
 crease 30.000000
 numvert 40
 3.14583 0.48907 0.06469
@@ -50950,7 +50950,7 @@ OBJECT poly
 name "PneuLeverR"
 data 8
 Cube.139
-texture "txt_cockpit_throttles.rgb"
+texture "txt_cockpit_throttles.png"
 crease 30.000000
 numvert 40
 3.14583 0.48907 -0.06469
@@ -53187,7 +53187,7 @@ OBJECT poly
 name "SeatCushionsCP"
 data 8
 Cube.131
-texture "txt_cloth1.rgb"
+texture "txt_cloth1.png"
 crease 80.000000
 numvert 324
 3.099 0.69415 -0.22719
@@ -55644,7 +55644,7 @@ OBJECT poly
 name "SeatCushionsP"
 data 8
 Cube.121
-texture "txt_cloth1.rgb"
+texture "txt_cloth1.png"
 crease 80.000000
 numvert 324
 3.099 0.69415 0.77328
@@ -60471,7 +60471,7 @@ OBJECT poly
 name "SpdBrakeLever"
 data 8
 Cube.004
-texture "txt_cockpit_spdbrake.rgb"
+texture "txt_cockpit_spdbrake.png"
 crease 45.000000
 numvert 198
 2.62417 0.77735 0.07055
@@ -85670,7 +85670,7 @@ OBJECT poly
 name "SteeringHandleBase"
 data 9
 Plane.000
-texture "txt_cockpit_moulding1.rgb"
+texture "txt_cockpit_moulding1.png"
 crease 45.000000
 numvert 120
 2.53284 0.61603 0.87515
@@ -86684,7 +86684,7 @@ OBJECT poly
 name "ThrottleL"
 data 8
 Cube.110
-texture "txt_cockpit_throttles.rgb"
+texture "txt_cockpit_throttles.png"
 crease 30.000000
 numvert 70
 2.67532 0.7948 -0.01776
@@ -87238,7 +87238,7 @@ OBJECT poly
 name "ThrottleR"
 data 8
 Cube.116
-texture "txt_cockpit_throttles.rgb"
+texture "txt_cockpit_throttles.png"
 crease 30.000000
 numvert 70
 2.64415 0.78486 -0.05359
@@ -87792,7 +87792,7 @@ OBJECT poly
 name "ThrottleRevL"
 data 8
 Tube.003
-texture "txt_cockpit_throttles.rgb"
+texture "txt_cockpit_throttles.png"
 crease 45.000000
 numvert 202
 2.67961 0.82512 0.01266
@@ -89137,7 +89137,7 @@ OBJECT poly
 name "ThrottleRevR"
 data 8
 Tube.001
-texture "txt_cockpit_throttles.rgb"
+texture "txt_cockpit_throttles.png"
 crease 45.000000
 numvert 202
 2.66679 0.83352 -0.0564
@@ -90482,7 +90482,7 @@ OBJECT poly
 name "TogaL"
 data 8
 Cube.001
-texture "txt_cockpit_throttles.rgb"
+texture "txt_cockpit_throttles.png"
 crease 30.000000
 numvert 16
 2.67407 0.79303 -0.01578
@@ -90589,7 +90589,7 @@ OBJECT poly
 name "TogaR"
 data 8
 Cube.000
-texture "txt_cockpit_throttles.rgb"
+texture "txt_cockpit_throttles.png"
 crease 30.000000
 numvert 16
 2.67407 0.79303 -0.04857
@@ -90696,7 +90696,7 @@ OBJECT poly
 name "XfeedLever"
 data 8
 Cube.147
-texture "txt_cockpit_throttles.rgb"
+texture "txt_cockpit_throttles.png"
 crease 30.000000
 numvert 32
 2.50003 0.74312 -0.0824
@@ -90978,7 +90978,7 @@ OBJECT poly
 name "YokeBase"
 data 8
 Tube.084
-texture "txt_cockpit_yoke.rgb"
+texture "txt_cockpit_yoke.png"
 crease 30.000000
 numvert 104
 2.76262 0.2004 0.44343
@@ -91633,7 +91633,7 @@ OBJECT poly
 name "YokeColL"
 data 8
 Cube.002
-texture "txt_cockpit_yoke.rgb"
+texture "txt_cockpit_yoke.png"
 crease 30.000000
 numvert 281
 2.54103 0.86948 0.46715
@@ -93838,7 +93838,7 @@ OBJECT poly
 name "YokeColR"
 data 8
 Cube.003
-texture "txt_cockpit_yoke.rgb"
+texture "txt_cockpit_yoke.png"
 crease 30.000000
 numvert 281
 2.54103 0.86948 -0.53285
@@ -96043,7 +96043,7 @@ OBJECT poly
 name "YokeL"
 data 12
 Cylinder.002
-texture "txt_cockpit_yoke.rgb"
+texture "txt_cockpit_yoke.png"
 crease 45.000000
 numvert 538
 2.57939 0.95577 0.61027
@@ -100456,7 +100456,7 @@ OBJECT poly
 name "YokeL.001"
 data 12
 Cylinder.005
-texture "txt_cockpit_yoke.rgb"
+texture "txt_cockpit_yoke.png"
 crease 45.000000
 numvert 290
 2.63567 0.90269 0.53655
@@ -102206,7 +102206,7 @@ OBJECT poly
 name "YokeR"
 data 12
 Cylinder.004
-texture "txt_cockpit_yoke.rgb"
+texture "txt_cockpit_yoke.png"
 crease 45.000000
 numvert 538
 2.57939 0.95577 -0.61027
@@ -106613,7 +106613,7 @@ OBJECT poly
 name "YokeR.001"
 data 12
 Cylinder.006
-texture "txt_cockpit_yoke.rgb"
+texture "txt_cockpit_yoke.png"
 crease 45.000000
 numvert 290
 2.63567 0.90269 -0.53656

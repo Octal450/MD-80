@@ -9,7 +9,7 @@ name "Screws_45"
 loc 0.000233415 0 0
 data 12
 Cylinder.030
-texture "textures_gauge_support.rgb"
+texture "textures_gauge_support.png"
 crease 30.000000
 numvert 28
 0.000383292 -0.0398624 -0.0377673
@@ -190,7 +190,7 @@ OBJECT poly
 name "AI.BankIndex"
 data 5
 Plane
-texture "ai_ball.rgb"
+texture "ai_ball.png"
 crease 30.000000
 numvert 22
 -0.004408 -0.012057 -0.029108
@@ -289,7 +289,7 @@ OBJECT poly
 name "AI.Bar.Aircraft"
 data 9
 Plane.020
-texture "ai_bezel.rgb"
+texture "ai_bezel.png"
 crease 30.000000
 numvert 36
 0.000969 -0.000899 -0.000929
@@ -453,7 +453,7 @@ OBJECT poly
 name "AI.BezelMask"
 data 6
 Circle
-texture "ai_bezel.rgb"
+texture "ai_bezel.png"
 crease 30.000000
 numvert 50
 0.001 -0.026268 -0.026268
@@ -759,7 +759,7 @@ name "AI.Knob.Hor"
 loc 0 -0.00193068 -0.06193
 data 12
 Cylinder.040
-texture "textures_gauge_support_grey.rgb"
+texture "textures_gauge_support_grey.png"
 crease 45.000000
 numvert 16
 0.001647 -0.03352 0.02648
@@ -866,7 +866,7 @@ OBJECT poly
 name "AI.Ball"
 data 4
 Tube
-texture "ai_ball.rgb"
+texture "ai_ball.png"
 crease 30.000000
 numvert 42
 -0.000405 0.009059 -0.022
@@ -1195,7 +1195,7 @@ OBJECT poly
 name "Bezel_35"
 data 12
 Cylinder.027
-texture "textures_gauge_support_grey.rgb"
+texture "textures_gauge_support_grey.png"
 crease 30.000000
 numvert 72
 0.003 0.009665 0.036069
@@ -1744,7 +1744,7 @@ OBJECT poly
 name "Screws"
 data 12
 Cylinder.041
-texture "textures_gauge_support_grey.rgb"
+texture "textures_gauge_support_grey.png"
 crease 30.000000
 numvert 14
 0 0.030865 0.028128

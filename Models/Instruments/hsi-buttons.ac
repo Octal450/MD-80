@@ -1779,7 +1779,7 @@ OBJECT poly
 name "screw1"
 data 10
 screw1.001
-texture "textures_gauge_support.rgb"
+texture "textures_gauge_support.png"
 crease 30.000000
 numvert 26
 0.00125 0.02831 0.04472
@@ -2054,7 +2054,7 @@ OBJECT poly
 name "screw2"
 data 10
 screw2.001
-texture "textures_gauge_support.rgb"
+texture "textures_gauge_support.png"
 crease 30.000000
 numvert 26
 0.00125 -0.00495 0.04472
@@ -2329,7 +2329,7 @@ OBJECT poly
 name "screw3"
 data 10
 screw3.001
-texture "textures_gauge_support.rgb"
+texture "textures_gauge_support.png"
 crease 30.000000
 numvert 26
 0.00125 0.02831 -0.03492
@@ -2604,7 +2604,7 @@ OBJECT poly
 name "screw4"
 data 10
 screw4.001
-texture "textures_gauge_support.rgb"
+texture "textures_gauge_support.png"
 crease 30.000000
 numvert 26
 0.00125 -0.00495 -0.03492
