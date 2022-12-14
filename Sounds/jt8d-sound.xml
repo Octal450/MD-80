@@ -1435,7 +1435,7 @@
 			<condition>
 				<and>
 					<equals>
-						<property>/systems/warnings/altitude-alert</property>
+						<property>/systems/caws/logic/altitude-alert</property>
 						<value>2</value>
 					</equals>
 					<greater-than-equals>
@@ -1453,10 +1453,10 @@
 				<and>
 					<and>
 						<equals>
-							<property>/systems/warnings/altitude-alert</property>
+							<property>/systems/caws/logic/altitude-alert</property>
 							<value>1</value>
 						</equals>
-						<property>/systems/warnings/altitude-alert-aural-1</property>
+						<property>/systems/caws/logic/altitude-alert-aural-1</property>
 					</and>
 					<greater-than-equals>
 						<property>/systems/electrical/outputs/mk-viii</property>
@@ -1481,7 +1481,10 @@
 			<path>Aircraft/MD-80/Sounds/CAWS/apoff.wav</path>
 			<mode>once</mode>
 			<condition>
-				<property>/it-autoflight/sound/apoff</property>
+				<greater-than>
+					<property>/systems/caws/apoff/out</property>
+					<value>0</value>
+				</greater-than>
 			</condition>
 		</apoff>
 	

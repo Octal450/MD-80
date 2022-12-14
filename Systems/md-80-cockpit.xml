@@ -331,11 +331,11 @@
 	
 	</channel>
 	
-	<channel name="Warnings" execrate="8">
+	<channel name="CAWS and Warnings Logic" execrate="8">
 		
 		<!-- Altitude Alert -->
-		<switch name="/systems/warnings/altitude-alert-captured">
-			<default value="/systems/warnings/altitude-alert-captured"/>
+		<switch name="/systems/caws/logic/altitude-alert-captured">
+			<default value="/systems/caws/logic/altitude-alert-captured"/>
 			<test value="0">
 				/it-autoflight/internal/alt-diff-abs ge 800
 			</test>
@@ -344,8 +344,8 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/warnings/altitude-alert">
-			<default value="/systems/warnings/altitude-alert"/>
+		<switch name="/systems/caws/logic/altitude-alert">
+			<default value="/systems/caws/logic/altitude-alert"/>
 			<test logic="OR" value="0"> <!-- Reset -->
 				/it-autoflight/internal/alt-diff-abs le 250
 				fcs/flap-pos-deg ge 26
@@ -353,25 +353,25 @@
 				/it-autoflight/output/vert eq 6
 				position/wow eq 1
 				<test logic="AND"> <!-- Approaching only -->
-					/systems/warnings/altitude-alert eq 1
+					/systems/caws/logic/altitude-alert eq 1
 					/it-autoflight/internal/alt-diff-abs ge 800
 				</test>
 			</test>
 			<test logic="AND" value="1"> <!-- Approaching -->
-				/systems/warnings/altitude-alert-captured eq 0
+				/systems/caws/logic/altitude-alert-captured eq 0
 				/it-autoflight/internal/alt-diff-abs gt 250
 				/it-autoflight/internal/alt-diff-abs le 750
 			</test>
 			<test logic="AND" value="2"> <!-- Deviating -->
-				/systems/warnings/altitude-alert-captured eq 1
+				/systems/caws/logic/altitude-alert-captured eq 1
 				/it-autoflight/internal/alt-diff-abs gt 250
 			</test>
 		</switch>
 		
-		<switch name="/systems/warnings/altitude-alert-aural-1"> <!-- Prevent aural from playing if newly set altitude is inside the alert zone -->
-			<default value="/systems/warnings/altitude-alert-aural-1"/>
+		<switch name="/systems/caws/logic/altitude-alert-aural-1"> <!-- Prevent aural from playing if newly set altitude is inside the alert zone -->
+			<default value="/systems/caws/logic/altitude-alert-aural-1"/>
 			<test logic="AND" value="0">
-				/systems/warnings/altitude-alert eq 0
+				/systems/caws/logic/altitude-alert eq 0
 				/it-autoflight/internal/alt-diff-abs le 700
 			</test>
 			<test value="1">
@@ -379,8 +379,8 @@
 			</test>
 		</switch>
 		
-		<!-- Gear Warning -->
-		<switch name="/systems/warnings/gear-warning-idle">
+		<!-- Landing Gear -->
+		<switch name="/systems/caws/logic/landing-gear-idle">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/instrumentation/airspeed-indicator/indicated-speed-kt lt 210
@@ -392,15 +392,15 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/warnings/gear-warning-inhibit">
+		<switch name="/systems/caws/logic/landing-gear-inhibit">
 			<default value="0"/>
 			<test value="/controls/warnings/gear-warning-inhibit">
-				/systems/warnings/gear-warning-idle eq 1
+				/systems/caws/logic/landing-gear-idle eq 1
 			</test>
 			<output>/controls/warnings/gear-warning-inhibit</output> <!-- So it resets properly -->
 		</switch>
 		
-		<switch name="/systems/warnings/gear-warning">
+		<switch name="/systems/caws/logic/landing-gear">
 			<default value="0"/>
 			<test logic="AND" value="0">
 				gear/unit[0]/status eq 2
@@ -409,15 +409,15 @@
 			</test>
 			<test logic="OR" value="1">
 				<test logic="AND">
-					/systems/warnings/gear-warning-idle eq 1
-					/systems/warnings/gear-warning-inhibit eq 0
+					/systems/caws/logic/landing-gear-idle eq 1
+					/systems/caws/logic/landing-gear-inhibit eq 0
 				</test>
 				fcs/flap-pos-deg ge 26
 			</test>
 		</switch>
 		
 		<!-- Wheel Not Turning -->
-		<fcs_function name="/systems/warnings/wheel-not-turning/n-l-avg">
+		<fcs_function name="/gear/wheel-not-turning/n-l-avg">
 			<function>
 				<avg>
 					<property>gear/unit[0]/wheel-speed-fps</property>
@@ -426,7 +426,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/systems/warnings/wheel-not-turning/n-r-avg">
+		<fcs_function name="/gear/wheel-not-turning/n-r-avg">
 			<function>
 				<avg>
 					<property>gear/unit[0]/wheel-speed-fps</property>
@@ -435,7 +435,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/systems/warnings/wheel-not-turning/l-r-avg">
+		<fcs_function name="/gear/wheel-not-turning/l-r-avg">
 			<function>
 				<avg>
 					<property>gear/unit[1]/wheel-speed-fps</property>
@@ -444,34 +444,34 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/systems/warnings/wheel-not-turning/l-r-q-n">
+		<fcs_function name="/gear/wheel-not-turning/l-r-q-n">
 			<function>
 				<quotient>
-					<property>/systems/warnings/wheel-not-turning/l-r-avg</property>
+					<property>/gear/wheel-not-turning/l-r-avg</property>
 					<property>gear/unit[0]/wheel-speed-fps</property>
 				</quotient>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/systems/warnings/wheel-not-turning/n-r-q-l">
+		<fcs_function name="/gear/wheel-not-turning/n-r-q-l">
 			<function>
 				<quotient>
-					<property>/systems/warnings/wheel-not-turning/n-r-avg</property>
+					<property>/gear/wheel-not-turning/n-r-avg</property>
 					<property>gear/unit[1]/wheel-speed-fps</property>
 				</quotient>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/systems/warnings/wheel-not-turning/n-l-q-r">
+		<fcs_function name="/gear/wheel-not-turning/n-l-q-r">
 			<function>
 				<quotient>
-					<property>/systems/warnings/wheel-not-turning/n-l-avg</property>
+					<property>/gear/wheel-not-turning/n-l-avg</property>
 					<property>gear/unit[2]/wheel-speed-fps</property>
 				</quotient>
 			</function>
 		</fcs_function>
 		
-		<switch name="/systems/warnings/wheel-not-turning/active"> <!-- If any is greater than 20% slower (1.2 quotient) while WOW -->
+		<switch name="/gear/wheel-not-turning/active"> <!-- If any is greater than 20% slower (1.2 quotient) while WOW -->
 			<default value="0"/>
 			<test logic="OR" value="0">
 				gear/unit[0]/WOW eq 0
@@ -480,9 +480,9 @@
 				/instrumentation/airspeed-indicator/indicated-speed-kt lt 30
 			</test>
 			<test logic="OR" value="1">
-				/systems/warnings/wheel-not-turning/l-r-q-n ge 1.2
-				/systems/warnings/wheel-not-turning/n-r-q-l ge 1.2
-				/systems/warnings/wheel-not-turning/n-l-q-r ge 1.2
+				/gear/wheel-not-turning/l-r-q-n ge 1.2
+				/gear/wheel-not-turning/n-r-q-l ge 1.2
+				/gear/wheel-not-turning/n-l-q-r ge 1.2
 			</test>
 		</switch>
 	
@@ -490,16 +490,36 @@
 	
 	<channel name="CAWS Sound Controller" execrate="16">
 		
+		<!-- Autopilot Horn -->
+		<switch name="/systems/caws/apoff/trigger">
+			<default value="/systems/caws/apoff/trigger"/>
+			<test logic="OR" value="0">
+				/systems/electrical/outputs/mk-viii lt 24
+				/systems/caws/apoff/out eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/apoff/out eq 0
+				/it-autoflight/sound/apoff eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/caws/apoff/actuator">
+			<input>/systems/caws/apoff/trigger</input>
+			<rate_limit sense="incr">0.35</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>/systems/caws/apoff/out</output>
+		</actuator>
+		
 		<!-- Landing Gear Horn -->
 		<switch name="/systems/caws/landing-gear/trigger">
 			<default value="/systems/caws/landing-gear/trigger"/>
 			<test logic="OR" value="0">
-				/systems/electrical/outputs/mk-viii lt 25
+				/systems/electrical/outputs/mk-viii lt 24
 				/systems/caws/landing-gear/out eq 1
 			</test>
 			<test logic="AND" value="1">
 				/systems/caws/landing-gear/out eq 0
-				/systems/warnings/gear-warning eq 1
+				/systems/caws/logic/landing-gear eq 1
 			</test>
 		</switch>
 		

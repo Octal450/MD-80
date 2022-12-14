@@ -933,9 +933,9 @@
 			</test>
 			<test logic="OR" value="1">
 				/controls/switches/annun-test eq 1
-				/systems/warnings/altitude-alert eq 1
+				/systems/caws/logic/altitude-alert eq 1
 				<test logic="AND">
-					/systems/warnings/altitude-alert eq 2
+					/systems/caws/logic/altitude-alert eq 2
 					libraries/blink-med eq 1
 				</test>
 			</test>
@@ -1019,9 +1019,9 @@
 			</test>
 			<test logic="OR" value="1">
 				/controls/switches/annun-test eq 1
-				/systems/warnings/altitude-alert eq 1
+				/systems/caws/logic/altitude-alert eq 1
 				<test logic="AND">
-					/systems/warnings/altitude-alert eq 2
+					/systems/caws/logic/altitude-alert eq 2
 					libraries/blink-med eq 1
 				</test>
 			</test>

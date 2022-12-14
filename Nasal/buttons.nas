@@ -64,6 +64,7 @@ var apPanel = {
 		dfgs.updateFma.capTrkReCheck();
 	},
 	apDisc: func() {
+		dfgs.killApWarn();
 		if (dfgs.Output.ap1.getBoolValue()) {
 			dfgs.ITAF.ap1Master(0);
 		}

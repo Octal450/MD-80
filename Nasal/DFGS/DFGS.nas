@@ -1042,6 +1042,13 @@ setlistener("/it-autoflight/input/trk", func() {
 	Misc.efis1Trk.setBoolValue(Input.trkTemp); # For Canvas Nav Display.
 }, 0, 0);
 
+# Warning Logic
+var killApWarn = func() {
+	if (Sound.apOff.getBoolValue()) { # Second press only
+		Sound.apOff.setBoolValue(0);
+	}
+}
+
 # For Canvas Nav Display.
 setlistener("/it-autoflight/input/hdg", func() {
 	setprop("/autopilot/settings/heading-bug-deg", getprop("/it-autoflight/input/hdg"));

@@ -97,7 +97,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>systems/warnings/wheel-not-turning/active</property>
+					<property>gear/wheel-not-turning/active</property>
 					<value>1</value>
 				</equals>
 				<equals>

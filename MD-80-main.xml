@@ -1389,6 +1389,9 @@
 			<fast-slow type="double">0</fast-slow>
 			<thr-mode type="int">0</thr-mode>
 		</output>
+		<sound n="0">
+			<apoff type="bool">0</apoff>
+		</sound>
 	</it-autoflight>
 	
 	<services n="0">
