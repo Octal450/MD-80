@@ -1487,6 +1487,50 @@
 				</greater-than>
 			</condition>
 		</apoff>
+	    <caws>
+			<name>Overspeed</name>
+			<path>Aircraft/MD-80/Sounds/CAWS/overspeed.wav</path>
+			<mode>once</mode>
+			<condition>
+				<greater-than>
+					<property>/systems/caws/overspeed/out</property>
+					<value>0</value>
+				</greater-than>
+			</condition>
+		</caws>
+	    <caws>
+			<name>Slat Overspeed</name>
+			<path>Aircraft/MD-80/Sounds/CAWS/slat-overspeed.wav</path>
+			<mode>once</mode>
+			<condition>
+				<greater-than>
+					<property>/systems/caws/slat-overspeed/out</property>
+					<value>0</value>
+				</greater-than>
+			</condition>
+		</caws>
+	    <caws>
+			<name>Stabilizer Buzz</name>
+			<path>Aircraft/MD-80/Sounds/CAWS/stabilizer-buzz.wav</path>
+			<mode>once</mode>
+			<condition>
+				<greater-than>
+					<property>/systems/caws/stabilizer-buzz/out</property>
+					<value>0</value>
+				</greater-than>
+			</condition>
+		</caws>
+	    <caws>
+			<name>Stabilizer Motion</name>
+			<path>Aircraft/MD-80/Sounds/CAWS/stabilizer-motion.wav</path>
+			<mode>once</mode>
+			<condition>
+				<greater-than>
+					<property>/systems/caws/stabilizer-motion/out</property>
+					<value>0</value>
+				</greater-than>
+			</condition>
+		</caws>
 	
 	</fx>
 </PropertyList>

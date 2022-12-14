@@ -480,9 +480,17 @@
 	
 	<channel name="Stabilizer">
 		
+		<switch name="fcs-actual/stabilizer/rate-switch">
+			<default value="0.333333"/> <!-- Primary -->
+			<test logic="OR" value="0.1"> <!-- Alternate -->
+				/instrumentation/airspeed-indicator/indicated-speed-kt ge 249.5
+				/instrumentation/altimeter/indicated-altitude-ft ge 32990
+			</test>
+		</switch>
+		
 		<switch name="fcs-actual/stabilizer/rate">
 			<default value="0"/>
-			<test logic="OR" value="0.333333"> <!-- 1/3 deg per second for primary, 1/10 deg per second for alternate -->
+			<test logic="OR" value="fcs-actual/stabilizer/rate-switch">
 				/systems/electrical/bus/emer-ac ge 112
 				/systems/acconfig/autoconfig-running eq 1
 			</test>

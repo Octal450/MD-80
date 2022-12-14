@@ -170,6 +170,29 @@
 			</test>
 		</switch>
 		
+		<fcs_function name="dfgs/speeds/slat-max-mach-kts">
+			<function>
+				<product>
+					<quotient>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						<max> <!-- Prevent divide by 0 -->
+							<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+							<value>0.0001</value>
+						</max>
+					</quotient>
+					<value>0.57</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<switch name="dfgs/speeds/slat-max-kts">
+			<default value="280"/>
+			<test logic="AND" value="dfgs/speeds/slat-max-mach-kts">
+				dfgs/speeds/mmo-kts lt 280
+				position/wow eq 0
+			</test>
+		</switch>
+		
 		<fcs_function name="dfgs/speeds/vss-kts"> <!-- From FCOM -->
 			<function>
 				<table>

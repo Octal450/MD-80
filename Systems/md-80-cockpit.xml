@@ -416,6 +416,88 @@
 			</test>
 		</switch>
 		
+		<!-- Overspeed -->
+		<switch name="/systems/caws/logic/overspeed">
+			<default value="0"/>
+			<test value="1">
+				/instrumentation/airspeed-indicator/indicated-speed-kt gt dfgs/speeds/vmo-mmo
+			</test>
+		</switch>
+		
+		<!-- Slat Overspeed -->
+		<switch name="/systems/caws/logic/slat-overspeed">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/caws/logic/overspeed eq 0
+				fcs/slat-pos-deg ge 0.1
+				/instrumentation/airspeed-indicator/indicated-speed-kt gt dfgs/speeds/slat-max-kts
+			</test>
+		</switch>
+		
+		<!-- Stabilizer Buzz + Motion -->
+		<pid name="/systems/caws/logic/stabilizer-rate-raw">
+			<input>fcs-actual/stabilizer/final-deg</input>
+			<kp>0.0</kp>
+			<ki>0.0</ki>
+			<kd>1.0</kd>
+		</pid>
+		
+		<fcs_function name="/systems/caws/logic/stabilizer-rate-abs">
+			<function>
+				<abs>
+					<property>/systems/caws/logic/stabilizer-rate-raw</property>
+				</abs>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/systems/caws/logic/stabilizer-rate">
+			<input>/systems/caws/logic/stabilizer-rate-abs</input>
+			<c1>10</c1>
+		</lag_filter>
+		
+		<switch name="/systems/caws/logic/stabilizer-moving">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				position/wow eq 0
+				/systems/caws/logic/stabilizer-rate gt 0.01
+			</test>
+		</switch>
+		
+		<switch name="/systems/caws/logic/stabilizer-stored">
+			<default value="/systems/caws/logic/stabilizer-stored"/>
+			<test value="fcs-actual/stabilizer/final-deg">
+				/systems/caws/logic/stabilizer-moving eq 0
+			</test>
+		</switch>
+		
+		<summer name="/systems/caws/logic/stabilizer-stored-error">
+			<input>fcs-actual/stabilizer/final-deg</input>
+			<input>-/systems/caws/logic/stabilizer-stored</input>
+		</summer>
+		
+		<switch name="/systems/caws/logic/stabilizer-motion">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/caws/logic/stabilizer-moving eq 1
+				<test logic="OR">
+					/systems/caws/logic/stabilizer-stored-error lt -2
+					/systems/caws/logic/stabilizer-stored-error gt 2
+				</test>
+			</test>
+		</switch>
+		
+		<switch name="/systems/caws/logic/stabilizer-buzz">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/caws/logic/stabilizer-moving eq 1
+				/systems/caws/logic/stabilizer-motion eq 0
+				<test logic="OR">
+					/systems/caws/logic/stabilizer-stored-error lt -0.5
+					/systems/caws/logic/stabilizer-stored-error gt 0.5
+				</test>
+			</test>
+		</switch>
+		
 		<!-- Wheel Not Turning -->
 		<fcs_function name="/gear/wheel-not-turning/n-l-avg">
 			<function>
@@ -528,6 +610,97 @@
 			<rate_limit sense="incr">0.35</rate_limit>
 			<rate_limit sense="decr">100</rate_limit>
 			<output>/systems/caws/landing-gear/out</output>
+		</actuator>
+		
+		<!-- Overspeed Horn -->
+		<switch name="/systems/caws/overspeed/trigger">
+			<default value="/systems/caws/overspeed/trigger"/>
+			<test logic="OR" value="0">
+				/systems/electrical/outputs/mk-viii lt 24
+				/systems/caws/overspeed/out eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/overspeed/out eq 0
+				/systems/caws/logic/overspeed eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/caws/overspeed/actuator">
+			<input>/systems/caws/overspeed/trigger</input>
+			<rate_limit sense="incr">0.35</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>/systems/caws/overspeed/out</output>
+		</actuator>
+		
+		<!-- Slat Overspeed Horn -->
+		<switch name="/systems/caws/slat-overspeed/trigger">
+			<default value="/systems/caws/slat-overspeed/trigger"/>
+			<test logic="OR" value="0">
+				/systems/electrical/outputs/mk-viii lt 24
+				/systems/caws/slat-overspeed/out eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/slat-overspeed/out eq 0
+				/systems/caws/logic/slat-overspeed eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/caws/slat-overspeed/actuator">
+			<input>/systems/caws/slat-overspeed/trigger</input>
+			<rate_limit sense="incr">0.35</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>/systems/caws/slat-overspeed/out</output>
+		</actuator>
+		
+		<!-- Stabilizer Motion Horn -->
+		<switch name="/systems/caws/stabilizer-motion/trigger">
+			<default value="/systems/caws/stabilizer-motion/trigger"/>
+			<test logic="OR" value="0">
+				/systems/electrical/outputs/mk-viii lt 24
+				/systems/caws/stabilizer-motion/out eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/stabilizer-motion/out eq 0
+				/systems/caws/logic/stabilizer-motion eq 1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/caws/stabilizer-motion/rate"> <!-- So that it goes off roughly every 2 degrees -->
+			<input>/systems/caws/logic/stabilizer-rate</input>
+			<gain>0.5</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/caws/stabilizer-motion/actuator">
+			<input>/systems/caws/stabilizer-motion/trigger</input>
+			<rate_limit sense="incr">/systems/caws/stabilizer-motion/rate</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>/systems/caws/stabilizer-motion/out</output>
+		</actuator>
+		
+		<!-- Stabilizer Buzz Horn -->
+		<switch name="/systems/caws/stabilizer-buzz/trigger">
+			<default value="/systems/caws/stabilizer-buzz/trigger"/>
+			<test logic="OR" value="0">
+				/systems/electrical/outputs/mk-viii lt 24
+				/systems/caws/stabilizer-buzz/out eq 1
+				/systems/caws/stabilizer-motion/out gt 0
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/stabilizer-buzz/out eq 0
+				/systems/caws/logic/stabilizer-buzz eq 1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/caws/stabilizer-buzz/rate"> <!-- So that it goes off roughly every 0.5 degrees -->
+			<input>/systems/caws/logic/stabilizer-rate</input>
+			<gain>2.0</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/caws/stabilizer-buzz/actuator">
+			<input>/systems/caws/stabilizer-buzz/trigger</input>
+			<rate_limit sense="incr">/systems/caws/stabilizer-buzz/rate</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>/systems/caws/stabilizer-buzz/out</output>
 		</actuator>
 	
 	</channel>
