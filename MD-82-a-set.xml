@@ -63,6 +63,11 @@
 		</mass-and-balance>
 	</limits>
 	
+	<options n="0">
+		<eng type="string">217A</eng>
+		<panel type="string">Analog</panel>
+	</options>
+	
 	<payload n="0">
 		<weight n="0">
 			<name>Cockpit Crew</name>
@@ -95,11 +100,6 @@
 			<max-lb type="double">9619</max-lb>
 		</weight>
 	</payload>
-	
-	<options n="0">
-		<eng type="string">217A</eng>
-		<panel type="string">Analog</panel>
-	</options>
 	
 	<nasal n="0">
 		<setup>

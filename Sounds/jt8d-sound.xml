@@ -10,9 +10,6 @@
 			<condition>
 				<property>/it-autoflight/output/clamp</property>
 			</condition>
-			<volume>
-				<factor>0.95</factor>
-			</volume>
 		</switch>
 		
 		<switch>
@@ -22,9 +19,6 @@
 			<condition>
 				<not><property>/it-autoflight/output/clamp</property></not>
 			</condition>
-			<volume>
-				<factor>0.95</factor>
-			</volume>
 		</switch>
 		
 		<switch>
@@ -34,21 +28,15 @@
 			<condition>
 				<property>/sim/sound/btn1</property>
 			</condition>
-			<volume>
-				<factor>0.75</factor>
-			</volume>
 		</switch>
 		
 		<switch>
-			<name>ButtonOH</name>
+			<name>Button2</name>
 			<mode>once</mode>
 			<path>Aircraft/MD-80/Sounds/Cockpit/button2.wav</path>
 			<condition>
 				<property>/sim/sound/btn2</property>
 			</condition>
-			<volume>
-				<factor>0.75</factor>
-			</volume>
 		</switch>
 		
 		<switch>
@@ -58,9 +46,6 @@
 			<condition>
 				<property>/sim/sound/btn3</property>
 			</condition>
-			<volume>
-				<factor>0.75</factor>
-			</volume>
 		</switch>
 		
 		<switch>
@@ -70,9 +55,6 @@
 			<condition>
 				<property>/sim/sound/knb1</property>
 			</condition>
-			<volume>
-				<factor>0.60</factor>
-			</volume>
 		</switch>
 		
 		<switch>
@@ -82,9 +64,6 @@
 			<condition>
 				<property>/sim/sound/switch1</property>
 			</condition>
-			<volume>
-				<factor>0.75</factor>
-			</volume>
 		</switch>
 		
 		<wow>
@@ -1185,6 +1164,68 @@
 		
 		<!-- Custom CAWS -->
 	    <caws>
+			<name>500</name>
+			<path>Aircraft/MD-80/Sounds/CAWS/500.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<not-equals>
+						<property>/controls/switches/minimums</property>
+						<value>400</value>
+					</not-equals>
+					<not-equals>
+						<property>/controls/switches/minimums</property>
+						<value>500</value>
+					</not-equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>500</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>450</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>24</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+		</caws>
+	    <caws>
+			<name>100</name>
+			<path>Aircraft/MD-80/Sounds/CAWS/100.wav</path>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<not-equals>
+						<property>/controls/switches/minimums</property>
+						<value>100</value>
+					</not-equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>100</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>80</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>24</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+		</caws>
+	    <caws>
 			<name>50</name>
 			<path>Aircraft/MD-80/Sounds/CAWS/50.wav</path>
 			<mode>once</mode>
@@ -1208,15 +1249,10 @@
 					</less-than>
 					<greater-than-equals>
 						<property>/systems/electrical/outputs/mk-viii</property>
-						<value>25</value>
+						<value>24</value>
 					</greater-than-equals>
 				</and>
 			</condition>
-			<volume>
-				<factor>8</factor>
-			</volume>
-			<reference-dist>20.0</reference-dist>
-			<max-dist>100.0</max-dist>
 		</caws>
 	    <caws>
 			<name>40</name>
@@ -1242,15 +1278,10 @@
 					</less-than>
 					<greater-than-equals>
 						<property>/systems/electrical/outputs/mk-viii</property>
-						<value>25</value>
+						<value>24</value>
 					</greater-than-equals>
 				</and>
 			</condition>
-			<volume>
-				<factor>8</factor>
-			</volume>
-			<reference-dist>20.0</reference-dist>
-			<max-dist>100.0</max-dist>
 		</caws>
 	    <caws>
 			<name>30</name>
@@ -1276,15 +1307,10 @@
 					</less-than>
 					<greater-than-equals>
 						<property>/systems/electrical/outputs/mk-viii</property>
-						<value>25</value>
+						<value>24</value>
 					</greater-than-equals>
 				</and>
 			</condition>
-			<volume>
-				<factor>8</factor>
-			</volume>
-			<reference-dist>20.0</reference-dist>
-			<max-dist>100.0</max-dist>
 		</caws>
 	    <caws>
 			<name>20</name>
@@ -1310,15 +1336,10 @@
 					</less-than>
 					<greater-than-equals>
 						<property>/systems/electrical/outputs/mk-viii</property>
-						<value>25</value>
+						<value>24</value>
 					</greater-than-equals>
 				</and>
 			</condition>
-			<volume>
-				<factor>8</factor>
-			</volume>
-			<reference-dist>20.0</reference-dist>
-			<max-dist>100.0</max-dist>
 		</caws>
 	    <caws>
 			<name>10</name>
@@ -1344,15 +1365,10 @@
 					</less-than>
 					<greater-than-equals>
 						<property>/systems/electrical/outputs/mk-viii</property>
-						<value>25</value>
+						<value>24</value>
 					</greater-than-equals>
 				</and>
 			</condition>
-			<volume>
-				<factor>8</factor>
-			</volume>
-			<reference-dist>20.0</reference-dist>
-			<max-dist>100.0</max-dist>
 		</caws>
 	    <caws>
 			<name>Approaching Minimum</name>
@@ -1371,7 +1387,7 @@
 					<property>/controls/misc/minimums-latch-sound</property>
 					<greater-than-equals>
 						<property>/systems/electrical/outputs/mk-viii</property>
-						<value>25</value>
+						<value>24</value>
 					</greater-than-equals>
 					<equals>
 						<property>/fdm/jsbsim/position/wow</property>
@@ -1379,14 +1395,9 @@
 					</equals>
 				</and>
 			</condition>
-			<volume>
-				<factor>8</factor>
-			</volume>
 			<pitch>
 				<property>/controls/switches/minimums-horn-pitch</property>
 			</pitch>
-			<reference-dist>20.0</reference-dist>
-			<max-dist>100.0</max-dist>
 		</caws>
 	    <caws>
 			<name>Minimum</name>
@@ -1412,15 +1423,10 @@
 					</less-than>
 					<greater-than-equals>
 						<property>/systems/electrical/outputs/mk-viii</property>
-						<value>25</value>
+						<value>24</value>
 					</greater-than-equals>
 				</and>
 			</condition>
-			<volume>
-				<factor>8</factor>
-			</volume>
-			<reference-dist>20.0</reference-dist>
-			<max-dist>100.0</max-dist>
 		</caws>
 	    <caws>
 			<name>Altitude Alert</name>
@@ -1438,11 +1444,6 @@
 					</greater-than-equals>
 				</and>
 			</condition>
-			<volume>
-				<factor>8</factor>
-			</volume>
-			<reference-dist>20.0</reference-dist>
-			<max-dist>100.0</max-dist>
 		</caws>
 	    <caws>
 			<name>Altitude Tone</name>
@@ -1463,11 +1464,6 @@
 					</greater-than-equals>
 				</and>
 			</condition>
-			<volume>
-				<factor>8</factor>
-			</volume>
-			<reference-dist>20.0</reference-dist>
-			<max-dist>100.0</max-dist>
 		</caws>
 	    <caws>
 			<name>Landing Gear Warning</name>
@@ -1479,11 +1475,6 @@
 					<value>0</value>
 				</greater-than>
 			</condition>
-			<volume>
-				<factor>8</factor>
-			</volume>
-			<reference-dist>20.0</reference-dist>
-			<max-dist>100.0</max-dist>
 		</caws>
 		<apoff>
 			<name>AP Off Warning</name>
@@ -1492,11 +1483,6 @@
 			<condition>
 				<property>/it-autoflight/sound/apoff</property>
 			</condition>
-			<volume>
-				<factor>8</factor>
-			</volume>
-			<reference-dist>20.0</reference-dist>
-			<max-dist>100.0</max-dist>
 		</apoff>
 	
 	</fx>

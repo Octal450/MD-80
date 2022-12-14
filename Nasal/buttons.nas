@@ -44,7 +44,7 @@ var apPanel = {
 	vertTemp: 0,
 	vsTemp: 0,
 	apSwitch: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			if (dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue()) {
 				dfgs.ITAF.ap1Master(0);
 				dfgs.ITAF.ap2Master(0);
@@ -64,29 +64,25 @@ var apPanel = {
 		dfgs.updateFma.capTrkReCheck();
 	},
 	apDisc: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
-			if (dfgs.Output.ap1.getBoolValue()) {
-				dfgs.ITAF.ap1Master(0);
-			}
-			if (dfgs.Output.ap2.getBoolValue()) {
-				dfgs.ITAF.ap2Master(0);
-			}
+		if (dfgs.Output.ap1.getBoolValue()) {
+			dfgs.ITAF.ap1Master(0);
+		}
+		if (dfgs.Output.ap2.getBoolValue()) {
+			dfgs.ITAF.ap2Master(0);
 		}
 	},
 	atDisc: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
-			if (dfgs.Output.athr.getBoolValue()) {
-				dfgs.ITAF.athrMaster(0);
-			}
+		if (dfgs.Output.athr.getBoolValue()) {
+			dfgs.ITAF.athrMaster(0);
 		}
 	},
 	spdPush: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			dfgs.Input.ktsMach.setBoolValue(!dfgs.Input.ktsMach.getBoolValue());
 		}
 	},
 	spdAdjust: func(d) {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			if (dfgs.Input.ktsMach.getBoolValue()) {
 				me.machTemp = math.round(dfgs.Input.mach.getValue() + (d * 0.001), (abs(d * 0.001))); # Kill floating point error
 				if (me.machTemp < 0.50) {
@@ -109,7 +105,7 @@ var apPanel = {
 		}
 	},
 	spd: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			me.vertTemp = dfgs.Output.vert.getValue();
 			dfgs.Input.ktsMach.setBoolValue(0);
 			dfgs.Athr.setMode(0); # Thrust
@@ -119,7 +115,7 @@ var apPanel = {
 		}
 	},
 	mach: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			me.vertTemp = dfgs.Output.vert.getValue();
 			dfgs.Input.ktsMach.setBoolValue(1);
 			dfgs.Athr.setMode(0); # Thrust
@@ -129,22 +125,22 @@ var apPanel = {
 		}
 	},
 	eprLim: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			dfgs.Athr.setMode(2); # EPR Limit
 		}
 	},
 	hdgPush: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			dfgs.Input.lat.setValue(3);
 		}
 	},
 	hdgPull: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			dfgs.Input.lat.setValue(0);
 		}
 	},
 	hdgAdjust: func(d) {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			me.hdgTemp = dfgs.Input.hdg.getValue() + d;
 			if (me.hdgTemp < 0.5) {
 				dfgs.Input.hdg.setValue(me.hdgTemp + 360);
@@ -156,23 +152,23 @@ var apPanel = {
 		}
 	},
 	nav: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			dfgs.Input.lat.setValue(1);
 		}
 	},
 	vorLoc: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			dfgs.Input.lat.setValue(2);
 		}
 	},
 	ils: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			dfgs.ITAF.updateAutoLand(0);
 			dfgs.Input.vert.setValue(2);
 		}
 	},
 	autoLand: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			me.latTemp = dfgs.Output.lat.getValue();
 			me.vertTemp = dfgs.Output.vert.getValue();
 			if ((me.latTemp == 2 or me.latTemp == 4) and (dfgs.Output.apprArm.getBoolValue() or me.vertTemp == 2 or me.vertTemp == 6)) { # Check logic
@@ -181,7 +177,7 @@ var apPanel = {
 		}
 	},
 	vsAdjust: func(d) { # Called the pitch wheel this so that one binding works on many planes
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			me.vertTemp = dfgs.Output.vert.getValue();
 			if (me.vertTemp == 1) {
 				me.vsTemp = dfgs.Input.vs.getValue() + (d * 100);
@@ -231,14 +227,14 @@ var apPanel = {
 		}
 	},
 	altPush: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			dfgs.Input.altArmed.setBoolValue(0);
 			systems.WARNINGS.altitudeAlertCaptured.setValue(0); # Reset out of captured state
 			if (systems.WARNINGS.altitudeAlert.getValue() == 2) systems.WARNINGS.altitudeAlert.setValue(0); # Cancel altitude alert deviation alarm
 		}
 	},
 	altPull: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			me.vertTemp = dfgs.Output.vert.getValue();
 			if (me.vertTemp != 0 and me.vertTemp != 2 and me.vertTemp != 6) {
 				dfgs.Input.altArmed.setBoolValue(1);
@@ -246,7 +242,7 @@ var apPanel = {
 		}
 	},
 	altAdjust: func(d) {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			me.altTemp = dfgs.Input.alt.getValue();
 			me.altTemp = math.round(me.altTemp + (d * 100), 100);
 			if (me.altTemp < 0) {
@@ -259,12 +255,12 @@ var apPanel = {
 		}
 	},
 	vertSpd: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			dfgs.Input.vert.setValue(1);
 		}
 	},
 	iasMach: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			if (dfgs.Output.vert.getValue() == 4) {
 				if (dfgs.Velocities.indicatedMach.getValue() >= 0.4995) {
 					dfgs.Input.ktsMachFlch.setBoolValue(!dfgs.Input.ktsMachFlch.getBoolValue());
@@ -282,18 +278,18 @@ var apPanel = {
 		}
 	},
 	altHold: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			dfgs.Input.vert.setValue(0);
 		}
 	},
 	turb: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			dfgs.Input.lat.setValue(6);
 			dfgs.Input.vert.setValue(5);
 		}
 	},
 	toga: func() {
-		if (systems.ELEC.Generic.fgcpPower.getBoolValue()) {
+		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			dfgs.Input.toga.setValue(1);
 		}
 	},
