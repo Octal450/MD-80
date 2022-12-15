@@ -197,6 +197,12 @@ var Sound = {
 	enableApOff: 0,
 };
 
+var Warning = {
+	ap: props.globals.initNode("/it-autoflight/warning/ap", 0, "BOOL"),
+	atsFlash: props.globals.initNode("/it-autoflight/warning/atsflash", 0, "BOOL"),
+	ats: props.globals.initNode("/it-autoflight/warning/ats", 0, "BOOL"),
+};
+
 var ITAF = {
 	init: func(t = 0) { # Not everything should be reset if the reset is type 1
 		if (t != 1) {
@@ -248,6 +254,12 @@ var ITAF = {
 		updateFma.arm();
 		me.updateLatText("HDG");
 		me.updateVertText("V/S");
+		if (t != 1) {
+			Sound.apOff.setBoolValue(0);
+			Warning.ap.setBoolValue(0);
+			Sound.enableApOff = 0;
+			apKill.stop();
+		}
 		systems.WARNINGS.altitudeAlert.setValue(0); # Cancel altitude alert
 		loopTimer.start();
 		slowLoopTimer.start();
@@ -537,6 +549,7 @@ var ITAF = {
 			if (Sound.enableApOff) {
 				Sound.apOff.setBoolValue(1);
 				Sound.enableApOff = 0;
+				apKill.start();
 			}
 		}
 	},
@@ -1045,9 +1058,22 @@ setlistener("/it-autoflight/input/trk", func() {
 # Warning Logic
 var killApWarn = func() {
 	if (Sound.apOff.getBoolValue()) { # Second press only
+		apKill.stop();
+		Warning.ap.setBoolValue(0);
 		Sound.apOff.setBoolValue(0);
 	}
 }
+
+var apKill = maketimer(0.4, func() {
+	if (!Sound.apOff.getBoolValue()) {
+		apKill.stop();
+		Warning.ap.setBoolValue(0);
+	} else if (!Warning.ap.getBoolValue()) {
+		Warning.ap.setBoolValue(1);
+	} else {
+		Warning.ap.setBoolValue(0);
+	}
+});
 
 # For Canvas Nav Display.
 setlistener("/it-autoflight/input/hdg", func() {

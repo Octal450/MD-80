@@ -122,10 +122,20 @@
 		</condition>
 	</animation>
 	
-	<!-- These are not simulated yet, so they only illuminate when the test is on. Remove each light/button once you add its select animation. -JD -->
 	<animation>
 		<type>select</type>
 		<object-name>AP</object-name>
+		<condition>
+			<or>
+				<property>/it-autoflight/warning/ap</property>
+				<property>controls/switches/annun-test</property>
+			</or>
+		</condition>
+	</animation>
+	
+	<!-- These are not simulated yet, so they only illuminate when the test is on. Remove each light/button once you add its select animation. -JD -->
+	<animation>
+		<type>select</type>
 		<object-name>APTrim</object-name>
 		<object-name>Heading</object-name>
 		<object-name>Horizon</object-name>
@@ -134,10 +144,7 @@
 		<object-name>NoAutoland</object-name>
 		<object-name>Throttle</object-name>
 		<condition>
-			<equals>
-				<property>controls/switches/annun-test</property>
-				<value>1</value>
-			</equals>
+			<property>controls/switches/annun-test</property>
 		</condition>
 	</animation>
 
