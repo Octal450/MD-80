@@ -5,7 +5,7 @@
 
 <PropertyList>
 	
-    <checklist>
+	<checklist>
 		<title>ACCEPTANCE</title>
 		<page>
 			<item>
@@ -59,7 +59,7 @@
 		</page>
 	</checklist>
 	
-    <checklist>
+	<checklist>
 		<title>BEFORE START</title>
 		<page>
 			<item>
@@ -141,7 +141,7 @@
 		</page>
 	</checklist>
 	
-    <checklist>
+	<checklist>
 		<title>START</title>
 		<page>
 			<item>
@@ -175,7 +175,7 @@
 		</page>
 	</checklist>
 	
-    <checklist>
+	<checklist>
 		<title>BEFORE TAXI</title>
 		<page>
 			<item>
@@ -225,7 +225,7 @@
 		</page>
 	</checklist>
 	
-    <checklist>
+	<checklist>
 		<title>BEFORE TAKEOFF</title>
 		<page>
 			<item>
@@ -263,7 +263,7 @@
 		</page>
 	</checklist>
 	
-    <checklist>
+	<checklist>
 		<title>CLIMB</title>
 		<page>
 			<item>
@@ -328,7 +328,7 @@
 		</page>
 	</checklist>
 	
-    <checklist>
+	<checklist>
 		<title>DESCENT</title>
 		<page>
 			<item>
@@ -366,7 +366,7 @@
 		</page>
 	</checklist>
 	
-    <checklist>
+	<checklist>
 		<title>APPROACH</title>
 		<page>
 			<item>
@@ -388,7 +388,7 @@
 		</page>
 	</checklist>
 	
-    <checklist>
+	<checklist>
 		<title>BEFORE LANDING</title>
 		<page>
 			<item>
@@ -418,7 +418,7 @@
 		</page>
 	</checklist>
 	
-    <checklist>
+	<checklist>
 		<title>AFTER LANDING</title>
 		<page>
 			<item>
@@ -448,7 +448,7 @@
 		</page>
 	</checklist>
 	
-    <checklist>
+	<checklist>
 		<title>PARKING</title>
 		<page>
 			<item>
@@ -490,7 +490,7 @@
 		</page>
 	</checklist>
 	
-    <checklist>
+	<checklist>
 		<title>SECURING</title>
 		<page>
 			<item>
