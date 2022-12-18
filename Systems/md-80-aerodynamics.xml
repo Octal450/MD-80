@@ -47,7 +47,7 @@
 	</function>
 	
 	<function name="aero/function/kCmalpha"> <!-- Deel Stall -->
-		<description>Elevator pitch factor due to wing shadow</description>
+		<description>Alpha pitch factor due to wing shadow</description>
 		<table>
 			<independentVar lookup="row">aero/alpha-deg</independentVar>
 			<tableData>
