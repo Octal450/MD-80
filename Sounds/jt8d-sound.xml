@@ -1531,6 +1531,28 @@
 				</greater-than>
 			</condition>
 		</caws>
+	    <caws>
+			<name>Stall 1</name>
+			<path>Aircraft/MD-80/Sounds/CAWS/stall-1.wav</path>
+			<mode>once</mode>
+			<condition>
+				<greater-than>
+					<property>/systems/caws/stall-1/out</property>
+					<value>0</value>
+				</greater-than>
+			</condition>
+		</caws>
+	    <caws>
+			<name>Stall 2</name>
+			<path>Aircraft/MD-80/Sounds/CAWS/stall-2.wav</path>
+			<mode>once</mode>
+			<condition>
+				<greater-than>
+					<property>/systems/caws/stall-2/out</property>
+					<value>0</value>
+				</greater-than>
+			</condition>
+		</caws>
 	
 	</fx>
 </PropertyList>

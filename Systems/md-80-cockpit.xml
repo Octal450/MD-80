@@ -5,6 +5,9 @@
 
 <system name="MD-80: Cockpit"> <!-- Everything here is after all systems -->
 	
+	<property value="0">/systems/caws/stall-1/out</property>
+	<property value="0">/systems/caws/stall-2/out</property>
+	
 	<channel name="Animations">
 		
 		<!-- General -->
@@ -498,6 +501,15 @@
 			</test>
 		</switch>
 		
+		<!-- Stall -->
+		<switch name="/systems/caws/logic/stall">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				aero/alpha-deg-damped ge dfgs/stall-appr-alpha-deg
+				position/wow ne 1
+			</test>
+		</switch>
+		
 		<!-- Wheel Not Turning -->
 		<fcs_function name="/gear/wheel-not-turning/n-l-avg">
 			<function>
@@ -571,6 +583,12 @@
 	</channel>
 	
 	<channel name="CAWS Sound Controller" execrate="16">
+		
+		<fcs_function name="/systems/caws/random">
+			<function>
+				<urandom/>
+			</function>
+		</fcs_function>
 		
 		<!-- Autopilot Horn -->
 		<switch name="/systems/caws/apoff/trigger">
@@ -701,6 +719,49 @@
 			<rate_limit sense="incr">/systems/caws/stabilizer-buzz/rate</rate_limit>
 			<rate_limit sense="decr">100</rate_limit>
 			<output>/systems/caws/stabilizer-buzz/out</output>
+		</actuator>
+		
+		<!-- Stall Horns -->
+		<switch name="/systems/caws/stall-1/trigger">
+			<default value="/systems/caws/stall-1/trigger"/>
+			<test logic="OR" value="0">
+				/systems/electrical/outputs/mk-viii lt 24
+				/systems/caws/stall-1/out eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/stall-1/out eq 0
+				/systems/caws/logic/stall eq 1
+				/systems/caws/stall-2/out eq 0
+				/systems/caws/random lt 0
+			</test>
+		</switch>
+		
+		<actuator name="/systems/caws/stall-1/actuator">
+			<input>/systems/caws/stall-1/trigger</input>
+			<rate_limit sense="incr">0.35</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>/systems/caws/stall-1/out</output>
+		</actuator>
+		
+		<switch name="/systems/caws/stall-2/trigger">
+			<default value="/systems/caws/stall-2/trigger"/>
+			<test logic="OR" value="0">
+				/systems/electrical/outputs/mk-viii lt 24
+				/systems/caws/stall-2/out eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/stall-2/out eq 0
+				/systems/caws/logic/stall eq 1
+				/systems/caws/stall-1/out eq 0
+				/systems/caws/random ge 0
+			</test>
+		</switch>
+		
+		<actuator name="/systems/caws/stall-2/actuator">
+			<input>/systems/caws/stall-2/trigger</input>
+			<rate_limit sense="incr">0.35</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>/systems/caws/stall-2/out</output>
 		</actuator>
 	
 	</channel>
