@@ -46,6 +46,18 @@
 		</table>
 	</function>
 	
+	<function name="aero/function/kCmalpha"> <!-- Deel Stall -->
+		<description>Elevator pitch factor due to wing shadow</description>
+		<table>
+			<independentVar lookup="row">aero/alpha-deg</independentVar>
+			<tableData>
+				16.2412  1.0
+				20.1657  0.2
+				31.2478  0.4
+			</tableData>
+		</table>
+	</function>
+	
 	<function name="aero/function/kCmde"> <!-- Deel Stall -->
 		<description>Elevator pitch factor due to wing shadow</description>
 		<table>
@@ -606,6 +618,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
+				<property>aero/function/kCmalpha</property>
 				<table>
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<tableData>
