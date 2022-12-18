@@ -25,6 +25,7 @@ var Modes = { # 0 thrust, 1 arm, 2 roll, 3 pitch
 
 var Value = {
 	activeModeInt: 0,
+	annunTest: 0,
 	apOn: 0,
 	atsOn: 0,
 };
@@ -55,18 +56,14 @@ var canvasBase = {
 	},
 	update: func() {
 		Value.activeModeInt = systems.TRI.Limit.activeModeInt.getValue();
+		Value.annunTest = pts.Controls.Switches.annunTest.getBoolValue();
 		Value.apOn = dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue();
 		Value.atsOn = dfgs.Output.athr.getBoolValue();
 		
 		if (systems.ELEC.Generic.fma[0].getValue() >= 24) {
-			if (Value.atsOn or Value.activeModeInt == 5) { # For showing flex digit
+			if (Value.annunTest) {
 				thrL.update();
 				thrL.page.show();
-			} else {
-				thrL.page.hide();
-			}
-			
-			if (dfgs.Output.fd1.getBoolValue() or Value.apOn) {
 				armL.update();
 				armL.page.show();
 				pitchL.update();
@@ -74,9 +71,25 @@ var canvasBase = {
 				rollL.update();
 				rollL.page.show();
 			} else {
-				armL.page.hide();
-				pitchL.page.hide();
-				rollL.page.hide();
+				if (Value.atsOn or Value.activeModeInt == 5) { # For showing flex digit
+					thrL.update();
+					thrL.page.show();
+				} else {
+					thrL.page.hide();
+				}
+				
+				if (dfgs.Output.fd1.getBoolValue() or Value.apOn) {
+					armL.update();
+					armL.page.show();
+					pitchL.update();
+					pitchL.page.show();
+					rollL.update();
+					rollL.page.show();
+				} else {
+					armL.page.hide();
+					pitchL.page.hide();
+					rollL.page.hide();
+				}
 			}
 		} else {
 			armL.page.hide();
@@ -86,14 +99,9 @@ var canvasBase = {
 		}
 		
 		if (systems.ELEC.Generic.fma[1].getValue() >= 24) {
-			if (Value.atsOn or Value.activeModeInt == 5) { # For showing flex digit
+			if (Value.annunTest) {
 				thrR.update();
 				thrR.page.show();
-			} else {
-				thrR.page.hide();
-			}
-			
-			if (dfgs.Output.fd2.getBoolValue() or Value.apOn) {
 				armR.update();
 				armR.page.show();
 				pitchR.update();
@@ -101,9 +109,25 @@ var canvasBase = {
 				rollR.update();
 				rollR.page.show();
 			} else {
-				armR.page.hide();
-				pitchR.page.hide();
-				rollR.page.hide();
+				if (Value.atsOn or Value.activeModeInt == 5) { # For showing flex digit
+					thrR.update();
+					thrR.page.show();
+				} else {
+					thrR.page.hide();
+				}
+				
+				if (dfgs.Output.fd2.getBoolValue() or Value.apOn) {
+					armR.update();
+					armR.page.show();
+					pitchR.update();
+					pitchR.page.show();
+					rollR.update();
+					rollR.page.show();
+				} else {
+					armR.page.hide();
+					pitchR.page.hide();
+					rollR.page.hide();
+				}
 			}
 		} else {
 			armR.page.hide();
@@ -113,8 +137,18 @@ var canvasBase = {
 		}
 	},
 	updateCommon: func(w) { # w is window, 0 thrust, 1 arm, 2 roll, 3 pitch
-		me["Line1"].setText(Modes.Line1[w].getValue());
-		me["Line2"].setText(Modes.Line2[w].getValue());
+		if (Value.annunTest) {
+			if (w == 1 or w == 2) {
+				me["Line1"].setText("¤¤¤");
+				me["Line2"].setText("¤¤¤");
+			} else {
+				me["Line1"].setText("¤¤¤¤");
+				me["Line2"].setText("¤¤¤¤");
+			}
+		} else {
+			me["Line1"].setText(Modes.Line1[w].getValue());
+			me["Line2"].setText(Modes.Line2[w].getValue());
+		}
 	},
 };
 

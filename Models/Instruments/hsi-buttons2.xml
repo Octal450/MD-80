@@ -60,7 +60,10 @@
 		<type>select</type>
 		<object-name>NavSrc.Fms</object-name>
 		<condition>
-			<property>instrumentation/hsi[1]/slaved-to-gps</property>
+			<or>
+				<property>instrumentation/hsi[1]/slaved-to-gps</property>
+				<property>controls/switches/annun-test</property>
+			</or>
 		</condition>
 	</animation>
 	
@@ -68,7 +71,10 @@
 		<type>select</type>
 		<object-name>NavSrc.Nav</object-name>
 		<condition>
-			<not><property>instrumentation/hsi[1]/slaved-to-gps</property></not>
+			<or>
+				<not><property>instrumentation/hsi[1]/slaved-to-gps</property></not>
+				<property>controls/switches/annun-test</property>
+			</or>
 		</condition>
 	</animation>
 

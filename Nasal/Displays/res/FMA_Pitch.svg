@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="four.svg">
+   sodipodi:docname="FMA_Pitch.svg">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -26,16 +26,16 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="175.66765"
+     inkscape:cx="44.953364"
      inkscape:cy="135.61753"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
-     inkscape:window-width="1536"
-     inkscape:window-height="801"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
      inkscape:window-x="1592"
-     inkscape:window-y="1072"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
@@ -67,7 +67,7 @@
          id="tspan4146"
          x="11.704107"
          y="1389.3774"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:93.5357666px;font-family:led16sgmnt2;-inkscape-font-specification:led16sgmnt2;text-align:start;letter-spacing:8.57890511px;text-anchor:start;fill:#00ff00">ZZZZ</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:93.5357666px;font-family:led16sgmnt2;-inkscape-font-specification:led16sgmnt2;text-align:start;letter-spacing:8.57890511px;text-anchor:start;fill:#00ff00">¤¤¤¤</tspan></text>
     <text
        transform="scale(1.4801813,0.67559292)"
        sodipodi:linespacing="125%"
@@ -81,6 +81,6 @@
          y="1532.6377"
          x="11.704112"
          id="tspan4173"
-         sodipodi:role="line">ZZZZ</tspan></text>
+         sodipodi:role="line">¤¤¤¤</tspan></text>
   </g>
 </svg>
