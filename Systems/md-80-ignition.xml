@@ -38,11 +38,18 @@
 	<channel name="Engine Start/Stop"> <!-- Do NOT execrate! -->
 		
 		<!-- Engine 1 -->
+		<switch name="/systems/ignition/can-run-1">
+			<default value="0"/>
+			<test value="1">
+				propulsion/tank[3]/contents-lbs ge 1
+			</test>
+		</switch>
+		
 		<switch name="/systems/ignition/cutoff-1">
 			<default value="1"/>
 			<test logic="AND" value="0">
 				/controls/engines/engine[0]/cutoff-switch eq 0
-				propulsion/tank[3]/contents-lbs ge 1
+				/systems/ignition/can-run-1 eq 1
 			</test>
 		</switch>
 		
@@ -80,6 +87,7 @@
 			<test logic="AND" value="1"> <!-- Because JSBsim will kill the engine if we cut out early, suggested release is 40 -->
 				/engines/engine[0]/n2-actual ge 38
 				/systems/ignition/cutoff-1 eq 0
+				/systems/ignition/can-run-1 eq 1
 			</test>
 		</switch>
 		
@@ -99,12 +107,19 @@
 			<output>/engines/engine[0]/state</output>
 		</switch>
 		
-		<!-- Engine 1 -->
+		<!-- Engine 2 -->
+		<switch name="/systems/ignition/can-run-2">
+			<default value="0"/>
+			<test value="1">
+				propulsion/tank[4]/contents-lbs ge 1
+			</test>
+		</switch>
+		
 		<switch name="/systems/ignition/cutoff-2">
 			<default value="1"/>
 			<test logic="AND" value="0">
 				/controls/engines/engine[1]/cutoff-switch eq 0
-				propulsion/tank[4]/contents-lbs ge 1
+				/systems/ignition/can-run-2 eq 1
 			</test>
 		</switch>
 		
@@ -142,6 +157,7 @@
 			<test logic="AND" value="1"> <!-- Because JSBsim will kill the engine if we cut out early, suggested release is 40 -->
 				/engines/engine[1]/n2-actual ge 38
 				/systems/ignition/cutoff-2 eq 0
+				/systems/ignition/can-run-2 eq 1
 			</test>
 		</switch>
 		
