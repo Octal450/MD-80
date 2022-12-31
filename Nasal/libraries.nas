@@ -1,8 +1,8 @@
 # McDonnell Douglas MD-80 Main Libraries
-# Copyright (c) 2022 Josh Davidson (Octal450)
+# Copyright (c) 2023 Josh Davidson (Octal450)
 
 print("------------------------------------------------");
-print("Copyright (c) 2019-2022 Josh Davidson (Octal450)");
+print("Copyright (c) 2019-2023 Josh Davidson (Octal450)");
 print("------------------------------------------------");
 
 setprop("/sim/menubar/default/menu[0]/item[0]/enabled", 0);

@@ -1,5 +1,5 @@
 # McDonnell Douglas MD-80 Systems
-# Copyright (c) 2022 Josh Davidson (Octal450)
+# Copyright (c) 2023 Josh Davidson (Octal450)
 
 # AHRS
 var AHRS = {
