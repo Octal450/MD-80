@@ -40,9 +40,9 @@
 		<object-name>HorizonInner</object-name>
 		<property>instrumentation/ai[0]/pitch-deg</property>
 		<interpolation>
-			<entry><ind>-50</ind><dep>-0.3520</dep></entry>
-			<entry><ind>  0</ind><dep> 0.0000</dep></entry>
-			<entry><ind> 50</ind><dep> 0.3525</dep></entry>
+			<entry><ind>-90</ind><dep>-0.319</dep></entry>
+			<entry><ind>  0</ind><dep> 0.000</dep></entry>
+			<entry><ind> 90</ind><dep> 0.319</dep></entry>
 		</interpolation>
 		<axis>
 			<x>0</x>
@@ -54,7 +54,7 @@
 		<type>translate</type>
 		<object-name>FD</object-name>
 		<property>instrumentation/ai[0]/fd-pitch</property>
-		<factor>0.001326</factor>
+		<factor>0.001296</factor>
 		<axis>
 			<x>0</x>
 			<y>0</y>
