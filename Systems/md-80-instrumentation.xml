@@ -329,7 +329,7 @@
 		
 		<actuator name="/instrumentation/ai[0]/pitch-deg-pos">
 			<input>/instrumentation/ai[0]/pitch-deg-cmd</input>
-			<rate_limit>270</rate_limit>
+			<rate_limit>360</rate_limit>
 		</actuator>
 		
 		<lag_filter name="/instrumentation/ai[0]/pitch-deg">
@@ -355,7 +355,7 @@
 		
 		<actuator name="/instrumentation/ai[0]/roll-deg-pos">
 			<input>/instrumentation/ai[0]/roll-deg-cmd</input>
-			<rate_limit>540</rate_limit>
+			<rate_limit>720</rate_limit>
 		</actuator>
 		
 		<lag_filter name="/instrumentation/ai[0]/roll-deg">
@@ -365,6 +365,10 @@
 
 		<switch name="/instrumentation/ai[0]/fd-pitch-cmd">
 			<default value="35"/> <!-- Hidden -->
+			<test logic="AND" value="15">
+				/instrumentation/ai[0]/power-avail eq 1
+				/instrumentation/ai[0]/test-btn eq 1
+			</test>
 			<test logic="AND" value="/it-autoflight/fd/pitch-bar">
 				/instrumentation/ai[0]/power-avail eq 1
 				/instrumentation/ai[0]/att-avail eq 1
@@ -379,6 +383,10 @@
 
 		<switch name="/instrumentation/ai[0]/fd-roll-cmd">
 			<default value="0"/>
+			<test logic="AND" value="30">
+				/instrumentation/ai[0]/power-avail eq 1
+				/instrumentation/ai[0]/test-btn eq 1
+			</test>
 			<test logic="AND" value="/it-autoflight/fd/roll-bar">
 				/instrumentation/ai[0]/power-avail eq 1
 				/instrumentation/ai[0]/att-avail eq 1
@@ -508,7 +516,7 @@
 		
 		<actuator name="/instrumentation/ai[1]/pitch-deg-pos">
 			<input>/instrumentation/ai[1]/pitch-deg-cmd</input>
-			<rate_limit>270</rate_limit>
+			<rate_limit>360</rate_limit>
 		</actuator>
 		
 		<lag_filter name="/instrumentation/ai[1]/pitch-deg">
@@ -534,7 +542,7 @@
 		
 		<actuator name="/instrumentation/ai[1]/roll-deg-pos">
 			<input>/instrumentation/ai[1]/roll-deg-cmd</input>
-			<rate_limit>540</rate_limit>
+			<rate_limit>720</rate_limit>
 		</actuator>
 		
 		<lag_filter name="/instrumentation/ai[1]/roll-deg">
@@ -544,6 +552,10 @@
 
 		<switch name="/instrumentation/ai[1]/fd-pitch-cmd">
 			<default value="35"/> <!-- Hidden -->
+			<test logic="AND" value="15">
+				/instrumentation/ai[1]/power-avail eq 1
+				/instrumentation/ai[1]/test-btn eq 1
+			</test>
 			<test logic="AND" value="/it-autoflight/fd/pitch-bar">
 				/instrumentation/ai[1]/power-avail eq 1
 				/instrumentation/ai[1]/att-avail eq 1
@@ -558,6 +570,10 @@
 
 		<switch name="/instrumentation/ai[1]/fd-roll-cmd">
 			<default value="0"/>
+			<test logic="AND" value="30">
+				/instrumentation/ai[1]/power-avail eq 1
+				/instrumentation/ai[1]/test-btn eq 1
+			</test>
 			<test logic="AND" value="/it-autoflight/fd/roll-bar">
 				/instrumentation/ai[1]/power-avail eq 1
 				/instrumentation/ai[1]/att-avail eq 1
@@ -685,7 +701,7 @@
 		
 		<actuator name="/instrumentation/stby-ai/pitch-deg-pos">
 			<input>/instrumentation/stby-ai/pitch-deg-cmd</input>
-			<rate_limit>270</rate_limit>
+			<rate_limit>360</rate_limit>
 		</actuator>
 		
 		<lag_filter name="/instrumentation/stby-ai/pitch-deg">
@@ -710,7 +726,7 @@
 		
 		<actuator name="/instrumentation/stby-ai/roll-deg-pos">
 			<input>/instrumentation/stby-ai/roll-deg-cmd</input>
-			<rate_limit>540</rate_limit>
+			<rate_limit>720</rate_limit>
 		</actuator>
 		
 		<lag_filter name="/instrumentation/stby-ai/roll-deg">
