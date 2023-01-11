@@ -690,10 +690,10 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>PneuPress</object-name>
-		<property>instrumentation/pneu/x-bleed-psi</property>
+		<property>instrumentation/pneu/psi</property>
 		<interpolation>
-			<entry><ind>  0</ind><dep>  0</dep></entry>
-			<entry><ind>110</ind><dep>330</dep></entry>
+			<entry><ind>  0</ind><dep>    0</dep></entry>
+			<entry><ind>110</ind><dep>346.5</dep></entry>
 		</interpolation>
 		<axis>
 			<x1-m>2.73268</x1-m>

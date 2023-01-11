@@ -11,6 +11,27 @@
     </effect>
 	
 	<animation>
+		<type>select</type>
+		<object-name>AP</object-name>
+		<object-name>AP1</object-name>
+		<object-name>AP2</object-name>
+		<object-name>APTrim</object-name>
+		<object-name>FD</object-name>
+		<object-name>Heading</object-name>
+		<object-name>Horizon</object-name>
+		<object-name>ILS</object-name>
+		<object-name>Monitor</object-name>
+		<object-name>NoAutoland</object-name>
+		<object-name>Throttle</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/outputs/fma[1]</property>
+				<value>24</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<animation>
 		<type>material</type>
 		<object-name>arm2.screen</object-name>
 		<object-name>pitch2.screen</object-name>

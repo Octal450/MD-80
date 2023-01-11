@@ -336,10 +336,9 @@
 	
 	<!-- Flight Director Switches -->
 	<animation>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>FD1Switch</object-name>
 		<property>controls/cockpit/fd1</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
 			<entry><ind>0</ind><dep> 30</dep></entry>
 			<entry><ind>1</ind><dep>-30</dep></entry>
@@ -354,35 +353,31 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-		<increase>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FD1Switch</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>property-assign</command>
+				<command>property-toggle</command>
 				<property>it-autoflight/input/fd1</property>
-				<value>1</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
 			</binding>
-		</increase>
-		<decrease>
-			<binding>
-				<command>property-assign</command>
-				<property>it-autoflight/input/fd1</property>
-				<value>0</value>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
-			</binding>
-		</decrease>
+		</action>
 	</animation>
 	
 	<animation>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>FD2Switch</object-name>
 		<property>controls/cockpit/fd2</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
 			<entry><ind>0</ind><dep> 30</dep></entry>
 			<entry><ind>1</ind><dep>-30</dep></entry>
@@ -397,21 +392,20 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-		<increase>
-			<binding>
-				<command>property-assign</command>
-				<property>it-autoflight/input/fd2</property>
-				<value>1</value>
-			</binding>
-		</increase>
-		<decrease>
-			<binding>
-				<command>property-assign</command>
-				<property>it-autoflight/input/fd2</property>
-				<value>0</value>
-			</binding>
-		</decrease>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FD2Switch</object-name>
 		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>it-autoflight/input/fd2</property>
+			</binding>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
@@ -678,13 +672,12 @@
 	
 	<!-- Autothrottle Switch -->
 	<animation>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>ATSwitch</object-name>
 		<property>controls/cockpit/athr</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>0</ind><dep> 25</dep></entry>
-			<entry><ind>1</ind><dep>-25</dep></entry>
+			<entry><ind>0</ind><dep> 30</dep></entry>
+			<entry><ind>1</ind><dep>-30</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.00815</x-m>
@@ -696,21 +689,20 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-		<increase>
-			<binding>
-				<command>property-assign</command>
-				<property>it-autoflight/input/athr</property>
-				<value>1</value>
-			</binding>
-		</increase>
-		<decrease>
-			<binding>
-				<command>property-assign</command>
-				<property>it-autoflight/input/athr</property>
-				<value>0</value>
-			</binding>
-		</decrease>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>ATSwitch</object-name>
 		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>it-autoflight/input/athr</property>
+			</binding>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
@@ -1388,13 +1380,12 @@
 	
 	<!-- Autopilot Switch -->
 	<animation>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>APSwitch</object-name>
 		<property>controls/cockpit/ap</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>0</ind><dep> 25</dep></entry>
-			<entry><ind>1</ind><dep>-25</dep></entry>
+			<entry><ind>0</ind><dep> 30</dep></entry>
+			<entry><ind>1</ind><dep>-30</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.00815</x-m>
@@ -1406,36 +1397,21 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-		<increase>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>APSwitch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<condition>
-					<equals>
-						<property>controls/cockpit/ap-cmd</property>
-						<value>0</value>
-					</equals>
-				</condition>
 				<command>nasal</command>
 				<script>
 					libraries.apPanel.apSwitch();
 					libraries.Sound.switch1();
 				</script>
 			</binding>
-		</increase>
-		<decrease>
-			<binding>
-				<condition>
-					<equals>
-						<property>controls/cockpit/ap-cmd</property>
-						<value>1</value>
-					</equals>
-				</condition>
-				<command>nasal</command>
-				<script>
-					libraries.apPanel.apSwitch();
-					libraries.Sound.switch1();
-				</script>
-			</binding>
-		</decrease>
+		</action>
 	</animation>
 	
 	<!-- Autopilot Selector -->
@@ -1977,15 +1953,12 @@
 	
 	<!-- Lighting -->
 	<animation>
-		<name>Landing Light Rotate</name>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>SwLdgLtsL</object-name>
-		<object-name>SwLdgLtsL.bump</object-name>
 		<property>controls/cockpit/landing-light-l</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>0</ind><dep>-35</dep></entry>
-			<entry><ind>1</ind><dep> 35</dep></entry>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.00798</x-m>
@@ -1997,14 +1970,36 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>SwLdgLtsL</object-name>
 		<action>
+			<button>0</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>property-adjust</command>
-				<property>controls/lighting/landing-light-l</property> 
-				<factor>-0.5</factor>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
+				<command>property-cycle</command>
+				<property>/controls/lighting/landing-light-l</property>
+				<value>0</value>
+				<value>0.5</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/landing-light-l</property>
+				<value>1</value>
+				<value>0.5</value>
+				<value>0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -2014,15 +2009,12 @@
 	</animation>
 
 	<animation>
-		<name>Landing Light Rotate</name>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>SwLdgLtsR</object-name>
-		<object-name>SwLdgLtsR.bump</object-name>
 		<property>controls/cockpit/landing-light-r</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>0</ind><dep>-35</dep></entry>
-			<entry><ind>1</ind><dep> 35</dep></entry>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.00798</x-m>
@@ -2034,14 +2026,36 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>SwLdgLtsR</object-name>
 		<action>
+			<button>0</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>property-adjust</command>
-				<property>controls/lighting/landing-light-r</property>
-				<factor>-0.5</factor>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
+				<command>property-cycle</command>
+				<property>/controls/lighting/landing-light-r</property>
+				<value>0</value>
+				<value>0.5</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/landing-light-r</property>
+				<value>1</value>
+				<value>0.5</value>
+				<value>0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -2051,15 +2065,12 @@
 	</animation>
 
 	<animation>
-		<name>Landing Light Rotate</name>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>SwNoseLts</object-name>
-		<object-name>SwNoseLts.bump</object-name>
 		<property>controls/cockpit/landing-light-n</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>0</ind><dep>-35</dep></entry>
-			<entry><ind>1</ind><dep> 35</dep></entry>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.00798</x-m>
@@ -2071,14 +2082,36 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>SwNoseLts</object-name>
 		<action>
+			<button>0</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>property-adjust</command>
-				<property>controls/lighting/landing-light-n</property>
-				<factor>-0.5</factor>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
+				<command>property-cycle</command>
+				<property>/controls/lighting/landing-light-n</property>
+				<value>0</value>
+				<value>0.5</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/landing-light-n</property>
+				<value>1</value>
+				<value>0.5</value>
+				<value>0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -2088,14 +2121,12 @@
 	</animation>
 
 	<animation>
-		<name>Flood Light Rotate L</name>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>SwFloodLtsL</object-name>
 		<property>controls/cockpit/ground-flood-light-l</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>70</dep></entry>
+			<entry><ind>1</ind><dep>60</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.008647</x-m>
@@ -2107,21 +2138,20 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-		<increase>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/lighting/ground-flood-light-l</property>
-				<value>0</value>
-			</binding>
-		</increase>
-		<decrease>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/lighting/ground-flood-light-l</property>
-				<value>1</value>
-			</binding>
-		</decrease>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>SwFloodLtsL</object-name>
 		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/lighting/ground-flood-light-l</property>
+			</binding>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
@@ -2130,14 +2160,12 @@
 	</animation>
 
 	<animation>
-		<name>Flood Light Rotate R</name>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>SwFloodLtsR</object-name>
 		<property>controls/cockpit/ground-flood-light-r</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>70</dep></entry>
+			<entry><ind>1</ind><dep>60</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.008647</x-m>
@@ -2149,21 +2177,20 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-		<increase>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/lighting/ground-flood-light-r</property>
-				<value>0</value>
-			</binding>
-		</increase>
-		<decrease>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/lighting/ground-flood-light-r</property>
-				<value>1</value>
-			</binding>
-		</decrease>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>SwFloodLtsR</object-name>
 		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/lighting/ground-flood-light-r</property>
+			</binding>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
@@ -2172,14 +2199,12 @@
 	</animation>
 
 	<animation>
-		<name>Anti Coll Lights Rotate</name>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>SwACLts</object-name>
 		<property>controls/cockpit/beacon</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>70</dep></entry>
+			<entry><ind>1</ind><dep>60</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.008653</x-m>
@@ -2191,21 +2216,20 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-		<increase>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/lighting/beacon</property>
-				<value>0</value>
-			</binding>
-		</increase>
-		<decrease>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/lighting/beacon</property>
-				<value>1</value>
-			</binding>
-		</decrease>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>SwACLts</object-name>
 		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>/controls/lighting/beacon</property>
+			</binding>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
@@ -2214,14 +2238,12 @@
 	</animation>
 
 	<animation>
-		<name>Position Lights Rotate</name>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>SwNavLts</object-name>
 		<property>controls/cockpit/position-strobe-light</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>70</dep></entry>
+			<entry><ind>1.0</ind><dep>60</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.008653</x-m>
@@ -2233,14 +2255,36 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>SwNavLts</object-name>
 		<action>
+			<button>0</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>property-adjust</command>
-				<property>controls/lighting/position-strobe-light</property>
-				<factor>-0.5</factor>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
+				<command>property-cycle</command>
+				<property>/controls/lighting/position-strobe-light</property>
+				<value>0</value>
+				<value>0.5</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/position-strobe-light</property>
+				<value>1</value>
+				<value>0.5</value>
+				<value>0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -2250,14 +2294,12 @@
 	</animation>
 	
 	<animation>
-		<name>Wing Lights Rotate</name>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>SwWingLts</object-name>
 		<property>controls/cockpit/wing-lights</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>70</dep></entry>
+			<entry><ind>1</ind><dep>60</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.008653</x-m>
@@ -2277,6 +2319,42 @@
 				<min>0</min>
 				<max>1</max>
 				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>SwWingLts</object-name>
+		<action>
+			<button>0</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/wing-lights</property>
+				<value>0</value>
+				<value>0.5</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/lighting/wing-lights</property>
+				<value>1</value>
+				<value>0.5</value>
+				<value>0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>

@@ -369,10 +369,13 @@
 		</axis>
 	</animation>
 	
-	<!-- Sub-Model Imports -->
+	<!-- Model Imports -->
 	<model>
 		<name>OverheadPanel</name>
 		<path>Aircraft/MD-80/Models/MD-80_Overhead.xml</path>
+		<condition>
+			<not><property>/systems/acconfig/options/new-overhead</property></not>
+		</condition>
 	</model>
 
 	<model>
@@ -982,43 +985,50 @@
 	
 	<!-- ABS -->
 	<animation>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>ABSArm</object-name>
 		<property>controls/cockpit/abs-armed</property>
-		<drag-direction>vertical</drag-direction>
-		<factor>50</factor>
+		<interpolation>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
+		</interpolation>
 		<center>
-			<x-m>3.02175</x-m>
-			<y-m>0.11094</y-m>
-			<z-m>0.556287</z-m>
+			<x-m>3.02318</x-m>
+			<y-m>0</y-m>
+			<z-m>0.55846</z-m>
 		</center>
 		<axis>
 			<x>0</x>
 			<y>-1</y>
 			<z>0</z>
 		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>ABSArm</object-name>
 		<action> <!-- Switch sound done in master-system.nas -->
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>property-adjust</command>
+				<command>property-toggle</command>
 				<property>controls/gear/abs/armed</property>
-				<factor>1</factor>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
 			</binding>
 			<binding>
 				<command>property-assign</command>
 				<property>controls/gear/abs/armed-momentary</property>
 				<value>1</value>
 			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/gear/abs/armed-momentary</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
-		<release>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/gear/abs/armed-momentary</property>
-				<value>0</value>
-			</binding>
-		</release>
 	</animation>
 	
 	<animation>
@@ -1391,13 +1401,12 @@
 	
 	<!-- ART Switch -->
 	<animation>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>ARTSwitch</object-name>
 		<property>controls/cockpit/art</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>0</ind><dep> 25</dep></entry>
-			<entry><ind>1</ind><dep>-25</dep></entry>
+			<entry><ind>0</ind><dep> 30</dep></entry>
+			<entry><ind>1</ind><dep>-30</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>2.19616</x-m>
@@ -1409,14 +1418,19 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>ARTSwitch</object-name>
 		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>property-adjust</command>
+				<command>property-toggle</command>
 				<property>controls/dfgs/switches/art</property>
-				<factor>1</factor>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1427,13 +1441,12 @@
 	
 	<!-- Fuel Used Reset Switch -->
 	<animation>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>FuelUsedReset</object-name>
 		<property>controls/cockpit/fu-reset</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>0</ind><dep> 25</dep></entry>
-			<entry><ind>1</ind><dep>-25</dep></entry>
+			<entry><ind>0</ind><dep> 30</dep></entry>
+			<entry><ind>1</ind><dep>-30</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>2.24961</x-m>
@@ -1445,7 +1458,16 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-		<increase>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FuelUsedReset</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>property-assign</command>
 				<property>controls/engines/fu-reset</property>
@@ -1455,29 +1477,18 @@
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
 			</binding>
-		</increase>
-		<decrease>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/engines/fu-reset</property>
-				<value>0</value>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
-			</binding>
-		</decrease>
-		<release>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/engines/fu-reset</property>
-				<value>0</value>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
-			</binding>
-		</release>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/engines/fu-reset</property>
+					<value>0</value>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>libraries.Sound.switch1();</script>
+				</binding>
+			</mod-up>
+		</action>
 	</animation>
 
 </PropertyList>

@@ -18,17 +18,16 @@
 	</animation>
 	
 	<animation>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>transHydSwitch</object-name>
 		<property>/controls/cockpit/hyd-trans</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>0</ind><dep>-20</dep></entry>
-			<entry><ind>1</ind><dep> 20</dep></entry>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
 		</interpolation>   
 		<center>
 			<x-m>0.00855</x-m>
-			<y-m>-0.011487</y-m>
+			<y-m>0</y-m>
 			<z-m>-0.015184</z-m>
 		</center>
 		<axis>
@@ -36,15 +35,21 @@
 			<y>-1</y>
 			<z>0</z>
 		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>transHydSwitch</object-name>
 		<action>
 			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>property-adjust</command>
+				<command>property-cycle</command>
 				<property>/controls/hydraulics/switches/trans</property>
-				<factor>1</factor>
-				<min>0</min>
-				<max>1</max>
-				<wrap>false</wrap>
+				<value>0</value>
+				<value>1</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -54,18 +59,16 @@
 	</animation>
 	
 	<animation>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>auxHydSwitch</object-name>
 		<property>/controls/cockpit/hyd-aux-pump</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>-1</ind><dep>-20</dep></entry>
-			<entry><ind> 0</ind><dep>  0</dep></entry>
-			<entry><ind> 1</ind><dep> 20</dep></entry>
+			<entry><ind>-1</ind><dep>-30</dep></entry>
+			<entry><ind> 1</ind><dep> 30</dep></entry>
 		</interpolation>   
 		<center>
 			<x-m>0.00884</x-m>
-			<y-m>0.013335</y-m>
+			<y-m>0</y-m>
 			<z-m>-0.01566</z-m>
 		</center>
 		<axis>
@@ -73,15 +76,36 @@
 			<y>-1</y>
 			<z>0</z>
 		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>auxHydSwitch</object-name>
 		<action>
 			<button>0</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>property-adjust</command>
+				<command>property-cycle</command>
 				<property>/controls/hydraulics/switches/aux-pump</property>
-				<factor>1</factor>
-				<min>-1</min>
-				<max>1</max>
-				<wrap>false</wrap>
+				<value>-1</value>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>/controls/hydraulics/switches/aux-pump</property>
+				<value>1</value>
+				<value>0</value>
+				<value>-1</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -91,18 +115,16 @@
 	</animation>
 	
 	<animation>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>eng1HydSwitch</object-name>
 		<property>/controls/cockpit/hyd-l-pump</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>0</ind><dep>-20</dep></entry>
-			<entry><ind>1</ind><dep>  0</dep></entry>
-			<entry><ind>2</ind><dep> 20</dep></entry>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>2</ind><dep> 30</dep></entry>
 		</interpolation>   
 		<center>
 			<x-m>0.00884</x-m>
-			<y-m>-0.012985</y-m>
+			<y-m>0</y-m>
 			<z-m>0.01203</z-m>
 		</center>
 		<axis>
@@ -110,36 +132,47 @@
 			<y>-1</y>
 			<z>0</z>
 		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>eng1HydSwitch</object-name>
 		<action>
 			<button>0</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>property-adjust</command>
+				<command>property-cycle</command>
 				<property>/controls/hydraulics/switches/l-pump</property>
-				<factor>1</factor>
-				<min>0</min>
-				<max>2</max>
-				<wrap>false</wrap>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
 			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<command>property-cycle</command>
+				<property>/controls/hydraulics/switches/l-pump</property>
+				<value>2</value>
+				<value>1</value>
+				<value>0</value>
 			</binding>
 		</action>
 	</animation>
 	
 	<animation>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>eng2HydSwitch</object-name>
 		<property>/controls/cockpit/hyd-r-pump</property>
-		<drag-direction>vertical</drag-direction>
 		<interpolation>
-			<entry><ind>0</ind><dep>-20</dep></entry>
-			<entry><ind>1</ind><dep>  0</dep></entry>
-			<entry><ind>2</ind><dep> 20</dep></entry>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>2</ind><dep> 30</dep></entry>
 		</interpolation>   
 		<center>
 			<x-m>0.00884</x-m>
-			<y-m>0.013335</y-m>
+			<y-m>0</y-m>
 			<z-m>0.01203</z-m>
 		</center>
 		<axis>
@@ -147,19 +180,32 @@
 			<y>-1</y>
 			<z>0</z>
 		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>eng2HydSwitch</object-name>
 		<action>
 			<button>0</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>property-adjust</command>
+				<command>property-cycle</command>
 				<property>/controls/hydraulics/switches/r-pump</property>
-				<factor>1</factor>
-				<min>0</min>
-				<max>2</max>
-				<wrap>false</wrap>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
 			</binding>
+		</action>
+		<action>
+			<button>1</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<command>property-cycle</command>
+				<property>/controls/hydraulics/switches/r-pump</property>
+				<value>2</value>
+				<value>1</value>
+				<value>0</value>
 			</binding>
 		</action>
 	</animation>
