@@ -5,6 +5,12 @@
 
 <system name="MD-80: Cockpit"> <!-- Everything here is after all systems -->
 	
+	<property value="0">/systems/caws/apoff/out</property>
+	<property value="0">/systems/caws/landing-gear/out</property>
+	<property value="0">/systems/caws/overspeed/out</property>
+	<property value="0">/systems/caws/slat-overspeed/out</property>
+	<property value="0">/systems/caws/stabilizer-buzz/out</property>
+	<property value="0">/systems/caws/stabilizer-motion/out</property>
 	<property value="0">/systems/caws/stall-1/out</property>
 	<property value="0">/systems/caws/stall-2/out</property>
 	
@@ -316,6 +322,82 @@
 		
 		<lag_filter name="/controls/cockpit/x-feed-lever">
 			<input>/controls/fuel/switches/x-feed</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<!-- Overhead -->
+		<lag_filter name="/controls/cockpit/overhead/ac-tie">
+			<input>/controls/electrical/switches/ac-tie</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/apu-bleed">
+			<input>/controls/pneumatics/switches/bleed-apu</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/apu-gen">
+			<input>/controls/electrical/switches/gen-apu</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/apu-master">
+			<input>/controls/apu/switches/master</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/apu-pwr-l">
+			<input>/controls/electrical/switches/apu-pwr-l</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/apu-pwr-r">
+			<input>/controls/electrical/switches/apu-pwr-r</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/csd-l">
+			<input>/controls/electrical/switches/csd-l</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/csd-r">
+			<input>/controls/electrical/switches/csd-r</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/dc-tie">
+			<input>/controls/electrical/switches/dc-tie</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/emer-pwr">
+			<input>/controls/electrical/switches/emer-pwr</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/ext-pwr-l">
+			<input>/controls/electrical/switches/ext-pwr-l</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/ext-pwr-r">
+			<input>/controls/electrical/switches/ext-pwr-r</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/galley-bus">
+			<input>/controls/electrical/switches/galley</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/gen-l">
+			<input>/controls/electrical/switches/gen-l</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/gen-r">
+			<input>/controls/electrical/switches/gen-r</input>
 			<c1>20</c1>
 		</lag_filter>
 	
