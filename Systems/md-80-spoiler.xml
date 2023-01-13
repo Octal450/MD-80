@@ -201,7 +201,7 @@
 	
 	<channel name="Spoiler L1">
 		
-		<switch name="hydraulics/spoiler-l1/switch">
+		<switch name="hydraulics/spoiler-l1/lock">
 			<default value="0"/>
 			<test value="spoilers/main-cmd">
 				spoilers/ground-spoiler-unlocked eq 1
@@ -210,7 +210,7 @@
 		
 		<switch name="hydraulics/spoiler-l1/switch">
 			<default value="0"/>
-			<test logic="OR" value="hydraulics/spoiler-l1/switch">
+			<test logic="OR" value="hydraulics/spoiler-l1/lock">
 				/systems/hydraulics/sys-l-psi ge 950
 				/systems/hydraulics/sys-r-psi ge 950
 			</test>
@@ -327,7 +327,7 @@
 	
 	<channel name="Spoiler R1">
 		
-		<switch name="hydraulics/spoiler-r1/switch">
+		<switch name="hydraulics/spoiler-r1/lock">
 			<default value="0"/>
 			<test value="spoilers/main-cmd">
 				spoilers/ground-spoiler-unlocked eq 1
@@ -336,7 +336,7 @@
 		
 		<switch name="hydraulics/spoiler-r1/switch">
 			<default value="0"/>
-			<test logic="OR" value="hydraulics/spoiler-r1/switch">
+			<test logic="OR" value="hydraulics/spoiler-r1/lock">
 				/systems/hydraulics/sys-l-psi ge 950
 				/systems/hydraulics/sys-r-psi ge 950
 			</test>
