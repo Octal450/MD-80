@@ -1227,8 +1227,8 @@
 			</function>
 			<output>fcs/left-brake-input-feedback</output>
 			<clipto>
-				<min>0</min>
-				<max>1</max>
+				<min>0.0</min>
+				<max>1.0</max>
 			</clipto>
 		</fcs_function>
 		
@@ -1256,8 +1256,8 @@
 			</function>
 			<output>fcs/right-brake-input-feedback</output>
 			<clipto>
-				<min>0</min>
-				<max>1</max>
+				<min>0.0</min>
+				<max>1.0</max>
 			</clipto>
 		</fcs_function>
 		
