@@ -2475,11 +2475,6 @@
 	
 	<channel name="Misc Cockpit Indications" execrate="8">
 		
-		<lag_filter name="/instrumentation/pneu/x-bleed-psi">
-			<input>/systems/pneumatics/x-bleed/psi</input>
-			<c1>15</c1>
-		</lag_filter>
-		
 		<fcs_function name="inertia/weight-lbs-fmt">
 			<function>
 				<product>
@@ -2542,6 +2537,30 @@
 			<input>/instrumentation/nav[1]/frequencies/selected-mhz-fmt</input>
 			<gain>100</gain>
 		</pure_gain>
+	
+	</channel>
+	
+	<channel name="Pneumatic Pressure Gauge" execrate="4">
+		
+		<switch name="/instrumentation/pneu/power-avail">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/emer-ac ge 112
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/pneu/psi-input">
+			<default value="/instrumentation/pneu/psi-input"/>
+			<test value="/systems/pneumatics/x-bleed/psi">
+				/instrumentation/pneu/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/pneu/psi">
+			<input>/instrumentation/pneu/psi-input</input>
+			<c1>15</c1>
+		</lag_filter>
 	
 	</channel>
 
