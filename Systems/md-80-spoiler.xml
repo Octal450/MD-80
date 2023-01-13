@@ -140,7 +140,7 @@
 		</switch>
 		
 		<switch name="spoilers/main-cmd-deg">
-			<default value="0.0"/>
+			<default value="0"/>
 			<test value="11.6">
 				spoilers/lever-cmd eq 1
 			</test>
