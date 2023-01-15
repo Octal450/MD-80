@@ -3,6 +3,42 @@
 <PropertyList>
 	<fx>
 		
+		<sb>
+			<mode>once</mode>
+			<name>sb</name>
+			<path>Aircraft/MD-80/Sounds/Cockpit/seatbelt.wav</path>
+			<condition>
+				<and>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/efis</property>
+						<value>24</value>
+					</greater-than-equals>
+					<property>/sim/sound/seatbelt-sign</property>
+				</and>
+			</condition>
+			<volume>
+				<property>/sim/current-view/internal</property>
+			</volume>
+		</sb>
+		
+		<ns>
+			<mode>once</mode>
+			<name>ns</name>
+			<path>Aircraft/MD-80/Sounds/Cockpit/nosmoko.wav</path>
+			<condition>
+				<and>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/efis</property>
+						<value>24</value>
+					</greater-than-equals>
+					<property>/sim/sound/no-smoking-sign</property>
+				</and>
+			</condition>
+			<volume>
+				<property>/sim/current-view/internal</property>
+			</volume>
+		</ns>
+		
 		<switch>
 			<name>Clamp on</name>
 			<mode>once</mode>
@@ -274,9 +310,9 @@
 				<property>/MD80/enginep/MDA_WHN_1</property>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDB_WHN>
 		
@@ -295,9 +331,9 @@
 				<property>/MD80/enginep/MDA_WHN_2</property>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDA_WHN>
 		
@@ -314,9 +350,9 @@
 				<property>/MD80/enginep/MDA_WHN_3</property>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDA_WHN>
 		
@@ -333,9 +369,9 @@
 				<property>/MD80/enginep/MDA_howl</property>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDA_WHN>
 		
@@ -350,6 +386,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDA_hum</property>
 			</pitch>
+			<position>
+				<x>33.37</x>
+				<y>2.7</y>
+				<z>0.7</z>
+			</position>
 		</MDA_WHN>-->
 		
 		<MDA_WHN>
@@ -365,9 +406,9 @@
 				<property>/MD80/enginep/MDA_hum</property>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDA_WHN>
 		
@@ -393,9 +434,9 @@
 				<offset>0</offset>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDA_WHN>
 		
@@ -412,9 +453,9 @@
 				<property>/MD80/enginep/MDA_WHN_5</property>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDA_WHN>
 		
@@ -433,9 +474,9 @@
 				<property>/MD80/enginep/MDA_REV1</property>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDA_REV>
 		
@@ -453,9 +494,9 @@
 				<property>/MD80/enginep/MDB_WHN_1</property>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>-3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>-2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDB_WHN>
 		
@@ -474,9 +515,9 @@
 				<property>/MD80/enginep/MDB_WHN_2</property>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>-3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>-2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDB_WHN>
 		
@@ -493,9 +534,9 @@
 				<property>/MD80/enginep/MDB_WHN_3</property>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>-3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>-2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDB_WHN>
 		
@@ -512,9 +553,9 @@
 				<property>/MD80/enginep/MDB_howl</property>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>-3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>-2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDB_WHN>
 		
@@ -529,6 +570,11 @@
 			<pitch>
 				<property>/MD80/enginep/MDB_hum</property>
 			</pitch>
+			<position>
+				<x>33.37</x>
+				<y>-2.7</y>
+				<z>0.7</z>
+			</position>
 		</MDB_WHN>-->
 		
 		<MDB_WHN>
@@ -544,9 +590,9 @@
 				<property>/MD80/enginep/MDB_hum</property>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>-3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>-2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDB_WHN>
 		
@@ -565,9 +611,9 @@
 				<property>/MD80/enginep/MDB_WHN_4</property>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>-3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>-2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDB_WHN>
 		
@@ -584,9 +630,9 @@
 				<property>/MD80/enginep/MDB_WHN_5</property>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>-3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>-2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDB_WHN>
 		
@@ -605,9 +651,9 @@
 				<property>/MD80/enginep/MDA_REV2</property>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>-3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>-2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDA_REV>
 		
@@ -626,9 +672,9 @@
 				<property>/MD80/enginep/MDA_CMB_1</property>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDA_CMB>
 		
@@ -647,46 +693,11 @@
 				<property>/MD80/enginep/MDB_CMB_1</property>
 			</pitch>
 			<position>
-				<x>34</x>
-				<y>-3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>-2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDB_CMB>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		<!-- X ENGINE 1 IDLE -->
 		
@@ -707,9 +718,9 @@
 			</pitch>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>34</x>
-				<y>3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDA_WHN>
 		
@@ -730,9 +741,9 @@
 			</pitch>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>34</x>
-				<y>3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDA_WHN>
 		
@@ -761,9 +772,9 @@
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>34</x>
-				<y>3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDA_WHN>
 		
@@ -793,9 +804,9 @@
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>34</x>
-				<y>-3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDA_WHN>
 		
@@ -823,9 +834,9 @@
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>34</x>
-				<y>3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDA_WHN>
 		
@@ -848,9 +859,9 @@
 			</pitch>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>34</x>
-				<y>-3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>-2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDB_WHN>
 		
@@ -871,9 +882,9 @@
 			</pitch>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>34</x>
-				<y>-3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>-2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDB_WHN>
 		
@@ -902,9 +913,9 @@
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>34</x>
-				<y>-3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>-2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDB_WHN>
 		
@@ -934,9 +945,9 @@
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>34</x>
-				<y>-3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>-2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDB_WHN>
 		
@@ -964,9 +975,9 @@
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>34</x>
-				<y>-3</y>
-				<z>0</z>
+				<x>33.37</x>
+				<y>-2.7</y>
+				<z>0.7</z>
 			</position>
 		</MDB_WHN>
 		
