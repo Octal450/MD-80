@@ -5,6 +5,7 @@
 
 <system name="MD-80: Cockpit"> <!-- Everything here is after all systems -->
 	
+	<property value="0">/controls/cockpit/overhead/battery-out</property>
 	<property value="0">/systems/caws/apoff/out</property>
 	<property value="0">/systems/caws/landing-gear/out</property>
 	<property value="0">/systems/caws/overspeed/out</property>
@@ -331,6 +332,16 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/overhead/air-supply-l">
+			<input>/controls/pneumatics/switches/supply-l</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/air-supply-r">
+			<input>/controls/pneumatics/switches/supply-r</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/overhead/apu-bleed">
 			<input>/controls/pneumatics/switches/bleed-apu</input>
 			<c1>20</c1>
@@ -346,6 +357,11 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/overhead/apu-pwr-gndsvc">
+			<input>/controls/electrical/switches/apu-gndsvc</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/overhead/apu-pwr-l">
 			<input>/controls/electrical/switches/apu-pwr-l</input>
 			<c1>20</c1>
@@ -354,6 +370,27 @@
 		<lag_filter name="/controls/cockpit/overhead/apu-pwr-r">
 			<input>/controls/electrical/switches/apu-pwr-r</input>
 			<c1>20</c1>
+		</lag_filter>
+		
+		<switch name="/controls/cockpit/overhead/battery-in"> <!-- Makes the animation nice for rotate then twist and vice versa -->
+			<default value="0"/>
+			<test logic="AND" value="0.8">
+				/controls/electrical/switches/battery eq 0
+				/controls/cockpit/overhead/battery-out gt 0.81
+			</test>
+			<test logic="AND" value="0.8">
+				/controls/electrical/switches/battery eq 1
+				/controls/cockpit/overhead/battery-out lt 0.79
+			</test>
+			<test value="1">
+				/controls/electrical/switches/battery eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/controls/cockpit/overhead/battery">
+			<input>/controls/cockpit/overhead/battery-in</input>
+			<c1>20</c1>
+			<output>/controls/cockpit/overhead/battery-out</output>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/csd-l">
@@ -373,6 +410,11 @@
 		
 		<lag_filter name="/controls/cockpit/overhead/emer-pwr">
 			<input>/controls/electrical/switches/emer-pwr</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/ext-pwr-gndsvc">
+			<input>/controls/electrical/switches/ext-gndsvc</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -400,6 +442,101 @@
 			<input>/controls/electrical/switches/gen-r</input>
 			<c1>20</c1>
 		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/gpws">
+			<input>/controls/switches/gpws</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/ign">
+			<input>/controls/ignition/ign</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/logo-lt">
+			<input>/controls/lighting/logo-lights</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/mach-trim">
+			<input>/controls/fctl/switches/mach-trim</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/max-spd-warn-test">
+			<input>/controls/switches/max-spd-warn-test</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/no-smok">
+			<input>/controls/switches/no-smoking-sign</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/pump-aft-c">
+			<input>/controls/fuel/switches/pump-aft-c</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/pump-aft-l">
+			<input>/controls/fuel/switches/pump-aft-l</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/pump-aft-r">
+			<input>/controls/fuel/switches/pump-aft-r</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/pump-fwd-c">
+			<input>/controls/fuel/switches/pump-fwd-c</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/pump-fwd-l">
+			<input>/controls/fuel/switches/pump-fwd-l</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/pump-fwd-r">
+			<input>/controls/fuel/switches/pump-fwd-r</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/radio-rack">
+			<input>/controls/pneumatics/switches/radio-rack</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/seatbelts">
+			<input>/controls/switches/seatbelt-sign</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/stall-test">
+			<input>/controls/switches/stall-test</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/start-pump">
+			<input>/controls/fuel/switches/pump-start</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/start-switch-l">
+			<input>/controls/engines/engine[0]/start-switch</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/start-switch-r">
+			<input>/controls/engines/engine[1]/start-switch</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/yaw-damper">
+			<input>/controls/fctl/switches/yaw-damper</input>
+			<c1>20</c1>
+		</lag_filter>
 	
 	</channel>
 	
@@ -412,6 +549,57 @@
 				/gear/abs/knob-input ne 0
 				/gear/abs/armed-input eq 0
 			</test>
+		</switch>
+	
+	</channel>
+	
+	<channel name="Misc">
+		
+		<switch name="/controls/switches/seatbelt-sign-status">
+			<default value="0"/>
+			<test value="1">
+				/controls/switches/seatbelt-sign eq 1
+			</test>
+			<test logic="AND" value="1">
+				/controls/switches/seatbelt-sign eq 0.5
+				<test logic="OR">
+					/controls/flight/flaps-input ne 0
+					/controls/gear/lever eq 1
+				</test>
+			</test>
+			<!--test logic="AND" value="1">
+				/cabin/alt/prop gt 10000
+			</test-->
+		</switch>
+		
+		<switch name="/controls/switches/no-smoking-sign-status">
+			<default value="0"/>
+			<test value="1">
+				/controls/switches/no-smoking-sign eq 1
+			</test>
+			<test logic="AND" value="1">
+				/controls/switches/no-smoking-sign eq 0.5
+				/controls/gear/lever eq 1
+			</test>
+			<!--test logic="AND" value="1">
+				/cabin/alt/prop gt 10000
+			</test-->
+		</switch>
+		
+		<switch name="/instrumentation/mk-viii/inputs/discretes/audio-inhibit-tie">
+			<default value="0"/>
+			<test value="1">
+				/controls/switches/gpws eq -1
+			</test>
+			<output>/instrumentation/mk-viii/inputs/discretes/audio-inhibit</output>
+		</switch>
+		
+		<switch name="/instrumentation/mk-viii/inputs/discretes/self-test-tie">
+			<default value="0"/>
+			<test value="1">
+				/controls/switches/gpws eq 1
+			</test>
+			<output>/instrumentation/mk-viii/inputs/discretes/self-test</output>
 		</switch>
 	
 	</channel>
@@ -504,8 +692,9 @@
 		<!-- Overspeed -->
 		<switch name="/systems/caws/logic/overspeed">
 			<default value="0"/>
-			<test value="1">
+			<test logic="OR" value="1">
 				/instrumentation/airspeed-indicator/indicated-speed-kt gt dfgs/speeds/vmo-mmo
+				/controls/switches/max-spd-warn-test ne 0
 			</test>
 		</switch>
 		
@@ -590,6 +779,9 @@
 				aero/alpha-deg-damped ge dfgs/stall-appr-alpha-deg
 				position/wow ne 1
 			</test>
+			<test value="1">
+				/controls/switches/stall-test ne 0
+			</test>
 		</switch>
 		
 		<!-- Wheel Not Turning -->
@@ -671,6 +863,16 @@
 				<urandom/>
 			</function>
 		</fcs_function>
+		
+		<switch name="/systems/caws/logic/stall-random">
+			<default value="/systems/caws/random"/>
+			<test value="-1">
+				/controls/switches/stall-test eq -1
+			</test>
+			<test value="1">
+				/controls/switches/stall-test eq 1
+			</test>
+		</switch>
 		
 		<!-- Autopilot Horn -->
 		<switch name="/systems/caws/apoff/trigger">
@@ -814,7 +1016,7 @@
 				/systems/caws/stall-1/out eq 0
 				/systems/caws/logic/stall eq 1
 				/systems/caws/stall-2/out eq 0
-				/systems/caws/random lt 0
+				/systems/caws/logic/stall-random ge 0
 			</test>
 		</switch>
 		
@@ -835,7 +1037,7 @@
 				/systems/caws/stall-2/out eq 0
 				/systems/caws/logic/stall eq 1
 				/systems/caws/stall-1/out eq 0
-				/systems/caws/random ge 0
+				/systems/caws/logic/stall-random lt 0
 			</test>
 		</switch>
 		

@@ -375,6 +375,9 @@ var PANEL = {
 			systems.FUEL.Switch.pumpFwdC.setBoolValue(1);
 		}
 		systems.IGNITION.Switch.ign.setValue(1);
+		systems.PNEU.Switch.supplyL.setValue(2);
+		systems.PNEU.Switch.supplyR.setValue(2);
+		systems.PNEU.Switch.xBleedL.setValue(1);
 		systems.PNEU.Switch.xBleedL.setValue(1);
 		systems.PNEU.Switch.xBleedR.setValue(1);
 		

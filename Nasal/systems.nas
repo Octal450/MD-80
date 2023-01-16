@@ -322,11 +322,13 @@ var FCTL = {
 		yawDamper: props.globals.getNode("/systems/failures/fctl/yaw-damper"),
 	},
 	Switch: {
+		machTrim: props.globals.getNode("/controls/fctl/switches/mach-trim"),
 		rudderPwr: props.globals.getNode("/controls/fctl/switches/rudder-pwr"),
 		yawDamper: props.globals.getNode("/controls/fctl/switches/yaw-damper"),
 	},
 	init: func() {
 		me.resetFailures();
+		me.Switch.machTrim.setBoolValue(1);
 		me.Switch.rudderPwr.setBoolValue(1);
 		me.Switch.yawDamper.setValue(1);
 	},

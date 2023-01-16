@@ -1459,6 +1459,13 @@
 			</test>
 		</switch>
 		
+		<switch name="/controls/lighting/overhead-panel-norm">
+			<default value="0"/>
+			<test value="/controls/lighting/overhead-panel-knb">
+				/systems/electrical/bus/ac-l ge 112
+			</test>
+		</switch>
+		
 		<switch name="/controls/lighting/pedestal-digital-norm">
 			<default value="0"/>
 			<test value="/controls/lighting/pedestal-digital-knb">

@@ -7,23 +7,6 @@
 	
 	<channel name="Main Pneumatics" execrate="8">
 		
-		<!-- TEMPORARY AUTOMATIC CONTROL OF PACKS BECAUSE NO COCKPIT PANEL -->
-		<switch name="/controls/pneumatics/temporary/supply-l">
-			<default value="0"/>
-			<test value="2">
-				/engines/engine[0]/state eq 3
-			</test>
-			<output>/controls/pneumatics/switches/supply-l</output>
-		</switch>
-		
-		<switch name="/controls/pneumatics/temporary/supply-r">
-			<default value="0"/>
-			<test value="2">
-				/engines/engine[1]/state eq 3
-			</test>
-			<output>/controls/pneumatics/switches/supply-r</output>
-		</switch>
-		
 		<!-- Bleed Inputs -->
 		<pure_gain name="/systems/pneumatics/apu-valve-input">
 			<input>/controls/pneumatics/switches/bleed-apu</input>

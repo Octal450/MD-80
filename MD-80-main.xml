@@ -496,6 +496,7 @@
 		</engines>
 		<fctl n="0">
 			<switches n="0">
+				<mach-trim type="bool">1</mach-trim>
 				<rudder-pwr type="bool">1</rudder-pwr>
 				<yaw-damper type="int">1</yaw-damper>
 			</switches>
@@ -556,6 +557,7 @@
 			<landing-light-n type="double">0</landing-light-n>
 			<landing-light-r type="double">0</landing-light-r>
 			<logo-lights type="bool">0</logo-lights>
+			<overhead-panel-knb type="double">0</overhead-panel-knb>
 			<pedestal-digital-knb type="double">1</pedestal-digital-knb>
 			<pedestal-panel-knb type="double">0</pedestal-panel-knb>
 			<position-strobe-light type="double">0</position-strobe-light>
@@ -578,13 +580,16 @@
 		</pneumatics>
 		<switches n="0">
 			<annun-test type="bool">0</annun-test>
+			<gpws type="int">0</gpws>
 			<modekb type="int">2</modekb> <!-- For temporary ND -->
 			<modekb2 type="int">2</modekb2> <!-- For temporary ND -->
+			<max-spd-warn-test type="int">0</max-spd-warn-test>
 			<minimums type="int">200</minimums>
-			<no-smoking-sign type="double">1</no-smoking-sign> <!-- Smoking is bad! -->
+			<no-smoking-sign type="int">1</no-smoking-sign> <!-- Smoking is bad! -->
 			<no-smoking-sign-status type="bool">1</no-smoking-sign-status>
-			<seatbelt-sign type="double">0</seatbelt-sign>
+			<seatbelt-sign type="int">0</seatbelt-sign>
 			<seatbelt-sign-status type="bool">0</seatbelt-sign-status>
+			<stall-test type="int">0</stall-test>
 		</switches>
 	</controls>
 	

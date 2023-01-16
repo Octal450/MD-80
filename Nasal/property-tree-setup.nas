@@ -41,9 +41,12 @@ var Controls = {
 	},
 	Switches: {
 		annunTest: props.globals.getNode("/controls/switches/annun-test"),
+		gpws: props.globals.getNode("/controls/switches/gpws"),
+		maxSpdWarnTest: props.globals.getNode("/controls/switches/max-spd-warn-test"),
 		minimums: props.globals.getNode("/controls/switches/minimums"),
 		noSmokingSign: props.globals.getNode("/controls/switches/no-smoking-sign"),
 		seatbeltSign: props.globals.getNode("/controls/switches/seatbelt-sign"),
+		stallTest: props.globals.getNode("/controls/switches/stall-test"),
 	},
 };
 
