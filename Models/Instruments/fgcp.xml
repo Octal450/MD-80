@@ -50,7 +50,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>KnobPanel</object-name>
-		<property>controls/lighting/fgcp-panel-knb</property>
+		<property>controls/cockpit/fgcp-panel-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -80,7 +80,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>KnobDigital</object-name>
-		<property>controls/lighting/fgcp-digital-knb</property>
+		<property>controls/cockpit/fgcp-digital-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>

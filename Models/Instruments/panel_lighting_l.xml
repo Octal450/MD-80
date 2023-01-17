@@ -22,7 +22,7 @@
 		<type>knob</type>
 		<object-name>KnobPanel</object-name>
 		<object-name>IntegrityPanel</object-name>
-		<property>controls/lighting/capt-panel-knb</property>
+		<property>controls/cockpit/capt-panel-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -53,7 +53,7 @@
 		<type>knob</type>
 		<object-name>KnobDigital</object-name>
 		<object-name>IntegrityDigital</object-name>
-		<property>controls/lighting/capt-digital-knb</property>
+		<property>controls/cockpit/capt-digital-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>

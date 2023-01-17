@@ -21,7 +21,7 @@
 		<type>knob</type>
 		<object-name>KnobPanel</object-name>
 		<object-name>IntegrityPanel</object-name>
-		<property>controls/lighting/pedestal-panel-knb</property>
+		<property>controls/cockpit/pedestal-panel-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -52,7 +52,7 @@
 		<type>knob</type>
 		<object-name>KnobPanelTop</object-name>
 		<object-name>IntegrityPanelTop</object-name>
-		<property>controls/lighting/center-panel-knb</property>
+		<property>controls/cockpit/center-panel-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -83,7 +83,7 @@
 		<type>knob</type>
 		<object-name>KnobDigital</object-name>
 		<object-name>IntegrityDigital</object-name>
-		<property>controls/lighting/pedestal-digital-knb</property>
+		<property>controls/cockpit/pedestal-digital-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>

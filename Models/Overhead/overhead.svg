@@ -17,7 +17,7 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="overhead.svg"
-   inkscape:export-filename="D:\Aircraft\MD-80\Models\Overhead\overhead.png"
+   inkscape:export-filename="D:\Aircraft\MD-80\Models\Overhead\overhead-labels.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -29,9 +29,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35355343"
-     inkscape:cx="1533.2738"
-     inkscape:cy="1487.2093"
+     inkscape:zoom="0.25000003"
+     inkscape:cx="1295.3979"
+     inkscape:cy="901.00843"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -5614,12 +5614,12 @@
            id="tspan4925">SYS 2</tspan><tspan
            id="tspan4932"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff"
-           y="-422.08395"
+           y="-422.08386"
            x="1932.7786"
            sodipodi:role="line">OFF</tspan><tspan
            id="tspan4934"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff"
-           y="-397.08405"
+           y="-397.08386"
            x="1932.7786"
            sodipodi:role="line">SYS 1</tspan></text>
       <text
@@ -8310,6 +8310,35 @@
            x="1420.3596"
            id="tspan5378"
            sodipodi:role="line">RES</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="1364.9535"
+         y="-40.199131"
+         id="text5369"
+         sodipodi:linespacing="125%"
+         transform="scale(0.99999878,1.0000012)"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"><tspan
+           sodipodi:role="line"
+           x="1364.9535"
+           y="-40.199131"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:100%;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff"
+           id="tspan5373">.</tspan></text>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         sodipodi:linespacing="125%"
+         id="text5377"
+         y="-40.199154"
+         x="1783.8134"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           id="tspan5379"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:100%;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff"
+           y="-40.199154"
+           x="1783.8134"
+           sodipodi:role="line">.</tspan></text>
     </g>
     <g
        id="Labels-Extra"

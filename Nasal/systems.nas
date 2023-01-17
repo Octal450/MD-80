@@ -497,19 +497,21 @@ var PNEU = {
 		radioRack: props.globals.getNode("/controls/pneumatics/switches/radio-rack"),
 		supplyL: props.globals.getNode("/controls/pneumatics/switches/supply-l"),
 		supplyR: props.globals.getNode("/controls/pneumatics/switches/supply-r"),
+		tempSel: props.globals.getNode("/controls/pneumatics/switches/temp-sel"),
 		xBleedL: props.globals.getNode("/controls/pneumatics/switches/x-bleed-l"),
 		xBleedR: props.globals.getNode("/controls/pneumatics/switches/x-bleed-r"),
 	},
 	init: func() {
 		me.resetFailures();
 		me.Switch.bleedApu.setValue(0);
-		me.Switch.cabinTemp.setValue(0.5);
-		me.Switch.cockpitTemp.setValue(0.5);
+		me.Switch.cabinTemp.setValue(0.45);
+		me.Switch.cockpitTemp.setValue(0.45);
 		me.Switch.groundAir.setBoolValue(0);
 		me.Switch.instrumentFlow.setValue(0);
 		me.Switch.radioRack.setValue(0);
 		me.Switch.supplyL.setValue(0);
 		me.Switch.supplyR.setValue(0);
+		me.Switch.tempSel.setBoolValue(0);
 		me.Switch.xBleedL.setValue(0);
 		me.Switch.xBleedR.setValue(0);
 	},

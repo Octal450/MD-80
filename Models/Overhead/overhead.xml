@@ -12,6 +12,7 @@
 		<object-name>Face</object-name>
 		<object-name>Labels</object-name>
 		<object-name>IntegrityFlood</object-name>
+		<object-name>IntegrityMeterSelHeat</object-name>
 		<object-name>IntegrityPanel</object-name>
 		<emission>
 			<red>1.0</red>
@@ -1278,8 +1279,8 @@
 				<command>property-cycle</command>
 				<property>controls/switches/seatbelt-sign</property>
 				<value>-1</value>
-				<value> 0</value>
-				<value> 1</value>
+				<value>0</value>
+				<value>1</value>
 			</binding>
 		</action>
 		<action>
@@ -1289,8 +1290,8 @@
 			<binding>
 				<command>property-cycle</command>
 				<property>controls/switches/seatbelt-sign</property>
-				<value> 1</value>
-				<value> 0</value>
+				<value>1</value>
+				<value>0</value>
 				<value>-1</value>
 			</binding>
 		</action>
@@ -1347,9 +1348,8 @@
 	
 	<animation>
 		<type>knob</type>
-		<object-name>KnobPanel</object-name>
-		<object-name>IntegrityPanel</object-name>
-		<property>controls/lighting/overhead-panel-knb</property>
+		<object-name>OvhdPanel</object-name>
+		<property>controls/cockpit/overhead/overhead-panel-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -1357,7 +1357,7 @@
 		<center>
 			<x-m>0</x-m>
 			<y-m>0.07752</y-m>
-			<z-m>-0.10676</z-m>
+			<z-m>-0.10748</z-m>
 		</center>
 		<axis>
 			<x>-1</x>
@@ -1378,8 +1378,7 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>KnobFlood</object-name>
-		<object-name>IntegrityFlood</object-name>
+		<object-name>OvhdFlood</object-name>
 		<property>controls/lighting/overhead-flood-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
@@ -1388,7 +1387,7 @@
 		<center>
 			<x-m>0</x-m>
 			<y-m>0.14822</y-m>
-			<z-m>-0.10673</z-m>
+			<z-m>-0.10745</z-m>
 		</center>
 		<axis>
 			<x>-1</x>
@@ -1613,6 +1612,37 @@
 	
 	<!-- Air Panel -->
 	<animation>
+		<type>knob</type>
+		<object-name>CkptTemp</object-name>
+		<property>controls/cockpit/overhead/cockpit-temp</property>
+		<drag-scale-px>15</drag-scale-px>
+		<interpolation>
+			<entry><ind>0.00</ind><dep> 180</dep></entry>
+			<entry><ind>0.05</ind><dep> 130</dep></entry>
+			<entry><ind>0.85</ind><dep>-130</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.05383</y-m>
+			<z-m>-0.26613</z-m>
+		</center>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/pneumatics/switches/cockpit-temp</property>
+				<factor>0.05</factor>
+				<min>0</min>
+				<max>0.85</max>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
 		<type>rotate</type>
 		<object-name>AirSupplyL</object-name>
 		<property>controls/cockpit/overhead/air-supply-l</property>
@@ -1704,6 +1734,68 @@
 				<value>2</value>
 				<value>1</value>
 				<value>0</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>CabinTemp</object-name>
+		<property>controls/cockpit/overhead/cabin-temp</property>
+		<drag-scale-px>15</drag-scale-px>
+		<interpolation>
+			<entry><ind>0.00</ind><dep> 180</dep></entry>
+			<entry><ind>0.05</ind><dep> 130</dep></entry>
+			<entry><ind>0.85</ind><dep>-130</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.16411</y-m>
+			<z-m>-0.26613</z-m>
+		</center>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/pneumatics/switches/cabin-temp</property>
+				<factor>0.05</factor>
+				<min>0</min>
+				<max>0.85</max>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>TempSel</object-name>
+		<property>controls/cockpit/overhead/temp-sel</property>
+		<drag-scale-px>15</drag-scale-px>
+		<interpolation>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.21227</y-m>
+			<z-m>-0.22114</z-m>
+		</center>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/pneumatics/switches/temp-sel</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
 			</binding>
 		</action>
 	</animation>

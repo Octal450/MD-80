@@ -62,6 +62,21 @@
 			<c1>5</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/capt-digital-knb">
+			<input>/controls/lighting/capt-digital-knb</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/capt-panel-knb">
+			<input>/controls/lighting/capt-panel-knb</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/center-panel-knb">
+			<input>/controls/lighting/center-panel-knb</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/fd1">
 			<input>/it-autoflight/input/fd1</input>
 			<c1>20</c1>
@@ -126,6 +141,26 @@
 			</function>
 		</fcs_function>
 		
+		<lag_filter name="/controls/cockpit/fgcp-digital-knb">
+			<input>/controls/lighting/fgcp-digital-knb</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/fgcp-panel-knb">
+			<input>/controls/lighting/fgcp-panel-knb</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/fo-digital-knb">
+			<input>/controls/lighting/fo-digital-knb</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/fo-panel-knb">
+			<input>/controls/lighting/fo-panel-knb</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/fu-reset">
 			<input>/controls/engines/fu-reset</input>
 			<c1>20</c1>
@@ -189,6 +224,16 @@
 		
 		<lag_filter name="/controls/cockpit/nd2-dimmer">
 			<input>/instrumentation/du/nd2-dimmer</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/pedestal-digital-knb">
+			<input>/controls/lighting/pedestal-digital-knb</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/pedestal-panel-knb">
+			<input>/controls/lighting/pedestal-panel-knb</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -393,6 +438,16 @@
 			<output>/controls/cockpit/overhead/battery-out</output>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/overhead/cabin-temp">
+			<input>/controls/pneumatics/switches/cabin-temp</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/cockpit-temp">
+			<input>/controls/pneumatics/switches/cockpit-temp</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/overhead/csd-l">
 			<input>/controls/electrical/switches/csd-l</input>
 			<c1>20</c1>
@@ -473,6 +528,11 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/overhead/overhead-panel-knb">
+			<input>/controls/lighting/overhead-panel-knb</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/overhead/pump-aft-c">
 			<input>/controls/fuel/switches/pump-aft-c</input>
 			<c1>20</c1>
@@ -530,6 +590,11 @@
 		
 		<lag_filter name="/controls/cockpit/overhead/start-switch-r">
 			<input>/controls/engines/engine[1]/start-switch</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/temp-sel">
+			<input>/controls/pneumatics/switches/temp-sel</input>
 			<c1>20</c1>
 		</lag_filter>
 		
