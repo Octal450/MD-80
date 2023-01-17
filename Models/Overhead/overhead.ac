@@ -3034,9 +3034,13 @@ refs 4
 436 0.068535 0.409927
 435 0.069485 0.410687
 kids 0
-OBJECT poly
+OBJECT group
 name "AcDcVoltFreq"
-loc -0.00875616 -0.061723 0.0982836
+loc 0.00154794 -0.0657956 0.0784106
+kids 2
+OBJECT poly
+name "KnobAcDcVoltFreq"
+loc -0.0103041 0.00407259 0.019873
 data 10
 Circle.001
 texture "txt_lighting.png"
@@ -3741,6 +3745,32 @@ refs 4
 95 0.390861 0.156435
 97 0.390861 0.156435
 70 0.381395 0.116216
+kids 0
+OBJECT poly
+name "IntegrityAcDcVoltFreq"
+loc 0.00866924 -0.0017833 -0.0139965
+data 29
+integlight.indicator.mesh.001
+texture "txt_lighting.png"
+crease 45.000000
+numvert 4
+-0.00845265 0.0061619 0.00157049
+-0.00844643 0.00863583 7.01845e-06
+-0.00831804 0.00631123 4.75347e-06
+-0.00845079 0.00616395 -0.00156105
+numsurf 2
+SURF 0x10
+mat 0
+refs 3
+1 0.534996 0.36736
+0 0.534689 0.366631
+2 0.534996 0.366692
+SURF 0x10
+mat 0
+refs 3
+2 0.534996 0.366692
+3 0.535303 0.366631
+1 0.534996 0.36736
 kids 0
 OBJECT poly
 name "AftFuelPumpC"

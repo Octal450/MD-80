@@ -11,6 +11,7 @@
 		<type>material</type>
 		<object-name>Face</object-name>
 		<object-name>Labels</object-name>
+		<object-name>IntegrityAcDcVoltFreq</object-name>
 		<object-name>IntegrityFlood</object-name>
 		<object-name>IntegrityMeterSelHeat</object-name>
 		<object-name>IntegrityPanel</object-name>
