@@ -17,7 +17,7 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="overhead.svg"
-   inkscape:export-filename="D:\Aircraft\MD-80\Models\Overhead\overhead-labels.png"
+   inkscape:export-filename="D:\Aircraft\MD-80\Models\Overhead\overhead.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -29,9 +29,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.25000003"
-     inkscape:cx="1295.3979"
-     inkscape:cy="901.00843"
+     inkscape:zoom="0.50000006"
+     inkscape:cx="1412.1064"
+     inkscape:cy="1204.9651"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -361,7 +361,7 @@
          sodipodi:nodetypes="ccccccccc"
          inkscape:connector-curvature="0"
          id="rect7746"
-         d="m 1265.485,-520.9368 971.375,0 0,252.036 -723.375,0 0,-70.345 -97.713,0 0,70.345 -150.287,0 z"
+         d="m 1265.485,-520.9368 971.375,0 0,252.036 -723.375,0 0,-66.80947 -97.713,0 0,66.80947 -150.287,0 z"
          style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
     <g
@@ -690,6 +690,12 @@
            cx="121.99167"
            cy="626.80634"
            r="22.5" />
+        <circle
+           r="22.5"
+           cy="-7.5086617"
+           cx="523.05975"
+           id="circle5373"
+           style="opacity:1;fill:#464646;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       </g>
       <g
          inkscape:export-ydpi="90"
@@ -1271,14 +1277,7 @@
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
          transform="matrix(1.46,0,0,1.46,1286.5203,-1336.7137)"
-         id="g5445">
-        <circle
-           style="opacity:1;fill:#464646;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="circle5447"
-           cx="121.99167"
-           cy="626.80634"
-           r="22.5" />
-      </g>
+         id="g5445" />
       <g
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
@@ -8233,20 +8232,6 @@
            y="288.25299"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:100%;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff"
            id="tspan5256">L                  R</tspan></text>
-      <path
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         id="path5443"
-         style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:3;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         sodipodi:type="arc"
-         sodipodi:cx="1464.6281"
-         sodipodi:cy="-421.16809"
-         sodipodi:rx="44.640102"
-         sodipodi:ry="44.543873"
-         sodipodi:start="5.2359878"
-         sodipodi:end="4.1887902"
-         sodipodi:open="true"
-         d="m 1486.9481,-459.74422 a 44.640102,44.543873 0 0 1 20.799,50.10493 44.640102,44.543873 0 0 1 -43.119,33.01507 44.640102,44.543873 0 0 1 -43.1191,-33.01507 44.640102,44.543873 0 0 1 20.799,-50.10493" />
       <g
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
@@ -8339,6 +8324,20 @@
            y="-40.199154"
            x="1783.8134"
            sodipodi:role="line">.</tspan></text>
+      <path
+         id="path5375"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:2.53621435;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         sodipodi:type="arc"
+         sodipodi:cx="1464.6281"
+         sodipodi:cy="-417.86188"
+         sodipodi:rx="49.998859"
+         sodipodi:ry="49.999126"
+         sodipodi:start="5.2359878"
+         sodipodi:end="4.1887902"
+         sodipodi:open="true"
+         d="m 1489.6275,-461.16239 a 49.998859,49.999126 0 0 1 23.2957,56.24124 49.998859,49.999126 0 0 1 -48.2951,37.0584 49.998859,49.999126 0 0 1 -48.2952,-37.0584 49.998859,49.999126 0 0 1 23.2957,-56.24124"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
     </g>
     <g
        id="Labels-Extra"
