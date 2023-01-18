@@ -342,12 +342,18 @@ var FCTL = {
 # Fuel
 var FUEL = {
 	Fail: {
+		auxTransAft: props.globals.getNode("/systems/failures/fuel/aux-trans-aft"),
+		auxTransFwd: props.globals.getNode("/systems/failures/fuel/aux-trans-fwd"),
 		pumpsC: props.globals.getNode("/systems/failures/fuel/pumps-c"),
 		pumpsL: props.globals.getNode("/systems/failures/fuel/pumps-l"),
 		pumpsR: props.globals.getNode("/systems/failures/fuel/pumps-r"),
 		pumpStart: props.globals.getNode("/systems/failures/fuel/pump-start"),
 	},
 	Switch: {
+		auxTransAftA: props.globals.getNode("/controls/fuel/switches/aux-trans-aft-a"),
+		auxTransAftB: props.globals.getNode("/controls/fuel/switches/aux-trans-aft-b"),
+		auxTransFwdA: props.globals.getNode("/controls/fuel/switches/aux-trans-fwd-a"),
+		auxTransFwdB: props.globals.getNode("/controls/fuel/switches/aux-trans-fwd-b"),
 		pumpAftC: props.globals.getNode("/controls/fuel/switches/pump-aft-c"),
 		pumpAftL: props.globals.getNode("/controls/fuel/switches/pump-aft-l"),
 		pumpAftR: props.globals.getNode("/controls/fuel/switches/pump-aft-r"),
@@ -369,6 +375,8 @@ var FUEL = {
 		me.Switch.xFeed.setBoolValue(0);
 	},
 	resetFailures: func() {
+		me.Fail.auxTransAft.setBoolValue(0);
+		me.Fail.auxTransFwd.setBoolValue(0);
 		me.Fail.pumpsC.setBoolValue(0);
 		me.Fail.pumpsL.setBoolValue(0);
 		me.Fail.pumpsR.setBoolValue(0);

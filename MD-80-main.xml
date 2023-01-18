@@ -510,6 +510,10 @@
 		</flight>
 		<fuel n="0">
 			<switches n="0">
+				<aux-trans-aft-a type="bool">0</aux-trans-aft-a>
+				<aux-trans-aft-b type="bool">0</aux-trans-aft-b>
+				<aux-trans-fwd-a type="bool">0</aux-trans-fwd-a>
+				<aux-trans-fwd-b type="bool">0</aux-trans-fwd-b>
 				<pump-aft-c type="bool">0</pump-aft-c>
 				<pump-aft-l type="bool">0</pump-aft-l>
 				<pump-aft-r type="bool">0</pump-aft-r>
@@ -1434,6 +1438,8 @@
 				<yaw-damper type="bool">0</yaw-damper>
 			</fctl>
 			<fuel n="0">
+				<aux-trans-aft type="bool">0</aux-trans-aft>
+				<aux-trans-fwd type="bool">0</aux-trans-fwd>
 				<pump-start type="bool">0</pump-start>
 				<pumps-c type="bool">0</pumps-c>
 				<pumps-l type="bool">0</pumps-l>

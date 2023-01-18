@@ -64,6 +64,7 @@
 	</limits>
 	
 	<options n="0">
+		<aux-tanks type="bool">0</aux-tanks>
 		<eng type="string">217A</eng>
 		<panel type="string">Analog</panel>
 	</options>

@@ -11,6 +11,7 @@
 		<type>material</type>
 		<object-name>Face</object-name>
 		<object-name>Labels</object-name>
+		<object-name>LabelsAuxTanks</object-name>
 		<object-name>IntegrityAcDcVoltFreq</object-name>
 		<object-name>IntegrityFlood</object-name>
 		<object-name>IntegrityMeterSelHeat</object-name>
@@ -21,6 +22,19 @@
 			<blue>0.3</blue>
 			<factor-prop>controls/lighting/overhead-panel-norm</factor-prop>
 		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>AftAuxTransA</object-name>
+		<object-name>AftAuxTransB</object-name>
+		<object-name>FwdAuxTransA</object-name>
+		<object-name>FwdAuxTransB</object-name>
+		<object-name>BackgroundAuxTanks</object-name>
+		<object-name>LabelsAuxTanks</object-name>
+		<condition>
+			<property>options/aux-tanks</property>
+		</condition>
 	</animation>
 	
 	<!-- Ground Service Panel -->

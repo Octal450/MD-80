@@ -422,6 +422,32 @@
 				</binding>
 				<live>true</live>
 			</checkbox>
+			
+			<checkbox>
+				<label>Aux Trans Aft Pumps</label>
+				<halign>left</halign>
+				<property>/systems/failures/fuel/aux-trans-aft</property>
+				<enable>
+					<property>options/aux-tanks</property>
+				</enable>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Aux Trans Fwd Pumps</label>
+				<halign>left</halign>
+				<property>/systems/failures/fuel/aux-trans-fwd</property>
+				<enable>
+					<property>options/aux-tanks</property>
+				</enable>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
 		
 		</group>
 	
