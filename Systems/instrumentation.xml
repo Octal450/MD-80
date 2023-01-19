@@ -21,15 +21,6 @@
 		<output>/instrumentation/du/crt-contrast</output>
 	</filter>
 	
-	<!-- VSI -->
-	<filter>
-		<name>Vertical Speed Indicator</name>
-		<type>exponential</type>
-		<input>/it-autoflight/internal/vert-speed-fpm</input>
-		<output>/instrumentation/vertical-speed-indicator/vert-speed-fpm</output>
-		<filter-time>1.28</filter-time>
-	</filter>
-	
 	<!-- RMI -->
 	<filter>
 		<name>RMI 1 NAV 1 Error</name>

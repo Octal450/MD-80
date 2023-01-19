@@ -1570,6 +1570,29 @@
 	
 	<channel name="Vertical Speed Indicators" execrate="2">
 		
+		<!-- Computation -->
+		<lag_filter name="/instrumentation/vertical-speed-indicator/ground/rate-lag">
+			<input>/orientation/pitch-rate-degps</input>
+			<c1>5.0</c1>
+		</lag_filter>
+		
+		<pure_gain name="/instrumentation/vertical-speed-indicator/ground/rate">
+			<input>/instrumentation/vertical-speed-indicator/ground/rate-lag</input>
+			<gain>-75</gain>
+		</pure_gain>
+		
+		<switch name="/instrumentation/vertical-speed-indicator/vert-speed-fpm-switch">
+			<default value="/it-autoflight/internal/vert-speed-fpm"/>
+			<test logic="OR" value="/instrumentation/vertical-speed-indicator/ground/rate">
+				position/wow eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/vertical-speed-indicator/vert-speed-fpm">
+			<input>/instrumentation/vertical-speed-indicator/vert-speed-fpm-switch</input>
+			<c1>1.0</c1>
+		</lag_filter>
+		
 		<!-- Vertical Speed Indicator 1 -->
 		<switch name="/instrumentation/vertical-speed-indicator[0]/power-avail">
 			<default value="0"/>
