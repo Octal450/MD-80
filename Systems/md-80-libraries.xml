@@ -39,6 +39,11 @@
 			<output>/position/gear-agl-m</output> <!-- So flight recorder can override it -->
 		</pure_gain>
 		
+		<summer name="inertia/zfw-lbs">
+			<input>inertia/weight-lbs</input>
+			<input>-propulsion/total-fuel-lbs</input>
+		</summer>
+		
 		<fcs_function name="/gear/gear[0]/wow-timer-cmd">
 			<function>
 				<sum> <!-- Inverter, so that it is 1 at sim start -->

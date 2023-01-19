@@ -87,6 +87,11 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/fuel-channel-select">
+			<input>/controls/fuel/switches/channel-select</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<linear_actuator name="/controls/cockpit/flex-d1-linear">
 			<input>/controls/tri/flex-d1</input>
 			<module>10</module>

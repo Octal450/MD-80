@@ -2487,7 +2487,10 @@
 						<integer>
 							<sum>
 								<quotient>
-									<property>inertia/weight-lbs</property>
+									<sum>
+										<property>inertia/zfw-lbs</property>
+										<property>/systems/fuel/tank-a-lbs</property>
+									</sum>
 									<value>25</value>
 								</quotient>
 								<value>0.5</value>

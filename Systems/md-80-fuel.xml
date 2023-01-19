@@ -345,18 +345,25 @@
 						<value>1</value>
 					</eq>
 					<value>88888</value>
-					<product>
-						<integer>
-							<sum>
-								<quotient>
-									<property>propulsion/tank[0]/contents-lbs</property>
-									<value>25</value>
-								</quotient>
-								<value>0.5</value>
-							</sum>
-						</integer>
-						<value>25</value>
-					</product>
+					<ifthen>
+						<eq>
+							<property>/controls/fuel/switches/channel-test</property>
+							<value>1</value>
+						</eq>
+						<value>3000</value>
+						<product>
+							<integer>
+								<sum>
+									<quotient>
+										<property>propulsion/tank[0]/contents-lbs</property>
+										<value>25</value>
+									</quotient>
+									<value>0.5</value>
+								</sum>
+							</integer>
+							<value>25</value>
+						</product>
+					</ifthen>
 				</ifthen>
 			</function>
 		</fcs_function>
@@ -369,18 +376,25 @@
 						<value>1</value>
 					</eq>
 					<value>88888</value>
-					<product>
-						<integer>
-							<sum>
-								<quotient>
-									<property>propulsion/tank[1]/contents-lbs</property>
-									<value>25</value>
-								</quotient>
-								<value>0.5</value>
-							</sum>
-						</integer>
-						<value>25</value>
-					</product>
+					<ifthen>
+						<eq>
+							<property>/controls/fuel/switches/channel-test</property>
+							<value>1</value>
+						</eq>
+						<value>3000</value>
+						<product>
+							<integer>
+								<sum>
+									<quotient>
+										<property>propulsion/tank[1]/contents-lbs</property>
+										<value>25</value>
+									</quotient>
+									<value>0.5</value>
+								</sum>
+							</integer>
+							<value>25</value>
+						</product>
+					</ifthen>
 				</ifthen>
 			</function>
 		</fcs_function>
@@ -393,18 +407,25 @@
 						<value>1</value>
 					</eq>
 					<value>88888</value>
-					<product>
-						<integer>
-							<sum>
-								<quotient>
-									<property>propulsion/tank[2]/contents-lbs</property>
-									<value>25</value>
-								</quotient>
-								<value>0.5</value>
-							</sum>
-						</integer>
-						<value>25</value>
-					</product>
+					<ifthen>
+						<eq>
+							<property>/controls/fuel/switches/channel-test</property>
+							<value>1</value>
+						</eq>
+						<value>3000</value>
+						<product>
+							<integer>
+								<sum>
+									<quotient>
+										<property>propulsion/tank[2]/contents-lbs</property>
+										<value>25</value>
+									</quotient>
+									<value>0.5</value>
+								</sum>
+							</integer>
+							<value>25</value>
+						</product>
+					</ifthen>
 				</ifthen>
 			</function>
 		</fcs_function>

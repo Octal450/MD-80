@@ -8,6 +8,68 @@
 	<path>fuel.ac</path>
 	
 	<animation>
+		<type>rotate</type>
+		<object-name>TestKnob</object-name>
+		<property>controls/cockpit/fuel-channel-select</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>5</dep></entry>
+			<entry><ind>1</ind><dep>-30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.03657</y-m>
+			<z-m>-0.03601</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>TestKnob</object-name>
+		<property>controls/fuel/switches/channel-test</property>
+		<factor>-0.005</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>TestKnob</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/fuel/switches/channel-test</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/fuel/switches/channel-test</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+		<action>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/fuel/switches/channel-select</property>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
 		<type>material</type>
 		<object-name>center-lbs</object-name>
 		<object-name>gross-weight-lbs</object-name>
