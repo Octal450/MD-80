@@ -166,7 +166,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type type="string">number-value</type>
 		<format type="string">%2.0f</format>
-		<property>fdm/jsbsim/inertia/weight-lbs-fmt</property>
+		<property>fdm/jsbsim/inertia/weight-lbs-ind</property>
 		<truncate>false</truncate>
 		<font type="string">Std7SegCustom.ttf</font>
 		<draw-text>true</draw-text>

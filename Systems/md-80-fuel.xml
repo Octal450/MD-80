@@ -339,62 +339,90 @@
 		
 		<fcs_function name="/systems/fuel/tank-l-lbs">
 			<function>
-				<product>
-					<integer>
-						<sum>
-							<quotient>
-								<property>propulsion/tank[0]/contents-lbs</property>
-								<value>25</value>
-							</quotient>
-							<value>0.5</value>
-						</sum>
-					</integer>
-					<value>25</value>
-				</product>
+				<ifthen>
+					<eq>
+						<property>/controls/switches/annun-test</property>
+						<value>1</value>
+					</eq>
+					<value>88888</value>
+					<product>
+						<integer>
+							<sum>
+								<quotient>
+									<property>propulsion/tank[0]/contents-lbs</property>
+									<value>25</value>
+								</quotient>
+								<value>0.5</value>
+							</sum>
+						</integer>
+						<value>25</value>
+					</product>
+				</ifthen>
 			</function>
 		</fcs_function>
 		
 		<fcs_function name="/systems/fuel/tank-c-lbs">
 			<function>
-				<product>
-					<integer>
-						<sum>
-							<quotient>
-								<property>propulsion/tank[1]/contents-lbs</property>
-								<value>25</value>
-							</quotient>
-							<value>0.5</value>
-						</sum>
-					</integer>
-					<value>25</value>
-				</product>
+				<ifthen>
+					<eq>
+						<property>/controls/switches/annun-test</property>
+						<value>1</value>
+					</eq>
+					<value>88888</value>
+					<product>
+						<integer>
+							<sum>
+								<quotient>
+									<property>propulsion/tank[1]/contents-lbs</property>
+									<value>25</value>
+								</quotient>
+								<value>0.5</value>
+							</sum>
+						</integer>
+						<value>25</value>
+					</product>
+				</ifthen>
 			</function>
 		</fcs_function>
 		
 		<fcs_function name="/systems/fuel/tank-r-lbs">
 			<function>
-				<product>
-					<integer>
-						<sum>
-							<quotient>
-								<property>propulsion/tank[2]/contents-lbs</property>
-								<value>25</value>
-							</quotient>
-							<value>0.5</value>
-						</sum>
-					</integer>
-					<value>25</value>
-				</product>
+				<ifthen>
+					<eq>
+						<property>/controls/switches/annun-test</property>
+						<value>1</value>
+					</eq>
+					<value>88888</value>
+					<product>
+						<integer>
+							<sum>
+								<quotient>
+									<property>propulsion/tank[2]/contents-lbs</property>
+									<value>25</value>
+								</quotient>
+								<value>0.5</value>
+							</sum>
+						</integer>
+						<value>25</value>
+					</product>
+				</ifthen>
 			</function>
 		</fcs_function>
 		
 		<fcs_function name="/systems/fuel/tank-a-lbs">
 			<function>
-				<sum>
-					<property>/systems/fuel/tank-l-lbs</property>
-					<property>/systems/fuel/tank-c-lbs</property>
-					<property>/systems/fuel/tank-r-lbs</property>
-				</sum>
+				<ifthen>
+					<eq>
+						<property>/controls/switches/annun-test</property>
+						<value>1</value>
+					</eq>
+					<value>88888</value>
+					<sum>
+						<property>/systems/fuel/tank-l-lbs</property>
+						<property>/systems/fuel/tank-c-lbs</property>
+						<property>/systems/fuel/tank-r-lbs</property>
+					</sum>
+				</ifthen>
 			</function>
 		</fcs_function>
 	

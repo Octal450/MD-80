@@ -2475,20 +2475,27 @@
 	
 	<channel name="Misc Cockpit Indications" execrate="8">
 		
-		<fcs_function name="inertia/weight-lbs-fmt">
+		<fcs_function name="inertia/weight-lbs-ind">
 			<function>
-				<product>
-					<integer>
-						<sum>
-							<quotient>
-								<property>inertia/weight-lbs</property>
-								<value>25</value>
-							</quotient>
-							<value>0.5</value>
-						</sum>
-					</integer>
-					<value>25</value>
-				</product>
+				<ifthen>
+					<eq>
+						<property>/controls/switches/annun-test</property>
+						<value>1</value>
+					</eq>
+					<value>888888</value>
+					<product>
+						<integer>
+							<sum>
+								<quotient>
+									<property>inertia/weight-lbs</property>
+									<value>25</value>
+								</quotient>
+								<value>0.5</value>
+							</sum>
+						</integer>
+						<value>25</value>
+					</product>
+				</ifthen>
 			</function>
 		</fcs_function>
 	
