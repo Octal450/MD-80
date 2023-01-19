@@ -9,23 +9,47 @@
 	
 	<animation>
 		<type>material</type>
-		<object-name>Digits</object-name>
+		<object-name>center-lbs</object-name>
+		<object-name>gross-weight-lbs</object-name>
+		<object-name>left-lbs</object-name>
+		<object-name>right-lbs</object-name>
+		<object-name>total-lbs</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.45</green>
+			<blue>0</blue>
+			<factor-prop>controls/lighting/pedestal-digital-norm</factor-prop>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
 		<emission>
-			<red>1.0</red>
-			<green>1.0</green>
-			<blue>1.0</blue>
+			<red>1</red>
+			<green>0.45</green>
+			<blue>0</blue>
 			<factor-prop>controls/lighting/pedestal-digital-norm</factor-prop>
 		</emission>
 	</animation>
 	
 	<animation>
 		<type>select</type>
-		<object-name>Digits</object-name>
+		<object-name>center-lbs</object-name>
+		<object-name>gross-weight-lbs</object-name>
+		<object-name>left-lbs</object-name>
+		<object-name>right-lbs</object-name>
+		<object-name>total-lbs</object-name>
 		<condition>
 			<and>
 				<greater-than-equals>
-					<property>systems/electrical/outputs/efis</property>
-					<value>25</value>
+					<property>systems/electrical/bus/ac-l</property>
+					<value>24</value>
 				</greater-than-equals>
 				<greater-than>
 					<property>controls/lighting/pedestal-digital-norm</property>
@@ -34,327 +58,125 @@
 			</and>
 		</condition>
 	</animation>
-
-<!-- Fuel Left Digits -->
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelL1</object-name>
-  <property>systems/fuel/tank-l-lbs</property>
-  <factor>0.00001</factor>
-  <step>10000</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelL2</object-name>
-  <property>systems/fuel/tank-l-lbs</property>
-  <factor>0.0001</factor>
-  <step>1000</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelL3</object-name>
-  <property>systems/fuel/tank-l-lbs</property>
-  <factor>0.001</factor>
-  <step>100</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelL4</object-name>
-  <property>systems/fuel/tank-l-lbs</property>
-  <factor>0.01</factor>
-  <step>10</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelL5</object-name>
-  <property>systems/fuel/tank-l-lbs</property>
-  <factor>0.1</factor>
-  <step>1</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-
-<!-- Fuel Right Digits -->
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelR1</object-name>
-  <property>systems/fuel/tank-r-lbs</property>
-  <factor>0.00001</factor>
-  <step>10000</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelR2</object-name>
-  <property>systems/fuel/tank-r-lbs</property>
-  <factor>0.0001</factor>
-  <step>1000</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelR3</object-name>
-  <property>systems/fuel/tank-r-lbs</property>
-  <factor>0.001</factor>
-  <step>100</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelR4</object-name>
-  <property>systems/fuel/tank-r-lbs</property>
-  <factor>0.01</factor>
-  <step>10</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelR5</object-name>
-  <property>systems/fuel/tank-r-lbs</property>
-  <factor>0.1</factor>
-  <step>1</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-
-<!-- Fuel Center Digits -->
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelC1</object-name>
-  <property>systems/fuel/tank-c-lbs</property>
-  <factor>0.00001</factor>
-  <step>10000</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelC2</object-name>
-  <property>systems/fuel/tank-c-lbs</property>
-  <factor>0.0001</factor>
-  <step>1000</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelC3</object-name>
-  <property>systems/fuel/tank-c-lbs</property>
-  <factor>0.001</factor>
-  <step>100</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelC4</object-name>
-  <property>systems/fuel/tank-c-lbs</property>
-  <factor>0.01</factor>
-  <step>10</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelC5</object-name>
-  <property>systems/fuel/tank-c-lbs</property>
-  <factor>0.1</factor>
-  <step>1</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-
-<!-- Fuel Total Digits -->
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelT1</object-name>
-  <property>systems/fuel/tank-a-lbs</property>
-  <factor>0.00001</factor>
-  <step>10000</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelT2</object-name>
-  <property>systems/fuel/tank-a-lbs</property>
-  <factor>0.0001</factor>
-  <step>1000</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelT3</object-name>
-  <property>systems/fuel/tank-a-lbs</property>
-  <factor>0.001</factor>
-  <step>100</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelT4</object-name>
-  <property>systems/fuel/tank-a-lbs</property>
-  <factor>0.01</factor>
-  <step>10</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>FuelT5</object-name>
-  <property>systems/fuel/tank-a-lbs</property>
-  <factor>0.1</factor>
-  <step>1</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-
-<!-- Gross Weight Pounds Digits -->
-<animation>
-  <type>textranslate</type>
-  <object-name>Lbs1</object-name>
-  <property>fdm/jsbsim/inertia/weight-lbs-fmt</property>
-  <factor>0.000001</factor>
-  <step>100000</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>Lbs2</object-name>
-  <property>fdm/jsbsim/inertia/weight-lbs-fmt</property>
-  <factor>0.00001</factor>
-  <step>10000</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>Lbs3</object-name>
-  <property>fdm/jsbsim/inertia/weight-lbs-fmt</property>
-  <factor>0.0001</factor>
-  <step>1000</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>Lbs4</object-name>
-  <property>fdm/jsbsim/inertia/weight-lbs-fmt</property>
-  <factor>0.001</factor>
-  <step>100</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>Lbs5</object-name>
-  <property>fdm/jsbsim/inertia/weight-lbs-fmt</property>
-  <factor>0.01</factor>
-  <step>10</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
-<animation>
-  <type>textranslate</type>
-  <object-name>Lbs6</object-name>
-  <property>fdm/jsbsim/inertia/weight-lbs-fmt</property>
-  <factor>0.1</factor>
-  <step>1</step>
-  <axis>
-    <x>0</x>
-    <y>1</y>
-    <z>0</z>
-  </axis>
-</animation>
+	
+	<text>
+		<name>left-lbs</name>
+		<offsets>
+			<x-m>0.003</x-m>
+			<y-m>-0.0048</y-m>
+			<z-m>0.0261</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%02.0f</format>
+		<property>systems/fuel/tank-l-lbs</property>
+		<truncate>false</truncate>
+		<font type="string">Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>right-lbs</name>
+		<offsets>
+			<x-m>0.003</x-m>
+			<y-m>0.0393</y-m>
+			<z-m>0.0261</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%02.0f</format>
+		<property>systems/fuel/tank-r-lbs</property>
+		<truncate>false</truncate>
+		<font type="string">Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>center-lbs</name>
+		<offsets>
+			<x-m>0.003</x-m>
+			<y-m>0.0173</y-m>
+			<z-m>0.0071</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%02.0f</format>
+		<property>systems/fuel/tank-c-lbs</property>
+		<truncate>false</truncate>
+		<font type="string">Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>total-lbs</name>
+		<offsets>
+			<x-m>0.003</x-m>
+			<y-m>0.0192</y-m>
+			<z-m>-0.0121</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%02.0f</format>
+		<property>systems/fuel/tank-a-lbs</property>
+		<truncate>false</truncate>
+		<font type="string">Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0095</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>gross-weight-lbs</name>
+		<offsets>
+			<x-m>0.003</x-m>
+			<y-m>0.0207</y-m>
+			<z-m>-0.0311</z-m>
+		</offsets>
+		<alignment>right-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type type="string">number-value</type>
+		<format type="string">%2.0f</format>
+		<property>fdm/jsbsim/inertia/weight-lbs-fmt</property>
+		<truncate>false</truncate>
+		<font type="string">Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width type="int">32</width>
+			<height type="int">32</height>
+		</font-resolution>
+	</text>
 
 </PropertyList>
