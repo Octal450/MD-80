@@ -92,7 +92,7 @@
 	
 	<nasal n="0">
 		<setup>
-			<script>aircraft.livery.init("Aircraft/MD-80/Models/Liveries");</script>
+			<script>aircraft.livery.init("Aircraft/MD-80/Models/Liveries/MD-82");</script>
 		</setup>
     </nasal>
 
