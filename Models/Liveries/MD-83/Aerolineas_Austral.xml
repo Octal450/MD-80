@@ -6,13 +6,13 @@
   <model>
     <livery>
       <name type="string">Austral</name>
-      <texture>Liveries/MD-82/aerolineas_austral_fuselage.png</texture>
+      <texture>Liveries/MD-83/aerolineas_austral_fuselage.png</texture>
     </livery>
     <fairings>
-      <texture>Liveries/MD-82/aerolineas_austral_panza.png</texture>
+      <texture>Liveries/MD-83/aerolineas_austral_panza.png</texture>
     </fairings>
     <rudders>
-      <texture>Liveries/MD-82/aerolineas_austral_m.png</texture>
+      <texture>Liveries/MD-83/aerolineas_austral_m.png</texture>
     </rudders>
   </model>
 </sim>

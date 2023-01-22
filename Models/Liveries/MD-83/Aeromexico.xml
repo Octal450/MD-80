@@ -6,13 +6,13 @@
   <model>
     <livery>
       <name type="string">Aeromexico</name>
-      <texture>Liveries/MD-82/aeromexico_fuselage.png</texture>
+      <texture>Liveries/MD-83/aeromexico_fuselage.png</texture>
     </livery>
     <fairings>
-      <texture>Liveries/MD-82/aeromexico_fairing.png</texture>
+      <texture>Liveries/MD-83/aeromexico_fairing.png</texture>
     </fairings>
     <rudders>
-      <texture>Liveries/MD-82/aeromexico_vstab_engines.png</texture>
+      <texture>Liveries/MD-83/aeromexico_vstab_engines.png</texture>
     </rudders>
   </model>
 </sim>

@@ -6,13 +6,13 @@
   <model>
     <livery>
       <name type="string">Spanair</name>
-      <texture>Liveries/MD-82/spfuselage.png</texture>
+      <texture>Liveries/MD-83/spfuselage.png</texture>
     </livery>
     <fairings>
-      <texture>Liveries/MD-82/sppanza.png</texture>
+      <texture>Liveries/MD-83/sppanza.png</texture>
     </fairings>
     <rudders>
-      <texture>Liveries/MD-82/spmotor.png</texture>
+      <texture>Liveries/MD-83/spmotor.png</texture>
     </rudders>
   </model>
 </sim>

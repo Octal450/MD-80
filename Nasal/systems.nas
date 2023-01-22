@@ -375,8 +375,8 @@ var FUEL = {
 		me.Switch.xFeed.setBoolValue(0);
 	},
 	resetFailures: func() {
-		me.Fail.auxTransAft.setBoolValue(0);
-		me.Fail.auxTransFwd.setBoolValue(0);
+		me.Fail.auxTransAft.setValue(0);
+		me.Fail.auxTransFwd.setValue(0);
 		me.Fail.pumpsC.setBoolValue(0);
 		me.Fail.pumpsL.setBoolValue(0);
 		me.Fail.pumpsR.setBoolValue(0);

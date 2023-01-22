@@ -510,10 +510,10 @@
 		</flight>
 		<fuel n="0">
 			<switches n="0">
-				<aux-trans-aft-a type="bool">0</aux-trans-aft-a>
-				<aux-trans-aft-b type="bool">0</aux-trans-aft-b>
-				<aux-trans-fwd-a type="bool">0</aux-trans-fwd-a>
-				<aux-trans-fwd-b type="bool">0</aux-trans-fwd-b>
+				<aux-trans-aft-a type="int">0</aux-trans-aft-a>
+				<aux-trans-aft-b type="int">0</aux-trans-aft-b>
+				<aux-trans-fwd-a type="int">0</aux-trans-fwd-a>
+				<aux-trans-fwd-b type="int">0</aux-trans-fwd-b>
 				<channel-select type="bool">0</channel-select>
 				<channel-test type="bool">0</channel-test>
 				<pump-aft-c type="bool">0</pump-aft-c>

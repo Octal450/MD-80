@@ -6,13 +6,13 @@
   <model>
     <livery>
       <name type="string">SAS</name>
-      <texture>Liveries/MD-82/sas_fuselage.png</texture>
+      <texture>Liveries/MD-83/sas_fuselage.png</texture>
     </livery>
     <fairings>
-      <texture>Liveries/MD-82/sas_fuselage_fairing.png</texture>
+      <texture>Liveries/MD-83/sas_fuselage_fairing.png</texture>
     </fairings>
     <rudders>
-      <texture>Liveries/MD-82/sas_vstab_engines.png</texture>
+      <texture>Liveries/MD-83/sas_vstab_engines.png</texture>
     </rudders>
   </model>
 </sim>

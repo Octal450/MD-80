@@ -10,13 +10,13 @@
   <model>
     <livery>
       <name type="string">Delta Airlines (N901DE)</name>
-      <texture>Liveries/MD-82/DAL1A.png</texture>
+      <texture>Liveries/MD-83/DAL1A.png</texture>
     </livery>
     <fairings>
-      <texture>Liveries/MD-82/DAL1B.png</texture>
+      <texture>Liveries/MD-83/DAL1B.png</texture>
     </fairings>
     <rudders>
-      <texture>Liveries/MD-82/DAL1C.png</texture>
+      <texture>Liveries/MD-83/DAL1C.png</texture>
     </rudders>
   </model>
 </sim>
