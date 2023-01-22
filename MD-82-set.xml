@@ -6,7 +6,7 @@
 	
     <sim>
 		<aero>MD-82</aero>
-		<description>McDonnell Douglas MD-82 (EFIS, JT8D-217A)</description>
+		<description>McDonnell Douglas MD-82 (JT8D-217A)</description>
 		<flight-model>jsb</flight-model>
 		<model n="0">
 			<livery>
@@ -21,6 +21,7 @@
 				<path>gui/splash/MD-80.png</path>
 			</preview>
 		</previews>
+		<primary-set>true</primary-set>
 		<rating>
 			<FDM type="int">5</FDM>
 			<systems type="int">4</systems>
@@ -54,7 +55,6 @@
 	<options n="0">
 		<aux-tanks type="bool">0</aux-tanks>
 		<eng type="string">217A</eng>
-		<panel type="string">EFIS</panel>
 	</options>
 	
 	<payload n="0">

@@ -436,6 +436,55 @@
 				<layout>hbox</layout>
 				
 				<text>
+					<enable>
+						<and>
+							<equals>
+								<property>/fdm/jsbsim/position/wow</property>
+								<value>1</value>
+							</equals>
+							<less-than>
+								<property>/velocities/groundspeed-kt</property>
+								<value>2</value>
+							</less-than>
+						</and>
+					</enable>
+					<halign>left</halign>
+					<label>Panel:</label>
+				</text>
+				
+				<combo>
+					<enable>
+						<and>
+							<equals>
+								<property>/fdm/jsbsim/position/wow</property>
+								<value>1</value>
+							</equals>
+							<less-than>
+								<property>/velocities/groundspeed-kt</property>
+								<value>2</value>
+							</less-than>
+						</and>
+					</enable>
+					<halign>right</halign>
+					<pref-width>150</pref-width>
+					<property>/systems/acconfig/options/panel</property>
+					<value>Analog</value>
+					<value>EFIS</value>
+					<binding>
+						<command>dialog-apply</command>
+					</binding>
+					<binding>
+						<command>nasal</command>
+						<script>acconfig.OPTIONS.write();</script>
+					</binding>
+					<live>true</live>
+				</combo>
+			</group>
+			
+			<group>
+				<layout>hbox</layout>
+				
+				<text>
 					<halign>left</halign>
 					<label>Flight Director:</label>
 				</text>
@@ -446,19 +495,19 @@
 					<text>
 						<visible>
 							<equals>
-								<property>/options/panel</property>
+								<property>/systems/acconfig/options/panel</property>
 								<value>Analog</value>
 							</equals>
 						</visible>
 						<row>0</row>
 						<col>0</col>
-						<halign>left</halign>
+						<halign>center</halign>
 						<label>Single Cue</label>
 					</text>
 					<combo>
 						<visible>
 							<equals>
-								<property>/options/panel</property>
+								<property>/systems/acconfig/options/panel</property>
 								<value>EFIS</value>
 							</equals>
 						</visible>

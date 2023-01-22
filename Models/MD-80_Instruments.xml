@@ -33,7 +33,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/EFIS/efis_L.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>EFIS</value>
 			</equals>
 		</condition>
@@ -52,7 +52,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/clock1.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>EFIS</value>
 			</equals>
 		</condition>
@@ -69,7 +69,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/clock1.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>Analog</value>
 			</equals>
 		</condition>
@@ -108,7 +108,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/hsi-buttons1.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>Analog</value>
 			</equals>
 		</condition>
@@ -125,7 +125,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/PFD/PFD1.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>EFIS</value>
 			</equals>
 		</condition>
@@ -142,7 +142,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/AI/ai1.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>Analog</value>
 			</equals>
 		</condition>
@@ -159,7 +159,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/ND/ND_L.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>EFIS</value>
 			</equals>
 		</condition>
@@ -176,7 +176,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/HSI/hsi1.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>Analog</value>
 			</equals>
 		</condition>
@@ -193,7 +193,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/altimeter1.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>EFIS</value>
 			</equals>
 		</condition>
@@ -210,7 +210,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/altimeter1.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>Analog</value>
 			</equals>
 		</condition>
@@ -227,7 +227,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/efis_dimmer_1.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>EFIS</value>
 			</equals>
 		</condition>
@@ -244,7 +244,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/AGL/agl1.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>Analog</value>
 			</equals>
 		</condition>
@@ -300,7 +300,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/marker_beacons.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>Analog</value>
 			</equals>
 		</condition>
@@ -700,7 +700,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/EFIS/efis_R.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>EFIS</value>
 			</equals>
 		</condition>
@@ -719,7 +719,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/PFD/PFD2.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>EFIS</value>
 			</equals>
 		</condition>
@@ -736,7 +736,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/AI/ai2.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>Analog</value>
 			</equals>
 		</condition>
@@ -753,7 +753,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/ND/ND_R.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>EFIS</value>
 			</equals>
 		</condition>
@@ -770,7 +770,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/HSI/hsi2.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>Analog</value>
 			</equals>
 		</condition>
@@ -809,7 +809,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/altimeter2.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>EFIS</value>
 			</equals>
 		</condition>
@@ -826,7 +826,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/altimeter2.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>Analog</value>
 			</equals>
 		</condition>
@@ -843,7 +843,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/efis_dimmer_2.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>EFIS</value>
 			</equals>
 		</condition>
@@ -860,7 +860,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/AGL/agl2.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>Analog</value>
 			</equals>
 		</condition>
@@ -877,7 +877,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/clock2.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>EFIS</value>
 			</equals>
 		</condition>
@@ -894,7 +894,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/clock2.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>Analog</value>
 			</equals>
 		</condition>
@@ -922,7 +922,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/hsi-buttons2.xml</path>
 		<condition>
 			<equals>
-				<property>options/panel</property>
+				<property>systems/acconfig/options/panel</property>
 				<value>Analog</value>
 			</equals>
 		</condition>

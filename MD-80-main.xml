@@ -1419,6 +1419,7 @@
 					<nd-fps type="double">20</nd-fps>
 					<pfd-fps type="double">20</pfd-fps>
 				</du>
+				<panel type="string">Analog</panel>
 				<seperate-tiller-axis type="bool">0</seperate-tiller-axis>
 			</options>
 		</acconfig>

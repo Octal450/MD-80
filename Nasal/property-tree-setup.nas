@@ -175,10 +175,6 @@ var Instrumentation = {
 	},
 };
 
-var Options = {
-	panel: props.globals.getNode("/options/panel"),
-};
-
 var Orientation = {
 	pitchDeg: props.globals.getNode("/orientation/pitch-deg"),
 	rollDeg: props.globals.getNode("/orientation/roll-deg"),
@@ -252,6 +248,7 @@ var Systems = {
 				ndFps: props.globals.getNode("/systems/acconfig/options/du/nd-fps"),
 				pfdFps: props.globals.getNode("/systems/acconfig/options/du/pfd-fps"),
 			},
+			panel: props.globals.getNode("/systems/acconfig/options/panel"),
 		},
 	},
 	Shake: {

@@ -35,7 +35,7 @@ var DUController = {
 	loop: func() {
 		me.flightDirector = pts.Systems.Acconfig.Options.flightDirector.getValue();
 		
-		if (pts.Options.panel.getValue() == "EFIS") {
+		if (pts.Systems.Acconfig.Options.panel.getValue() == "EFIS") {
 			if (!me.errorActive) {
 				me.pwrSource.acR = systems.ELEC.Bus.acR.getValue();
 				me.pwrSource.emerAc = systems.ELEC.Bus.emerAc.getValue();
