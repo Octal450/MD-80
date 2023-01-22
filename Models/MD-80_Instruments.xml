@@ -282,6 +282,20 @@
 	</model>
 	
 	<model>
+		<name>fuelaux</name>
+		<path>Aircraft/MD-80/Models/Instruments/fuel-aux.xml</path>
+		<condition>
+			<property>options/aux-tanks</property>
+		</condition>
+		<offsets>
+			<x-m>2.267</x-m>
+			<y-m>-0.390</y-m>
+			<z-m>0.674</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
 		<name>marker_beacons</name>
 		<path>Aircraft/MD-80/Models/Instruments/marker_beacons.xml</path>
 		<condition>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="440"
+   height="440"
+   viewBox="0 0 440 440"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="fuel-aux.svg"
+   inkscape:export-filename="D:\Aircraft\MD-80\Models\Instruments\fuel-aux.png"
+   inkscape:export-xdpi="52.360001"
+   inkscape:export-ydpi="52.360001">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 256 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="512 : 256 : 1"
+       inkscape:persp3d-origin="256 : 170.66667 : 1"
+       id="perspective4237" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#000000"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.70710682"
+     inkscape:cx="460.13493"
+     inkscape:cy="151.94593"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1592"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3398" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-612.36219)">
+    <g
+       id="g4215"
+       transform="translate(-36,72)">
+      <path
+         style="opacity:1;fill:#6e6e6e;fill-opacity:1;stroke:none;stroke-width:30;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 36,540.36218 440,0 0,440.00001 -440,-2e-5 z"
+         id="rect4210"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         sodipodi:nodetypes="sssccccccccccccss"
+         inkscape:connector-curvature="0"
+         id="rect4212"
+         d="m 121.9375,560.36219 268.125,0 c 36.95678,0 68.75,40.0019 68.75,80 l 0,176 c 0,18.02927 -15.46875,17.99999 -15.46875,17.99999 l -57.875,0 c 0,0 -15.46875,-0.0313 -15.46875,18.00001 l 0,88 c -0.15209,19.999 -15.46875,20 -15.46875,20 l -197.0625,0 c 0,0 -15.46875,0.022 -15.46875,-20 l 0,-88 c 0,-18.08638 -15.46875,-18 -15.46875,-18 l -57.875,10e-6 c 0,0 -15.46875,-0.0194 -15.46875,-18.00001 l 0,-176 c 0,-39.9981 31.796263,-80 68.75,-80 z"
+         style="opacity:1;fill:#0c0c0c;fill-opacity:1;stroke:none;stroke-width:30;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:37.34354782px;line-height:100%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#568fbc;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="221.84328"
+       y="688.38861"
+       id="text4277"
+       sodipodi:linespacing="100%"
+       transform="scale(0.98272498,1.0175787)"><tspan
+         sodipodi:role="line"
+         id="tspan4279"
+         x="221.84328"
+         y="688.38861"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.75px;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#568fbc;fill-opacity:1">LBS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:42.17145538px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="209.4756"
+       y="694.60559"
+       id="text4149"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4151"
+         x="209.4756"
+         y="694.60559" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:39.30899811px;line-height:100%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="221.94283"
+       y="664.47937"
+       id="text4243"
+       sodipodi:linespacing="100%"
+       transform="scale(0.98272498,1.0175787)"><tspan
+         sodipodi:role="line"
+         id="tspan4245"
+         x="221.94283"
+         y="664.47937"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:41.76581192px;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff">FUEL QTY</tspan></text>
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:30;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4219"
+       width="196.194"
+       height="55.655998"
+       x="121.903"
+       y="731.0061" />
+    <text
+       transform="scale(0.98272498,1.0175787)"
+       sodipodi:linespacing="100%"
+       id="text4255"
+       y="796.39459"
+       x="223.87846"
+       style="font-style:normal;font-weight:normal;font-size:37.34354782px;line-height:100%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.75px;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff"
+         y="796.39459"
+         x="223.87846"
+         id="tspan4257"
+         sodipodi:role="line">FWD</tspan></text>
+    <rect
+       style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:30;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4231"
+       width="196.19418"
+       height="55.656494"
+       x="121.90292"
+       y="840.40277" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:37.34354782px;line-height:100%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="223.77499"
+       y="904.17023"
+       id="text4265"
+       sodipodi:linespacing="100%"
+       transform="scale(0.9827328,1.0175706)"><tspan
+         sodipodi:role="line"
+         id="tspan4267"
+         x="223.77499"
+         y="904.17023"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.75px;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff">AFT</tspan></text>
+    <g
+       id="g4174"
+       transform="translate(-20.871841,78.099006)">
+      <circle
+         r="24.57196"
+         cy="868.69122"
+         cx="86.443802"
+         id="path4281"
+         style="opacity:1;fill:#403024;fill-opacity:1;stroke:none;stroke-width:30;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <circle
+         style="opacity:1;fill:#555555;fill-opacity:1;stroke:none;stroke-width:30;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="circle4172"
+         cx="86.443802"
+         cy="868.69122"
+         r="10.783378" />
+    </g>
+  </g>
+</svg>
