@@ -206,11 +206,36 @@
 			<button>4</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<not><property>devices/status/keyboard/shift</property></not>
+				</condition>
 				<command>property-cycle</command>
 				<property>controls/electrical/switches/gen-l</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
+			<binding>
+				<condition>
+					<property>devices/status/keyboard/shift</property>
+				</condition>
+				<command>property-cycle</command>
+				<property>controls/electrical/switches/gen-l</property>
+				<value>0</value>
+				<value>-1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/electrical/switches/gen-l</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>controls/electrical/switches/gen-l</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
 		<action>
 			<button>1</button>
@@ -300,11 +325,36 @@
 			<button>4</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<not><property>devices/status/keyboard/shift</property></not>
+				</condition>
 				<command>property-cycle</command>
 				<property>controls/electrical/switches/gen-r</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
+			<binding>
+				<condition>
+					<property>devices/status/keyboard/shift</property>
+				</condition>
+				<command>property-cycle</command>
+				<property>controls/electrical/switches/gen-r</property>
+				<value>0</value>
+				<value>-1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/electrical/switches/gen-r</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>controls/electrical/switches/gen-r</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
 		<action>
 			<button>1</button>
@@ -751,8 +801,8 @@
 		<property>controls/cockpit/overhead/emer-pwr</property>
 		<drag-scale-px>15</drag-scale-px>
 		<interpolation>
-			<entry><ind>0</ind><dep>-25</dep></entry>
-			<entry><ind>1</ind><dep> 25</dep></entry>
+			<entry><ind>0</ind><dep>-27</dep></entry>
+			<entry><ind>1</ind><dep> 27</dep></entry>
 		</interpolation>
 		<axis>
 			<x>-1</x>
@@ -1212,6 +1262,342 @@
 				<command>property-toggle</command>
 				<property>controls/fuel/switches/pump-fwd-r</property>
 			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AftAuxTransA</object-name>
+		<property>controls/cockpit/overhead/aux-trans-aft-a</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.00095</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.31481</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>AftAuxTransA</object-name>
+		<action>
+			<button>0</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<not><property>devices/status/keyboard/shift</property></not>
+				</condition>
+				<command>property-cycle</command>
+				<property>controls/fuel/switches/aux-trans-aft-a</property>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<condition>
+					<property>devices/status/keyboard/shift</property>
+				</condition>
+				<command>property-cycle</command>
+				<property>controls/fuel/switches/aux-trans-aft-a</property>
+				<value>0</value>
+				<value>-1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/fuel/switches/aux-trans-aft-a</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>controls/fuel/switches/aux-trans-aft-a</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+		<action>
+			<button>1</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/fuel/switches/aux-trans-aft-a</property>
+				<value>0</value>
+				<value>-1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/fuel/switches/aux-trans-aft-a</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>controls/fuel/switches/aux-trans-aft-a</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AftAuxTransB</object-name>
+		<property>controls/cockpit/overhead/aux-trans-aft-b</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.00095</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.31481</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>AftAuxTransB</object-name>
+		<action>
+			<button>0</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<not><property>devices/status/keyboard/shift</property></not>
+				</condition>
+				<command>property-cycle</command>
+				<property>controls/fuel/switches/aux-trans-aft-b</property>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<condition>
+					<property>devices/status/keyboard/shift</property>
+				</condition>
+				<command>property-cycle</command>
+				<property>controls/fuel/switches/aux-trans-aft-b</property>
+				<value>0</value>
+				<value>-1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/fuel/switches/aux-trans-aft-b</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>controls/fuel/switches/aux-trans-aft-b</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+		<action>
+			<button>1</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/fuel/switches/aux-trans-aft-b</property>
+				<value>0</value>
+				<value>-1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/fuel/switches/aux-trans-aft-b</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>controls/fuel/switches/aux-trans-aft-b</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>FwdAuxTransA</object-name>
+		<property>controls/cockpit/overhead/aux-trans-fwd-a</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.00095</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.35122</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FwdAuxTransA</object-name>
+		<action>
+			<button>0</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<not><property>devices/status/keyboard/shift</property></not>
+				</condition>
+				<command>property-cycle</command>
+				<property>controls/fuel/switches/aux-trans-fwd-a</property>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<condition>
+					<property>devices/status/keyboard/shift</property>
+				</condition>
+				<command>property-cycle</command>
+				<property>controls/fuel/switches/aux-trans-fwd-a</property>
+				<value>0</value>
+				<value>-1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/fuel/switches/aux-trans-fwd-a</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>controls/fuel/switches/aux-trans-fwd-a</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+		<action>
+			<button>1</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/fuel/switches/aux-trans-fwd-a</property>
+				<value>0</value>
+				<value>-1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/fuel/switches/aux-trans-fwd-a</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>controls/fuel/switches/aux-trans-fwd-a</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>FwdAuxTransB</object-name>
+		<property>controls/cockpit/overhead/aux-trans-fwd-b</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.00095</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.35122</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FwdAuxTransB</object-name>
+		<action>
+			<button>0</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<not><property>devices/status/keyboard/shift</property></not>
+				</condition>
+				<command>property-cycle</command>
+				<property>controls/fuel/switches/aux-trans-fwd-b</property>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<condition>
+					<property>devices/status/keyboard/shift</property>
+				</condition>
+				<command>property-cycle</command>
+				<property>controls/fuel/switches/aux-trans-fwd-b</property>
+				<value>0</value>
+				<value>-1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/fuel/switches/aux-trans-fwd-b</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>controls/fuel/switches/aux-trans-fwd-b</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+		<action>
+			<button>1</button>
+			<button>3</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/fuel/switches/aux-trans-fwd-b</property>
+				<value>0</value>
+				<value>-1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/fuel/switches/aux-trans-fwd-b</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>property-assign</command>
+					<property>controls/fuel/switches/aux-trans-fwd-b</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
 	</animation>
 	
