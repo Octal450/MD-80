@@ -424,9 +424,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Aux Trans Aft Pumps</label>
+				<label>Aux Trans Pumps A</label>
 				<halign>left</halign>
-				<property>/systems/failures/fuel/aux-trans-aft</property>
+				<property>/systems/failures/fuel/aux-trans-a</property>
 				<enable>
 					<property>options/aux-tanks</property>
 				</enable>
@@ -437,9 +437,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Aux Trans Fwd Pumps</label>
+				<label>Aux Trans Pumps B</label>
 				<halign>left</halign>
-				<property>/systems/failures/fuel/aux-trans-fwd</property>
+				<property>/systems/failures/fuel/aux-trans-b</property>
 				<enable>
 					<property>options/aux-tanks</property>
 				</enable>

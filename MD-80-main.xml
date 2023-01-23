@@ -1441,8 +1441,8 @@
 				<yaw-damper type="bool">0</yaw-damper>
 			</fctl>
 			<fuel n="0">
-				<aux-trans-aft type="bool">0</aux-trans-aft>
-				<aux-trans-fwd type="bool">0</aux-trans-fwd>
+				<aux-trans-a type="bool">0</aux-trans-a>
+				<aux-trans-b type="bool">0</aux-trans-b>
 				<pump-start type="bool">0</pump-start>
 				<pumps-c type="bool">0</pumps-c>
 				<pumps-l type="bool">0</pumps-l>
