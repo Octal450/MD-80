@@ -35,10 +35,8 @@
 	
 	<consumables n="0">
 		<fuel>
-			<!--tank n="6"><name>Fwd Aux Tank</name></tank>
-			<tank n="7"><name>Aft Aux Tank</name></tank-->
-			<tank n="6"><name>INOP</name></tank>
-			<tank n="7"><name>INOP</name></tank>
+			<tank n="6"><name>Fwd Aux Tank</name></tank>
+			<tank n="7"><name>Aft Aux Tank</name></tank>
 		</fuel>
 	</consumables>
 	

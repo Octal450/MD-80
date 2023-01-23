@@ -148,6 +148,87 @@
 			<rate_limit sense="decr">10</rate_limit>
 		</actuator>
 		
+		<!-- Aux Tanks -->
+		<switch name="/systems/fuel/aux-aft-trans-a">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/ac-l ge 112
+				/controls/fuel/switches/aux-trans-aft-a eq 1
+				/systems/failures/fuel/aux-trans-a ne 1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/fuel/aux-aft-trans-a-psi-cmd">
+			<input>/systems/fuel/aux-aft-trans-a</input>
+			<gain>15</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/fuel/aux-aft-trans-a-psi">
+			<input>/systems/fuel/aux-aft-trans-a-psi-cmd</input>
+			<rate_limit sense="incr">5</rate_limit>
+			<rate_limit sense="decr">10</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/fuel/aux-aft-trans-b">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/ac-r ge 112
+				/controls/fuel/switches/aux-trans-aft-b eq 1
+				/systems/failures/fuel/aux-trans-b ne 1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/fuel/aux-aft-trans-b-psi-cmd">
+			<input>/systems/fuel/aux-aft-trans-b</input>
+			<gain>15</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/fuel/aux-aft-trans-b-psi">
+			<input>/systems/fuel/aux-aft-trans-b-psi-cmd</input>
+			<rate_limit sense="incr">5</rate_limit>
+			<rate_limit sense="decr">10</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/fuel/aux-fwd-trans-a">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/ac-l ge 112
+				/controls/fuel/switches/aux-trans-fwd-a eq 1
+				/systems/failures/fuel/aux-trans-a ne 1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/fuel/aux-fwd-trans-a-psi-cmd">
+			<input>/systems/fuel/aux-fwd-trans-a</input>
+			<gain>15</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/fuel/aux-fwd-trans-a-psi">
+			<input>/systems/fuel/aux-fwd-trans-a-psi-cmd</input>
+			<rate_limit sense="incr">5</rate_limit>
+			<rate_limit sense="decr">10</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/fuel/aux-fwd-trans-b">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/ac-r ge 112
+				/controls/fuel/switches/aux-trans-fwd-b eq 1
+				/systems/failures/fuel/aux-trans-b ne 1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/fuel/aux-fwd-trans-b-psi-cmd">
+			<input>/systems/fuel/aux-fwd-trans-b</input>
+			<gain>15</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/fuel/aux-fwd-trans-b-psi">
+			<input>/systems/fuel/aux-fwd-trans-b-psi-cmd</input>
+			<rate_limit sense="incr">5</rate_limit>
+			<rate_limit sense="decr">10</rate_limit>
+		</actuator>
+		
 		<!-- Tank Feed Demand -->
 		<!-- No gravity feed since the -80s engines are up from the wing -->
 		<switch name="/systems/fuel/feed-l">
@@ -172,6 +253,22 @@
 				/systems/fuel/aft-pump-r eq 1
 				/systems/fuel/fwd-pump-r eq 1
 				/systems/fuel/start-pump eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/fuel/feed-aux-fwd">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/fuel/aux-fwd-trans-a eq 1
+				/systems/fuel/aux-fwd-trans-b eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/fuel/feed-aux-aft">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/fuel/aux-aft-trans-a eq 1
+				/systems/fuel/aux-aft-trans-b eq 1
 			</test>
 		</switch>
 	
@@ -289,7 +386,36 @@
 			</test>
 		</switch>
 		
+		<!-- Aux Tanks to Center Tank -->
+		<switch name="/systems/fuel/internal/aux-fwd-tank-tank-c">
+			<default value="0"/>
+			<test logic="AND" value="18">
+				/systems/fuel/feed-aux-fwd eq 1
+				propulsion/tank[6]/contents-lbs gt 10
+				propulsion/tank[1]/contents-lbs lt 13200
+			</test>
+		</switch>
+		
+		<switch name="/systems/fuel/internal/aux-aft-tank-tank-c">
+			<default value="0"/>
+			<test logic="AND" value="18">
+				/systems/fuel/feed-aux-aft eq 1
+				propulsion/tank[7]/contents-lbs gt 10
+				propulsion/tank[1]/contents-lbs lt 13200
+			</test>
+		</switch>
+		
 		<!-- Tank Final Flow Rates -->
+		<summer name="/systems/fuel/internal/tank-aux-fwd-flow-rate">
+			<input>-/systems/fuel/internal/aux-fwd-tank-tank-c</input>
+			<output>propulsion/tank[6]/external-flow-rate-pps</output>
+		</summer>
+		
+		<summer name="/systems/fuel/internal/tank-aux-aft-flow-rate">
+			<input>-/systems/fuel/internal/aux-aft-tank-tank-c</input>
+			<output>propulsion/tank[7]/external-flow-rate-pps</output>
+		</summer>
+		
 		<summer name="/systems/fuel/internal/tank-l-flow-rate">
 			<input>-/systems/fuel/internal/tank-l-eng-1</input>
 			<input>-/systems/fuel/internal/tank-l-eng-2</input>
@@ -301,6 +427,8 @@
 			<input>-/systems/fuel/internal/tank-c-eng-1</input>
 			<input>-/systems/fuel/internal/tank-c-eng-2</input>
 			<input>-/systems/fuel/internal/tank-c-apu</input>
+			<input>/systems/fuel/internal/aux-fwd-tank-tank-c</input>
+			<input>/systems/fuel/internal/aux-aft-tank-tank-c</input>
 			<output>propulsion/tank[1]/external-flow-rate-pps</output>
 		</summer>
 		
