@@ -6,7 +6,7 @@
 	
     <sim>
 		<aero>MD-83</aero>
-		<description>McDonnell Douglas MD-83 (JT8D-217A)</description>
+		<description>McDonnell Douglas MD-83 (JT8D-219)</description>
 		<flight-model>jsb</flight-model>
 		<model n="0">
 			<livery>
@@ -45,7 +45,7 @@
 			<engine n="0">
 				<limit n="0">
 					<rated-epr-offset type="double">0</rated-epr-offset>
-					<rated-thrust type="double">20000</rated-thrust>
+					<rated-thrust type="double">21000</rated-thrust>
 				</limit>
 			</engine>
 		</jsbsim>
@@ -53,15 +53,15 @@
 	
 	<limits>
 		<mass-and-balance>
-			<maximum-takeoff-mass-lbs>149473</maximum-takeoff-mass-lbs>
-			<maximum-landing-mass-lbs>130072</maximum-landing-mass-lbs>
+			<maximum-takeoff-mass-lbs>160011</maximum-takeoff-mass-lbs>
+			<maximum-landing-mass-lbs>139508</maximum-landing-mass-lbs>
 			<maximum-zero-fuel-mass-lbs>122003</maximum-zero-fuel-mass-lbs>
 		</mass-and-balance>
 	</limits>
 	
 	<options n="0">
 		<aux-tanks type="bool">1</aux-tanks>
-		<eng type="string">217A</eng>
+		<eng type="string">219</eng>
 	</options>
 	
 	<payload n="0">

@@ -15,7 +15,7 @@
 	<ground_reactions file="Systems/md-80-ground-reactions"/>
 	
 	<propulsion>
-		<engine file="jt8d-217a_1">
+		<engine file="jt8d-219_1">
 			<feed>3</feed>
 			<thruster file="direct">
 				<location unit="M">
@@ -31,7 +31,7 @@
 			</thruster>
 		</engine>
 		
-		<engine file="jt8d-217a_2">
+		<engine file="jt8d-219_2">
 			<feed>4</feed>
 			<thruster file="direct">
 				<location unit="M">
@@ -174,7 +174,7 @@
 	<system file="md-80-fcs"/>
 	<system file="md-80-spoiler"/>
 	<system file="md-80-ignition"/>
-	<system file="md-80-217a-engine-tri"/>
+	<system file="md-80-219-engine-tri"/>
 	<system file="md-80-apu"/>
 	<system file="md-80-speeds"/>
 	<system file="md-80-cockpit"/>
