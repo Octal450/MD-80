@@ -5,7 +5,7 @@
 
 <PropertyList>
 	
-	<name>v-speed</name>
+	<name>speed</name>
 	<layout>vbox</layout>
 	
 	<nasal>
@@ -13,11 +13,17 @@
 			setprop("/fdm/jsbsim/speeds/v1-round", math.round(getprop("/fdm/jsbsim/speeds/v1")));
 			setprop("/fdm/jsbsim/speeds/vr-round", math.round(getprop("/fdm/jsbsim/speeds/vr")));
 			setprop("/fdm/jsbsim/speeds/v2-round", math.round(getprop("/fdm/jsbsim/speeds/v2")));
+			setprop("/fdm/jsbsim/speeds/flap-retract-round", math.round(getprop("/fdm/jsbsim/speeds/flap-retract")));
+			setprop("/fdm/jsbsim/speeds/slat-retract-round", math.round(getprop("/fdm/jsbsim/speeds/slat-retract")));
+			setprop("/fdm/jsbsim/speeds/min-maneuver-round", math.round(getprop("/fdm/jsbsim/speeds/min-maneuver")));
 			
 			var loop = maketimer(1, func() {
 				setprop("/fdm/jsbsim/speeds/v1-round", math.round(getprop("/fdm/jsbsim/speeds/v1")));
 				setprop("/fdm/jsbsim/speeds/vr-round", math.round(getprop("/fdm/jsbsim/speeds/vr")));
 				setprop("/fdm/jsbsim/speeds/v2-round", math.round(getprop("/fdm/jsbsim/speeds/v2")));
+				setprop("/fdm/jsbsim/speeds/flap-retract-round", math.round(getprop("/fdm/jsbsim/speeds/flap-retract")));
+				setprop("/fdm/jsbsim/speeds/slat-retract-round", math.round(getprop("/fdm/jsbsim/speeds/slat-retract")));
+				setprop("/fdm/jsbsim/speeds/min-maneuver-round", math.round(getprop("/fdm/jsbsim/speeds/min-maneuver")));
 			});
 			loop.start();
 		</open>
@@ -31,7 +37,7 @@
 		
 		<text>
 			<halign>left</halign>
-			<label>V Speed Applet</label>
+			<label>Speed Applet</label>
 		</text>
 		
 		<button>
@@ -138,6 +144,51 @@
 			<label>999</label>
 			<live>true</live>
 			<property>/fdm/jsbsim/speeds/v2-round</property>
+		</text>
+	</group>
+	
+	<hrule/>
+	
+	<group>
+		<layout>table</layout>
+		
+		<text>
+			<row>0</row>
+			<col>0</col>
+			<label>FLAP RET: </label>
+		</text>
+		<text>
+			<row>0</row>
+			<col>1</col>
+			<label>999</label>
+			<live>true</live>
+			<property>/fdm/jsbsim/speeds/flap-retract-round</property>
+		</text>
+		
+		<text>
+			<row>1</row>
+			<col>0</col>
+			<label>SLAT RET: </label>
+		</text>
+		<text>
+			<row>1</row>
+			<col>1</col>
+			<label>999</label>
+			<live>true</live>
+			<property>/fdm/jsbsim/speeds/slat-retract-round</property>
+		</text>
+		
+		<text>
+			<row>2</row>
+			<col>0</col>
+			<label>MIN MAN: </label>
+		</text>
+		<text>
+			<row>2</row>
+			<col>1</col>
+			<label>999</label>
+			<live>true</live>
+			<property>/fdm/jsbsim/speeds/min-maneuver-round</property>
 		</text>
 	</group>
 

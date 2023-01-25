@@ -193,7 +193,7 @@
 			</test>
 		</switch>
 		
-		<fcs_function name="dfgs/speeds/vss-kts"> <!-- From FCOM -->
+		<fcs_function name="dfgs/speeds/vss-kts"> <!-- From FCOM + Extrapolation -->
 			<function>
 				<table>
 					<independentVar lookup="row">inertia/weight-lbs</independentVar>
@@ -213,6 +213,7 @@
 						135000  162  149  146  138  130
 						140000  165  152  149  141  132
 						145000  168  155  152  143  135
+						160000  177  164  161  151  143
 					</tableData>
 					<tableData breakPoint="31">
 						        0    11   15   28   40
@@ -228,6 +229,7 @@
 						135000  127  120  118  112  109
 						140000  129  122  120  114  111
 						145000  132  124  122  116  113
+						160000  140  130  128  122  119
 					</tableData>
 				</table>
 			</function>

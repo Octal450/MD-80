@@ -3,14 +3,14 @@
 <!-- McDonnell Douglas MD-80 Speeds -->
 <!-- Copyright (c) 2023 Josh Davidson (Octal450) -->
 
-<system name="MD-80: Speeds"> <!-- Extra speed computations that are not used by the DFGS/FMS -->
+<system name="MD-80: Speeds"> <!-- Extra speed computations that are not computed by the DFGS/FMS -->
 	
 	<property value="11">speeds/flap-setting</property>
 	
 	<channel name="Speed Calculations" execrate="8">
 		
 		<!-- V1 -->
-		<fcs_function name="speeds/v1-table"> <!-- From FCOM -->
+		<fcs_function name="speeds/v1-table"> <!-- From FCOM + Extrapolation -->
 			<function>
 				<table>
 					<independentVar lookup="row">inertia/weight-lbs</independentVar>
@@ -48,6 +48,7 @@
 						146000  155  141  140
 						148000  157  143  142
 						150000  158  144  143
+						160000  165  151  140
 					</tableData>
 				</table>
 			</function>
@@ -188,7 +189,7 @@
 		</fcs_function>
 		
 		<!-- VR -->
-		<fcs_function name="speeds/vr-table"> <!-- From FCOM -->
+		<fcs_function name="speeds/vr-table"> <!-- From FCOM + Extrapolation -->
 			<function>
 				<table>
 					<independentVar lookup="row">inertia/weight-lbs</independentVar>
@@ -226,6 +227,7 @@
 						146000  160  146  144
 						148000  162  147  146
 						150000  163  148  147
+						160000  169  153  152
 					</tableData>
 				</table>
 			</function>
@@ -396,7 +398,7 @@
 		</fcs_function>
 		
 		<!-- V2 -->
-		<fcs_function name="speeds/v2-table"> <!-- From FCOM -->
+		<fcs_function name="speeds/v2-table"> <!-- From FCOM + Extrapolation -->
 			<function>
 				<table>
 					<independentVar lookup="row">inertia/weight-lbs</independentVar>
@@ -434,6 +436,7 @@
 						146000  168  153  152
 						148000  169  155  153
 						150000  170  156  154
+						160000  176  162  160
 					</tableData>
 				</table>
 			</function>
@@ -512,6 +515,118 @@
 					<property>speeds/v2-table</property>
 					<property>speeds/v2-minimum</property>
 				</max>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="speeds/flap-retract-11">
+			<function>
+				<sum>
+					<property>speeds/v2</property>
+					<value>5</value>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="speeds/flap-retract-15">
+			<function>
+				<sum>
+					<property>speeds/v2</property>
+					<value>15</value>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="speeds/flap-retract">
+			<function>
+				<interpolate1d>
+					<property>speeds/flap-setting</property>
+					<value>11</value><property>speeds/flap-retract-11</property>
+					<value>15</value><property>speeds/flap-retract-15</property>
+				</interpolate1d>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="speeds/slat-retract"> <!-- From FCOM + Extrapolation -->
+			<function>
+				<table>
+					<independentVar lookup="row">inertia/weight-lbs</independentVar>
+					<tableData>
+						 90000  157
+						 92000  159
+						 94000  160
+						 96000  162
+						 98000  163
+						100000  165
+						102000  167
+						104000  168
+						106000  170
+						108000  171
+						110000  173
+						112000  175
+						114000  176
+						116000  178
+						118000  179
+						120000  181
+						122000  182
+						124000  184
+						126000  185
+						128000  187
+						130000  188
+						132000  189
+						134000  191
+						136000  192
+						138000  194
+						140000  195
+						142000  196
+						144000  198
+						146000  199
+						148000  201
+						150000  202
+						160000  209
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="speeds/min-maneuver"> <!-- From FCOM + Extrapolation -->
+			<function>
+				<table>
+					<independentVar lookup="row">inertia/weight-lbs</independentVar>
+					<tableData>
+						 90000  194
+						 92000  196
+						 94000  198
+						 96000  201
+						 98000  203
+						100000  205
+						102000  207
+						104000  209
+						106000  211
+						108000  213
+						110000  215
+						112000  217
+						114000  219
+						116000  221
+						118000  223
+						120000  225
+						122000  227
+						124000  229
+						126000  230
+						128000  232
+						130000  234
+						132000  236
+						134000  238
+						136000  239
+						138000  241
+						140000  243
+						142000  245
+						144000  246
+						146000  248
+						148000  249
+						150000  251
+						160000  259
+					</tableData>
+				</table>
 			</function>
 		</fcs_function>
 	

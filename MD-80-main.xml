@@ -68,13 +68,6 @@
 							<dialog-name>route-manager</dialog-name>
 						</binding>
 					</item>
-					<item> <!-- Temporary -->
-						<label>V Speed Applet</label>
-						<binding>
-							<command>dialog-show</command>
-							<dialog-name>v-speed</dialog-name>
-						</binding>
-					</item>
 				</menu>
 				<menu n="103">
 					<label>2D Panels</label>
@@ -129,6 +122,13 @@
 						<binding>
 							<command>dialog-show</command>
 							<dialog-name>acconfig-failures</dialog-name>
+						</binding>
+					</item>
+					<item> <!-- Temporary -->
+						<label>Speed Applet</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>speed</dialog-name>
 						</binding>
 					</item>
 				</menu>
