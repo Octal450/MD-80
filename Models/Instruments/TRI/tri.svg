@@ -16,20 +16,20 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="tri.svg"
-   inkscape:export-filename="D:\Aircraft\MD-80\Models\Instruments\TRI\tri-full.png"
+   inkscape:export-filename="D:\Aircraft\MD-80\Models\Instruments\TRI\tri-export.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
      id="defs4" />
   <sodipodi:namedview
      id="base"
-     pagecolor="#ffffff"
+     pagecolor="#000000"
      bordercolor="#666666"
      borderopacity="1.0"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="159.75814"
+     inkscape:cx="-83.813288"
      inkscape:cy="261.54384"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -151,7 +151,7 @@
            sodipodi:role="line">RAT</tspan></text>
       <text
          xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:19.22058678px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#64ffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;font-size:19.22058678px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#568fbc;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
          x="241.07585"
          y="492.15366"
          id="text4217"
@@ -161,7 +161,7 @@
            id="tspan4219"
            x="241.07585"
            y="492.15366"
-           style="font-size:25.59216881px;fill:#64ffff;fill-opacity:1">C</tspan></text>
+           style="font-size:25.59216881px;fill:#568fbc;fill-opacity:1;">C</tspan></text>
       <path
          sodipodi:nodetypes="cccc"
          inkscape:connector-curvature="0"
