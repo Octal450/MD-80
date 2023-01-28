@@ -388,6 +388,7 @@
 		<fcs_function name="speeds/vr">
 			<function>
 				<max>
+					<property>speeds/v1</property>
 					<sum>
 						<property>speeds/vr-table</property>
 						<property>speeds/vr-delta</property>
