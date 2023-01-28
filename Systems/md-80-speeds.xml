@@ -398,7 +398,7 @@
 			</function>
 		</fcs_function>
 		
-		<!-- V2 -->
+		<!-- V2 --> <!-- Also check md-80-dfgs.xml -->
 		<fcs_function name="speeds/v2-table"> <!-- From FCOM + Extrapolation -->
 			<function>
 				<table>
