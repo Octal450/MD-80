@@ -554,39 +554,14 @@
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/output/lat</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/input/trk</property>
-						<value>0</value>
-					</equals>
-				</and>
+				<equals>
+					<property>/it-autoflight/output/lat</property>
+					<value>0</value>
+				</equals>
 			</condition>
 			<property>/it-autoflight/internal/hdg-target</property>
 			<offset>
 				<property>/it-autoflight/internal/heading-deg</property>
-				<scale>-1.0</scale>
-			</offset>
-		</input>
-		<input>
-			<condition>
-				<and>
-					<equals>
-						<property>/it-autoflight/output/lat</property>
-						<value>0</value>
-					</equals>
-					<equals>
-						<property>/it-autoflight/input/trk</property>
-						<value>1</value>
-					</equals>
-				</and>
-			</condition>
-			<property>/it-autoflight/internal/hdg-target</property>
-			<offset>
-				<property>/it-autoflight/internal/track-deg</property>
 				<scale>-1.0</scale>
 			</offset>
 		</input>
@@ -610,6 +585,19 @@
 					</product>
 				</sum>
 			</expression>
+		</input>
+		<input>
+			<condition>
+				<equals>
+					<property>/it-autoflight/output/lat</property>
+					<value>5</value>
+				</equals>
+			</condition>
+			<property>/it-autoflight/internal/takeoff-hdg</property>
+			<offset>
+				<property>/it-autoflight/internal/heading-deg</property>
+				<scale>-1.0</scale>
+			</offset>
 		</input>
 		<input>0</input>
 		<output>/it-autoflight/internal/heading-error-deg</output>
@@ -938,12 +926,6 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
-			<condition>
-				<equals>
-					<property>/it-autoflight/input/trk</property>
-					<value>0</value>
-				</equals>
-			</condition>
 			<expression>
 				<sum>
 					<div>
@@ -955,27 +937,6 @@
 						</table>
 					</div>
 					<property>/it-autoflight/internal/heading-deg</property>
-				</sum>
-			</expression>
-		</input>
-		<input>
-			<condition>
-				<equals>
-					<property>/it-autoflight/input/trk</property>
-					<value>1</value>
-				</equals>
-			</condition>
-			<expression>
-				<sum>
-					<div>
-						<property>/orientation/roll-deg</property>
-						<table>
-							<property>/velocities/airspeed-kt</property>
-							<entry><ind>140</ind><dep>1.8</dep></entry>
-							<entry><ind>360</ind><dep>2.8</dep></entry>
-						</table>
-					</div>
-					<property>/it-autoflight/internal/track-deg</property>
 				</sum>
 			</expression>
 		</input>
