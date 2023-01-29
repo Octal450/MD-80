@@ -41,7 +41,10 @@
 	<animation>
 		<type>select</type>
 		<object-name>ApuPwrAvailOn</object-name>
+		<object-name>ApuPwrAvail2On</object-name>
+		<object-name>EmerPwrInUseOn</object-name>
 		<object-name>ExtPwrAvailOn</object-name>
+		<object-name>ExtPwrAvail2On</object-name>
 		<condition>
 			<greater-than-equals>
 				<property>systems/electrical/bus/dc-bat</property>
@@ -514,6 +517,7 @@
 	<animation>
 		<type>select</type>
 		<object-name>ApuPwrAvailOn</object-name>
+		<object-name>ApuPwrAvail2On</object-name>
 		<condition>
 			<or>
 				<greater-than>
@@ -609,6 +613,7 @@
 	<animation>
 		<type>select</type>
 		<object-name>ExtPwrAvailOn</object-name>
+		<object-name>ExtPwrAvail2On</object-name>
 		<condition>
 			<or>
 				<property>controls/electrical/switches/ground-cart</property>
@@ -1002,6 +1007,20 @@
 				<script>libraries.Sound.knb1();</script>
 			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>EmerPwrInUseOn</object-name>
+		<condition>
+			<or>
+				<property>controls/electrical/lights/emer-pwr-on</property>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 	
 	<animation>

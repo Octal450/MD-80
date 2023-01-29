@@ -3,7 +3,7 @@ MATERIAL "Glow.005" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 64  trans 
 MATERIAL "bezel" rgb 0.14902 0.14902 0.14902  amb 0.0980392 0.0980392 0.0980392  emis 0 0 0  spec 0.498039 0.498039 0.498039  shi 64  trans 0
 MATERIAL "Glow.002" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 64  trans 0
 OBJECT world
-kids 97
+kids 100
 OBJECT poly
 name "AcBusXTie"
 loc -9.31323e-10 -0.0700147 0.024992
@@ -27533,6 +27533,95 @@ refs 4
 2 0 0
 0 0 0
 5 0 0
+kids 0
+OBJECT group
+name "ApuPwrAvail2"
+loc 0 0.62046 -0.021064
+kids 3
+OBJECT poly
+name "ApuPwrAvail2Off"
+data 8
+Cube.003
+texture "square-lamps.png"
+crease 30.000000
+numvert 4
+0.01004 -0.15962 0.17883
+0.01004 -0.15962 0.19795
+0.01004 -0.1405 0.17883
+0.01004 -0.1405 0.19795
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 -0 1
+1 -0 0.75
+0 0.25 0.75
+2 0.25 1
+kids 0
+OBJECT poly
+name "ApuPwrAvail2On"
+data 8
+Cube.001
+texture "square-lamps.png"
+crease 30.000000
+numvert 4
+0.01006 -0.1405 0.19795
+0.01006 -0.1405 0.17883
+0.01006 -0.15962 0.19795
+0.01006 -0.15962 0.17883
+numsurf 1
+SURF 0x0
+mat 2
+refs 4
+0 0.25 1
+2 0.25 0.75
+3 0.5 0.75
+1 0.5 1
+kids 0
+OBJECT poly
+name "ApuPwrAvail2Shell"
+data 8
+Cube.015
+texture "square-lamps.png"
+crease 30.000000
+numvert 8
+-2e-05 -0.1405 0.17883
+-2e-05 -0.1405 0.19795
+-2e-05 -0.15962 0.17883
+-2e-05 -0.15962 0.19795
+0.01004 -0.1405 0.19795
+0.01004 -0.1405 0.17883
+0.01004 -0.15962 0.19795
+0.01004 -0.15962 0.17883
+numsurf 4
+SURF 0x0
+mat 0
+refs 4
+7 0 0
+2 0 0
+0 0 0
+5 0 0
+SURF 0x0
+mat 0
+refs 4
+4 0 0
+1 0 0
+3 0 0
+6 0 0
+SURF 0x0
+mat 0
+refs 4
+5 0 0
+0 0 0
+1 0 0
+4 0 0
+SURF 0x0
+mat 0
+refs 4
+2 0 0
+7 0 0
+6 0 0
+3 0 0
 kids 0
 OBJECT poly
 name "ApuPwrGndSvc"
@@ -55170,6 +55259,96 @@ refs 4
 62 0.091762 0.427751
 30 0.089173 0.459996
 kids 0
+OBJECT group
+name "EmerPwrInUse"
+loc 0 -0.0824497 -0.157849
+kids 3
+OBJECT poly
+name "EmerPwrInUseOff"
+data 8
+Cube.003
+texture "square-lamps.png"
+crease 30.000000
+numvert 4
+0.01004 -0.15962 0.17883
+0.01004 -0.15962 0.19795
+0.01004 -0.1405 0.17883
+0.01004 -0.1405 0.19795
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 0.5 1
+1 0.5 0.75
+0 0.75 0.75
+2 0.75 1
+kids 0
+OBJECT poly
+name "EmerPwrInUseOn"
+loc 0 0 1.49012e-08
+data 8
+Cube.001
+texture "square-lamps.png"
+crease 30.000000
+numvert 4
+0.01006 -0.1405 0.19795
+0.01006 -0.1405 0.17883
+0.01006 -0.15962 0.19795
+0.01006 -0.15962 0.17883
+numsurf 1
+SURF 0x0
+mat 2
+refs 4
+0 0.75 1
+2 0.75 0.75
+3 1 0.75
+1 1 1
+kids 0
+OBJECT poly
+name "EmerPwrInUseShell"
+data 8
+Cube.015
+texture "square-lamps.png"
+crease 30.000000
+numvert 8
+-2e-05 -0.1405 0.17883
+-2e-05 -0.1405 0.19795
+-2e-05 -0.15962 0.17883
+-2e-05 -0.15962 0.19795
+0.01004 -0.1405 0.19795
+0.01004 -0.1405 0.17883
+0.01004 -0.15962 0.19795
+0.01004 -0.15962 0.17883
+numsurf 4
+SURF 0x0
+mat 0
+refs 4
+7 0 0
+2 0 0
+0 0 0
+5 0 0
+SURF 0x0
+mat 0
+refs 4
+4 0 0
+1 0 0
+3 0 0
+6 0 0
+SURF 0x0
+mat 0
+refs 4
+5 0 0
+0 0 0
+1 0 0
+4 0 0
+SURF 0x0
+mat 0
+refs 4
+2 0 0
+7 0 0
+6 0 0
+3 0 0
+kids 0
 OBJECT poly
 name "EmerPwrKnob"
 data 8
@@ -63101,6 +63280,98 @@ refs 4
 2 0 0
 0 0 0
 5 0 0
+kids 0
+OBJECT group
+name "ExtPwrAvail2"
+loc 0 0.604429 -0.021064
+kids 3
+OBJECT poly
+name "ExtPwrAvail2Off"
+loc 0 -0.0209196 0
+data 8
+Cube.003
+texture "square-lamps.png"
+crease 30.000000
+numvert 4
+0.01004 -0.15962 0.17883
+0.01004 -0.15962 0.19795
+0.01004 -0.1405 0.17883
+0.01004 -0.1405 0.19795
+numsurf 1
+SURF 0x0
+mat 0
+refs 4
+3 -0 0.75
+1 -0 0.5
+0 0.25 0.5
+2 0.25 0.75
+kids 0
+OBJECT poly
+name "ExtPwrAvail2On"
+loc 0 -0.0209196 0
+data 8
+Cube.001
+texture "square-lamps.png"
+crease 30.000000
+numvert 4
+0.01006 -0.1405 0.19795
+0.01006 -0.1405 0.17883
+0.01006 -0.15962 0.19795
+0.01006 -0.15962 0.17883
+numsurf 1
+SURF 0x0
+mat 2
+refs 4
+0 0.25 0.75
+2 0.25 0.5
+3 0.5 0.5
+1 0.5 0.75
+kids 0
+OBJECT poly
+name "ExtPwrAvail2Shell"
+loc 0 -0.0209196 0
+data 8
+Cube.015
+texture "square-lamps.png"
+crease 30.000000
+numvert 8
+-2e-05 -0.1405 0.17883
+-2e-05 -0.1405 0.19795
+-2e-05 -0.15962 0.17883
+-2e-05 -0.15962 0.19795
+0.01004 -0.1405 0.19795
+0.01004 -0.1405 0.17883
+0.01004 -0.15962 0.19795
+0.01004 -0.15962 0.17883
+numsurf 4
+SURF 0x0
+mat 0
+refs 4
+7 0 0
+2 0 0
+0 0 0
+5 0 0
+SURF 0x0
+mat 0
+refs 4
+4 0 0
+1 0 0
+3 0 0
+6 0 0
+SURF 0x0
+mat 0
+refs 4
+5 0 0
+0 0 0
+1 0 0
+4 0 0
+SURF 0x0
+mat 0
+refs 4
+2 0 0
+7 0 0
+6 0 0
+3 0 0
 kids 0
 OBJECT poly
 name "ExtPwrGndSvc"
