@@ -199,7 +199,7 @@
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
-			<y-m>-0.390</y-m>
+			<y-m>-0.39</y-m>
 			<z-m>0.856</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -216,7 +216,7 @@
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
-			<y-m>-0.346</y-m>
+			<y-m>-0.333</y-m>
 			<z-m>0.856</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -232,8 +232,8 @@
 			</equals>
 		</condition>
 		<offsets>
-			<x-m>2.230</x-m>
-			<y-m>-0.320</y-m>
+			<x-m>2.23</x-m>
+			<y-m>-0.32</y-m>
 			<z-m>0.856</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -250,8 +250,8 @@
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
-			<y-m>-0.415</y-m>
-			<z-m>0.856</z-m>
+			<y-m>-0.409</y-m>
+			<z-m>0.868</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
@@ -261,7 +261,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/vsi1.xml</path>
 		<offsets>
 			<x-m>2.248</x-m>
-			<y-m>-0.390</y-m>
+			<y-m>-0.39</y-m>
 			<z-m>0.765</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -289,7 +289,7 @@
 		</condition>
 		<offsets>
 			<x-m>2.267</x-m>
-			<y-m>-0.390</y-m>
+			<y-m>-0.39</y-m>
 			<z-m>0.674</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -832,7 +832,7 @@
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
-			<y-m>0.681</y-m>
+			<y-m>0.694</y-m>
 			<z-m>0.856</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -848,7 +848,7 @@
 			</equals>
 		</condition>
 		<offsets>
-			<x-m>2.230</x-m>
+			<x-m>2.23</x-m>
 			<y-m>0.706</y-m>
 			<z-m>0.856</z-m>
 			<pitch-deg>-12</pitch-deg>
@@ -866,8 +866,8 @@
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
-			<y-m>0.612</y-m>
-			<z-m>0.856</z-m>
+			<y-m>0.618</y-m>
+			<z-m>0.868</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
@@ -900,7 +900,7 @@
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
-			<y-m>0.759</y-m>
+			<y-m>0.772</y-m>
 			<z-m>0.856</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
