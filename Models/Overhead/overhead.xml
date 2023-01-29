@@ -37,6 +37,19 @@
 		</condition>
 	</animation>
 	
+	<!-- No button lights without power! -->
+	<animation>
+		<type>select</type>
+		<object-name>ApuPwrAvailOn</object-name>
+		<object-name>ExtPwrAvailOn</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/bus/dc-bat</property>
+				<value>24</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
 	<!-- Ground Service Panel -->
 	<animation>
 		<type>rotate</type>
@@ -69,6 +82,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/electrical/switches/apu-gndsvc</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -104,6 +121,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/electrical/switches/ext-gndsvc</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -141,6 +162,10 @@
 				<command>property-toggle</command>
 				<property>controls/electrical/switches/csd-l</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -175,6 +200,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/electrical/switches/csd-r</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -223,7 +252,21 @@
 				<value>0</value>
 				<value>-1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/electrical/switches/gen-l</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>nasal</command>
+					<script>libraries.Sound.switch1();</script>
+				</binding>
 				<binding>
 					<condition>
 						<equals>
@@ -247,7 +290,21 @@
 				<value>0</value>
 				<value>-1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/electrical/switches/gen-l</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>nasal</command>
+					<script>libraries.Sound.switch1();</script>
+				</binding>
 				<binding>
 					<condition>
 						<equals>
@@ -294,6 +351,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/electrical/switches/gen-apu</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -342,7 +403,21 @@
 				<value>0</value>
 				<value>-1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/electrical/switches/gen-r</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>nasal</command>
+					<script>libraries.Sound.switch1();</script>
+				</binding>
 				<binding>
 					<condition>
 						<equals>
@@ -366,7 +441,21 @@
 				<value>0</value>
 				<value>-1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/electrical/switches/gen-r</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>nasal</command>
+					<script>libraries.Sound.switch1();</script>
+				</binding>
 				<binding>
 					<condition>
 						<equals>
@@ -415,7 +504,28 @@
 				<command>property-toggle</command>
 				<property>controls/electrical/switches/apu-pwr-l</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ApuPwrAvailOn</object-name>
+		<condition>
+			<or>
+				<greater-than>
+					<property>systems/apu/n1-actual</property>
+					<value>94.9</value>
+				</greater-than>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 	
 	<animation>
@@ -449,6 +559,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/electrical/switches/apu-pwr-r</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -485,7 +599,25 @@
 				<command>property-toggle</command>
 				<property>controls/electrical/switches/ext-pwr-l</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ExtPwrAvailOn</object-name>
+		<condition>
+			<or>
+				<property>controls/electrical/switches/ground-cart</property>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 	
 	<animation>
@@ -519,6 +651,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/electrical/switches/ext-pwr-r</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -555,6 +691,10 @@
 				<command>property-toggle</command>
 				<property>controls/electrical/switches/galley</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -590,6 +730,10 @@
 				<command>property-toggle</command>
 				<property>controls/electrical/switches/ac-tie</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -624,6 +768,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/electrical/switches/dc-tie</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -720,6 +868,10 @@
 				<value>1</value>
 				<value>2</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -731,6 +883,10 @@
 				<value>2</value>
 				<value>1</value>
 				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -768,7 +924,21 @@
 				<value>1</value>
 				<value>2</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/apu/switches/master</property>
+							<value>2</value>
+						</equals>
+					</condition>
+					<command>nasal</command>
+					<script>libraries.Sound.switch1();</script>
+				</binding>
 				<binding>
 					<condition>
 						<equals>
@@ -791,6 +961,10 @@
 				<property>controls/apu/switches/master</property>
 				<value>1</value>
 				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -822,6 +996,10 @@
 				<min>0</min>
 				<max>1</max>
 				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.knb1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -877,6 +1055,10 @@
 				<command>property-toggle</command>
 				<property>controls/electrical/switches/battery</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -912,6 +1094,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/fuel/switches/pump-start</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -949,6 +1135,10 @@
 				<value>0</value>
 				<value>1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -960,6 +1150,10 @@
 				<value>1</value>
 				<value>0</value>
 				<value>-1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1016,6 +1210,10 @@
 				<command>property-toggle</command>
 				<property>controls/engines/engine[0]/start-switch</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -1050,6 +1248,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/engines/engine[1]/start-switch</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1087,6 +1289,10 @@
 				<command>property-toggle</command>
 				<property>controls/fuel/switches/pump-aft-l</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -1121,6 +1327,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/fuel/switches/pump-aft-c</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1157,6 +1367,10 @@
 				<command>property-toggle</command>
 				<property>controls/fuel/switches/pump-aft-r</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -1191,6 +1405,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/fuel/switches/pump-fwd-l</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1227,6 +1445,10 @@
 				<command>property-toggle</command>
 				<property>controls/fuel/switches/pump-fwd-c</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -1261,6 +1483,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/fuel/switches/pump-fwd-r</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1309,7 +1535,21 @@
 				<value>0</value>
 				<value>-1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/fuel/switches/aux-trans-aft-a</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>nasal</command>
+					<script>libraries.Sound.switch1();</script>
+				</binding>
 				<binding>
 					<condition>
 						<equals>
@@ -1333,7 +1573,21 @@
 				<value>0</value>
 				<value>-1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/fuel/switches/aux-trans-aft-a</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>nasal</command>
+					<script>libraries.Sound.switch1();</script>
+				</binding>
 				<binding>
 					<condition>
 						<equals>
@@ -1393,7 +1647,21 @@
 				<value>0</value>
 				<value>-1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/fuel/switches/aux-trans-aft-b</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>nasal</command>
+					<script>libraries.Sound.switch1();</script>
+				</binding>
 				<binding>
 					<condition>
 						<equals>
@@ -1417,7 +1685,21 @@
 				<value>0</value>
 				<value>-1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/fuel/switches/aux-trans-aft-b</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>nasal</command>
+					<script>libraries.Sound.switch1();</script>
+				</binding>
 				<binding>
 					<condition>
 						<equals>
@@ -1477,7 +1759,21 @@
 				<value>0</value>
 				<value>-1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/fuel/switches/aux-trans-fwd-a</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>nasal</command>
+					<script>libraries.Sound.switch1();</script>
+				</binding>
 				<binding>
 					<condition>
 						<equals>
@@ -1501,7 +1797,21 @@
 				<value>0</value>
 				<value>-1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/fuel/switches/aux-trans-fwd-a</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>nasal</command>
+					<script>libraries.Sound.switch1();</script>
+				</binding>
 				<binding>
 					<condition>
 						<equals>
@@ -1561,7 +1871,21 @@
 				<value>0</value>
 				<value>-1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/fuel/switches/aux-trans-fwd-b</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>nasal</command>
+					<script>libraries.Sound.switch1();</script>
+				</binding>
 				<binding>
 					<condition>
 						<equals>
@@ -1585,7 +1909,21 @@
 				<value>0</value>
 				<value>-1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 			<mod-up>
+				<binding>
+					<condition>
+						<equals>
+							<property>controls/fuel/switches/aux-trans-fwd-b</property>
+							<value>-1</value>
+						</equals>
+					</condition>
+					<command>nasal</command>
+					<script>libraries.Sound.switch1();</script>
+				</binding>
 				<binding>
 					<condition>
 						<equals>
@@ -1635,6 +1973,10 @@
 				<value>0</value>
 				<value>1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -1646,6 +1988,10 @@
 				<value>1</value>
 				<value>0</value>
 				<value>-1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1683,6 +2029,10 @@
 				<value>0</value>
 				<value>1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -1694,6 +2044,10 @@
 				<value>1</value>
 				<value>0</value>
 				<value>-1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1732,6 +2086,10 @@
 				<value>0</value>
 				<value>1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -1743,6 +2101,10 @@
 				<value>1</value>
 				<value>0</value>
 				<value>-1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1830,6 +2192,10 @@
 				<value>0</value>
 				<value>1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -1841,6 +2207,10 @@
 				<value>1</value>
 				<value>0</value>
 				<value>-1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1878,6 +2248,10 @@
 				<value>0</value>
 				<value>1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -1889,6 +2263,10 @@
 				<value>1</value>
 				<value>0</value>
 				<value>-1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1926,6 +2304,10 @@
 				<value>1</value>
 				<value>2</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -1937,6 +2319,10 @@
 				<value>2</value>
 				<value>1</value>
 				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1973,6 +2359,10 @@
 				<command>property-toggle</command>
 				<property>controls/fctl/switches/mach-trim</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -2007,6 +2397,10 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/lighting/logo-lights</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -2076,6 +2470,10 @@
 				<value>1</value>
 				<value>2</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -2087,6 +2485,10 @@
 				<value>2</value>
 				<value>1</value>
 				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -2124,6 +2526,10 @@
 				<value>1</value>
 				<value>2</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -2135,6 +2541,10 @@
 				<value>2</value>
 				<value>1</value>
 				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -2198,6 +2608,10 @@
 				<max>1</max>
 				<wrap>false</wrap>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.knb1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -2233,6 +2647,10 @@
 				<command>property-toggle</command>
 				<property>controls/pneumatics/switches/radio-rack</property>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -2248,11 +2666,19 @@
 				<property>controls/switches/annun-test</property>
 				<value>1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
+			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
 					<property>controls/switches/annun-test</property>
 					<value>0</value>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>libraries.Sound.btn1();</script>
 				</binding>
 			</mod-up>
 		</action>
