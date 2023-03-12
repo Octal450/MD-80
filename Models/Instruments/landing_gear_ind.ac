@@ -240,6 +240,7 @@ name "Shells"
 loc 0.000997418 0 0.0080484
 data 4
 Cube
+texture "grey.png"
 crease 30.000000
 numvert 32
 0.00921669 -0.0100605 0.0166507
