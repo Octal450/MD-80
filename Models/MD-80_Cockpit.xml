@@ -654,9 +654,15 @@
         <object-name>PitchTrim.dn</object-name>
         <object-name>PitchTrim.dn.001</object-name>
 		<action>
-			<repeatable>true</repeatable>
 			<button>0</button>
+			<repeatable>true</repeatable>
 			<binding>
+				<condition>
+					<greater-than-equals>
+						<property>systems/electrical/bus/emer-ac</property>
+						<value>112</value>
+					</greater-than-equals>
+				</condition>
 				<command>property-adjust</command>
 				<property>controls/flight/elevator-trim</property>
 				<step>0.001</step>
@@ -675,9 +681,15 @@
 			</mod-up>
 		</action>
 		<action>
-			<repeatable>true</repeatable>
 			<button>1</button>
+			<repeatable>true</repeatable>
 			<binding>
+				<condition>
+					<greater-than-equals>
+						<property>systems/electrical/bus/emer-ac</property>
+						<value>112</value>
+					</greater-than-equals>
+				</condition>
 				<command>property-adjust</command>
 				<property>controls/flight/elevator-trim</property>
 				<step>-0.001</step>
@@ -702,9 +714,15 @@
 		<object-name>PitchTrim.up</object-name>
         <object-name>PitchTrim.up.001</object-name>
 		<action>
-			<repeatable>true</repeatable>
 			<button>0</button>
+			<repeatable>true</repeatable>
 			<binding>
+				<condition>
+					<greater-than-equals>
+						<property>systems/electrical/bus/emer-ac</property>
+						<value>112</value>
+					</greater-than-equals>
+				</condition>
 				<command>property-adjust</command>
 				<property>controls/flight/elevator-trim</property>
 				<step>-0.001</step>
@@ -723,9 +741,15 @@
 			</mod-up>
 		</action>
 		<action>
-			<repeatable>true</repeatable>
 			<button>1</button>
+			<repeatable>true</repeatable>
 			<binding>
+				<condition>
+					<greater-than-equals>
+						<property>systems/electrical/bus/emer-ac</property>
+						<value>112</value>
+					</greater-than-equals>
+				</condition>
 				<command>property-adjust</command>
 				<property>controls/flight/elevator-trim</property>
 				<step>0.001</step>
