@@ -84,6 +84,11 @@ var Fdm = {
 			atsCmdRawPid: props.globals.initNode("/fdm/jsbsim/engine/ats-cmd-raw-pid", 0, "DOUBLE"),
 			throttleLever: [props.globals.getNode("/fdm/jsbsim/engine/throttle-lever[0]"), props.globals.getNode("/fdm/jsbsim/engine/throttle-lever[1]")],
 		},
+		fcsActual: {
+			Stabilizer: {
+				rateSwitch: props.globals.getNode("/fdm/jsbsim/fcs-actual/stabilizer/rate-switch"),
+			},
+		},
 		Position: {
 			wow: props.globals.getNode("/fdm/jsbsim/position/wow"),
 			wowTemp: 0,

@@ -299,7 +299,7 @@ controls.elevatorTrim = func(d) {
 		dfgs.ITAF.ap2Master(0);
 	}
 	if (systems.ELEC.Bus.emerAc.getValue() >= 112) { # Check?
-		slewProp("/controls/flight/elevator-trim", d * 0.02666664); # 0.02666664 is the rate in JSB normalized (0.333333 / 12.5)
+		slewProp("/controls/flight/elevator-trim", d * (pts.Fdm.JSBsim.fcsActual.Stabilizer.rateSwitch.getValue() / 12.5)); # Rate normalized by max degrees (rate / 12.5)
 	}
 }
 

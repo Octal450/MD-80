@@ -483,10 +483,9 @@
 		
 		<switch name="fcs-actual/stabilizer/rate-switch">
 			<default value="0.333333"/> <!-- Primary -->
-			<test logic="OR" value="0.1"> <!-- Alternate -->
-				/instrumentation/airspeed-indicator/indicated-speed-kt ge 249.5
-				/instrumentation/altimeter/indicated-altitude-ft ge 32990
-			</test>
+			<!--test logic="OR" value="0.1"--> <!-- Alternate -->
+				<!-- TBD -->
+			<!--/test-->
 		</switch>
 		
 		<switch name="fcs-actual/stabilizer/rate">
