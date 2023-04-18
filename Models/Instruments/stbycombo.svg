@@ -29,8 +29,8 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.0000001"
-     inkscape:cx="89.358272"
-     inkscape:cy="371.89244"
+     inkscape:cx="333.81573"
+     inkscape:cy="131.65849"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -40,7 +40,11 @@
      inkscape:window-x="1592"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     showguides="false" />
+     showguides="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4224" />
+  </sodipodi:namedview>
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -629,25 +633,6 @@
        y="841.31915"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
-    <path
-       style="fill:#ffffff;stroke:none"
-       d="m 256,958.51119 15,50.00001 -30,0 z"
-       id="rect4450"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccc" />
-    <text
-       transform="scale(0.99999431,1.0000057)"
-       sodipodi:linespacing="125%"
-       id="text4455"
-       y="986.3299"
-       x="201.79749"
-       style="font-style:normal;font-weight:normal;font-size:42.14249802px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.5525322px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';text-align:center;text-anchor:middle;fill:#ffffff"
-         y="986.3299"
-         x="201.79749"
-         id="tspan4457"
-         sodipodi:role="line">IAS</tspan></text>
     <g
        id="g4514"
        transform="matrix(1.02647,0,0,1.02647,-6.7763062,-22.432696)"
@@ -657,13 +642,13 @@
          transform="scale(0.99999171,1.0000083)"
          sodipodi:linespacing="125%"
          id="text4983"
-         y="762.88873"
-         x="255.81984"
-         style="font-style:normal;font-weight:normal;font-size:42.14249802px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         y="761.61194"
+         x="255.83807"
+         style="font-style:normal;font-weight:normal;font-size:37.92824936px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.5525322px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';text-align:center;text-anchor:middle;fill:#ffffff"
-           y="762.88873"
-           x="255.81984"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:31.99727821px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';text-align:center;text-anchor:middle;fill:#ffffff"
+           y="761.61194"
+           x="255.83807"
            id="tspan4985"
            sodipodi:role="line">ALT</tspan></text>
       <text
@@ -811,11 +796,43 @@
          y="775.96332"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25.53320122px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';text-align:center;text-anchor:middle;fill:#568fbc;fill-opacity:1">MB</tspan></text>
     <rect
-       y="871.75208"
+       y="872.36218"
        x="126"
-       height="70"
+       height="80"
        width="260"
        id="rect4508"
        style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:#ffffff;stroke:none"
+       d="m 256,958.51118 12.52506,50.00002 -25.05013,0 z"
+       id="rect4450"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <text
+       transform="scale(0.9999818,1.0000182)"
+       sodipodi:linespacing="125%"
+       id="text4455"
+       y="982.43219"
+       x="206.67259"
+       style="font-style:normal;font-weight:normal;font-size:37.92824936px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:31.99728012px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';text-align:center;text-anchor:middle;fill:#ffffff"
+         y="982.43219"
+         x="206.67259"
+         id="tspan4457"
+         sodipodi:role="line">IAS</tspan></text>
+    <text
+       transform="scale(0.9999967,1.0000033)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:45.95976257px;line-height:125%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#568fbc;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="319.24207"
+       y="975.42889"
+       id="text4226"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4228"
+         x="319.24207"
+         y="975.42889"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.97988129px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';text-align:center;text-anchor:middle;fill:#568fbc;fill-opacity:1">KNOTS</tspan></text>
   </g>
 </svg>
