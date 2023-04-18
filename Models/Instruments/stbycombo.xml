@@ -17,7 +17,7 @@
 		</emission>
 	</animation>
 	
-	<animation>
+	<!--animation>
 		<type>textranslate</type>
 		<object-name>iastape</object-name>
 		<property>instrumentation/stby-asi/speed-kt</property>
@@ -31,11 +31,11 @@
 			<x>0</x>
 			<y>-1</y>
 		</axis>
-	</animation>
+	</animation-->
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>needle</object-name>
+		<object-name>altneedle</object-name>
 		<property>instrumentation/stby-alt/altitude-ft</property>
 		<factor>0.36</factor>
 		<axis>
@@ -52,7 +52,7 @@
 	
 	<animation>
 		<type>textranslate</type>
-		<object-name>alttxt</object-name>
+		<object-name>alt1</object-name>
 		<property>instrumentation/stby-alt/altitude-ft</property>
 		<factor>0.00001</factor>
 		<step>10000</step>
@@ -65,7 +65,7 @@
 	
 	<animation>
 		<type>textranslate</type>
-		<object-name>alttxt.001</object-name>
+		<object-name>alt2</object-name>
 		<property>instrumentation/stby-alt/altitude-ft</property>
 		<factor>0.0001</factor>
 		<axis>
@@ -76,7 +76,7 @@
 	
 	<animation>
 		<type>textranslate</type>
-		<object-name>inhg.001</object-name>
+		<object-name>inhg01</object-name>
 		<property>instrumentation/stby-alt/setting-inhg-text</property>
 		<factor>0.0001</factor>
 		<step>1000</step>
@@ -90,7 +90,7 @@
 	
 	<animation>
 		<type>textranslate</type>
-		<object-name>inhg.002</object-name>
+		<object-name>inhg02</object-name>
 		<property>instrumentation/stby-alt/setting-inhg-text</property>
 		<factor>0.001</factor>
 		<step>100</step>
@@ -104,7 +104,7 @@
 	
 	<animation>
 		<type>textranslate</type>
-		<object-name>inhg.003</object-name>
+		<object-name>inhg03</object-name>
 		<property>instrumentation/stby-alt/setting-inhg-text</property>
 		<factor>0.01</factor>
 		<step>10</step>
@@ -118,7 +118,7 @@
 	
 	<animation>
 		<type>textranslate</type>
-		<object-name>inhg.004</object-name>
+		<object-name>inhg04</object-name>
 		<property>instrumentation/stby-alt/setting-inhg-text</property>
 		<factor>0.1</factor>
 		<step>1</step>
@@ -132,7 +132,7 @@
 	
 	<animation>
 		<type>textranslate</type>
-		<object-name>kpa.001</object-name>
+		<object-name>mb01</object-name>
 		<property>instrumentation/stby-alt/setting-hpa-text</property>
 		<factor>0.0001</factor>
 		<step>1000</step>
@@ -146,7 +146,7 @@
 	
 	<animation>
 		<type>textranslate</type>
-		<object-name>kpa.002</object-name>
+		<object-name>mb02</object-name>
 		<property>instrumentation/stby-alt/setting-hpa-text</property>
 		<factor>0.001</factor>
 		<step>100</step>
@@ -160,7 +160,7 @@
 	
 	<animation>
 		<type>textranslate</type>
-		<object-name>kpa.003</object-name>
+		<object-name>mb03</object-name>
 		<property>instrumentation/stby-alt/setting-hpa-text</property>
 		<factor>0.01</factor>
 		<step>10</step>
@@ -174,7 +174,7 @@
 	
 	<animation>
 		<type>textranslate</type>
-		<object-name>kpa.004</object-name>
+		<object-name>mb04</object-name>
 		<property>instrumentation/stby-alt/setting-hpa-text</property>
 		<factor>0.1</factor>
 		<step>1</step>
