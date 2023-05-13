@@ -120,8 +120,8 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				spoilers/main-gear-and eq 1
-				fcs/throttle-lever-feedback[0] lt 0.05
-				fcs/throttle-lever-feedback[1] lt 0.05
+				engine/throttle-lever-feedback[0] lt 0.05
+				engine/throttle-lever-feedback[1] lt 0.05
 			</test>
 		</switch>
 		
