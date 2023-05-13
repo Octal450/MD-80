@@ -421,7 +421,7 @@
 			<checkbox>
 				<label>Use Seperate Tiller Axis</label>
 				<halign>left</halign>
-				<property>/systems/acconfig/options/seperate-tiller-axis</property>
+				<property>/systems/acconfig/options/separate-tiller-axis</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>

@@ -1420,7 +1420,7 @@
 					<pfd-fps type="double">20</pfd-fps>
 				</du>
 				<panel type="string">Analog</panel>
-				<seperate-tiller-axis type="bool">0</seperate-tiller-axis>
+				<separate-tiller-axis type="bool">0</separate-tiller-axis>
 			</options>
 		</acconfig>
 		<apu n="0">
