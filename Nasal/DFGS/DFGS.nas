@@ -446,9 +446,6 @@ var ITAF = {
 	slowLoop: func() {
 		Input.bankLimitSwTemp = Input.bankLimitSw.getValue();
 		Velocities.trueAirspeedKtTemp = Velocities.trueAirspeedKt.getValue();
-		FPLN.activeTemp = FPLN.active.getValue();
-		FPLN.currentWpTemp = FPLN.currentWp.getValue();
-		FPLN.numTemp = FPLN.num.getValue();
 		
 		# Bank Limit
 		Internal.bankLimit.setValue(Internal.bankLimitMax[Input.bankLimitSwTemp]); # Non auto
@@ -460,7 +457,18 @@ var ITAF = {
 			}
 		}
 		
+		# Reset system once flight complete
+		Output.latTemp = Output.lat.getValue();
+		Output.vertTemp = Output.vert.getValue();
+		if (!Output.ap1.getBoolValue() and !Output.ap2.getBoolValue() and Gear.wow0.getBoolValue() and Velocities.groundspeedKt.getValue() < 80 and (Output.latTemp == 2 or Output.latTemp == 4 or Output.vertTemp == 2 or Output.vertTemp == 6)) {
+			me.init(1);
+		}
+		
 		# Waypoint Advance Logic
+		FPLN.activeTemp = FPLN.active.getValue();
+		FPLN.currentWpTemp = FPLN.currentWp.getValue();
+		FPLN.numTemp = FPLN.num.getValue();
+		
 		if (FPLN.numTemp > 0 and FPLN.activeTemp == 1) {
 			if ((FPLN.currentWpTemp + 1) < FPLN.numTemp) {
 				Velocities.groundspeedMps = Velocities.groundspeedKt.getValue() * 0.5144444444444;
@@ -498,13 +506,6 @@ var ITAF = {
 					FPLN.currentWp.setValue(FPLN.currentWpTemp + 1);
 				}
 			}
-		}
-		
-		# Reset system once flight complete
-		Output.latTemp = Output.lat.getValue();
-		Output.vertTemp = Output.vert.getValue();
-		if (!Output.ap1.getBoolValue() and !Output.ap2.getBoolValue() and Gear.wow0.getBoolValue() and Velocities.groundspeedKt.getValue() < 80 and (Output.latTemp == 2 or Output.latTemp == 4 or Output.vertTemp == 2 or Output.vertTemp == 6)) {
-			me.init(1);
 		}
 	},
 	ap1Master: func(s) {
