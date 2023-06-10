@@ -1059,7 +1059,7 @@
 				</less-than>
 				<greater-than>
 					<property>it-autoflight/input/vs-fma</property>
-					<value>0</value>
+					<value>0.01</value>
 				</greater-than>
 			</and>
 		</condition>
@@ -1114,11 +1114,11 @@
 			<and>
 				<less-than>
 					<property>it-autoflight/input/pitch</property>
-					<value>-0.01</value>
+					<value>-0.001</value>
 				</less-than>
 				<greater-than>
 					<property>it-autoflight/input/pitch-abs</property>
-					<value>0</value>
+					<value>0.001</value>
 				</greater-than>
 			</and>
 		</condition>
