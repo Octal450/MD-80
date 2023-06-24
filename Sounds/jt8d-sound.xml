@@ -1499,7 +1499,7 @@
 				</greater-than>
 			</condition>
 		</caws>
-		<apoff>
+		<caws>
 			<name>AP Off Warning</name>
 			<path>Aircraft/MD-80/Sounds/CAWS/apoff.wav</path>
 			<type>avionics</type>
@@ -1510,7 +1510,7 @@
 					<value>0</value>
 				</greater-than>
 			</condition>
-		</apoff>
+		</caws>
 	    <caws>
 			<name>Overspeed</name>
 			<path>Aircraft/MD-80/Sounds/CAWS/overspeed.wav</path>
