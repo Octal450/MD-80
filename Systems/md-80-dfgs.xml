@@ -6,7 +6,6 @@
 <system name="MD-80: DFGS">
 	
 	<property value="0">dfgs/flaps-cmd</property>
-	<property value="0">dfgs/yaw/tc-pd</property>
 	<property value="0">engine/throttle-lever-feedback[0]</property>
 	<property value="0">engine/throttle-lever-feedback[1]</property>
 	<property value="0">/gear/abs/disarm</property>
@@ -577,19 +576,23 @@
 			</clipto>
 		</pure_gain>
 		
-		<switch name="dfgs/yaw/slip-skid">
+		<switch name="dfgs/yaw/slip-skid-raw">
 			<default value="aero/beta-rad"/>
 			<test logic="OR" value="0">
 				position/wow eq 1
 			</test>
 		</switch>
 		
-		<pid name="dfgs/yaw/tc-pd-v">
+		<lag_filter name="dfgs/yaw/slip-skid">
+			<input>dfgs/yaw/slip-skid-raw</input>
+			<c1>2.5</c1>
+		</lag_filter>
+		
+		<pid name="dfgs/yaw/tc-pd">
 			<input>dfgs/yaw/slip-skid</input>
 			<kp>dfgs/yaw/tc-p-gain</kp>
 			<ki>0.0</ki>
 			<kd>dfgs/yaw/tc-d-gain</kd>
-			<output>dfgs/yaw/tc-pd</output>
 			<clipto>
 				<min>-0.2</min>
 				<max>0.2</max>
@@ -835,13 +838,12 @@
 			</test>
 		</switch>
 		
-		<pid name="/gear/abs/brake-cmd-v">
+		<pid name="/gear/abs/brake-cmd">
 			<input>/gear/abs/decel-error</input>
 			<kp>0.45</kp>
 			<ki>0.25</ki>
 			<kd>0.0</kd>
 			<trigger>/gear/abs/brake-cmd-trigger</trigger>
-			<output>/gear/abs/brake-cmd</output>
 			<clipto>
 				<min>0.0</min>
 				<max>1.0</max>
