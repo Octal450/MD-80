@@ -3,7 +3,7 @@
 
 var COMM = {
 	adjustDecimal: func(n, d) {
-		var input = split(".", sprintf("%3.2f", pts.Instrumentation.Comm.Frequencies.selectedMhzFmt[n].getValue()));
+		var input = split(".", sprintf("%3.2f", pts.Instrumentation.Comm.Frequencies.standbyMhzFmt[n].getValue()));
 		var val = input[1] + (5 * d);
 		
 		if (d > 0) {
