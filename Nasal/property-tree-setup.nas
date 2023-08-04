@@ -125,7 +125,6 @@ var Instrumentation = {
 		Frequencies: {
 			standbyMhz: [props.globals.getNode("/instrumentation/comm[0]/frequencies/standby-mhz"), props.globals.getNode("/instrumentation/comm[1]/frequencies/standby-mhz"), props.globals.getNode("/instrumentation/comm[2]/frequencies/standby-mhz")],
 			standbyMhzFmt: [props.globals.getNode("/instrumentation/comm[0]/frequencies/standby-mhz-fmt"), props.globals.getNode("/instrumentation/comm[1]/frequencies/standby-mhz-fmt"), props.globals.getNode("/instrumentation/comm[2]/frequencies/standby-mhz-fmt")],
-			standbyMhzFmtX100: [props.globals.getNode("/instrumentation/comm[0]/frequencies/standby-mhz-fmt-x100"), props.globals.getNode("/instrumentation/comm[1]/frequencies/standby-mhz-fmt-x100"), props.globals.getNode("/instrumentation/comm[2]/frequencies/standby-mhz-fmt-x100")],
 		},
 	},
 	Du: {
