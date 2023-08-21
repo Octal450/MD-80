@@ -212,7 +212,7 @@ var apPanel = {
 						dfgs.Input.ktsFlch.setValue(me.ktsFlchTemp);
 					}
 				}
-			} else if (me.vertTemp == 5) {
+			} else if (me.vertTemp == 8) {
 				if (abs(d) == 10) {
 					me.pitchTemp = dfgs.Input.pitch.getValue() + (d * 0.5);
 				} else {
@@ -289,7 +289,7 @@ var apPanel = {
 	turb: func() {
 		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			dfgs.Input.lat.setValue(6);
-			dfgs.Input.vert.setValue(5);
+			dfgs.Input.vert.setValue(8);
 		}
 	},
 	toga: func() {

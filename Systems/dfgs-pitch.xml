@@ -270,19 +270,19 @@
 			<condition>
 				<equals>
 					<property>/it-autoflight/output/vert</property>
-					<value>5</value>
+					<value>6</value>
 				</equals>
 			</condition>
-			<property>/it-autoflight/internal/vert-speed-fpm</property>
+			<property>/it-autoflight/internal/target-fpm-land</property>
 		</input>
 		<input>
 			<condition>
 				<equals>
 					<property>/it-autoflight/output/vert</property>
-					<value>6</value>
+					<value>8</value>
 				</equals>
 			</condition>
-			<property>/it-autoflight/internal/target-fpm-land</property>
+			<property>/it-autoflight/internal/vert-speed-fpm</property>
 		</input>
 		<output>/it-autoflight/internal/target-common-fpm</output>
 	</filter>
@@ -301,7 +301,7 @@
 				</equals>
 				<not-equals>
 					<property>/it-autoflight/output/vert</property>
-					<value>5</value>
+					<value>8</value>
 				</not-equals>
 			</and>
 		</input>
@@ -442,7 +442,7 @@
 						</equals>
 						<not-equals>
 							<property>/it-autoflight/output/vert</property>
-							<value>5</value>
+							<value>8</value>
 						</not-equals>
 					</and>
 				</not>
@@ -463,21 +463,21 @@
 					<property>/it-autoflight/output/apfd-on</property>
 					<equals>
 						<property>/it-autoflight/output/vert</property>
-						<value>5</value>
+						<value>8</value>
 					</equals>
 				</and>
 			</condition>
 			<property>/it-autoflight/input/pitch</property>
 		</input>
 		<input>/orientation/pitch-deg</input>
-		<output>/it-autoflight/internal/target-pitch-turb</output>
+		<output>/it-autoflight/internal/target-pitch-hold</output>
 		<max-rate-of-change>
 			<condition>
 				<and>
 					<property>/it-autoflight/output/apfd-on</property>
 					<equals>
 						<property>/it-autoflight/output/vert</property>
-						<value>5</value>
+						<value>8</value>
 					</equals>
 				</and>
 			</condition>
@@ -495,10 +495,10 @@
 			<condition>
 				<equals>
 					<property>/it-autoflight/output/vert</property>
-					<value>5</value>
+					<value>8</value>
 				</equals>
 			</condition>
-			<property>/it-autoflight/internal/target-pitch-turb</property>
+			<property>/it-autoflight/internal/target-pitch-hold</property>
 		</reference>
 		<reference>/it-autoflight/internal/target-pitch-deg</reference>
 		<output>/it-autoflight/internal/pitch-rate</output>

@@ -641,31 +641,6 @@
 	</filter>
 	
 	<filter>
-		<name>Pitch Turbulance Sync</name>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<enable>
-			<condition>
-				<not-equals>
-					<property>/it-autoflight/output/vert</property>
-					<value>5</value>
-				</not-equals>
-			</condition>
-		</enable>
-		<input>
-			<expression>
-				<floor>
-					<sum>
-						<property>/orientation/pitch-deg</property>
-						<value>0.5</value>
-					</sum>
-				</floor>
-			</expression>
-		</input>
-		<output>/it-autoflight/input/pitch</output>
-	</filter>
-	
-	<filter>
 		<name>VS Abs</name>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -1090,7 +1065,7 @@
 			<condition>
 				<equals>
 					<property>/it-autoflight/output/vert</property>
-					<value>5</value>
+					<value>8</value>
 				</equals>
 			</condition>
 			<expression>

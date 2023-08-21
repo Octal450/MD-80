@@ -294,7 +294,7 @@ var ITAF = {
 		}
 		
 		# Turbulance Mode Revision
-		if (Output.latTemp != 6 and Output.vertTemp == 5) {
+		if (Output.latTemp != 6 and Output.vertTemp == 8) {
 			me.setVertMode(1);
 		}
 		
@@ -735,17 +735,6 @@ var ITAF = {
 			} else {
 				me.syncKtsFlch();
 			}
-		} else if (n == 5) { # PITCH
-			Input.altArmed.setBoolValue(0);
-			Internal.flchActive = 0;
-			Internal.altCaptureActive = 0;
-			me.updateApprArm(0);
-			me.updateAutoLand(0);
-			Output.vert.setValue(5);
-			me.updateVertText("PITCH");
-			me.syncPitch();
-			Athr.setMode(0); # Thrust
-			me.athrMaster(0);
 		} else if (n == 6) { # FLARE/ROLLOUT
 			Input.altArmed.setBoolValue(0);
 			Internal.flchActive = 0;
@@ -761,6 +750,17 @@ var ITAF = {
 			Output.vert.setValue(7);
 			Athr.setMode(2); # EPR Lim
 			Input.ktsMachFlch.setBoolValue(0);
+		} else if (n == 8) { # PITCH
+			Input.altArmed.setBoolValue(0);
+			Internal.flchActive = 0;
+			Internal.altCaptureActive = 0;
+			me.updateApprArm(0);
+			me.updateAutoLand(0);
+			me.syncPitch();
+			Output.vert.setValue(8);
+			me.updateVertText("PITCH");
+			Athr.setMode(0); # Thrust
+			me.athrMaster(0);
 		}
 	},
 	activateLnav: func() {

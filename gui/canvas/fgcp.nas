@@ -218,7 +218,7 @@ var fgcpCanvas = {
 						me["PitchMode_16seg"].setText("S");
 						me["Pitch_7seg"].setText(sprintf("%03d", dfgs.Input.ktsFlch.getValue()));
 					}
-				} else if (me._vert == 5) {
+				} else if (me._vert == 8) {
 					me._pitch = dfgs.Input.pitch.getValue();
 					me._pitchD = math.round(abs(me._pitch), 0.1);
 					
