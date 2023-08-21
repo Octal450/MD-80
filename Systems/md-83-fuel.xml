@@ -281,6 +281,8 @@
 		3 - Engine 1 Pipe
 		4 - Engine 2 Pipe
 		5 - APU Pipe
+		6 - Aux Tank Fwd
+		7 - Aux Tank Aft
 	-->
 	
 	<channel name="JSB Fuel System">

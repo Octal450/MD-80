@@ -130,18 +130,18 @@
 		</offsets>
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">number-value</type>
-		<format type="string">%02.0f</format>
+		<type>number-value</type>
+		<format>%02.0f</format>
 		<property>systems/fuel/tank-l-lbs</property>
 		<truncate>false</truncate>
-		<font type="string">Std7SegCustom.ttf</font>
+		<font>Std7SegCustom.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.0085</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width>32</width>
+			<height>32</height>
 		</font-resolution>
 	</text>
 	
@@ -154,18 +154,18 @@
 		</offsets>
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">number-value</type>
-		<format type="string">%02.0f</format>
+		<type>number-value</type>
+		<format>%02.0f</format>
 		<property>systems/fuel/tank-r-lbs</property>
 		<truncate>false</truncate>
-		<font type="string">Std7SegCustom.ttf</font>
+		<font>Std7SegCustom.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.0085</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width>32</width>
+			<height>32</height>
 		</font-resolution>
 	</text>
 	
@@ -178,18 +178,18 @@
 		</offsets>
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">number-value</type>
-		<format type="string">%02.0f</format>
+		<type>number-value</type>
+		<format>%02.0f</format>
 		<property>systems/fuel/tank-c-lbs</property>
 		<truncate>false</truncate>
-		<font type="string">Std7SegCustom.ttf</font>
+		<font>Std7SegCustom.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.0085</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width>32</width>
+			<height>32</height>
 		</font-resolution>
 	</text>
 	
@@ -202,18 +202,18 @@
 		</offsets>
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">number-value</type>
-		<format type="string">%02.0f</format>
+		<type>number-value</type>
+		<format>%02.0f</format>
 		<property>systems/fuel/tank-a-lbs</property>
 		<truncate>false</truncate>
-		<font type="string">Std7SegCustom.ttf</font>
+		<font>Std7SegCustom.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.0095</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width>32</width>
+			<height>32</height>
 		</font-resolution>
 	</text>
 	
@@ -226,18 +226,18 @@
 		</offsets>
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">number-value</type>
-		<format type="string">%2.0f</format>
+		<type>number-value</type>
+		<format>%2.0f</format>
 		<property>fdm/jsbsim/inertia/weight-lbs-ind</property>
 		<truncate>false</truncate>
-		<font type="string">Std7SegCustom.ttf</font>
+		<font>Std7SegCustom.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.0085</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width>32</width>
+			<height>32</height>
 		</font-resolution>
 	</text>
 
