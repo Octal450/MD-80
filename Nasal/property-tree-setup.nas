@@ -115,11 +115,6 @@ var Instrumentation = {
 		indicatedMach: props.globals.getNode("/instrumentation/airspeed-indicator/indicated-mach"),
 		indicatedSpeedKt: props.globals.getNode("/instrumentation/airspeed-indicator/indicated-speed-kt"),
 	},
-	Altimeter: {
-		oldQnh: props.globals.getNode("/instrumentation/altimeter/oldqnh"),
-		settingInhg: props.globals.getNode("/instrumentation/altimeter/setting-inhg"),
-		std: props.globals.getNode("/instrumentation/altimeter/std"),
-	},
 	Comm: {
 		Frequencies: {
 			standbyMhz: [props.globals.getNode("/instrumentation/comm[0]/frequencies/standby-mhz"), props.globals.getNode("/instrumentation/comm[1]/frequencies/standby-mhz"), props.globals.getNode("/instrumentation/comm[2]/frequencies/standby-mhz")],
