@@ -64,7 +64,6 @@ var Engines = {
 	},
 };
 
-
 var Fdm = {
 	JSBsim: {
 		Aero: {
