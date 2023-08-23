@@ -71,11 +71,13 @@
 	<dme>
 		<name>dme</name>
 		<number>0</number>
+		<power-supply>/systems/electrical/outputs/nav[0]</power-supply>
 	</dme>
 	
 	<dme>
 		<name>dme</name>
 		<number>1</number>
+		<power-supply>/systems/electrical/outputs/nav[1]</power-supply>
 	</dme>
 	
 	<heading-indicator>
