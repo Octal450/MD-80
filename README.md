@@ -1,10 +1,5 @@
 # MD-80
-A very advanced simulation of the McDonnell Douglas MD-80 for FlightGear by Josh Davidson (Octal450).
-
-- Flight Dynamics: Josh Davidson (Octal450)
-- Systems: Josh Davidson (Octal450)
-- Instruments: Josh Davidson (Octal450), Jonathan Redpath (legoboyvdlp), Gary Neely (Buckaroo), chad3006
-- 3D/Textures: Gary Neely (Buckaroo), Jonathan Redpath (legoboyvdlp)
+A very advanced simulation of the McDonnell Douglas MD-80 for FlightGear.
 
 Present pack includes the following McDonnell Douglas MD-80 variants:
 - MD-82
