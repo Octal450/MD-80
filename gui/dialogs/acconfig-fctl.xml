@@ -146,7 +146,7 @@
 				<layout>vbox</layout>
 				
 				<text>
-					<label>R1:</label>
+					<label>R:</label>
 				</text>
 				<slider>
 					<pref-height>150</pref-height>
