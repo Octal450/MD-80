@@ -339,6 +339,16 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/spoilers-lever-rotate">
+			<input>spoilers/lever-cmd</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/spoilers-lever-translate">
+			<input>/controls/flight/speedbrake-arm</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/throttle-lever[0]">
 			<input>engine/control-1/throttle-pos</input>
 			<c1>20</c1>
@@ -349,16 +359,6 @@
 			<input>engine/control-2/throttle-pos</input>
 			<c1>20</c1>
 			<output>engine/throttle-lever-feedback[1]</output>
-		</lag_filter>
-		
-		<lag_filter name="/controls/cockpit/spoilers-lever-rotate">
-			<input>spoilers/lever-cmd</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<lag_filter name="/controls/cockpit/spoilers-lever-translate">
-			<input>/controls/flight/speedbrake-arm</input>
-			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/x-bleed-l-lever">
