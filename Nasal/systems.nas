@@ -60,12 +60,14 @@ var ELEC = {
 		acGenL: props.globals.getNode("/systems/electrical/bus/ac-gen-l"),
 		acGenR: props.globals.getNode("/systems/electrical/bus/ac-gen-r"),
 		acGndSvc: props.globals.getNode("/systems/electrical/bus/ac-gndsvc"),
+		acTie: props.globals.getNode("/systems/electrical/bus/ac-tie"),
 		acL: props.globals.getNode("/systems/electrical/bus/ac-l"),
 		acR: props.globals.getNode("/systems/electrical/bus/ac-r"),
 		dcBat: props.globals.getNode("/systems/electrical/bus/dc-bat"),
 		dcBatDirect: props.globals.getNode("/systems/electrical/bus/dc-bat-direct"),
 		dcL: props.globals.getNode("/systems/electrical/bus/dc-l"),
 		dcR: props.globals.getNode("/systems/electrical/bus/dc-r"),
+		dcTie: props.globals.getNode("/systems/electrical/bus/dc-tie"),
 		dcTrans: props.globals.getNode("/systems/electrical/bus/dc-trans"),
 		emerAc: props.globals.getNode("/systems/electrical/bus/emer-ac"),
 		emerDc: props.globals.getNode("/systems/electrical/bus/emer-dc"),
@@ -84,12 +86,11 @@ var ELEC = {
 		fma: [props.globals.initNode("/systems/electrical/outputs/fma[0]", 0, "DOUBLE"), props.globals.initNode("/systems/electrical/outputs/fma[1]", 0, "DOUBLE")],
 	},
 	Source: {
-		batChargerPowered: props.globals.getNode("/systems/electrical/sources/bat-charger-powered"),
 		Apu: {
 			hertz: props.globals.getNode("/systems/electrical/sources/apu/output-hertz"),
-			volt: props.globals.getNode("/systems/electrical/sources/apu/output-volt"),
 			pmgHertz: props.globals.getNode("/systems/electrical/sources/apu/pmg-hertz"),
 			pmgVolt: props.globals.getNode("/systems/electrical/sources/apu/pmg-volt"),
+			volt: props.globals.getNode("/systems/electrical/sources/apu/output-volt"),
 		},
 		Bat1: {
 			amp: props.globals.getNode("/systems/electrical/sources/bat-1/amp"),
@@ -101,6 +102,7 @@ var ELEC = {
 			percent: props.globals.getNode("/systems/electrical/sources/bat-2/percent"),
 			volt: props.globals.getNode("/systems/electrical/sources/bat-2/volt"),
 		},
+		batChargerPowered: props.globals.getNode("/systems/electrical/sources/bat-charger-powered"),
 		Ext: {
 			hertz: props.globals.getNode("/systems/electrical/sources/ext/output-hertz"),
 			volt: props.globals.getNode("/systems/electrical/sources/ext/output-volt"),
