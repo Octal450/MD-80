@@ -1342,7 +1342,6 @@
 				/systems/electrical/bus/ac-l ge 112
 			</test>
 			<output>/systems/electrical/outputs/adf[0]</output>
-			<output>/systems/electrical/outputs/dme[0]</output>
 			<output>/systems/electrical/outputs/ra[0]</output>
 		</switch>
 		
@@ -1352,7 +1351,6 @@
 				/systems/electrical/bus/ac-r ge 112
 			</test>
 			<output>/systems/electrical/outputs/adf[1]</output>
-			<output>/systems/electrical/outputs/dme[1]</output>
 			<output>/systems/electrical/outputs/ra[1]</output>
 		</switch>
 		
