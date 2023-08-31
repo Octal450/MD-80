@@ -440,6 +440,7 @@ var HYD = {
 	},
 	Switch: {
 		auxPump: props.globals.getNode("/controls/hydraulics/switches/aux-pump"),
+		gearGravityExt: props.globals.getNode("/controls/hydraulics/switches/gear-gravity-ext"),
 		lPump: props.globals.getNode("/controls/hydraulics/switches/l-pump"),
 		rPump: props.globals.getNode("/controls/hydraulics/switches/r-pump"),
 		trans: props.globals.getNode("/controls/hydraulics/switches/trans"),
@@ -449,6 +450,7 @@ var HYD = {
 		me.Qty.sysLInput.setValue(math.round((rand() * 8) + 10 , 0.1)); # Random between 10 and 18
 		me.Qty.sysRInput.setValue(math.round((rand() * 8) + 10 , 0.1)); # Random between 10 and 18
 		me.Switch.auxPump.setValue(0);
+		me.Switch.gearGravityExt.setBoolValue(0);
 		me.Switch.lPump.setValue(0);
 		me.Switch.rPump.setValue(0);
 		me.Switch.trans.setBoolValue(0);
