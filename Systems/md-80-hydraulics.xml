@@ -103,7 +103,7 @@
 				<ifthen>
 					<ge>
 						<property>/systems/hydraulics/sys-l-qty</property>
-						<value>1.0</value>
+						<value>1</value>
 					</ge>
 					<property>/systems/hydraulics/l-pump-psi</property>
 					<value>40</value>
@@ -116,7 +116,7 @@
 				<ifthen>
 					<ge>
 						<property>/systems/hydraulics/sys-l-qty</property>
-						<value>1.0</value>
+						<value>1</value>
 					</ge>
 					<max>
 						<property>/systems/hydraulics/sys-l-pre-psi-cmd</property>
