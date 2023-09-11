@@ -12,7 +12,7 @@
 		<object-name>fwd-lbs</object-name>
 		<diffuse>
 			<red>1</red>
-			<green>0.45</green>
+			<green>0.6</green>
 			<blue>0</blue>
 			<factor-prop>controls/lighting/capt-digital-norm</factor-prop>
 		</diffuse>
@@ -28,7 +28,7 @@
 		</specular>
 		<emission>
 			<red>1</red>
-			<green>0.45</green>
+			<green>0.6</green>
 			<blue>0</blue>
 			<factor-prop>controls/lighting/capt-digital-norm</factor-prop>
 		</emission>

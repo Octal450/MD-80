@@ -35,7 +35,7 @@ var systemsInit = func() {
 	libraries.variousReset();
 }
 
-var fdmInit = setlistener("sim/signals/fdm-initialized", func() {
+var fdmInit = setlistener("/sim/signals/fdm-initialized", func() {
 	acconfig.SYSTEM.fdmInit();
 	systemsInit();
 	systemsLoop.start();
