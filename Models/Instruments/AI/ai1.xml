@@ -40,9 +40,9 @@
 		<object-name>HorizonInner</object-name>
 		<property>instrumentation/ai[0]/pitch-deg</property>
 		<interpolation>
-			<entry><ind>-90</ind><dep>-0.319</dep></entry>
-			<entry><ind>  0</ind><dep> 0.000</dep></entry>
-			<entry><ind> 90</ind><dep> 0.319</dep></entry>
+			<entry><ind>-90</ind><dep>-0.3189</dep></entry>
+			<entry><ind>  0</ind><dep> 0.0000</dep></entry>
+			<entry><ind> 90</ind><dep> 0.3189</dep></entry>
 		</interpolation>
 		<axis>
 			<x>0</x>
