@@ -21,6 +21,15 @@
 		<output>/instrumentation/du/crt-contrast</output>
 	</filter>
 	
+	<filter>
+		<name>Mach Slow</name>
+		<update-interval-secs>1.0</update-interval-secs>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>/instrumentation/airspeed-indicator/indicated-mach</input>
+		<output>/instrumentation/airspeed-indicator/indicated-mach-slow</output>
+	</filter>
+	
 	<!-- RMI -->
 	<filter>
 		<name>RMI 1 NAV 1 Error</name>
