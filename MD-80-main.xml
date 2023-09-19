@@ -1383,7 +1383,9 @@
 			<fd1 type="bool">0</fd1>
 			<fd2 type="bool">0</fd2>
 			<hdg type="int">360</hdg>
+			<kts type="int">250</kts>
 			<kts-mach type="bool">0</kts-mach>
+			<mach type="double">0.5</mach>
 		</input>
 		<output n="0">
 			<ap1 type="bool">0</ap1>
