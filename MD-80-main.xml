@@ -1390,6 +1390,8 @@
 			<ap2 type="bool">0</ap2>
 			<athr type="bool">0</athr>
 			<fast-slow type="double">0</fast-slow>
+			<fd1 type="bool">0</fd1>
+			<fd2 type="bool">0</fd2>
 			<thr-mode type="int">0</thr-mode>
 		</output>
 		<sound n="0">
