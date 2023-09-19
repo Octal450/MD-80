@@ -295,7 +295,7 @@
 				<and>
 					<not><property>instrumentation/hsi[0]/slaved-to-gps</property></not>
 					<greater-than-equals>
-						<property>systems/electrical/outputs/dme[0]</property>
+						<property>systems/electrical/outputs/nav[0]</property>
 						<value>24</value>
 					</greater-than-equals>
 					<property>instrumentation/dme[0]/in-range</property>
@@ -315,7 +315,7 @@
 				<and>
 					<not><property>instrumentation/hsi[1]/slaved-to-gps</property></not>
 					<greater-than-equals>
-						<property>systems/electrical/outputs/dme[1]</property>
+						<property>systems/electrical/outputs/nav[1]</property>
 						<value>24</value>
 					</greater-than-equals>
 					<property>instrumentation/dme[1]/in-range</property>
