@@ -9,8 +9,9 @@
 	
 	<animation>
 		<type>material</type>
-		<object-name>Face</object-name>
 		<object-name>CompassPoints</object-name>
+		<object-name>Face</object-name>
+		<object-name>Flag</object-name>
 		<object-name>Needle1</object-name>
 		<object-name>Needle2</object-name>
 		<emission>
@@ -19,6 +20,17 @@
 			<blue>0.3</blue>
 			<factor-prop>controls/lighting/capt-panel-norm</factor-prop>
 		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Flag</object-name>
+		<condition>
+			<not-equals>
+				<property>instrumentation/rmi[0]/power-avail</property>
+				<value>1</value>
+			</not-equals>
+		</condition>
 	</animation>
 	
 	<animation>
