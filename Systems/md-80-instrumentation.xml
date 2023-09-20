@@ -1563,6 +1563,104 @@
 	
 	</channel>
 	
+	<channel name="DME Indicators">
+		
+		<!-- DME 1 -->
+		<switch name="/instrumentation/dme[0]/available">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/instrumentation/hsi[0]/slaved-to-gps eq 0
+				/systems/electrical/outputs/nav[0] ge 24
+				/instrumentation/dme[0]/in-range eq 1
+			</test>
+			<test logic="AND" value="1">
+				/instrumentation/hsi[0]/slaved-to-gps eq 1
+				/autopilot/route-manager/active eq 1
+			</test>
+		</switch>
+		
+		<fcs_function name="/instrumentation/dme[0]/indicated-distance-nm-x10">
+			<function>
+				<ifthen>
+					<eq>
+						<property>/instrumentation/hsi[0]/slaved-to-gps</property>
+						<value>1</value>
+					</eq>
+					<integer>
+						<sum>
+							<product>
+								<property>/autopilot/route-manager/wp[0]/dist</property>
+								<value>10</value>
+							</product>
+							<value>0.5</value>
+						</sum>
+					</integer>
+					<integer>
+						<sum>
+							<product>
+								<property>/instrumentation/dme[0]/indicated-distance-nm</property>
+								<value>10</value>
+							</product>
+							<value>0.5</value>
+						</sum>
+					</integer>
+				</ifthen>
+			</function>
+			<clipto>
+				<min>0</min>
+				<max>9999</max>
+			</clipto>
+		</fcs_function>
+		
+		<!-- DME 2 -->
+		<switch name="/instrumentation/dme[1]/available">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/instrumentation/hsi[1]/slaved-to-gps eq 0
+				/systems/electrical/outputs/nav[1] ge 24
+				/instrumentation/dme[1]/in-range eq 1
+			</test>
+			<test logic="AND" value="1">
+				/instrumentation/hsi[1]/slaved-to-gps eq 1
+				/autopilot/route-manager/active eq 1
+			</test>
+		</switch>
+		
+		<fcs_function name="/instrumentation/dme[1]/indicated-distance-nm-x10">
+			<function>
+				<ifthen>
+					<eq>
+						<property>/instrumentation/hsi[1]/slaved-to-gps</property>
+						<value>1</value>
+					</eq>
+					<integer>
+						<sum>
+							<product>
+								<property>/autopilot/route-manager/wp[0]/dist</property>
+								<value>10</value>
+							</product>
+							<value>0.5</value>
+						</sum>
+					</integer>
+					<integer>
+						<sum>
+							<product>
+								<property>/instrumentation/dme[1]/indicated-distance-nm</property>
+								<value>10</value>
+							</product>
+							<value>0.5</value>
+						</sum>
+					</integer>
+				</ifthen>
+			</function>
+			<clipto>
+				<min>0</min>
+				<max>9999</max>
+			</clipto>
+		</fcs_function>
+	
+	</channel>
+	
 	<channel name="Vertical Speed Indicators" execrate="2">
 		
 		<!-- Computation -->
