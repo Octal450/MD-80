@@ -11,7 +11,7 @@ var fgcpCanvas = {
 		m._root = nil;
 		m._svgKeys = nil;
 		m._key = nil;
-		m._dialogUpdate = maketimer(0.07, m, fgcpCanvas._update);
+		m._dialogUpdate = maketimer(0.07, m, m._update);
 		m._alt = 0;
 		m._blim = 0;
 		m._pitch = 0;
@@ -27,7 +27,7 @@ var fgcpCanvas = {
 		"PitchKnob", "Pitch_7seg", "SpdKnob", "SpdSel", "Spd_7seg", "Toga", "Turb", "VertSpd", "VorLoc"];
 	},
 	close: func() {
-		me._dialogUpdateT.stop();
+		me._dialogUpdate.stop();
 		me._dialog.del();
 		me._dialog = nil;
 	},
