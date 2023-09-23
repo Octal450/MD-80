@@ -1568,6 +1568,9 @@
 		<!-- DME 1 -->
 		<switch name="/instrumentation/dme[0]/available">
 			<default value="0"/>
+			<test value="1">
+				/controls/switches/annun-test eq 1
+			</test>
 			<test logic="AND" value="1">
 				/instrumentation/hsi[0]/slaved-to-gps eq 0
 				/systems/electrical/outputs/nav[0] ge 24
@@ -1583,27 +1586,34 @@
 			<function>
 				<ifthen>
 					<eq>
-						<property>/instrumentation/hsi[0]/slaved-to-gps</property>
+						<property>/controls/switches/annun-test</property>
 						<value>1</value>
 					</eq>
-					<integer>
-						<sum>
-							<product>
-								<property>/autopilot/route-manager/wp[0]/dist</property>
-								<value>10</value>
-							</product>
-							<value>0.5</value>
-						</sum>
-					</integer>
-					<integer>
-						<sum>
-							<product>
-								<property>/instrumentation/dme[0]/indicated-distance-nm</property>
-								<value>10</value>
-							</product>
-							<value>0.5</value>
-						</sum>
-					</integer>
+					<value>8888</value>
+					<ifthen>
+						<eq>
+							<property>/instrumentation/hsi[0]/slaved-to-gps</property>
+							<value>1</value>
+						</eq>
+						<integer>
+							<sum>
+								<product>
+									<property>/autopilot/route-manager/wp[0]/dist</property>
+									<value>10</value>
+								</product>
+								<value>0.5</value>
+							</sum>
+						</integer>
+						<integer>
+							<sum>
+								<product>
+									<property>/instrumentation/dme[0]/indicated-distance-nm</property>
+									<value>10</value>
+								</product>
+								<value>0.5</value>
+							</sum>
+						</integer>
+					</ifthen>
 				</ifthen>
 			</function>
 			<clipto>
@@ -1615,6 +1625,9 @@
 		<!-- DME 2 -->
 		<switch name="/instrumentation/dme[1]/available">
 			<default value="0"/>
+			<test value="1">
+				/controls/switches/annun-test eq 1
+			</test>
 			<test logic="AND" value="1">
 				/instrumentation/hsi[1]/slaved-to-gps eq 0
 				/systems/electrical/outputs/nav[1] ge 24
@@ -1630,27 +1643,34 @@
 			<function>
 				<ifthen>
 					<eq>
-						<property>/instrumentation/hsi[1]/slaved-to-gps</property>
+						<property>/controls/switches/annun-test</property>
 						<value>1</value>
 					</eq>
-					<integer>
-						<sum>
-							<product>
-								<property>/autopilot/route-manager/wp[0]/dist</property>
-								<value>10</value>
-							</product>
-							<value>0.5</value>
-						</sum>
-					</integer>
-					<integer>
-						<sum>
-							<product>
-								<property>/instrumentation/dme[1]/indicated-distance-nm</property>
-								<value>10</value>
-							</product>
-							<value>0.5</value>
-						</sum>
-					</integer>
+					<value>8888</value>
+					<ifthen>
+						<eq>
+							<property>/instrumentation/hsi[1]/slaved-to-gps</property>
+							<value>1</value>
+						</eq>
+						<integer>
+							<sum>
+								<product>
+									<property>/autopilot/route-manager/wp[0]/dist</property>
+									<value>10</value>
+								</product>
+								<value>0.5</value>
+							</sum>
+						</integer>
+						<integer>
+							<sum>
+								<product>
+									<property>/instrumentation/dme[1]/indicated-distance-nm</property>
+									<value>10</value>
+								</product>
+								<value>0.5</value>
+							</sum>
+						</integer>
+					</ifthen>
 				</ifthen>
 			</function>
 			<clipto>
