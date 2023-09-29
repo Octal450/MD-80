@@ -1093,7 +1093,7 @@
 			</test>
 			<clipto>
 				<min>engine/limit/idle-norm</min>
-				<max>10</max>
+				<max>1.0</max>
 			</clipto>
 		</switch>
 		
@@ -1198,7 +1198,7 @@
 			</test>
 			<clipto>
 				<min>engine/limit/idle-norm</min>
-				<max>10</max>
+				<max>1.0</max>
 			</clipto>
 		</switch>
 		
