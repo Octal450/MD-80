@@ -127,9 +127,6 @@
 		</axis>
 		<action>
 			<binding>
-				<condition>
-					<property>systems/electrical/outputs/efis</property>
-				</condition>
 				<command>property-adjust</command>
 				<property>controls/switches/minimums</property>
 				<factor>1</factor>
