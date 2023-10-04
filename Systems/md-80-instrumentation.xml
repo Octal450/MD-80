@@ -782,15 +782,8 @@
 			</test>
 		</switch>
 		
-		<switch name="/instrumentation/agl[0]/minimums-input">
-			<default value="/instrumentation/agl[0]/minimums-input"/>
-			<test value="/controls/misc/minimums-diff">
-				/instrumentation/agl[0]/power-avail eq 1
-			</test>
-		</switch>
-		
 		<actuator name="/instrumentation/agl[0]/minimums-actuator">
-			<input>/instrumentation/agl[0]/minimums-input</input>
+			<input>/controls/misc/minimums-diff</input>
 			<rate_limit>1500</rate_limit>
 		</actuator>
 		
@@ -844,15 +837,8 @@
 			</test>
 		</switch>
 		
-		<switch name="/instrumentation/agl[1]/minimums-input">
-			<default value="/instrumentation/agl[1]/minimums-input"/>
-			<test value="/controls/misc/minimums-diff">
-				/instrumentation/agl[1]/power-avail eq 1
-			</test>
-		</switch>
-		
 		<actuator name="/instrumentation/agl[1]/minimums-actuator">
-			<input>/instrumentation/agl[1]/minimums-input</input>
+			<input>/controls/misc/minimums-diff</input>
 			<rate_limit>1500</rate_limit>
 		</actuator>
 		
