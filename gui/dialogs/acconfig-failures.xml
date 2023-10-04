@@ -57,13 +57,13 @@
 				<layout>hbox</layout>
 
 				<hrule>
-					<stretch type="bool">true</stretch>
+					<stretch>true</stretch>
 				</hrule>
 				<text>
 					<label>Electrical</label>
 				</text>
 				<hrule>
-					<stretch type="bool">true</stretch>
+					<stretch>true</stretch>
 				</hrule>
 			</group>
 			
@@ -131,13 +131,13 @@
 				<layout>hbox</layout>
 
 				<hrule>
-					<stretch type="bool">true</stretch>
+					<stretch>true</stretch>
 				</hrule>
 				<text>
 					<label>Pneumatics</label>
 				</text>
 				<hrule>
-					<stretch type="bool">true</stretch>
+					<stretch>true</stretch>
 				</hrule>
 			</group>
 			
@@ -202,13 +202,13 @@
 				<layout>hbox</layout>
 
 				<hrule>
-					<stretch type="bool">true</stretch>
+					<stretch>true</stretch>
 				</hrule>
 				<text>
 					<label>Hydraulics</label>
 				</text>
 				<hrule>
-					<stretch type="bool">true</stretch>
+					<stretch>true</stretch>
 				</hrule>
 			</group>
 			
@@ -276,13 +276,13 @@
 				<layout>hbox</layout>
 
 				<hrule>
-					<stretch type="bool">true</stretch>
+					<stretch>true</stretch>
 				</hrule>
 				<text>
 					<label>Landing Gear</label>
 				</text>
 				<hrule>
-					<stretch type="bool">true</stretch>
+					<stretch>true</stretch>
 				</hrule>
 			</group>
 			
@@ -327,13 +327,13 @@
 				<layout>hbox</layout>
 
 				<hrule>
-					<stretch type="bool">true</stretch>
+					<stretch>true</stretch>
 				</hrule>
 				<text>
 					<label>Flight Controls</label>
 				</text>
 				<hrule>
-					<stretch type="bool">true</stretch>
+					<stretch>true</stretch>
 				</hrule>
 			</group>
 			
@@ -371,13 +371,13 @@
 				<layout>hbox</layout>
 
 				<hrule>
-					<stretch type="bool">true</stretch>
+					<stretch>true</stretch>
 				</hrule>
 				<text>
 					<label>Fuel</label>
 				</text>
 				<hrule>
-					<stretch type="bool">true</stretch>
+					<stretch>true</stretch>
 				</hrule>
 			</group>
 			
