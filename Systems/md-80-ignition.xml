@@ -58,6 +58,7 @@
 			<test logic="OR" value="0">
 				/systems/pneumatics/bleed-l-psi lt 20
 				/systems/electrical/bus/dc-bat lt 24
+				/systems/ignition/ign-avail ne 1
 				<test value="AND">
 					/systems/electrical/bus/emer-ac lt 112
 					/systems/electrical/sources/idg-l/output-volt lt 112
@@ -128,6 +129,7 @@
 			<test logic="OR" value="0">
 				/systems/pneumatics/bleed-r-psi lt 20
 				/systems/electrical/bus/dc-bat lt 24
+				/systems/ignition/ign-avail ne 1
 				<test value="AND">
 					/systems/electrical/bus/emer-ac lt 112
 					/systems/electrical/sources/idg-r/output-volt lt 112
