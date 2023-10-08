@@ -347,6 +347,7 @@ var PANEL = {
 				systems.PNEU.Switch.xBleedR.setValue(1);
 				dfgs.Input.fd1.setBoolValue(1);
 				dfgs.Input.fd2.setBoolValue(1);
+				
 				fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
 				spinningT.stop();
 				fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-psloaded"}));
