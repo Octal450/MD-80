@@ -20,7 +20,7 @@
 			<count type="int">3</count>
 		</signals>
 		<signals include="Aircraft/Generic/flightrecorder/components/tanks.xml">
-			<count type="int">5</count>
+			<count type="int">6</count>
 		</signals>
 		
 		<!-- Now Custom Stuff -->
