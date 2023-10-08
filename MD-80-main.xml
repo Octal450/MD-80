@@ -274,7 +274,7 @@
 				<z-offset-m archive="y">-19.45</z-offset-m>
 				<default-field-of-view-deg type="double">103</default-field-of-view-deg>
 				<heading-offset-deg archive="y">0</heading-offset-deg>
-				<pitch-offset-deg archive="y">57.0</pitch-offset-deg>
+				<pitch-offset-deg archive="y">57</pitch-offset-deg>
 				<roll-offset-deg archive="y">0</roll-offset-deg>
 			</config>
 		</view>
