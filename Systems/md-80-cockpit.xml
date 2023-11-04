@@ -1125,6 +1125,11 @@
 			<test logic="AND" value="1">
 				/systems/caws/stall-1/out eq 0
 				/systems/caws/logic/stall eq 1
+				/controls/switches/stall-test ne 0
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/stall-1/out eq 0
+				/systems/caws/logic/stall eq 1
 				/systems/caws/stall-2/out eq 0
 				/systems/caws/logic/stall-random ge 0
 			</test>
@@ -1142,6 +1147,11 @@
 			<test logic="OR" value="0">
 				/systems/electrical/outputs/mk-viii lt 24
 				/systems/caws/stall-2/out eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/stall-2/out eq 0
+				/systems/caws/logic/stall eq 1
+				/controls/switches/stall-test ne 0
 			</test>
 			<test logic="AND" value="1">
 				/systems/caws/stall-2/out eq 0
