@@ -282,6 +282,17 @@
 	</model>
 	
 	<model>
+		<name>speed_placard</name>
+		<path>Aircraft/MD-80/Models/Instruments/speed-placard.ac</path>
+		<offsets>
+			<x-m>2.262</x-m>
+			<y-m>-0.62</y-m>
+			<z-m>0.7</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
 		<name>fuelaux</name>
 		<path>Aircraft/MD-80/Models/Instruments/fuel-aux.xml</path>
 		<condition>
@@ -941,6 +952,17 @@
 			<x-m>2.253</x-m>
 			<y-m>0.291</y-m>
 			<z-m>0.737</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>speed_placard_R</name>
+		<path>Aircraft/MD-80/Models/Instruments/speed-placard.ac</path>
+		<offsets>
+			<x-m>2.262</x-m>
+			<y-m>0.407</y-m>
+			<z-m>0.7</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>

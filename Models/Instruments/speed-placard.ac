@@ -1,0 +1,24 @@
+AC3Db
+MATERIAL "glow.001" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 64  trans 0
+OBJECT world
+kids 1
+OBJECT poly
+name "rect"
+data 9
+rect.mesh
+texture "speed-placard.png"
+crease 45.000000
+numvert 4
+0 -0.0187892 0.024594
+0 -0.0187786 -0.0246046
+0 0.0187892 -0.024594
+0 0.0187786 0.0246046
+numsurf 1
+SURF 0x10
+mat 0
+refs 4
+0 0.000977 0.237305
+1 0.999023 0.237305
+2 0.999023 0.999023
+3 0.000977 0.999023
+kids 0
