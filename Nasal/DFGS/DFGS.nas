@@ -141,6 +141,7 @@ var Internal = {
 	captVs: 0,
 	canAutoland: 0,
 	driftAngle: props.globals.initNode("/it-autoflight/internal/drift-angle-deg", 0, "DOUBLE"),
+	enableAthrOff: 0,
 	flchActive: 0,
 	fpa: props.globals.initNode("/it-autoflight/internal/fpa", 0, "DOUBLE"),
 	goAround: 0, # 0 Off, 1 MAN G/A, 2 FD G/A, 3 AUT G/A
@@ -258,8 +259,12 @@ var ITAF = {
 		if (t != 1) {
 			Sound.apOff.setBoolValue(0);
 			Warning.ap.setBoolValue(0);
+			Warning.atsFlash.setBoolValue(0);
+			Warning.ats.setBoolValue(0);
 			Sound.enableApOff = 0;
+			Internal.enableAthrOff = 0;
 			apKill.stop();
+			atsKill.stop();
 		}
 		systems.WARNINGS.altitudeAlert.setValue(0); # Cancel altitude alert
 		loopTimer.start();
@@ -568,9 +573,18 @@ var ITAF = {
 					Athr.setMode(3); # Clamp
 				}
 				Output.athr.setBoolValue(1);
+				atsKill.stop();
+				Warning.ats.setBoolValue(0);
+				Warning.atsFlash.setBoolValue(0);
+				Internal.enableAthrOff = 1;
 			}
 		} else {
 			Output.athr.setBoolValue(0);
+			if (Internal.enableAthrOff) {
+				Warning.atsFlash.setBoolValue(1);
+				Internal.enableAthrOff = 0;
+				atsKill.start();
+			}
 		}
 		Output.athrTemp = Output.athr.getBoolValue();
 		if (Input.athr.getBoolValue() != Output.athrTemp) {
@@ -588,6 +602,8 @@ var ITAF = {
 	},
 	killAthrSilent: func() {
 		Output.athr.setBoolValue(0);
+		Warning.atsFlash.setBoolValue(0);
+		Internal.enableAthrOff = 0;
 		# Now that A/THR is off, we can safely update the input to 0 without the A/THR Master running
 		Input.athr.setBoolValue(0);
 	},
@@ -1055,6 +1071,14 @@ var killApWarn = func() {
 	}
 }
 
+var killAtsWarn = func() {
+	if (Warning.atsFlash.getBoolValue()) { # Second press only
+		atsKill.stop();
+		Warning.ats.setBoolValue(0);
+		Warning.atsFlash.setBoolValue(0);
+	}
+};
+
 var apKill = maketimer(0.4, func() {
 	if (!Sound.apOff.getBoolValue()) {
 		apKill.stop();
@@ -1063,6 +1087,17 @@ var apKill = maketimer(0.4, func() {
 		Warning.ap.setBoolValue(1);
 	} else {
 		Warning.ap.setBoolValue(0);
+	}
+});
+
+var atsKill = maketimer(0.4, func() {
+	if (!Warning.atsFlash.getBoolValue()) {
+		atsKill.stop();
+		Warning.ats.setBoolValue(0);
+	} else if (!Warning.ats.getBoolValue()) {
+		Warning.ats.setBoolValue(1);
+	} else {
+		Warning.ats.setBoolValue(0);
 	}
 });
 

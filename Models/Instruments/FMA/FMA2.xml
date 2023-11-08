@@ -154,6 +154,17 @@
 		</condition>
 	</animation>
 	
+	<animation>
+		<type>select</type>
+		<object-name>Throttle</object-name>
+		<condition>
+			<or>
+				<property>/it-autoflight/warning/ats</property>
+				<property>controls/switches/annun-test</property>
+			</or>
+		</condition>
+	</animation>
+	
 	<!-- These are not simulated yet, so they only illuminate when the test is on. Remove each light/button once you add its select animation. -JD -->
 	<animation>
 		<type>select</type>
@@ -163,7 +174,6 @@
 		<object-name>ILS</object-name>
 		<object-name>Monitor</object-name>
 		<object-name>NoAutoland</object-name>
-		<object-name>Throttle</object-name>
 		<condition>
 			<property>controls/switches/annun-test</property>
 		</condition>

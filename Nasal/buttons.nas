@@ -76,6 +76,7 @@ var apPanel = {
 		}
 	},
 	atDisc: func() {
+		dfgs.killAtsWarn();
 		if (dfgs.Output.athr.getBoolValue()) {
 			dfgs.ITAF.athrMaster(0);
 		}
