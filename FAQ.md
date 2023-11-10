@@ -41,7 +41,6 @@ This aircraft has a complex and realistic flight control system, which contains 
 
 When the aircraft detects that auto coordination has been turned on, it enables the aileron drives tiller system. This way, you will be able to control the nose wheel with the aileron axis to steer on the ground. Please use keyboard for rudder functionality.
 
-
 ### Q. Some menu items are greyed out when using this aircraft. Why?
 
 Some functions in the regular menu (like Autopilot) have moved to custom menus. This is due to limitations in the way the default menus can be manipulated to prevent unsupported functionality (ex: Previous/Next Waypoint) from being executed.
