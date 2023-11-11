@@ -28,6 +28,7 @@ var Value = {
 	annunTest: 0,
 	apOn: 0,
 	atsOn: 0,
+	line2: "",
 };
 
 var canvasBase = {
@@ -147,7 +148,13 @@ var canvasBase = {
 			}
 		} else {
 			me["Line1"].setText(Modes.Line1[w].getValue());
-			me["Line2"].setText(Modes.Line2[w].getValue());
+			Value.line2 = Modes.Line2[w].getValue();
+			
+			if (w == 1 and Value.line2 == "ALT" and pts.Systems.Acconfig.Options.armedAltAsFl.getBoolValue()) { # For ARM window Altitude as Flight Level
+				me["Line2"].setText(sprintf("%03d", math.round(dfgs.Input.alt.getValue() / 100)));
+			} else {
+				me["Line2"].setText(Value.line2);
+			}
 		}
 	},
 };

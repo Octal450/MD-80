@@ -239,6 +239,7 @@ var Sim = {
 var Systems = {
 	Acconfig: {
 		Options: {
+			armedAltAsFl: props.globals.getNode("/systems/acconfig/options/armed-alt-as-fl"),
 			autoArmAlt: props.globals.getNode("/systems/acconfig/options/auto-arm-alt"),
 			flightDirector: props.globals.getNode("/systems/acconfig/options/flight-director"),
 			Du: {

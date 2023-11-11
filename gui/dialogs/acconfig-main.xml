@@ -417,6 +417,20 @@
 			</checkbox>
 			
 			<checkbox>
+				<label>Armed Altitude as Flight Level</label>
+				<halign>left</halign>
+				<property>/systems/acconfig/options/armed-alt-as-fl</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>acconfig.OPTIONS.write();</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
 				<label>Use Seperate Tiller Axis</label>
 				<halign>left</halign>
 				<property>/systems/acconfig/options/separate-tiller-axis</property>
@@ -434,19 +448,6 @@
 				<layout>hbox</layout>
 				
 				<text>
-					<enable>
-						<and>
-							<equals>
-								<property>/fdm/jsbsim/position/wow</property>
-								<value>1</value>
-							</equals>
-							<less-than>
-								<property>/velocities/groundspeed-kt</property>
-								<value>2</value>
-							</less-than>
-						</and>
-					</enable>
-					<halign>left</halign>
 					<label>Panel:</label>
 				</text>
 				
@@ -464,7 +465,7 @@
 						</and>
 					</enable>
 					<halign>right</halign>
-					<pref-width>150</pref-width>
+					<pref-width>90</pref-width>
 					<property>/systems/acconfig/options/panel</property>
 					<value>Analog</value>
 					<value>EFIS</value>
@@ -477,15 +478,6 @@
 					</binding>
 					<live>true</live>
 				</combo>
-			</group>
-			
-			<group>
-				<layout>hbox</layout>
-				
-				<text>
-					<halign>left</halign>
-					<label>Flight Director:</label>
-				</text>
 				
 				<group>
 					<layout>table</layout>
@@ -512,7 +504,7 @@
 						<row>0</row>
 						<col>0</col>
 						<halign>right</halign>
-						<pref-width>150</pref-width>
+						<pref-width>125</pref-width>
 						<property>/systems/acconfig/options/flight-director</property>
 						<value>Single Cue</value>
 						<value>Dual Cue</value>

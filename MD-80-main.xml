@@ -1414,6 +1414,7 @@
 		<acconfig n="0">
 			<autoconfig-running type="bool">0</autoconfig-running>
 			<options n="0">
+				<armed-alt-as-fl type="bool">0</armed-alt-as-fl>
 				<auto-arm-alt type="bool">0</auto-arm-alt>
 				<autopush n="0">
 					<show-route type="bool">1</show-route>
