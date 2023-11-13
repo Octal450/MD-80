@@ -77,6 +77,26 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/efis-adf-1[0]">
+			<input>/instrumentation/efis[0]/inputs/lh-vor-adf</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/efis-adf-1[1]">
+			<input>/instrumentation/efis[1]/inputs/lh-vor-adf</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/efis-adf-2[0]">
+			<input>/instrumentation/efis[0]/inputs/rh-vor-adf</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/efis-adf-2[1]">
+			<input>/instrumentation/efis[1]/inputs/rh-vor-adf</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/fd1">
 			<input>/it-autoflight/input/fd1</input>
 			<c1>20</c1>
@@ -249,11 +269,6 @@
 		
 		<lag_filter name="/controls/cockpit/pfd2-dimmer">
 			<input>/instrumentation/du/pfd2-dimmer</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<lag_filter name="/controls/cockpit/landing-light-r">
-			<input>/controls/lighting/landing-light-r</input>
 			<c1>20</c1>
 		</lag_filter>
 		

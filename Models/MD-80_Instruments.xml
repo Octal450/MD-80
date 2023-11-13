@@ -30,7 +30,7 @@
 	
 	<model>
 		<name>L_efis</name>
-		<path>Aircraft/MD-80/Models/Instruments/EFIS/efis_L.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/EFIS/efis1.xml</path>
 		<condition>
 			<equals>
 				<property>systems/acconfig/options/panel</property>
@@ -38,12 +38,12 @@
 			</equals>
 		</condition>
 		<offsets>
-			<x-m>2.586</x-m>
-			<y-m>-0.918</y-m>
-			<z-m>0.888</z-m>
-			<pitch-deg>-35</pitch-deg>
-			<heading-deg>38</heading-deg>
-			<roll-deg>20</roll-deg>
+			<x-m>2.579</x-m>
+			<y-m>-0.927</y-m>
+			<z-m>0.874</z-m>
+			<pitch-deg>-15</pitch-deg>
+			<heading-deg>41</heading-deg>
+			<roll-deg>11.5</roll-deg>
 		</offsets>
 	</model>
 	
@@ -708,7 +708,7 @@
 	
 	<model>
 		<name>R_efis</name>
-		<path>Aircraft/MD-80/Models/Instruments/EFIS/efis_R.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/EFIS/efis2.xml</path>
 		<condition>
 			<equals>
 				<property>systems/acconfig/options/panel</property>
@@ -716,12 +716,12 @@
 			</equals>
 		</condition>
 		<offsets>
-			<x-m>2.586</x-m>
-			<y-m>0.918</y-m>
-			<z-m>0.888</z-m>
-			<pitch-deg>-35</pitch-deg>
-			<heading-deg>-38</heading-deg>
-			<roll-deg>-20</roll-deg>
+			<x-m>2.579</x-m>
+			<y-m>0.927</y-m>
+			<z-m>0.874</z-m>
+			<pitch-deg>-15</pitch-deg>
+			<heading-deg>-41</heading-deg>
+			<roll-deg>-11.5</roll-deg>
 		</offsets>
 	</model>
 	

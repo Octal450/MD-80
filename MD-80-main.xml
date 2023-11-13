@@ -1230,8 +1230,18 @@
 			<pfd2-dimmer type="double">1</pfd2-dimmer>
 		</du>
 		<efis n="0">
+			<inputs n="0">
+				<lh-vor-adf type="int">1</lh-vor-adf>
+				<rh-vor-adf type="int">1</rh-vor-adf>
+			</inputs>
 			<mins-l-rotate type="int">49984</mins-l-rotate> <!-- So the symbol is upright -->
 			<mins-r-rotate type="int">49984</mins-r-rotate> <!-- So the symbol is upright -->
+		</efis>
+		<efis n="1">
+			<inputs n="0">
+				<lh-vor-adf type="int">1</lh-vor-adf>
+				<rh-vor-adf type="int">1</rh-vor-adf>
+			</inputs>
 		</efis>
 		<encoder n="0">
 			<serviceable type="bool">1</serviceable>
