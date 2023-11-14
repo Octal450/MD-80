@@ -1232,6 +1232,7 @@
 		<efis n="0">
 			<inputs n="0">
 				<lh-vor-adf type="int">1</lh-vor-adf>
+				<range-nm type="int">10</range-nm>
 				<rh-vor-adf type="int">1</rh-vor-adf>
 			</inputs>
 			<mins-l-rotate type="int">49984</mins-l-rotate> <!-- So the symbol is upright -->
@@ -1240,6 +1241,7 @@
 		<efis n="1">
 			<inputs n="0">
 				<lh-vor-adf type="int">1</lh-vor-adf>
+				<range-nm type="int">10</range-nm>
 				<rh-vor-adf type="int">1</rh-vor-adf>
 			</inputs>
 		</efis>
@@ -1527,6 +1529,7 @@
 			<file>Aircraft/MD-80/Nasal/Displays/FMA.nas</file>
 		</canvas_fma>
 		<instruments>
+			<file>Aircraft/MD-80/Nasal/Instruments/efis.nas</file>
 			<file>Aircraft/MD-80/Nasal/Instruments/radios.nas</file>
 		</instruments>
 		<autopush>

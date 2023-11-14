@@ -32,6 +32,7 @@ var systemsInit = func() {
 	systems.PNEU.init();
 	dfgs.ITAF.init(0);
 	systems.TRI.init();
+	instruments.EFIS.init();
 	libraries.variousReset();
 }
 

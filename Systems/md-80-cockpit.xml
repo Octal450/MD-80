@@ -97,6 +97,48 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<fcs_function name="/controls/cockpit/efis-range-1-cmd">
+			<function>
+				<table>
+					<independentVar lookup="row">/instrumentation/efis[0]/inputs/range-nm</independentVar>
+					<tableData>
+						 10  0
+						 20  1
+						 40  2
+						 80  3
+						160  4
+						320  5
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/controls/cockpit/efis-range-1">
+			<input>/controls/cockpit/efis-range-1-cmd</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<fcs_function name="/controls/cockpit/efis-range-2-cmd">
+			<function>
+				<table>
+					<independentVar lookup="row">/instrumentation/efis[1]/inputs/range-nm</independentVar>
+					<tableData>
+						 10  0
+						 20  1
+						 40  2
+						 80  3
+						160  4
+						320  5
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/controls/cockpit/efis-range-2">
+			<input>/controls/cockpit/efis-range-2-cmd</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/fd1">
 			<input>/it-autoflight/input/fd1</input>
 			<c1>20</c1>

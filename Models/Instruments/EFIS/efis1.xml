@@ -27,8 +27,8 @@
 		<object-name>KnobAdf1</object-name>
 		<property>controls/cockpit/efis-adf-1[0]</property>
 		<interpolation>
-			<entry><ind>-1</ind><dep>-45</dep></entry> <!-- ADF -->
-			<entry><ind> 1</ind><dep> 45</dep></entry> <!-- OFF -->
+			<entry><ind>-1</ind><dep> 45</dep></entry> <!-- ADF -->
+			<entry><ind> 1</ind><dep>-45</dep></entry> <!-- OFF -->
 		</interpolation>
 		<center>
 			<x-m>0</x-m>
@@ -36,7 +36,7 @@
 			<z-m>0.00766</z-m>
 		</center>
 		<axis>
-			<x>1</x>
+			<x>-1</x>
 			<y>0</y>
 			<z>0</z>
 		</axis>
@@ -57,8 +57,8 @@
 		<object-name>KnobAdf2</object-name>
 		<property>controls/cockpit/efis-adf-2[0]</property>
 		<interpolation>
-			<entry><ind>-1</ind><dep>-45</dep></entry> <!-- ADF -->
-			<entry><ind> 1</ind><dep> 45</dep></entry> <!-- OFF -->
+			<entry><ind>-1</ind><dep> 45</dep></entry> <!-- ADF -->
+			<entry><ind> 1</ind><dep>-45</dep></entry> <!-- OFF -->
 		</interpolation>
 		<center>
 			<x-m>0</x-m>
@@ -66,7 +66,7 @@
 			<z-m>0.00766</z-m>
 		</center>
 		<axis>
-			<x>1</x>
+			<x>-1</x>
 			<y>0</y>
 			<z>0</z>
 		</axis>
@@ -80,6 +80,36 @@
 				<wrap>false</wrap>
 			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>KnobRange</object-name>
+		<property>controls/cockpit/efis-range-1</property>
+		<factor>36</factor>
+		<offset-deg>-90</offset-deg>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.03589</y-m>
+			<z-m>0.00863</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<increase>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.EFIS.setNDRange(0, 1);</script>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.EFIS.setNDRange(0, -1);</script>
+			</binding>
+		</decrease>
 	</animation>
 	
 	<!-- Buttons -->
