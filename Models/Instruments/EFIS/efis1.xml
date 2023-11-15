@@ -24,6 +24,36 @@
 	<!-- Knobs -->
 	<animation>
 		<type>knob</type>
+		<object-name>KnobMode</object-name>
+		<property>controls/cockpit/efis-mode-1</property>
+		<factor>45</factor>
+		<offset-deg>-22.5</offset-deg>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.03852</y-m>
+			<z-m>0.00863</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<increase>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.EFIS.adjustMode(0, 1);</script>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.EFIS.adjustMode(0, -1);</script>
+			</binding>
+		</decrease>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
 		<object-name>KnobAdf1</object-name>
 		<property>controls/cockpit/efis-adf-1[0]</property>
 		<interpolation>
@@ -101,13 +131,13 @@
 		<increase>
 			<binding>
 				<command>nasal</command>
-				<script>instruments.EFIS.setNDRange(0, 1);</script>
+				<script>instruments.EFIS.setRange(0, 1);</script>
 			</binding>
 		</increase>
 		<decrease>
 			<binding>
 				<command>nasal</command>
-				<script>instruments.EFIS.setNDRange(0, -1);</script>
+				<script>instruments.EFIS.setRange(0, -1);</script>
 			</binding>
 		</decrease>
 	</animation>

@@ -142,6 +142,7 @@ var Instrumentation = {
 			displayMode: [props.globals.initNode("/instrumentation/efis[0]/mfd/display-mode", "MAP", "STRING"), props.globals.initNode("/instrumentation/efis[1]/mfd/display-mode", "MAP", "STRING")],
 			trueNorth: [props.globals.initNode("/instrumentation/efis[0]/mfd/true-north", 0, "BOOL"), props.globals.initNode("/instrumentation/efis[1]/mfd/true-north", 0, "BOOL")],
 		},
+		mode: [props.globals.initNode("/instrumentation/efis[0]/mode", 2, "INT"), props.globals.initNode("/instrumentation/efis[1]/mode", 2, "INT")],
 	},
 	Epr: {
 		powerAvail: [props.globals.getNode("/instrumentation/epr[0]/power-avail"), props.globals.getNode("/instrumentation/epr[1]/power-avail")],

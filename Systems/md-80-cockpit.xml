@@ -97,6 +97,16 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/efis-mode-1">
+			<input>/instrumentation/efis[0]/mode</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/efis-mode-2">
+			<input>/instrumentation/efis[1]/mode</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<fcs_function name="/controls/cockpit/efis-range-1-cmd">
 			<function>
 				<table>
