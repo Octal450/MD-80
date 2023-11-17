@@ -290,7 +290,11 @@ var ITAF = {
 			me.ap2Master(0);
 		}
 		if (!Input.athrAvail.getBoolValue() and Output.athr.getBoolValue()) {
-			me.athrMaster(0);
+			if (Engines.reverserNorm[0].getValue() >= 0.01 or Engines.reverserNorm[1].getValue() >= 0.01) { # Silently kill ATS only if a reverser is deployed
+				me.killAthrSilent();
+			} else {
+				me.athrMaster(0);
+			}
 		}
 		
 		# VOR/ILS Revision

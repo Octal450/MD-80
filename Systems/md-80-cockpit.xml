@@ -77,37 +77,37 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/efis-adf-1[0]">
+		<lag_filter name="/controls/cockpit/efis/adf-1[0]">
 			<input>/instrumentation/efis[0]/inputs/lh-vor-adf</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/efis-adf-1[1]">
+		<lag_filter name="/controls/cockpit/efis/adf-1[1]">
 			<input>/instrumentation/efis[1]/inputs/lh-vor-adf</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/efis-adf-2[0]">
+		<lag_filter name="/controls/cockpit/efis/adf-2[0]">
 			<input>/instrumentation/efis[0]/inputs/rh-vor-adf</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/efis-adf-2[1]">
+		<lag_filter name="/controls/cockpit/efis/adf-2[1]">
 			<input>/instrumentation/efis[1]/inputs/rh-vor-adf</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/efis-mode-1">
+		<lag_filter name="/controls/cockpit/efis/mode-1">
 			<input>/instrumentation/efis[0]/mode</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/efis-mode-2">
+		<lag_filter name="/controls/cockpit/efis/mode-2">
 			<input>/instrumentation/efis[1]/mode</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<fcs_function name="/controls/cockpit/efis-range-1-cmd">
+		<fcs_function name="/controls/cockpit/efis/range-1-cmd">
 			<function>
 				<table>
 					<independentVar lookup="row">/instrumentation/efis[0]/inputs/range-nm</independentVar>
@@ -123,12 +123,12 @@
 			</function>
 		</fcs_function>
 		
-		<lag_filter name="/controls/cockpit/efis-range-1">
-			<input>/controls/cockpit/efis-range-1-cmd</input>
+		<lag_filter name="/controls/cockpit/efis/range-1">
+			<input>/controls/cockpit/efis/range-1-cmd</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<fcs_function name="/controls/cockpit/efis-range-2-cmd">
+		<fcs_function name="/controls/cockpit/efis/range-2-cmd">
 			<function>
 				<table>
 					<independentVar lookup="row">/instrumentation/efis[1]/inputs/range-nm</independentVar>
@@ -144,8 +144,8 @@
 			</function>
 		</fcs_function>
 		
-		<lag_filter name="/controls/cockpit/efis-range-2">
-			<input>/controls/cockpit/efis-range-2-cmd</input>
+		<lag_filter name="/controls/cockpit/efis/range-2">
+			<input>/controls/cockpit/efis/range-2-cmd</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -165,7 +165,7 @@
 		</lag_filter>
 		
 		<linear_actuator name="/controls/cockpit/flex-d1-linear">
-			<input>/controls/tri/flex-d1</input>
+			<input>/instrumentation/tri/flex-d1</input>
 			<module>10</module>
 		</linear_actuator>
 		
@@ -192,7 +192,7 @@
 		</fcs_function>
 		
 		<linear_actuator name="/controls/cockpit/flex-d10-linear">
-			<input>/controls/tri/flex-d10</input>
+			<input>/instrumentation/tri/flex-d10</input>
 			<module>6</module>
 		</linear_actuator>
 		

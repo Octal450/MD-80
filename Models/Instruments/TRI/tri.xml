@@ -36,7 +36,7 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/tri/to-btn</property>
+				<property>controls/cockpit/tri/to</property>
 				<value>1</value>
 			</binding>
 			<binding>
@@ -46,7 +46,7 @@
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>controls/tri/to-btn</property>
+					<property>controls/cockpit/tri/to</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -71,7 +71,7 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/tri/flx-btn</property>
+				<property>controls/cockpit/tri/flx</property>
 				<value>1</value>
 			</binding>
 			<binding>
@@ -81,7 +81,7 @@
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>controls/tri/flx-btn</property>
+					<property>controls/cockpit/tri/flx</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -106,7 +106,7 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/tri/ga-btn</property>
+				<property>instrumentation/tri/ga-btn</property>
 				<value>1</value>
 			</binding>
 			<binding>
@@ -116,7 +116,7 @@
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>controls/tri/ga-btn</property>
+					<property>instrumentation/tri/ga-btn</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -141,7 +141,7 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/tri/mct-btn</property>
+				<property>controls/cockpit/tri/mct</property>
 				<value>1</value>
 			</binding>
 			<binding>
@@ -151,7 +151,7 @@
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>controls/tri/mct-btn</property>
+					<property>controls/cockpit/tri/mct</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -176,7 +176,7 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/tri/cl-btn</property>
+				<property>controls/cockpit/tri/cl</property>
 				<value>1</value>
 			</binding>
 			<binding>
@@ -186,7 +186,7 @@
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>controls/tri/cl-btn</property>
+					<property>controls/cockpit/tri/cl</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -211,7 +211,7 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/tri/cr-btn</property>
+				<property>controls/cockpit/tri/cr</property>
 				<value>1</value>
 			</binding>
 			<binding>
@@ -221,7 +221,7 @@
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>controls/tri/cr-btn</property>
+					<property>controls/cockpit/tri/cr</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -246,7 +246,7 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/tri/test-btn</property>
+				<property>controls/cockpit/tri/test</property>
 				<value>1</value>
 			</binding>
 			<binding>
@@ -260,7 +260,7 @@
 				</binding>
 				<binding>
 					<command>property-assign</command>
-					<property>controls/tri/test-btn</property>
+					<property>controls/cockpit/tri/test</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -388,8 +388,8 @@
 	<animation>
 		<type>translate</type>
 		<object-name>toBtn</object-name>
-		<property>controls/tri/to-btn</property>
-		<factor>-0.002</factor>
+		<property>controls/cockpit/tri/to</property>
+		<factor>-0.001</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
@@ -400,8 +400,8 @@
 	<animation>
 		<type>translate</type>
 		<object-name>flxBtn</object-name>
-		<property>controls/tri/flx-btn</property>
-		<factor>-0.002</factor>
+		<property>controls/cockpit/tri/flx</property>
+		<factor>-0.001</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
@@ -412,8 +412,8 @@
 	<animation>
 		<type>translate</type>
 		<object-name>gaBtn</object-name>
-		<property>controls/tri/ga-btn</property>
-		<factor>-0.002</factor>
+		<property>instrumentation/tri/ga-btn</property>
+		<factor>-0.001</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
@@ -424,8 +424,8 @@
 	<animation>
 		<type>translate</type>
 		<object-name>mctBtn</object-name>
-		<property>controls/tri/mct-btn</property>
-		<factor>-0.002</factor>
+		<property>controls/cockpit/tri/mct</property>
+		<factor>-0.001</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
@@ -436,8 +436,8 @@
 	<animation>
 		<type>translate</type>
 		<object-name>clBtn</object-name>
-		<property>controls/tri/cl-btn</property>
-		<factor>-0.002</factor>
+		<property>controls/cockpit/tri/cl</property>
+		<factor>-0.001</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
@@ -448,8 +448,8 @@
 	<animation>
 		<type>translate</type>
 		<object-name>crBtn</object-name>
-		<property>controls/tri/cr-btn</property>
-		<factor>-0.002</factor>
+		<property>controls/cockpit/tri/cr</property>
+		<factor>-0.001</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
@@ -460,7 +460,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>testBtn</object-name>
-		<property>controls/tri/test-btn</property>
+		<property>controls/cockpit/tri/test</property>
 		<factor>-0.001</factor>
 		<axis>
 			<x>1</x>
@@ -495,7 +495,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>rat1</object-name>
-		<property>controls/tri/rat-d10</property>
+		<property>instrumentation/tri/rat-d10</property>
 		<factor>0.0695</factor>
 		<step>1</step>
 		<scroll>0.1</scroll>
@@ -509,7 +509,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>rat2</object-name>
-		<property>controls/tri/rat-d1</property>
+		<property>instrumentation/tri/rat-d1</property>
 		<factor>0.0695</factor>
 		<axis>
 			<x>0</x>
@@ -521,7 +521,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>epr1</object-name>
-		<property>controls/tri/limit-d100</property>
+		<property>instrumentation/tri/limit-d100</property>
 		<factor>0.0697</factor>
 		<step>1</step>
 		<scroll>0.01</scroll>
@@ -535,7 +535,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>epr2</object-name>
-		<property>controls/tri/limit-d10</property>
+		<property>instrumentation/tri/limit-d10</property>
 		<factor>0.0697</factor>
 		<step>1</step>
 		<scroll>0.1</scroll>
@@ -550,7 +550,7 @@
 		<type>textranslate</type>
 		<object-name>epr3</object-name>
 		<object-name>eprLines</object-name>
-		<property>controls/tri/limit-d1</property>
+		<property>instrumentation/tri/limit-d1</property>
 		<factor>0.0697</factor>
 		<step>0.01</step>
 		<axis>

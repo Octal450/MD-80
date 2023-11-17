@@ -25,7 +25,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>KnobMode</object-name>
-		<property>controls/cockpit/efis-mode-1</property>
+		<property>controls/cockpit/efis/mode-1</property>
 		<factor>45</factor>
 		<offset-deg>-22.5</offset-deg>
 		<center>
@@ -55,7 +55,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>KnobAdf1</object-name>
-		<property>controls/cockpit/efis-adf-1[0]</property>
+		<property>controls/cockpit/efis/adf-1[0]</property>
 		<interpolation>
 			<entry><ind>-1</ind><dep> 45</dep></entry> <!-- ADF -->
 			<entry><ind> 1</ind><dep>-45</dep></entry> <!-- OFF -->
@@ -85,7 +85,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>KnobAdf2</object-name>
-		<property>controls/cockpit/efis-adf-2[0]</property>
+		<property>controls/cockpit/efis/adf-2[0]</property>
 		<interpolation>
 			<entry><ind>-1</ind><dep> 45</dep></entry> <!-- ADF -->
 			<entry><ind> 1</ind><dep>-45</dep></entry> <!-- OFF -->
@@ -115,7 +115,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>KnobRange</object-name>
-		<property>controls/cockpit/efis-range-1</property>
+		<property>controls/cockpit/efis/range-1</property>
 		<factor>36</factor>
 		<offset-deg>-90</offset-deg>
 		<center>
@@ -161,7 +161,7 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>instrumentation/efis[0]/naid-btn</property>
+				<property>controls/cockpit/efis/naid[0]</property>
 				<value>1</value>
 			</binding>
 			<binding>
@@ -171,7 +171,7 @@
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>instrumentation/efis[0]/naid-btn</property>
+					<property>controls/cockpit/efis/naid[0]</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -181,8 +181,8 @@
 		<type>translate</type>
 		<object-name>BtnNaid</object-name>
 		<object-name>TextNaid</object-name>
-		<property>instrumentation/efis[0]/naid-btn</property>
-		<factor>-0.002</factor>
+		<property>controls/cockpit/efis/naid[0]</property>
+		<factor>-0.001</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
@@ -208,7 +208,7 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>instrumentation/efis[0]/arpt-btn</property>
+				<property>controls/cockpit/efis/arpt[0]</property>
 				<value>1</value>
 			</binding>
 			<binding>
@@ -218,7 +218,7 @@
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>instrumentation/efis[0]/arpt-btn</property>
+					<property>controls/cockpit/efis/arpt[0]</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -228,8 +228,8 @@
 		<type>translate</type>
 		<object-name>BtnArpt</object-name>
 		<object-name>TextArpt</object-name>
-		<property>instrumentation/efis[0]/arpt-btn</property>
-		<factor>-0.002</factor>
+		<property>controls/cockpit/efis/arpt[0]</property>
+		<factor>-0.001</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
@@ -255,7 +255,7 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>instrumentation/efis[0]/data-btn</property>
+				<property>controls/cockpit/efis/data[0]</property>
 				<value>1</value>
 			</binding>
 			<binding>
@@ -265,7 +265,7 @@
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>instrumentation/efis[0]/data-btn</property>
+					<property>controls/cockpit/efis/data[0]</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -275,8 +275,8 @@
 		<type>translate</type>
 		<object-name>BtnData</object-name>
 		<object-name>TextData</object-name>
-		<property>instrumentation/efis[0]/data-btn</property>
-		<factor>-0.002</factor>
+		<property>controls/cockpit/efis/data[0]</property>
+		<factor>-0.001</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>
@@ -302,7 +302,7 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>instrumentation/efis[0]/wpt-btn</property>
+				<property>controls/cockpit/efis/wpt[0]</property>
 				<value>1</value>
 			</binding>
 			<binding>
@@ -312,7 +312,7 @@
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>instrumentation/efis[0]/wpt-btn</property>
+					<property>controls/cockpit/efis/wpt[0]</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -322,8 +322,8 @@
 		<type>translate</type>
 		<object-name>BtnWpt</object-name>
 		<object-name>TextWpt</object-name>
-		<property>instrumentation/efis[0]/wpt-btn</property>
-		<factor>-0.002</factor>
+		<property>controls/cockpit/efis/wpt[0]</property>
+		<factor>-0.001</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>

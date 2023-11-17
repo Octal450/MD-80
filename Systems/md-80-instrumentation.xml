@@ -2460,8 +2460,8 @@
 	<channel name="TRI and FLEX" execrate="4">
 		
 		<!-- TRI -->
-		<switch name="/controls/tri/rat-cmd">
-			<default value="/controls/tri/rat-cmd"/>
+		<switch name="/instrumentation/tri/rat-cmd">
+			<default value="/instrumentation/tri/rat-cmd"/>
 			<test logic="AND" value="12">
 				dfgs/power-avail eq 1
 				engine/limit/active-mode-int eq 6
@@ -2472,12 +2472,12 @@
 			</test>
 		</switch>
 		
-		<fcs_function name="/controls/tri/rat-fixed">
+		<fcs_function name="/instrumentation/tri/rat-fixed">
 			<function>
 				<integer>
 					<sum>
 						<abs>
-							<property>/controls/tri/rat-cmd</property>
+							<property>/instrumentation/tri/rat-cmd</property>
 						</abs>
 						<value>0.5</value> <!-- Make it round correctly -->
 					</sum>
@@ -2485,27 +2485,27 @@
 			</function>
 		</fcs_function>
 		
-		<actuator name="/controls/tri/rat">
-			<input>/controls/tri/rat-fixed</input>
+		<actuator name="/instrumentation/tri/rat">
+			<input>/instrumentation/tri/rat-fixed</input>
 			<rate_limit>125</rate_limit>
 			<lag>15</lag>
 		</actuator>
 		
-		<fcs_function name="/controls/tri/rat-d10">
+		<fcs_function name="/instrumentation/tri/rat-d10">
 			<function>
 				<quotient>
-					<property>/controls/tri/rat</property>
+					<property>/instrumentation/tri/rat</property>
 					<value>10</value>
 				</quotient>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/controls/tri/rat-d1">
+		<fcs_function name="/instrumentation/tri/rat-d1">
 			<function>
 				<product>
 					<fraction>
 						<quotient>
-							<property>/controls/tri/rat</property>
+							<property>/instrumentation/tri/rat</property>
 							<value>10</value>
 						</quotient>
 					</fraction>
@@ -2514,26 +2514,26 @@
 			</function>
 		</fcs_function>
 		
-		<switch name="/controls/tri/limit-active">
-			<default value="/controls/tri/limit-active"/>
+		<switch name="/instrumentation/tri/limit-active">
+			<default value="/instrumentation/tri/limit-active"/>
 			<test logic="OR" value="engine/limit/active-ind">
 				dfgs/power-avail eq 1
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
-		<pure_gain name="/controls/tri/limit-d100">
-			<input>/controls/tri/limit-active</input>
+		<pure_gain name="/instrumentation/tri/limit-d100">
+			<input>/instrumentation/tri/limit-active</input>
 			<gain>1.0</gain>
 		</pure_gain>
 		
-		<fcs_function name="/controls/tri/limit-d10">
+		<fcs_function name="/instrumentation/tri/limit-d10">
 			<function>
 				<product>
 					<difference>
-						<property>/controls/tri/limit-active</property>
+						<property>/instrumentation/tri/limit-active</property>
 						<integer>
-							<property>/controls/tri/limit-active</property>
+							<property>/instrumentation/tri/limit-active</property>
 						</integer>
 					</difference>
 					<value>10</value>
@@ -2541,12 +2541,12 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/controls/tri/limit-d1">
+		<fcs_function name="/instrumentation/tri/limit-d1">
 			<function>
 				<product>
 					<fraction>
 						<product>
-							<property>/controls/tri/limit-active</property>
+							<property>/instrumentation/tri/limit-active</property>
 							<value>10</value>
 						</product>
 					</fraction>
@@ -2555,7 +2555,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/controls/tri/flex-fixed">
+		<fcs_function name="/instrumentation/tri/flex-fixed">
 			<function>
 				<sum>
 					<abs>
@@ -2566,24 +2566,24 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/controls/tri/flex-d10">
+		<fcs_function name="/instrumentation/tri/flex-d10">
 			<function>
 				<integer>
 					<quotient>
-						<property>/controls/tri/flex-fixed</property>
+						<property>/instrumentation/tri/flex-fixed</property>
 						<value>10</value>
 					</quotient>
 				</integer>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/controls/tri/flex-d1">
+		<fcs_function name="/instrumentation/tri/flex-d1">
 			<function>
 				<integer>
 					<product>
 						<fraction>
 							<quotient>
-								<property>/controls/tri/flex-fixed</property>
+								<property>/instrumentation/tri/flex-fixed</property>
 								<value>10</value>
 							</quotient>
 						</fraction>
