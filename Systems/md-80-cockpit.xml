@@ -329,6 +329,11 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/tiller-handle">
+			<input>fcs-actual/tiller/handle</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/vor-adf-1[0]">
 			<input>/instrumentation/rmi[0]/vor-adf-1</input>
 			<c1>20</c1>
