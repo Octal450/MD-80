@@ -176,7 +176,7 @@
 		<reference>/it-autoflight/internal/athr-kts</reference>
 		<output>/fdm/jsbsim/engine/ats-cmd-raw-pid</output>
 		<config>
-			<Kp>0.06</Kp>
+			<Kp>0.055</Kp>
 			<Ti>9.0</Ti>
 			<Td>0.00001</Td>
 			<u_min>/fdm/jsbsim/engine/limit/idle-norm</u_min>
@@ -214,7 +214,7 @@
 		</reference>
 		<output>/fdm/jsbsim/engine/ats-cmd-raw-pid</output>
 		<config>
-			<Kp>0.06</Kp>
+			<Kp>0.055</Kp>
 			<Ti>9.0</Ti>
 			<Td>0.00001</Td>
 			<u_min>/fdm/jsbsim/engine/limit/idle-norm</u_min>

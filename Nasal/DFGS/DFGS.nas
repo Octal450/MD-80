@@ -54,6 +54,7 @@ var Misc = {
 
 var Orientation = {
 	pitchDeg: props.globals.getNode("/orientation/pitch-deg"),
+	pitchDegTemp: 0,
 	rollDeg: props.globals.getNode("/orientation/roll-deg"),
 };
 
@@ -79,6 +80,7 @@ var Velocities = {
 	groundspeedMps: 0,
 	indicatedAirspeedKt: props.globals.getNode("/instrumentation/airspeed-indicator/indicated-speed-kt", 1),
 	indicatedMach: props.globals.getNode("/instrumentation/airspeed-indicator/indicated-mach", 1),
+	indicatedMachTemp: 0,
 	trueAirspeedKt: props.globals.getNode("/instrumentation/airspeed-indicator/true-speed-kt", 1),
 	trueAirspeedKtTemp: 0,
 };
@@ -116,6 +118,9 @@ var Input = {
 	latTemp: 3,
 	mach: props.globals.initNode("/it-autoflight/input/mach", 0.5, "DOUBLE"),
 	machFlch: props.globals.initNode("/it-autoflight/input/mach-flch", 0.5, "DOUBLE"),
+	machFlchX1000: props.globals.initNode("/it-autoflight/input/mach-flch-x1000", 500, "INT"),
+	machX1000: props.globals.initNode("/it-autoflight/input/mach-x1000", 500, "INT"),
+	machTemp: 0,
 	pitch: props.globals.initNode("/it-autoflight/input/pitch", 0, "INT"),
 	pitchAbs: props.globals.initNode("/it-autoflight/input/pitch-abs", 0, "INT"), # Set by property rule
 	radioSelTemp: 0,
@@ -143,7 +148,6 @@ var Internal = {
 	driftAngle: props.globals.initNode("/it-autoflight/internal/drift-angle-deg", 0, "DOUBLE"),
 	enableAthrOff: 0,
 	flchActive: 0,
-	fpa: props.globals.initNode("/it-autoflight/internal/fpa", 0, "DOUBLE"),
 	goAround: 0, # 0 Off, 1 MAN G/A, 2 FD G/A, 3 AUT G/A
 	hdg: props.globals.initNode("/it-autoflight/internal/heading-deg", 0, "DOUBLE"),
 	hdgErrorDeg: props.globals.initNode("/it-autoflight/internal/heading-error-deg", 0, "DOUBLE"),
@@ -217,6 +221,8 @@ var ITAF = {
 			Input.ktsFlch.setValue(100);
 			Input.mach.setValue(0.5);
 			Input.machFlch.setValue(0.5);
+			Input.machX1000.setValue(500);
+			Input.machFlchX1000.setValue(500);
 			Input.trueCourse.setBoolValue(0);
 			Input.activeAp.setValue(1);
 		}
@@ -230,7 +236,9 @@ var ITAF = {
 			Input.fd2.setBoolValue(0);
 		}
 		Input.vs.setValue(0);
+		Input.vsAbs.setValue(0);
 		Input.pitch.setValue(0);
+		Input.pitchAbs.setValue(0);
 		Input.altArmed.setBoolValue(0);
 		Input.lat.setValue(3);
 		Input.vert.setValue(1);
@@ -650,7 +658,7 @@ var ITAF = {
 	setBasicMode: func() {
 		me.setLatMode(3); # HDG HOLD
 		if (abs(Internal.vs.getValue()) > 75) {
-			me.setVertMode(1); # V/S or FPA
+			me.setVertMode(1); # V/S
 		} else {
 			me.setVertMode(0); # HOLD
 		}
@@ -940,10 +948,14 @@ var ITAF = {
 		Input.ktsFlch.setValue(math.clamp(math.round(Velocities.indicatedAirspeedKt.getValue()), 100, 340));
 	},
 	syncMach: func() {
-		Input.mach.setValue(math.clamp(math.round(Velocities.indicatedMach.getValue(), 0.001), 0.5, 0.84));
+		Velocities.indicatedMachTemp = Velocities.indicatedMach.getValue();
+		Input.mach.setValue(math.clamp(math.round(Velocities.indicatedMachTemp, 0.001), 0.5, 0.84));
+		Input.machX1000.setValue(math.clamp(math.round(Velocities.indicatedMachTemp * 1000, 1), 500, 840));
 	},
 	syncMachFlch: func() {
-		Input.machFlch.setValue(math.clamp(math.round(Velocities.indicatedMach.getValue(), 0.001), 0.5, 0.84));
+		Velocities.indicatedMachTemp = Velocities.indicatedMach.getValue();
+		Input.machFlch.setValue(math.clamp(math.round(Velocities.indicatedMachTemp, 0.001), 0.5, 0.84));
+		Input.machFlchX1000.setValue(math.clamp(math.round(Velocities.indicatedMachTemp * 1000, 1), 500, 840));
 	},
 	syncHdg: func() {
 		Input.hdg.setValue(math.round(Internal.hdgPredicted.getValue())); # Switches to track automatically
@@ -953,10 +965,14 @@ var ITAF = {
 		Internal.alt.setValue(math.clamp(math.round(Internal.altPredicted.getValue(), 100), 0, 50000));
 	},
 	syncVs: func() {
-		Input.vs.setValue(math.clamp(math.round(Internal.vs.getValue(), 100), -6000, 6000));
+		Internal.vsTemp = Internal.vs.getValue();
+		Input.vs.setValue(math.clamp(math.round(Internal.vsTemp, 100), -6000, 6000));
+		Input.vsAbs.setValue(abs(math.clamp(math.round(Internal.vsTemp, 100), -6000, 6000)));
 	},
 	syncPitch: func() {
-		Input.pitch.setValue(math.clamp(math.round(Orientation.pitchDeg.getValue(), 0.1), -10, 25));
+		Orientation.pitchDegTemp = Orientation.pitchDeg.getValue();
+		Input.pitch.setValue(math.clamp(math.round(Orientation.pitchDegTemp), -10, 25));
+		Input.pitchAbs.setValue(abs(math.clamp(math.round(Orientation.pitchDegTemp), -10, 25)));
 	},
 	# Custom Stuff Below
 	updateLatText: func(t) {
