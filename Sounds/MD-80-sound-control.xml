@@ -1,7 +1,107 @@
 <?xml version="1.0"?>
 
 <PropertyList>
+	
+	<!-- Sound View Logic -->
+	<logic>
+		<input>
+			<or>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>15</value>
+				</equals>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>16</value>
+				</equals>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>17</value>
+				</equals>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>18</value>
+				</equals>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>19</value>
+				</equals>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>20</value>
+				</equals>
+			</or>
+		</input>
+		<output>/sim/sound/wingview</output>
+	</logic>
 
+	<logic>
+		<input>
+			<or>
+				<equals>
+					<property>/sim/current-view/internal</property>
+					<value>1</value>
+				</equals>
+				<property>/sim/sound/wingview</property>
+			</or>
+		</input>
+		<output>/sim/sound/internal-custom</output>
+	</logic>
+
+	<logic>
+		<input>
+			<not-equals>
+				<property>/sim/sound/internal-custom</property>
+				<value>1</value>
+			</not-equals>
+		</input>
+		<output>/sim/sound/external-custom</output>
+	</logic>
+	
+	<filter>
+		<type>noise-spike</type>
+		<input>
+			<condition>
+				<and>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/efis</property>
+						<value>24</value>
+					</greater-than-equals>
+					<or>
+						<equals>
+							<property>/gear/gear[0]/wow</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/controls/pneumatics/switches/radio-rack</property>
+							<value>1</value>
+						</equals>
+					</or>
+				</and>
+			</condition>
+			<value>2.0</value>
+		</input>
+		<input>0</input>
+		<output>/sim/sound/avionics-fanp</output>
+		<max-rate-of-change>2.0</max-rate-of-change>
+	</filter>
+	
+	<filter>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<expression>
+				<table>
+					<property>/sim/sound/avionics-fanp</property>
+					<entry><ind>0.0</ind><dep>0</dep></entry>
+					<entry><ind>0.3</ind><dep>1</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<input>0</input>
+		<output>/sim/sound/avionics-fan</output>
+	</filter>
+	
 <filter>
 	<type>gain</type>
 	<gain>1</gain>
@@ -19,7 +119,7 @@
 		</expression>
 	</input>
 	<output>
-		<prop>MD80/engine/MDA_REV1</prop>
+		<prop>sim/sound/engine/MDA_REV1</prop>
 	</output>
 </filter>
 
@@ -39,7 +139,7 @@
 	</expression>
 	</input>
 	<output>
-		<prop>MD80/enginep/MDA_REV1</prop>
+		<prop>sim/sound/enginep/MDA_REV1</prop>
 	</output>
 </filter>
 
@@ -60,7 +160,7 @@
 		</expression>
 	</input>
 	<output>
-		<prop>MD80/engine/MDA_REV2</prop>
+		<prop>sim/sound/engine/MDA_REV2</prop>
 	</output>
 </filter>
 
@@ -80,7 +180,7 @@
 	</expression>
 	</input>
 	<output>
-		<prop>MD80/enginep/MDA_REV2</prop>
+		<prop>sim/sound/enginep/MDA_REV2</prop>
 	</output>
 </filter>
 
@@ -105,7 +205,7 @@
     </expression>
   </input>
   <output>
-    <prop>MD80/engine/MDA_PRES</prop>
+    <prop>sim/sound/engine/MDA_PRES</prop>
   </output>
 </filter>
 
@@ -130,33 +230,9 @@
     </expression>
   </input>
   <output>
-    <prop>MD80/engine/MDB_PRES</prop>
+    <prop>sim/sound/engine/MDB_PRES</prop>
   </output>
 </filter>
-
-<filter>
-  <type>gain</type>
-  <gain>1</gain>
-  <input>
-    <expression>
-      <product>
-        <table>
-          <product>
-			<property>sim/current-view/internal</property>
-		  </product>
-			<entry><ind>0</ind> <dep>1</dep></entry>
-			<entry><ind>1</ind> <dep>0</dep></entry>
-        </table>
-      </product>
-    </expression>
-  </input>
-  <output>
-    <prop>sim/current-view/external</prop>
-  </output>
-</filter>
-
-
-
 
 	<filter>
 		<type>gain</type>
@@ -174,7 +250,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDA_WHN_1</prop>
+			<prop>sim/sound/engine/MDA_WHN_1</prop>
 		</output>
 	</filter>
 
@@ -191,7 +267,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDA_WHN_1</prop>
+			<prop>sim/sound/enginep/MDA_WHN_1</prop>
 		</output>
 	</filter>
 
@@ -211,7 +287,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDA_WHN_2</prop>
+			<prop>sim/sound/engine/MDA_WHN_2</prop>
 		</output>
 	</filter>
 
@@ -228,7 +304,7 @@
 		</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDA_WHN_2</prop>
+			<prop>sim/sound/enginep/MDA_WHN_2</prop>
 		</output>
 	</filter>
 
@@ -248,7 +324,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDA_WHN_3</prop>
+			<prop>sim/sound/engine/MDA_WHN_3</prop>
 		</output>
 	</filter>
 
@@ -265,7 +341,7 @@
 		</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDA_WHN_3</prop>
+			<prop>sim/sound/enginep/MDA_WHN_3</prop>
 		</output>
 	</filter>
 
@@ -283,7 +359,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDA_WHN_4</prop>
+			<prop>sim/sound/engine/MDA_WHN_4</prop>
 		</output>
 	</filter>
 
@@ -300,7 +376,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDA_WHN_4</prop>
+			<prop>sim/sound/enginep/MDA_WHN_4</prop>
 		</output>
 	</filter>
 
@@ -318,7 +394,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDA_WHN_5</prop>
+			<prop>sim/sound/engine/MDA_WHN_5</prop>
 		</output>
 	</filter>
 	
@@ -335,7 +411,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDA_WHN_5</prop>
+			<prop>sim/sound/enginep/MDA_WHN_5</prop>
 		</output>
 	</filter>
 	
@@ -356,7 +432,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDA_howl</prop>
+			<prop>sim/sound/engine/MDA_howl</prop>
 		</output>
 	</filter>
 
@@ -373,7 +449,7 @@
 		</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDA_howl</prop>
+			<prop>sim/sound/enginep/MDA_howl</prop>
 		</output>
 	</filter>
 	
@@ -392,7 +468,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDA_hum</prop>
+			<prop>sim/sound/engine/MDA_hum</prop>
 		</output>
 	</filter>
 
@@ -409,7 +485,7 @@
 		</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDA_hum</prop>
+			<prop>sim/sound/enginep/MDA_hum</prop>
 		</output>
 	</filter>
 	
@@ -429,7 +505,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDA_hum_high</prop>
+			<prop>sim/sound/engine/MDA_hum_high</prop>
 		</output>
 	</filter>
 	
@@ -449,7 +525,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDB_WHN_1</prop>
+			<prop>sim/sound/engine/MDB_WHN_1</prop>
 		</output>
 	</filter>
 
@@ -466,7 +542,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDB_WHN_1</prop>
+			<prop>sim/sound/enginep/MDB_WHN_1</prop>
 		</output>
 	</filter>
 
@@ -486,7 +562,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDB_WHN_2</prop>
+			<prop>sim/sound/engine/MDB_WHN_2</prop>
 		</output>
 	</filter>
 
@@ -503,7 +579,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDB_WHN_2</prop>
+			<prop>sim/sound/enginep/MDB_WHN_2</prop>
 		</output>
 	</filter>
 
@@ -523,7 +599,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDB_WHN_3</prop>
+			<prop>sim/sound/engine/MDB_WHN_3</prop>
 		</output>
 	</filter>
 
@@ -540,7 +616,7 @@
 		</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDB_WHN_3</prop>
+			<prop>sim/sound/enginep/MDB_WHN_3</prop>
 		</output>
 	</filter>
 
@@ -558,7 +634,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDB_WHN_4</prop>
+			<prop>sim/sound/engine/MDB_WHN_4</prop>
 		</output>
 	</filter>
 
@@ -575,7 +651,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDB_WHN_4</prop>
+			<prop>sim/sound/enginep/MDB_WHN_4</prop>
 		</output>
 	</filter>
 
@@ -593,7 +669,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDB_WHN_5</prop>
+			<prop>sim/sound/engine/MDB_WHN_5</prop>
 		</output>
 	</filter>
 	
@@ -610,7 +686,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDB_WHN_5</prop>
+			<prop>sim/sound/enginep/MDB_WHN_5</prop>
 		</output>
 	</filter>
 	
@@ -631,7 +707,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDB_howl</prop>
+			<prop>sim/sound/engine/MDB_howl</prop>
 		</output>
 	</filter>
 	
@@ -650,7 +726,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDB_hum</prop>
+			<prop>sim/sound/engine/MDB_hum</prop>
 		</output>
 	</filter>
 
@@ -667,7 +743,7 @@
 		</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDB_hum</prop>
+			<prop>sim/sound/enginep/MDB_hum</prop>
 		</output>
 	</filter>
 	
@@ -687,7 +763,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDB_hum_high</prop>
+			<prop>sim/sound/engine/MDB_hum_high</prop>
 		</output>
 	</filter>
 
@@ -704,7 +780,7 @@
 		</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDB_howl</prop>
+			<prop>sim/sound/enginep/MDB_howl</prop>
 		</output>
 	</filter>
 	
@@ -722,7 +798,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDA_CMB_1</prop>
+			<prop>sim/sound/engine/MDA_CMB_1</prop>
 		</output>
 	</filter>
 
@@ -739,7 +815,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDA_CMB_1</prop>
+			<prop>sim/sound/enginep/MDA_CMB_1</prop>
 		</output>
 	</filter>
 	
@@ -757,7 +833,7 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/engine/MDB_CMB_1</prop>
+			<prop>sim/sound/engine/MDB_CMB_1</prop>
 		</output>
 	</filter>
 
@@ -774,33 +850,11 @@
 			</expression>
 		</input>
 		<output>
-			<prop>MD80/enginep/MDB_CMB_1</prop>
+			<prop>sim/sound/enginep/MDB_CMB_1</prop>
 		</output>
 	</filter>
 	
 <!-- COCKPIT NOISE -->
-
-<filter>
-  <type>gain</type>
-  <gain>0.7</gain>
-  <input>
-    <expression>
-      <product>
-        <table>
-          <product>
-			<property>sim/current-view/z-offset-m</property>
-		  </product>
-			<entry><ind>-5.25</ind> <dep>0</dep></entry>
-			<entry><ind>-6.25</ind> <dep>1</dep></entry>
-        </table>
-		<property>sim/current-view/internal</property>
-      </product>
-    </expression>
-  </input>
-  <output>
-    <prop>MD80/ambience/cockpit-amb-z</prop>
-  </output>
-</filter>
 
 <filter>
   <type>gain</type>
@@ -821,7 +875,7 @@
     </expression> 
   </input>
   <output>
-    <prop>MD80/other/roll</prop>
+    <prop>sim/sound/other/roll</prop>
   </output>
 </filter>
 
@@ -840,12 +894,12 @@
 			<entry><ind>-5</ind> <dep>0</dep></entry>
 			<entry><ind>-6</ind> <dep>1</dep></entry>
         </table>
-		<property>sim/current-view/internal</property>
+		<property>sim/sound/internal-custom</property>
       </product>
     </expression>
   </input>
   <output>
-    <prop>MD80/ambience/wind-f-z</prop>
+    <prop>sim/sound/ambience/wind-f-z</prop>
   </output>
 </filter>
 
@@ -864,12 +918,12 @@
 			<entry><ind>350</ind> <dep>2.0</dep></entry>
 			<entry><ind>500</ind> <dep>5.0</dep></entry>
         </table>
-		<property>sim/current-view/internal</property>
+		<property>sim/sound/internal-custom</property>
       </product>
     </expression>
   </input>
   <output>
-    <prop>MD80/ambience/wind-f-s</prop>
+    <prop>sim/sound/ambience/wind-f-s</prop>
   </output>
 </filter>
 
@@ -885,12 +939,12 @@
 			<entry><ind>-12.0</ind> <dep>1</dep></entry>
 			<entry><ind> 10.0</ind> <dep>1</dep></entry>
         </table>
-		<property>sim/current-view/internal</property>
+		<property>sim/sound/internal-custom</property>
       </product>
     </expression>
   </input>
   <output>
-    <prop>MD80/ambience/wind-b-z</prop>
+    <prop>sim/sound/ambience/wind-b-z</prop>
   </output>
 </filter>
 
@@ -909,12 +963,12 @@
 			<entry><ind>350</ind> <dep>0.4</dep></entry>
 			<entry><ind>500</ind> <dep>0.5</dep></entry>
         </table>
-		<property>sim/current-view/internal</property>
+		<property>sim/sound/internal-custom</property>
       </product>
     </expression>
   </input>
   <output>
-    <prop>MD80/ambience/wind-b-s</prop>
+    <prop>sim/sound/ambience/wind-b-s</prop>
   </output>
 </filter>
 
@@ -931,12 +985,12 @@
 			<entry><ind>3</ind> <dep>0.1</dep></entry>
 			<entry><ind>30</ind><dep>1</dep></entry>
         </table>
-		<property>sim/current-view/internal</property>
+		<property>sim/sound/internal-custom</property>
       </product>
     </expression>
   </input>
   <output>
-    <prop>MD80/misc/buzz-z</prop>
+    <prop>sim/sound/misc/buzz-z</prop>
   </output>
 </filter>
 </PropertyList>

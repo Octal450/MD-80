@@ -524,7 +524,7 @@ var PNEU = {
 		me.Switch.cockpitTemp.setValue(0.45);
 		me.Switch.groundAir.setBoolValue(0);
 		me.Switch.instrumentFlow.setValue(0);
-		me.Switch.radioRack.setValue(0);
+		me.Switch.radioRack.setBoolValue(0);
 		me.Switch.supplyL.setValue(0);
 		me.Switch.supplyR.setValue(0);
 		me.Switch.tempSel.setBoolValue(0);
