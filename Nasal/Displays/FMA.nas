@@ -57,7 +57,7 @@ var canvasBase = {
 	},
 	update: func() {
 		Value.activeModeInt = systems.TRI.Limit.activeModeInt.getValue();
-		Value.annunTest = pts.Controls.Switches.annunTest.getBoolValue();
+		Value.annunTest = pts.Controls.Switches.annunTest5Sec.getBoolValue();
 		Value.apOn = dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue();
 		Value.atsOn = dfgs.Output.athr.getBoolValue();
 		
@@ -138,7 +138,7 @@ var canvasBase = {
 		}
 	},
 	updateCommon: func(w) { # w is window, 0 thrust, 1 arm, 2 roll, 3 pitch
-		if (Value.annunTest) {
+		if (Value.annunTest) { # Stays active for 5 seconds
 			if (w == 1 or w == 2) {
 				me["Line1"].setText("¤¤¤");
 				me["Line2"].setText("¤¤¤");

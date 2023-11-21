@@ -41,6 +41,7 @@ var Controls = {
 	},
 	Switches: {
 		annunTest: props.globals.getNode("/controls/switches/annun-test"),
+		annunTest5Sec: props.globals.getNode("/controls/switches/annun-test-5sec"),
 		gpws: props.globals.getNode("/controls/switches/gpws"),
 		maxSpdWarnTest: props.globals.getNode("/controls/switches/max-spd-warn-test"),
 		minimums: props.globals.getNode("/controls/switches/minimums"),

@@ -717,6 +717,12 @@
 	
 	<channel name="Misc">
 		
+		<actuator name="/controls/switches/annun-test-5sec">
+			<input>/controls/switches/annun-test</input>
+			<rate_limit sense="incr">1000</rate_limit>
+			<rate_limit sense="decr">0.2</rate_limit> <!-- 5 seconds-->
+		</actuator>
+		
 		<switch name="/controls/switches/seatbelt-sign-status">
 			<default value="0"/>
 			<test value="1">
