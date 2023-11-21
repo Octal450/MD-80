@@ -6,6 +6,7 @@
 <system name="MD-80: DFGS">
 	
 	<property value="0">dfgs/flaps-cmd</property>
+	<property value="340">dfgs/speeds/vmo</property>
 	<property value="0">engine/throttle-lever-feedback[0]</property>
 	<property value="0">engine/throttle-lever-feedback[1]</property>
 	<property value="0">/gear/abs/disarm</property>
@@ -147,6 +148,7 @@
 	
 	<channel name="Envelope Protection Calculations" execrate="8">
 		
+		<!-- Vmo/Mmo -->
 		<fcs_function name="dfgs/speeds/mmo-kts">
 			<function>
 				<product>
@@ -163,14 +165,15 @@
 		</fcs_function>
 		
 		<switch name="dfgs/speeds/vmo-mmo">
-			<default value="340"/>
+			<default value="dfgs/speeds/vmo"/>
 			<test logic="AND" value="dfgs/speeds/mmo-kts">
-				dfgs/speeds/mmo-kts lt 340
+				dfgs/speeds/mmo-kts lt dfgs/speeds/vmo
 				position/wow eq 0
 			</test>
 		</switch>
 		
-		<fcs_function name="dfgs/speeds/slat-max-mach-kts">
+		<!-- Flap/Slat Max -->
+		<fcs_function name="dfgs/speeds/flap-slat-max-mach-kts">
 			<function>
 				<product>
 					<quotient>
@@ -185,14 +188,76 @@
 			</function>
 		</fcs_function>
 		
-		<switch name="dfgs/speeds/slat-max-kts">
+		<switch name="dfgs/speeds/flap-11-slat-mid-max-kts">
 			<default value="280"/>
-			<test logic="AND" value="dfgs/speeds/slat-max-mach-kts">
+			<test logic="AND" value="dfgs/speeds/flap-slat-max-mach-kts">
 				dfgs/speeds/mmo-kts lt 280
 				position/wow eq 0
 			</test>
 		</switch>
 		
+		<switch name="dfgs/speeds/flap-15-slat-full-max-kts">
+			<default value="240"/>
+			<test logic="AND" value="dfgs/speeds/flap-slat-max-mach-kts">
+				dfgs/speeds/mmo-kts lt 240
+				position/wow eq 0
+			</test>
+		</switch>
+		
+		<switch name="dfgs/speeds/flap-28-40-max-kts">
+			<default value="185"/>
+			<test logic="AND" value="dfgs/speeds/flap-slat-max-mach-kts">
+				dfgs/speeds/mmo-kts lt 185
+				position/wow eq 0
+			</test>
+		</switch>
+		
+		<switch name="dfgs/speeds/vmax">
+			<default value="dfgs/speeds/vmo-mmo"/>
+			<test value="dfgs/speeds/flap-28-40-max-kts">
+				fcs/flap-pos-deg ge 16
+			</test>
+			<test logic="OR" value="dfgs/speeds/flap-15-slat-full-max-kts">
+				fcs/flap-pos-deg ge 12
+				fcs/slat-pos-deg ge 11
+			</test>
+			<test logic="OR" value="dfgs/speeds/flap-11-slat-mid-max-kts">
+				fcs/flap-pos-deg ge 1
+				fcs/slat-pos-deg ge 1
+			</test>
+		</switch>
+		
+		<switch name="dfgs/speeds/vmax-type"> <!-- Used by FMA -->
+			<default value="0"/> <!-- Vmo -->
+			<test value="3"> <!-- Flap Limit -->
+				dfgs/speeds/vmax eq dfgs/speeds/flap-28-40-max-kts
+			</test>
+			<test logic="OR" value="2"> <!-- Slat Limit -->
+				dfgs/speeds/vmax eq dfgs/speeds/flap-11-slat-mid-max-kts
+				dfgs/speeds/vmax eq dfgs/speeds/flap-15-slat-full-max-kts
+			</test>
+			<test logic="AND" value="1"> <!-- Mmo -->
+				dfgs/speeds/vmax eq dfgs/speeds/vmo-mmo
+				dfgs/speeds/vmo-mmo ne dfgs/speeds/vmo
+			</test>
+		</switch>
+		
+		<fcs_function name="dfgs/speeds/vmax-mach">
+			<function>
+				<product>
+					<quotient>
+						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+						<max> <!-- Prevent divide by 0 -->
+							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+							<value>0.0001</value>
+						</max>
+					</quotient>
+					<property>dfgs/speeds/vmax</property>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<!-- Vss -->
 		<fcs_function name="dfgs/speeds/vss-kts"> <!-- From FCOM + Extrapolation -->
 			<function>
 				<table>
@@ -264,6 +329,7 @@
 			</clipto>
 		</pure_gain>
 		
+		<!-- Vmin -->
 		<pure_gain name="dfgs/speeds/vmin">
 			<input>dfgs/speeds/vss-kts</input>
 			<gain>1.1</gain> <!-- 1.1Vstall -->
@@ -275,19 +341,16 @@
 		
 		<fcs_function name="dfgs/speeds/vmin-mach">
 			<function>
-				<sum>
-					<product>
-						<quotient>
-							<property>/instrumentation/airspeed-indicator/indicated-mach</property>
-							<max> <!-- Prevent divide by 0 -->
-								<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
-								<value>0.0001</value>
-							</max>
-						</quotient>
-						<property>dfgs/speeds/vmin</property>
-					</product>
-					<value>0.005</value>
-				</sum>
+				<product>
+					<quotient>
+						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+						<max> <!-- Prevent divide by 0 -->
+							<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+							<value>0.0001</value>
+						</max>
+					</quotient>
+					<property>dfgs/speeds/vmin</property>
+				</product>
 			</function>
 		</fcs_function>
 		
@@ -444,7 +507,7 @@
 			<test logic="AND" value="1">
 				aero/alpha-deg-damped ge dfgs/stall-appr-alpha-deg
 				position/wow eq 0
-				/instrumentation/airspeed-indicator/indicated-speed-kt le 240
+				/instrumentation/airspeed-indicator/indicated-speed-kt le dfgs/speeds/flap-15-slat-full-max-kts
 				dfgs/flaps-cmd ge 1
 				dfgs/flaps-cmd lt 14
 			</test>

@@ -71,6 +71,9 @@ var Fdm = {
 		},
 		Dfgs: {
 			Speeds: {
+				vmaxType: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmax-type"),
+				vmax: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmax"),
+				vmaxMach: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmax-mach"),
 				vmin: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin"),
 				vminMach: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin-mach"),
 			},

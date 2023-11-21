@@ -23,13 +23,13 @@
 		</min>
 		<max>
 			<expression>
-				<max>
-					<property>/fdm/jsbsim/dfgs/speeds/vmo-mmo</property>
+				<min>
+					<property>/fdm/jsbsim/dfgs/speeds/vmax</property>
 					<sum>
 						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
 						<value>25</value>
 					</sum>
-				</max>
+				</min>
 			</expression>
 		</max>
 	</filter>
@@ -89,13 +89,13 @@
 		</min>
 		<max>
 			<expression>
-				<max>
-					<value>0.84</value>
+				<min>
+					<property>/fdm/jsbsim/dfgs/speeds/vmax-mach</property>
 					<sum>
 						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
 						<value>0.045</value>
 					</sum>
-				</max>
+				</min>
 			</expression>
 		</max>
 	</filter>

@@ -249,6 +249,7 @@ var Athr = {
 	ktsMach: 0,
 	retard: 0,
 	triMode: 0,
+	vmaxTypeTemp: 0,
 	loop: func() {
 		me.triMode = systems.TRI.Limit.activeModeInt.getValue();
 		Output.thrModeTemp = Output.thrMode.getValue();
@@ -275,12 +276,16 @@ var Athr = {
 	modeZeroCheck: func() {
 		me.atsCmdRawPid = pts.Fdm.JSBsim.Engine.atsCmdRawPid.getValue();
 		me.ktsMach = Input.ktsMach.getBoolValue();
-		if (Input.mach.getValue() <= pts.Fdm.JSBsim.Dfgs.Speeds.vminMach.getValue() and me.ktsMach) {
+		if (Input.mach.getValue() < pts.Fdm.JSBsim.Dfgs.Speeds.vminMach.getValue() and me.ktsMach) {
 			Fma.thrA.setValue("ALFA");
 			Fma.thrB.setValue("SPD");
-		} else if (Input.kts.getValue() <= pts.Fdm.JSBsim.Dfgs.Speeds.vmin.getValue() and !me.ktsMach) {
+		} else if (Input.kts.getValue() < pts.Fdm.JSBsim.Dfgs.Speeds.vmin.getValue() and !me.ktsMach) {
 			Fma.thrA.setValue("ALFA");
 			Fma.thrB.setValue("SPD");
+		} else if (Input.mach.getValue() > pts.Fdm.JSBsim.Dfgs.Speeds.vmaxMach.getValue() and me.ktsMach) {
+			me.setVmaxCheckFma();
+		} else if (Input.kts.getValue() > pts.Fdm.JSBsim.Dfgs.Speeds.vmax.getValue() and !me.ktsMach) {
+			me.setVmaxCheckFma();
 		} else if (me.atsCmdRawPid >= systems.TRI.Control.athrMax[0].getValue() - 0.005 or me.atsCmdRawPid >= systems.TRI.Control.athrMax[1].getValue() - 0.005) {
 			if (me.ktsMach) {
 				Fma.thrA.setValue("MACH");
@@ -299,6 +304,22 @@ var Athr = {
 				Fma.thrA.setValue("SPD");
 				Fma.thrB.setValue(sprintf("%3.0f", dfgs.Input.kts.getValue()));
 			}
+		}
+	},
+	setVmaxCheckFma: func() {
+		me.vmaxTypeTemp = pts.Fdm.JSBsim.Dfgs.Speeds.vmaxType.getValue();
+		if (me.vmaxTypeTemp == 0) {
+			Fma.thrA.setValue("VMO");
+			Fma.thrB.setValue("LIM");
+		} else if (me.vmaxTypeTemp == 1) {
+			Fma.thrA.setValue("MMO");
+			Fma.thrB.setValue("LIM");
+		} else if (me.vmaxTypeTemp == 2) {
+			Fma.thrA.setValue("SLAT");
+			Fma.thrB.setValue("LIM");
+		} else if (me.vmaxTypeTemp == 3) {
+			Fma.thrA.setValue("FLAP");
+			Fma.thrB.setValue("LIM");
 		}
 	},
 	setMode: func(n) { # 0 Thrust, 1 Retard, 2 EPR Limit, 3 Clamp
