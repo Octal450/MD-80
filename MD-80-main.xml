@@ -713,8 +713,8 @@
 				<binding>
 					<command>nasal</command>
 					<script>
-						setprop("/controls/switches/ats-lever1", 1);
-						setprop("/controls/switches/ats-lever2", 1);
+						setprop("/controls/cockpit/at-disc-1", 1);
+						setprop("/controls/cockpit/at-disc-3", 1);
 						libraries.apPanel.atDisc();
 					</script>
 				</binding>
@@ -722,20 +722,20 @@
 					<binding>
 						<command>nasal</command>
 						<script>
-							setprop("/controls/switches/ats-lever1", 0);
-							setprop("/controls/switches/ats-lever2", 0);
+							setprop("/controls/cockpit/at-disc-1", 0);
+							setprop("/controls/cockpit/at-disc-3", 0);
 						</script>
 					</binding>
 				</mod-up>
 			</key>
 			<key n="7">
 				<name>CTRL-g</name>
-				<desc>Go Around</desc>
+				<desc>Takeoff/Go Around</desc>
 				<binding>
 					<command>nasal</command>
 					<script>
-						setprop("/controls/switches/toga-btn1", 1);
-						setprop("/controls/switches/toga-btn2", 1);
+						setprop("/controls/cockpit/toga-1", 1);
+						setprop("/controls/cockpit/toga-2", 1);
 						libraries.apPanel.toga();
 					</script>
 				</binding>
@@ -743,8 +743,8 @@
 					<binding>
 						<command>nasal</command>
 						<script>
-							setprop("/controls/switches/toga-btn1", 0);
-							setprop("/controls/switches/toga-btn2", 0);
+							setprop("/controls/cockpit/toga-1", 0);
+							setprop("/controls/cockpit/toga-2", 0);
 						</script>
 					</binding>
 				</mod-up>
@@ -965,8 +965,8 @@
 				<binding>
 					<command>nasal</command>
 					<script>
-						setprop("/controls/switches/ap-yoke-button1", 1);
-						setprop("/controls/switches/ap-yoke-button2", 1);
+						setprop("/controls/cockpit/ap-disc-1", 1);
+						setprop("/controls/cockpit/ap-disc-2", 1);
 						libraries.apPanel.apDisc();
 					</script>
 				</binding>
@@ -974,8 +974,8 @@
 					<binding>
 						<command>nasal</command>
 						<script>
-							setprop("/controls/switches/ap-yoke-button1", 0);
-							setprop("/controls/switches/ap-yoke-button2", 0);
+							setprop("/controls/cockpit/ap-disc-1", 0);
+							setprop("/controls/cockpit/ap-disc-2", 0);
 						</script>
 					</binding>
 				</mod-up>
