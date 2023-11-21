@@ -101,10 +101,7 @@
 					<property>it-autoflight/output/ap1</property>
 					<value>1</value>
 				</equals>
-				<equals>
-					<property>controls/switches/annun-test</property>
-					<value>1</value>
-				</equals>
+				<property>controls/switches/annun-test-5sec</property>
 			</or>
 		</condition>
 	</animation>
@@ -118,10 +115,7 @@
 					<property>it-autoflight/output/ap2</property>
 					<value>1</value>
 				</equals>
-				<equals>
-					<property>controls/switches/annun-test</property>
-					<value>1</value>
-				</equals>
+				<property>controls/switches/annun-test-5sec</property>
 			</or>
 		</condition>
 	</animation>
@@ -135,10 +129,7 @@
 					<property>it-autoflight/output/fd1</property>
 					<value>1</value>
 				</equals>
-				<equals>
-					<property>controls/switches/annun-test</property>
-					<value>1</value>
-				</equals>
+				<property>controls/switches/annun-test-5sec</property>
 			</or>
 		</condition>
 	</animation>
@@ -175,7 +166,7 @@
 		<object-name>Monitor</object-name>
 		<object-name>NoAutoland</object-name>
 		<condition>
-			<property>controls/switches/annun-test</property>
+			<property>controls/switches/annun-test-5sec</property>
 		</condition>
 	</animation>
 
