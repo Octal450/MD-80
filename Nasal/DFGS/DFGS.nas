@@ -201,6 +201,7 @@ var Text = {
 var Sound = {
 	apOff: props.globals.initNode("/it-autoflight/sound/apoff", 0, "BOOL"),
 	enableApOff: 0,
+	enablePowerApOff: 0,
 };
 
 var Warning = {
@@ -270,6 +271,7 @@ var ITAF = {
 			Warning.atsFlash.setBoolValue(0);
 			Warning.ats.setBoolValue(0);
 			Sound.enableApOff = 0;
+			Sound.enablePowerApOff = 0;
 			Internal.enableAthrOff = 0;
 			apKill.stop();
 			atsKill.stop();
@@ -303,6 +305,21 @@ var ITAF = {
 			} else {
 				me.athrMaster(0);
 			}
+		}
+		
+		# AP Power Warning - when DFGS power cycles, sounds warning
+		pts.Fdm.JSBsim.Dfgs.powerAvailTemp = pts.Fdm.JSBsim.Dfgs.powerAvail.getValue();
+		if (pts.Fdm.JSBsim.Dfgs.powerAvailTemp == 1) {
+			if (acconfig.SYSTEM.autoConfigRunning.getBoolValue()) { # Don't do it during autoconfig
+				Sound.enablePowerApOff = 0;
+			} else if (Sound.enablePowerApOff) {
+				Sound.apOff.setBoolValue(1);
+				Sound.enablePowerApOff = 0;
+				apKill.start();
+			}
+		} else if (pts.Fdm.JSBsim.Dfgs.powerAvailTemp == 0) {
+			Sound.enablePowerApOff = 1;
+			Sound.apOff.setBoolValue(0);
 		}
 		
 		# VOR/ILS Revision

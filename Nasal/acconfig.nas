@@ -354,11 +354,13 @@ var PANEL = {
 				dfgs.Input.fd1.setBoolValue(1);
 				dfgs.Input.fd2.setBoolValue(1);
 				
-				fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
-				spinningT.stop();
-				fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-psloaded"}));
-				SYSTEM.autoConfigRunning.setBoolValue(0);
-				me.stop = 1;
+				settimer(func() { # Give things a moment to settle
+					fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
+					spinningT.stop();
+					fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-psloaded"}));
+					SYSTEM.autoConfigRunning.setBoolValue(0);
+					me.stop = 1;
+				}, 1);
 			}
 		});
 	},

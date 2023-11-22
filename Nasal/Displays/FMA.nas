@@ -57,7 +57,7 @@ var canvasBase = {
 	},
 	update: func() {
 		Value.activeModeInt = systems.TRI.Limit.activeModeInt.getValue();
-		Value.annunTest = pts.Controls.Switches.annunTest5Sec.getBoolValue();
+		Value.annunTest = pts.Controls.Switches.annunTest5Sec.getValue() > 0;
 		Value.apOn = dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue();
 		Value.atsOn = dfgs.Output.athr.getBoolValue();
 		

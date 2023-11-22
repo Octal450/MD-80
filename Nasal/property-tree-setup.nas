@@ -71,6 +71,8 @@ var Fdm = {
 			alphaDegDampedPli: props.globals.getNode("/fdm/jsbsim/aero/alpha-deg-damped-pli"),
 		},
 		Dfgs: {
+			powerAvail: props.globals.getNode("/fdm/jsbsim/dfgs/power-avail"),
+			powerAvailTemp: 0,
 			Speeds: {
 				vmaxType: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmax-type"),
 				vmax: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmax"),

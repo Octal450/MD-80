@@ -1068,12 +1068,15 @@
 			</test>
 		</switch>
 		
-		<!-- Autopilot Horn -->
+		<!-- Autopilot Horn, Plays once only -->
 		<switch name="/systems/caws/apoff/trigger">
 			<default value="/systems/caws/apoff/trigger"/>
 			<test logic="OR" value="0">
 				/systems/electrical/outputs/mk-viii lt 24
-				/systems/caws/apoff/out eq 1
+				<test logic="AND">
+					/it-autoflight/sound/apoff eq 0
+					/systems/caws/apoff/out eq 1
+				</test>
 			</test>
 			<test logic="AND" value="1">
 				/systems/caws/apoff/out eq 0
