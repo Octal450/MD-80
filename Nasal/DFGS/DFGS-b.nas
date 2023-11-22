@@ -266,11 +266,6 @@ var Athr = {
 				Output.thrMode.setValue(1);
 				updateFma.thr();
 			}
-			if (Engines.reverserNorm[0].getValue() >= 0.01 or Engines.reverserNorm[1].getValue() >= 0.01) {
-				if (Output.athr.getBoolValue()) {
-					ITAF.athrMaster(0);
-				}
-			}
 		}
 	},
 	modeZeroCheck: func() {
