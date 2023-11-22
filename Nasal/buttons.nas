@@ -116,6 +116,7 @@ var apPanel = {
 			dfgs.Athr.setMode(0); # Thrust
 			if (me.vertTemp == 4 or me.vertTemp == 7) {
 				dfgs.Input.vert.setValue(1);
+				dfgs.Fma.startBlink(3);
 			}
 		}
 	},
@@ -126,6 +127,7 @@ var apPanel = {
 			dfgs.Athr.setMode(0); # Thrust
 			if (me.vertTemp == 4 or me.vertTemp == 7) {
 				dfgs.Input.vert.setValue(1);
+				dfgs.Fma.startBlink(3);
 			}
 		}
 	},

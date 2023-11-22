@@ -12,7 +12,7 @@
 		
 		<switch name="/systems/ahrs-common/align-time">
 			<default value="1"/> <!-- 45 seconds -->
-			<test value="22.5"> <!-- 2 seconds -->
+			<test value="45"> <!-- 1 second -->
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>

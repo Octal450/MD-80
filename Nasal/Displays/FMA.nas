@@ -28,6 +28,8 @@ var Value = {
 	annunTest: 0,
 	apOn: 0,
 	atsOn: 0,
+	blink: 0,
+	blinkActive: [0, 0, 0, 0],
 	line2: "",
 };
 
@@ -56,6 +58,10 @@ var canvasBase = {
 		armR.setup();
 	},
 	update: func() {
+		# Blink Generator - We use this because the FMA updates only ever quarter second, so we need to ensure it is in sync
+		if (Value.blink < 3) Value.blink = Value.blink + 1;
+		else Value.blink = 0;
+		
 		Value.activeModeInt = systems.TRI.Limit.activeModeInt.getValue();
 		Value.annunTest = pts.Controls.Switches.annunTest5Sec.getValue() > 0;
 		Value.apOn = dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue();
@@ -147,13 +153,20 @@ var canvasBase = {
 				me["Line2"].setText("¤¤¤¤");
 			}
 		} else {
-			me["Line1"].setText(Modes.Line1[w].getValue());
-			Value.line2 = Modes.Line2[w].getValue();
-			
-			if (w == 1 and Value.line2 == "ALT" and pts.Systems.Acconfig.Options.armedAltAsFl.getBoolValue()) { # For ARM window Altitude as Flight Level
-				me["Line2"].setText(sprintf("%03d", math.round(dfgs.Input.alt.getValue() / 100)));
+			if (Value.blinkActive[w] and Value.blink < 2) {
+				me["Line1"].setText("");
+				me["Line2"].setText("");
 			} else {
-				me["Line2"].setText(Value.line2);
+				me["Line1"].setText(Modes.Line1[w].getValue());
+				Value.line2 = Modes.Line2[w].getValue();
+				
+				if (w == 0 and Value.line2 == "FLX") { # For THR window Flex Temp
+					me["Line2"].setText(sprintf("%02d", systems.TRI.Limit.flexTemp.getValue()));
+				} else if (w == 1 and Value.line2 == "ALT" and pts.Systems.Acconfig.Options.armedAltAsFl.getBoolValue()) { # For ARM window Altitude as Flight Level
+					me["Line2"].setText(sprintf("%03d", math.round(dfgs.Input.alt.getValue() / 100)));
+				} else {
+					me["Line2"].setText(Value.line2);
+				}
 			}
 		}
 	},

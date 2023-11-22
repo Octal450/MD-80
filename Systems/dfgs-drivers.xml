@@ -1243,7 +1243,7 @@
 			<property>/fdm/jsbsim/dfgs/speeds/v2-plus-10</property>
 		</min>
 		<min>/fdm/jsbsim/dfgs/speeds/vmin</min>
-		<max>/fdm/jsbsim/dfgs/speeds/vmo-mmo</max>
+		<max>/fdm/jsbsim/dfgs/speeds/vmax</max>
 	</filter>
 	
 	<filter>

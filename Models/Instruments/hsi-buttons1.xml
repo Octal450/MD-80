@@ -31,13 +31,13 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/hsi[0]/nav-src-button</property>
+				<property>controls/cockpit/nav-src-button[0]</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>controls/hsi[0]/nav-src-button</property>
+					<property>controls/cockpit/nav-src-button[0]</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -47,8 +47,8 @@
 	<animation>
 		<type>translate</type>
 		<object-name>NavSrc</object-name>
-		<property>controls/hsi[0]/nav-src-button</property>
-		<factor>-0.002</factor>
+		<property>controls/cockpit/nav-src-button[0]</property>
+		<factor>-0.001</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>

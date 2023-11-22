@@ -2,14 +2,52 @@
 # Copyright (c) 2023 Josh Davidson (Octal450)
 
 var Fma = {
-	thrA: props.globals.initNode("/instrumentation/fma/thr-mode-a", "", "STRING"),
-	thrB: props.globals.initNode("/instrumentation/fma/thr-mode-b", "", "STRING"),
 	armA: props.globals.initNode("/instrumentation/fma/arm-mode-a", "", "STRING"),
 	armB: props.globals.initNode("/instrumentation/fma/arm-mode-b", "", "STRING"),
 	pitchA: props.globals.initNode("/instrumentation/fma/pitch-mode-a", "TAK", "STRING"),
 	pitchB: props.globals.initNode("/instrumentation/fma/pitch-mode-b", "OFF", "STRING"),
 	rollA: props.globals.initNode("/instrumentation/fma/roll-mode-a", "TAK", "STRING"),
 	rollB: props.globals.initNode("/instrumentation/fma/roll-mode-b", "OFF", "STRING"),
+	thrA: props.globals.initNode("/instrumentation/fma/thr-mode-a", "", "STRING"),
+	thrB: props.globals.initNode("/instrumentation/fma/thr-mode-b", "", "STRING"),
+	Blink: {
+		elapsed: 0,
+		time: [-5, -5, -5, -5],
+	},
+	loop: func() {
+		me.Blink.elapsed = pts.Sim.Time.elapsedSec.getValue();
+		if (me.Blink.elapsed <= me.Blink.time[0] + 5) {
+			if (Output.athr.getBoolValue()) {
+				canvas_fma.Value.blinkActive[0] = 1;
+			} else {
+				me.stopBlink(0);
+			}
+		} else {
+			canvas_fma.Value.blinkActive[0] = 0;
+		}
+		if (me.Blink.elapsed <= me.Blink.time[1] + 5) {
+			canvas_fma.Value.blinkActive[1] = 1;
+		} else {
+			canvas_fma.Value.blinkActive[1] = 0;
+		}
+		if (me.Blink.elapsed <= me.Blink.time[2] + 5) {
+			canvas_fma.Value.blinkActive[2] = 1;
+		} else {
+			canvas_fma.Value.blinkActive[2] = 0;
+		}
+		if (me.Blink.elapsed <= me.Blink.time[3] + 5) {
+			canvas_fma.Value.blinkActive[3] = 1;
+		} else {
+			canvas_fma.Value.blinkActive[3] = 0;
+		}
+	},
+	startBlink: func(w) { # 0 THR, 1 ARM, 2 ROLL, 3 PITCH
+		if (w == 0 and !Output.athr.getBoolValue()) return;
+		me.Blink.time[w] = pts.Sim.Time.elapsedSec.getValue();
+	},
+	stopBlink: func(w) {
+		me.Blink.time[w] = -5;
+	},
 };
 
 var updateFma = {
@@ -156,14 +194,14 @@ var updateFma = {
 		if (me.thrTemp == 3) {
 			Fma.thrA.setValue("CLMP");
 			if (systems.TRI.Limit.activeModeInt.getValue() == 5) {
-				Fma.thrB.setValue("  " ~ sprintf("%02d", systems.TRI.Limit.flexTemp.getValue()));
+				Fma.thrB.setValue("FLX"); # Handled by FMA.nas
 			} else {
 				Fma.thrB.setValue("");
 			}
 		} else if (me.thrTemp == 2) {
 			Fma.thrA.setValue("EPR");
 			if (systems.TRI.Limit.activeModeInt.getValue() == 5) {
-				Fma.thrB.setValue("  " ~ sprintf("%02d", systems.TRI.Limit.flexTemp.getValue()));
+				Fma.thrB.setValue("FLX"); # Handled by FMA.nas
 			} else {
 				Fma.thrB.setValue(systems.TRI.Limit.activeMode.getValue());
 			}
@@ -218,13 +256,6 @@ setlistener("/it-autoflight/input/kts-mach-flch", func() {
 	updateFma.pitch();
 }, 0, 0);
 
-setlistener("/fdm/jsbsim/engine/limit/flex-temp", func() {
-	updateFma.thrTemp = Output.thrMode.getValue();
-	if ((updateFma.thrTemp == 2 or updateFma.thrTemp == 3) and systems.TRI.Limit.activeModeInt.getValue() == 5) {
-		Fma.thrB.setValue("  " ~ sprintf("%02d", systems.TRI.Limit.flexTemp.getValue()));
-	}
-}, 0, 0);
-
 setlistener("/instrumentation/nav[0]/nav-loc", func() {
 	if (Input.activeAp.getValue() == 1) {
 		updateFma.arm();
@@ -243,7 +274,7 @@ setlistener("/it-autoflight/input/alt-armed", func() {
 	updateFma.altArm();
 }, 0, 0);
 
-# Seperated the Autothrottle from ITAF because its very different from the ITAF base. So we do it here!
+# Seperated the Autothrottle from ITAF because its very different from ITAF Core. So we do it here!
 var Athr = {
 	atsCmdRawPid: 0,
 	ktsMach: 0,
@@ -323,6 +354,7 @@ var Athr = {
 		if (me.triMode == 0 or me.triMode == 5) {
 			me.toCheck();
 		} else if (!me.retard or dfgs.Output.vert.getValue() == 7) {
+			Fma.stopBlink(0);
 			Output.thrMode.setValue(n);
 		}
 		updateFma.thr();
@@ -331,18 +363,23 @@ var Athr = {
 		if (Text.vert.getValue() == "T/O CLB") {
 			if (pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() < 60 and pts.Fdm.JSBsim.Position.wow.getBoolValue()) {
 				if (Output.thrMode.getValue() != 2) {
+					Fma.stopBlink(0);
 					Output.thrMode.setValue(2);
 					updateFma.thr();
 				}
 			} else {
 				if (Internal.atrCmd.getBoolValue()) {
 					systems.TRI.setMode(1);
-					Output.thrMode.setValue(2);
-					updateFma.thr();
+					if (Output.thrMode.getValue() != 2) {
+						Fma.stopBlink(0);
+						Output.thrMode.setValue(2);
+						updateFma.thr();
+					}
 				} else {
 					if (Output.thrMode.getValue() != 3) {
 						Output.thrMode.setValue(3);
 						updateFma.thr();
+						Fma.startBlink(0);
 					}
 				}
 			}
@@ -350,6 +387,7 @@ var Athr = {
 			if (Output.thrMode.getValue() != 3) {
 				Output.thrMode.setValue(3);
 				updateFma.thr();
+				Fma.startBlink(0);
 			}
 		}
 	},

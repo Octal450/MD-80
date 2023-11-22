@@ -200,6 +200,7 @@ var Text = {
 
 var Sound = {
 	apOff: props.globals.initNode("/it-autoflight/sound/apoff", 0, "BOOL"),
+	apOffSingle: props.globals.initNode("/it-autoflight/sound/apoff-single", 0, "BOOL"),
 	enableApOff: 0,
 	enablePowerApOff: 0,
 };
@@ -226,6 +227,10 @@ var ITAF = {
 			Input.machFlchX1000.setValue(500);
 			Input.trueCourse.setBoolValue(0);
 			Input.activeAp.setValue(1);
+		} else {
+			if (Athr.retard) {
+				me.killAthrSilent();
+			}
 		}
 		Internal.takeoffLvl.setBoolValue(1);
 		Input.ap1.setBoolValue(0);
@@ -275,7 +280,12 @@ var ITAF = {
 			Internal.enableAthrOff = 0;
 			apKill.stop();
 			atsKill.stop();
+			Fma.stopBlink(0);
+			Fma.stopBlink(1);
+			Fma.stopBlink(2);
+			Fma.stopBlink(3);
 		}
+		Sound.apOffSingle.setBoolValue(0);
 		systems.WARNINGS.altitudeAlert.setValue(0); # Cancel altitude alert
 		loopTimer.start();
 		slowLoopTimer.start();
@@ -313,13 +323,12 @@ var ITAF = {
 			if (acconfig.SYSTEM.autoConfigRunning.getBoolValue()) { # Don't do it during autoconfig
 				Sound.enablePowerApOff = 0;
 			} else if (Sound.enablePowerApOff) {
-				Sound.apOff.setBoolValue(1);
+				Sound.apOffSingle.setBoolValue(1);
 				Sound.enablePowerApOff = 0;
-				apKill.start();
 			}
 		} else if (pts.Fdm.JSBsim.Dfgs.powerAvailTemp == 0) {
 			Sound.enablePowerApOff = 1;
-			Sound.apOff.setBoolValue(0);
+			Sound.apOffSingle.setBoolValue(0);
 		}
 		
 		# VOR/ILS Revision
@@ -345,7 +354,7 @@ var ITAF = {
 		Internal.vsTemp = Internal.vs.getValue();
 		Position.indicatedAltitudeFtTemp = Position.indicatedAltitudeFt.getValue();
 		
-		# Takeoff mode logic
+		# Takeoff Mode Logic
 		if (Output.latTemp == 5 and (Internal.takeoffLvl.getBoolValue() or Gear.wow1Temp or Gear.wow2Temp)) {
 			me.takeoffLogic();
 		}
@@ -461,7 +470,7 @@ var ITAF = {
 						me.setVertMode(3);
 					}
 				}
-			} else { # If armed and in 0 2 or 6 mode, disarm
+			} else { # If armed and in mode 0, 2, or 6, disarm
 				Input.altArmed.setBoolValue(0);
 			}
 		}
@@ -476,6 +485,9 @@ var ITAF = {
 		
 		# Autothrottle Update
 		Athr.loop();
+		
+		# FMA Update
+		Fma.loop();
 	},
 	slowLoop: func() {
 		Input.bankLimitSwTemp = Input.bankLimitSw.getValue();
@@ -496,6 +508,8 @@ var ITAF = {
 		Output.vertTemp = Output.vert.getValue();
 		if (!Output.ap1.getBoolValue() and !Output.ap2.getBoolValue() and Gear.wow0.getBoolValue() and Velocities.groundspeedKt.getValue() < 80 and (Output.latTemp == 2 or Output.latTemp == 4 or Output.vertTemp == 2 or Output.vertTemp == 6)) {
 			me.init(1);
+			Fma.startBlink(2);
+			Fma.startBlink(3);
 		}
 		
 		# Waypoint Advance Logic
@@ -586,6 +600,8 @@ var ITAF = {
 		if (!Output.ap1.getBoolValue() and !Output.ap2.getBoolValue()) { # Only do if both APs are off
 			if (Text.vert.getValue() == "ROLLOUT") {
 				me.init(1);
+				Fma.startBlink(2);
+				Fma.startBlink(3);
 			}
 			if (Sound.enableApOff) {
 				Sound.apOff.setBoolValue(1);
@@ -602,6 +618,9 @@ var ITAF = {
 					Athr.setMode(3); # Clamp
 				}
 				Output.athr.setBoolValue(1);
+				if (Output.thrMode.getValue() == 3) { # Refresh value new incase we set thrMode above
+					Fma.startBlink(0); # Start blinking if engaging in Clamp mode
+				}
 				atsKill.stop();
 				Warning.ats.setBoolValue(0);
 				Warning.atsFlash.setBoolValue(0);
@@ -639,12 +658,7 @@ var ITAF = {
 	fd1Master: func(s) {
 		if (s == 1) {
 			if (!Output.fd1.getBoolValue() and !Output.fd2.getBoolValue() and !Output.ap1.getBoolValue() and !Output.ap2.getBoolValue()) {
-				me.setLatMode(3); # HDG HOLD
-					if (abs(Internal.vs.getValue()) > 75) {
-					me.setVertMode(1); # V/S
-				} else {
-					me.setVertMode(0); # HOLD
-				}
+				me.setBasicMode();
 			}
 			Output.fd1.setBoolValue(1);
 		} else {
@@ -679,6 +693,8 @@ var ITAF = {
 		} else {
 			me.setVertMode(0); # HOLD
 		}
+		Fma.startBlink(2);
+		Fma.startBlink(3);
 	},
 	setLatMode: func(n) {
 		Output.vertTemp = Output.vert.getValue();
@@ -691,6 +707,7 @@ var ITAF = {
 			me.updateLatText("HDG");
 			if (Output.vertTemp == 2 or Output.vertTemp == 6) { # Also cancel G/S or FLARE if active
 				me.setVertMode(1);
+				Fma.startBlink(3);
 			}
 		} else if (n == 1) { # LNAV
 			me.updateLocArm(0);
@@ -709,6 +726,7 @@ var ITAF = {
 			me.updateLatText("HDG");
 			if (Output.vertTemp == 2 or Output.vertTemp == 6) { # Also cancel G/S or FLARE if active
 				me.setVertMode(1);
+				Fma.startBlink(3);
 			}
 		} else if (n == 4) { # ALIGN
 			me.updateLnavArm(0);
@@ -729,6 +747,7 @@ var ITAF = {
 			Output.lat.setValue(6);
 			me.updateLatText("LVL");
 		}
+		Fma.stopBlink(2);
 	},
 	setVertMode: func(n) {
 		Input.altDiff = Input.alt.getValue() - Position.indicatedAltitudeFt.getValue();
@@ -755,6 +774,7 @@ var ITAF = {
 		} else if (n == 2) { # G/S
 			me.updateLnavArm(0);
 			me.checkLoc(0);
+			Fma.stopBlink(2); # Because setVertMode only stops 3
 			me.checkAppr(0);
 		} else if (n == 3) { # ALT CAP
 			Input.altArmed.setBoolValue(0);
@@ -807,6 +827,7 @@ var ITAF = {
 			Athr.setMode(0); # Thrust
 			me.athrMaster(0);
 		}
+		Fma.stopBlink(3);
 	},
 	activateLnav: func() {
 		if (Output.lat.getValue() != 1) {
@@ -815,8 +836,10 @@ var ITAF = {
 			me.updateApprArm(0);
 			Output.lat.setValue(1);
 			me.updateLatText("LNAV");
+			Fma.stopBlink(2);
 			if (Output.vertTemp == 2 or Output.vertTemp == 6) { # Also cancel G/S or FLARE if active
 				me.setVertMode(1);
+				Fma.startBlink(3);
 			}
 		}
 	},
@@ -827,6 +850,7 @@ var ITAF = {
 			me.updateAutoLand(0);
 			Output.lat.setValue(2);
 			me.updateLatText("LOC");
+			Fma.stopBlink(2);
 		}
 	},
 	activateGs: func() {
@@ -837,6 +861,7 @@ var ITAF = {
 			me.updateApprArm(0);
 			Output.vert.setValue(2);
 			me.updateVertText("G/S");
+			Fma.stopBlink(3);
 			Athr.setMode(0); # Thrust
 		}
 	},
@@ -903,9 +928,10 @@ var ITAF = {
 				me.ap1Master(0);
 				me.ap2Master(0);
 				me.setLatMode(3);
-				me.setVertMode(1);
+				Fma.startBlink(2);
 			} else {
 				me.setLatMode(3); # Also cancels G/S if active
+				Fma.startBlink(2);
 			}
 		}
 	},
