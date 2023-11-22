@@ -499,7 +499,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<toradians><property>aero/function/kCndr</property></toradians>
-				<value>-0.11</value>
+				<value>-0.13</value>
 			</product>
 		</function>
 	
@@ -604,7 +604,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<toradians><property>aero/function/kCndr</property></toradians>
-				<value>0.007</value>
+				<value>0.008</value>
 			</product>
 		</function>
 	
@@ -786,7 +786,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<toradians><property>aero/function/kCndr</property></toradians>
-				<value>0.031</value>
+				<value>0.037</value>
 			</product>
 		</function>
 	
