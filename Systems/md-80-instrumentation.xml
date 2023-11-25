@@ -68,7 +68,7 @@
 				</integer>
 			</function>
 			<clipto>
-				<min>149</min>
+				<min>150</min>
 				<max>999</max>
 			</clipto>
 		</fcs_function>
@@ -189,7 +189,7 @@
 				</integer>
 			</function>
 			<clipto>
-				<min>149</min>
+				<min>150</min>
 				<max>999</max>
 			</clipto>
 		</fcs_function>
