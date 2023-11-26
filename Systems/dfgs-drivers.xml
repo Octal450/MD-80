@@ -884,7 +884,7 @@
 		</input>
 		<input>/instrumentation/nav[1]/gs-rate-of-climb-fpm</input>
 		<output>/it-autoflight/internal/nav2-rate-of-climb-fpm</output>
-		<min>-1200</min>
+		<min>-1500</min>
 		<max>0</max>
 	</filter>
 	
@@ -903,7 +903,7 @@
 		</input>
 		<input>/it-autoflight/internal/nav1-rate-of-climb-fpm</input>
 		<output>/it-autoflight/internal/nav-rate-of-climb-fpm</output>
-		<min>-1200</min>
+		<min>-1500</min>
 		<max>0</max>
 	</filter>
 	

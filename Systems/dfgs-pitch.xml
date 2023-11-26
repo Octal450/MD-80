@@ -175,6 +175,15 @@
 			</condition>
 			<value>0</value>
 		</min>
+		<min>
+			<condition>
+				<equals>
+					<property>/it-autoflight/output/vert</property>
+					<value>7</value>
+				</equals>
+			</condition>
+			<value>120</value>
+		</min>
 		<min>-100000</min>
 		<max>100000</max>
 	</filter>

@@ -356,7 +356,7 @@ var ITAF = {
 		
 		# Takeoff Mode Logic
 		if (Output.latTemp == 5 and (Internal.takeoffLvl.getBoolValue() or Gear.wow1Temp or Gear.wow2Temp)) {
-			me.takeoffLogic();
+			me.takeoffLogic(0);
 		}
 		
 		# LNAV Engagement
@@ -738,7 +738,7 @@ var ITAF = {
 			me.updateLnavArm(0);
 			me.updateLocArm(0);
 			me.updateApprArm(0);
-			me.takeoffLogic();
+			me.takeoffLogic(1);
 			Output.lat.setValue(5);
 		} else if (n == 6) { # LVL
 			me.updateLnavArm(0);
@@ -935,12 +935,15 @@ var ITAF = {
 			}
 		}
 	},
-	takeoffLogic: func() {
+	takeoffLogic: func(t) {
 		if (!Gear.wow1.getBoolValue() and !Gear.wow2.getBoolValue()) {
 			if (abs(Orientation.rollDeg.getValue()) > 3) {
 				Internal.takeoffHdg.setValue(math.round(Internal.hdg.getValue()));
 				Internal.takeoffLvl.setBoolValue(1);
 			} else {
+				if (t == 1) { # Sync anyway
+					Internal.takeoffHdg.setValue(math.round(Internal.hdg.getValue())); # Switches to track automatically
+				}
 				Internal.takeoffLvl.setBoolValue(0);
 			}
 		} else {
@@ -975,7 +978,7 @@ var ITAF = {
 				me.ap1Master(0);
 				me.ap2Master(0);
 			}
-		} else if ((Gear.wow1Temp or Gear.wow2Temp) and Misc.flapDegTemp >= 4.9) {
+		} else if ((Gear.wow1.getBoolValue() or Gear.wow2.getBoolValue()) and Misc.flapDegTemp >= 4.9) {
 			if (Output.lat.getValue() != 5) { # Don't accidently disarm LNAV
 				me.setLatMode(5);
 				me.updateLatText("T/O");
