@@ -227,10 +227,6 @@ var ITAF = {
 			Input.machFlchX1000.setValue(500);
 			Input.trueCourse.setBoolValue(0);
 			Input.activeAp.setValue(1);
-		} else {
-			if (Athr.retard) {
-				me.killAthrSilent();
-			}
 		}
 		Internal.takeoffLvl.setBoolValue(1);
 		Input.ap1.setBoolValue(0);
