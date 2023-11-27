@@ -471,7 +471,7 @@ var IGNITION = {
 	starter1: props.globals.getNode("/systems/ignition/starter-1"),
 	starter2: props.globals.getNode("/systems/ignition/starter-2"),
 	Switch: {
-		ign: props.globals.getNode("/controls/ignition/ign"),
+		ign: props.globals.getNode("/controls/ignition/switches/ign"),
 	},
 	init: func() {
 		me.Switch.ign.setBoolValue(0);

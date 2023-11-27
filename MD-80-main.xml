@@ -542,7 +542,9 @@
 			</switches>
 		</hydraulics>
 		<ignition n="0">
-			<ign type="int">0</ign>
+			<switches n="0">
+				<ign type="int">0</ign>
+			</switches>
 		</ignition>
 		<lighting n="0">
 			<beacon type="bool">0</beacon>

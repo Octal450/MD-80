@@ -1153,7 +1153,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/ignition/ign</property>
+				<property>controls/ignition/switches/ign</property>
 				<value>-1</value>
 				<value>0</value>
 				<value>1</value>
@@ -1169,7 +1169,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/ignition/ign</property>
+				<property>controls/ignition/switches/ign</property>
 				<value>1</value>
 				<value>0</value>
 				<value>-1</value>

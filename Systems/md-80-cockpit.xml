@@ -602,7 +602,7 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/ign">
-			<input>/controls/ignition/ign</input>
+			<input>/controls/ignition/switches/ign</input>
 			<c1>20</c1>
 		</lag_filter>
 		
