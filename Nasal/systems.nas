@@ -10,7 +10,6 @@ var AHRS = {
 
 # APU
 var APU = {
-	autoConnect: 0,
 	egt: props.globals.getNode("/engines/engine[2]/egt-actual"),
 	ff: props.globals.getNode("/engines/engine[2]/ff-actual"),
 	n1: props.globals.getNode("/engines/engine[2]/n1-actual"),
