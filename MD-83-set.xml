@@ -10,7 +10,7 @@
 		<flight-model>jsb</flight-model>
 		<model n="0">
 			<livery>
-				<file type="string">DAL</file>
+				<file type="string">White</file>
 			</livery>
 			<path>Aircraft/MD-80/Models/MD-83.xml</path>
 		</model>
