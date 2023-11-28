@@ -1019,11 +1019,11 @@ var ITAF = {
 	# Custom Stuff Below
 	updateLatText: func(t) {
 		Text.lat.setValue(t);
-		updateFma.roll();
+		updateFma.lat();
 	},
 	updateVertText: func(t) {
 		Text.vert.setValue(t);
-		updateFma.pitch();
+		updateFma.vert();
 	},
 	updateLnavArm: func(n) {
 		Output.lnavArm.setBoolValue(n);

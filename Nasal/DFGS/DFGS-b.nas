@@ -51,28 +51,28 @@ var Fma = {
 };
 
 var updateFma = {
-	pitchText: "T/O CLB",
-	rollText: "T/O",
+	latText: "T/O",
 	thrTemp: 0,
+	vertText: "T/O CLB",
 	capTrkReCheck: func() {
 		me.locUpdate();
 		locUpdateT.start();
 		me.gsUpdate();
 		gsUpdateT.start();
 	},
-	roll: func() {
-		me.rollText = Text.lat.getValue();
-		if (me.rollText == "HDG") {
+	lat: func() {
+		me.latText = Text.lat.getValue();
+		if (me.latText == "HDG") {
 			Fma.rollA.setValue("HDG");
 			if (Output.hdgInHld.getBoolValue()) {
 				Fma.rollB.setValue("HLD");
 			} else {
 				Fma.rollB.setValue("SEL");
 			}
-		} else if (me.rollText == "LNAV") {
+		} else if (me.latText == "LNAV") {
 			Fma.rollA.setValue("NAV");
 			Fma.rollB.setValue("TRK");
-		} else if (me.rollText == "LOC") {
+		} else if (me.latText == "LOC") {
 			if (pts.Instrumentation.Nav.navLoc[Input.activeAp.getValue() - 1].getBoolValue()) {
 				Fma.rollA.setValue("LOC");
 			} else {
@@ -80,29 +80,29 @@ var updateFma = {
 			}
 			me.locUpdate();
 			locUpdateT.start();
-		} else if (me.rollText == "LAND") {
+		} else if (me.latText == "LAND") {
 			Fma.rollA.setValue("AUT");
 			Fma.rollB.setValue("LND");
-		} else if (me.rollText == "ALGN") {
+		} else if (me.latText == "ALGN") {
 			Fma.rollA.setValue("ALN");
 			Fma.rollB.setValue("");
-		} else if (me.rollText == "RLOU") {
+		} else if (me.latText == "RLOU") {
 			Fma.rollA.setValue("ROL");
 			Fma.rollB.setValue("OUT");
-		} else if (me.rollText == "T/O") {
+		} else if (me.latText == "T/O") {
 			Fma.rollA.setValue("TAK");
 			Fma.rollB.setValue("OFF");
-		} else if (me.rollText == "G/A") {
+		} else if (me.latText == "G/A") {
 			Fma.rollA.setValue("GO");
 			Fma.rollB.setValue("RND");
-		} else if (me.rollText == "LVL") {
+		} else if (me.latText == "LVL") {
 			Fma.rollA.setValue("WNG");
 			Fma.rollB.setValue("LVL");
 		}
 	},
-	pitch: func() {
-		me.pitchText = Text.vert.getValue();
-		if (me.pitchText == "FLCH") { # Replaces SPD CLB/DES from ITAF Core
+	vert: func() {
+		me.vertText = Text.vert.getValue();
+		if (me.vertText == "FLCH") { # Replaces SPD CLB/DES from ITAF Core
 			if (Input.ktsMachFlch.getBoolValue()) {
 				Fma.pitchA.setValue("MACH");
 				Fma.pitchB.setValue("");
@@ -110,49 +110,49 @@ var updateFma = {
 				Fma.pitchA.setValue("IAS");
 				Fma.pitchB.setValue("");
 			}
-		} else if (me.pitchText == "T/O CLB") {
+		} else if (me.vertText == "T/O CLB") {
 			Fma.pitchA.setValue("TAK");
 			Fma.pitchB.setValue("OFF");
-		} else if (me.pitchText == "G/A CLB") {
+		} else if (me.vertText == "G/A CLB") {
 			Fma.pitchA.setValue("GO");
 			Fma.pitchB.setValue("RND");
-		} else if (me.pitchText == "ALT HLD") {
+		} else if (me.vertText == "ALT HLD") {
 			Fma.pitchA.setValue("ALT");
 			Fma.pitchB.setValue("HLD");
-		} else if (me.pitchText == "ALT CAP") {
+		} else if (me.vertText == "ALT CAP") {
 			Fma.pitchA.setValue("ALT");
 			Fma.pitchB.setValue("CAP");
-		} else if (me.pitchText == "V/S") {
+		} else if (me.vertText == "V/S") {
 			Fma.pitchA.setValue("VERT");
 			Fma.pitchB.setValue("SPD");
-		} else if (me.pitchText == "G/S") {
+		} else if (me.vertText == "G/S") {
 			Fma.pitchA.setValue("G/S");
 			me.gsUpdate();
 			gsUpdateT.start();
-		} else if (me.pitchText == "FPA") {
+		} else if (me.vertText == "FPA") {
 			Fma.pitchA.setValue("");
 			Fma.pitchB.setValue("");
-		} else if (me.pitchText == "LAND") {
+		} else if (me.vertText == "LAND") {
 			Fma.pitchA.setValue("AUT");
 			Fma.pitchB.setValue("LND");
 			me.arm(); # Clear LND
-		} else if (me.pitchText == "NO FLARE") {
+		} else if (me.vertText == "NO FLARE") {
 			Fma.pitchA.setValue("NO");
 			Fma.pitchB.setValue("FLAR");
-		} else if (me.pitchText == "FLARE") {
+		} else if (me.vertText == "FLARE") {
 			Fma.pitchA.setValue("FLAR");
 			Fma.pitchB.setValue("");
-		} else if (me.pitchText == "ROLLOUT") {
+		} else if (me.vertText == "ROLLOUT") {
 			Fma.pitchA.setValue("ROL");
 			Fma.pitchB.setValue("OUT");
-		} else if (me.pitchText == "PITCH") {
+		} else if (me.vertText == "PITCH") {
 			Fma.pitchA.setValue("TURB");
 			Fma.pitchB.setValue("");
 		}
 	},
 	arm: func() {
-		me.pitchText = Text.vert.getValue();
-		if (Input.autoLand.getBoolValue() and me.pitchText != "LAND" and me.pitchText != "ROLLOUT") {
+		me.vertText = Text.vert.getValue();
+		if (Input.autoLand.getBoolValue() and me.vertText != "LAND" and me.vertText != "ROLLOUT") {
 			Fma.armA.setValue("LND");
 			me.altArm();
 		} else if (Output.apprArm.getBoolValue()) {
@@ -214,8 +214,8 @@ var updateFma = {
 	},
 	# Special stuff
 	locUpdate: func() {
-		updateFma.rollText = Text.lat.getValue();
-		if (updateFma.rollText == "LOC") {
+		updateFma.latText = Text.lat.getValue();
+		if (updateFma.latText == "LOC") {
 			if (abs(pts.Instrumentation.Nav.headingNeedleDeflectionNorm[Input.activeAp.getValue() - 1].getValue()) < 0.1) {
 				locUpdateT.stop();
 				Fma.rollB.setValue("TRK");
@@ -229,8 +229,8 @@ var updateFma = {
 		}
 	},
 	gsUpdate: func() {
-		updateFma.pitchText = Text.vert.getValue();
-		if (updateFma.pitchText == "G/S") {
+		updateFma.vertText = Text.vert.getValue();
+		if (updateFma.vertText == "G/S") {
 			if (abs(pts.Instrumentation.Nav.gsNeedleDeflectionNorm[Input.activeAp.getValue() - 1].getValue()) < 0.1) {
 				gsUpdateT.stop();
 				Fma.pitchB.setValue("TRK");
@@ -253,20 +253,20 @@ setlistener("/it-autoflight/input/kts-mach", func() {
 }, 0, 0);
 
 setlistener("/it-autoflight/input/kts-mach-flch", func() {
-	updateFma.pitch();
+	updateFma.vert();
 }, 0, 0);
 
 setlistener("/instrumentation/nav[0]/nav-loc", func() {
 	if (Input.activeAp.getValue() == 1) {
 		updateFma.arm();
-		updateFma.roll();
+		updateFma.lat();
 	}
 }, 0, 0);
 
 setlistener("/instrumentation/nav[1]/nav-loc", func() {
 	if (Input.activeAp.getValue() == 2) {
 		updateFma.arm();
-		updateFma.roll();
+		updateFma.lat();
 	}
 }, 0, 0);
 
