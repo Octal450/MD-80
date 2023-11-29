@@ -448,8 +448,8 @@
 				<spd-rotate type="int">49984</spd-rotate> <!-- So the symbol is upright -->
 				<vs-rotate type="int">50000</vs-rotate> <!-- So the symbol is upright -->
 			</fgcp>
-			<mins-l-rotate type="int">49984</mins-l-rotate> <!-- So the symbol is upright -->
-			<mins-r-rotate type="int">49984</mins-r-rotate> <!-- So the symbol is upright -->
+			<mins-rotate n="0" type="int">49984</mins-rotate> <!-- So the symbol is upright -->
+			<mins-rotate n="1" type="int">49984</mins-rotate> <!-- So the symbol is upright -->
 			<flaps-lever-translate-cmd type="double">0</flaps-lever-translate-cmd>
 		</cockpit>
 		<dfgs n="0">

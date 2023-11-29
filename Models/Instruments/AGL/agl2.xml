@@ -113,7 +113,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>Knob</object-name>
-		<property>controls/cockpit/mins-r-rotate</property>
+		<property>controls/cockpit/mins-rotate[1]</property>
 		<factor>11.25</factor>
 		<center>
 			<x-m>0</x-m>
@@ -136,7 +136,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/cockpit/mins-r-rotate</property>
+				<property>controls/cockpit/mins-rotate[1]</property>
 				<factor>1</factor>
 				<min>0</min>
 				<max>100000</max>
