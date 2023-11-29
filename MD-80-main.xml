@@ -436,6 +436,8 @@
 			<baro-rotate n="2" type="int">49984</baro-rotate> <!-- So the symbol is upright -->
 			<bug-rotate n="0" type="int">49984</bug-rotate> <!-- So the symbol is upright -->
 			<bug-rotate n="1" type="int">49984</bug-rotate> <!-- So the symbol is upright -->
+			<epr-cmd-rotate n="0" type="int">49984</epr-cmd-rotate> <!-- So the symbol is upright -->
+			<epr-cmd-rotate n="1" type="int">49984</epr-cmd-rotate> <!-- So the symbol is upright -->
 			<fgcp n="0">
 				<alt-rotate type="int">50000</alt-rotate>
 				<hdg-rotate type="int">49984</hdg-rotate> <!-- So the symbol is upright -->
@@ -1256,12 +1258,6 @@
 		<encoder n="0">
 			<serviceable type="bool">1</serviceable>
 		</encoder>
-		<epr n="0">
-			<rotate type="int">49984</rotate> <!-- So the symbol is upright -->
-		</epr>
-		<epr n="1">
-			<rotate type="int">49984</rotate> <!-- So the symbol is upright -->
-		</epr>
 		<groundradar>
 			<range type="double">1.0</range>
 		</groundradar>

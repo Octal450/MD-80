@@ -150,7 +150,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>EprKnob</object-name>
-		<property>instrumentation/epr[0]/rotate</property>
+		<property>controls/cockpit/epr-cmd-rotate[0]</property>
 		<factor>-11.25</factor>
 		<center>
 			<x-m>0</x-m>
@@ -207,7 +207,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/epr[0]/rotate</property>
+				<property>controls/cockpit/epr-cmd-rotate[0]</property>
 				<step>1</step>
 				<min>0</min>
 				<max>100000</max>
@@ -233,7 +233,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/epr[0]/rotate</property>
+				<property>controls/cockpit/epr-cmd-rotate[0]</property>
 				<step>-1</step>
 				<min>0</min>
 				<max>100000</max>
