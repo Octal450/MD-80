@@ -24,7 +24,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>KnobDH</object-name>
-		<property>instrumentation/efis/mins-r-rotate</property>
+		<property>controls/cockpit/mins-r-rotate</property>
 		<factor>11.25</factor>
 		<center>
 			<x-m>0</x-m>
@@ -50,7 +50,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/efis/mins-r-rotate</property>
+				<property>controls/cockpit/mins-r-rotate</property>
 				<factor>1</factor>
 				<min>0</min>
 				<max>100000</max>

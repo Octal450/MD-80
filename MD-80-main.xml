@@ -431,6 +431,25 @@
 			</switches>
 		</apu>
 		<cockpit n="0">
+			<baro-rotate n="0" type="int">49984</baro-rotate> <!-- So the symbol is upright -->
+			<baro-rotate n="1" type="int">49984</baro-rotate> <!-- So the symbol is upright -->
+			<baro-rotate n="2" type="int">49984</baro-rotate> <!-- So the symbol is upright -->
+			<bug-rotate n="0" type="int">49984</bug-rotate> <!-- So the symbol is upright -->
+			<bug-rotate n="1" type="int">49984</bug-rotate> <!-- So the symbol is upright -->
+			<fgcp n="0">
+				<alt-rotate type="int">50000</alt-rotate>
+				<hdg-rotate type="int">49984</hdg-rotate> <!-- So the symbol is upright -->
+				<nav1-crs-rotate type="int">50000</nav1-crs-rotate>
+				<nav1-major-rotate type="int">50000</nav1-major-rotate>
+				<nav1-minor-rotate type="int">50000</nav1-minor-rotate>
+				<nav2-crs-rotate type="int">50000</nav2-crs-rotate>
+				<nav2-major-rotate type="int">50000</nav2-major-rotate>
+				<nav2-minor-rotate type="int">50000</nav2-minor-rotate>
+				<spd-rotate type="int">49984</spd-rotate> <!-- So the symbol is upright -->
+				<vs-rotate type="int">50000</vs-rotate> <!-- So the symbol is upright -->
+			</fgcp>
+			<mins-l-rotate type="int">49984</mins-l-rotate> <!-- So the symbol is upright -->
+			<mins-r-rotate type="int">49984</mins-r-rotate> <!-- So the symbol is upright -->
 			<flaps-lever-translate-cmd type="double">0</flaps-lever-translate-cmd>
 		</cockpit>
 		<dfgs n="0">
@@ -1144,18 +1163,11 @@
 			<indicated-speed-kt type="double">0</indicated-speed-kt>
 		</airspeed-indicator>
 		<altimeter n="0">
-			<baro-rotate type="int">49984</baro-rotate> <!-- So the symbol is upright -->
 			<bug-input type="int">0</bug-input>
-			<bug-rotate type="int">49984</bug-rotate> <!-- So the symbol is upright -->
 			<indicated-altitude-ft type="double">0</indicated-altitude-ft>
 		</altimeter>
 		<altimeter n="1">
-			<baro-rotate type="int">49984</baro-rotate> <!-- So the symbol is upright -->
 			<bug-input type="int">0</bug-input>
-			<bug-rotate type="int">49984</bug-rotate> <!-- So the symbol is upright -->
-		</altimeter>
-		<altimeter n="2">
-			<baro-rotate type="int">49984</baro-rotate> <!-- So the symbol is upright -->
 		</altimeter>
 		<chrono n="0">
 			<started type="bool">0</started>
@@ -1233,8 +1245,6 @@
 				<range-nm type="int">10</range-nm>
 				<rh-vor-adf type="int">1</rh-vor-adf>
 			</inputs>
-			<mins-l-rotate type="int">49984</mins-l-rotate> <!-- So the symbol is upright -->
-			<mins-r-rotate type="int">49984</mins-r-rotate> <!-- So the symbol is upright -->
 		</efis>
 		<efis n="1">
 			<inputs n="0">
@@ -1252,18 +1262,6 @@
 		<epr n="1">
 			<rotate type="int">49984</rotate> <!-- So the symbol is upright -->
 		</epr>
-		<fgcp n="0">
-			<alt-rotate type="int">50000</alt-rotate>
-			<hdg-rotate type="int">49984</hdg-rotate> <!-- So the symbol is upright -->
-			<nav1-crs-rotate type="int">50000</nav1-crs-rotate>
-			<nav1-major-rotate type="int">50000</nav1-major-rotate>
-			<nav1-minor-rotate type="int">50000</nav1-minor-rotate>
-			<nav2-crs-rotate type="int">50000</nav2-crs-rotate>
-			<nav2-major-rotate type="int">50000</nav2-major-rotate>
-			<nav2-minor-rotate type="int">50000</nav2-minor-rotate>
-			<spd-rotate type="int">49984</spd-rotate> <!-- So the symbol is upright -->
-			<vs-rotate type="int">50000</vs-rotate> <!-- So the symbol is upright -->
-		</fgcp>
 		<groundradar>
 			<range type="double">1.0</range>
 		</groundradar>

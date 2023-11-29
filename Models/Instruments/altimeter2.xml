@@ -240,7 +240,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>BaroKnob</object-name>
-		<property>instrumentation/altimeter[1]/baro-rotate</property>
+		<property>controls/cockpit/baro-rotate[1]</property>
 		<factor>11.25</factor>
 		<center>
 			<x-m>0</x-m>
@@ -263,7 +263,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/altimeter[1]/baro-rotate</property>
+				<property>controls/cockpit/baro-rotate[1]</property>
 				<factor>1</factor>
 				<min>0</min>
 				<max>100000</max>
@@ -275,7 +275,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>BugKnob</object-name>
-		<property>instrumentation/altimeter[1]/bug-rotate</property>
+		<property>controls/cockpit/bug-rotate[1]</property>
 		<factor>11.25</factor>
 		<center>
 			<x-m>0</x-m>
@@ -298,7 +298,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/altimeter[1]/bug-rotate</property>
+				<property>controls/cockpit/bug-rotate[1]</property>
 				<factor>1</factor>
 				<min>0</min>
 				<max>100000</max>

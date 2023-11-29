@@ -178,7 +178,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>Nav1Knob1</object-name>
-		<property>instrumentation/fgcp/nav1-major-rotate</property>
+		<property>controls/cockpit/fgcp/nav1-major-rotate</property>
 		<factor>-11.25</factor>
 		<center>
 			<x-m>0</x-m>
@@ -204,7 +204,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/fgcp/nav1-major-rotate</property>
+				<property>controls/cockpit/fgcp/nav1-major-rotate</property>
 				<factor>1</factor>
 				<min>0</min>
 				<max>100000</max>
@@ -216,7 +216,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>Nav1Knob2</object-name>
-		<property>instrumentation/fgcp/nav1-minor-rotate</property>
+		<property>controls/cockpit/fgcp/nav1-minor-rotate</property>
 		<factor>-11.25</factor>
 		<center>
 			<x-m>0</x-m>
@@ -249,7 +249,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/fgcp/nav1-minor-rotate</property>
+				<property>controls/cockpit/fgcp/nav1-minor-rotate</property>
 				<factor>1</factor>
 				<min>0</min>
 				<max>100000</max>
@@ -299,7 +299,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>Nav1CrsKnob</object-name>
-		<property>instrumentation/fgcp/nav1-crs-rotate</property>
+		<property>controls/cockpit/fgcp/nav1-crs-rotate</property>
 		<factor>-11.25</factor>
 		<center>
 			<x-m>0</x-m>
@@ -325,7 +325,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/fgcp/nav1-crs-rotate</property>
+				<property>controls/cockpit/fgcp/nav1-crs-rotate</property>
 				<factor>1</factor>
 				<min>0</min>
 				<max>100000</max>
@@ -567,7 +567,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Spd.knob</object-name>
-		<property>instrumentation/fgcp/spd-rotate</property>
+		<property>controls/cockpit/fgcp/spd-rotate</property>
 		<factor>-11.25</factor>
 		<center>
 			<x-m>0</x-m>
@@ -584,7 +584,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>Spd.knob</object-name>
-		<property>instrumentation/fgcp/spd-translate</property>
+		<property>controls/cockpit/fgcp/spd-translate</property>
 		<factor>0.003</factor>
 		<axis>
 			<x>1</x>
@@ -601,13 +601,13 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-assign</command>
-				<property>instrumentation/fgcp/spd-translate</property>
+				<property>controls/cockpit/fgcp/spd-translate</property>
 				<value>-1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>instrumentation/fgcp/spd-translate</property>
+					<property>controls/cockpit/fgcp/spd-translate</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -635,7 +635,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/fgcp/spd-rotate</property>
+				<property>controls/cockpit/fgcp/spd-rotate</property>
 				<step>1</step>
 				<min>0</min>
 				<max>100000</max>
@@ -661,7 +661,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/fgcp/spd-rotate</property>
+				<property>controls/cockpit/fgcp/spd-rotate</property>
 				<step>-1</step>
 				<min>0</min>
 				<max>100000</max>
@@ -817,7 +817,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Hdg.knob</object-name>
-		<property>instrumentation/fgcp/hdg-rotate</property>
+		<property>controls/cockpit/fgcp/hdg-rotate</property>
 		<factor>-11.25</factor>
 		<center>
 			<x-m>0</x-m>
@@ -834,7 +834,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>Hdg.knob</object-name>
-		<property>instrumentation/fgcp/hdg-translate</property>
+		<property>controls/cockpit/fgcp/hdg-translate</property>
 		<factor>0.003</factor>
 		<axis>
 			<x>1</x>
@@ -854,7 +854,7 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>property-assign</command>
-				<property>instrumentation/fgcp/hdg-translate</property>
+				<property>controls/cockpit/fgcp/hdg-translate</property>
 				<value>-1</value>
 			</binding>
 			<binding>
@@ -862,13 +862,13 @@
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>property-assign</command>
-				<property>instrumentation/fgcp/hdg-translate</property>
+				<property>controls/cockpit/fgcp/hdg-translate</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>instrumentation/fgcp/hdg-translate</property>
+					<property>controls/cockpit/fgcp/hdg-translate</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -892,13 +892,13 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-assign</command>
-				<property>instrumentation/fgcp/hdg-translate</property>
+				<property>controls/cockpit/fgcp/hdg-translate</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>instrumentation/fgcp/hdg-translate</property>
+					<property>controls/cockpit/fgcp/hdg-translate</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -926,7 +926,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/fgcp/hdg-rotate</property>
+				<property>controls/cockpit/fgcp/hdg-rotate</property>
 				<step>1</step>
 				<min>0</min>
 				<max>100000</max>
@@ -952,7 +952,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/fgcp/hdg-rotate</property>
+				<property>controls/cockpit/fgcp/hdg-rotate</property>
 				<step>-1</step>
 				<min>0</min>
 				<max>100000</max>
@@ -1270,7 +1270,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>Pitch.knob</object-name>
-		<property>instrumentation/fgcp/vs-rotate</property>
+		<property>controls/cockpit/fgcp/vs-rotate</property>
 		<drag-direction>vertical</drag-direction>
 		<factor>11.25</factor>
 		<center>
@@ -1290,7 +1290,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/fgcp/vs-rotate</property>
+				<property>controls/cockpit/fgcp/vs-rotate</property>
 				<step>1</step>
 				<min>0</min>
 				<max>100000</max>
@@ -1304,7 +1304,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/fgcp/vs-rotate</property>
+				<property>controls/cockpit/fgcp/vs-rotate</property>
 				<step>-1</step>
 				<min>0</min>
 				<max>100000</max>
@@ -1471,7 +1471,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>Alt.knob</object-name>
-		<property>instrumentation/fgcp/alt-rotate</property>
+		<property>controls/cockpit/fgcp/alt-rotate</property>
 		<factor>-11.25</factor>
 		<center>
 			<x-m>0</x-m>
@@ -1488,7 +1488,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>Alt.knob</object-name>
-		<property>instrumentation/fgcp/alt-translate</property>
+		<property>controls/cockpit/fgcp/alt-translate</property>
 		<factor>0.003</factor>
 		<axis>
 			<x>1</x>
@@ -1508,7 +1508,7 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>property-assign</command>
-				<property>instrumentation/fgcp/alt-translate</property>
+				<property>controls/cockpit/fgcp/alt-translate</property>
 				<value>-1</value>
 			</binding>
 			<binding>
@@ -1516,13 +1516,13 @@
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>property-assign</command>
-				<property>instrumentation/fgcp/alt-translate</property>
+				<property>controls/cockpit/fgcp/alt-translate</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>instrumentation/fgcp/alt-translate</property>
+					<property>controls/cockpit/fgcp/alt-translate</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -1546,13 +1546,13 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-assign</command>
-				<property>instrumentation/fgcp/alt-translate</property>
+				<property>controls/cockpit/fgcp/alt-translate</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>instrumentation/fgcp/alt-translate</property>
+					<property>controls/cockpit/fgcp/alt-translate</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -1570,7 +1570,7 @@
 				</condition>
 				<command>nasal</command>
 				<script>
-					if (getprop("/instrumentation/fgcp/alt-translate") == -1) {
+					if (getprop("/controls/cockpit/fgcp/alt-translate") == -1) {
 						libraries.apPanel.altAdjust(1);
 					} else {
 						libraries.apPanel.altAdjust(10);
@@ -1586,7 +1586,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/fgcp/alt-rotate</property>
+				<property>controls/cockpit/fgcp/alt-rotate</property>
 				<step>1</step>
 				<min>0</min>
 				<max>100000</max>
@@ -1602,7 +1602,7 @@
 				</condition>
 				<command>nasal</command>
 				<script>
-					if (getprop("/instrumentation/fgcp/alt-translate") == -1) {
+					if (getprop("/controls/cockpit/fgcp/alt-translate") == -1) {
 						libraries.apPanel.altAdjust(-1);
 					} else {
 						libraries.apPanel.altAdjust(-10);
@@ -1618,7 +1618,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/fgcp/alt-rotate</property>
+				<property>controls/cockpit/fgcp/alt-rotate</property>
 				<step>-1</step>
 				<min>0</min>
 				<max>100000</max>
@@ -1795,7 +1795,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>Nav2Knob1</object-name>
-		<property>instrumentation/fgcp/nav2-major-rotate</property>
+		<property>controls/cockpit/fgcp/nav2-major-rotate</property>
 		<factor>-11.25</factor>
 		<center>
 			<x-m>0</x-m>
@@ -1821,7 +1821,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/fgcp/nav2-major-rotate</property>
+				<property>controls/cockpit/fgcp/nav2-major-rotate</property>
 				<factor>1</factor>
 				<min>0</min>
 				<max>100000</max>
@@ -1833,7 +1833,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>Nav2Knob2</object-name>
-		<property>instrumentation/fgcp/nav2-minor-rotate</property>
+		<property>controls/cockpit/fgcp/nav2-minor-rotate</property>
 		<factor>-11.25</factor>
 		<center>
 			<x-m>0</x-m>
@@ -1866,7 +1866,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/fgcp/nav2-minor-rotate</property>
+				<property>controls/cockpit/fgcp/nav2-minor-rotate</property>
 				<factor>1</factor>
 				<min>0</min>
 				<max>100000</max>
@@ -1916,7 +1916,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>Nav2CrsKnob</object-name>
-		<property>instrumentation/fgcp/nav2-crs-rotate</property>
+		<property>controls/cockpit/fgcp/nav2-crs-rotate</property>
 		<factor>-11.25</factor>
 		<center>
 			<x-m>0</x-m>
@@ -1942,7 +1942,7 @@
 			</binding>
 			<binding>
 				<command>property-adjust</command>
-				<property>instrumentation/fgcp/nav2-crs-rotate</property>
+				<property>controls/cockpit/fgcp/nav2-crs-rotate</property>
 				<factor>1</factor>
 				<min>0</min>
 				<max>100000</max>
