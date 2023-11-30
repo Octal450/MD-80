@@ -1,5 +1,5 @@
 AC3Db
-MATERIAL "exterior_light.004" rgb 0.8 0.8 0.8  amb 0.5 0.5 0.5  emis 0 0 0  spec 1 1 1  shi 96  trans 0
+MATERIAL "exterior_light.004" rgb 0.862745 0.862745 0.862745  amb 0.862745 0.862745 0.862745  emis 0 0 0  spec 1 1 1  shi 96  trans 0
 MATERIAL "DefaultWhite.010" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
 MATERIAL "MatteBlack.001" rgb 0.2 0.2 0.2  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.1 0.1 0.1  shi 0  trans 0
 MATERIAL "exterior_dark" rgb 0.45 0.45 0.45  amb 0.25 0.25 0.25  emis 0 0 0  spec 0 0 0  shi 64  trans 0
