@@ -2514,6 +2514,18 @@
 			</function>
 		</fcs_function>
 		
+		<switch name="/instrumentation/tri/rat-polarity-raw">
+			<default value="1"/>
+			<test logic="OR" value="0">
+				/instrumentation/tri/rat-cmd le -0.5
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/tri/rat-polarity">
+			<input>/instrumentation/tri/rat-polarity-raw</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<switch name="/instrumentation/tri/limit-active">
 			<default value="/instrumentation/tri/limit-active"/>
 			<test logic="OR" value="engine/limit/active-ind">

@@ -471,25 +471,15 @@
 	
 	<!-- Indications -->
 	<animation>
-		<type>select</type>
-		<object-name>ratPlus</object-name>
-		<condition>
-			<greater-than>
-				<property>fdm/jsbsim/propulsion/tat-c</property>
-				<value>-0.5</value>
-			</greater-than>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>ratMinus</object-name>
-		<condition>
-			<less-than-equals>
-				<property>fdm/jsbsim/propulsion/tat-c</property>
-				<value>-0.5</value>
-			</less-than-equals>
-		</condition>
+		<type>textranslate</type>
+		<object-name>ratPolarity</object-name>
+		<property>instrumentation/tri/rat-polarity</property>
+		<factor>-0.041015625</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
 	</animation>
 	
 	<animation>
