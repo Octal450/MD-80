@@ -21,7 +21,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>flex1</object-name>
-		<property>controls/cockpit/flex-d10</property>
+		<property>instrumentation/assumed-temp/d10</property>
 		<factor>0.0695</factor>
 		<axis>
 			<x>0</x>
@@ -66,7 +66,7 @@
 	<animation>
 		<type>textranslate</type>
 		<object-name>flex2</object-name>
-		<property>controls/cockpit/flex-d1</property>
+		<property>instrumentation/assumed-temp/d1</property>
 		<factor>0.0695</factor>
 		<axis>
 			<x>0</x>

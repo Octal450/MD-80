@@ -106,7 +106,7 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>instrumentation/tri/ga-btn</property>
+				<property>controls/cockpit/tri/ga</property>
 				<value>1</value>
 			</binding>
 			<binding>
@@ -116,7 +116,7 @@
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>instrumentation/tri/ga-btn</property>
+					<property>controls/cockpit/tri/ga</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -412,7 +412,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>gaBtn</object-name>
-		<property>instrumentation/tri/ga-btn</property>
+		<property>controls/cockpit/tri/ga</property>
 		<factor>-0.001</factor>
 		<axis>
 			<x>1</x>

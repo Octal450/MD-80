@@ -160,65 +160,6 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/fuel-channel-select">
-			<input>/controls/fuel/switches/channel-select</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<linear_actuator name="/controls/cockpit/flex-d1-linear">
-			<input>/instrumentation/tri/flex-d1</input>
-			<module>10</module>
-		</linear_actuator>
-		
-		<lag_filter name="/controls/cockpit/flex-d1-lag">
-			<input>/controls/cockpit/flex-d1-linear</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<fcs_function name="/controls/cockpit/flex-d1"> <!-- Undo the linear actuator for textranslate -->
-			<function> <!-- Modulo 10 without rounding -->
-				<difference>
-					<property>/controls/cockpit/flex-d1-lag</property>
-					<product>
-						<floor>
-							<quotient>
-								<property>/controls/cockpit/flex-d1-lag</property>
-								<value>10</value>
-							</quotient>
-						</floor>
-						<value>10</value>
-					</product>
-				</difference>
-			</function>
-		</fcs_function>
-		
-		<linear_actuator name="/controls/cockpit/flex-d10-linear">
-			<input>/instrumentation/tri/flex-d10</input>
-			<module>6</module>
-		</linear_actuator>
-		
-		<lag_filter name="/controls/cockpit/flex-d10-lag">
-			<input>/controls/cockpit/flex-d10-linear</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<fcs_function name="/controls/cockpit/flex-d10"> <!-- Undo the linear actuator for textranslate -->
-			<function> <!-- Modulo 6 without rounding -->
-				<difference>
-					<property>/controls/cockpit/flex-d10-lag</property>
-					<product>
-						<floor>
-							<quotient>
-								<property>/controls/cockpit/flex-d10-lag</property>
-								<value>6</value>
-							</quotient>
-						</floor>
-						<value>6</value>
-					</product>
-				</difference>
-			</function>
-		</fcs_function>
-		
 		<lag_filter name="/controls/cockpit/fgcp-digital-knb">
 			<input>/controls/lighting/fgcp-digital-knb</input>
 			<c1>20</c1>
@@ -241,6 +182,11 @@
 		
 		<lag_filter name="/controls/cockpit/fu-reset">
 			<input>/controls/engines/fu-reset</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/fuel-channel-select">
+			<input>/controls/fuel/switches/channel-select</input>
 			<c1>20</c1>
 		</lag_filter>
 		

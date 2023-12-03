@@ -2457,7 +2457,7 @@
 	
 	</channel>
 	
-	<channel name="TRI and FLEX" execrate="4">
+	<channel name="TRI and Assumed Temp" execrate="4">
 		
 		<!-- TRI -->
 		<switch name="/instrumentation/tri/rat-cmd">
@@ -2567,7 +2567,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/instrumentation/tri/flex-fixed">
+		<fcs_function name="/instrumentation/assumed-temp/input-fixed">
 			<function>
 				<sum>
 					<abs>
@@ -2578,30 +2578,84 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/instrumentation/tri/flex-d10">
+		<fcs_function name="/instrumentation/assumed-temp/input-d10">
 			<function>
 				<integer>
 					<quotient>
-						<property>/instrumentation/tri/flex-fixed</property>
+						<property>/instrumentation/assumed-temp/input-fixed</property>
 						<value>10</value>
 					</quotient>
 				</integer>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/instrumentation/tri/flex-d1">
+		<fcs_function name="/instrumentation/assumed-temp/input-d1">
 			<function>
 				<integer>
 					<product>
 						<fraction>
 							<quotient>
-								<property>/instrumentation/tri/flex-fixed</property>
+								<property>/instrumentation/assumed-temp/input-fixed</property>
 								<value>10</value>
 							</quotient>
 						</fraction>
 						<value>10</value>
 					</product>
 				</integer>
+			</function>
+		</fcs_function>
+		
+		<linear_actuator name="/instrumentation/assumed-temp/d1-linear">
+			<input>/instrumentation/assumed-temp/input-d1</input>
+			<module>10</module>
+		</linear_actuator>
+		
+		<lag_filter name="/instrumentation/assumed-temp/d1-lag">
+			<input>/instrumentation/assumed-temp/d1-linear</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<fcs_function name="/instrumentation/assumed-temp/d1"> <!-- Undo the linear actuator for textranslate -->
+			<function> <!-- Modulo 10 without rounding -->
+				<difference>
+					<property>/instrumentation/assumed-temp/d1-lag</property>
+					<product>
+						<floor>
+							<quotient>
+								<property>/instrumentation/assumed-temp/d1-lag</property>
+								<value>10</value>
+							</quotient>
+						</floor>
+						<value>10</value>
+					</product>
+				</difference>
+			</function>
+		</fcs_function>
+		
+		<linear_actuator name="/instrumentation/assumed-temp/d10-linear">
+			<input>/instrumentation/assumed-temp/input-d10</input>
+			<module>6</module>
+		</linear_actuator>
+		
+		<lag_filter name="/instrumentation/assumed-temp/d10-lag">
+			<input>/instrumentation/assumed-temp/d10-linear</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<fcs_function name="/instrumentation/assumed-temp/d10"> <!-- Undo the linear actuator for textranslate -->
+			<function> <!-- Modulo 6 without rounding -->
+				<difference>
+					<property>/instrumentation/assumed-temp/d10-lag</property>
+					<product>
+						<floor>
+							<quotient>
+								<property>/instrumentation/assumed-temp/d10-lag</property>
+								<value>6</value>
+							</quotient>
+						</floor>
+						<value>6</value>
+					</product>
+				</difference>
 			</function>
 		</fcs_function>
 	
