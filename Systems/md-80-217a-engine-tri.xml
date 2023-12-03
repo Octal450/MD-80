@@ -5,7 +5,6 @@
 
 <system name="MD-80: 217A Engine/TRI">
 	
-	<property value="45">engine/limit/flex-temp</property>
 	<property value="30">engine/limit/rated-temp</property>
 	<property value="1">engine/limit/idle</property>
 	<property value="0">engine/art/active</property>

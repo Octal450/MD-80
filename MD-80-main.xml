@@ -686,6 +686,7 @@
 				<limit n="0">
 					<active-mode type="string">T/O</active-mode>
 					<active-mode-int type="int">0</active-mode-int>
+					<flex-temp type="int">45</flex-temp>
 				</limit>
 			</engine>
 			<external_reactions n="0">
