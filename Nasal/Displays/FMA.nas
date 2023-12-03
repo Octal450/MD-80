@@ -157,15 +157,20 @@ var canvasBase = {
 				me["Line1"].setText("");
 				me["Line2"].setText("");
 			} else {
-				me["Line1"].setText(Modes.Line1[w].getValue());
-				Value.line2 = Modes.Line2[w].getValue();
-				
-				if (w == 0 and Value.line2 == "FLX") { # For THR window Flex Temp
-					me["Line2"].setText(sprintf("%02d", systems.TRI.Limit.flexTemp.getValue()));
-				} else if (w == 1 and Value.line2 == "ALT" and pts.Systems.Acconfig.Options.armedAltAsFl.getBoolValue()) { # For ARM window Altitude as Flight Level
-					me["Line2"].setText(sprintf("%03d", math.round(dfgs.Input.alt.getValue() / 100)));
+				if (w == 3 and dfgs.Output.vert.getValue() == 1 and abs(dfgs.Input.vs.getValue()) < 50) {
+					me["Line1"].setText("ALT");
+					me["Line2"].setText("HLD");
 				} else {
-					me["Line2"].setText(Value.line2);
+					me["Line1"].setText(Modes.Line1[w].getValue());
+					Value.line2 = Modes.Line2[w].getValue();
+					
+					if (w == 0 and Value.line2 == "FLX") { # For THR window Flex Temp
+						me["Line2"].setText(sprintf("%02d", systems.TRI.Limit.flexTemp.getValue()));
+					} else if (w == 1 and Value.line2 == "ALT" and pts.Systems.Acconfig.Options.armedAltAsFl.getBoolValue()) { # For ARM window Altitude as Flight Level
+						me["Line2"].setText(sprintf("%03d", math.round(dfgs.Input.alt.getValue() / 100)));
+					} else {
+						me["Line2"].setText(Value.line2);
+					}
 				}
 			}
 		}
