@@ -277,7 +277,7 @@ var PANEL = {
 			fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-init"}));
 			spinningT.stop();
 			SYSTEM.autoConfigRunning.setBoolValue(0);
-		}, 4); # Let analog gauges go to the right place
+		}, 5); # Let analog gauges go to the right place
 	},
 	panelBase: func(t, s = 0) {
 		if (s != 1) {
@@ -317,7 +317,7 @@ var PANEL = {
 			}
 			SYSTEM.autoConfigRunning.setBoolValue(0);
 			me.stop = 1;
-		}, 4); # Let analog gauges go to the right place
+		}, 5); # Let analog gauges go to the right place
 	},
 	beforeStart: func() {
 		me.panelBase(0);
