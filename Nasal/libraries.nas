@@ -107,6 +107,14 @@ canvas.Element.setVisible = func(vis) {
 };
 
 # Custom controls.nas overwrites
+controls.autopilotDisconnect = func() {
+	libraries.apPanel.apDisc();
+}
+
+controls.reverserTogglePosition = func() {
+	systems.toggleRevThrust();
+}
+
 controls.flapsDown = func(step) {
 	pts.Controls.Flight.flapsTemp = pts.Controls.Flight.flaps.getValue();
 	if (step == 1) {
