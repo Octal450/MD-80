@@ -391,7 +391,7 @@ var PANEL = {
 		systems.PNEU.Switch.xBleedR.setValue(1);
 		
 		if (pts.Engines.Engine.state[0].getValue() != 3 or pts.Engines.Engine.state[1].getValue() != 3) {
-			engTimer = 10;
+			engTimer = 5;
 			settimer(func() {
 				if (!me.stop) {
 					systems.IGNITION.fastStart(0);
