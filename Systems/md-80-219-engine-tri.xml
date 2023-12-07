@@ -5,9 +5,10 @@
 
 <system name="MD-80: 217A Engine/TRI">
 	
+	<property value="0">engine/art/active</property>
+	<property value="0">engine/art/output</property>
 	<property value="30">engine/limit/rated-temp</property>
 	<property value="1">engine/limit/idle</property>
-	<property value="0">engine/art/active</property>
 	<property value="0">/instrumentation/epr[0]/power-avail</property>
 	<property value="0">/instrumentation/epr[1]/power-avail</property>
 	
@@ -523,14 +524,21 @@
 		
 		<fcs_function name="engine/limit/active-norm">
 			<function>
-				<table>
-					<independentVar lookup="row">engine/limit/active-norm-input</independentVar>
-					<tableData>
-						 25.3  0
-						101.6  1
-					</tableData>
-				</table>
+				<difference>
+					<table>
+						<independentVar lookup="row">engine/limit/active-norm-input</independentVar>
+						<tableData>
+							 25.3  0
+							101.6  1
+						</tableData>
+					</table>
+					<property>engine/art/output</property>
+				</difference>
 			</function>
+			<clipto>
+				<min>0.0</min>
+				<max>1.0</max>
+			</clipto>
 		</fcs_function>
 		
 		<fcs_function name="engine/limit/highest-norm-ref"> <!-- Opposite of EPR Calc -->
@@ -575,14 +583,21 @@
 		
 		<fcs_function name="engine/limit/highest-norm">
 			<function>
-				<table>
-					<independentVar lookup="row">engine/limit/highest-norm-input</independentVar>
-					<tableData>
-						 25.3  0
-						101.6  1
-					</tableData>
-				</table>
+				<difference>
+					<table>
+						<independentVar lookup="row">engine/limit/highest-norm-input</independentVar>
+						<tableData>
+							 25.3  0
+							101.6  1
+						</tableData>
+					</table>
+					<property>engine/art/output</property>
+				</difference>
 			</function>
+			<clipto>
+				<min>0.0</min>
+				<max>1.0</max>
+			</clipto>
 		</fcs_function>
 		
 		<fcs_function name="engine/limit/idle-input">
