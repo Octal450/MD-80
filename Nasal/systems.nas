@@ -309,6 +309,12 @@ var doIdleThrust = func() {
 	ENGINE.throttle[1].setValue(0);
 }
 
+var doLimitThrust = func() {
+	var active = TRI.Limit.activeNorm.getValue();
+	ENGINE.throttle[0].setValue(active);
+	ENGINE.throttle[1].setValue(active);
+}
+
 var doFullThrust = func() {
 	var highest = TRI.Limit.highestNorm.getValue();
 	ENGINE.throttle[0].setValue(highest);
