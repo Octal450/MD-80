@@ -983,9 +983,10 @@
 			<default value="engine/art/wow-switch"/>
 			<test logic="AND" value="0">
 				/gear/gear[0]/wow-timer lt 1
+				engine/art/active eq 0
 				engine/limit/active-mode-int ne 0
 			</test>
-			<test logic="AND" value="1">
+			<test value="1">
 				/gear/gear[0]/wow-timer eq 1
 			</test>
 		</switch>
