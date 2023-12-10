@@ -143,6 +143,14 @@
 			</test>
 			<output>/engines/engine[2]/state</output>
 		</switch>
+		
+		<switch name="/systems/apu/fuel-feed">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/controls/apu/switches/master ge 1
+				/systems/apu/cutoff eq 0
+			</test>
+		</switch>
 	
 	</channel>
 	
