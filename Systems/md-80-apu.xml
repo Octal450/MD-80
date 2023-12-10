@@ -12,29 +12,27 @@
 			<output>fcs/throttle-pos-norm[2]</output>
 		</switch>
 		
-		<switch name="/systems/apu/bleed-timer-cmd">
-			<default value="/systems/apu/bleed-timer-cmd"/>
+		<switch name="/systems/apu/delay-timer-cmd">
+			<default value="/systems/apu/delay-timer-cmd"/>
 			<test logic="OR" value="0">
 				/engines/engine[2]/state ne 3
-				/controls/pneumatics/switches/bleed-apu eq 0
 			</test>
 			<test logic="AND" value="1">
 				/engines/engine[2]/state eq 3
-				/controls/pneumatics/switches/bleed-apu ge 1
 				/systems/acconfig/autoconfig-running ne 1
 			</test>
 		</switch>
 		
-		<switch name="/systems/apu/bleed-timer-rate">
+		<switch name="/systems/apu/delay-timer-rate">
 			<default value="0.016667"/> <!-- 60 seconds -->
 			<test value="10000000"> <!-- Instant -->
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
-		<actuator name="/systems/apu/bleed-timer">
-			<input>/systems/apu/bleed-timer-cmd</input>
-			<rate_limit sense="decr">/systems/apu/bleed-timer-rate</rate_limit>
+		<actuator name="/systems/apu/delay-timer">
+			<input>/systems/apu/delay-timer-cmd</input>
+			<rate_limit sense="decr">/systems/apu/delay-timer-rate</rate_limit>
 			<rate_limit sense="incr">10000000</rate_limit> <!-- Instant -->
 		</actuator>
 		
@@ -61,7 +59,7 @@
 				/engines/engine[2]/n2-actual ge 10
 			</test>
 			<test logic="AND" value="0"> <!-- Timer for shutdown -->
-				/systems/apu/bleed-timer ne 0
+				/systems/apu/delay-timer ne 0
 				/engines/engine[2]/n2-actual ge 10
 			</test>
 		</switch>
