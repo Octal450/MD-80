@@ -415,11 +415,13 @@ var ITAF = {
 		} else {
 			if (Output.vertTemp == 2) {
 				if (Output.ap1Temp or Output.ap2Temp) {
-					if (Position.gearAglFtTemp <= 100 and Position.gearAglFtTemp >= 5) {
+					if (Position.gearAglFtTemp <= 100 and Position.gearAglFtTemp >= 5 and Text.vert.getValue() != "NO FLARE") {
 						me.updateVertText("NO FLARE");
+						Fma.startLongBlink(3);
 					}
 				} else if (Text.vert.getValue() == "NO FLARE") {
 					me.updateVertText("G/S");
+					Fma.stopBlink(3);
 				}
 			}
 			if (Output.latTemp == 4 or Output.vertTemp == 6) {

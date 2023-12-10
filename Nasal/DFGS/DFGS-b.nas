@@ -45,6 +45,10 @@ var Fma = {
 		if (w == 0 and !Output.athr.getBoolValue()) return;
 		me.Blink.time[w] = pts.Sim.Time.elapsedSec.getValue();
 	},
+	startLongBlink: func(w) { # 0 THR, 1 ARM, 2 ROLL, 3 PITCH
+		if (w == 0 and !Output.athr.getBoolValue()) return;
+		me.Blink.time[w] = 1000000000; # Really really long!
+	},
 	stopBlink: func(w) {
 		me.Blink.time[w] = -5;
 	},
@@ -138,7 +142,7 @@ var updateFma = {
 			me.arm(); # Clear LND
 		} else if (me.vertText == "NO FLARE") {
 			Fma.pitchA.setValue("NO");
-			Fma.pitchB.setValue("FLAR");
+			Fma.pitchB.setValue("FLR");
 		} else if (me.vertText == "FLARE") {
 			Fma.pitchA.setValue("FLAR");
 			Fma.pitchB.setValue("");
