@@ -674,7 +674,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ATSwitch</object-name>
-		<property>controls/cockpit/athr</property>
+		<property>controls/cockpit/ats</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 30</dep></entry>
 			<entry><ind>1</ind><dep>-30</dep></entry>
@@ -703,6 +703,24 @@
 				<command>property-toggle</command>
 				<property>it-autoflight/input/athr</property>
 			</binding>
+			<binding>
+				<condition>
+					<less-than>
+						<property>controls/cockpit/ats</property>
+						<value>0.5</value>
+					</less-than>
+				</condition>
+				<command>property-assign</command>
+				<property>controls/cockpit/ats-sw</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/ats-sw</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 			<binding>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
@@ -1411,6 +1429,24 @@
 					libraries.Sound.switch1();
 				</script>
 			</binding>
+			<binding>
+				<condition>
+					<less-than>
+						<property>controls/cockpit/ap</property>
+						<value>0.5</value>
+					</less-than>
+				</condition>
+				<command>property-assign</command>
+				<property>controls/cockpit/ap-sw</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/ap-sw</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
 	</animation>
 	
@@ -1630,11 +1666,21 @@
 	<!-- First Digit -->
 	<animation>
 		<type>select</type>
-		<object-name>AltDigitMinus</object-name>
+		<object-name>AltDigitMinus1</object-name>
 		<condition>
 			<less-than>
 				<property>it-autoflight/input/alt</property>
 				<value>10000</value>
+			</less-than>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>AltDigitMinus2</object-name>
+		<condition>
+			<less-than>
+				<property>it-autoflight/input/alt</property>
+				<value>1000</value>
 			</less-than>
 		</condition>
 	</animation>

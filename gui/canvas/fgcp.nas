@@ -244,7 +244,7 @@ var fgcpCanvas = {
 				me._alt = dfgs.Input.alt.getValue();
 				me["Alt_7seg"].setText(right(sprintf("%03d", me._alt), 3));
 				if (me._alt < 1000) {
-					me["Alt_thousand_7seg"].setText("=");
+					me["Alt_thousand_7seg"].setText("==");
 				} else if (me._alt < 10000) {
 					me["Alt_thousand_7seg"].setText("=" ~ sprintf("%d", math.floor(me._alt / 1000)));
 				} else {

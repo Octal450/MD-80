@@ -431,6 +431,8 @@
 			</switches>
 		</apu>
 		<cockpit n="0">
+			<ap-sw type="bool">0</ap-sw>
+			<ats-sw type="bool">0</ats-sw>
 			<baro-rotate n="0" type="int">49984</baro-rotate> <!-- So the symbol is upright -->
 			<baro-rotate n="1" type="int">49984</baro-rotate> <!-- So the symbol is upright -->
 			<baro-rotate n="2" type="int">49984</baro-rotate> <!-- So the symbol is upright -->

@@ -29,6 +29,7 @@
 				<max>
 					<property>/it-autoflight/output/ap1</property>
 					<property>/it-autoflight/output/ap2</property>
+					<property>/controls/cockpit/ap-sw</property>
 				</max>
 			</function>
 		</fcs_function>
@@ -43,8 +44,17 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/athr">
-			<input>/it-autoflight/input/athr</input>
+		<fcs_function name="/controls/cockpit/ats-cmd">
+			<function>
+				<max>
+					<property>/it-autoflight/output/athr</property>
+					<property>/controls/cockpit/ats-sw</property>
+				</max>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/controls/cockpit/ats">
+			<input>/controls/cockpit/ats-cmd</input>
 			<c1>20</c1>
 		</lag_filter>
 		
