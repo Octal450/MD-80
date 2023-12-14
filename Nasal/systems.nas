@@ -548,7 +548,7 @@ var PNEU = {
 # TRI
 var TRI = {
 	Control: {
-		athrMax: [props.globals.getNode("/fdm/jsbsim/engine/control-1/athr-max"), props.globals.getNode("/fdm/jsbsim/engine/control-2/athr-max")],
+		atsMax: [props.globals.getNode("/fdm/jsbsim/engine/control-1/ats-max"), props.globals.getNode("/fdm/jsbsim/engine/control-2/ats-max")],
 	},
 	pitchMode: 0,
 	Limit: {

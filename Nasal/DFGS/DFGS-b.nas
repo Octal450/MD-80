@@ -316,7 +316,7 @@ var Athr = {
 			me.setVmaxCheckFma();
 		} else if (Input.kts.getValue() > pts.Fdm.JSBsim.Dfgs.Speeds.vmax.getValue() and !me.ktsMach) {
 			me.setVmaxCheckFma();
-		} else if (me.atsCmdRawPid >= systems.TRI.Control.athrMax[0].getValue() - 0.005 or me.atsCmdRawPid >= systems.TRI.Control.athrMax[1].getValue() - 0.005) {
+		} else if (me.atsCmdRawPid >= systems.TRI.Control.atsMax[0].getValue() - 0.005 or me.atsCmdRawPid >= systems.TRI.Control.atsMax[1].getValue() - 0.005) {
 			if (me.ktsMach) {
 				Fma.thrA.setValue("MACH");
 			} else {

@@ -144,12 +144,12 @@
 		<input>
 			<expression>
 				<max>
-					<property>/fdm/jsbsim/engine/control-1/athr-max</property>
-					<property>/fdm/jsbsim/engine/control-2/athr-max</property>
+					<property>/fdm/jsbsim/engine/control-1/ats-max</property>
+					<property>/fdm/jsbsim/engine/control-2/ats-max</property>
 				</max>
 			</expression>
 		</input>
-		<output>/it-autoflight/internal/athr-max</output>
+		<output>/it-autoflight/internal/ats-max</output>
 	</filter>
 	
 	<pid-controller>
@@ -180,7 +180,7 @@
 			<Ti>9.0</Ti>
 			<Td>0.00001</Td>
 			<u_min>/fdm/jsbsim/engine/limit/idle-norm</u_min>
-			<u_max>/it-autoflight/internal/athr-max</u_max>
+			<u_max>/it-autoflight/internal/ats-max</u_max>
 		</config>
 	</pid-controller>
 	
@@ -218,7 +218,7 @@
 			<Ti>9.0</Ti>
 			<Td>0.00001</Td>
 			<u_min>/fdm/jsbsim/engine/limit/idle-norm</u_min>
-			<u_max>/it-autoflight/internal/athr-max</u_max>
+			<u_max>/it-autoflight/internal/ats-max</u_max>
 		</config>
 	</pid-controller>
 	
@@ -287,7 +287,7 @@
 				</and>
 			</condition>
 		</enable>
-		<input>/it-autoflight/internal/athr-max</input>
+		<input>/it-autoflight/internal/ats-max</input>
 		<output>/fdm/jsbsim/engine/ats-cmd-raw</output>
 		<max-rate-of-change>0.15</max-rate-of-change>
 	</filter>
@@ -345,7 +345,7 @@
 			<expression>
 				<min> <!-- For per engine manual EPR limit -->
 					<property>/fdm/jsbsim/engine/ats-cmd-raw</property>
-					<property>/fdm/jsbsim/engine/control-1/athr-max</property>
+					<property>/fdm/jsbsim/engine/control-1/ats-max</property>
 				</min>
 			</expression>
 		</reference>
@@ -400,7 +400,7 @@
 			<expression>
 				<min> <!-- For per engine manual EPR limit -->
 					<property>/fdm/jsbsim/engine/ats-cmd-raw</property>
-					<property>/fdm/jsbsim/engine/control-2/athr-max</property>
+					<property>/fdm/jsbsim/engine/control-2/ats-max</property>
 				</min>
 			</expression>
 		</reference>

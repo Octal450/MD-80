@@ -1421,6 +1421,9 @@
 		<object-name>APSwitch</object-name>
 		<action>
 			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
