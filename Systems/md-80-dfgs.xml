@@ -491,7 +491,7 @@
 					<independentVar lookup="row">atmosphere/density-altitude</independentVar>
 					<tableData>
 						    0  15.3
-						43000   8.1
+						45000   8.1
 					</tableData>
 				</table>
 			</function>
