@@ -81,8 +81,6 @@ var Velocities = {
 	indicatedAirspeedKt: props.globals.getNode("/instrumentation/airspeed-indicator/indicated-speed-kt", 1),
 	indicatedMach: props.globals.getNode("/instrumentation/airspeed-indicator/indicated-mach", 1),
 	indicatedMachTemp: 0,
-	trueAirspeedKt: props.globals.getNode("/instrumentation/airspeed-indicator/true-speed-kt", 1),
-	trueAirspeedKtTemp: 0,
 };
 
 # IT-AUTOFLIGHT
@@ -142,6 +140,7 @@ var Internal = {
 	altTemp: 0,
 	atrCmd: props.globals.getNode("/fdm/jsbsim/dfgs/atr/cmd"),
 	bankLimit: props.globals.initNode("/it-autoflight/internal/bank-limit", 30, "INT"),
+	bankLimitAuto: props.globals.initNode("/it-autoflight/internal/bank-limit-auto", 0, "DOUBLE"),
 	bankLimitMax: [10, 15, 20, 25, 30],
 	captVs: 0,
 	canAutoland: 0,
@@ -327,12 +326,19 @@ var ITAF = {
 			Sound.apOffSingle.setBoolValue(0);
 		}
 		
-		# VOR/ILS Revision
-		if (Output.latTemp == 2 or Output.latTemp == 4 or Output.vertTemp == 2 or Output.vertTemp == 6) {
-			me.checkRadioRevision(Output.latTemp, Output.vertTemp);
+		# LNAV Reversion
+		if (Output.lat.getValue() == 1) { # Only evaulate the rest of the condition if we are in LNAV mode
+			if (FPLN.num.getValue() == 0 or !FPLN.active.getBoolValue()) {
+				me.setLatMode(3);
+			}
 		}
 		
-		# Turbulance Mode Revision
+		# VOR/ILS Reversion
+		if (Output.latTemp == 2 or Output.latTemp == 4 or Output.vertTemp == 2 or Output.vertTemp == 6) {
+			me.checkRadioReversion(Output.latTemp, Output.vertTemp);
+		}
+		
+		# Turbulance Mode Reversion
 		if (Output.latTemp != 6 and Output.vertTemp == 8) {
 			me.setVertMode(1);
 		}
@@ -402,9 +408,16 @@ var ITAF = {
 					me.setVertMode(6);
 				}
 			} else if (Output.vertTemp == 6) {
-				if (Gear.wow1Temp and Gear.wow2Temp and Text.vert.getValue() != "ROLLOUT") {
-					me.updateLatText("RLOU");
-					me.updateVertText("ROLLOUT");
+				if (Gear.wow1Temp and Gear.wow2Temp) {
+					if (Text.vert.getValue() != "ROLLOUT") {
+						me.updateLatText("RLOU");
+						me.updateVertText("ROLLOUT");
+					} else {
+						if (pts.Fdm.JSBsim.Dfgs.nlgTimer5.wowTimer.getValue() == 1 and (Output.ap1Temp == 1 or Output.ap2Temp == 1)) { # Trip off after 5 seconds
+							me.ap1Master(0);
+							me.ap2Master(0);
+						}
+					}
 				}
 			}
 			if (Output.latTemp == 2) { # After pitch or else the cockpit indications will be wonky
@@ -481,6 +494,9 @@ var ITAF = {
 			}
 		}
 		
+		# Bank Limits
+		me.bankLimit();
+		
 		# Autothrottle Update
 		Athr.loop();
 		
@@ -488,19 +504,6 @@ var ITAF = {
 		Fma.loop();
 	},
 	slowLoop: func() {
-		Input.bankLimitSwTemp = Input.bankLimitSw.getValue();
-		Velocities.trueAirspeedKtTemp = Velocities.trueAirspeedKt.getValue();
-		
-		# Bank Limit
-		Internal.bankLimit.setValue(Internal.bankLimitMax[Input.bankLimitSwTemp]); # Non auto
-		
-		# If in LNAV mode and route is not longer active, switch to HDG HLD
-		if (Output.lat.getValue() == 1) { # Only evaulate the rest of the condition if we are in LNAV mode
-			if (FPLN.num.getValue() == 0 or !FPLN.active.getBoolValue()) {
-				me.setLatMode(3);
-			}
-		}
-		
 		# Reset system once flight complete
 		Output.latTemp = Output.lat.getValue();
 		Output.vertTemp = Output.vert.getValue();
@@ -827,6 +830,18 @@ var ITAF = {
 		}
 		Fma.stopBlink(3);
 	},
+	bankLimit: func() {
+		Output.latTemp = Output.lat.getValue();
+		Input.bankLimitSwTemp = Input.bankLimitSw.getValue();
+		
+		if (Output.latTemp == 0 or (Output.latTemp == 2 and !pts.Instrumentation.Nav.navLoc[Input.activeAp.getValue() - 1].getBoolValue())) {
+			Internal.bankLimit.setValue(Internal.bankLimitMax[Input.bankLimitSwTemp]);
+		} else if (Output.latTemp == 1) {
+			Internal.bankLimit.setValue(Internal.bankLimitAuto.getValue());
+		} else {
+			Internal.bankLimit.setValue(30);
+		}
+	},
 	activateLnav: func() {
 		if (Output.lat.getValue() != 1) {
 			me.updateLnavArm(0);
@@ -920,7 +935,7 @@ var ITAF = {
 			me.updateApprArm(0);
 		}
 	},
-	checkRadioRevision: func(l, v) { # Revert mode if signal lost
+	checkRadioReversion: func(l, v) { # Revert mode if signal lost
 		if (!Radio.inRange[Input.activeAp.getValue() - 1].getBoolValue()) {
 			if (l == 4 or v == 6) {
 				me.ap1Master(0);

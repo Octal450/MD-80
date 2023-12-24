@@ -71,6 +71,9 @@ var Fdm = {
 			alphaDegDampedPli: props.globals.getNode("/fdm/jsbsim/aero/alpha-deg-damped-pli"),
 		},
 		Dfgs: {
+			nlgTimer5: {
+				wowTimer: props.globals.getNode("/fdm/jsbsim/dfgs/nlg-timer-5/wow-timer"),
+			},
 			powerAvail: props.globals.getNode("/fdm/jsbsim/dfgs/power-avail"),
 			powerAvailTemp: 0,
 			Speeds: {
