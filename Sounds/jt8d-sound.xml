@@ -1486,16 +1486,22 @@
 			<type>avionics</type>
 			<mode>once</mode>
 			<condition>
-				<or>
-					<greater-than>
-						<property>/systems/caws/apoff/out</property>
-						<value>0</value>
-					</greater-than>
-					<greater-than>
-						<property>/systems/caws/apoff/single-out</property>
-						<value>0</value>
-					</greater-than>
-				</or>
+				<greater-than>
+					<property>/systems/caws/apoff/out</property>
+					<value>0</value>
+				</greater-than>
+			</condition>
+		</caws>
+		<caws>
+			<name>AP Off Warning 2</name>
+			<path>Aircraft/MD-80/Sounds/CAWS/apoff.wav</path>
+			<type>avionics</type>
+			<mode>once</mode>
+			<condition>
+				<greater-than>
+					<property>/systems/caws/apoff/single-out</property>
+					<value>0</value>
+				</greater-than>
 			</condition>
 		</caws>
 	    <caws>
