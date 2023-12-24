@@ -296,6 +296,9 @@
 		
 		<switch name="engine/limit/takeoff-final-ref">
 			<default value="engine/limit/takeoff-ref"/>
+			<test value="engine/limit/takeoff-final-ref">
+				/instrumentation/airspeed-indicator/indicated-speed-kt ge 50
+			</test>
 			<test value="engine/limit/takeoff-flex-ref">
 				engine/limit/active-mode-int eq 5
 			</test>
