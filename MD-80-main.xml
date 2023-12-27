@@ -132,6 +132,23 @@
 						</binding>
 					</item>
 				</menu>
+				<menu n="105">
+					<label>Documentation</label>
+					<item>
+						<label>Autoflight and DFGS</label>
+						<binding>
+							<command>open-browser</command>
+							<path>Aircraft/MD-80/Docs/Autoflight_and_DFGS.pdf</path>
+						</binding>
+					</item>
+					<item>
+						<label>Thrust Limits and TRI</label>
+						<binding>
+							<command>open-browser</command>
+							<path>Aircraft/MD-80/Docs/Thrust_Limits_and_TRI.pdf</path>
+						</binding>
+					</item>
+				</menu>
 			</default>
 		</menubar>
 		<minimum-fg-version>2020.3.14</minimum-fg-version>
