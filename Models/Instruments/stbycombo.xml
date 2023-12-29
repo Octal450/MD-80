@@ -56,7 +56,7 @@
 		<property>instrumentation/stby-alt/altitude-ft</property>
 		<factor>0.00001</factor>
 		<step>10000</step>
-		<scroll>50</scroll>
+		<scroll>100</scroll>
 		<axis>
 			<x>0</x>
 			<y>1</y>
