@@ -85,7 +85,6 @@
 		<object-name>eprLines</object-name>
 		<property>instrumentation/epr[1]/epr-d1</property>
 		<factor>0.0697</factor>
-		<step>0.01</step>
 		<axis>
 			<x>0</x>
 			<y>1</y>
@@ -139,7 +138,6 @@
 		<object-name>cmd3</object-name>
 		<property>instrumentation/epr[1]/cmd-d1</property>
 		<factor>0.0697</factor>
-		<step>0.01</step>
 		<axis>
 			<x>0</x>
 			<y>1</y>
