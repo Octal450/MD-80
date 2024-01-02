@@ -361,7 +361,7 @@
 		<name>stbyai</name>
 		<path>Aircraft/MD-80/Models/Instruments/ai.xml</path>
 		<offsets>
-			<x-m>2.219</x-m>
+			<x-m>2.2195</x-m>
 			<y-m>-0.19</y-m>
 			<z-m>0.916</z-m>
 			<pitch-deg>-12</pitch-deg>
@@ -375,7 +375,7 @@
 			<not><property>systems/acconfig/options/combined-standby</property></not>
 		</condition>
 		<offsets>
-			<x-m>2.235</x-m>
+			<x-m>2.2355</x-m>
 			<y-m>-0.18</y-m>
 			<z-m>0.823</z-m>
 			<pitch-deg>-12</pitch-deg>
