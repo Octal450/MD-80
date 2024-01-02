@@ -1,5 +1,5 @@
 # MD-80 EFIS Controller
-# Copyright (c) 2023 Josh Davidson (Octal450)
+# Copyright (c) 2024 Josh Davidson (Octal450)
 
 var EFIS = {
 	rng: 0,
