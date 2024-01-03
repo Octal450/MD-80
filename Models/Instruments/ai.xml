@@ -88,22 +88,5 @@
 			<z>1</z>
 		</axis>
 	</animation>
-	
-	<animation>
-		<type>rotate</type>
-		<object-name>AI.Knob.Hor</object-name>
-		<property>instrumentation/attitude-indicator/horizon-offset-deg</property>
-		<factor>25</factor>
-		<center>
-			<x-m>0</x-m>
-			<y-m>0.03193</y-m>
-			<z-m>-0.03193</z-m>
-		</center>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-	</animation>
 
 </PropertyList>
