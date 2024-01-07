@@ -17,21 +17,27 @@
 		</emission>
 	</animation>
 	
-	<!--animation>
+	<animation>
 		<type>textranslate</type>
 		<object-name>iastape</object-name>
 		<property>instrumentation/stby-asi/speed-kt</property>
 		<interpolation>
-			<entry><ind> 43</ind><dep>0.000</dep></entry>
-			<entry><ind> 60</ind><dep>0.027</dep></entry>
-			<entry><ind>300</ind><dep>0.413</dep></entry>
-			<entry><ind>460</ind><dep>0.675</dep></entry>
+			<entry><ind> 52</ind><dep>0.0000</dep></entry>
+			<entry><ind> 60</ind><dep>0.0234</dep></entry>
+			<entry><ind>100</ind><dep>0.1403</dep></entry>
+			<entry><ind>150</ind><dep>0.2867</dep></entry>
+			<entry><ind>200</ind><dep>0.4334</dep></entry>
+			<entry><ind>250</ind><dep>0.5802</dep></entry>
+			<entry><ind>300</ind><dep>0.6648</dep></entry>
+			<entry><ind>350</ind><dep>0.7493</dep></entry>
+			<entry><ind>400</ind><dep>0.8337</dep></entry>
+			<entry><ind>450</ind><dep>0.9180</dep></entry>
 		</interpolation>
 		<axis>
-			<x>0</x>
-			<y>-1</y>
+			<x>1</x>
+			<y>0</y>
 		</axis>
-	</animation-->
+	</animation>
 	
 	<animation>
 		<type>rotate</type>
