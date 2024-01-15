@@ -2073,7 +2073,7 @@
 		<switch name="/instrumentation/ff[0]/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-l ge 24
+				/systems/electrical/bus/ac-l ge 112
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -2119,7 +2119,7 @@
 		<switch name="/instrumentation/ff[1]/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-r ge 24
+				/systems/electrical/bus/ac-r ge 112
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
