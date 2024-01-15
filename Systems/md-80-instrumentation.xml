@@ -680,7 +680,7 @@
 		
 		<lag_filter name="/instrumentation/stby-ai/spin">
 			<input>/instrumentation/stby-ai/spin-pos</input>
-			<c1>1</c1>
+			<c1>1.0</c1>
 		</lag_filter>
 		
 		<fcs_function name="/instrumentation/stby-ai/pitch-deg-cmd">
