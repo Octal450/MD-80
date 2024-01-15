@@ -2090,8 +2090,8 @@
 			<c1>7.5</c1>
 		</lag_filter>
 		
-		<switch name="/instrumentation/ff[0]/ff-input">
-			<default value="/instrumentation/ff[0]/ff-input"/>
+		<switch name="/instrumentation/ff[0]/fu-input">
+			<default value="/instrumentation/ff[0]/fu-input"/>
 			<test value="propulsion/engine[0]/fuel-used-lbs">
 				/instrumentation/ff[0]/power-avail eq 1
 			</test>
@@ -2106,7 +2106,7 @@
 		</switch>
 		
 		<summer name="/instrumentation/ff[0]/fu-cmd">
-			<input>/instrumentation/ff[0]/ff-input</input>
+			<input>/instrumentation/ff[0]/fu-input</input>
 			<input>-/instrumentation/ff[0]/fu-reset-trim</input>
 		</summer>
 		
@@ -2136,8 +2136,8 @@
 			<c1>7.5</c1>
 		</lag_filter>
 		
-		<switch name="/instrumentation/ff[1]/ff-input">
-			<default value="/instrumentation/ff[1]/ff-input"/>
+		<switch name="/instrumentation/ff[1]/fu-input">
+			<default value="/instrumentation/ff[1]/fu-input"/>
 			<test value="propulsion/engine[1]/fuel-used-lbs">
 				/instrumentation/ff[1]/power-avail eq 1
 			</test>
@@ -2152,7 +2152,7 @@
 		</switch>
 		
 		<summer name="/instrumentation/ff[1]/fu-cmd">
-			<input>/instrumentation/ff[1]/ff-input</input>
+			<input>/instrumentation/ff[1]/fu-input</input>
 			<input>-/instrumentation/ff[1]/fu-reset-trim</input>
 		</summer>
 		
