@@ -1264,7 +1264,7 @@ name "Needle"
 loc 0.00052 -0.00515851 1.04819e-09
 data 9
 Plane.028
-texture "flaps.png"
+texture "op.png"
 crease 30.000000
 numvert 6
 0 -0.0183924 -0.000258325
