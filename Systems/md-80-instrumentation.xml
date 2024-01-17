@@ -2334,7 +2334,7 @@
 		<switch name="/instrumentation/flap-slat/flap-r-input">
 			<default value="/instrumentation/flap-slat/flap-r-input"/>
 			<test value="fcs/flap-pos-deg">
-				/instrumentation/flap-slat/power-avail-l eq 1
+				/instrumentation/flap-slat/power-avail-r eq 1
 			</test>
 		</switch>
 		
