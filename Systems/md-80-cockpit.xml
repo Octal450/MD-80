@@ -1233,7 +1233,7 @@
 	
 	</channel>
 	
-	<channel name="Exterior Lights" execrate="8">
+	<channel name="Exterior Lights" execrate="2">
 		
 		<switch name="exterior-lights/nose-landing-light-cmd">
 			<default value="0"/>
@@ -1241,78 +1241,92 @@
 				/controls/lighting/landing-light-n eq 0.5
 				/controls/gear/lever eq 1
 				/gear/gear[0]/position-norm ge 0.99
+				/systems/electrical/bus/emer-ac ge 112
 			</test>
 			<test logic="AND" value="1">
 				/controls/lighting/landing-light-n eq 1.0
 				/controls/gear/lever eq 1
 				/gear/gear[0]/position-norm ge 0.99
+				/systems/electrical/bus/emer-ac ge 112
 			</test>
 		</switch>
 		
-		<actuator name="exterior-lights/nose-landing-light-actuator">
+		<lag_filter name="exterior-lights/nose-landing-light">
 			<input>exterior-lights/nose-landing-light-cmd</input>
-			<rate_limit>7.5</rate_limit>
-			<output>exterior-lights/nose-landing-light</output>
-		</actuator>
+			<c1>7.5</c1>
+		</lag_filter>
 		
 		<switch name="exterior-lights/left-landing-light-ext-cmd">
 			<default value="0"/>
-			<test logic="AND" value="1">
+			<test value="1">
 				/controls/lighting/landing-light-l ge 0.5
 			</test>
 		</switch>
 		
-		<actuator name="exterior-lights/left-landing-light-ext-actuator">
+		<switch name="exterior-lights/left-landing-light-ext-rate">
+			<default value="0"/>
+			<test value="0.14285714285"> <!-- 7 seconds -->
+				/systems/electrical/bus/ac-l ge 112
+			</test>
+		</switch>
+		
+		<actuator name="exterior-lights/left-landing-light-ext">
 			<input>exterior-lights/left-landing-light-ext-cmd</input>
-			<rate_limit>0.14285714285</rate_limit> <!-- 7 seconds -->
-			<output>exterior-lights/left-landing-light-ext</output>
+			<rate_limit>exterior-lights/left-landing-light-ext-rate</rate_limit>
 		</actuator>
 		
 		<switch name="exterior-lights/left-landing-light-cmd">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/controls/lighting/landing-light-l eq 1.0
-				exterior-lights/left-landing-light-ext eq 1.0
+				/controls/lighting/landing-light-l eq 1
+				exterior-lights/left-landing-light-ext eq 1
+				/systems/electrical/bus/ac-l ge 112
 			</test>
 		</switch>
 		
-		<actuator name="exterior-lights/left-landing-light-actuator">
+		<lag_filter name="exterior-lights/left-landing-light">
 			<input>exterior-lights/left-landing-light-cmd</input>
-			<rate_limit>5.0</rate_limit>
-			<output>exterior-lights/left-landing-light</output>
-		</actuator>
+			<c1>7.5</c1>
+		</lag_filter>
 		
 		<switch name="exterior-lights/right-landing-light-ext-cmd">
 			<default value="0"/>
-			<test logic="AND" value="1">
+			<test value="1">
 				/controls/lighting/landing-light-r ge 0.5
 			</test>
 		</switch>
 		
-		<actuator name="exterior-lights/right-landing-light-ext-actuator">
+		<switch name="exterior-lights/right-landing-light-ext-rate">
+			<default value="0"/>
+			<test value="0.14285714285"> <!-- 7 seconds -->
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+		</switch>
+		
+		<actuator name="exterior-lights/right-landing-light-ext">
 			<input>exterior-lights/right-landing-light-ext-cmd</input>
-			<rate_limit>0.14285714285</rate_limit> <!-- 7 seconds -->
-			<output>exterior-lights/right-landing-light-ext</output>
+			<rate_limit>exterior-lights/right-landing-light-ext-rate</rate_limit>
 		</actuator>
 		
 		<switch name="exterior-lights/right-landing-light-cmd">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/controls/lighting/landing-light-r eq 1.0
-				exterior-lights/right-landing-light-ext eq 1.0
+				/controls/lighting/landing-light-r eq 1
+				exterior-lights/right-landing-light-ext eq 1
+				/systems/electrical/bus/ac-r ge 112
 			</test>
 		</switch>
 		
-		<actuator name="exterior-lights/right-landing-light-actuator">
+		<lag_filter name="exterior-lights/right-landing-light">
 			<input>exterior-lights/right-landing-light-cmd</input>
-			<rate_limit>5.0</rate_limit>
-			<output>exterior-lights/right-landing-light</output>
-		</actuator>
+			<c1>7.5</c1>
+		</lag_filter>
 		
 		<switch name="exterior-lights/ground-flood-light-l">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/controls/lighting/ground-flood-light-l eq 1
+				/systems/electrical/bus/ac-l ge 112
 			</test>
 		</switch>
 		
@@ -1320,6 +1334,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/controls/lighting/ground-flood-light-r eq 1
+				/systems/electrical/bus/ac-r ge 112
 			</test>
 		</switch>
 		
@@ -1327,30 +1342,44 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/controls/lighting/position-strobe-light ge 0.5
+				/systems/electrical/bus/emer-ac ge 112
 			</test>
 		</switch>
 		
 		<switch name="exterior-lights/strobe-light">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/controls/lighting/position-strobe-light eq 1.0
+				/controls/lighting/position-strobe-light eq 1
 				/gear/gear[0]/wow ne 1
+				/systems/electrical/bus/emer-ac ge 112
 			</test>
 		</switch>
 		
-		<switch name="exterior-lights/left-wing-light">
+		<switch name="exterior-lights/left-wing-light-cmd">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/controls/lighting/wing-lights eq 0.5
+				/systems/electrical/bus/ac-l ge 112
 			</test>
 		</switch>
 		
-		<switch name="exterior-lights/right-wing-light">
+		<lag_filter name="exterior-lights/left-wing-light">
+			<input>exterior-lights/left-wing-light-cmd</input>
+			<c1>7.5</c1>
+		</lag_filter>
+		
+		<switch name="exterior-lights/right-wing-light-cmd">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/controls/lighting/wing-lights ge 0.5
+				/systems/electrical/bus/ac-r ge 112
 			</test>
 		</switch>
+		
+		<lag_filter name="exterior-lights/right-wing-light">
+			<input>exterior-lights/right-wing-light-cmd</input>
+			<c1>7.5</c1>
+		</lag_filter>
 	
 	</channel>
 
