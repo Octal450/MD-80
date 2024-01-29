@@ -33,10 +33,6 @@ var fgcpCanvas = {
 	},
 	open: func() {
 		me._dialog = canvas.Window.new([735, 125], "dialog", nil, 0);
-		me._dialog._onClose = func() {
-			fgcpCanvas._onClose();
-		}
-		
 		me._dialog.set("title", me._title);
 		me._canvas  = me._dialog.createCanvas();
 		me._root = me._canvas.createGroup();
