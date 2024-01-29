@@ -94,7 +94,7 @@
 						<enabled type="bool">false</enabled>
 					</item>
 					<item>
-						<label>FGC Panel</label>
+						<label>FGCP</label>
 						<binding>
 							<command>nasal</command>
 							<script>panel2d.fgcpDialog.open();</script>
@@ -324,7 +324,7 @@
 			</config>
 		</view>
 		<view n="104">
-			<name>FGCP Panel View</name>
+			<name>FGCP View</name>
 			<type>lookfrom</type>
 			<internal type="bool" archive="y">true</internal>
 			<config>
@@ -1097,7 +1097,7 @@
 			</key>
 			<key n="267">
 				<name>F11</name>
-				<desc>FGCP Panel</desc>
+				<desc>FGCP</desc>
 				<binding>
 					<command>nasal</command>
 					<script>panel2d.fgcpDialog.open();</script>

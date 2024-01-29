@@ -4,7 +4,7 @@
 var fgcpCanvas = {
 	new: func() {
 		var m = {parents: [fgcpCanvas]};
-		m._title = "FGC Panel";
+		m._title = "FGCP";
 		m._dialog = nil;
 		m._canvas = nil;
 		m._svg = nil;
