@@ -94,7 +94,7 @@
 						<enabled type="bool">false</enabled>
 					</item>
 					<item>
-						<label>FGCP Panel</label>
+						<label>FGC Panel</label>
 						<binding>
 							<command>nasal</command>
 							<script>panel2d.fgcpDialog.open();</script>
