@@ -27,13 +27,13 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1030"
+     inkscape:window-height="1057"
      id="namedview8"
      showgrid="false"
-     inkscape:zoom="7.9999999"
-     inkscape:cx="687.25974"
-     inkscape:cy="19.605313"
-     inkscape:window-x="1592"
+     inkscape:zoom="0.99999999"
+     inkscape:cx="531.23339"
+     inkscape:cy="37.873524"
+     inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
@@ -112,7 +112,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -886,6 +886,20 @@
     <g
        id="Toga"
        inkscape:label="#g4277">
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect4339"
+         width="6.8499999"
+         height="21.983"
+         x="726.88702"
+         y="1021.9962" />
+      <rect
+         y="1021.9962"
+         x="1.262"
+         height="21.983"
+         width="6.8499999"
+         id="rect4342"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:34.91827011px;line-height:89.99999762%;font-family:'Liberation Sans';letter-spacing:0px;word-spacing:0px;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
@@ -1285,7 +1299,7 @@
          sodipodi:role="line"
          id="tspan4348"
          x="313.297"
-         y="1016.6145"></tspan></text>
+         y="1016.6145" /></text>
     <g
        id="HdgKnob"
        inkscape:label="#g4354">
