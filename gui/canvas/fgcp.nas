@@ -23,8 +23,8 @@ var fgcpCanvas = {
 		return m;
 	},
 	getKeys: func() {
-		return ["Ap", "ApSel", "AltHold", "AltKnob", "Alt_7seg", "Alt_thousand_7seg", "AutoLand", "AutoThrot", "BankLimit", "BankLimitKnob","Display", "EprLim", "Fd1", "Fd2", "HdgKnob", "Hdg_7seg", "IasMach", "Ils", "MachSel", "Nav", "Perf", "PitchMode_16seg",
-		"PitchKnob", "Pitch_7seg", "SpdKnob", "SpdSel", "Spd_7seg", "Toga", "Turb", "VertSpd", "VorLoc"];
+		return ["Ap", "ApSel", "AltHold", "AltKnob", "Alt_7seg", "Alt_thousand_7seg", "AutoLand", "AutoThrot", "Bank10", "Bank15", "Bank20", "Bank25", "Bank30", "BankLimit", "Display", "EprLim", "Fd1", "Fd2", "HdgKnob", "Hdg_7seg", "IasMach", "Ils", "MachSel",
+		"Nav", "Perf", "PitchMode_16seg", "PitchKnob", "Pitch_7seg", "SpdKnob", "SpdSel", "Spd_7seg", "Toga", "Turb", "VertSpd", "VorLoc"];
 	},
 	close: func() {
 		me._dialogUpdate.stop();
@@ -141,21 +141,20 @@ var fgcpCanvas = {
 		});
 		
 		# Bank Limit
-		me["BankLimitKnob"].addEventListener("click", func(e) {
-			me._blim = dfgs.Input.bankLimitSw.getValue();
-			if (e.shiftKey or e.button == 1) {
-				if (me._blim > 0) {
-					dfgs.Input.bankLimitSw.setValue(me._blim - 1);
-				} else {
-					dfgs.Input.bankLimitSw.setValue(4);
-				}
-			} else {
-				if (me._blim < 4) {
-					dfgs.Input.bankLimitSw.setValue(me._blim + 1);
-				} else {
-					dfgs.Input.bankLimitSw.setValue(0);
-				}
-			}
+		me["Bank10"].addEventListener("click", func(e) {
+			dfgs.Input.bankLimitSw.setValue(0);
+		});
+		me["Bank15"].addEventListener("click", func(e) {
+			dfgs.Input.bankLimitSw.setValue(1);
+		});
+		me["Bank20"].addEventListener("click", func(e) {
+			dfgs.Input.bankLimitSw.setValue(2);
+		});
+		me["Bank25"].addEventListener("click", func(e) {
+			dfgs.Input.bankLimitSw.setValue(3);
+		});
+		me["Bank30"].addEventListener("click", func(e) {
+			dfgs.Input.bankLimitSw.setValue(4);
 		});
 		
 		# Pitch Knob
