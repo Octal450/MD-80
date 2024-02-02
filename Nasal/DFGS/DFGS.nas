@@ -1019,7 +1019,6 @@ var ITAF = {
 		Input.hdg.setValue(math.round(Internal.hdgPredicted.getValue())); # Switches to track automatically
 	},
 	syncAlt: func() {
-		#Input.alt.setValue(math.clamp(math.round(Internal.altPredicted.getValue(), 100), 0, 50000)); # Don't
 		Internal.alt.setValue(math.clamp(math.round(Internal.altPredicted.getValue(), 100), 0, 50000));
 	},
 	syncVs: func() {
