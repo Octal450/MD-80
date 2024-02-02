@@ -1031,7 +1031,6 @@ var ITAF = {
 		Input.pitch.setValue(math.clamp(math.round(Orientation.pitchDegTemp), -10, 25));
 		Input.pitchAbs.setValue(abs(math.clamp(math.round(Orientation.pitchDegTemp), -10, 25)));
 	},
-	# Custom Stuff Below
 	updateLatText: func(t) {
 		Text.lat.setValue(t);
 		updateFma.lat();
