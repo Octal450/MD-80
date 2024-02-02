@@ -1,4 +1,4 @@
-# McDonnell Douglas MD-80 DFGS AFS
+# McDonnell Douglas MD-80 DFGS
 # Based off IT-AUTOFLIGHT System Controller V4.0.X
 # Copyright (c) 2024 Josh Davidson (Octal450)
 # This file DOES NOT integrate with Property Tree Setup
