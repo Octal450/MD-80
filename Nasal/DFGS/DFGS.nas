@@ -463,7 +463,6 @@ var ITAF = {
 			}
 		}
 		
-		
 		# Altitude Capture/Sync Logic
 		if (Output.vertTemp != 0) {
 			Internal.alt.setValue(Input.alt.getValue());
