@@ -1,13 +1,13 @@
-# McDonnell Douglas MD-80 DFGS AFS Interface
+# McDonnell Douglas MD-80 DFGS Interface
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
 var Fma = {
 	armA: props.globals.initNode("/instrumentation/fma/arm-mode-a", "", "STRING"),
 	armB: props.globals.initNode("/instrumentation/fma/arm-mode-b", "", "STRING"),
-	pitchA: props.globals.initNode("/instrumentation/fma/pitch-mode-a", "TAK", "STRING"),
-	pitchB: props.globals.initNode("/instrumentation/fma/pitch-mode-b", "OFF", "STRING"),
-	rollA: props.globals.initNode("/instrumentation/fma/roll-mode-a", "TAK", "STRING"),
-	rollB: props.globals.initNode("/instrumentation/fma/roll-mode-b", "OFF", "STRING"),
+	pitchA: props.globals.initNode("/instrumentation/fma/pitch-mode-a", "", "STRING"),
+	pitchB: props.globals.initNode("/instrumentation/fma/pitch-mode-b", "", "STRING"),
+	rollA: props.globals.initNode("/instrumentation/fma/roll-mode-a", "", "STRING"),
+	rollB: props.globals.initNode("/instrumentation/fma/roll-mode-b", "", "STRING"),
 	thrA: props.globals.initNode("/instrumentation/fma/thr-mode-a", "", "STRING"),
 	thrB: props.globals.initNode("/instrumentation/fma/thr-mode-b", "", "STRING"),
 	Blink: {
