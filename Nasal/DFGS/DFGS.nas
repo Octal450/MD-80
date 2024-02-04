@@ -613,9 +613,13 @@ var ITAF = {
 	athrMaster: func(s) {
 		if (s == 1) {
 			if (Input.athrAvail.getBoolValue()) {
-				Output.thrModeTemp = Output.thrMode.getValue();
-				if (Output.thrModeTemp == 1 or Output.thrModeTemp == 2) {
-					Athr.setMode(3); # Clamp
+				if (Text.vert.getValue() == "G/A CLB") {
+					Athr.setMode(2); # EPR Limit
+				} else {
+					Output.thrModeTemp = Output.thrMode.getValue();
+					if (Output.thrModeTemp == 1 or Output.thrModeTemp == 2) {
+						Athr.setMode(3); # Clamp
+					}
 				}
 				Output.athr.setBoolValue(1);
 				if (Output.thrMode.getValue() == 3) { # Refresh value new incase we set thrMode above
