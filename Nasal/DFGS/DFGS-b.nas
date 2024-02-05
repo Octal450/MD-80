@@ -399,6 +399,6 @@ var Athr = {
 		if (l == "T/O" and c != "T/O") { # If last mode was T/O, and the new mode is not T/O, set EPR Lim
 			me.setMode(2);
 		}
-		updateFma.thr()
+		updateFma.thr();
 	},
 };
