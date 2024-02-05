@@ -30,9 +30,9 @@
      inkscape:window-height="1057"
      id="namedview8"
      showgrid="false"
-     inkscape:zoom="4"
-     inkscape:cx="207.49822"
-     inkscape:cy="37.032339"
+     inkscape:zoom="2"
+     inkscape:cx="344.03493"
+     inkscape:cy="55.393845"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -1180,7 +1180,7 @@
        y="941.59863"
        id="text4455"
        sodipodi:linespacing="89.999998%"
-       transform="scale(0.90226464,1.1083223)"><tspan
+       transform="scale(0.90226463,1.1083223)"><tspan
          id="tspan4457"
          sodipodi:role="line"
          x="649.34167"
@@ -1300,7 +1300,7 @@
        sodipodi:nodetypes="zzzzz"
        inkscape:connector-curvature="0"
        id="AltKnob"
-       d="m 677.28428,1021.7405 c 0,-13.6752 -11.08578,-24.7609 -24.76078,-24.7609 -13.67501,0 -24.76078,11.0857 -24.76078,24.7609 0,13.6752 11.08577,24.761 24.76078,24.761 13.675,0 24.76078,-11.0858 24.76078,-24.761 z"
+       d="m 677.28426,1021.7405 c 0,-13.6752 -11.08578,-24.7609 -24.76078,-24.7609 -13.67501,0 -24.76078,11.0857 -24.76078,24.7609 0,13.6752 11.08577,24.761 24.76078,24.761 13.675,0 24.76078,-11.0858 24.76078,-24.761 z"
        style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:1.66612852;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:label="#path4383" />
     <rect
@@ -1382,6 +1382,57 @@
            y="925.0108"
            style="font-size:22.49967766px;line-height:89.99999762%;text-align:center;text-anchor:middle;fill:#ffffff"
            id="tspan4352">H</tspan></text>
+    </g>
+    <g
+       id="AtsDisc"
+       inkscape:label="#g4396"
+       transform="translate(-0.0079937,0)">
+      <rect
+         transform="matrix(0,1,-1,0,0,0)"
+         style="fill:#131514;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect4355"
+         width="6.8499999"
+         height="35.448002"
+         x="1040.9795"
+         y="-143.10699" />
+      <text
+         transform="scale(0.90227145,1.1083139)"
+         sodipodi:linespacing="89.999998%"
+         id="text4357"
+         y="945.34094"
+         x="139.12347"
+         style="font-style:normal;font-weight:normal;font-size:34.91827011px;line-height:89.99999762%;font-family:'Liberation Sans';letter-spacing:0px;word-spacing:0px;fill:#787878;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+         xml:space="preserve"><tspan
+           id="tspan4359"
+           style="font-size:8.72956753px;line-height:89.99999762%;text-align:center;text-anchor:middle;fill:#787878;fill-opacity:1;"
+           y="945.34094"
+           x="139.12347"
+           sodipodi:role="line">ATS DISC</tspan></text>
+    </g>
+    <g
+       id="ApDisc"
+       inkscape:label="#g4404">
+      <rect
+         y="-623.52496"
+         x="1040.9795"
+         height="31.079"
+         width="6.8499999"
+         id="rect4379"
+         style="fill:#131514;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         transform="matrix(0,1,-1,0,0,0)" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:34.91827011px;line-height:89.99999762%;font-family:'Liberation Sans';letter-spacing:0px;word-spacing:0px;fill:#787878;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+         x="673.99866"
+         y="945.34094"
+         id="text4381"
+         sodipodi:linespacing="89.999998%"
+         transform="scale(0.90227145,1.1083139)"><tspan
+           sodipodi:role="line"
+           x="673.99866"
+           y="945.34094"
+           style="font-size:8.72956753px;line-height:89.99999762%;text-align:center;text-anchor:middle;fill:#787878;fill-opacity:1;"
+           id="tspan4383">AP DISC</tspan></text>
     </g>
   </g>
 </svg>
