@@ -47,18 +47,16 @@ var apPanel = {
 	vertTemp: 0,
 	vsTemp: 0,
 	apSwitch: func() {
-		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
-			if (dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue()) {
+		if (dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue()) {
+			dfgs.ITAF.ap1Master(0);
+			dfgs.ITAF.ap2Master(0);
+		} else {
+			if (dfgs.Input.activeAp.getValue() == 2) {
+				dfgs.ITAF.ap2Master(1);
 				dfgs.ITAF.ap1Master(0);
-				dfgs.ITAF.ap2Master(0);
 			} else {
-				if (dfgs.Input.activeAp.getValue() == 2) {
-					dfgs.ITAF.ap2Master(1);
-					dfgs.ITAF.ap1Master(0);
-				} else {
-					dfgs.ITAF.ap1Master(1);
-					dfgs.ITAF.ap2Master(0);
-				}
+				dfgs.ITAF.ap1Master(1);
+				dfgs.ITAF.ap2Master(0);
 			}
 		}
 	},
