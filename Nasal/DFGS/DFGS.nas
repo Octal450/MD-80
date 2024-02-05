@@ -91,17 +91,20 @@ var Fd = {
 
 var Input = {
 	activeAp: props.globals.initNode("/it-autoflight/input/active-ap", 1, "INT"),
-	altArmed: props.globals.initNode("/it-autoflight/input/alt-armed", 0, "BOOL"),
 	alt: props.globals.initNode("/it-autoflight/input/alt", 10000, "INT"),
+	altArmed: props.globals.initNode("/it-autoflight/input/alt-armed", 0, "BOOL"),
+	altDiff: 0,
 	ap1: props.globals.initNode("/it-autoflight/input/ap1", 0, "BOOL"),
 	ap1Avail: props.globals.initNode("/it-autoflight/input/ap1-avail", 1, "BOOL"),
+	ap1Temp: 0,
 	ap2: props.globals.initNode("/it-autoflight/input/ap2", 0, "BOOL"),
 	ap2Avail: props.globals.initNode("/it-autoflight/input/ap2-avail", 1, "BOOL"),
+	ap2Temp: 0,
 	autoLand: props.globals.initNode("/it-autoflight/input/auto-land", 0, "BOOL"),
 	autoLandTemp: 0,
 	athr: props.globals.initNode("/it-autoflight/input/athr", 0, "BOOL"),
 	athrAvail: props.globals.initNode("/it-autoflight/input/athr-avail", 1, "BOOL"),
-	altDiff: 0,
+	athrTemp: 0,
 	bankLimitSw: props.globals.initNode("/it-autoflight/input/bank-limit-sw", 4, "INT"), # 30
 	bankLimitSwTemp: 0,
 	fd1: props.globals.initNode("/it-autoflight/input/fd1", 0, "BOOL"),
