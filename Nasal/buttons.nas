@@ -176,7 +176,7 @@ var apPanel = {
 		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			me.latTemp = dfgs.Output.lat.getValue();
 			me.vertTemp = dfgs.Output.vert.getValue();
-			if ((me.latTemp == 2 or me.latTemp == 4) and (dfgs.Output.apprArm.getBoolValue() or me.vertTemp == 2 or me.vertTemp == 6)) { # Check logic
+			if ((me.latTemp == 2 or me.latTemp == 4) and (dfgs.Output.apprArm.getBoolValue() or me.vertTemp == 2 or me.vertTemp == 6) and (dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue())) { # Check logic
 				dfgs.ITAF.updateAutoLand(1);
 			}
 		}
