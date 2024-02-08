@@ -564,7 +564,7 @@
 		
 		<lag_filter name="/instrumentation/ai[1]/fd-pitch">
 			<input>/instrumentation/ai[1]/fd-pitch-cmd</input>
-			<c1>20</c1>
+			<c1>10</c1>
 		</lag_filter>
 
 		<switch name="/instrumentation/ai[1]/fd-roll-cmd">
@@ -582,7 +582,7 @@
 		
 		<lag_filter name="/instrumentation/ai[1]/fd-roll">
 			<input>/instrumentation/ai[1]/fd-roll-cmd</input>
-			<c1>20</c1>
+			<c1>10</c1>
 		</lag_filter>
 		
 		<switch name="/instrumentation/ai[1]/loc-deviation-cmd">
