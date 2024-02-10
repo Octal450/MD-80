@@ -155,7 +155,6 @@ var Internal = {
 	hdgErrorDeg: props.globals.initNode("/it-autoflight/internal/heading-error-deg", 0, "DOUBLE"),
 	hdgHldTarget: props.globals.initNode("/it-autoflight/internal/hdg-hld-target", 360, "INT"),
 	hdgPredicted: props.globals.initNode("/it-autoflight/internal/heading-predicted", 0, "DOUBLE"),
-	landModeActive: 0,
 	lnavAdvanceNm: props.globals.initNode("/it-autoflight/internal/lnav-advance-nm", 0, "DOUBLE"),
 	minVs: props.globals.initNode("/it-autoflight/internal/min-vs", -500, "INT"),
 	maxVs: props.globals.initNode("/it-autoflight/internal/max-vs", 500, "INT"),
@@ -601,15 +600,15 @@ var ITAF = {
 	},
 	apOffFunction: func() {
 		if (!Output.ap1.getBoolValue() and !Output.ap2.getBoolValue()) { # Only do if both APs are off
-			if (Text.vert.getValue() == "ROLLOUT") {
-				me.init(1);
-				Fma.startBlink(2);
-				Fma.startBlink(3);
-			}
 			if (Sound.enableApOff) {
 				Sound.apOff.setBoolValue(1);
 				Sound.enableApOff = 0;
 				apKill.start();
+			}
+			if (Text.vert.getValue() == "ROLLOUT") {
+				me.init(1);
+				Fma.startBlink(2);
+				Fma.startBlink(3);
 			}
 		}
 	},
