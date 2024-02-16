@@ -207,6 +207,12 @@
 			</generic>
 			<visibility-range-nm type="int">130</visibility-range-nm>
 		</multiplay>
+		<rating>
+			<FDM type="int">5</FDM>
+			<systems type="int">5</systems>
+			<cockpit type="int">4</cockpit>
+			<model type="int">4</model>
+		</rating>
 		<startup>
 			<splash-texture>Aircraft/MD-80/gui/splash/MD-80.png</splash-texture>
 		</startup>

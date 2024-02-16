@@ -22,12 +22,6 @@
 			</preview>
 		</previews>
 		<primary-set>true</primary-set>
-		<rating>
-			<FDM type="int">5</FDM>
-			<systems type="int">5</systems>
-			<cockpit type="int">4</cockpit>
-			<model type="int">4</model>
-		</rating>
 		<sound>
 			<path>Aircraft/MD-80/Sounds/jt8d-sound.xml</path>
 		</sound>
