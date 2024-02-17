@@ -456,17 +456,27 @@
 			</function>
 		</fcs_function>
 		
+		<actuator name="engine/limit/art-active-unlock">
+			<input>engine/art/active</input>
+			<rate_limit sense="incr">10</rate_limit>
+			<rate_limit sense="decr">1000000</rate_limit>
+		</actuator>
+		
 		<switch name="engine/limit/active">
 			<default value="2"/>
 			<test value="engine/limit/active">
 				engine/limit/active-mode-int eq -1
 			</test>
-			<test value="engine/limit/active">
+			<test logic="AND" value="engine/limit/active">
 				<test logic="OR">
 					engine/limit/active-mode-int eq 0
 					engine/limit/active-mode-int eq 5
 				</test>
 				/instrumentation/airspeed-indicator/indicated-speed-kt ge 50
+				<test logic="OR">
+					engine/art/active eq 0
+					engine/limit/art-active-unlock eq 1
+				</test>
 			</test>
 			<test logic="OR" value="engine/limit/takeoff">
 				engine/limit/active-mode-int eq 0
@@ -541,6 +551,22 @@
 					</table>
 					<property>engine/art/output</property>
 				</difference>
+			</function>
+			<clipto>
+				<min>0.0</min>
+				<max>1.0</max>
+			</clipto>
+		</fcs_function>
+		
+		<fcs_function name="engine/limit/active-norm-no-art">
+			<function>
+				<table>
+					<independentVar lookup="row">engine/limit/active-norm-input</independentVar>
+					<tableData>
+						 25.3  0
+						101.6  1
+					</tableData>
+				</table>
 			</function>
 			<clipto>
 				<min>0.0</min>
@@ -1007,6 +1033,7 @@
 				/gear/gear[0]/wow-timer lt 1
 				engine/art/active eq 0
 				engine/limit/active-mode-int ne 0
+				engine/limit/active-mode-int ne 1
 			</test>
 			<test value="1">
 				/gear/gear[0]/wow-timer eq 1
@@ -1108,11 +1135,11 @@
 		</fcs_function>
 		
 		<switch name="engine/control-1/ats-max">
-			<default value="engine/limit/active-norm"/>
+			<default value="engine/limit/active-norm-no-art"/>
 			<test logic="AND" value="engine/limit/man-1-norm">
 				/instrumentation/epr[0]/power-avail eq 1
 				/controls/engines/engine[0]/man-epr-set eq 1
-				engine/limit/man-1-norm le engine/limit/active-norm
+				engine/limit/man-1-norm le engine/limit/active-norm-no-art
 			</test>
 			<clipto>
 				<min>engine/limit/idle-norm</min>
@@ -1214,11 +1241,11 @@
 		</fcs_function>
 		
 		<switch name="engine/control-2/ats-max">
-			<default value="engine/limit/active-norm"/>
+			<default value="engine/limit/active-norm-no-art"/>
 			<test logic="AND" value="engine/limit/man-2-norm">
 				/instrumentation/epr[1]/power-avail eq 1
 				/controls/engines/engine[1]/man-epr-set eq 1
-				engine/limit/man-2-norm le engine/limit/active-norm
+				engine/limit/man-2-norm le engine/limit/active-norm-no-art
 			</test>
 			<clipto>
 				<min>engine/limit/idle-norm</min>
