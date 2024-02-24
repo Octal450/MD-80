@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+
+<PropertyList>
+	
+	<main include="MD-80-main.xml" omit-node="y"/>
+	
+	<nasal>
+		<load>
+			var livery_update = aircraft.livery_update.new("Aircraft/MD-80/Models/Liveries/MD-81");
+		</load>
+		<unload>
+			livery_update.stop();
+		</unload>
+	</nasal>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Fuselage</object-name>
+		<object-name>LGNDoorForL</object-name>
+		<object-name>LGNDoorForR</object-name>
+		<object-name>LGNDoorAftL</object-name>
+		<object-name>LGNDoorAftR</object-name>
+		<property-base>sim/model/livery</property-base>
+		<texture-prop>texture</texture-prop>
+		<texture>txt_fuselage.png</texture>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>WingFairing</object-name>
+		<object-name>LGDoorInL</object-name>
+		<object-name>LGDoorInR</object-name>
+		<property-base>sim/model/fairings</property-base>
+		<texture-prop>texture</texture-prop>
+		<texture>txt_fuselage_fairing.png</texture>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Engines</object-name>
+		<object-name>VStabilizer</object-name>
+		<object-name>Rudder</object-name>
+		<object-name>RudderTabControl</object-name>
+		<object-name>StabFairing</object-name>
+		<property-base>sim/model/rudders</property-base>
+		<texture-prop>texture</texture-prop>
+		<texture>txt_vstab_engines.png</texture>
+	</animation>
+
+</PropertyList>

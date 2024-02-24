@@ -1,0 +1,87 @@
+﻿<?xml version="1.0"?>
+
+<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+
+<PropertyList include="MD-80-main.xml">
+	
+    <sim>
+		<aero>MD-81</aero>
+		<description>McDonnell Douglas MD-81 (JT8D-209)</description>
+		<flight-model>jsb</flight-model>
+		<model n="0">
+			<livery>
+				<file type="string">White</file>
+			</livery>
+			<path>Aircraft/MD-80/Models/MD-81.xml</path>
+		</model>
+		<previews>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>gui/splash/MD-80.png</path>
+			</preview>
+		</previews>
+		<primary-set>true</primary-set>
+		<sound>
+			<path>Aircraft/MD-80/Sounds/jt8d-sound.xml</path>
+		</sound>
+    </sim>
+	
+	<fdm n="0">
+		<jsbsim n="0">
+			<engine n="0">
+				<limit n="0">
+					<rated-epr-offset type="double">0</rated-epr-offset>
+					<rated-thrust type="double">18500</rated-thrust>
+				</limit>
+			</engine>
+		</jsbsim>
+	</fdm>
+	
+	<limits>
+		<mass-and-balance>
+			<maximum-takeoff-mass-lbs>139994</maximum-takeoff-mass-lbs>
+			<maximum-landing-mass-lbs>127868</maximum-landing-mass-lbs>
+			<maximum-zero-fuel-mass-lbs>117947</maximum-zero-fuel-mass-lbs>
+		</mass-and-balance>
+	</limits>
+	
+	<options n="0">
+		<aux-tanks type="bool">0</aux-tanks>
+		<eng type="string">209</eng>
+	</options>
+	
+	<payload n="0">
+		<weight n="0">
+			<name>Forward Cabin</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">15370</max-lb>
+		</weight>
+		<weight n="1">
+			<name>Aft Cabin</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">15185</max-lb>
+		</weight>
+		<weight n="2">
+			<name>Forward Cargo</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]"/>
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">10304</max-lb>
+		</weight>
+		<weight n="3">
+			<name>Aft Cargo</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]"/>
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">9619</max-lb>
+		</weight>
+	</payload>
+	
+	<nasal n="0">
+		<setup>
+			<script>aircraft.livery.init("Aircraft/MD-80/Models/Liveries/MD-81");</script>
+		</setup>
+    </nasal>
+
+</PropertyList>

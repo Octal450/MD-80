@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+
+<turbine_engine name="JT8D-209">
+	
+	<milthrust>18500</milthrust>
+	<tsfc>0.515</tsfc>
+	<bleed>0</bleed> <!-- Set by pneumatic system -->
+	<ignitionn1>7.3</ignitionn1>
+	<ignitionn2>24.4</ignitionn2>
+	<n1spinup>0.27</n1spinup>
+	<n2spinup>0.904</n2spinup>
+	<n1startrate>1.286</n1startrate>
+	<n2startrate>2.129</n2startrate>
+	<idlen1>25.3</idlen1>
+	<idlen2>54.2</idlen2>
+	<maxn1>101.6</maxn1>
+	<maxn2>102.5</maxn2>
+	<augmented>0</augmented>
+	<injected>0</injected>
+	
+	<function name="N1SpoolUp">
+		<table>
+			<independentVar lookup="row">propulsion/engine[1]/n1</independentVar>
+			<independentVar lookup="column">/systems/acconfig/autoconfig-running</independentVar>
+			<tableData> <!-- Bottlenecked by slow fuel control valve + uneven -->
+				    0    1
+				28  3.7  50
+				46  8.6  50
+			</tableData>
+		</table>
+	</function>
+	
+	<function name="N1SpoolDown">
+		<table>
+			<independentVar lookup="row">propulsion/engine[1]/n1</independentVar>
+			<independentVar lookup="column">/systems/acconfig/autoconfig-running</independentVar>
+			<tableData> <!-- Bottlenecked by slow fuel control valve + uneven -->
+				    0    1
+				28  4.0  50
+				46  9.1  50
+			</tableData>
+		</table>
+	</function>
+	
+	<function name="N2SpoolUp"> <!-- N1 to N2 factor 0.617021276595744 -->
+		<table>
+			<independentVar lookup="row">propulsion/engine[1]/n1</independentVar>
+			<independentVar lookup="column">/systems/acconfig/autoconfig-running</independentVar>
+			<tableData> <!-- Bottlenecked by slow fuel control valve + uneven -->
+				    0    1
+				28  2.3  31
+				46  5.3  31
+			</tableData>
+		</table>
+	</function>
+	
+	<function name="N2SpoolDown"> <!-- N1 to N2 factor 0.617021276595744 -->
+		<table>
+			<independentVar lookup="row">propulsion/engine[1]/n1</independentVar>
+			<independentVar lookup="column">/systems/acconfig/autoconfig-running</independentVar>
+			<tableData> <!-- Bottlenecked by slow fuel control valve + uneven -->
+				    0    1
+				28  2.5  31
+				46  5.6  31
+			</tableData>
+		</table>
+	</function>
+	
+	<function name="IdleThrust">
+		<table>
+			<independentVar lookup="row">velocities/mach</independentVar>
+			<independentVar lookup="column">atmosphere/density-altitude</independentVar>
+			<tableData>
+				    -10000   0       10000   20000   30000   45000   50000
+				0.0  0.0430  0.0458  0.0378  0.0684  0.0654  0.0623  0.0000
+				0.2  0.0500  0.0291  0.0205  0.0514  0.0539  0.0563  0.0000
+				0.4  0.0040  0.0047  0.0012  0.0412  0.0460  0.0507  0.0000
+				0.6  0.0000  0.0000  0.0000  0.0000  0.0181  0.0362  0.0000
+				0.8  0.0000  0.0000  0.0000  0.0000  0.0158  0.0315  0.0000
+				1.0  0.0000  0.0000  0.0000  0.0000  0.0000  0.0204  0.0000
+				1.2  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000
+			</tableData>
+		</table>
+	</function>
+	
+	<function name="MilThrust"> <!-- If you change this, make sure you update the table in the engine system file -->
+		<product>
+			<table>
+				<independentVar lookup="row">velocities/mach</independentVar>
+				<independentVar lookup="column">atmosphere/density-altitude</independentVar>
+				<tableData>
+					    -10000   0       10000   20000   30000   45000   50000
+					0.0  1.2600  1.0000  0.7400  0.5640  0.3920  0.2840  0.0000
+					0.2  1.1710  0.9740  0.6970  0.5360  0.3850  0.2740  0.0000
+					0.4  1.1500  0.9570  0.6920  0.5460  0.3870  0.2670  0.0000
+					0.6  1.1810  0.9410  0.7210  0.5660  0.3580  0.2310  0.0000
+					0.8  1.2290  1.0200  0.7820  0.5570  0.3040  0.2060  0.0000
+					0.9  1.2580  1.0200  0.7820  0.5220  0.2710  0.1270  0.0000
+					1.0  1.1810  0.9510  0.7210  0.4410  0.1740  0.0580  0.0000
+					1.2  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000  0.0000
+				</tableData>
+			</table>
+			<property>engine/limit/rated-thrust-factor</property>
+			<table> <!-- Thrust loss due to reverser angle -->
+				<independentVar lookup="row">/engines/engine[1]/reverser-pos-norm</independentVar>
+				<tableData>
+					0.01  1.00
+					1.00  0.65
+				</tableData>
+			</table>
+		</product>
+	</function>
+
+</turbine_engine>

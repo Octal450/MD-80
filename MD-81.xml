@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+
+<fdm_config name="MD-81" version="2.0" release="BETA">
+	
+	<fileheader>
+		<author>Josh Davidson (Octal450)</author>
+		<version>Pre V1.0</version>
+		<description>MD-80 FDE</description>
+	</fileheader>
+	
+	<metrics file="Systems/md-80-metrics"/>
+	<mass_balance file="Systems/md-80-mass-balance"/>
+	<ground_reactions file="Systems/md-80-ground-reactions"/>
+	
+	<propulsion>
+		<engine file="jt8d-209_1">
+			<feed>3</feed>
+			<thruster file="direct">
+				<location unit="M"> <!-- Fudged for accuracy -->
+					<x>24.30336</x>
+					<y>-1.4</y>
+					<z>0.0014</z>
+				</location>
+				<orient unit="DEG">
+					<roll>0</roll>
+					<pitch>2.2</pitch>
+					<yaw>0</yaw>
+				</orient>
+			</thruster>
+		</engine>
+		
+		<engine file="jt8d-209_2">
+			<feed>4</feed>
+			<thruster file="direct">
+				<location unit="M"> <!-- Fudged for accuracy -->
+					<x>24.30336</x>
+					<y>1.4</y>
+					<z>0.0014</z>
+				</location>
+				<orient unit="DEG">
+					<roll>0</roll>
+					<pitch>2.2</pitch>
+					<yaw>0</yaw>
+				</orient>
+			</thruster>
+		</engine>
+		
+		<engine file="gtcp85-98dhf">
+			<feed>5</feed>
+			<thruster file="direct">
+				<location unit="M">
+					<x>35.4694</x>
+					<y>1.2879</y>
+					<z>1.15571</z>
+				</location>
+				<orient unit="DEG">
+					<roll>0</roll>
+					<pitch>0</pitch>
+					<yaw>0</yaw>
+				</orient>
+			</thruster>
+		</engine>
+		
+		<!-- Fuel Tank Capacities from FCOM, positions fudged for CG accuracy -->
+		<tank type="FUEL"> <!-- Left Tank -->
+			<location unit="M">
+				<x>23.91839</x>
+				<y>-5.03595</y>
+				<z>-0.2272</z>
+			</location>
+			<capacity unit="LBS">9259</capacity>
+			<contents unit="LBS">6000</contents>
+			<standpipe unit="LBS">31</standpipe>
+			<priority>1</priority>
+			<type>JET-A1</type>
+			<temperature>50</temperature>
+		</tank>
+		<tank type="FUEL"> <!-- Center Tank -->
+			<location unit="M">
+				<x>23.23756</x>
+				<y>0</y>
+				<z>-0.30645</z>
+			</location>
+			<capacity unit="LBS">20591</capacity>
+			<contents unit="LBS">0</contents>
+			<standpipe unit="LBS">43</standpipe>
+			<priority>1</priority>
+			<type>JET-A1</type>
+			<temperature>50</temperature>
+		</tank>
+		<tank type="FUEL"> <!-- Right Tank -->
+			<location unit="M">
+				<x>23.91839</x>
+				<y>5.03595</y>
+				<z>-0.2272</z>
+			</location>
+			<capacity unit="LBS">9259</capacity>
+			<contents unit="LBS">6000</contents>
+			<standpipe unit="LBS">31</standpipe>
+			<priority>1</priority>
+			<type>JET-A1</type>
+			<temperature>50</temperature>
+		</tank>
+		<tank type="FUEL"> <!-- Engine 1 Pipe -->
+			<location unit="M">
+				<x>24.20826</x>
+				<y>0</y>
+				<z>0.0014</z>
+			</location>
+			<capacity unit="LBS">10</capacity>
+			<contents unit="LBS">0</contents>
+			<priority>1</priority>
+			<type>JET-A1</type>
+		</tank>
+		<tank type="FUEL"> <!-- Engine 2 Pipe -->
+			<location unit="M">
+				<x>24.20826</x>
+				<y>0</y>
+				<z>0.0014</z>
+			</location>
+			<capacity unit="LBS">10</capacity>
+			<contents unit="LBS">0</contents>
+			<priority>1</priority>
+			<type>JET-A1</type>
+		</tank>
+		<tank type="FUEL"> <!-- APU Pipe -->
+			<location unit="M">
+				<x>24.20826</x>
+				<y>0</y>
+				<z>0.0014</z>
+			</location>
+			<capacity unit="LBS">5</capacity>
+			<contents unit="LBS">0</contents>
+			<priority>1</priority>
+			<type>JET-A1</type>
+		</tank>
+	</propulsion>
+	
+	<system file="md-80-libraries"/>
+	<system file="md-80-electrical"/>
+	<system file="md-80-ahrs"/>
+	<system file="md-80-fuel"/>
+	<system file="md-80-hydraulics"/>
+	<system file="md-80-pneumatics"/>
+	<system file="md-80-dfgs"/>
+	<system file="md-80-fcs"/>
+	<system file="md-80-spoiler"/>
+	<system file="md-80-ignition"/>
+	<system file="md-80-209-engine-tri"/>
+	<system file="md-80-apu"/>
+	<system file="md-80-speeds"/>
+	<system file="md-80-cockpit"/>
+	<system file="md-80-instrumentation"/>
+	<system file="glass-effect"/>
+	
+	<flight_control name="none"/>
+	<aerodynamics file="Systems/md-80-aerodynamics.xml"/>
+	<external_reactions file="Systems/md-80-external-reactions"/>
+
+</fdm_config>
