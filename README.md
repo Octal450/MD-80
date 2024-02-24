@@ -2,6 +2,7 @@
 A very advanced simulation of the McDonnell Douglas MD-80 for FlightGear.
 
 Present pack includes the following McDonnell Douglas MD-80 variants:
+- MD-81
 - MD-82
 - MD-83
 
