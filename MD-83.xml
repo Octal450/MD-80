@@ -18,8 +18,8 @@
 		<engine file="jt8d-219_1">
 			<feed>3</feed>
 			<thruster file="direct">
-				<location unit="M">
-					<x>23.902</x>
+				<location unit="M"> <!-- Fudged for accuracy -->
+					<x>24.30336</x>
 					<y>-1.4</y>
 					<z>0.0014</z>
 				</location>
@@ -34,8 +34,8 @@
 		<engine file="jt8d-219_2">
 			<feed>4</feed>
 			<thruster file="direct">
-				<location unit="M">
-					<x>23.902</x>
+				<location unit="M"> <!-- Fudged for accuracy -->
+					<x>24.30336</x>
 					<y>1.4</y>
 					<z>0.0014</z>
 				</location>
@@ -63,12 +63,12 @@
 			</thruster>
 		</engine>
 		
-		<!-- Fuel Tank Capacities from FCOM -->
+		<!-- Fuel Tank Capacities from FCOM, positions fudged for CG accuracy -->
 		<tank type="FUEL"> <!-- Left Tank -->
 			<location unit="M">
-				<x>23.802</x>
+				<x>23.91839</x>
 				<y>-5.03595</y>
-				<z>0.0014</z>
+				<z>-0.2272</z>
 			</location>
 			<capacity unit="LBS">9259</capacity>
 			<contents unit="LBS">6000</contents>
@@ -79,9 +79,9 @@
 		</tank>
 		<tank type="FUEL"> <!-- Center Tank -->
 			<location unit="M">
-				<x>23.802</x>
+				<x>23.23756</x>
 				<y>0</y>
-				<z>0.0014</z>
+				<z>-0.30645</z>
 			</location>
 			<capacity unit="LBS">20591</capacity>
 			<contents unit="LBS">0</contents>
@@ -92,9 +92,9 @@
 		</tank>
 		<tank type="FUEL"> <!-- Right Tank -->
 			<location unit="M">
-				<x>23.802</x>
+				<x>23.91839</x>
 				<y>5.03595</y>
-				<z>0.0014</z>
+				<z>-0.2272</z>
 			</location>
 			<capacity unit="LBS">9259</capacity>
 			<contents unit="LBS">6000</contents>
@@ -105,7 +105,7 @@
 		</tank>
 		<tank type="FUEL"> <!-- Engine 1 Pipe -->
 			<location unit="M">
-				<x>23.802</x>
+				<x>24.20826</x>
 				<y>0</y>
 				<z>0.0014</z>
 			</location>
@@ -116,7 +116,7 @@
 		</tank>
 		<tank type="FUEL"> <!-- Engine 2 Pipe -->
 			<location unit="M">
-				<x>23.802</x>
+				<x>24.20826</x>
 				<y>0</y>
 				<z>0.0014</z>
 			</location>
@@ -127,7 +127,7 @@
 		</tank>
 		<tank type="FUEL"> <!-- APU Pipe -->
 			<location unit="M">
-				<x>23.802</x>
+				<x>24.20826</x>
 				<y>0</y>
 				<z>0.0014</z>
 			</location>
@@ -138,9 +138,9 @@
 		</tank>
 		<tank type="FUEL"> <!-- Fwd Aux Tank -->
 			<location unit="M">
-				<x>17.802</x>
+				<x>22.71293</x>
 				<y>0</y>
-				<z>0.0014</z>
+				<z>-0.30645</z>
 			</location>
 			<capacity unit="LBS">3786</capacity>
 			<contents unit="LBS">0</contents>
@@ -151,9 +151,9 @@
 		</tank>
 		<tank type="FUEL"> <!-- Aft Aux Tank -->
 			<location unit="M">
-				<x>29.802</x>
+				<x>24.86357</x>
 				<y>0</y>
-				<z>0.0014</z>
+				<z>-0.30645</z>
 			</location>
 			<capacity unit="LBS">3786</capacity>
 			<contents unit="LBS">0</contents>

@@ -44,6 +44,24 @@
 			<input>-propulsion/total-fuel-lbs</input>
 		</summer>
 		
+		<fcs_function name="inertia/cg-percent-mac">
+			<function>
+				<product>
+					<quotient>
+						<difference>
+							<product>
+								<property>inertia/cg-x-in</property>
+								<value>0.0254</value>
+							</product>
+							<value>23.06471</value> <!-- Offset -->
+						</difference>
+						<value>3.06</value> <!-- MAC length, fudged for balance accuracy -->
+					</quotient>
+					<value>100</value>
+				</product>
+			</function>
+		</fcs_function>
+		
 		<fcs_function name="/gear/gear[0]/wow-timer-cmd">
 			<function>
 				<sum> <!-- Inverter, so that it is 1 at sim start -->

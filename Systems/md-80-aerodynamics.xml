@@ -243,7 +243,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<toradians><property>fcs-actual/stabilizer/final-deg</property></toradians>
-				<value>0.0017487</value>
+				<value>0.0014278</value>
 			</product>
 		</function>
 		
@@ -405,7 +405,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<abs><toradians><property>fcs-actual/stabilizer/final-deg</property></toradians></abs>
-				<value>0.0039</value>
+				<value>0.00263</value>
 			</product>
 		</function>
 		
@@ -696,7 +696,7 @@
 				<property>metrics/cbarw-ft</property>
 				<property>aero/function/kCmde</property>
 				<toradians><property>fcs-actual/elevator-l/surface-final-deg</property></toradians>
-				<value>-0.21</value>
+				<value>-0.211</value>
 			</product>
 		</function>
 		
@@ -708,7 +708,7 @@
 				<property>metrics/cbarw-ft</property>
 				<property>aero/function/kCmde</property>
 				<toradians><property>fcs-actual/elevator-r/surface-final-deg</property></toradians>
-				<value>-0.21</value>
+				<value>-0.211</value>
 			</product>
 		</function>
 		
@@ -720,7 +720,7 @@
 				<property>metrics/cbarw-ft</property>
 				<property>aero/function/kCmdstab</property>
 				<toradians><property>fcs-actual/stabilizer/final-deg</property></toradians>
-				<value>-1.93</value>
+				<value>-2.993</value>
 			</product>
 		</function>
 		

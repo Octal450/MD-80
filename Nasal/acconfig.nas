@@ -292,11 +292,11 @@ var PANEL = {
 		libraries.systemsInit();
 		pts.Controls.Flight.speedbrake.setValue(0);
 		if (t == 1) {
-			pts.Controls.Flight.elevatorTrim.setValue(-0.26); # About 3.25ANU
+			pts.Controls.Flight.elevatorTrim.setValue(-0.432); # About 5.4ANU
 			pts.Controls.Flight.flaps.setValue(0.36); # 11/MID
 			pts.Controls.Flight.speedbrakeArm.setBoolValue(1);
 		} else {
-			pts.Controls.Flight.elevatorTrim.setValue(-0.26); # About 3.25ANU
+			pts.Controls.Flight.elevatorTrim.setValue(-0.296); # About 3.7ANU
 			pts.Controls.Flight.flaps.setValue(0);
 			pts.Controls.Flight.speedbrakeArm.setBoolValue(0);
 		}
