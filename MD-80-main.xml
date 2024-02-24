@@ -125,10 +125,10 @@
 						</binding>
 					</item>
 					<item> <!-- Temporary -->
-						<label>Speed Applet</label>
+						<label>Speed/CG Applet</label>
 						<binding>
 							<command>dialog-show</command>
-							<dialog-name>speed</dialog-name>
+							<dialog-name>speedscg</dialog-name>
 						</binding>
 					</item>
 				</menu>

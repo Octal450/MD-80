@@ -5,25 +5,27 @@
 
 <PropertyList>
 	
-	<name>speed</name>
+	<name>speedscg</name>
 	<layout>vbox</layout>
 	
 	<nasal>
 		<open>
-			setprop("/fdm/jsbsim/speeds/v1-round", math.round(getprop("/fdm/jsbsim/speeds/v1")));
-			setprop("/fdm/jsbsim/speeds/vr-round", math.round(getprop("/fdm/jsbsim/speeds/vr")));
-			setprop("/fdm/jsbsim/speeds/v2-round", math.round(getprop("/fdm/jsbsim/speeds/v2")));
-			setprop("/fdm/jsbsim/speeds/flap-retract-round", math.round(getprop("/fdm/jsbsim/speeds/flap-retract")));
-			setprop("/fdm/jsbsim/speeds/slat-retract-round", math.round(getprop("/fdm/jsbsim/speeds/slat-retract")));
-			setprop("/fdm/jsbsim/speeds/min-maneuver-round", math.round(getprop("/fdm/jsbsim/speeds/min-maneuver")));
+			setprop("/sim/gui/dialogs/speedscg/cg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/cg-percent-mac"), 0.1)) ~ "% MAC");
+			setprop("/sim/gui/dialogs/speedscg/v1-round", math.round(getprop("/fdm/jsbsim/speeds/v1")));
+			setprop("/sim/gui/dialogs/speedscg/vr-round", math.round(getprop("/fdm/jsbsim/speeds/vr")));
+			setprop("/sim/gui/dialogs/speedscg/v2-round", math.round(getprop("/fdm/jsbsim/speeds/v2")));
+			setprop("/sim/gui/dialogs/speedscg/flap-retract-round", math.round(getprop("/fdm/jsbsim/speeds/flap-retract")));
+			setprop("/sim/gui/dialogs/speedscg/slat-retract-round", math.round(getprop("/fdm/jsbsim/speeds/slat-retract")));
+			setprop("/sim/gui/dialogs/speedscg/min-maneuver-round", math.round(getprop("/fdm/jsbsim/speeds/min-maneuver")));
 			
-			var loop = maketimer(1, func() {
-				setprop("/fdm/jsbsim/speeds/v1-round", math.round(getprop("/fdm/jsbsim/speeds/v1")));
-				setprop("/fdm/jsbsim/speeds/vr-round", math.round(getprop("/fdm/jsbsim/speeds/vr")));
-				setprop("/fdm/jsbsim/speeds/v2-round", math.round(getprop("/fdm/jsbsim/speeds/v2")));
-				setprop("/fdm/jsbsim/speeds/flap-retract-round", math.round(getprop("/fdm/jsbsim/speeds/flap-retract")));
-				setprop("/fdm/jsbsim/speeds/slat-retract-round", math.round(getprop("/fdm/jsbsim/speeds/slat-retract")));
-				setprop("/fdm/jsbsim/speeds/min-maneuver-round", math.round(getprop("/fdm/jsbsim/speeds/min-maneuver")));
+			var loop = maketimer(0.1, func() {
+				setprop("/sim/gui/dialogs/speedscg/cg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/cg-percent-mac"), 0.1)) ~ "% MAC");
+				setprop("/sim/gui/dialogs/speedscg/v1-round", math.round(getprop("/fdm/jsbsim/speeds/v1")));
+				setprop("/sim/gui/dialogs/speedscg/vr-round", math.round(getprop("/fdm/jsbsim/speeds/vr")));
+				setprop("/sim/gui/dialogs/speedscg/v2-round", math.round(getprop("/fdm/jsbsim/speeds/v2")));
+				setprop("/sim/gui/dialogs/speedscg/flap-retract-round", math.round(getprop("/fdm/jsbsim/speeds/flap-retract")));
+				setprop("/sim/gui/dialogs/speedscg/slat-retract-round", math.round(getprop("/fdm/jsbsim/speeds/slat-retract")));
+				setprop("/sim/gui/dialogs/speedscg/min-maneuver-round", math.round(getprop("/fdm/jsbsim/speeds/min-maneuver")));
 			});
 			loop.start();
 		</open>
@@ -37,7 +39,7 @@
 		
 		<text>
 			<halign>left</halign>
-			<label>Speed Applet</label>
+			<label>Speeds/CG Applet</label>
 		</text>
 		
 		<button>
@@ -50,6 +52,21 @@
 				<command>dialog-close</command>
 			</binding>
 		</button>
+	</group>
+	
+	<hrule/>
+	
+	<group>
+		<layout>hbox</layout>
+		
+		<text>
+			<label>CG: </label>
+		</text>
+		<text>
+			<label>999999999</label>
+			<live>true</live>
+			<property>/sim/gui/dialogs/speedscg/cg-percent-mac</property>
+		</text>
 	</group>
 	
 	<hrule/>
@@ -117,7 +134,7 @@
 			<col>1</col>
 			<label>999</label>
 			<live>true</live>
-			<property>/fdm/jsbsim/speeds/v1-round</property>
+			<property>/sim/gui/dialogs/speedscg/v1-round</property>
 		</text>
 		
 		<text>
@@ -130,7 +147,7 @@
 			<col>1</col>
 			<label>999</label>
 			<live>true</live>
-			<property>/fdm/jsbsim/speeds/vr-round</property>
+			<property>/sim/gui/dialogs/speedscg/vr-round</property>
 		</text>
 		
 		<text>
@@ -143,7 +160,7 @@
 			<col>1</col>
 			<label>999</label>
 			<live>true</live>
-			<property>/fdm/jsbsim/speeds/v2-round</property>
+			<property>/sim/gui/dialogs/speedscg/v2-round</property>
 		</text>
 	</group>
 	
@@ -162,7 +179,7 @@
 			<col>1</col>
 			<label>999</label>
 			<live>true</live>
-			<property>/fdm/jsbsim/speeds/flap-retract-round</property>
+			<property>/sim/gui/dialogs/speedscg/flap-retract-round</property>
 		</text>
 		
 		<text>
@@ -175,7 +192,7 @@
 			<col>1</col>
 			<label>999</label>
 			<live>true</live>
-			<property>/fdm/jsbsim/speeds/slat-retract-round</property>
+			<property>/sim/gui/dialogs/speedscg/slat-retract-round</property>
 		</text>
 		
 		<text>
@@ -188,7 +205,7 @@
 			<col>1</col>
 			<label>999</label>
 			<live>true</live>
-			<property>/fdm/jsbsim/speeds/min-maneuver-round</property>
+			<property>/sim/gui/dialogs/speedscg/min-maneuver-round</property>
 		</text>
 	</group>
 
