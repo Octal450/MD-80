@@ -726,6 +726,9 @@
 				<throttle-lever-feedback n="0" type="double">0</throttle-lever-feedback>
 				<throttle-lever-feedback n="1" type="double">0</throttle-lever-feedback>
 			</fcs>
+			<inertia n="0">
+				<empty-weight-x-in type="double">953.081102</empty-weight-x-in> <!-- 24.20826 meters, 34.3% MAC -->
+			</inertia>
 			<zero type="int">0</zero>
 		</jsbsim>
 	</fdm>
