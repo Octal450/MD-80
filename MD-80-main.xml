@@ -486,6 +486,7 @@
 			</lights>
 			<switches n="0">
 				<art type="bool">1</art>
+				<art-cover type="bool">0</art-cover>
 			</switches>
 		</dfgs>
 		<electrical n="0">

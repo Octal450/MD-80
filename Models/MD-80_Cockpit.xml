@@ -1438,6 +1438,54 @@
 	
 	<!-- ART Switch -->
 	<animation>
+		<type>knob</type>
+		<object-name>ARTCover</object-name>
+		<property>controls/cockpit/art-cover</property>
+		<drag-direction>vertical</drag-direction>
+		<drag-scale-px>15</drag-scale-px>
+		<factor>100</factor>
+		<center>
+			<x-m>2.20737</x-m>
+			<y-m>0</y-m>
+			<z-m>1.00528</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<increase>
+			<binding>
+				<condition>
+					<equals>
+						<property>controls/dfgs/switches/art</property>
+						<value>0</value>
+					</equals>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/dfgs/switches/art</property>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/dfgs/switches/art-cover</property>
+				<value>0</value>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/dfgs/switches/art-cover</property>
+				<value>1</value>
+			</binding>
+		</decrease>
+	</animation>
+	
+	<animation>
 		<type>rotate</type>
 		<object-name>ARTSwitch</object-name>
 		<property>controls/cockpit/art</property>
@@ -1466,10 +1514,16 @@
 			<button>4</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<property>controls/dfgs/switches/art-cover</property>
+				</condition>
 				<command>property-toggle</command>
 				<property>controls/dfgs/switches/art</property>
 			</binding>
 			<binding>
+				<condition>
+					<property>controls/dfgs/switches/art-cover</property>
+				</condition>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
 			</binding>

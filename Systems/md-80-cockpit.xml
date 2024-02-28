@@ -44,6 +44,11 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/art-cover">
+			<input>/controls/dfgs/switches/art-cover</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<fcs_function name="/controls/cockpit/ats-cmd">
 			<function>
 				<max>
