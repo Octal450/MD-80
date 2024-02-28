@@ -637,6 +637,16 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/overhead/start-cover-l">
+			<input>/controls/engines/covers/start-l</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/start-cover-r">
+			<input>/controls/engines/covers/start-r</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/overhead/start-pump">
 			<input>/controls/fuel/switches/pump-start</input>
 			<c1>20</c1>

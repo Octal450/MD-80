@@ -24,24 +24,14 @@
 	<animation> <!-- Don't remove or else weird darkness happens -->
 		<type>material</type>
 		<object-name>AirVents</object-name>
-		<object-name>CDUCasings</object-name>
-		<object-name>CDUs</object-name>
 		<object-name>FDFloorCarpet</object-name>
 		<object-name>FDFloorMetal</object-name>
 		<object-name>FDFlorrMetal2</object-name>
-		<object-name>FlapLever</object-name>
-		<object-name>FlapLever.002</object-name>
-		<object-name>FlapLever.003</object-name>
 		<object-name>FlightDeck</object-name>
 		<object-name>FlightDeckBulkhead</object-name>
 		<object-name>FlightDeckDoor</object-name>
-		<object-name>FuelCutoffL</object-name>
-		<object-name>FuelCutoffR</object-name>
+		<object-name>ForwardPedCasing</object-name>
 		<object-name>GlareShield</object-name>
-		<object-name>ABSKnob</object-name>
-		<object-name>Lamp</object-name>
-		<object-name>LampABS</object-name>
-		<object-name>LGLever</object-name>
 		<object-name>Moulding</object-name>
 		<object-name>Moulding.001</object-name>
 		<object-name>PanelMainC</object-name>
@@ -49,46 +39,20 @@
 		<object-name>PanelMainL</object-name>
 		<object-name>PanelMainR</object-name>
 		<object-name>PedalCover</object-name>
-		<object-name>PedalL</object-name>
-		<object-name>PedalR</object-name>
-		<object-name>PedalRodL</object-name>
-		<object-name>PedalRodR</object-name>
 		<object-name>PedestalABS</object-name>
 		<object-name>PedestalBase</object-name>
 		<object-name>PedestalBase_0</object-name>
 		<object-name>PedestalBase_1</object-name>
 		<object-name>PedestalDrum</object-name>
 		<object-name>PedestalDrumFace</object-name>
-		<object-name>PneuLeverL</object-name>
-		<object-name>PneuLeverR</object-name>
 		<object-name>SeatCP</object-name>
 		<object-name>SeatCushionsCP</object-name>
 		<object-name>SeatCushionsP</object-name>
 		<object-name>SeatP</object-name>
-		<object-name>SpdBrakeLever</object-name>
-		<object-name>ABSArm</object-name>
-		<object-name>ThrottleL</object-name>
-		<object-name>ThrottleR</object-name>
-		<object-name>ThrottleRevL</object-name>
-		<object-name>ThrottleRevR</object-name>
-		<object-name>XfeedLever</object-name>
-		<object-name>YokeBase</object-name>
-		<object-name>YokeColL</object-name>
-		<object-name>YokeColR</object-name>
-		<object-name>YokeL</object-name>
-		<object-name>YokeR</object-name>
-		<object-name>PitchTrim</object-name>
-		<object-name>AToffL</object-name>
-		<object-name>AToffR</object-name>
-		<object-name>TogaL</object-name>
-		<object-name>TogaR</object-name>
-		<object-name>SteeringHandle</object-name>
-		<object-name>ParkingBrakeButton</object-name>
 		<emission>
-			<red>0.6</red>
-			<green>0.6</green>
-			<blue>0.6</blue>
-			<factor-prop>controls/lighting/panel-norm</factor-prop>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
 		</emission>
 	</animation>
 	
@@ -1457,10 +1421,7 @@
 		<increase>
 			<binding>
 				<condition>
-					<equals>
-						<property>controls/dfgs/switches/art</property>
-						<value>0</value>
-					</equals>
+					<not><property>controls/dfgs/switches/art</property></not>
 				</condition>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>

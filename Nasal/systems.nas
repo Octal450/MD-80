@@ -193,6 +193,10 @@ var ELEC = {
 
 # Engine Control
 var ENGINE = {
+	Cover: {
+		startL: props.globals.getNode("/controls/engines/covers/start-l"),
+		startR: props.globals.getNode("/controls/engines/covers/start-r"),
+	},
 	cutoffSwitch: [props.globals.getNode("/controls/engines/engine[0]/cutoff-switch"), props.globals.getNode("/controls/engines/engine[1]/cutoff-switch")],
 	eprTemp: 0,
 	fuReset: props.globals.getNode("/controls/engines/fu-reset"),
@@ -213,6 +217,8 @@ var ENGINE = {
 		me.reverseEngage[1].setBoolValue(0);
 		me.startSwitch[0].setBoolValue(0);
 		me.startSwitch[1].setBoolValue(0);
+		me.Cover.startL.setBoolValue(0);
+		me.Cover.startR.setBoolValue(0);
 		pts.Engines.Engine.oilQtyInput[0].setValue(math.round((rand() * 4) + 14 , 0.1)); # Random between 14 and 18
 		pts.Engines.Engine.oilQtyInput[1].setValue(math.round((rand() * 4) + 14 , 0.1)); # Random between 14 and 18
 	},

@@ -511,6 +511,10 @@
 			</switches>
 		</electrical>
 		<engines n="0">
+			<covers n="0">
+				<start-l type="bool">0</start-l>
+				<start-r type="bool">0</start-r>
+			</covers>
 			<engine n="0">
 				<cutoff type="bool">1</cutoff>
 				<cutoff-switch type="bool">1</cutoff-switch>

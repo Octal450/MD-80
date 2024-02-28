@@ -16,6 +16,7 @@
 		<object-name>Labels</object-name>
 		<object-name>LabelsAuxTanks</object-name>
 		<object-name>IntegrityAcDcVoltFreq</object-name>
+		<object-name>IntegrityCadc</object-name>
 		<object-name>IntegrityFlood</object-name>
 		<object-name>IntegrityMeterSelHeat</object-name>
 		<object-name>IntegrityPanel</object-name>
@@ -1202,6 +1203,51 @@
 	</animation>
 	
 	<animation>
+		<type>knob</type>
+		<object-name>StartLCover</object-name>
+		<property>controls/cockpit/overhead/start-cover-l</property>
+		<drag-direction>vertical</drag-direction>
+		<drag-scale-px>15</drag-scale-px>
+		<factor>100</factor>
+		<center>
+			<x-m>0.00835</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.33633</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<increase>
+			<binding>
+				<condition>
+					<property>controls/engines/engine[0]/start-switch</property>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/engines/engine[0]/start-switch</property>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/engines/covers/start-l</property>
+				<value>0</value>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/engines/covers/start-l</property>
+				<value>1</value>
+			</binding>
+		</decrease>
+	</animation>
+	
+	<animation>
 		<type>rotate</type>
 		<object-name>StartL</object-name>
 		<property>controls/cockpit/overhead/start-switch-l</property>
@@ -1230,14 +1276,65 @@
 			<button>4</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<property>controls/engines/covers/start-l</property>
+				</condition>
 				<command>property-toggle</command>
 				<property>controls/engines/engine[0]/start-switch</property>
 			</binding>
 			<binding>
+				<condition>
+					<property>controls/engines/covers/start-l</property>
+				</condition>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>StartRCover</object-name>
+		<property>controls/cockpit/overhead/start-cover-r</property>
+		<drag-direction>vertical</drag-direction>
+		<drag-scale-px>15</drag-scale-px>
+		<factor>100</factor>
+		<center>
+			<x-m>0.00835</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.33633</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<increase>
+			<binding>
+				<condition>
+					<property>controls/engines/engine[1]/start-switch</property>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/engines/engine[1]/start-switch</property>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/engines/covers/start-r</property>
+				<value>0</value>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/engines/covers/start-r</property>
+				<value>1</value>
+			</binding>
+		</decrease>
 	</animation>
 	
 	<animation>
@@ -1269,10 +1366,16 @@
 			<button>4</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<property>controls/engines/covers/start-r</property>
+				</condition>
 				<command>property-toggle</command>
 				<property>controls/engines/engine[1]/start-switch</property>
 			</binding>
 			<binding>
+				<condition>
+					<property>controls/engines/covers/start-r</property>
+				</condition>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
 			</binding>
