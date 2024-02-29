@@ -36,6 +36,18 @@
 	
 	<animation>
 		<type>select</type>
+		<object-name>EfisSel</object-name>
+		<object-name>LabelsEfis</object-name>
+		<condition>
+			<equals>
+				<property>systems/acconfig/options/panel</property>
+				<value>EFIS</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
 		<object-name>AftAuxTransA</object-name>
 		<object-name>AftAuxTransB</object-name>
 		<object-name>FwdAuxTransA</object-name>
