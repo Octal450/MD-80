@@ -17,11 +17,14 @@
 		<object-name>LabelsAuxTanks</object-name>
 		<object-name>IntegrityAcDcVoltFreq</object-name>
 		<object-name>IntegrityCadc</object-name>
+		<object-name>IntegrityEfisSel</object-name>
+		<object-name>IntegrityEngSync</object-name>
 		<object-name>IntegrityFdCmd</object-name>
 		<object-name>IntegrityFlood</object-name>
 		<object-name>IntegrityMeterSelHeat</object-name>
 		<object-name>IntegrityPanel</object-name>
 		<object-name>IntegrityVertGyro</object-name>
+		<object-name>IntegrityWiper</object-name>
 		<object-name>PneuPressNeedle</object-name>
 		<emission>
 			<red>1.0</red>
