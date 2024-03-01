@@ -515,6 +515,7 @@
 				<start-l type="bool">0</start-l>
 				<start-r type="bool">0</start-r>
 			</covers>
+			<eng-sync type="int">0</eng-sync>
 			<engine n="0">
 				<cutoff type="bool">1</cutoff>
 				<cutoff-switch type="bool">1</cutoff-switch>
@@ -602,6 +603,7 @@
 			<capt-digital-knb type="double">1</capt-digital-knb>
 			<capt-panel-knb type="double">0</capt-panel-knb>
 			<center-panel-knb type="double">0</center-panel-knb>
+			<emer-lt type="double">0</emer-lt>
 			<fgcp-digital-knb type="double">1</fgcp-digital-knb>
 			<fgcp-panel-knb type="double">0</fgcp-panel-knb>
 			<fo-digital-knb type="double">1</fo-digital-knb>

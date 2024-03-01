@@ -198,6 +198,7 @@ var ENGINE = {
 		startR: props.globals.getNode("/controls/engines/covers/start-r"),
 	},
 	cutoffSwitch: [props.globals.getNode("/controls/engines/engine[0]/cutoff-switch"), props.globals.getNode("/controls/engines/engine[1]/cutoff-switch")],
+	engSync: props.globals.getNode("/controls/engines/eng-sync"),
 	eprTemp: 0,
 	fuReset: props.globals.getNode("/controls/engines/fu-reset"),
 	manEpr: [props.globals.getNode("/controls/engines/engine[0]/man-epr"), props.globals.getNode("/controls/engines/engine[1]/man-epr")],
@@ -208,6 +209,7 @@ var ENGINE = {
 	throttle: [props.globals.getNode("/controls/engines/engine[0]/throttle"), props.globals.getNode("/controls/engines/engine[1]/throttle")],
 	throttleTemp: [0, 0],
 	init: func() {
+		me.engSync.setValue(0);
 		me.fuReset.setBoolValue(0);
 		me.manEpr[0].setValue(2);
 		me.manEpr[1].setValue(2);
