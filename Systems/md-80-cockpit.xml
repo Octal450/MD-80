@@ -572,6 +572,11 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/overhead/gpws-cover">
+			<input>/controls/switches/gpws-cover</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/overhead/ign">
 			<input>/controls/ignition/switches/ign</input>
 			<c1>20</c1>

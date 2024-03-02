@@ -17,7 +17,7 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="overhead.svg"
-   inkscape:export-filename="D:\Aircraft\MD-80\Models\Overhead\overhead-labels-extra.png"
+   inkscape:export-filename="D:\Aircraft\MD-80\Models\Overhead\overhead.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -29,9 +29,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.25000003"
-     inkscape:cx="1929.7363"
-     inkscape:cy="1994.5983"
+     inkscape:zoom="0.35355343"
+     inkscape:cx="1323.9921"
+     inkscape:cy="1430.9021"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1490,7 +1490,7 @@
            id="circle5537"
            style="opacity:1;fill:#666666;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
         <circle
-           style="opacity:1;fill:#464646;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           style="opacity:1;fill:#640000;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="circle5539"
            cx="121.99167"
            cy="626.80634"

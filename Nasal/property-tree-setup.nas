@@ -45,6 +45,7 @@ var Controls = {
 		annunTest: props.globals.getNode("/controls/switches/annun-test"),
 		annunTest5Sec: props.globals.getNode("/controls/switches/annun-test-5sec"),
 		gpws: props.globals.getNode("/controls/switches/gpws"),
+		gpwsCover: props.globals.getNode("/controls/switches/gpws-cover"),
 		maxSpdWarnTest: props.globals.getNode("/controls/switches/max-spd-warn-test"),
 		minimums: props.globals.getNode("/controls/switches/minimums"),
 		noSmokingSign: props.globals.getNode("/controls/switches/no-smoking-sign"),
