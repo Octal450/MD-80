@@ -1616,6 +1616,9 @@
 			<file>Aircraft/MD-80/gui/canvas/common.nas</file>
 			<file>Aircraft/MD-80/gui/canvas/fgcp.nas</file>
 		</panel2d>
+		<lightmanager>
+			<file>Aircraft/MD-80/Nasal/light-manager.nas</file>
+		</lightmanager>
 	</nasal>
 
 </PropertyList>

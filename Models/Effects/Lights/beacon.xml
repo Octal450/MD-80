@@ -3,22 +3,20 @@
 <!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
 
 <PropertyList>
-
+	
 	<path>beacon.ac</path>
 	<nopreview/>
-
+	
 	<animation>
 		<type>noshadow</type>
 		<object-name>beaconals</object-name>
 	</animation>
-
-	<animation>
-		<type>scale</type>
-		<x-offset>1</x-offset>
-		<y-offset>1</y-offset>
-		<z-offset>1</z-offset>
-	</animation>
-
+	
+	<effect>
+		<inherits-from>Aircraft/MD-80/Models/Effects/Lights/beacon</inherits-from>
+		<object-name>beaconals</object-name>
+	</effect>
+	
 	<animation>
 		<type>dist-scale</type>
 		<object-name>beaconals</object-name>
@@ -37,11 +35,5 @@
 			</entry>
 		</interpolation>
 	</animation>
-	
-	<effect>
-			<inherits-from>Aircraft/MD-80/Models/Effects/Lights/beacon</inherits-from>
-			<object-name>beaconals</object-name>
-	</effect>
-
 
 </PropertyList>

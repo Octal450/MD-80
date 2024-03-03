@@ -6,24 +6,24 @@
 
 	<path>landinglight.ac</path>
 	<nopreview/>
-
+	
 	<animation>
 		<type>noshadow</type>
 		<object-name>landinglightals</object-name>
 	</animation>
-
+	
 	<effect>
-		<inherits-from>Aircraft/MD-80/Models/Effects\Lights\landinglightN</inherits-from>
+		<inherits-from>Aircraft/MD-80/Models/Effects/Lights/landinglightN</inherits-from>
 		<object-name>landinglightals</object-name>
 	</effect>
-
+	
 	<animation>
 		<type>scale</type>
 		<x-offset>0.75</x-offset>
 		<y-offset>0.75</y-offset>
 		<z-offset>0.75</z-offset>
 	</animation>
-
+	
 	<animation>
 		<type>dist-scale</type>
 		<object-name>landinglightals</object-name>
@@ -42,7 +42,7 @@
 			</entry>
 		</interpolation>
 	</animation>
-
+	
 	<animation>
 		<type>flash</type>
 		<object-name>landinglightals</object-name>
@@ -59,7 +59,7 @@
 		<power>8</power>
 		<factor>6</factor>
 		<offset>0</offset>
-		<two-sides	type="bool">false</two-sides>
+		<two-sides>false</two-sides>
 		<min>0.1</min>
 		<max>1.5</max>
 	</animation>

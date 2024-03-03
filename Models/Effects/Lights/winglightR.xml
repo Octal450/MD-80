@@ -3,27 +3,27 @@
 <!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
 
 <PropertyList>
-
+	
 	<path>landinglight.ac</path>
 	<nopreview/>
-
+	
 	<animation>
 		<type>noshadow</type>
 		<object-name>landinglightals</object-name>
 	</animation>
-
+	
 	<effect>
-		<inherits-from>Aircraft/MD-80/Models/Effects\Lights\winglightR</inherits-from>
+		<inherits-from>Aircraft/MD-80/Models/Effects/Lights/winglightR</inherits-from>
 		<object-name>landinglightals</object-name>
 	</effect>
-
+	
 	<animation>
 		<type>scale</type>
 		<x-offset>0.75</x-offset>
 		<y-offset>0.75</y-offset>
 		<z-offset>0.75</z-offset>
 	</animation>
-
+	
 	<animation>
 		<type>dist-scale</type>
 		<object-name>landinglightals</object-name>

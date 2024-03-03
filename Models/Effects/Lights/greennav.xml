@@ -3,15 +3,15 @@
 <!-- Copyright (c) 2020 Josh Davidson (Octal450) -->
 
 <PropertyList>
-
+	
 	<path>greennav.ac</path>
 	<nopreview/>
-
+	
 	<animation>
 		<type>noshadow</type>
 		<object-name>green-navlightals</object-name>
 	</animation>
-
+	
 	<effect>
 		<inherits-from>Aircraft/MD-80/Models/Effects/Lights/greennav</inherits-from>
 		<object-name>green-navlightals</object-name>
@@ -42,6 +42,5 @@
 			</entry>
 		</interpolation>
 	</animation>
-
 
 </PropertyList>
