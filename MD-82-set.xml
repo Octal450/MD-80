@@ -12,6 +12,12 @@
 			<livery>
 				<file type="string">White</file>
 			</livery>
+			<n1-tach n="0">
+				<texture type="string">n1-217a.png</texture>
+			</n1-tach>
+			<n2-tach n="0">
+				<texture type="string">n2-217a.png</texture>
+			</n2-tach>
 			<path>Aircraft/MD-80/Models/MD-82.xml</path>
 		</model>
 		<previews>

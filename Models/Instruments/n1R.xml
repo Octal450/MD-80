@@ -7,6 +7,14 @@
 	
 	<path>n1.ac</path>
 	
+	<animation> 
+		<type>material</type>
+		<object-name>Face</object-name>
+		<property-base>sim/model/n1-tach</property-base>
+		<texture-prop>texture</texture-prop> 
+		<texture>n1-217a.png</texture>
+	</animation>
+	
 	<animation>
 		<type>material</type>
 		<object-name>Face</object-name>
