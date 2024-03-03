@@ -297,6 +297,21 @@
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
+			<condition>
+				<equals>
+					<property>/options/eng</property>
+					<value>209</value>
+				</equals>
+			</condition>
+			<expression> <!-- EPR non-linearity makes it hard -->
+				<table>
+					<property>/engines/engine[0]/n1-actual</property>
+					<entry><ind>25.3</ind><dep>0</dep></entry>
+					<entry><ind>99.2</ind><dep>1</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<input>
 			<expression> <!-- EPR non-linearity makes it hard -->
 				<table>
 					<property>/engines/engine[0]/n1-actual</property>
@@ -312,6 +327,21 @@
 		<name>Power Norm Engine 2</name>
 		<type>gain</type>
 		<gain>1.0</gain>
+		<input>
+			<condition>
+				<equals>
+					<property>/options/eng</property>
+					<value>209</value>
+				</equals>
+			</condition>
+			<expression> <!-- EPR non-linearity makes it hard -->
+				<table>
+					<property>/engines/engine[1]/n1-actual</property>
+					<entry><ind>25.3</ind><dep>0</dep></entry>
+					<entry><ind>99.2</ind><dep>1</dep></entry>
+				</table>
+			</expression>
+		</input>
 		<input>
 			<expression> <!-- EPR non-linearity makes it hard -->
 				<table>

@@ -549,8 +549,8 @@
 					<table>
 						<independentVar lookup="row">engine/limit/active-norm-input</independentVar>
 						<tableData>
-							 25.3  0
-							101.6  1
+							25.3  0
+							99.2  1
 						</tableData>
 					</table>
 					<property>engine/art/output</property>
@@ -567,8 +567,8 @@
 				<table>
 					<independentVar lookup="row">engine/limit/active-norm-input</independentVar>
 					<tableData>
-						 25.3  0
-						101.6  1
+						25.3  0
+						99.2  1
 					</tableData>
 				</table>
 			</function>
@@ -624,8 +624,8 @@
 					<table>
 						<independentVar lookup="row">engine/limit/highest-norm-input</independentVar>
 						<tableData>
-							 25.3  0
-							101.6  1
+							25.3  0
+							99.2  1
 						</tableData>
 					</table>
 					<property>engine/art/output</property>
@@ -742,8 +742,8 @@
 				<table>
 					<independentVar lookup="row">engine/limit/idle-norm-input</independentVar>
 					<tableData>
-						 25.3  0
-						101.6  1
+						25.3  0
+						99.2  1
 					</tableData>
 				</table>
 			</function>
@@ -931,8 +931,8 @@
 				<table>
 					<independentVar lookup="row">engine/art/max-norm-input</independentVar>
 					<tableData>
-						 25.3  0
-						101.6  1
+						25.3  0
+						99.2  1
 					</tableData>
 				</table>
 			</function>
@@ -988,8 +988,8 @@
 				<table>
 					<independentVar lookup="row">engine/art/normal-norm-input</independentVar>
 					<tableData>
-						 25.3  0
-						101.6  1
+						25.3  0
+						99.2  1
 					</tableData>
 				</table>
 			</function>
@@ -1131,8 +1131,8 @@
 				<table>
 					<independentVar lookup="row">engine/limit/man-1-norm-input</independentVar>
 					<tableData>
-						 25.3  0
-						101.6  1
+						25.3  0
+						99.2  1
 					</tableData>
 				</table>
 			</function>
@@ -1237,8 +1237,8 @@
 				<table>
 					<independentVar lookup="row">engine/limit/man-2-norm-input</independentVar>
 					<tableData>
-						 25.3  0
-						101.6  1
+						25.3  0
+						99.2  1
 					</tableData>
 				</table>
 			</function>
