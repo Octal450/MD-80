@@ -6,15 +6,6 @@
 <system name="MD-80: Cockpit"> <!-- Everything here is after all systems -->
 	
 	<property value="0">/controls/cockpit/overhead/battery-out</property>
-	<property value="0">/systems/caws/apoff/out</property>
-	<property value="0">/systems/caws/apoff/single-out</property>
-	<property value="0">/systems/caws/landing-gear/out</property>
-	<property value="0">/systems/caws/overspeed/out</property>
-	<property value="0">/systems/caws/slat-overspeed/out</property>
-	<property value="0">/systems/caws/stabilizer-buzz/out</property>
-	<property value="0">/systems/caws/stabilizer-motion/out</property>
-	<property value="0">/systems/caws/stall-1/out</property>
-	<property value="0">/systems/caws/stall-2/out</property>
 	
 	<channel name="Animations">
 		
