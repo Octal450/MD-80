@@ -343,6 +343,7 @@ var ITAF = {
 		# Turbulance Mode Reversion
 		if (Output.latTemp != 6 and Output.vertTemp == 8) {
 			me.setVertMode(1);
+			Fma.startBlink(3);
 		}
 		
 		Output.ap1Temp = Output.ap1.getBoolValue();
