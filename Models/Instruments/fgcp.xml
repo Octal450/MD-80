@@ -9,7 +9,8 @@
 	
 	<animation>
 		<type>material</type>
-		<object-name>FGCP_labels</object-name>
+		<object-name>BtnText</object-name>
+		<object-name>FGCPLabels</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.6</green>
@@ -427,7 +428,31 @@
 					libraries.Sound.btn1();
 				</script>
 			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/fgcp/spd-sel</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/fgcp/spd-sel</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>SpdSel</object-name>
+		<object-name>SpdSel.Text</object-name>
+		<property>controls/cockpit/fgcp/spd-sel</property>
+		<factor>-0.001</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
 	</animation>
 	
 	<animation>
@@ -443,12 +468,36 @@
 					libraries.Sound.btn1();
 				</script>
 			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/fgcp/mach-sel</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/fgcp/mach-sel</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>MachSel</object-name>
+		<object-name>MachSel.Text</object-name>
+		<property>controls/cockpit/fgcp/mach-sel</property>
+		<factor>-0.001</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
 	</animation>
 	
 	<animation>
 		<type>pick</type>
-		<object-name>EprLimSel</object-name>
+		<object-name>EprLim</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -459,7 +508,31 @@
 					libraries.Sound.btn1();
 				</script>
 			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/fgcp/epr-lim</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/fgcp/epr-lim</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>EprLim</object-name>
+		<object-name>EprLim.Text</object-name>
+		<property>controls/cockpit/fgcp/epr-lim</property>
+		<factor>-0.001</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
 	</animation>
 	
 	<!--  Speed Digits -->
@@ -731,7 +804,7 @@
 	<!-- Lateral Buttons -->
 	<animation>
 		<type>pick</type>
-		<object-name>NavSel</object-name>
+		<object-name>Nav</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -742,12 +815,36 @@
 					libraries.Sound.btn1();
 				</script>
 			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/fgcp/nav</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/fgcp/nav</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>Nav</object-name>
+		<object-name>Nav.Text</object-name>
+		<property>controls/cockpit/fgcp/nav</property>
+		<factor>-0.001</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
 	</animation>
 	
 	<animation>
 		<type>pick</type>
-		<object-name>VorLocSel</object-name>
+		<object-name>VorLoc</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -758,12 +855,36 @@
 					libraries.Sound.btn1();
 				</script>
 			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/fgcp/vor-loc</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/fgcp/vor-loc</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>VorLoc</object-name>
+		<object-name>VorLoc.Text</object-name>
+		<property>controls/cockpit/fgcp/vor-loc</property>
+		<factor>-0.001</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
 	</animation>
 	
 	<animation>
 		<type>pick</type>
-		<object-name>IlsSel</object-name>
+		<object-name>Ils</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -774,12 +895,36 @@
 					libraries.Sound.btn1();
 				</script>
 			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/fgcp/ils</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/fgcp/ils</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>Ils</object-name>
+		<object-name>Ils.Text</object-name>
+		<property>controls/cockpit/fgcp/ils</property>
+		<factor>-0.001</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
 	</animation>
 	
 	<animation>
 		<type>pick</type>
-		<object-name>AutoLandSel</object-name>
+		<object-name>AutoLand</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -790,7 +935,31 @@
 					libraries.Sound.btn1();
 				</script>
 			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/fgcp/auto-land</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/fgcp/auto-land</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>AutoLand</object-name>
+		<object-name>AutoLand.Text</object-name>
+		<property>controls/cockpit/fgcp/auto-land</property>
+		<factor>-0.001</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
 	</animation>
 	
 	<!-- Heading Digits -->
@@ -1334,7 +1503,7 @@
 	<!-- Vertical Buttons -->
 	<animation>
 		<type>pick</type>
-		<object-name>VertSpdSel</object-name>
+		<object-name>VertSpd</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -1345,12 +1514,36 @@
 					libraries.Sound.btn1();
 				</script>
 			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/fgcp/vert-spd</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/fgcp/vert-spd</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>VertSpd</object-name>
+		<object-name>VertSpd.Text</object-name>
+		<property>controls/cockpit/fgcp/vert-spd</property>
+		<factor>-0.001</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
 	</animation>
 	
 	<animation>
 		<type>pick</type>
-		<object-name>IasMachSel</object-name>
+		<object-name>IasMach</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -1361,12 +1554,36 @@
 					libraries.Sound.btn1();
 				</script>
 			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/fgcp/ias-mach</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/fgcp/ias-mach</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>IasMach</object-name>
+		<object-name>IasMach.Text</object-name>
+		<property>controls/cockpit/fgcp/ias-mach</property>
+		<factor>-0.001</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
 	</animation>
 	
 	<animation>
 		<type>pick</type>
-		<object-name>AltHoldSel</object-name>
+		<object-name>AltHold</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -1377,12 +1594,36 @@
 					libraries.Sound.btn1();
 				</script>
 			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/fgcp/alt-hold</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/fgcp/alt-hold</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>AltHold</object-name>
+		<object-name>AltHold.Text</object-name>
+		<property>controls/cockpit/fgcp/alt-hold</property>
+		<factor>-0.001</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
 	</animation>
 	
 	<animation>
 		<type>pick</type>
-		<object-name>TurbSel</object-name>
+		<object-name>Turb</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -1393,7 +1634,31 @@
 					libraries.Sound.btn1();
 				</script>
 			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/fgcp/turb</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/fgcp/turb</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>Turb</object-name>
+		<object-name>Turb.Text</object-name>
+		<property>controls/cockpit/fgcp/turb</property>
+		<factor>-0.001</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
 	</animation>
 	
 	<!-- Autopilot Switch -->
@@ -1453,7 +1718,7 @@
 		</action>
 	</animation>
 	
-	<!-- Autopilot Selector -->
+	<!-- Autopilot ector -->
 	<animation>
 		<type>knob</type>
 		<object-name>APSelector</object-name>
