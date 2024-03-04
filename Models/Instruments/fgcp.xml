@@ -2174,8 +2174,8 @@
 		<object-name>SwFloodLtsL</object-name>
 		<property>controls/cockpit/ground-flood-light-l</property>
 		<interpolation>
-			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>60</dep></entry>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.008647</x-m>
@@ -2213,8 +2213,8 @@
 		<object-name>SwFloodLtsR</object-name>
 		<property>controls/cockpit/ground-flood-light-r</property>
 		<interpolation>
-			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>60</dep></entry>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.008647</x-m>
@@ -2252,8 +2252,8 @@
 		<object-name>SwACLts</object-name>
 		<property>controls/cockpit/beacon</property>
 		<interpolation>
-			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>60</dep></entry>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.008653</x-m>
@@ -2291,8 +2291,8 @@
 		<object-name>SwNavLts</object-name>
 		<property>controls/cockpit/position-strobe-light</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>1.0</ind><dep>60</dep></entry>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.008653</x-m>
@@ -2347,8 +2347,8 @@
 		<object-name>SwWingLts</object-name>
 		<property>controls/cockpit/wing-lights</property>
 		<interpolation>
-			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>60</dep></entry>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.008653</x-m>
