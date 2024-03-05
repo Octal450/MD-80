@@ -56,24 +56,24 @@
 		<name>fwd-lbs</name>
 		<offsets>
 			<x-m>0.003</x-m>
-			<y-m>0.0173</y-m>
+			<y-m>0.0159</y-m>
 			<z-m>0.0145</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">number-value</type>
-		<format type="string">%02.0f</format>
-		<format type="string">%05d</format>
+		<type>number-value</type>
+		<format>%02.0f</format>
+		<format>%05d</format>
 		<property>systems/fuel/tank-aux-fwd-lbs</property>
 		<truncate>false</truncate>
-		<font type="string">Std7SegCustom.ttf</font>
+		<font>Std7SegCustom.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.0085</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width>30</width>
+			<height>32</height>
 		</font-resolution>
 	</text>
 	
@@ -81,23 +81,23 @@
 		<name>aft-lbs</name>
 		<offsets>
 			<x-m>0.003</x-m>
-			<y-m>0.0173</y-m>
+			<y-m>0.0159</y-m>
 			<z-m>-0.0071</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
-		<type type="string">number-value</type>
-		<format type="string">%02.0f</format>
+		<type>number-value</type>
+		<format>%02.0f</format>
 		<property>systems/fuel/tank-aux-aft-lbs</property>
 		<truncate>false</truncate>
-		<font type="string">Std7SegCustom.ttf</font>
+		<font>Std7SegCustom.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.0085</character-size>
 		<font-resolution>
-			<width type="int">32</width>
-			<height type="int">32</height>
+			<width>30</width>
+			<height>32</height>
 		</font-resolution>
 	</text>
 

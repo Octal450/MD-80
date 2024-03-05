@@ -125,7 +125,7 @@
 		<name>left-lbs</name>
 		<offsets>
 			<x-m>0.003</x-m>
-			<y-m>-0.0048</y-m>
+			<y-m>-0.0062</y-m>
 			<z-m>0.0261</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
@@ -140,7 +140,7 @@
 		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.0085</character-size>
 		<font-resolution>
-			<width>32</width>
+			<width>30</width>
 			<height>32</height>
 		</font-resolution>
 	</text>
@@ -149,7 +149,7 @@
 		<name>right-lbs</name>
 		<offsets>
 			<x-m>0.003</x-m>
-			<y-m>0.0393</y-m>
+			<y-m>0.0379</y-m>
 			<z-m>0.0261</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
@@ -164,7 +164,7 @@
 		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.0085</character-size>
 		<font-resolution>
-			<width>32</width>
+			<width>30</width>
 			<height>32</height>
 		</font-resolution>
 	</text>
@@ -173,7 +173,7 @@
 		<name>center-lbs</name>
 		<offsets>
 			<x-m>0.003</x-m>
-			<y-m>0.0173</y-m>
+			<y-m>0.0159</y-m>
 			<z-m>0.0071</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
@@ -188,7 +188,7 @@
 		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.0085</character-size>
 		<font-resolution>
-			<width>32</width>
+			<width>30</width>
 			<height>32</height>
 		</font-resolution>
 	</text>
@@ -197,7 +197,7 @@
 		<name>total-lbs</name>
 		<offsets>
 			<x-m>0.003</x-m>
-			<y-m>0.0192</y-m>
+			<y-m>0.0178</y-m>
 			<z-m>-0.0121</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
@@ -212,7 +212,7 @@
 		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.0095</character-size>
 		<font-resolution>
-			<width>32</width>
+			<width>30</width>
 			<height>32</height>
 		</font-resolution>
 	</text>
@@ -221,7 +221,7 @@
 		<name>gross-weight-lbs</name>
 		<offsets>
 			<x-m>0.003</x-m>
-			<y-m>0.0207</y-m>
+			<y-m>0.0191</y-m>
 			<z-m>-0.0311</z-m>
 		</offsets>
 		<alignment>right-center</alignment>
@@ -236,7 +236,7 @@
 		<draw-boundingbox>false</draw-boundingbox>
 		<character-size>0.0085</character-size>
 		<font-resolution>
-			<width>32</width>
+			<width>30</width>
 			<height>32</height>
 		</font-resolution>
 	</text>
