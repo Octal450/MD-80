@@ -146,11 +146,11 @@ var canvasBase = {
 	updateCommon: func(w) { # w is window, 0 thrust, 1 arm, 2 roll, 3 pitch
 		if (Value.annunTest) { # Stays active for 5 seconds
 			if (w == 1 or w == 2) {
-				me["Line1"].setText("¤¤¤");
-				me["Line2"].setText("¤¤¤");
+				me["Line1"].setText("###");
+				me["Line2"].setText("###");
 			} else {
-				me["Line1"].setText("¤¤¤¤");
-				me["Line2"].setText("¤¤¤¤");
+				me["Line1"].setText("####");
+				me["Line2"].setText("####");
 			}
 		} else {
 			if (Value.blinkActive[w] and Value.blink < 2) {

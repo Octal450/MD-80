@@ -8,6 +8,18 @@
 	<path>fgcp.ac</path>
 	
 	<animation>
+		<name>Digits</name>
+		<object-name>Digits.Crs1</object-name>
+		<object-name>Digits.Crs2</object-name>
+		<object-name>Digits.Freq1</object-name>
+		<object-name>Digits.Freq2</object-name>
+		<object-name>Digits.Hdg</object-name>
+		<object-name>Digits.Ias</object-name>
+		<object-name>Digits.Mach</object-name>
+		<object-name>Digits.Vs</object-name>
+	</animation>
+	
+	<animation>
 		<type>material</type>
 		<object-name>BtnText</object-name>
 		<object-name>FGCPLabels</object-name>
@@ -19,22 +31,18 @@
 		</emission>
 	</animation>
 	
-	<animation>
-		<type>material</type>
-		<object-name>Digits</object-name>
-		<emission>
-			<red>1.0</red>
-			<green>1.0</green>
-			<blue>1.0</blue>
-			<factor-prop>controls/lighting/fgcp-digital-norm</factor-prop>
-		</emission>
-	</animation>
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>BtnText</object-name>
+		<object-name>FGCPLabels</object-name>
+	</effect>
 	
 	<animation>
 		<type>select</type>
 		<object-name>Digits</object-name>
 		<condition>
 			<and>
+				<not><property>controls/switches/annun-test</property></not>
 				<greater-than-equals>
 					<property>systems/electrical/outputs/fgcp</property>
 					<value>24</value>
@@ -45,6 +53,51 @@
 				</greater-than>
 			</and>
 		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Digits.Test</object-name>
+		<condition>
+			<and>
+				<property>controls/switches/annun-test</property>
+				<greater-than-equals>
+					<property>systems/electrical/outputs/fgcp</property>
+					<value>24</value>
+				</greater-than-equals>
+				<greater-than>
+					<property>controls/lighting/fgcp-digital-norm</property>
+					<value>0.01</value>
+				</greater-than>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Digits</object-name>
+		<object-name>Digits.Test</object-name>
+		<diffuse>
+			<red>1</red>
+			<green>0.6</green>
+			<blue>0</blue>
+			<factor-prop>controls/lighting/fgcp-digital-norm</factor-prop>
+		</diffuse>
+		<ambient>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</ambient>
+		<specular>
+			<red>0</red>
+			<green>0</green>
+			<blue>0</blue>
+		</specular>
+		<emission>
+			<red>1</red>
+			<green>0.6</green>
+			<blue>0</blue>
+			<factor-prop>controls/lighting/fgcp-digital-norm</factor-prop>
+		</emission>
 	</animation>
 	
 	<!-- Dimmers -->
@@ -108,72 +161,51 @@
 		</action>
 	</animation>
 	
-	<!-- NAV1 Digits -->
-	<animation>
-		<type>textranslate</type>
-		<object-name>Nav1Digit1</object-name>
-		<property>instrumentation/nav[0]/frequencies/selected-mhz-fmt-x100</property>
-		<factor>0.00001</factor>
-		<step>10000</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>Nav1Digit2</object-name>
-		<property>instrumentation/nav[0]/frequencies/selected-mhz-fmt-x100</property>
-		<factor>0.0001</factor>
-		<step>1000</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>Nav1Digit3</object-name>
-		<property>instrumentation/nav[0]/frequencies/selected-mhz-fmt-x100</property>
-		<factor>0.001</factor>
-		<step>100</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>Nav1Digit4</object-name>
-		<property>instrumentation/nav[0]/frequencies/selected-mhz-fmt-x100</property>
-		<factor>0.01</factor>
-		<step>10</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>Nav1Digit5</object-name>
-		<property>instrumentation/nav[0]/frequencies/selected-mhz-fmt-x100</property>
-		<factor>0.1</factor>
-		<step>1</step>
-		<bias>0.1</bias>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
+	<!-- NAV1 Freq Window -->
+	<text>
+		<name>Digits.Freq1</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>-0.2365</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>%6.2f</format>
+		<property>instrumentation/nav[0]/frequencies/selected-mhz-fmt</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.Test</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>-0.2365</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>888.88</text>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
 	
 	<!-- NAV1 Freq Knobs -->
 	<animation>
@@ -259,44 +291,53 @@
 		</action>
 	</animation>
 	
-	<!-- NAV1 Course Digits -->
-	<animation>
-		<type>textranslate</type>
-		<object-name>Nav1CrsDigit1</object-name>
+	<!-- NAV1 Course Window -->
+	<text>
+		<name>Digits.Crs1</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>-0.1807</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>%003.0f</format>
 		<property>instrumentation/nav[0]/radials/selected-deg</property>
-		<factor>0.001</factor>
-		<step>100</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.Test</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>-0.1807</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>888</text>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
 	
-	<animation>
-		<type>textranslate</type>
-		<object-name>Nav1CrsDigit2</object-name>
-		<property>instrumentation/nav[0]/radials/selected-deg</property>
-		<factor>0.01</factor>
-		<step>10</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>Nav1CrsDigit3</object-name>
-		<property>instrumentation/nav[0]/radials/selected-deg</property>
-		<factor>0.1</factor>
-		<step>1</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
-	
-	<!-- NAV1 CRS Knob -->
+	<!-- NAV1 Course Knob -->
 	<animation>
 		<type>knob</type>
 		<object-name>Nav1CrsKnob</object-name>
@@ -535,105 +576,88 @@
 		</axis>
 	</animation>
 	
-	<!--  Speed Digits -->
+	<!-- Speed Window -->
+	<text>
+		<name>Digits.Ias</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>-0.0922</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>%3.0f</format>
+		<property>it-autoflight/input/kts</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.Mach</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>-0.0922</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>.%3.0f</format>
+		<property>it-autoflight/input/mach-x1000</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.Test</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>-0.0922</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>.888</text>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	
 	<animation>
 		<type>select</type>
-		<object-name>IASDigit1</object-name>
-		<object-name>IASDigit2</object-name>
-		<object-name>IASDigit3</object-name>
+		<object-name>Digits.Ias</object-name>
 		<condition>
-			<not-equals>
-				<property>it-autoflight/input/kts-mach</property>
-				<value>1</value>
-			</not-equals>
+			<not><property>it-autoflight/input/kts-mach</property></not>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
-		<object-name>MachDigit1</object-name>
-		<object-name>MachDigit2</object-name>
-		<object-name>MachDigit3</object-name>
-		<object-name>MachDecimal</object-name>
+		<object-name>Digits.Mach</object-name>
 		<condition>
-			<equals>
-				<property>it-autoflight/input/kts-mach</property>
-				<value>1</value>
-			</equals>
+			<property>it-autoflight/input/kts-mach</property>
 		</condition>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>IASDigit1</object-name>
-		<property>it-autoflight/input/kts</property>
-		<factor>0.001</factor>
-		<step>100</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>textranslate</type>
-		<object-name>IASDigit2</object-name>
-		<property>it-autoflight/input/kts</property>
-		<factor>0.01</factor>
-		<step>10</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>textranslate</type>
-		<object-name>IASDigit3</object-name>
-		<property>it-autoflight/input/kts</property>
-		<factor>0.1</factor>
-		<step>1</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>MachDigit1</object-name>
-		<property>it-autoflight/input/mach-x1000</property>
-		<factor>0.001</factor>
-		<step>100</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>textranslate</type>
-		<object-name>MachDigit2</object-name>
-		<property>it-autoflight/input/mach-x1000</property>
-		<factor>0.01</factor>
-		<step>10</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>textranslate</type>
-		<object-name>MachDigit3</object-name>
-		<property>it-autoflight/input/mach-x1000</property>
-		<factor>0.1</factor>
-		<step>1</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
 	</animation>
 	
 	<!-- Speed Knob -->
@@ -962,43 +986,51 @@
 		</axis>
 	</animation>
 	
-	<!-- Heading Digits -->
-	<animation>
-		<type>textranslate</type>
-		<object-name>HdgDigit1</object-name>
+	<!-- Heading Window -->
+	<text>
+		<name>Digits.Hdg</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>-0.0141</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>%03.0f</format>
 		<property>it-autoflight/input/hdg</property>
-		<factor>0.001</factor>
-		<step>100</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>textranslate</type>
-		<object-name>HdgDigit2</object-name>
-		<property>it-autoflight/input/hdg</property>
-		<factor>0.01</factor>
-		<step>10</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>textranslate</type>
-		<object-name>HdgDigit3</object-name>
-		<property>it-autoflight/input/hdg</property>
-		<factor>0.1</factor>
-		<step>1</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.Test</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>-0.0141</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>888</text>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
 	
 	<!-- Heading Knob -->
 	<animation>
@@ -1212,246 +1244,51 @@
 		</action>
 	</animation>
 	
-	<!-- Pitch Mode: VS -->
-	<animation>
-		<type>select</type>
-		<object-name>PitchModeVS</object-name>
-		<object-name>VSDigit1</object-name>
-		<object-name>VSDigit2</object-name>
-		<object-name>VSDigit3</object-name>
-		<object-name>VSDigit4</object-name>
-		<object-name>VSDigitMinus</object-name>
-		<condition>
-			<and>
-				<not-equals>
-					<property>it-autoflight/output/vert</property>
-					<value>4</value>
-				</not-equals>
-				<not-equals>
-					<property>it-autoflight/output/vert</property>
-					<value>8</value>
-				</not-equals>
-			</and>
-		</condition>
-	</animation>
+	<!-- Pitch Window -->
+	<text>
+		<name>Digits.Test</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.0375</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>-8888</text>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
 	
-	<animation>
-		<type>select</type>
-		<object-name>VSDigitMinus</object-name>
-		<condition>
-			<and>
-				<less-than>
-					<property>it-autoflight/input/vs</property>
-					<value>-0.01</value>
-				</less-than>
-				<greater-than>
-					<property>it-autoflight/input/vs-fma</property>
-					<value>0.01</value>
-				</greater-than>
-			</and>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>VSDigit1</object-name>
-		<property>it-autoflight/input/vs-fma</property>
-		<factor>0.0001</factor>
-		<step>1000</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>textranslate</type>
-		<object-name>VSDigit2</object-name>
-		<property>it-autoflight/input/vs-fma</property>
-		<factor>0.001</factor>
-		<step>100</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<!-- Pitch Mode: VS -->
-	<animation>
-		<type>select</type>
-		<object-name>PitchModeTurb</object-name>
-		<object-name>TurbDigit1</object-name>
-		<object-name>TurbDigit2</object-name>
-		<object-name>TurbDigit3</object-name>
-		<object-name>TurbDigit4</object-name>
-		<object-name>TurbDigitMinus</object-name>
-		<condition>
-			<equals>
-				<property>it-autoflight/output/vert</property>
-				<value>8</value>
-			</equals>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>TurbDigitMinus</object-name>
-		<condition>
-			<and>
-				<less-than>
-					<property>it-autoflight/input/pitch</property>
-					<value>-0.001</value>
-				</less-than>
-				<greater-than>
-					<property>it-autoflight/input/pitch-abs</property>
-					<value>0.001</value>
-				</greater-than>
-			</and>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>TurbDigit1</object-name>
-		<property>it-autoflight/input/pitch-abs</property>
-		<factor>0.01</factor>
-		<step>10</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>textranslate</type>
-		<object-name>TurbDigit2</object-name>
-		<property>it-autoflight/input/pitch-abs</property>
-		<factor>0.1</factor>
-		<step>1</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<!-- Pitch Mode: IAS -->
-	<animation>
-		<type>select</type>
-		<object-name>PitchModeIAS</object-name>
-		<object-name>IASFDigit1</object-name>
-		<object-name>IASFDigit2</object-name>
-		<object-name>IASFDigit3</object-name>
-		<condition>
-			<and>
-				<equals>
-					<property>it-autoflight/output/vert</property>
-					<value>4</value>
-				</equals>
-				<not-equals>
-					<property>it-autoflight/input/kts-mach-flch</property>
-					<value>1</value>
-				</not-equals>
-			</and>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>IASFDigit1</object-name>
-		<property>it-autoflight/input/kts-flch</property>
-		<factor>0.001</factor>
-		<step>100</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>textranslate</type>
-		<object-name>IASFDigit2</object-name>
-		<property>it-autoflight/input/kts-flch</property>
-		<factor>0.01</factor>
-		<step>10</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>textranslate</type>
-		<object-name>IASFDigit3</object-name>
-		<property>it-autoflight/input/kts-flch</property>
-		<factor>0.1</factor>
-		<step>1</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<!-- Pitch Mode: Mach -->
-	<animation>
-		<type>select</type>
-		<object-name>PitchModeMach</object-name>
-		<object-name>MachFDigit1</object-name>
-		<object-name>MachFDigit2</object-name>
-		<object-name>MachFDigit3</object-name>
-		<object-name>MachFDecimal</object-name>
-		<condition>
-			<and>
-				<equals>
-					<property>it-autoflight/output/vert</property>
-					<value>4</value>
-				</equals>
-				<equals>
-					<property>it-autoflight/input/kts-mach-flch</property>
-					<value>1</value>
-				</equals>
-			</and>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>MachFDigit1</object-name>
-		<property>it-autoflight/input/mach-flch-x1000</property>
-		<factor>0.001</factor>
-		<step>100</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>textranslate</type>
-		<object-name>MachFDigit2</object-name>
-		<property>it-autoflight/input/mach-flch-x1000</property>
-		<factor>0.01</factor>
-		<step>10</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>textranslate</type>
-		<object-name>MachFDigit3</object-name>
-		<property>it-autoflight/input/mach-flch-x1000</property>
-		<factor>0.1</factor>
-		<step>1</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
+	<!-- Pitch Mode Window -->
+	<text>
+		<name>Digits.Test</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.0045</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>#</text> <!-- Shows all segments -->
+		<font>Std16SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.011</character-size>
+		<font-resolution>
+			<width>56</width>
+			<height>48</height>
+		</font-resolution>
+	</text>
 	
 	<!-- Pitch Knob -->
 	<animation>
@@ -2038,72 +1875,51 @@
 		</axis>
 	</animation>
 	
-	<!-- NAV2 Digits -->
-	<animation>
-		<type>textranslate</type>
-		<object-name>Nav2Digit1</object-name>
-		<property>instrumentation/nav[1]/frequencies/selected-mhz-fmt-x100</property>
-		<factor>0.00001</factor>
-		<step>10000</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>Nav2Digit2</object-name>
-		<property>instrumentation/nav[1]/frequencies/selected-mhz-fmt-x100</property>
-		<factor>0.0001</factor>
-		<step>1000</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>Nav2Digit3</object-name>
-		<property>instrumentation/nav[1]/frequencies/selected-mhz-fmt-x100</property>
-		<factor>0.001</factor>
-		<step>100</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>Nav2Digit4</object-name>
-		<property>instrumentation/nav[1]/frequencies/selected-mhz-fmt-x100</property>
-		<factor>0.01</factor>
-		<step>10</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>Nav2Digit5</object-name>
-		<property>instrumentation/nav[1]/frequencies/selected-mhz-fmt-x100</property>
-		<factor>0.1</factor>
-		<step>1</step>
-		<bias>0.1</bias>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
+	<!-- NAV2 Freq Window -->
+	<text>
+		<name>Digits.Freq2</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.2113</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>%6.2f</format>
+		<property>instrumentation/nav[1]/frequencies/selected-mhz-fmt</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.Test</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.2113</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>888.88</text>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
 	
 	<!-- NAV2 Freq Knobs -->
 	<animation>
@@ -2189,44 +2005,53 @@
 		</action>
 	</animation>
 	
-	<!-- NAV2 Course Digits -->
-	<animation>
-		<type>textranslate</type>
-		<object-name>Nav2CrsDigit1</object-name>
+	<!-- NAV2 Course Window -->
+	<text>
+		<name>Digits.Crs2</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.2671</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>%003.0f</format>
 		<property>instrumentation/nav[1]/radials/selected-deg</property>
-		<factor>0.001</factor>
-		<step>100</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.Test</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.2671</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>888</text>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
 	
-	<animation>
-		<type>textranslate</type>
-		<object-name>Nav2CrsDigit2</object-name>
-		<property>instrumentation/nav[1]/radials/selected-deg</property>
-		<factor>0.01</factor>
-		<step>10</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>textranslate</type>
-		<object-name>Nav2CrsDigit3</object-name>
-		<property>instrumentation/nav[1]/radials/selected-deg</property>
-		<factor>0.1</factor>
-		<step>1</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-		</axis>
-	</animation>
-	
-	<!-- NAV2 CRS Knob -->
+	<!-- NAV2 Course Knob -->
 	<animation>
 		<type>knob</type>
 		<object-name>Nav2CrsKnob</object-name>

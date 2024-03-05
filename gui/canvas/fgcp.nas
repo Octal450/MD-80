@@ -197,7 +197,7 @@ var fgcpCanvas = {
 			if (pts.Controls.Switches.annunTest.getBoolValue()) {
 				me["Hdg_7seg"].setText("888");
 				me["Spd_7seg"].setText(".888");
-				me["PitchMode_16seg"].setText("¤"); # Shows all segments
+				me["PitchMode_16seg"].setText("#"); # Shows all segments
 				me["Pitch_7seg"].setText("-8888");
 			} else {
 				# Speed
