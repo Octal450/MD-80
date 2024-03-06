@@ -984,9 +984,9 @@
 			<entry><ind>1</ind><dep> 30</dep></entry>
 		</interpolation>
 		<center>
-			<x-m>3.02318</x-m>
+			<x-m>3.02305</x-m>
 			<y-m>0</y-m>
-			<z-m>0.55846</z-m>
+			<z-m>0.55791</z-m>
 		</center>
 		<axis>
 			<x>0</x>
@@ -1409,9 +1409,9 @@
 		<drag-scale-px>15</drag-scale-px>
 		<factor>100</factor>
 		<center>
-			<x-m>2.20737</x-m>
+			<x-m>2.20591</x-m>
 			<y-m>0</y-m>
-			<z-m>1.00528</z-m>
+			<z-m>1.0041</z-m>
 		</center>
 		<axis>
 			<x>0</x>
