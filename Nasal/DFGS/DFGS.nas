@@ -94,6 +94,9 @@ var Input = {
 	alt: props.globals.initNode("/it-autoflight/input/alt", 10000, "INT"),
 	altArmed: props.globals.initNode("/it-autoflight/input/alt-armed", 0, "BOOL"),
 	altDiff: 0,
+	altHundreds: props.globals.initNode("/it-autoflight/input/alt-hundreds", "000", "STRING"), # For FGCP
+	altTemp: 0,
+	altThousands: props.globals.initNode("/it-autoflight/input/alt-thousands", "10", "STRING"), # For FGCP
 	ap1: props.globals.initNode("/it-autoflight/input/ap1", 0, "BOOL"),
 	ap1Avail: props.globals.initNode("/it-autoflight/input/ap1-avail", 1, "BOOL"),
 	ap1Temp: 0,
@@ -1014,13 +1017,13 @@ var ITAF = {
 	},
 	syncMach: func() {
 		Velocities.indicatedMachTemp = Velocities.indicatedMach.getValue();
-		Input.mach.setValue(math.clamp(math.round(Velocities.indicatedMachTemp, 0.001), 0.5, 0.84));
-		Input.machX1000.setValue(math.clamp(math.round(Velocities.indicatedMachTemp * 1000, 1), 500, 840));
+		Input.mach.setValue(math.clamp(math.round(Velocities.indicatedMachTemp, 0.002), 0.5, 0.9));
+		Input.machX1000.setValue(math.clamp(math.round(Velocities.indicatedMachTemp * 1000, 2), 500, 900));
 	},
 	syncMachFlch: func() {
 		Velocities.indicatedMachTemp = Velocities.indicatedMach.getValue();
-		Input.machFlch.setValue(math.clamp(math.round(Velocities.indicatedMachTemp, 0.001), 0.5, 0.84));
-		Input.machFlchX1000.setValue(math.clamp(math.round(Velocities.indicatedMachTemp * 1000, 1), 500, 840));
+		Input.machFlch.setValue(math.clamp(math.round(Velocities.indicatedMachTemp, 0.002), 0.5, 0.9));
+		Input.machFlchX1000.setValue(math.clamp(math.round(Velocities.indicatedMachTemp * 1000, 2), 500, 900));
 	},
 	syncHdg: func() {
 		Input.hdg.setValue(math.round(Internal.hdgPredicted.getValue())); # Switches to track automatically
@@ -1183,6 +1186,20 @@ var atsKill = maketimer(0.4, func() {
 		Warning.ats.setBoolValue(0);
 	}
 });
+
+# For FGCP
+setlistener("/it-autoflight/input/alt", func() {
+	Input.altTemp = Input.alt.getValue();
+	Input.altHundreds.setValue(right(sprintf("%03d", Input.altTemp), 3));
+	
+	if (Input.altTemp < 1000) {
+		Input.altThousands.setValue("==");
+	} else if (Input.altTemp < 10000) {
+		Input.altThousands.setValue("=" ~ sprintf("%d", math.floor(Input.altTemp / 1000)));
+	} else {
+		Input.altThousands.setValue(sprintf("%d", math.floor(Input.altTemp / 1000)));
+	}
+}, 0, 0);
 
 # For Canvas Nav Display.
 setlistener("/it-autoflight/input/hdg", func() {

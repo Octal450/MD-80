@@ -9,14 +9,25 @@
 	
 	<animation>
 		<name>Digits</name>
+		<object-name>Digits.AltHundreds</object-name>
+		<object-name>Digits.AltThousands</object-name>
 		<object-name>Digits.Crs1</object-name>
 		<object-name>Digits.Crs2</object-name>
 		<object-name>Digits.Freq1</object-name>
 		<object-name>Digits.Freq2</object-name>
 		<object-name>Digits.Hdg</object-name>
 		<object-name>Digits.Ias</object-name>
+		<object-name>Digits.IasPitch</object-name>
 		<object-name>Digits.Mach</object-name>
+		<object-name>Digits.MachPitch</object-name>
+		<object-name>Digits.PitchModeIas</object-name>
+		<object-name>Digits.PitchModeMach</object-name>
+		<object-name>Digits.PitchModeTurb</object-name>
+		<object-name>Digits.PitchModeVs</object-name>
+		<object-name>Digits.Turb</object-name>
+		<object-name>Digits.TurbMinus</object-name>
 		<object-name>Digits.Vs</object-name>
+		<object-name>Digits.VsMinus</object-name>
 	</animation>
 	
 	<animation>
@@ -1246,6 +1257,144 @@
 	
 	<!-- Pitch Window -->
 	<text>
+		<name>Digits.Vs</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.0375</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>%04.0f</format>
+		<property>it-autoflight/input/vs-fma</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.VsMinus</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.0375</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>-%04.0f</format>
+		<property>it-autoflight/input/vs-fma</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.Turb</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.0375</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>%02.0f</format>
+		<property>it-autoflight/input/pitch-abs</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.TurbMinus</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.0375</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>-%02.0f</format>
+		<property>it-autoflight/input/pitch-abs</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.IasPitch</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.0375</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>%3.0f</format>
+		<property>it-autoflight/input/kts-flch</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.MachPitch</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.0375</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>.%3.0f</format>
+		<property>it-autoflight/input/mach-flch-x1000</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
 		<name>Digits.Test</name>
 		<offsets>
 			<x-m>-0.0059</x-m>
@@ -1255,7 +1404,7 @@
 		<alignment>right-bottom</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
-		<text>-8888</text>
+		<text>-8.888</text>
 		<font>Std7SegCustom.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
@@ -1267,12 +1416,229 @@
 		</font-resolution>
 	</text>
 	
+	<animation>
+		<type>select</type>
+		<object-name>Digits.PitchModeVs</object-name>
+		<object-name>Digits.Vs</object-name>
+		<object-name>Digits.VsMinus</object-name>
+		<condition>
+			<and>
+				<not-equals>
+					<property>it-autoflight/output/vert</property>
+					<value>4</value>
+				</not-equals>
+				<not-equals>
+					<property>it-autoflight/output/vert</property>
+					<value>8</value>
+				</not-equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Digits.PitchModeTurb</object-name>
+		<object-name>Digits.Turb</object-name>
+		<object-name>Digits.TurbMinus</object-name>
+		<condition>
+			<equals>
+				<property>it-autoflight/output/vert</property>
+				<value>8</value>
+			</equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Digits.Vs</object-name>
+		<condition>
+			<not>
+				<and>
+					<less-than>
+						<property>it-autoflight/input/vs</property>
+						<value>-0.01</value>
+					</less-than>
+					<greater-than>
+						<property>it-autoflight/input/vs-fma</property>
+						<value>0.01</value>
+					</greater-than>
+				</and>
+			</not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Digits.VsMinus</object-name>
+		<condition>
+			<and>
+				<less-than>
+					<property>it-autoflight/input/vs</property>
+					<value>-0.01</value>
+				</less-than>
+				<greater-than>
+					<property>it-autoflight/input/vs-fma</property>
+					<value>0.01</value>
+				</greater-than>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Digits.Turb</object-name>
+		<condition>
+			<not>
+				<and>
+					<less-than>
+						<property>it-autoflight/input/pitch</property>
+						<value>-0.001</value>
+					</less-than>
+					<greater-than>
+						<property>it-autoflight/input/pitch-abs</property>
+						<value>0.001</value>
+					</greater-than>
+				</and>
+			</not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Digits.TurbMinus</object-name>
+		<condition>
+			<and>
+				<less-than>
+					<property>it-autoflight/input/pitch</property>
+					<value>-0.001</value>
+				</less-than>
+				<greater-than>
+					<property>it-autoflight/input/pitch-abs</property>
+					<value>0.001</value>
+				</greater-than>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Digits.IasPitch</object-name>
+		<object-name>Digits.PitchModeIas</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>it-autoflight/output/vert</property>
+					<value>4</value>
+				</equals>
+				<equals>
+					<property>it-autoflight/input/kts-mach-flch</property>
+					<value>0</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Digits.MachPitch</object-name>
+		<object-name>Digits.PitchModeMach</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>it-autoflight/output/vert</property>
+					<value>4</value>
+				</equals>
+				<equals>
+					<property>it-autoflight/input/kts-mach-flch</property>
+					<value>1</value>
+				</equals>
+			</and>
+		</condition>
+	</animation>
+	
 	<!-- Pitch Mode Window -->
+	<text>
+		<name>Digits.PitchModeVs</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.0035</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>V</text>
+		<font>Std16SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.011</character-size> <!-- To make font match dimensions of 7seg -->
+		<font-resolution> <!-- To make font match dimensions of 7seg -->
+			<width>56</width>
+			<height>48</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.PitchModeTurb</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.0035</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>P</text>
+		<font>Std16SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.011</character-size> <!-- To make font match dimensions of 7seg -->
+		<font-resolution> <!-- To make font match dimensions of 7seg -->
+			<width>56</width>
+			<height>48</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.PitchModeIas</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.0035</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>S</text>
+		<font>Std16SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.011</character-size> <!-- To make font match dimensions of 7seg -->
+		<font-resolution> <!-- To make font match dimensions of 7seg -->
+			<width>56</width>
+			<height>48</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.PitchModeMach</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.0035</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>M</text>
+		<font>Std16SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.011</character-size> <!-- To make font match dimensions of 7seg -->
+		<font-resolution> <!-- To make font match dimensions of 7seg -->
+			<width>56</width>
+			<height>48</height>
+		</font-resolution>
+	</text>
 	<text>
 		<name>Digits.Test</name>
 		<offsets>
 			<x-m>-0.0059</x-m>
-			<y-m>0.0045</y-m>
+			<y-m>0.0035</y-m>
 			<z-m>0.0059</z-m>
 		</offsets>
 		<alignment>right-bottom</alignment>
@@ -1283,8 +1649,8 @@
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
-		<character-size>0.011</character-size>
-		<font-resolution>
+		<character-size>0.011</character-size> <!-- To make font match dimensions of 7seg -->
+		<font-resolution> <!-- To make font match dimensions of 7seg -->
 			<width>56</width>
 			<height>48</height>
 		</font-resolution>
@@ -1555,7 +1921,7 @@
 		</action>
 	</animation>
 	
-	<!-- Autopilot ector -->
+	<!-- Autopilot Selector -->
 	<animation>
 		<type>knob</type>
 		<object-name>APSelector</object-name>
@@ -1768,112 +2134,95 @@
 		</action>
 	</animation>
 	
-	<!-- First Digit -->
-	<animation>
-		<type>select</type>
-		<object-name>AltDigitMinus1</object-name>
-		<condition>
-			<less-than>
-				<property>it-autoflight/input/alt</property>
-				<value>10000</value>
-			</less-than>
-		</condition>
-	</animation>
-	<animation>
-		<type>select</type>
-		<object-name>AltDigitMinus2</object-name>
-		<condition>
-			<less-than>
-				<property>it-autoflight/input/alt</property>
-				<value>1000</value>
-			</less-than>
-		</condition>
-	</animation>
-	
-	<animation>
-		<type>select</type>
-		<object-name>AltDigit1</object-name>
-		<condition>
-			<greater-than-equals>
-				<property>it-autoflight/input/alt</property>
-				<value>10000</value>
-			</greater-than-equals>
-		</condition>
-	</animation>
-	
-	<!-- Second Digit -->
-	<animation>
-		<type>select</type>
-		<object-name>AltDigit2</object-name>
-		<condition>
-			<greater-than-equals>
-				<property>it-autoflight/input/alt</property>
-				<value>1000</value>
-			</greater-than-equals>
-		</condition>
-	</animation>
-	
-	<!-- Altitude Digits -->
-	<animation>
-		<type>textranslate</type>
-		<object-name>AltDigit1</object-name>
-		<property>it-autoflight/input/alt</property>
-		<factor>0.00001</factor>
-		<step>10000</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>textranslate</type>
-		<object-name>AltDigit2</object-name>
-		<property>it-autoflight/input/alt</property>
-		<factor>0.0001</factor>
-		<step>1000</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>textranslate</type>
-		<object-name>AltDigit3</object-name>
-		<property>it-autoflight/input/alt</property>
-		<factor>0.001</factor>
-		<step>100</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>textranslate</type>
-		<object-name>AltDigit4</object-name>
-		<property>it-autoflight/input/alt</property>
-		<factor>0.01</factor>
-		<step>10</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>textranslate</type>
-		<object-name>AltDigit5</object-name>
-		<property>it-autoflight/input/alt</property>
-		<factor>0.1</factor>
-		<step>1</step>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
+	<!-- Altitude Window -->
+	<text>
+		<name>Digits.AltThousands</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.1105</y-m>
+			<z-m>0.006</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>text-value</type>
+		<format>%s</format>
+		<property>it-autoflight/input/alt-thousands</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0101</character-size>
+		<font-resolution>
+			<width>35</width>
+			<height>37</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.AltHundreds</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.1298</y-m>
+			<z-m>0.0068</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>text-value</type>
+		<format>%s</format>
+		<property>it-autoflight/input/alt-hundreds</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.Test</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.1105</y-m>
+			<z-m>0.006</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>88</text>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0101</character-size>
+		<font-resolution>
+			<width>35</width>
+			<height>37</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.Test</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.1298</y-m>
+			<z-m>0.0068</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>888</text>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
 	
 	<!-- NAV2 Freq Window -->
 	<text>

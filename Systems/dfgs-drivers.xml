@@ -235,12 +235,12 @@
 						<sum>
 							<product>
 								<property>/instrumentation/airspeed-indicator/indicated-mach</property>
-								<value>1000</value>
+								<value>500</value>
 							</product>
 							<value>0.5</value>
 						</sum>
 					</floor>
-					<value>1000</value>
+					<value>500</value>
 				</div>
 			</expression>
 		</input>
@@ -303,12 +303,12 @@
 						<sum>
 							<product>
 								<property>/instrumentation/airspeed-indicator/indicated-mach</property>
-								<value>1000</value>
+								<value>500</value>
 							</product>
 							<value>0.5</value>
 						</sum>
 					</floor>
-					<value>1000</value>
+					<value>500</value>
 				</div>
 			</expression>
 		</input>
