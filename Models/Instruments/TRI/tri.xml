@@ -269,12 +269,13 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>toOn</object-name>
+		<object-name>clOn</object-name>
+		<object-name>crOn</object-name>
 		<object-name>flxOn</object-name>
 		<object-name>gaOn</object-name>
 		<object-name>mctOn</object-name>
-		<object-name>clOn</object-name>
-		<object-name>crOn</object-name>
+		<object-name>toOn</object-name>
+		<object-name>NoMode</object-name>
 		<condition>
 			<equals>
 				<property>fdm/jsbsim/dfgs/power-avail</property>

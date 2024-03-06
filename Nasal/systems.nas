@@ -577,8 +577,8 @@ var TRI = {
 	},
 	throttleCompareMax: props.globals.getNode("/fdm/jsbsim/engine/throttle-compare-max"),
 	init: func() {
-		me.Limit.activeModeInt.setValue(0);
-		me.Limit.activeMode.setValue("T/O");
+		me.Limit.activeModeInt.setValue(-1);
+		me.Limit.activeMode.setValue("---");
 	},
 	loop: func() {
 		if (me.Limit.activeModeInt.getValue() == 5) {

@@ -468,6 +468,10 @@
 		
 		<switch name="engine/limit/active">
 			<default value="2"/>
+			<test logic="AND" value="engine/limit/takeoff-ref">
+				engine/limit/active-mode-int eq -1
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
 			<test value="engine/limit/active">
 				engine/limit/active-mode-int eq -1
 			</test>

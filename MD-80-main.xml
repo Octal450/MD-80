@@ -717,8 +717,8 @@
 					<c2 type="double">1</c2>
 				</epr>
 				<limit n="0">
-					<active-mode type="string">T/O</active-mode>
-					<active-mode-int type="int">0</active-mode-int>
+					<active-mode type="string">---</active-mode>
+					<active-mode-int type="int">-1</active-mode-int>
 					<flex-temp type="int">45</flex-temp>
 				</limit>
 			</engine>
