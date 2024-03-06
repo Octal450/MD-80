@@ -80,6 +80,7 @@
 	
 	<animation>
 		<type>material</type>
+		<object-name>IntegrityABSSel</object-name>
 		<object-name>PedestalDrumText</object-name>
 		<object-name>PedestalABSText</object-name>
 		<emission>
@@ -1024,20 +1025,18 @@
 	
 	<animation>
 		<type>knob</type>
-		<object-name>ABSKnob</object-name>
+		<object-name>ABSSel</object-name>
 		<property>controls/cockpit/abs-knob</property>
 		<drag-scale-px>15</drag-scale-px>
 		<interpolation>
-			<entry><ind>-1</ind><dep>  40</dep></entry>
-			<entry><ind> 0</ind><dep>   0</dep></entry>
-			<entry><ind> 1</ind><dep> -40</dep></entry>
-			<entry><ind> 2</ind><dep>-105</dep></entry>
-			<entry><ind> 3</ind><dep>-150</dep></entry>
+			<entry><ind>-1</ind><dep>120</dep></entry>
+			<entry><ind> 0</ind><dep> 75</dep></entry>
+			<entry><ind> 3</ind><dep>-75</dep></entry>
 		</interpolation>
 		<center>
-			<x-m>3.058</x-m>
-			<y-m>0.123</y-m>
-			<z-m>0.550</z-m>
+			<x-m>3.05682</x-m>
+			<y-m>0.12234</y-m>
+			<z-m>0.5519</z-m>
 		</center>
 		<axis>
 			<x>0.259</x>
