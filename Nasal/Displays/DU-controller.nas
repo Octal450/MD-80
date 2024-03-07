@@ -11,10 +11,10 @@ var DUController = {
 	},
 	showNd1: props.globals.initNode("/instrumentation/nd/show-nd1", 0, "BOOL"),
 	showNd2: props.globals.initNode("/instrumentation/nd/show-nd2", 0, "BOOL"),
-	updatePfd1: 0,
-	updatePfd2: 0,
 	updateNd1: 0,
 	updateNd2: 0,
+	updatePfd1: 0,
+	updatePfd2: 0,
 	showError: func() {
 		me.errorActive = 1;
 		
