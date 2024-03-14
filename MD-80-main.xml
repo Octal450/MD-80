@@ -454,8 +454,6 @@
 			</switches>
 		</apu>
 		<cockpit n="0">
-			<ap-sw type="bool">0</ap-sw>
-			<ats-sw type="bool">0</ats-sw>
 			<baro-rotate n="0" type="int">49984</baro-rotate> <!-- So the symbol is upright -->
 			<baro-rotate n="1" type="int">49984</baro-rotate> <!-- So the symbol is upright -->
 			<baro-rotate n="2" type="int">49984</baro-rotate> <!-- So the symbol is upright -->
@@ -465,6 +463,8 @@
 			<epr-cmd-rotate n="1" type="int">49984</epr-cmd-rotate> <!-- So the symbol is upright -->
 			<fgcp n="0">
 				<alt-rotate type="int">50000</alt-rotate>
+				<ap-sw type="bool">0</ap-sw>
+				<ats-sw type="bool">0</ats-sw>
 				<hdg-rotate type="int">49984</hdg-rotate> <!-- So the symbol is upright -->
 				<nav1-crs-rotate type="int">50000</nav1-crs-rotate>
 				<nav1-major-rotate type="int">50000</nav1-major-rotate>

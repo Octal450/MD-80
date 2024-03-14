@@ -10,26 +10,6 @@
 	<channel name="Animations">
 		
 		<!-- General -->
-		<lag_filter name="/controls/cockpit/active-ap">
-			<input>/it-autoflight/input/active-ap</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<fcs_function name="/controls/cockpit/ap-cmd">
-			<function>
-				<max>
-					<property>/it-autoflight/output/ap1</property>
-					<property>/it-autoflight/output/ap2</property>
-					<property>/controls/cockpit/ap-sw</property>
-				</max>
-			</function>
-		</fcs_function>
-		
-		<lag_filter name="/controls/cockpit/ap">
-			<input>/controls/cockpit/ap-cmd</input>
-			<c1>20</c1>
-		</lag_filter>
-		
 		<lag_filter name="/controls/cockpit/art">
 			<input>/controls/dfgs/switches/art</input>
 			<c1>20</c1>
@@ -37,25 +17,6 @@
 		
 		<lag_filter name="/controls/cockpit/art-cover">
 			<input>/controls/dfgs/switches/art-cover</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<fcs_function name="/controls/cockpit/ats-cmd">
-			<function>
-				<max>
-					<property>/it-autoflight/output/athr</property>
-					<property>/controls/cockpit/ats-sw</property>
-				</max>
-			</function>
-		</fcs_function>
-		
-		<lag_filter name="/controls/cockpit/ats">
-			<input>/controls/cockpit/ats-cmd</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<lag_filter name="/controls/cockpit/beacon">
-			<input>/controls/lighting/beacon</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -156,23 +117,97 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/fd1">
-			<input>/it-autoflight/input/fd1</input>
+		<lag_filter name="/controls/cockpit/fgcp/active-ap">
+			<input>/it-autoflight/input/active-ap</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/fd2">
-			<input>/it-autoflight/input/fd2</input>
+		<fcs_function name="/controls/cockpit/fgcp/ap-cmd">
+			<function>
+				<max>
+					<property>/it-autoflight/output/ap1</property>
+					<property>/it-autoflight/output/ap2</property>
+					<property>/controls/cockpit/fgcp/ap-sw</property>
+				</max>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/controls/cockpit/fgcp/ap">
+			<input>/controls/cockpit/fgcp/ap-cmd</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/fgcp-digital-knb">
+		<fcs_function name="/controls/cockpit/fgcp/ats-cmd">
+			<function>
+				<max>
+					<property>/it-autoflight/output/athr</property>
+					<property>/controls/cockpit/fgcp/ats-sw</property>
+				</max>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/controls/cockpit/fgcp/ats">
+			<input>/controls/cockpit/fgcp/ats-cmd</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/fgcp/beacon">
+			<input>/controls/lighting/beacon</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/fgcp/digital-knb">
 			<input>/controls/lighting/fgcp-digital-knb</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/fgcp-panel-knb">
+		<lag_filter name="/controls/cockpit/fgcp/fd1">
+			<input>/it-autoflight/input/fd1</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/fgcp/fd2">
+			<input>/it-autoflight/input/fd2</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/fgcp/ground-flood-light-l">
+			<input>/controls/lighting/ground-flood-light-l</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/fgcp/ground-flood-light-r">
+			<input>/controls/lighting/ground-flood-light-r</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/fgcp/landing-light-l">
+			<input>/controls/lighting/landing-light-l</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/fgcp/landing-light-n">
+			<input>/controls/lighting/landing-light-n</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/fgcp/landing-light-r">
+			<input>/controls/lighting/landing-light-r</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/fgcp/panel-knb">
 			<input>/controls/lighting/fgcp-panel-knb</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/fgcp/position-strobe-light">
+			<input>/controls/lighting/position-strobe-light</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/fgcp/wing-lights">
+			<input>/controls/lighting/wing-lights</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -202,16 +237,6 @@
 			<lag>20</lag>
 		</actuator>
 		
-		<lag_filter name="/controls/cockpit/ground-flood-light-l">
-			<input>/controls/lighting/ground-flood-light-l</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<lag_filter name="/controls/cockpit/ground-flood-light-r">
-			<input>/controls/lighting/ground-flood-light-r</input>
-			<c1>20</c1>
-		</lag_filter>
-		
 		<lag_filter name="/controls/cockpit/hyd-aux-pump">
 			<input>/controls/hydraulics/switches/aux-pump</input>
 			<c1>20</c1>
@@ -229,21 +254,6 @@
 		
 		<lag_filter name="/controls/cockpit/hyd-trans">
 			<input>/controls/hydraulics/switches/trans</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<lag_filter name="/controls/cockpit/landing-light-l">
-			<input>/controls/lighting/landing-light-l</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<lag_filter name="/controls/cockpit/landing-light-n">
-			<input>/controls/lighting/landing-light-n</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<lag_filter name="/controls/cockpit/landing-light-r">
-			<input>/controls/lighting/landing-light-r</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -277,11 +287,6 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/position-strobe-light">
-			<input>/controls/lighting/position-strobe-light</input>
-			<c1>20</c1>
-		</lag_filter>
-		
 		<lag_filter name="/controls/cockpit/tiller-handle">
 			<input>fcs-actual/tiller/handle</input>
 			<c1>20</c1>
@@ -304,11 +309,6 @@
 		
 		<lag_filter name="/controls/cockpit/vor-adf-2[1]">
 			<input>/instrumentation/rmi[1]/vor-adf-2</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<lag_filter name="/controls/cockpit/wing-lights">
-			<input>/controls/lighting/wing-lights</input>
 			<c1>20</c1>
 		</lag_filter>
 		

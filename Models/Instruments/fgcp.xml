@@ -115,7 +115,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>KnobPanel</object-name>
-		<property>controls/cockpit/fgcp-panel-knb</property>
+		<property>controls/cockpit/fgcp/panel-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -145,7 +145,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>KnobDigital</object-name>
-		<property>controls/cockpit/fgcp-digital-knb</property>
+		<property>controls/cockpit/fgcp/digital-knb</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -391,7 +391,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>FD1Switch</object-name>
-		<property>controls/cockpit/fd1</property>
+		<property>controls/cockpit/fgcp/fd1</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 30</dep></entry>
 			<entry><ind>1</ind><dep>-30</dep></entry>
@@ -430,7 +430,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>FD2Switch</object-name>
-		<property>controls/cockpit/fd2</property>
+		<property>controls/cockpit/fgcp/fd2</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 30</dep></entry>
 			<entry><ind>1</ind><dep>-30</dep></entry>
@@ -782,7 +782,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ATSwitch</object-name>
-		<property>controls/cockpit/ats</property>
+		<property>controls/cockpit/fgcp/ats</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 30</dep></entry>
 			<entry><ind>1</ind><dep>-30</dep></entry>
@@ -814,18 +814,18 @@
 			<binding>
 				<condition>
 					<less-than>
-						<property>controls/cockpit/ats</property>
+						<property>controls/cockpit/fgcp/ats</property>
 						<value>0.5</value>
 					</less-than>
 				</condition>
 				<command>property-assign</command>
-				<property>controls/cockpit/ats-sw</property>
+				<property>controls/cockpit/fgcp/ats-sw</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>controls/cockpit/ats-sw</property>
+					<property>controls/cockpit/fgcp/ats-sw</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -1868,7 +1868,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>APSwitch</object-name>
-		<property>controls/cockpit/ap</property>
+		<property>controls/cockpit/fgcp/ap</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 30</dep></entry>
 			<entry><ind>1</ind><dep>-30</dep></entry>
@@ -1903,18 +1903,18 @@
 			<binding>
 				<condition>
 					<less-than>
-						<property>controls/cockpit/ap</property>
+						<property>controls/cockpit/fgcp/ap</property>
 						<value>0.5</value>
 					</less-than>
 				</condition>
 				<command>property-assign</command>
-				<property>controls/cockpit/ap-sw</property>
+				<property>controls/cockpit/fgcp/ap-sw</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>controls/cockpit/ap-sw</property>
+					<property>controls/cockpit/fgcp/ap-sw</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -1927,7 +1927,7 @@
 		<object-name>APSelector</object-name>
 		<expression>
 			<table>
-				<property>controls/cockpit/active-ap</property>
+				<property>controls/cockpit/fgcp/active-ap</property>
 				<entry><ind>1</ind><dep>-25</dep></entry>
 				<entry><ind>2</ind><dep> 25</dep></entry>
 			</table>
@@ -2443,7 +2443,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SwLdgLtsL</object-name>
-		<property>controls/cockpit/landing-light-l</property>
+		<property>controls/cockpit/fgcp/landing-light-l</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -2499,7 +2499,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SwLdgLtsR</object-name>
-		<property>controls/cockpit/landing-light-r</property>
+		<property>controls/cockpit/fgcp/landing-light-r</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -2555,7 +2555,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SwNoseLts</object-name>
-		<property>controls/cockpit/landing-light-n</property>
+		<property>controls/cockpit/fgcp/landing-light-n</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -2611,7 +2611,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SwFloodLtsL</object-name>
-		<property>controls/cockpit/ground-flood-light-l</property>
+		<property>controls/cockpit/fgcp/ground-flood-light-l</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -2650,7 +2650,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SwFloodLtsR</object-name>
-		<property>controls/cockpit/ground-flood-light-r</property>
+		<property>controls/cockpit/fgcp/ground-flood-light-r</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -2689,7 +2689,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SwACLts</object-name>
-		<property>controls/cockpit/beacon</property>
+		<property>controls/cockpit/fgcp/beacon</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -2728,7 +2728,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SwNavLts</object-name>
-		<property>controls/cockpit/position-strobe-light</property>
+		<property>controls/cockpit/fgcp/position-strobe-light</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -2784,7 +2784,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SwWingLts</object-name>
-		<property>controls/cockpit/wing-lights</property>
+		<property>controls/cockpit/fgcp/wing-lights</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
