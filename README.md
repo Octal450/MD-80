@@ -2,9 +2,9 @@
 A very advanced simulation of the McDonnell Douglas MD-80 for FlightGear.
 
 Present pack includes the following McDonnell Douglas MD-80 variants:
-- MD-81
-- MD-82
-- MD-83
+- MD-81 (JT8D-209)
+- MD-82 (JT8D-217A)
+- MD-83 (JT8D-219)
 
 ## Frequently Asked Questions
 For frequently asked questions about this project, please refer to our [FAQ page](https://github.com/Octal450/MD-80/blob/master/FAQ.md).
