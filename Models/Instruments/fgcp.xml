@@ -1193,9 +1193,10 @@
 	
 	<!-- Bank Limit Knob -->
 	<animation>
-		<type>rotate</type>
+		<type>knob</type>
 		<object-name>BLimit.knob</object-name>
-		<property>it-autoflight/input/bank-limit-sw</property>
+		<property>controls/cockpit/fgcp/bank-limit</property>
+		<drag-scale-px>15</drag-scale-px>
 		<interpolation>
 			<entry><ind>0</ind><dep> 70</dep></entry>
 			<entry><ind>4</ind><dep>-70</dep></entry>
@@ -1210,47 +1211,14 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation>
-	
-	<animation>
-		<type>pick</type>
-		<object-name>BLimit.knob</object-name>
 		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<condition>
-					<not><property>devices/status/keyboard/shift</property></not>
-				</condition>
-				<command>property-adjust</command>
-				<property>it-autoflight/input/bank-limit-sw</property>
-				<step>1</step>
-				<min>0</min>
-				<max>5</max>
-				<wrap>true</wrap>
-			</binding>
-			<binding>
-				<condition>
-					<property>devices/status/keyboard/shift</property>
-				</condition>
-				<command>property-adjust</command>
-				<property>it-autoflight/input/bank-limit-sw</property>
-				<step>-1</step>
-				<min>0</min>
-				<max>5</max>
-				<wrap>true</wrap>
-			</binding>
-		</action>
-		<action>
-			<button>1</button>
-			<repeatable>false</repeatable>
 			<binding>
 				<command>property-adjust</command>
 				<property>it-autoflight/input/bank-limit-sw</property>
-				<step>-1</step>
+				<factor>1</factor>
 				<min>0</min>
-				<max>5</max>
-				<wrap>true</wrap>
+				<max>4</max>
+				<wrap>false</wrap>
 			</binding>
 		</action>
 	</animation>

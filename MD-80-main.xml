@@ -1429,6 +1429,7 @@
 		</fd>
 		<input n="0">
 			<athr type="bool">0</athr>
+			<bank-limit-sw type="int">0</bank-limit-sw>
 			<fd1 type="bool">0</fd1>
 			<fd2 type="bool">0</fd2>
 			<hdg type="int">360</hdg>

@@ -151,6 +151,11 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/fgcp/bank-limit">
+			<input>/it-autoflight/input/bank-limit-sw</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/fgcp/beacon">
 			<input>/controls/lighting/beacon</input>
 			<c1>20</c1>
