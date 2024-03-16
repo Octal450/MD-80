@@ -473,7 +473,7 @@
 				<nav2-major-rotate type="int">50000</nav2-major-rotate>
 				<nav2-minor-rotate type="int">50000</nav2-minor-rotate>
 				<spd-rotate type="int">49984</spd-rotate> <!-- So the symbol is upright -->
-				<vs-rotate type="int">50000</vs-rotate> <!-- So the symbol is upright -->
+				<vs-rotate type="int">50000</vs-rotate>
 			</fgcp>
 			<flaps-lever-translate-cmd type="double">0</flaps-lever-translate-cmd>
 			<mins-rotate n="0" type="int">49984</mins-rotate> <!-- So the symbol is upright -->
