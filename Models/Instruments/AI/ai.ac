@@ -4955,7 +4955,6 @@ data 21
 HorizonInner.mesh.004
 texture "shadow.png"
 crease 45.000000
-hidden
 numvert 122
 -0.00063 0.00454 0.04386
 -0.00063 -0.00237 0.04385
