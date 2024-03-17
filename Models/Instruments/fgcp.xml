@@ -32,6 +32,7 @@
 	
 	<animation>
 		<type>material</type>
+		<object-name>BLimit.ind</object-name>
 		<object-name>BtnText</object-name>
 		<object-name>FGCPLabels</object-name>
 		<emission>
