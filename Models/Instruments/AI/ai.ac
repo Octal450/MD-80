@@ -2587,7 +2587,6 @@ data 9
 Plane.015
 texture "flagtext.png"
 crease 30.000000
-hidden
 numvert 6
 -0.00066 -0.021 -0.03445
 -0.00066 0.00164 -0.04501
@@ -2753,7 +2752,6 @@ data 9
 Plane.031
 texture "flagtext.png"
 crease 30.000000
-hidden
 numvert 6
 -0.00066 -0.021 0.03444
 -0.00066 0.00164 0.04501
@@ -3461,7 +3459,6 @@ data 9
 Plane.034
 texture "ai.png"
 crease 30.000000
-hidden
 numvert 32
 -0.00195 -0.00652 0.00814
 -0.00195 -0.00652 -0.00814
