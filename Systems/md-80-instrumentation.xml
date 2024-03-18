@@ -794,7 +794,7 @@
 		
 		<lag_filter name="/instrumentation/agl[0]/minimums-text">
 			<input>/controls/switches/minimums</input>
-			<c1>20</c1>
+			<c1>25</c1>
 		</lag_filter>
 		
 		<!-- Radio Altimeter 2 -->
@@ -849,7 +849,7 @@
 		
 		<lag_filter name="/instrumentation/agl[1]/minimums-text">
 			<input>/controls/switches/minimums</input>
-			<c1>20</c1>
+			<c1>25</c1>
 		</lag_filter>
 	
 	</channel>
