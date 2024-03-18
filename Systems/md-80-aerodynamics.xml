@@ -514,16 +514,15 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<property>aero/beta-deg</property>
-				<value>0.44</value>
 				<table>
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<tableData>
-						-4.4412 -0.0034
-						-2.2116 -0.0038
-						 0.1900 -0.0040
-						 2.4828 -0.0043
-						 4.9473 -0.0043
-						 6.1394 -0.0044
+						-4.4412 -0.00150
+						-2.2116 -0.00167
+						 0.1900 -0.00176
+						 2.4828 -0.00189
+						 4.9473 -0.00189
+						 6.1394 -0.00194
 					</tableData>
 				</table>
 			</product>
@@ -622,25 +621,25 @@
 				<table>
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<tableData>
-						-9.4468  0.1897
-						-6.3284  0.1313
-						-5.4416  0.1101
-						-4.3131  0.0870
-						-3.0234  0.0599
-						-2.0214  0.0359
-						-0.6629  0.0132
-						 0.4655 -0.0090
-						 1.6628 -0.0281
-						 2.9406 -0.0455
-						 4.0685 -0.0566
-						 5.2651 -0.0624
-						 6.3583 -0.0698
-						 7.3937 -0.0718
-						 8.5212 -0.0736
-						 9.8677 -0.0851
-						11.3179 -0.1017
-						20.1549 -0.1727
-						45.4566  0.0154
+						-9.4468  0.1328
+						-6.3284  0.0919
+						-5.4416  0.0771
+						-4.3131  0.0609
+						-3.0234  0.0419
+						-2.0214  0.0251
+						-0.6629  0.0092
+						 0.4655 -0.0063
+						 1.6628 -0.0197
+						 2.9406 -0.0319
+						 4.0685 -0.0396
+						 5.2651 -0.0437
+						 6.3583 -0.0489
+						 7.3937 -0.0503
+						 8.5212 -0.0515
+						 9.8677 -0.0596
+						11.3179 -0.0712
+						20.1549 -0.1209
+						45.4566  0.0108
 					</tableData>
 				</table>
 			</product>
@@ -666,7 +665,7 @@
 				<property>metrics/cbarw-ft</property>
 				<property>aero/ci2vel</property>
 				<property>aero/alphadot-rad_sec</property>
-				<value>-0.94671</value>
+				<value>-11.2539</value>
 			</product>
 		</function>
 		
@@ -720,7 +719,7 @@
 				<property>metrics/cbarw-ft</property>
 				<property>aero/function/kCmdstab</property>
 				<toradians><property>fcs-actual/stabilizer/final-deg</property></toradians>
-				<value>-2.731</value>
+				<value>-2.516</value>
 			</product>
 		</function>
 		
@@ -753,15 +752,14 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<property>aero/beta-deg</property>
-				<value>0.44</value>
 				<table>
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<tableData>
-						-4.7093  0.0045
-						-2.2164  0.0048
-						 0.2903  0.0044
-						 2.9836  0.0041
-						 5.5629  0.0047
+						-4.7093  0.00198
+						-2.2164  0.00211
+						 0.2903  0.00194
+						 2.9836  0.00180
+						 5.5629  0.00207
 					</tableData>
 				</table>
 			</product>
