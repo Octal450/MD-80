@@ -1164,10 +1164,6 @@
 				<and>
 					<not-equals>
 						<property>/controls/switches/minimums</property>
-						<value>400</value>
-					</not-equals>
-					<not-equals>
-						<property>/controls/switches/minimums</property>
 						<value>500</value>
 					</not-equals>
 					<less-than-equals>
@@ -1177,6 +1173,96 @@
 					<greater-than>
 						<property>/position/gear-agl-ft</property>
 						<value>450</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>24</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+		</caws>
+	    <caws>
+			<name>400</name>
+			<path>Aircraft/MD-80/Sounds/CAWS/400.wav</path>
+			<type>avionics</type>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<not-equals>
+						<property>/controls/switches/minimums</property>
+						<value>400</value>
+					</not-equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>400</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>350</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>24</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+		</caws>
+	    <caws>
+			<name>300</name>
+			<path>Aircraft/MD-80/Sounds/CAWS/300.wav</path>
+			<type>avionics</type>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<not-equals>
+						<property>/controls/switches/minimums</property>
+						<value>300</value>
+					</not-equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>300</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>250</value>
+					</greater-than>
+					<less-than>
+						<property>/position/gear-agl-ft-2-sec</property>
+						<property>/position/gear-agl-ft</property>
+					</less-than>
+					<greater-than-equals>
+						<property>/systems/electrical/outputs/mk-viii</property>
+						<value>24</value>
+					</greater-than-equals>
+				</and>
+			</condition>
+		</caws>
+	    <caws>
+			<name>200</name>
+			<path>Aircraft/MD-80/Sounds/CAWS/200.wav</path>
+			<type>avionics</type>
+			<mode>once</mode>
+			<condition>
+				<and>
+					<not-equals>
+						<property>/controls/switches/minimums</property>
+						<value>200</value>
+					</not-equals>
+					<less-than-equals>
+						<property>/position/gear-agl-ft</property>
+						<value>200</value>
+					</less-than-equals>
+					<greater-than>
+						<property>/position/gear-agl-ft</property>
+						<value>150</value>
 					</greater-than>
 					<less-than>
 						<property>/position/gear-agl-ft-2-sec</property>
