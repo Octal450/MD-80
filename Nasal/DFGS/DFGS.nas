@@ -780,7 +780,9 @@ var ITAF = {
 			Output.vert.setValue(1);
 			me.updateVertText("V/S");
 			me.syncVs();
-			Athr.setMode(0); # Thrust
+			if (Output.thrMode.getValue() != 2) {
+				Athr.setMode(0); # Thrust
+			}
 		} else if (n == 2) { # G/S
 			me.updateLnavArm(0);
 			me.checkLoc(0);
