@@ -578,17 +578,23 @@
 			</clipto>
 		</fcs_function>
 		
+		<fcs_function name="engine/limit/highest-epr">
+			<function>
+				<max>
+					<property>engine/limit/climb</property>
+					<property>engine/limit/cruise</property>
+					<property>engine/limit/go-around</property>
+					<property>engine/limit/mct</property>
+					<property>engine/limit/takeoff</property>
+				</max>
+			</function>
+		</fcs_function>
+		
 		<fcs_function name="engine/limit/highest-norm-ref"> <!-- Opposite of EPR Calc -->
 			<function>
 				<quotient>
 					<difference>
-						<max>
-							<property>engine/limit/climb</property>
-							<property>engine/limit/cruise</property>
-							<property>engine/limit/go-around</property>
-							<property>engine/limit/mct</property>
-							<property>engine/limit/takeoff</property>
-						</max>
+						<property>engine/limit/highest-epr</property>
 						<property>engine/epr/c2</property>
 					</difference>
 					<max> <!-- Prevent divide by 0 -->
@@ -1638,6 +1644,26 @@
 				</sum>
 			</function>
 		</fcs_function>
+		
+		<!-- Overspeed Alert -->
+		<fcs_function name="engine/limit/overspeed-epr-input">
+			<function>
+				<sum>
+					<max>
+						<property>engine/epr-actual-1</property>
+						<property>engine/epr-actual-2</property>
+					</max>
+					<value>-0.05</value>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<switch name="engine/limit/overspeed">
+			<default value="0"/>
+			<test value="1">
+				engine/limit/overspeed-epr-input gt engine/limit/highest-epr
+			</test>
+		</switch>
 	
 	</channel>
 

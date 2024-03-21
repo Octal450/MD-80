@@ -42,6 +42,7 @@ var fdmInit = setlistener("/sim/signals/fdm-initialized", func() {
 	acconfig.SYSTEM.fdmInit();
 	systemsInit();
 	systemsLoop.start();
+	slowLoop.start();
 	canvas_pfd.init();
 	canvas_fma.init();
 	acconfig.SYSTEM.finalInit();
@@ -72,6 +73,12 @@ var systemsLoop = maketimer(0.1, func() {
 		if (systems.PNEU.Switch.groundAir.getBoolValue()) {
 			systems.PNEU.Switch.groundAir.setBoolValue(0);
 		}
+	}
+});
+
+var slowLoop = maketimer(1, func() {
+	if (pts.Fdm.JSBsim.Engine.Limit.overspeed.getBoolValue()) {
+		gui.popupTip("You are overspeeding the engines! Reduce power to below the EPR limit!");
 	}
 });
 
