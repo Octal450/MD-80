@@ -441,7 +441,7 @@
 		
 		<lag_filter name="/instrumentation/ai[0]/gs-deviation">
 			<input>/instrumentation/ai[0]/gs-deviation-cmd</input>
-			<c1>20</c1>
+			<c1>10</c1>
 		</lag_filter>
 		
 		<switch name="/instrumentation/ai[0]/fast-slow-cmd">
@@ -453,7 +453,7 @@
 		
 		<lag_filter name="/instrumentation/ai[0]/fast-slow">
 			<input>/instrumentation/ai[0]/fast-slow-cmd</input>
-			<c1>20</c1>
+			<c1>10</c1>
 		</lag_filter>
 		
 		<pure_gain name="/instrumentation/ai[0]/slip-skid-Ny">
