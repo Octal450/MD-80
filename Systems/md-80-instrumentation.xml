@@ -377,7 +377,7 @@
 		
 		<lag_filter name="/instrumentation/ai[0]/fd-pitch">
 			<input>/instrumentation/ai[0]/fd-pitch-cmd</input>
-			<c1>10</c1>
+			<c1>15</c1>
 		</lag_filter>
 
 		<switch name="/instrumentation/ai[0]/fd-roll-cmd">
@@ -395,7 +395,7 @@
 		
 		<lag_filter name="/instrumentation/ai[0]/fd-roll">
 			<input>/instrumentation/ai[0]/fd-roll-cmd</input>
-			<c1>10</c1>
+			<c1>15</c1>
 		</lag_filter>
 		
 		<switch name="/instrumentation/ai[0]/loc-deviation-cmd">
@@ -410,7 +410,7 @@
 		
 		<lag_filter name="/instrumentation/ai[0]/loc-deviation">
 			<input>/instrumentation/ai[0]/loc-deviation-cmd</input>
-			<c1>10</c1>
+			<c1>15</c1>
 		</lag_filter>
 		
 		<switch name="/instrumentation/ai[0]/rising-runway-cmd">
@@ -425,7 +425,7 @@
 		
 		<lag_filter name="/instrumentation/ai[0]/rising-runway">
 			<input>/instrumentation/ai[0]/rising-runway-cmd</input>
-			<c1>10</c1>
+			<c1>15</c1>
 		</lag_filter>
 		
 		<switch name="/instrumentation/ai[0]/gs-deviation-cmd">
@@ -441,7 +441,7 @@
 		
 		<lag_filter name="/instrumentation/ai[0]/gs-deviation">
 			<input>/instrumentation/ai[0]/gs-deviation-cmd</input>
-			<c1>10</c1>
+			<c1>15</c1>
 		</lag_filter>
 		
 		<switch name="/instrumentation/ai[0]/fast-slow-cmd">
@@ -453,7 +453,7 @@
 		
 		<lag_filter name="/instrumentation/ai[0]/fast-slow">
 			<input>/instrumentation/ai[0]/fast-slow-cmd</input>
-			<c1>10</c1>
+			<c1>15</c1>
 		</lag_filter>
 		
 		<pure_gain name="/instrumentation/ai[0]/slip-skid-Ny">
@@ -564,7 +564,7 @@
 		
 		<lag_filter name="/instrumentation/ai[1]/fd-pitch">
 			<input>/instrumentation/ai[1]/fd-pitch-cmd</input>
-			<c1>10</c1>
+			<c1>15</c1>
 		</lag_filter>
 
 		<switch name="/instrumentation/ai[1]/fd-roll-cmd">
@@ -582,7 +582,7 @@
 		
 		<lag_filter name="/instrumentation/ai[1]/fd-roll">
 			<input>/instrumentation/ai[1]/fd-roll-cmd</input>
-			<c1>10</c1>
+			<c1>15</c1>
 		</lag_filter>
 		
 		<switch name="/instrumentation/ai[1]/loc-deviation-cmd">
@@ -597,7 +597,7 @@
 		
 		<lag_filter name="/instrumentation/ai[1]/loc-deviation">
 			<input>/instrumentation/ai[1]/loc-deviation-cmd</input>
-			<c1>10</c1>
+			<c1>15</c1>
 		</lag_filter>
 		
 		<switch name="/instrumentation/ai[1]/rising-runway-cmd">
@@ -612,7 +612,7 @@
 		
 		<lag_filter name="/instrumentation/ai[1]/rising-runway">
 			<input>/instrumentation/ai[1]/rising-runway-cmd</input>
-			<c1>10</c1>
+			<c1>15</c1>
 		</lag_filter>
 		
 		<switch name="/instrumentation/ai[1]/gs-deviation-cmd">
@@ -628,7 +628,7 @@
 		
 		<lag_filter name="/instrumentation/ai[1]/gs-deviation">
 			<input>/instrumentation/ai[1]/gs-deviation-cmd</input>
-			<c1>10</c1>
+			<c1>15</c1>
 		</lag_filter>
 		
 		<switch name="/instrumentation/ai[1]/fast-slow-cmd">
@@ -640,7 +640,7 @@
 		
 		<lag_filter name="/instrumentation/ai[1]/fast-slow">
 			<input>/instrumentation/ai[1]/fast-slow-cmd</input>
-			<c1>10</c1>
+			<c1>15</c1>
 		</lag_filter>
 		
 		<pure_gain name="/instrumentation/ai[1]/slip-skid-Ny">
@@ -1414,7 +1414,7 @@
 		
 		<lag_filter name="/instrumentation/hsi[0]/loc-deviation">
 			<input>/instrumentation/hsi[0]/loc-deviation-cmd</input>
-			<c1>10</c1>
+			<c1>15</c1>
 		</lag_filter>
 		
 		<switch name="/instrumentation/hsi[0]/gs-deviation-cmd">
@@ -1430,7 +1430,7 @@
 		
 		<lag_filter name="/instrumentation/hsi[0]/gs-deviation">
 			<input>/instrumentation/hsi[0]/gs-deviation-cmd</input>
-			<c1>10</c1>
+			<c1>15</c1>
 		</lag_filter>
 		
 		<!-- Horizontal Situation Indicator 2 -->
@@ -1528,7 +1528,7 @@
 		
 		<lag_filter name="/instrumentation/hsi[1]/loc-deviation">
 			<input>/instrumentation/hsi[1]/loc-deviation-cmd</input>
-			<c1>10</c1>
+			<c1>15</c1>
 		</lag_filter>
 		
 		<switch name="/instrumentation/hsi[1]/gs-deviation-cmd">
@@ -1544,7 +1544,7 @@
 		
 		<lag_filter name="/instrumentation/hsi[1]/gs-deviation">
 			<input>/instrumentation/hsi[1]/gs-deviation-cmd</input>
-			<c1>10</c1>
+			<c1>15</c1>
 		</lag_filter>
 	
 	</channel>
