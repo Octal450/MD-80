@@ -151,6 +151,28 @@
 	</animation>
 	
 	<animation>
+		<type>select</type>
+		<object-name>Runway</object-name>
+		<condition>
+			<and>
+				<equals>
+					<property>instrumentation/ai[0]/power-avail</property>
+					<value>1</value>
+				</equals>
+				<greater-than-equals>
+					<property>systems/electrical/outputs/nav[0]</property>
+					<value>24</value>
+				</greater-than-equals>
+				<property>instrumentation/nav[0]/in-range</property>
+				<greater-than>
+					<property>instrumentation/nav[0]/signal-quality-norm</property>
+					<value>0.99</value>
+				</greater-than>
+			</and>
+		</condition>
+	</animation>
+	
+	<animation>
 		<type>translate</type>
 		<object-name>Runway</object-name>
 		<property>instrumentation/ai[0]/loc-deviation</property>
