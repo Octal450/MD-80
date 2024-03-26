@@ -421,6 +421,10 @@
 				/instrumentation/nav[0]/in-range eq 1
 				/instrumentation/nav[0]/signal-quality-norm gt 0.99
 			</test>
+			<clipto>
+				<min>0</min>
+				<max>200</max>
+			</clipto>
 		</switch>
 		
 		<lag_filter name="/instrumentation/ai[0]/rising-runway">
@@ -608,6 +612,10 @@
 				/instrumentation/nav[1]/in-range eq 1
 				/instrumentation/nav[1]/signal-quality-norm gt 0.99
 			</test>
+			<clipto>
+				<min>0</min>
+				<max>200</max>
+			</clipto>
 		</switch>
 		
 		<lag_filter name="/instrumentation/ai[1]/rising-runway">
