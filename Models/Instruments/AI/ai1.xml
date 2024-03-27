@@ -51,6 +51,17 @@
 	</animation>
 	
 	<animation>
+		<type>rotate</type>
+		<object-name>FD</object-name>
+		<property>instrumentation/ai[0]/fd-roll</property>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
 		<type>translate</type>
 		<object-name>FD</object-name>
 		<property>instrumentation/ai[0]/fd-pitch</property>
@@ -59,17 +70,6 @@
 			<x>0</x>
 			<y>0</y>
 			<z>1</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
-		<object-name>FD</object-name>
-		<property>instrumentation/ai[0]/fd-roll</property>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
 		</axis>
 	</animation>
 	
