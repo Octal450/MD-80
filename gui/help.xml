@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+
+<PropertyList>
+	
+	<title>McDonnell Douglas MD-80 Help</title>
+	
+	<key>
+		<name>1</name>
+		<desc>Show Captain's View</desc>
+	</key>
+	<key>
+		<name>2</name>
+		<desc>Show First Officer's View</desc>
+	</key>
+	<key>
+		<name>3</name>
+		<desc>Show Overhead View</desc>
+	</key>
+	<key>
+		<name>4</name>
+		<desc>Show Forward Pedestal View</desc>
+	</key>
+	<key>
+		<name>5</name>
+		<desc>Show Aft Pedestal View</desc>
+	</key>
+	<key>
+		<name>6</name>
+		<desc>Show Glareshield View</desc>
+	</key>
+	<key>
+		<name>F1</name>
+		<desc>Disengage/Decrease Reverse Thrust</desc>
+	</key>
+	<key>
+		<name>F2</name>
+		<desc>Engage/Increase Reverse Thrust</desc>
+	</key>
+	<key>
+		<name>DEL</name>
+		<desc>Toggle Reverse Thrust</desc>
+	</key>
+	<key>
+		<name>C</name>
+		<desc>Reset Current View</desc>
+	</key>
+	<key>
+		<name>E</name>
+		<desc>Set Throttles to Idle</desc>
+	</key>
+	<key>
+		<name>F</name>
+		<desc>Set Throttles to Thrust Limit</desc>
+	</key>
+	<key>
+		<name>CTRL + B</name>
+		<desc>Cycle Spoilers</desc>
+	</key>
+	<key>
+		<name>SHIFT + B</name>
+		<desc>Toggle Parking Brake</desc>
+	</key>
+	<key>
+		<name>SHIFT + C</name>
+		<desc>Open Checklists</desc>
+	</key>
+	<key>
+		<name>CTRL + D</name>
+		<desc>Autothrust Disconnect Button</desc>
+	</key>
+	<key>
+		<name>SHIFT + D</name>
+		<desc>Autoflight Disconnect Button</desc>
+	</key>
+	<key>
+		<name>SHIFT + F</name>
+		<desc>Set Throttles to Full</desc>
+	</key>
+	<key>
+		<name>SHIFT + G</name>
+		<desc>Takeoff/Go Around Button</desc>
+	</key>
+	
+<!-- Must ignore indenting/formatting -->
+<text>Available documentation can be viewed in the "Documentation" menu.
+
+2D versions of certain cockpit panels are included to make certain tasks easier. These can be opened from the "2D Panels" menu.
+
+The Aircraft Config Center can be used to load panel states as well as configure aircraft and ground equipment.
+
+Aircraft Config Center Options:
+* Keyboard Mode: Maps flight controls to number pad and number rows instead of view shortucts.
+* Combined Standby: Equips the aircraft with the combined standby instead of split instruments.
+* Auto Arm Altitude: Equips the aircraft with the optional feature to automatically arm altitude.
+* Armed Altitude as Flight Levels: Equips the aircraft with the optional feature to show flight level on the FMA.
+* Use Separate Tiller Axis: Separates the tiller from the rudder and maps it to /controls/gear/steering
+* Panel: Allows selection between Analog and EFIS panel layouts. EFIS panel also includes a single or dual cue FD option.
+</text>
+
+</PropertyList>
