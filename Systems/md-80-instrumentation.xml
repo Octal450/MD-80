@@ -1036,20 +1036,9 @@
 			</test>
 		</switch>
 		
-		<!-- Altimeter Standby -->
-		<switch name="/instrumentation/stby-alt/power-avail">
-			<default value="1"/>
-		</switch>
-		
-		<switch name="/instrumentation/stby-alt/altitude-ft-input">
-			<default value="/instrumentation/stby-alt/altitude-ft-input"/>
-			<test value="/instrumentation/altimeter[0]/indicated-altitude-ft"> <!-- Fix me when they are seperate -->
-				/instrumentation/stby-alt/power-avail eq 1
-			</test>
-		</switch>
-		
+		<!-- Altimeter Standby (Pneumatic) -->
 		<actuator name="/instrumentation/stby-alt/altitude-ft-actuator">
-			<input>/instrumentation/stby-alt/altitude-ft-input</input>
+			<input>/instrumentation/altimeter[0]/indicated-altitude-ft</input> <!-- Fix me when they are seperate -->
 			<rate_limit>1500</rate_limit>
 		</actuator>
 		
