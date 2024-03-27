@@ -3,7 +3,7 @@
 <!-- McDonnell Douglas MD-80 JT8D-217A Engine/TRI -->
 <!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
 
-<system name="MD-80: 217A Engine/TRI">
+<system name="MD-80: Engine/TRI">
 	
 	<property value="0">engine/art/active</property>
 	<property value="0">engine/art/output</property>
