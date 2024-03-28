@@ -267,8 +267,8 @@ var PANEL = {
 		me.panelBase(0, 1); # Don't disable stop
 		
 		pts.Services.Chocks.enable.setBoolValue(1);
-		systems.ENGINE.cutoffSwitch[0].setBoolValue(1);
-		systems.ENGINE.cutoffSwitch[1].setBoolValue(1);
+		systems.IGNITION.fastStop(0);
+		systems.IGNITION.fastStop(1);
 		
 		fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
 		fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-init"}));
@@ -306,8 +306,8 @@ var PANEL = {
 		me.panelBase(0);
 		
 		pts.Services.Chocks.enable.setBoolValue(1);
-		systems.ENGINE.cutoffSwitch[0].setBoolValue(1);
-		systems.ENGINE.cutoffSwitch[1].setBoolValue(1);
+		systems.IGNITION.fastStop(0);
+		systems.IGNITION.fastStop(1);
 		
 		settimer(func() { # Give things a moment to settle
 			fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
@@ -331,8 +331,8 @@ var PANEL = {
 		pts.Controls.Lighting.positionStrobeLight.setValue(0.5);
 		pts.Controls.Switches.seatbeltSign.setBoolValue(1);
 		
-		systems.ENGINE.cutoffSwitch[0].setBoolValue(1);
-		systems.ENGINE.cutoffSwitch[1].setBoolValue(1);
+		systems.IGNITION.fastStop(0);
+		systems.IGNITION.fastStop(1);
 		
 		me.l1 = setlistener("/engines/engine[2]/state", func() {
 			if (systems.APU.state.getValue() == 3) {

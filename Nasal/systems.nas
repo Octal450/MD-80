@@ -20,6 +20,12 @@ var APU = {
 	},
 	init: func() {
 		me.Switch.master.setValue(0);
+		settimer(func() { # Required delay
+			if (me.n2.getValue() >= 1) {
+				pts.Fdm.JSBsim.Propulsion.Engine.n1[2].setValue(0.1);
+				pts.Fdm.JSBsim.Propulsion.Engine.n2[2].setValue(0.1);
+			}
+		}, 0.1);
 	},
 	fastStart: func() {
 		me.Switch.master.setValue(1);
@@ -493,6 +499,13 @@ var IGNITION = {
 	fastStart: func(n) {
 		ENGINE.cutoffSwitch[n].setBoolValue(0);
 		pts.Fdm.JSBsim.Propulsion.setRunning.setValue(n);
+	},
+	fastStop: func(n) {
+		ENGINE.cutoffSwitch[n].setBoolValue(1);
+		settimer(func() { # Required delay
+			pts.Fdm.JSBsim.Propulsion.Engine.n1[n].setValue(0.1);
+			pts.Fdm.JSBsim.Propulsion.Engine.n2[n].setValue(0.1);
+		}, 0.1);
 	},
 };
 
