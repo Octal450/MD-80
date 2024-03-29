@@ -582,7 +582,7 @@
 			</clipto>
 		</fcs_function>
 		
-		<fcs_function name="engine/limit/highest-epr">
+		<fcs_function name="engine/limit/highest">
 			<function>
 				<max>
 					<property>engine/limit/climb</property>
@@ -598,7 +598,7 @@
 			<function>
 				<quotient>
 					<difference>
-						<property>engine/limit/highest-epr</property>
+						<property>engine/limit/highest</property>
 						<property>engine/epr/c2</property>
 					</difference>
 					<max> <!-- Prevent divide by 0 -->
@@ -1665,7 +1665,7 @@
 		<switch name="engine/limit/overspeed">
 			<default value="0"/>
 			<test value="1">
-				engine/limit/overspeed-epr-input gt engine/limit/highest-epr
+				engine/limit/overspeed-epr-input gt engine/limit/highest
 			</test>
 		</switch>
 	
