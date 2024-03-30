@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- MD-80 Temporary Speeds/CG Applet -->
+<!-- MD-80 Speeds/CG Applet -->
 <!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
 
 <PropertyList>
@@ -13,9 +13,13 @@
 			setprop("/sim/gui/dialogs/speedscg/cg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/cg-percent-mac"), 0.1)) ~ "% MAC");
 			setprop("/sim/gui/dialogs/speedscg/zfwcg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/zfwcg-percent-mac"), 0.1)) ~ "% MAC");
 			
+			setprop("/sim/gui/dialogs/speedscg/current-stabilizer-deg-round", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/fcs-actual/stabilizer/final-deg"), 0.1) * -1) ~ " DEG");
+			
 			setprop("/sim/gui/dialogs/speedscg/v1-round", math.round(getprop("/fdm/jsbsim/speeds/v1")));
 			setprop("/sim/gui/dialogs/speedscg/vr-round", math.round(getprop("/fdm/jsbsim/speeds/vr")));
 			setprop("/sim/gui/dialogs/speedscg/v2-round", math.round(getprop("/fdm/jsbsim/speeds/v2")));
+			setprop("/sim/gui/dialogs/speedscg/stabilizer-deg-round", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/speeds/stabilizer-deg"), 0.1)) ~ " DEG");
+			
 			setprop("/sim/gui/dialogs/speedscg/flap-retract-round", math.round(getprop("/fdm/jsbsim/speeds/flap-retract")));
 			setprop("/sim/gui/dialogs/speedscg/slat-retract-round", math.round(getprop("/fdm/jsbsim/speeds/slat-retract")));
 			setprop("/sim/gui/dialogs/speedscg/min-maneuver-round", math.round(getprop("/fdm/jsbsim/speeds/min-maneuver")));
@@ -24,9 +28,13 @@
 				setprop("/sim/gui/dialogs/speedscg/cg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/cg-percent-mac"), 0.1)) ~ "% MAC");
 				setprop("/sim/gui/dialogs/speedscg/zfwcg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/zfwcg-percent-mac"), 0.1)) ~ "% MAC");
 				
+				setprop("/sim/gui/dialogs/speedscg/current-stabilizer-deg-round", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/fcs-actual/stabilizer/final-deg"), 0.1) * -1) ~ " DEG");
+				
 				setprop("/sim/gui/dialogs/speedscg/v1-round", math.round(getprop("/fdm/jsbsim/speeds/v1")));
 				setprop("/sim/gui/dialogs/speedscg/vr-round", math.round(getprop("/fdm/jsbsim/speeds/vr")));
 				setprop("/sim/gui/dialogs/speedscg/v2-round", math.round(getprop("/fdm/jsbsim/speeds/v2")));
+				setprop("/sim/gui/dialogs/speedscg/stabilizer-deg-round", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/speeds/stabilizer-deg"), 0.1)) ~ " DEG");
+				
 				setprop("/sim/gui/dialogs/speedscg/flap-retract-round", math.round(getprop("/fdm/jsbsim/speeds/flap-retract")));
 				setprop("/sim/gui/dialogs/speedscg/slat-retract-round", math.round(getprop("/fdm/jsbsim/speeds/slat-retract")));
 				setprop("/sim/gui/dialogs/speedscg/min-maneuver-round", math.round(getprop("/fdm/jsbsim/speeds/min-maneuver")));
@@ -86,6 +94,25 @@
 			<label>999999999</label>
 			<live>true</live>
 			<property>/sim/gui/dialogs/speedscg/zfwcg-percent-mac</property>
+		</text>
+	</group>
+	
+	<hrule/>
+	
+	<group>
+		<layout>table</layout>
+		
+		<text>
+			<row>0</row>
+			<col>0</col>
+			<label>CURRENT STAB: </label>
+		</text>
+		<text>
+			<row>0</row>
+			<col>1</col>
+			<label>9999999</label>
+			<live>true</live>
+			<property>/sim/gui/dialogs/speedscg/current-stabilizer-deg-round</property>
 		</text>
 	</group>
 	
@@ -181,6 +208,19 @@
 			<label>999</label>
 			<live>true</live>
 			<property>/sim/gui/dialogs/speedscg/v2-round</property>
+		</text>
+		
+		<text>
+			<row>3</row>
+			<col>0</col>
+			<label>T/O STAB: </label>
+		</text>
+		<text>
+			<row>3</row>
+			<col>1</col>
+			<label>9999999</label>
+			<live>true</live>
+			<property>/sim/gui/dialogs/speedscg/stabilizer-deg-round</property>
 		</text>
 	</group>
 	

@@ -630,6 +630,32 @@
 				</table>
 			</function>
 		</fcs_function>
+		
+		<!-- Stabilizer Computer -->
+		<fcs_function name="speeds/stabilizer-deg">
+			<function>
+				<table>
+					<independentVar lookup="row">inertia/cg-percent-mac</independentVar>
+					<independentVar lookup="column">zero</independentVar> <!-- Take advantage of the table lookup to interpolate -->
+					<independentVar lookup="table">speeds/flap-setting</independentVar>
+					<tableData breakPoint="0">
+						      0    1
+						 5.0  8.4  8.4
+						33.4  1.0  1.0
+					</tableData>
+					<tableData breakPoint="4">
+						      0    1
+						 0.4  9.0  9.0
+						33.6  1.0  1.0
+					</tableData>
+					<tableData breakPoint="28">
+						      0    1
+						 9.9  9.0  9.0
+						33.6  1.0  1.0
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
 	
 	</channel>
 

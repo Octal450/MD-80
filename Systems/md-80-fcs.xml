@@ -483,6 +483,9 @@
 		
 		<switch name="fcs-actual/stabilizer/rate-switch">
 			<default value="0.333333"/> <!-- Primary -->
+			<test value="20">
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
 			<!--test logic="OR" value="0.1"--> <!-- Alternate -->
 				<!-- TBD -->
 			<!--/test-->

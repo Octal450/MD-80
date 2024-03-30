@@ -132,7 +132,7 @@
 							<dialog-name>acconfig-failures</dialog-name>
 						</binding>
 					</item>
-					<item> <!-- Temporary -->
+					<item>
 						<label>Speed/CG Applet</label>
 						<binding>
 							<command>dialog-show</command>

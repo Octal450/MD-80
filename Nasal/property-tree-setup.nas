@@ -119,6 +119,9 @@ var Fdm = {
 			},
 			tatC: props.globals.getNode("/fdm/jsbsim/propulsion/tat-c"),
 		},
+		Speeds: {
+			stabilizerDeg: props.globals.getNode("/fdm/jsbsim/speeds/stabilizer-deg"),
+		},
 		Spoilers: {
 			mainGearAnd: props.globals.getNode("/fdm/jsbsim/spoilers/main-gear-and"),
 		},
