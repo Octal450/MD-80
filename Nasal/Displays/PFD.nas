@@ -149,9 +149,9 @@ var canvasBase = {
 		if (pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() >= 60 and pts.Controls.Flight.flapsInput.getValue() > 0) {
 			me["AI_PLI"].setTranslation(0, math.clamp(Value.Ai.stallAlphaDeg - Value.Ai.alpha, -20, 20) * -12.345);
 			if (Value.Ai.alpha >= Value.Ai.stallAlphaDeg) {
-				me["AI_PLI"].setColor(1,0,0);
+				me["AI_PLI"].setColor(1, 0, 0);
 			} else {
-				me["AI_PLI"].setColor(1,1,1);
+				me["AI_PLI"].setColor(1, 1, 1);
 			}
 			
 			if (systems.DUController.flightDirector == "Dual Cue") {
@@ -218,13 +218,13 @@ var canvasBase = {
 		if (Value.Ra.dh > 0) {
 			if (Value.Ra.agl <= Value.Ra.dh and Value.Ra.dhLatch) {
 				me["DH_below"].show();
-				me["DH_pointer"].setColor(0.9647,0.8196,0.0784);
-				me["DH_pointer"].setColorFill(0.9647,0.8196,0.0784);
+				me["DH_pointer"].setColor(0.9647, 0.8196, 0.0784);
+				me["DH_pointer"].setColorFill(0.9647, 0.8196, 0.0784);
 				me["DH_set"].hide();
 			} else {
 				me["DH_below"].hide();
-				me["DH_pointer"].setColor(0,0.7059,0);
-				me["DH_pointer"].setColorFill(0,0.7059,0);
+				me["DH_pointer"].setColor(0, 0.7059, 0);
+				me["DH_pointer"].setColorFill(0, 0.7059, 0);
 				me["DH_set"].setText("DH" ~ sprintf("%03d", Value.Ra.dh));
 				me["DH_set"].show();
 			}

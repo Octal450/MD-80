@@ -209,87 +209,6 @@
 			<layout>vbox</layout>
 			
 			<checkbox>
-				<label>Enable De-icing Truck</label>
-				<halign>left</halign>
-				<property>/services/deicing_truck/enable</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<button>
-				<legend>De-ice Aircraft</legend>
-				<halign>center</halign>
-				<padding>5</padding>
-				<enable>
-					<property>/services/deicing_truck/enable</property>
-				</enable>
-				<binding>
-					<command>nasal</command>
-					<script>gui.popupTip("The aircraft was de-iced!");</script>
-				</binding>
-			</button>
-			
-			<checkbox>
-				<label>Enable Fuel Truck</label>
-				<halign>left</halign>
-				<enable>
-					<property>/systems/acconfig/extra-stuff</property>
-				</enable>
-				<!--enable>
-					<not><property>/services/fuel-truck/connect</property></not>
-				</enable-->
-				<property>/services/fuel-truck/enable</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Connect Fuel Truck</label>
-				<halign>left</halign>
-				<enable>
-					<property>/systems/acconfig/extra-stuff</property>
-				</enable>
-				<!--enable>
-					<property>/services/fuel-truck/enable</property>
-				</enable-->
-				<property>/services/fuel-truck/connect</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Enable Catering Truck</label>
-				<halign>left</halign>
-				<enable>
-					<property>/systems/acconfig/extra-stuff</property>
-				</enable>
-				<property>/services/catering/enable</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Enable Baggage Ramp</label>
-				<halign>left</halign>
-				<enable>
-					<property>/systems/acconfig/extra-stuff</property>
-				</enable>
-				<property>/services/baggage/enable</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
 				<label>Enable Wheel Chocks</label>
 				<halign>left</halign>
 				<enable>
@@ -460,7 +379,7 @@
 				<layout>hbox</layout>
 				
 				<text>
-					<label>Panel:</label>
+					<label>Panel Type:</label>
 				</text>
 				
 				<combo>
@@ -477,7 +396,7 @@
 						</and>
 					</enable>
 					<halign>right</halign>
-					<pref-width>90</pref-width>
+					<pref-width>125</pref-width>
 					<property>/systems/acconfig/options/panel</property>
 					<value>Analog</value>
 					<value>EFIS</value>
@@ -490,6 +409,14 @@
 					</binding>
 					<live>true</live>
 				</combo>
+			</group>
+			
+			<group>
+				<layout>hbox</layout>
+				
+				<text>
+					<label>Flight Director:</label>
+				</text>
 				
 				<group>
 					<layout>table</layout>
@@ -504,7 +431,7 @@
 						<row>0</row>
 						<col>0</col>
 						<halign>center</halign>
-						<label>Single Cue</label>
+						<label>Collins Single Cue</label>
 					</text>
 					<combo>
 						<visible>

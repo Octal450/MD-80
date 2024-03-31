@@ -188,8 +188,8 @@ var canvasArmL = {
 		return ["Line1", "Line2"];
 	},
 	setup: func() {
-		me["Line1"].setColor(0.7333,0.3803,0);
-		me["Line2"].setColor(0.7333,0.3803,0);
+		me["Line1"].setColor(0.7333, 0.3803, 0);
+		me["Line2"].setColor(0.7333, 0.3803, 0);
 	},
 	update: func() {
 		me.updateCommon(1);
@@ -207,8 +207,8 @@ var canvasArmR = {
 		return ["Line1", "Line2"];
 	},
 	setup: func() {
-		me["Line1"].setColor(0.7333,0.3803,0);
-		me["Line2"].setColor(0.7333,0.3803,0);
+		me["Line1"].setColor(0.7333, 0.3803, 0);
+		me["Line2"].setColor(0.7333, 0.3803, 0);
 	},
 	update: func() {
 		me.updateCommon(1);

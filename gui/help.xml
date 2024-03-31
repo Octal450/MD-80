@@ -96,7 +96,8 @@ Aircraft Config Center Options:
 * Auto Arm Altitude: Equips the aircraft with the optional feature to automatically arm altitude.
 * Armed Altitude as Flight Levels: Equips the aircraft with the optional feature to show flight level on the FMA.
 * Use Separate Tiller Axis: Separates the tiller from the rudder and maps it to /controls/gear/steering.
-* Panel: Allows selection between Analog and EFIS panel layouts. EFIS panel also includes a single or dual cue FD option.
+* Panel Type: Selects between Analog and EFIS panel layouts. 
+* Flight Director: EFIS panel only, selects between Single Cue (inverted V-bar) or Dual Cue (cross bars) flight directors.
 </text>
 
 </PropertyList>
