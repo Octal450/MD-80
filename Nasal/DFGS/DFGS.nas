@@ -577,6 +577,7 @@ var ITAF = {
 			Output.ap1.setBoolValue(0);
 			me.apOffFunction();
 		}
+		
 		Output.ap1Temp = Output.ap1.getBoolValue();
 		if (Input.ap1.getBoolValue() != Output.ap1Temp) {
 			Input.ap1.setBoolValue(Output.ap1Temp);
@@ -597,6 +598,7 @@ var ITAF = {
 			Output.ap2.setBoolValue(0);
 			me.apOffFunction();
 		}
+		
 		Output.ap2Temp = Output.ap2.getBoolValue();
 		if (Input.ap2.getBoolValue() != Output.ap2Temp) {
 			Input.ap2.setBoolValue(Output.ap2Temp);
@@ -609,6 +611,7 @@ var ITAF = {
 				Sound.enableApOff = 0;
 				apKill.start();
 			}
+			
 			if (Text.vert.getValue() == "ROLLOUT") {
 				me.init(1);
 				Fma.startBlink(2);
@@ -644,6 +647,7 @@ var ITAF = {
 				atsKill.start();
 			}
 		}
+		
 		Output.athrTemp = Output.athr.getBoolValue();
 		if (Input.athr.getBoolValue() != Output.athrTemp) {
 			Input.athr.setBoolValue(Output.athrTemp);
@@ -677,6 +681,7 @@ var ITAF = {
 			}
 			Output.fd1.setBoolValue(0);
 		}
+		
 		Output.fd1Temp = Output.fd1.getBoolValue();
 		if (Input.fd1.getBoolValue() != Output.fd1Temp) {
 			Input.fd1.setBoolValue(Output.fd1Temp);
@@ -691,6 +696,7 @@ var ITAF = {
 		} else {
 			Output.fd2.setBoolValue(0);
 		}
+		
 		Output.fd2Temp = Output.fd2.getBoolValue();
 		if (Input.fd2.getBoolValue() != Output.fd2Temp) {
 			Input.fd2.setBoolValue(Output.fd2Temp);
