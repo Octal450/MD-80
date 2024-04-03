@@ -39,7 +39,7 @@ var variousReset = func() {
 	pts.Instrumentation.Hsi.slavedToGps[1].setBoolValue(0);
 }
 
-var apPanel = {
+var ApPanel = {
 	hdgTemp: 0,
 	latTemp: 0,
 	ktsTemp: 0,

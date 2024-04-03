@@ -115,7 +115,7 @@ canvas.Element.setVisible = func(vis) {
 
 # Custom controls.nas overwrites
 controls.autopilotDisconnect = func() {
-	libraries.apPanel.apDisc();
+	libraries.ApPanel.apDisc();
 }
 
 controls.reverserTogglePosition = func() {
