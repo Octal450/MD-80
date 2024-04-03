@@ -127,7 +127,7 @@ var fgcpCanvas = {
 			if (e.shiftKey) {
 				libraries.apPanel.spdAdjust(10 * e.deltaY);
 			} else {
-				libraries.apPanel.spdAdjust(1 * e.deltaY);
+				libraries.apPanel.spdAdjust(e.deltaY);
 			}
 		});
 		
@@ -143,7 +143,7 @@ var fgcpCanvas = {
 			if (e.shiftKey) {
 				libraries.apPanel.hdgAdjust(10 * e.deltaY);
 			} else {
-				libraries.apPanel.hdgAdjust(1 * e.deltaY);
+				libraries.apPanel.hdgAdjust(e.deltaY);
 			}
 		});
 		
@@ -183,7 +183,7 @@ var fgcpCanvas = {
 		});
 		me["AltKnob"].addEventListener("wheel", func(e) {
 			if (e.shiftKey) {
-				libraries.apPanel.altAdjust(1 * e.deltaY);
+				libraries.apPanel.altAdjust(e.deltaY);
 			} else {
 				libraries.apPanel.altAdjust(10 * e.deltaY);
 			}
