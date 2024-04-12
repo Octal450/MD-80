@@ -298,6 +298,7 @@ var PANEL = {
 		pts.Services.Chocks.enable.setBoolValue(1);
 		systems.IGNITION.fastStop(0);
 		systems.IGNITION.fastStop(1);
+		systems.APU.stopRpm();
 		
 		settimer(func() { # Give things a moment to settle
 			fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
@@ -382,6 +383,7 @@ var PANEL = {
 		systems.PNEU.Switch.xBleedL.setValue(1);
 		systems.PNEU.Switch.xBleedR.setValue(1);
 		systems.TRI.setMode(0); # T/O
+		systems.APU.stopRpm();
 		
 		if (pts.Engines.Engine.state[0].getValue() != 3 or pts.Engines.Engine.state[1].getValue() != 3) {
 			engTimer = 3;

@@ -20,18 +20,20 @@ var APU = {
 	},
 	init: func() {
 		me.Switch.master.setValue(0);
-		settimer(func() { # Required delay
-			if (me.n2.getValue() >= 1) {
-				pts.Fdm.JSBsim.Propulsion.Engine.n1[2].setValue(0.1);
-				pts.Fdm.JSBsim.Propulsion.Engine.n2[2].setValue(0.1);
-			}
-		}, 0.1);
 	},
 	fastStart: func() {
 		me.Switch.master.setValue(1);
 		settimer(func() { # Give the fuel system a moment to provide fuel in the pipe
 			pts.Fdm.JSBsim.Propulsion.setRunning.setValue(2);
 		}, 1);
+	},
+	stopRpm: func() {
+		settimer(func() { # Required delay
+			if (me.n2.getValue() >= 1) {
+				pts.Fdm.JSBsim.Propulsion.Engine.n1[2].setValue(0.1);
+				pts.Fdm.JSBsim.Propulsion.Engine.n2[2].setValue(0.1);
+			}
+		}, 0.1);
 	},
 };
 
