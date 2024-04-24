@@ -32,8 +32,11 @@ var fgcpCanvas = {
 		me._dialog = nil;
 	},
 	open: func() {
+		if (me._dialog != nil) return; # Prevent more than one open
+		
 		me._dialog = canvas.Window.new([735, 125], "dialog", nil, 0);
 		me._dialog.set("title", me._title);
+		me._dialog.onClose = func() { panel2d.fgcpDialog.close(); };
 		me._canvas  = me._dialog.createCanvas();
 		me._root = me._canvas.createGroup();
 		

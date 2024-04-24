@@ -138,7 +138,7 @@ var canvasBase = {
 		Value.Ai.roll = pts.Orientation.rollDeg.getValue();
 		Value.Ai.stallAlphaDeg = pts.Fdm.JSBsim.Dfgs.stallAlphaDeg.getValue();
 		
-		me.aiBackgroundTrans.setTranslation(0, math.clamp(Value.Ai.pitch * 12.345, -240, 240)); # According to a pilot, it don't go the whole way
+		me.aiBackgroundTrans.setTranslation(0, math.clamp(Value.Ai.pitch * 12.345, -240, 240));
 		me.aiBackgroundRot.setRotation(-Value.Ai.roll * D2R, Value.Ai.center);
 		
 		me.aiScaleTrans.setTranslation(0, Value.Ai.pitch * 12.345);
