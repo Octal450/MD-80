@@ -747,7 +747,7 @@ var ITAF = {
 		} else if (n == 4) { # ALIGN
 			me.updateLnavArm(0);
 			me.updateLocArm(0);
-			me.updateApprArm(0);
+			me.updateApprArm(0, 1); # Don't disarm autoland
 			Output.lat.setValue(4);
 			me.updateLatText("ALGN");
 		} else if (n == 5) { # T/O or G/A, text is set by TOGA selector
@@ -818,7 +818,7 @@ var ITAF = {
 			Input.altArmed.setBoolValue(0);
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
-			me.updateApprArm(0);
+			me.updateApprArm(0, 1); # Don't disarm autoland
 			Output.vert.setValue(6);
 			me.updateVertText("FLARE");
 		} else if (n == 7) { # T/O CLB or G/A CLB, text is set by TOGA selector
