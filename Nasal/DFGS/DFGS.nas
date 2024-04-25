@@ -772,7 +772,6 @@ var ITAF = {
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
 			me.updateApprArm(0);
-			me.updateAutoLand(0);
 			Output.vert.setValue(0);
 			me.resetClimbRateLim();
 			me.updateVertText("ALT HLD");
@@ -782,7 +781,6 @@ var ITAF = {
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
 			me.updateApprArm(0);
-			me.updateAutoLand(0);
 			Output.vert.setValue(1);
 			me.updateVertText("V/S");
 			me.syncVs();
@@ -797,7 +795,6 @@ var ITAF = {
 		} else if (n == 3) { # ALT CAP
 			Input.altArmed.setBoolValue(0);
 			Internal.flchActive = 0;
-			me.updateAutoLand(0);
 			Output.vert.setValue(0);
 			me.setClimbRateLim();
 			Internal.altCaptureActive = 1;
@@ -805,7 +802,6 @@ var ITAF = {
 			Athr.setMode(0); # Thrust
 		} else if (n == 4) { # FLCH
 			me.updateApprArm(0);
-			me.updateAutoLand(0);
 			Internal.altCaptureActive = 0;
 			Output.vert.setValue(4);
 			me.updateVertText("FLCH");
@@ -829,7 +825,6 @@ var ITAF = {
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
 			me.updateApprArm(0);
-			me.updateAutoLand(0);
 			Output.vert.setValue(7);
 			Athr.setMode(2); # EPR Lim
 			Input.ktsMachFlch.setBoolValue(0);
@@ -838,7 +833,6 @@ var ITAF = {
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
 			me.updateApprArm(0);
-			me.updateAutoLand(0);
 			me.syncPitch();
 			Output.vert.setValue(8);
 			me.updateVertText("PITCH");
@@ -877,7 +871,6 @@ var ITAF = {
 		if (Output.lat.getValue() != 2) {
 			me.updateLnavArm(0);
 			me.updateLocArm(0);
-			me.updateAutoLand(0);
 			Output.lat.setValue(2);
 			me.updateLatText("LOC");
 			Fma.stopBlink(2);
@@ -888,7 +881,7 @@ var ITAF = {
 			Input.altArmed.setBoolValue(0);
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
-			me.updateApprArm(0);
+			me.updateApprArm(0, 1); # Don't disarm autoland
 			Output.vert.setValue(2);
 			me.updateVertText("G/S");
 			Fma.stopBlink(3);
@@ -1065,9 +1058,13 @@ var ITAF = {
 		Output.locArm.setBoolValue(n);
 		updateFma.arm();
 	},
-	updateApprArm: func(n) {
+	updateApprArm: func(n, t = 0) {
 		Output.apprArm.setBoolValue(n);
-		updateFma.arm();
+		if (n == 0 and t != 1) {
+			me.updateAutoLand(0);
+		} else {
+			updateFma.arm();
+		}
 	},
 	updateAutoLand: func(n) {
 		Input.autoLand.setBoolValue(n);

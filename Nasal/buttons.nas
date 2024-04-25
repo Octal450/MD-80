@@ -177,10 +177,9 @@ var ApPanel = {
 	},
 	autoLand: func() {
 		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
-			me.latTemp = dfgs.Output.lat.getValue();
-			me.vertTemp = dfgs.Output.vert.getValue();
-			if ((me.latTemp == 2 or me.latTemp == 4) and (dfgs.Output.apprArm.getBoolValue() or me.vertTemp == 2 or me.vertTemp == 6) and (dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue())) { # Check logic
+			if (dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue()) {
 				dfgs.ITAF.updateAutoLand(1);
+				dfgs.Input.vert.setValue(2);
 			}
 		}
 	},
