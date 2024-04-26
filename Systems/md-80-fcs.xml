@@ -308,7 +308,7 @@
 				<table>
 					<independentVar lookup="row">fcs-actual/stabilizer/final-deg</independentVar>
 					<tableData>
-						 8  0
+						10  0
 						12  5
 					</tableData>
 				</table>
@@ -370,7 +370,7 @@
 						</product>
 						<product>
 							<property>fcs-actual/elevator-l/anti-float-tab-cmd-deg</property>
-							<value>-0.25</value>
+							<value>-0.2</value>
 							<property>fcs-actual/authority-alpha</property>
 						</product>
 						<property>fcs-actual/elevator-l/anti-up-slow</property>
@@ -420,7 +420,7 @@
 				<table>
 					<independentVar lookup="row">fcs-actual/stabilizer/final-deg</independentVar>
 					<tableData>
-						 8  0
+						10  0
 						12  5
 					</tableData>
 				</table>
@@ -482,7 +482,7 @@
 						</product>
 						<product>
 							<property>fcs-actual/elevator-r/anti-float-tab-cmd-deg</property>
-							<value>-0.25</value>
+							<value>-0.2</value>
 							<property>fcs-actual/authority-alpha</property>
 						</product>
 						<property>fcs-actual/elevator-r/anti-up-slow</property>
