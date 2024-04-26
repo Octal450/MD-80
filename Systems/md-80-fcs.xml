@@ -5,6 +5,8 @@
 
 <system name="MD-80: FCS">
 	
+	<property value="0">fcs-actual/stabilizer/final-deg</property>
+	
 	<channel name="Libraries">
 		
 		<fcs_function name="fcs-actual/authority"> <!-- Guesses based on pilot info -->
@@ -303,6 +305,19 @@
 			</clipto>
 		</pure_gain>
 		
+		<fcs_function name="fcs-actual/elevator-l/anti-float-tab-cmd-deg">
+			<function>
+				<table>
+					<independentVar lookup="row">fcs-actual/stabilizer/final-deg</independentVar>
+					<tableData>
+						 8  0
+						12  5
+					</tableData>
+				</table>
+			</function>
+			<output>fcs-actual/elevator-l/anti-float-tab-final-deg</output>
+		</fcs_function>
+		
 		<switch name="fcs-actual/elevator-l/rate-incr">
 			<default value="fcs-actual/surface-rate"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="80">
@@ -355,6 +370,11 @@
 							<value>-1</value>
 							<property>fcs-actual/authority-alpha</property>
 						</product>
+						<product>
+							<property>fcs-actual/elevator-l/anti-float-tab-cmd-deg</property>
+							<value>-0.25</value>
+							<property>fcs-actual/authority-alpha</property>
+						</product>
 						<property>fcs-actual/elevator-l/anti-up-slow</property>
 					</sum>
 				</ifthen>
@@ -396,6 +416,19 @@
 				<max>22.5</max>
 			</clipto>
 		</pure_gain>
+		
+		<fcs_function name="fcs-actual/elevator-r/anti-float-tab-cmd-deg">
+			<function>
+				<table>
+					<independentVar lookup="row">fcs-actual/stabilizer/final-deg</independentVar>
+					<tableData>
+						 8  0
+						12  5
+					</tableData>
+				</table>
+			</function>
+			<output>fcs-actual/elevator-r/anti-float-tab-final-deg</output>
+		</fcs_function>
 		
 		<switch name="fcs-actual/elevator-r/rate-incr">
 			<default value="fcs-actual/surface-rate"/> <!-- For aerodynamically flown -->
@@ -447,6 +480,11 @@
 						<product>
 							<property>fcs-actual/elevator-r/control-tab-cmd-deg</property>
 							<value>-1</value>
+							<property>fcs-actual/authority-alpha</property>
+						</product>
+						<product>
+							<property>fcs-actual/elevator-r/anti-float-tab-cmd-deg</property>
+							<value>-0.25</value>
 							<property>fcs-actual/authority-alpha</property>
 						</product>
 						<property>fcs-actual/elevator-r/anti-up-slow</property>

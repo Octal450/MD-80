@@ -1828,10 +1828,6 @@
 	</animation>
 	
 	<!-- Elevator -->
-	<!-- ElTabAntifloatL rotate points for future reference:
-	45.072	-5.895	5.430
-	44.616	-4.564	5.500
-	-->
 	<animation>
 		<type>rotate</type>
 		<object-name>Stabilizer</object-name>
@@ -1902,6 +1898,20 @@
 			<z2-m>5.611</z2-m>
 		</axis>
 	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>ElTabAntifloatL</object-name>
+		<property>fdm/jsbsim/fcs-actual/elevator-l/anti-float-tab-final-deg</property>
+		<factor>1</factor>
+		<axis>
+			<x1-m>45.072</x1-m>
+			<y1-m>-5.895</y1-m>
+			<z1-m>5.43</z1-m>
+			<x2-m>44.616</x2-m>
+			<y2-m>-4.564</y2-m>
+			<z2-m>5.5</z2-m>
+		</axis>
+	</animation>
 
 	<animation>
 		<type>rotate</type>
@@ -1946,6 +1956,20 @@
 			<x2-m>44.572</x2-m>
 			<y2-m>4.435</y2-m>
 			<z2-m>5.507</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>ElTabAntifloatR</object-name>
+		<property>fdm/jsbsim/fcs-actual/elevator-r/anti-float-tab-final-deg</property>
+		<factor>1</factor>
+		<axis>
+			<x1-m>45.072</x1-m>
+			<y1-m>5.895</y1-m>
+			<z1-m>5.43</z1-m>
+			<x2-m>44.616</x2-m>
+			<y2-m>4.564</y2-m>
+			<z2-m>5.5</z2-m>
 		</axis>
 	</animation>
 	
