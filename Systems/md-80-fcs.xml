@@ -5,8 +5,6 @@
 
 <system name="MD-80: FCS">
 	
-	<property value="0">fcs-actual/stabilizer/final-deg</property>
-	
 	<channel name="Libraries">
 		
 		<fcs_function name="fcs-actual/authority"> <!-- Guesses based on pilot info -->

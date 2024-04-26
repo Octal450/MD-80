@@ -335,6 +335,7 @@ var ITAF = {
 		if (Output.lat.getValue() == 1) { # Only evaulate the rest of the condition if we are in LNAV mode
 			if (FPLN.num.getValue() == 0 or !FPLN.active.getBoolValue()) {
 				me.setLatMode(3);
+				Fma.startBlink(2);
 			}
 		}
 		
@@ -347,6 +348,12 @@ var ITAF = {
 		if (Output.latTemp != 6 and Output.vertTemp == 8) {
 			me.setVertMode(1);
 			Fma.startBlink(3);
+		}
+		
+		# Takeoff Lateral Reversion
+		if (Output.latTemp == 5 and Output.vertTemp != 7) {
+			me.setLatMode(3);
+			Fma.startBlink(2);
 		}
 		
 		Output.ap1Temp = Output.ap1.getBoolValue();
