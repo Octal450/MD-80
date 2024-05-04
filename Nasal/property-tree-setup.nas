@@ -99,7 +99,7 @@ var Fdm = {
 			},
 			throttleLever: [props.globals.getNode("/fdm/jsbsim/engine/throttle-lever[0]"), props.globals.getNode("/fdm/jsbsim/engine/throttle-lever[1]")],
 		},
-		fcsActual: {
+		FcsActual: {
 			Stabilizer: {
 				rateSwitch: props.globals.getNode("/fdm/jsbsim/fcs-actual/stabilizer/rate-switch"),
 			},
