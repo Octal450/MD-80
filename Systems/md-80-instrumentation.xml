@@ -704,6 +704,10 @@
 					</product>
 				</sum>
 			</function>
+			<clipto>
+				<min>-40</min>
+				<max>40</max>
+			</clipto>
 		</fcs_function>
 		
 		<actuator name="/instrumentation/stby-ai/pitch-deg-pos">

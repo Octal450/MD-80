@@ -4,7 +4,7 @@
 
 <PropertyList>
 	
-	<path>ai.ac</path>
+	<path>stbyai.ac</path>
 	
     <animation>
 		<type>scale</type>
@@ -56,22 +56,18 @@
 		</center>
 	</animation>
 	
-	<!-- Calibrated to move 15 degrees per every 10 true -->
 	<animation>
 		<type>rotate</type>
 		<object-name>AI.Ball</object-name>
 		<property>instrumentation/stby-ai/pitch-deg</property>
-		<interpolation>
-			<entry><ind>-90.0</ind><dep>-135.0</dep></entry>
-			<entry><ind> 90.0</ind><dep> 135.0</dep></entry>
-		</interpolation>
+		<factor>1.34</factor>
 		<axis>
 			<x>0</x>
 			<y>1</y>
 			<z>0</z>
 		</axis>
 		<center>
-			<x-m>-0.036</x-m>
+			<x-m>-0.03421</x-m>
 			<y-m>0</y-m>
 			<z-m>0</z-m>
 		</center>
@@ -80,7 +76,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>AI.Bar.Aircraft</object-name>
-		<property>instrumentation/attitude-indicator/horizon-offset-deg</property>
+		<property>instrumentation/stby-ai/airplane-offset</property>
 		<factor>0.001</factor>
 		<axis>
 			<x>0</x>

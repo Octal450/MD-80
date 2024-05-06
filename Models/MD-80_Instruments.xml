@@ -359,7 +359,7 @@
 	<!-- Center Panel -->
 	<model>
 		<name>stbyai</name>
-		<path>Aircraft/MD-80/Models/Instruments/ai.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/stbyai.xml</path>
 		<offsets>
 			<x-m>2.2195</x-m>
 			<y-m>-0.19</y-m>
