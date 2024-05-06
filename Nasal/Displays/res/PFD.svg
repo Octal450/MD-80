@@ -38,13 +38,13 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1017"
+     inkscape:window-height="1057"
      id="namedview371"
      showgrid="false"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="808.95415"
-     inkscape:cy="506.18954"
-     inkscape:window-x="1592"
+     inkscape:zoom="0.25"
+     inkscape:cx="919.43428"
+     inkscape:cy="1306.2533"
+     inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2"
@@ -128,30 +128,23 @@
      id="AI_group"
      inkscape:label="#g4601">
     <g
-       transform="matrix(1.0761131,0,0,1.0761131,33.549837,-251.2475)"
        id="AI_background"
-       inkscape:label="#g5492">
+       inkscape:label="#g4594">
       <rect
          inkscape:label="#rect5809"
-         y="610.99481"
-         x="-195.39799"
-         height="1375.7401"
-         width="1287.3097"
+         y="403.62097"
+         x="-176.7205"
+         height="1500"
+         width="1385.2908"
          id="AI_ground"
          style="opacity:1;fill:#401800;fill-opacity:1;stroke:none;stroke-width:2.48752213;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <path
-         sodipodi:nodetypes="cc"
-         inkscape:connector-curvature="0"
-         id="path4602"
-         d="m -192.19758,608.54942 1280.90598,0"
-         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:4.89099979;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
       <rect
          style="opacity:1;fill:#004097;fill-opacity:1;stroke:none;stroke-width:2.58921981;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="AI_sky"
-         width="1287.3096"
-         height="1375.7399"
-         x="-195.39726"
-         y="-769.63684"
+         width="1385.2906"
+         height="1500"
+         x="-176.71971"
+         y="-1096.379"
          inkscape:label="#rect5809" />
     </g>
     <path
@@ -166,6 +159,12 @@
     <g
        id="AI_scale"
        inkscape:label="#g3776">
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path4602"
+         d="m -174.08682,403.621 1380.02152,0"
+         style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:5.26636457;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
       <g
          id="g3812">
         <path
@@ -1137,6 +1136,23 @@
          id="path5117"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cccccc" />
+    </g>
+    <g
+       inkscape:transform-center-y="35.8125"
+       id="FD_v"
+       inkscape:label="#g4579">
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="rect4573"
+         d="m 301.927,446.769 202.548,-45.78 -3e-4,5.263 -202.5477,71.613 z"
+         style="fill:#ff42a5;fill-opacity:1;stroke:none;stroke-width:3.125;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:#ff42a5;fill-opacity:1;stroke:none;stroke-width:3.125;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 729.923,446.769 -202.548,-45.78 0,5.263 202.548,71.613 z"
+         id="path4577"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
     </g>
   </g>
   <rect
@@ -2638,23 +2654,6 @@
        width="13.174011"
        id="FD_roll"
        style="fill:#ff42a5;fill-opacity:1;stroke:none;stroke-width:2.87749815;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <g
-       inkscape:transform-center-y="35.8125"
-       id="FD_v"
-       inkscape:label="#g4579">
-      <path
-         sodipodi:nodetypes="ccccc"
-         inkscape:connector-curvature="0"
-         id="rect4573"
-         d="m 301.927,446.769 202.548,-45.78 -3e-4,5.263 -202.5477,71.613 z"
-         style="fill:#ff42a5;fill-opacity:1;stroke:none;stroke-width:3.125;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <path
-         style="fill:#ff42a5;fill-opacity:1;stroke:none;stroke-width:3.125;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         d="m 729.923,446.769 -202.548,-45.78 0,5.263 202.548,71.613 z"
-         id="path4577"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="ccccc" />
-    </g>
   </g>
   <g
      id="Outer_Marker"
