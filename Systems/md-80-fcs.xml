@@ -273,19 +273,19 @@
 		
 		<switch name="fcs-actual/elevator/pwr-active">
 			<default value="0"/>
-			<test logic="AND" value="1"> <!-- 0.51282 is +10 control tab defl -->
+			<test logic="AND" value="1"> <!-- 0.5 is +10 control tab defl -->
 				/systems/hydraulics/sys-l-psi ge 950
-				fcs-actual/elevator-yoke gt 0.51282
+				fcs-actual/elevator-yoke gt 0.5
 				/systems/failures/fctl/elevator-pwr ne 1
 			</test>
 		</switch>
 		
 		<pure_gain name="fcs-actual/elevator/pwr-cmd-deg">
 			<input>fcs-actual/elevator/yoke-sum</input> <!-- Don't use the lagged version -->
-			<gain>22.5</gain>
+			<gain>22</gain>
 			<clipto>
 				<min>10</min>
-				<max>19.5</max>
+				<max>20</max>
 			</clipto>
 		</pure_gain>
 	
@@ -295,11 +295,11 @@
 		
 		<pure_gain name="fcs-actual/elevator-l/control-tab-cmd-deg">
 			<input>fcs-actual/elevator-yoke</input>
-			<gain>-22.5</gain>
+			<gain>-22</gain>
 			<output>fcs-actual/elevator-l/control-tab-final-deg</output>
 			<clipto>
-				<min>-19.5</min>
-				<max>22.5</max>
+				<min>-20</min>
+				<max>22</max>
 			</clipto>
 		</pure_gain>
 		
@@ -378,8 +378,8 @@
 				</ifthen>
 			</function>
 			<clipto>
-				<min>-22.5</min>
-				<max>19.5</max>
+				<min>-22</min>
+				<max>20</max>
 			</clipto>
 		</fcs_function>
 		
@@ -407,11 +407,11 @@
 		
 		<pure_gain name="fcs-actual/elevator-r/control-tab-cmd-deg">
 			<input>fcs-actual/elevator-yoke</input>
-			<gain>-22.5</gain>
+			<gain>-22</gain>
 			<output>fcs-actual/elevator-r/control-tab-final-deg</output>
 			<clipto>
-				<min>-19.5</min>
-				<max>22.5</max>
+				<min>-20</min>
+				<max>22</max>
 			</clipto>
 		</pure_gain>
 		
@@ -490,8 +490,8 @@
 				</ifthen>
 			</function>
 			<clipto>
-				<min>-22.5</min>
-				<max>19.5</max>
+				<min>-22</min>
+				<max>20</max>
 			</clipto>
 		</fcs_function>
 		

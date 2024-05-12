@@ -695,7 +695,7 @@
 				<property>metrics/cbarw-ft</property>
 				<property>aero/function/kCmde</property>
 				<toradians><property>fcs-actual/elevator-l/surface-final-deg</property></toradians>
-				<value>-0.211</value>
+				<value>-0.215796</value>
 			</product>
 		</function>
 		
@@ -707,7 +707,7 @@
 				<property>metrics/cbarw-ft</property>
 				<property>aero/function/kCmde</property>
 				<toradians><property>fcs-actual/elevator-r/surface-final-deg</property></toradians>
-				<value>-0.211</value>
+				<value>-0.215796</value>
 			</product>
 		</function>
 		

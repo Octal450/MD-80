@@ -118,8 +118,8 @@
 					<pref-height>150</pref-height>
 					<vertical>true</vertical>
 					<property>/fdm/jsbsim/fcs-actual/elevator-l/surface-final-deg</property>
-					<min>-22.5</min>
-					<max>19.5</max>
+					<min>-22</min>
+					<max>20</max>
 					<step>0.0022</step>
 					<live>true</live>
 				</slider>
@@ -152,8 +152,8 @@
 					<pref-height>150</pref-height>
 					<vertical>true</vertical>
 					<property>/fdm/jsbsim/fcs-actual/elevator-r/surface-final-deg</property>
-					<min>-22.5</min>
-					<max>19.5</max>
+					<min>-22</min>
+					<max>20</max>
 					<step>0.0022</step>
 					<live>true</live>
 				</slider>
