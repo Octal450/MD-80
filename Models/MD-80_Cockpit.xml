@@ -887,9 +887,7 @@
 		<property>controls/cockpit/spoilers-lever-rotate</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 20</dep></entry>
-			<entry><ind>1</ind><dep> -2</dep></entry>
-			<entry><ind>2</ind><dep> -9</dep></entry>
-			<entry><ind>3</ind><dep>-15</dep></entry>
+			<entry><ind>1</ind><dep>-13</dep></entry>
 			<entry><ind>4</ind><dep>-29</dep></entry>
 		</interpolation>
 		<center>
@@ -1240,7 +1238,7 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>gearHornCutout</object-name>
+		<object-name>GearHornCutout</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -1266,13 +1264,16 @@
 	
 	<animation>
 		<type>translate</type>
-		<object-name>gearHornCutout</object-name>
-		<factor>-0.001</factor>
+		<object-name>GearHornCutout</object-name>
+		<factor>0.002</factor>
 		<property>controls/warnings/gear-warning-inhibit-switch</property>
 		<axis>
-			<x>1</x>
-			<y>0</y>
-			<z>0.8384</z>
+			<x1-m>2.70211</x1-m>
+			<y1-m>-0.03534</y1-m>
+			<z1-m>0.72424</z1-m>
+			<x2-m>2.69321</x2-m>
+			<y2-m>-0.03534</y2-m>
+			<z2-m>0.71469</z2-m>
 		</axis>
 	</animation>
 	
