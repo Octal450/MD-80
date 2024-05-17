@@ -62,7 +62,7 @@ var canvasBase = {
 		if (Value.blink < 3) Value.blink = Value.blink + 1;
 		else Value.blink = 0;
 		
-		Value.activeModeInt = systems.TRI.Limit.activeModeInt.getValue();
+		Value.activeModeInt = systems.THRLIM.Limit.activeModeInt.getValue();
 		Value.annunTest = pts.Controls.Switches.annunTest5Sec.getValue() > 0;
 		Value.apOn = dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue();
 		Value.atsOn = dfgs.Output.athr.getBoolValue();
@@ -165,7 +165,7 @@ var canvasBase = {
 					Value.line2 = Modes.Line2[w].getValue();
 					
 					if (w == 0 and Value.line2 == "FLX") { # For THR window Flex Temp
-						me["Line2"].setText(sprintf("%02d", systems.TRI.Limit.flexTemp.getValue()));
+						me["Line2"].setText(sprintf("%02d", systems.THRLIM.Limit.flexTemp.getValue()));
 					} else if (w == 1 and Value.line2 == "ALT" and pts.Systems.Acconfig.Options.armedAltAsFl.getBoolValue()) { # For ARM window Altitude as Flight Level
 						me["Line2"].setText(sprintf("%03d", math.round(dfgs.Input.alt.getValue() / 100)));
 					} else {

@@ -32,7 +32,7 @@
 					</equals>
 				</condition>
 				<command>nasal</command>
-				<script>systems.TRI.setMode(0);</script>
+				<script>systems.THRLIM.setMode(0);</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -67,7 +67,7 @@
 					</equals>
 				</condition>
 				<command>nasal</command>
-				<script>systems.TRI.setMode(5);</script>
+				<script>systems.THRLIM.setMode(5);</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -102,7 +102,7 @@
 					</equals>
 				</condition>
 				<command>nasal</command>
-				<script>systems.TRI.setMode(1);</script>
+				<script>systems.THRLIM.setMode(1);</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -137,7 +137,7 @@
 					</equals>
 				</condition>
 				<command>nasal</command>
-				<script>systems.TRI.setMode(2);</script>
+				<script>systems.THRLIM.setMode(2);</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -172,7 +172,7 @@
 					</equals>
 				</condition>
 				<command>nasal</command>
-				<script>systems.TRI.setMode(3);</script>
+				<script>systems.THRLIM.setMode(3);</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -207,7 +207,7 @@
 					</equals>
 				</condition>
 				<command>nasal</command>
-				<script>systems.TRI.setMode(4);</script>
+				<script>systems.THRLIM.setMode(4);</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -242,7 +242,7 @@
 					</equals>
 				</condition>
 				<command>nasal</command>
-				<script>systems.TRI.testBtn(1);</script>
+				<script>systems.THRLIM.testBtn(1);</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -256,7 +256,7 @@
 			<mod-up>
 				<binding>
 					<command>nasal</command>
-					<script>systems.TRI.testBtn(0);</script>
+					<script>systems.THRLIM.testBtn(0);</script>
 				</binding>
 				<binding>
 					<command>property-assign</command>

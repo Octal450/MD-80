@@ -40,10 +40,10 @@
 				<command>nasal</command>
 				<script>
 					<![CDATA[
-						var flex = systems.TRI.Limit.flexTemp.getValue();
+						var flex = systems.THRLIM.Limit.flexTemp.getValue();
 						var digit = left(sprintf("%02d", flex), 1);
-						if (digit <= 0) systems.TRI.Limit.flexTemp.setValue(5 ~ right(sprintf("%02d", flex), 1));
-						else systems.TRI.Limit.flexTemp.setValue((digit - 1) ~ right(sprintf("%02d", flex), 1));
+						if (digit <= 0) systems.THRLIM.Limit.flexTemp.setValue(5 ~ right(sprintf("%02d", flex), 1));
+						else systems.THRLIM.Limit.flexTemp.setValue((digit - 1) ~ right(sprintf("%02d", flex), 1));
 					]]>
 				</script>
 			</binding>
@@ -53,10 +53,10 @@
 				<command>nasal</command>
 				<script>
 					<![CDATA[
-						var flex = systems.TRI.Limit.flexTemp.getValue();
+						var flex = systems.THRLIM.Limit.flexTemp.getValue();
 						var digit = left(sprintf("%02d", flex), 1);
-						if (digit >= 5) systems.TRI.Limit.flexTemp.setValue(0 ~ right(sprintf("%02d", flex), 1));
-						else systems.TRI.Limit.flexTemp.setValue((digit + 1) ~ right(sprintf("%02d", flex), 1));
+						if (digit >= 5) systems.THRLIM.Limit.flexTemp.setValue(0 ~ right(sprintf("%02d", flex), 1));
+						else systems.THRLIM.Limit.flexTemp.setValue((digit + 1) ~ right(sprintf("%02d", flex), 1));
 					]]>
 				</script>
 			</binding>
@@ -85,10 +85,10 @@
 				<command>nasal</command>
 				<script>
 					<![CDATA[
-						var flex = systems.TRI.Limit.flexTemp.getValue();
+						var flex = systems.THRLIM.Limit.flexTemp.getValue();
 						var digit = right(sprintf("%02d", flex), 1);
-						if (digit <= 0) systems.TRI.Limit.flexTemp.setValue(left(sprintf("%02d", flex), 1) ~ 9);
-						else systems.TRI.Limit.flexTemp.setValue(left(sprintf("%02d", flex), 1) ~ (digit - 1));
+						if (digit <= 0) systems.THRLIM.Limit.flexTemp.setValue(left(sprintf("%02d", flex), 1) ~ 9);
+						else systems.THRLIM.Limit.flexTemp.setValue(left(sprintf("%02d", flex), 1) ~ (digit - 1));
 					]]>
 				</script>
 			</binding>
@@ -98,10 +98,10 @@
 				<command>nasal</command>
 				<script>
 					<![CDATA[
-						var flex = systems.TRI.Limit.flexTemp.getValue();
+						var flex = systems.THRLIM.Limit.flexTemp.getValue();
 						var digit = right(sprintf("%02d", flex), 1);
-						if (digit >= 9) systems.TRI.Limit.flexTemp.setValue(left(sprintf("%02d", flex), 1) ~ 0);
-						else systems.TRI.Limit.flexTemp.setValue(left(sprintf("%02d", flex), 1) ~ (digit + 1));
+						if (digit >= 9) systems.THRLIM.Limit.flexTemp.setValue(left(sprintf("%02d", flex), 1) ~ 0);
+						else systems.THRLIM.Limit.flexTemp.setValue(left(sprintf("%02d", flex), 1) ~ (digit + 1));
 					]]>
 				</script>
 			</binding>

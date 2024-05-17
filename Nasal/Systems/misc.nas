@@ -110,7 +110,7 @@ var ENGINE = {
 
 # Base off Engine 1
 var doRevThrust = func() {
-	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and systems.TRI.throttleCompareMax.getValue() <= 0.05) {
+	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and THRLIM.throttleCompareMax.getValue() <= 0.05) {
 		ENGINE.throttleTemp[0] = ENGINE.throttle[0].getValue();
 		if (!ENGINE.reverseEngage[0].getBoolValue() or !ENGINE.reverseEngage[1].getBoolValue()) {
 			ENGINE.reverseEngage[0].setBoolValue(1);
@@ -136,7 +136,7 @@ var doRevThrust = func() {
 }
 
 var unRevThrust = func() {
-	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and systems.TRI.throttleCompareMax.getValue() <= 0.05) {
+	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and THRLIM.throttleCompareMax.getValue() <= 0.05) {
 		if (ENGINE.reverseEngage[0].getBoolValue() or ENGINE.reverseEngage[1].getBoolValue()) {
 			ENGINE.throttleTemp[0] = ENGINE.throttle[0].getValue();
 			if (ENGINE.throttleTemp[0] > 0.7) {
@@ -164,7 +164,7 @@ var unRevThrust = func() {
 }
 
 var toggleRevThrust = func() {
-	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and systems.TRI.throttleCompareMax.getValue() <= 0.05) {
+	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and THRLIM.throttleCompareMax.getValue() <= 0.05) {
 		if (ENGINE.reverseEngage[0].getBoolValue() or ENGINE.reverseEngage[1].getBoolValue()) {
 			ENGINE.throttle[0].setValue(0);
 			ENGINE.throttle[1].setValue(0);
@@ -188,13 +188,13 @@ var doIdleThrust = func() {
 }
 
 var doLimitThrust = func() {
-	var active = TRI.Limit.activeNorm.getValue();
+	var active = THRLIM.Limit.activeNorm.getValue();
 	ENGINE.throttle[0].setValue(active);
 	ENGINE.throttle[1].setValue(active);
 }
 
 var doFullThrust = func() {
-	var highest = TRI.Limit.highestNorm.getValue();
+	var highest = THRLIM.Limit.highestNorm.getValue();
 	ENGINE.throttle[0].setValue(highest);
 	ENGINE.throttle[1].setValue(highest);
 }
@@ -276,8 +276,8 @@ var IGNITION = {
 	},
 };
 
-# TRI
-var TRI = {
+# Thrust Limits
+var THRLIM = {
 	Control: {
 		atsMax: [props.globals.getNode("/fdm/jsbsim/engine/control-1/ats-max"), props.globals.getNode("/fdm/jsbsim/engine/control-2/ats-max")],
 	},

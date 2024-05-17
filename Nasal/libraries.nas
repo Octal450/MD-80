@@ -33,7 +33,7 @@ var systemsInit = func() {
 	systems.IGNITION.init();
 	systems.PNEU.init();
 	dfgs.ITAF.init(0);
-	systems.TRI.init();
+	systems.THRLIM.init();
 	instruments.EFIS.init();
 	libraries.variousReset();
 }
@@ -52,7 +52,7 @@ var fdmInit = setlistener("/sim/signals/fdm-initialized", func() {
 
 var systemsLoop = maketimer(0.1, func() {
 	systems.DUController.loop();
-	systems.TRI.loop();
+	systems.THRLIM.loop();
 	
 	if (pts.Velocities.groundspeedKt.getValue() >= 15) {
 		pts.Systems.Shake.effect.setBoolValue(1);

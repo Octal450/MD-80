@@ -382,7 +382,7 @@ var PANEL = {
 		systems.PNEU.Switch.xBleedL.setValue(1);
 		systems.PNEU.Switch.xBleedL.setValue(1);
 		systems.PNEU.Switch.xBleedR.setValue(1);
-		systems.TRI.setMode(0); # T/O
+		systems.THRLIM.setMode(0); # T/O
 		systems.APU.stopRpm();
 		
 		if (pts.Engines.Engine.state[0].getValue() != 3 or pts.Engines.Engine.state[1].getValue() != 3) {

@@ -197,17 +197,17 @@ var updateFma = {
 		me.thrTemp = Output.thrMode.getValue();
 		if (me.thrTemp == 3) {
 			Fma.thrA.setValue("CLMP");
-			if (systems.TRI.Limit.activeModeInt.getValue() == 5) {
+			if (systems.THRLIM.Limit.activeModeInt.getValue() == 5) {
 				Fma.thrB.setValue("FLX"); # Handled by FMA.nas
 			} else {
 				Fma.thrB.setValue("");
 			}
 		} else if (me.thrTemp == 2) {
 			Fma.thrA.setValue("EPR");
-			if (systems.TRI.Limit.activeModeInt.getValue() == 5) {
+			if (systems.THRLIM.Limit.activeModeInt.getValue() == 5) {
 				Fma.thrB.setValue("FLX"); # Handled by FMA.nas
 			} else {
-				Fma.thrB.setValue(systems.TRI.Limit.activeMode.getValue());
+				Fma.thrB.setValue(systems.THRLIM.Limit.activeMode.getValue());
 			}
 		} else if (me.thrTemp == 1) {
 			Fma.thrA.setValue("RETD");
@@ -286,7 +286,7 @@ var Athr = {
 	triMode: 0,
 	vmaxTypeTemp: 0,
 	loop: func() {
-		me.triMode = systems.TRI.Limit.activeModeInt.getValue();
+		me.triMode = systems.THRLIM.Limit.activeModeInt.getValue();
 		Output.thrModeTemp = Output.thrMode.getValue();
 		me.retard = Output.athr.getBoolValue() and Output.vert.getValue() != 7 and pts.Position.gearAglFt.getValue() <= 50 and Misc.flapDeg.getValue() >= 27.9 and me.triMode != 0 and me.triMode != 5;
 		
@@ -316,14 +316,14 @@ var Athr = {
 			me.setVmaxCheckFma();
 		} else if (Input.kts.getValue() > pts.Fdm.JSBsim.Dfgs.Speeds.vmax.getValue() and !me.ktsMach) {
 			me.setVmaxCheckFma();
-		} else if (me.atsCmdRawPid >= systems.TRI.Control.atsMax[0].getValue() - 0.005 or me.atsCmdRawPid >= systems.TRI.Control.atsMax[1].getValue() - 0.005) {
+		} else if (me.atsCmdRawPid >= systems.THRLIM.Control.atsMax[0].getValue() - 0.005 or me.atsCmdRawPid >= systems.THRLIM.Control.atsMax[1].getValue() - 0.005) {
 			if (me.ktsMach) {
 				Fma.thrA.setValue("MACH");
 			} else {
 				Fma.thrA.setValue("SPD");
 			}
 			Fma.thrB.setValue("ATL");
-		} else if (me.atsCmdRawPid <= systems.TRI.Limit.idleNorm.getValue() + 0.005) {
+		} else if (me.atsCmdRawPid <= systems.THRLIM.Limit.idleNorm.getValue() + 0.005) {
 			Fma.thrA.setValue("LOW");
 			Fma.thrB.setValue("LIM");
 		} else {
@@ -353,7 +353,7 @@ var Athr = {
 		}
 	},
 	setMode: func(n) { # 0 Thrust, 1 Retard, 2 EPR Limit, 3 Clamp
-		me.triMode = systems.TRI.Limit.activeModeInt.getValue();
+		me.triMode = systems.THRLIM.Limit.activeModeInt.getValue();
 		
 		if (me.triMode == 0 or me.triMode == 5) {
 			me.toCheck();
@@ -373,7 +373,7 @@ var Athr = {
 				}
 			} else {
 				if (Internal.atrCmd.getBoolValue()) {
-					systems.TRI.setMode(1);
+					systems.THRLIM.setMode(1);
 					if (Output.thrMode.getValue() != 2) {
 						Fma.stopBlink(0);
 						Output.thrMode.setValue(2);
