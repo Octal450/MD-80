@@ -28,8 +28,8 @@
 			<independentVar lookup="column">/systems/acconfig/autoconfig-running</independentVar>
 			<tableData> <!-- Bottlenecked by slow fuel control valve + uneven -->
 				    0    1
-				28  3.7  50
-				46  8.6  50
+				28  3.5  50
+				46  8.4  50
 			</tableData>
 		</table>
 	</function>
@@ -40,8 +40,8 @@
 			<independentVar lookup="column">/systems/acconfig/autoconfig-running</independentVar>
 			<tableData> <!-- Bottlenecked by slow fuel control valve + uneven -->
 				    0    1
-				28  4.0  50
-				46  9.1  50
+				28  4.2  50
+				46  9.3  50
 			</tableData>
 		</table>
 	</function>
@@ -53,7 +53,7 @@
 			<tableData> <!-- Bottlenecked by slow fuel control valve + uneven -->
 				    0    1
 				28  2.3  31
-				46  5.3  31
+				46  5.4  31
 			</tableData>
 		</table>
 	</function>
@@ -64,8 +64,8 @@
 			<independentVar lookup="column">/systems/acconfig/autoconfig-running</independentVar>
 			<tableData> <!-- Bottlenecked by slow fuel control valve + uneven -->
 				    0    1
-				28  2.5  31
-				46  5.6  31
+				28  2.7  31
+				46  6.0  31
 			</tableData>
 		</table>
 	</function>
