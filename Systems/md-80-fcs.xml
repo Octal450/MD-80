@@ -40,6 +40,7 @@
 				<tableData>
 					16  1.0
 					24  0.6
+					33  0.7
 				</tableData>
 			</table>
 		</scheduled_gain>
@@ -288,6 +289,24 @@
 				<max>20</max>
 			</clipto>
 		</pure_gain>
+		
+		<fcs_function name="fcs-actual/elevator/float-deg"> <!-- My guess on implementing the thing that the anti-float tab corrects -->
+			<function>
+				<product>
+					<property>fcs-actual/authority-alpha</property>
+					<table>
+						<independentVar lookup="row">aero/alpha-deg-fixed</independentVar>
+						<independentVar lookup="column">fcs-actual/stabilizer/final-deg</independentVar>
+						<tableData>
+							   -12  -10 
+							 8  1.5  0.0
+							16  5.0  0.0
+							20  4.0  0.0
+						</tableData>
+					</table>
+				</product>
+			</function>
+		</fcs_function>
 	
 	</channel>
 	
@@ -308,8 +327,8 @@
 				<table>
 					<independentVar lookup="row">fcs-actual/stabilizer/final-deg</independentVar>
 					<tableData>
-						10  0
-						12  5
+						-12  5
+						-10  0
 					</tableData>
 				</table>
 			</function>
@@ -374,6 +393,7 @@
 							<property>fcs-actual/authority-alpha</property>
 						</product>
 						<property>fcs-actual/elevator-l/anti-up-slow</property>
+						<property>fcs-actual/elevator/float-deg</property>
 					</sum>
 				</ifthen>
 			</function>
@@ -420,8 +440,8 @@
 				<table>
 					<independentVar lookup="row">fcs-actual/stabilizer/final-deg</independentVar>
 					<tableData>
-						10  0
-						12  5
+						-12  5
+						-10  0
 					</tableData>
 				</table>
 			</function>
@@ -486,6 +506,7 @@
 							<property>fcs-actual/authority-alpha</property>
 						</product>
 						<property>fcs-actual/elevator-r/anti-up-slow</property>
+						<property>fcs-actual/elevator/float-deg</property>
 					</sum>
 				</ifthen>
 			</function>
