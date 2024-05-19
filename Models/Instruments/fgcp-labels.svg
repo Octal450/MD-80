@@ -29,8 +29,8 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="2"
-     inkscape:cx="836.66459"
-     inkscape:cy="532.73724"
+     inkscape:cx="819.89207"
+     inkscape:cy="533.03491"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -892,16 +892,33 @@
        id="ellipse4645"
        style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:4;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <text
-       sodipodi:linespacing="110%"
-       id="text4269"
-       y="448.44852"
-       x="848.76172"
+       xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:20px;line-height:110.00000238%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:110.00000238%;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff"
-         y="448.44852"
-         x="848.76172"
+       x="759.24152"
+       y="628.47333"
+       id="text4271"
+       sodipodi:linespacing="110%"><tspan
+         id="tspan4273"
          sodipodi:role="line"
-         id="tspan4272">VNAV</tspan></text>
+         x="759.24152"
+         y="628.47333"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:110.00000238%;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff">VNAV</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:20px;line-height:110.00000238%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="848.59161"
+       y="434.69852"
+       id="text4275"
+       sodipodi:linespacing="110%"><tspan
+         id="tspan4279"
+         sodipodi:role="line"
+         x="848.59161"
+         y="434.69852"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:110.00000238%;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff">FMS</tspan><tspan
+         sodipodi:role="line"
+         x="848.59161"
+         y="462.19852"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:110.00000238%;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff"
+         id="tspan4284">OVRD</tspan></text>
   </g>
 </svg>

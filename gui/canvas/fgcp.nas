@@ -23,8 +23,8 @@ var fgcpCanvas = {
 		return m;
 	},
 	getKeys: func() {
-		return ["Ap", "ApDisc", "ApSel", "AltHold", "AltKnob", "Alt_7seg", "Alt_thousand_7seg", "AtsDisc", "AutoLand", "AutoThrot", "Bank10", "Bank15", "Bank20", "Bank25", "Bank30", "BankLimit", "Display", "EprLim", "Fd1", "Fd2", "HdgKnob", "Hdg_7seg", "IasMach",
-		"Ils", "MachSel", "Nav", "PerfVnav", "PerfVnavText", "PitchMode_16seg", "PitchKnob", "Pitch_7seg", "SpdKnob", "SpdSel", "Spd_7seg", "Toga", "Turb", "VertSpd", "VorLoc"];
+		return ["Ap", "ApDisc", "ApSel", "AltHold", "AltKnob", "Alt_7seg", "Alt_thousand_7seg", "AtsDisc", "AutoLand", "AutoThrot", "Bank10", "Bank15", "Bank20", "Bank25", "Bank30", "BankLimit", "Display", "EprLim", "Fd1", "Fd2", "FmsOvrd", "HdgKnob", "Hdg_7seg",
+		"IasMach", "Ils", "MachSel", "Nav", "PerfVnav", "PerfVnavText", "PitchMode_16seg", "PitchKnob", "Pitch_7seg", "SpdKnob", "SpdSel", "Spd_7seg", "Toga", "Turb", "VertSpd", "VorLoc"];
 	},
 	close: func() {
 		me._dialogUpdate.stop();
@@ -51,6 +51,7 @@ var fgcpCanvas = {
 		}
 		
 		if (pts.Options.fms.getValue() != "Honeywell") {
+			me["FmsOvrd"].hide();
 			me["PerfVnavText"].setText("PERF");
 		}
 		

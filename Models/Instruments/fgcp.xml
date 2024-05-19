@@ -124,6 +124,7 @@
 	</animation>
 	<animation>
 		<type>select</type>
+		<object-name>FmsOvrd.Text</object-name>
 		<object-name>Vnav.Text</object-name>
 		<condition>
 			<equals>
