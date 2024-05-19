@@ -486,7 +486,7 @@
 		<type>textranslate</type>
 		<object-name>rat1</object-name>
 		<property>instrumentation/tri/rat-d10</property>
-		<factor>0.0695</factor>
+		<factor>0.06985</factor>
 		<step>1</step>
 		<scroll>0.1</scroll>
 		<axis>
@@ -499,7 +499,7 @@
 		<type>textranslate</type>
 		<object-name>rat2</object-name>
 		<property>instrumentation/tri/rat-d1</property>
-		<factor>0.0695</factor>
+		<factor>0.06985</factor>
 		<axis>
 			<x>0</x>
 			<y>1</y>
