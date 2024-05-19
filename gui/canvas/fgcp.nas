@@ -24,7 +24,7 @@ var fgcpCanvas = {
 	},
 	getKeys: func() {
 		return ["Ap", "ApDisc", "ApSel", "AltHold", "AltKnob", "Alt_7seg", "Alt_thousand_7seg", "AtsDisc", "AutoLand", "AutoThrot", "Bank10", "Bank15", "Bank20", "Bank25", "Bank30", "BankLimit", "Display", "EprLim", "Fd1", "Fd2", "HdgKnob", "Hdg_7seg", "IasMach",
-		"Ils", "MachSel", "Nav", "Perf", "PitchMode_16seg", "PitchKnob", "Pitch_7seg", "SpdKnob", "SpdSel", "Spd_7seg", "Toga", "Turb", "VertSpd", "VorLoc"];
+		"Ils", "MachSel", "Nav", "PerfVnav", "PerfVnavText", "PitchMode_16seg", "PitchKnob", "Pitch_7seg", "SpdKnob", "SpdSel", "Spd_7seg", "Toga", "Turb", "VertSpd", "VorLoc"];
 	},
 	close: func() {
 		me._dialogUpdate.stop();
@@ -48,6 +48,10 @@ var fgcpCanvas = {
 			me[me._key] = me._svg.getElementById(me._key);
 			if (find("_7seg", me._key) != -1) me[me._key].setFont("Std7SegCustom.ttf");
 			else if (find("_16seg", me._key) != -1) me[me._key].setFont("Std16SegCustom.ttf");
+		}
+		
+		if (pts.Options.fms.getValue() != "Honeywell") {
+			me["PerfVnavText"].setText("PERF");
 		}
 		
 		# Set up clickspots

@@ -3459,7 +3459,7 @@ refs 3
 kids 0
 OBJECT group
 name "BtnText"
-kids 13
+kids 14
 OBJECT poly
 name "AltHold.Text"
 data 8
@@ -3699,6 +3699,26 @@ refs 4
 1 0.697277 0.554705
 2 0.609386 0.554705
 3 0.609386 0.466814
+kids 0
+OBJECT poly
+name "Vnav.Text"
+data 8
+Cube.014
+texture "fgcp-labels.png"
+crease 30.000000
+numvert 4
+-0.00593 -0.03071 -0.0649
+-0.00593 -0.01571 -0.0649
+-0.00593 -0.01571 -0.0499
+-0.00593 -0.03071 -0.0499
+numsurf 1
+SURF 0x0
+mat 1
+refs 4
+0 0.873047 0.554695
+1 0.873047 0.642586
+2 0.785156 0.642586
+3 0.785156 0.554695
 kids 0
 OBJECT poly
 name "VorLoc.Text"
@@ -9507,7 +9527,7 @@ refs 4
 6 0.936421 0.936421
 kids 0
 OBJECT poly
-name "Perf"
+name "PerfVnav"
 data 8
 Cube.020
 texture "fgcp.png"

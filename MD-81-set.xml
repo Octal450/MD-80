@@ -55,6 +55,7 @@
 	<options n="0">
 		<aux-tanks type="bool">0</aux-tanks>
 		<eng type="string">209</eng>
+		<fms type="string">CMA-900/PMS</fms>
 	</options>
 	
 	<payload n="0">

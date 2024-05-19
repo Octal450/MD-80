@@ -30,9 +30,9 @@
      inkscape:window-height="1057"
      id="namedview8"
      showgrid="false"
-     inkscape:zoom="8"
-     inkscape:cx="168.9385"
-     inkscape:cy="52.116641"
+     inkscape:zoom="5.6568543"
+     inkscape:cx="473.09167"
+     inkscape:cy="31.008949"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -112,7 +112,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -666,7 +666,7 @@
            sodipodi:role="line">MACH</tspan></text>
     </g>
     <g
-       id="Perf"
+       id="PerfVnav"
        inkscape:label="#g4328">
       <rect
          style="fill:#131514;fill-opacity:1;stroke:none;stroke-width:1.79999995;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -687,14 +687,15 @@
          style="font-style:normal;font-weight:normal;font-size:47.31533432px;line-height:89.99999762%;font-family:Alata;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          x="530.16394"
          y="981.85297"
-         id="text4310"
+         id="PerfVnavText"
          sodipodi:linespacing="89.999998%"
-         transform="scale(0.94629056,1.0567579)"><tspan
+         transform="scale(0.94629056,1.0567579)"
+         inkscape:label="#text4310"><tspan
            sodipodi:role="line"
            x="530.16394"
            y="981.85297"
            style="font-size:11.82883358px;line-height:89.99999762%;text-align:center;text-anchor:middle;fill:#ffffff"
-           id="tspan4314">PERF</tspan></text>
+           id="tspan4314">VNAV</tspan></text>
     </g>
     <g
        id="AltHold"

@@ -112,6 +112,27 @@
 		</emission>
 	</animation>
 	
+	<animation>
+		<type>select</type>
+		<object-name>Perf.Text</object-name>
+		<condition>
+			<not-equals>
+				<property>options/fms</property>
+				<value>Honeywell</value>
+			</not-equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Vnav.Text</object-name>
+		<condition>
+			<equals>
+				<property>options/fms</property>
+				<value>Honeywell</value>
+			</equals>
+		</condition>
+	</animation>
+	
 	<!-- Dimmers -->
 	<animation>
 		<type>knob</type>

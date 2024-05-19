@@ -202,6 +202,10 @@ var Orientation = {
 	rollDeg: props.globals.getNode("/orientation/roll-deg"),
 };
 
+var Options = {
+	fms: props.globals.getNode("/options/fms"),
+};
+
 var Position = {
 	gearAglFt: props.globals.getNode("/position/gear-agl-ft"),
 };
