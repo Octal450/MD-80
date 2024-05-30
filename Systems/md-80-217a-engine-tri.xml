@@ -95,18 +95,18 @@
 		
 		<!-- Following functions fix a FGTurbine inaccuracy... rated thrust N1% should be rated thrust lbs -->
 		<!-- These calculations change it so that the rated power at sea level is at the correct N1% value. It still changes with altitude and mach as it should -->
-		<fcs_function name="engine/limit/fgturbine-thrust-lbs">
+		<fcs_function name="engine/limit/fgturbine-thrust">
 			<function>
 				<sum>
 					<product>
-						<property>propulsion/engine[0]/IdleThrust</property> <!-- It doesn't matter which engine, its same for all -->
+						<property>propulsion/engine[0]/IdleThrust</property> <!-- It doesn't matter which engine, same for all -->
 						<property>engine/limit/rated-thrust</property>
 					</product>
 					<product>
 						<difference>
 							<property>engine/limit/rated-thrust</property>
 							<product>
-								<property>propulsion/engine[0]/IdleThrust</property> <!-- It doesn't matter which engine, its same for all -->
+								<property>propulsion/engine[0]/IdleThrust</property> <!-- It doesn't matter which engine, same for all -->
 								<property>engine/limit/rated-thrust</property>
 							</product>
 						</difference>
@@ -116,11 +116,11 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/limit/rated-thrust-lbs">
+		<fcs_function name="engine/limit/rated-thrust-actual">
 			<function>
 				<sum>
 					<product>
-						<property>propulsion/engine[0]/IdleThrust</property> <!-- It doesn't matter which engine, its same for all -->
+						<property>propulsion/engine[0]/IdleThrust</property> <!-- It doesn't matter which engine, same for all -->
 						<property>engine/limit/rated-thrust</property>
 					</product>
 					<product>
@@ -128,32 +128,28 @@
 							<difference>
 								<property>engine/limit/rated-thrust</property>
 								<product>
-									<property>propulsion/engine[0]/IdleThrust</property> <!-- It doesn't matter which engine, its same for all -->
+									<property>propulsion/engine[0]/IdleThrust</property> <!-- It doesn't matter which engine, same for all -->
 									<property>engine/limit/rated-thrust</property>
 								</product>
 							</difference>
 							<property>engine/limit/milthrust-unmodified</property>
 						</product>
-						<quotient>
-							<difference>
-								<property>engine/limit/rated-thrust-n1</property>
-								<value>25.3</value>
-							</difference>
-							<value>76.3</value>
-						</quotient>
-						<quotient>
-							<difference>
-								<property>engine/limit/rated-thrust-n1</property>
-								<value>25.3</value>
-							</difference>
-							<value>76.3</value>
-						</quotient>
+						<pow>
+							<quotient>
+								<difference>
+									<property>engine/limit/rated-thrust-n1</property>
+									<value>25.3</value>
+								</difference>
+								<value>76.3</value>
+							</quotient>
+							<value>2</value>
+						</pow>
 					</product>
 				</sum>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/limit/rated-thrust-factor"> <!-- Normalize -->
+		<fcs_function name="engine/limit/rated-thrust-factor">
 			<function>
 				<ifthen>
 					<eq>
@@ -163,12 +159,12 @@
 					<value>0</value>
 					<ifthen>
 						<nq> <!-- Prevent divide by 0 -->
-							<property>engine/limit/rated-thrust-lbs</property>
+							<property>engine/limit/rated-thrust-actual</property>
 							<value>0</value>
 						</nq>
 						<quotient>
-							<property>engine/limit/fgturbine-thrust-lbs</property>
-							<property>engine/limit/rated-thrust-lbs</property>
+							<property>engine/limit/fgturbine-thrust</property>
+							<property>engine/limit/rated-thrust-actual</property>
 						</quotient>
 						<value>1</value>
 					</ifthen>
