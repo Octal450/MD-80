@@ -17,7 +17,7 @@
 				</and>
 			</condition>
 			<volume>
-				<property>/sim/current-view/internal</property>
+				<property>/sim/sound/internal-custom</property>
 			</volume>
 		</sb>
 		
@@ -35,7 +35,7 @@
 				</and>
 			</condition>
 			<volume>
-				<property>/sim/current-view/internal</property>
+				<property>/sim/sound/internal-custom</property>
 			</volume>
 		</ns>
 		
@@ -110,7 +110,7 @@
 				<property>gear/gear[0]/wow</property>
 			</condition>
 			<volume>
-				<property>/sim/current-view/internal</property>
+				<property>/sim/sound/internal-custom</property>
 			</volume>
 		</wow>
 		
@@ -122,7 +122,7 @@
 				<property>gear/gear[1]/wow</property>
 			</condition>
 			<volume>
-				<property>/sim/current-view/internal</property>
+				<property>/sim/sound/internal-custom</property>
 			</volume>
 		</wow>
 		
@@ -134,7 +134,7 @@
 				<property>gear/gear[2]/wow</property>
 			</condition>
 			<volume>
-				<property>/sim/current-view/internal</property>
+				<property>/sim/sound/internal-custom</property>
 			</volume>
 		</wow>
 		
@@ -145,7 +145,7 @@
 			<condition>
 				<and>
 					<property>gear/gear[0]/wow</property>
-					<property>/sim/current-view/internal</property>
+					<property>/sim/sound/internal-custom</property>
 				</and>
 			</condition>
 			<volume>
@@ -161,7 +161,7 @@
 			<condition>
 				<and>
 					<property>gear/gear[1]/wow</property>
-					<property>/sim/current-view/internal</property>
+					<property>/sim/sound/internal-custom</property>
 				</and>
 			</condition>
 			<volume>
@@ -177,7 +177,7 @@
 			<condition>
 				<and>
 					<property>gear/gear[2]/wow</property>
-					<property>/sim/current-view/internal</property>
+					<property>/sim/sound/internal-custom</property>
 				</and>
 			</condition>
 			<volume>
@@ -212,7 +212,7 @@
 			<path>Aircraft/MD-80/Sounds/SASA/gear.wav</path>
 			<property>/gear/gear[0]/position-norm</property>
 			<volume>
-				<property>/sim/current-view/internal</property>
+				<property>/sim/sound/internal-custom</property>
 			</volume>
 		</switch>
 		
@@ -318,7 +318,7 @@
 			<name>MDA WHN 1</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/idle.wav</path>
 			<mode>looped</mode>
-			<property>sim/current-view/internal</property>
+			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_1</property>
 				<factor>0.5</factor>
@@ -339,7 +339,7 @@
 			<name>MDA WHN 2</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/spool.wav</path>
 			<mode>looped</mode>
-			<property>sim/current-view/internal</property>
+			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_2</property>
 				<factor>0.5</factor>
@@ -358,7 +358,7 @@
 			<name>MDA WHN 3</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/whine.wav</path>
 			<mode>looped</mode>
-			<property>sim/current-view/internal</property>
+			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_3</property>
 				<factor>0.5</factor>
@@ -377,7 +377,7 @@
 			<name>MDA Howl</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/howl.wav</path>
 			<mode>looped</mode>
-			<property>sim/current-view/internal</property>
+			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_howl</property>
 				<factor>0.3</factor>
@@ -396,7 +396,7 @@
 			<name>MDA Hum High</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/hum_high.wav</path>
 			<mode>looped</mode>
-			<property>sim/current-view/internal</property>
+			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_hum_high</property>
 				<factor>0.5</factor>
@@ -422,10 +422,10 @@
 				<property>/sim/sound/engine/MDA_WHN_4</property>
 			</volume>
 			<volume>
-				<property>sim/current-view/internal</property>
+				<property>sim/sound/internal-custom</property>
 			</volume>
 			<volume>
-				<property>sim/current-view/internal</property>
+				<property>sim/sound/internal-custom</property>
 				<factor>0.5</factor>
 			</volume>
 			<pitch>
@@ -443,7 +443,7 @@
 			<name>MDA WHN 5</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/buzz.wav</path>
 			<mode>looped</mode>
-			<property>sim/current-view/internal</property>
+			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_5</property>
 				<factor>0.5</factor>
@@ -463,7 +463,7 @@
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/reverser.wav</path>
 			<mode>looped</mode>
 			<condition>
-				<property>sim/current-view/internal</property>
+				<property>sim/sound/internal-custom</property>
 			</condition>
 			<volume>
 				<property>/sim/sound/engine/MDA_REV1</property>
@@ -484,7 +484,7 @@
 			<name>MDB WHN 1</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/idle.wav</path>
 			<mode>looped</mode>
-			<property>sim/current-view/internal</property>
+			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_1</property>
 				<factor>0.5</factor>
@@ -505,7 +505,7 @@
 			<name>MDB WHN 2</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/spool.wav</path>
 			<mode>looped</mode>
-			<property>sim/current-view/internal</property>
+			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_2</property>
 				<factor>0.5</factor>
@@ -524,7 +524,7 @@
 			<name>MDB WHN 3</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/whine.wav</path>
 			<mode>looped</mode>
-			<property>sim/current-view/internal</property>
+			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_3</property>
 				<factor>0.5</factor>
@@ -543,7 +543,7 @@
 			<name>MDB Howl</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/howl.wav</path>
 			<mode>looped</mode>
-			<property>sim/current-view/internal</property>
+			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_howl</property>
 				<factor>0.3</factor>
@@ -562,7 +562,7 @@
 			<name>MDB Hum High</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/hum_high.wav</path>
 			<mode>looped</mode>
-			<property>sim/current-view/internal</property>
+			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_hum_high</property>
 				<factor>0.5</factor>
@@ -583,7 +583,7 @@
 			<name>MDB WHN 4</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/buzz_low.wav</path>
 			<mode>looped</mode>
-				<property>sim/current-view/internal</property>
+				<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_4</property>
 				<factor>0.5</factor>
@@ -602,7 +602,7 @@
 			<name>MDB WHN 5</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/buzz.wav</path>
 			<mode>looped</mode>
-				<property>sim/current-view/internal</property>
+				<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_5</property>
 				<factor>0.5</factor>
@@ -622,7 +622,7 @@
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/reverser.wav</path>
 			<mode>looped</mode>
 			<condition>
-				<property>sim/current-view/internal</property>
+				<property>sim/sound/internal-custom</property>
 			</condition>
 			<volume>
 				<property>/sim/sound/engine/MDA_REV2</property>
@@ -644,7 +644,7 @@
 			<name>MDA CMB 0</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/rumble.wav</path>
 			<mode>looped</mode>
-				<property>sim/current-view/internal</property>
+				<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_CMB_1</property>
 				<factor>0.4</factor>
@@ -688,7 +688,7 @@
 			<mode>looped</mode>
 			<condition>
 				<not>
-					<property>sim/current-view/internal</property>
+					<property>sim/sound/internal-custom</property>
 				</not>
 			</condition>
 			<volume>
@@ -711,7 +711,7 @@
 			<mode>looped</mode>
 			<condition>
 				<not>
-					<property>sim/current-view/internal</property>
+					<property>sim/sound/internal-custom</property>
 				</not>
 			</condition>
 			<volume>
@@ -736,7 +736,7 @@
 			<mode>looped</mode>
 			<condition>
 				<not>
-					<property>sim/current-view/internal</property>
+					<property>sim/sound/internal-custom</property>
 				</not>
 			</condition>
 			<volume>
@@ -767,7 +767,7 @@
 			<mode>looped</mode>
 			<condition>
 				<not>
-					<property>sim/current-view/internal</property>
+					<property>sim/sound/internal-custom</property>
 				</not>
 			</condition>
 			<volume>
@@ -797,7 +797,7 @@
 			<mode>looped</mode>
 			<condition>
 				<not>
-					<property>sim/current-view/internal</property>
+					<property>sim/sound/internal-custom</property>
 				</not>
 			</condition>
 			<volume>
@@ -829,7 +829,7 @@
 			<mode>looped</mode>
 			<condition>
 				<not>
-					<property>sim/current-view/internal</property>
+					<property>sim/sound/internal-custom</property>
 				</not>
 			</condition>
 			<volume>
@@ -852,7 +852,7 @@
 			<mode>looped</mode>
 			<condition>
 				<not>
-					<property>sim/current-view/internal</property>
+					<property>sim/sound/internal-custom</property>
 				</not>
 			</condition>
 			<volume>
@@ -877,7 +877,7 @@
 			<mode>looped</mode>
 			<condition>
 				<not>
-					<property>sim/current-view/internal</property>
+					<property>sim/sound/internal-custom</property>
 				</not>
 			</condition>
 			<volume>
@@ -908,7 +908,7 @@
 			<mode>looped</mode>
 			<condition>
 				<not>
-					<property>sim/current-view/internal</property>
+					<property>sim/sound/internal-custom</property>
 				</not>
 			</condition>
 			<volume>
@@ -938,7 +938,7 @@
 			<mode>looped</mode>
 			<condition>
 				<not>
-					<property>sim/current-view/internal</property>
+					<property>sim/sound/internal-custom</property>
 				</not>
 			</condition>
 			<volume>
@@ -969,7 +969,7 @@
 			<path>Aircraft/MD-80/Sounds/Effects/rain.wav</path>
 			<condition>
 				<not>
-					<property>sim/current-view/internal</property>
+					<property>sim/sound/internal-custom</property>
 				</not>
 				<greater-than>
 					<property>/environment/rain-norm</property>
@@ -987,7 +987,7 @@
 			<mode>looped</mode>
 			<path>Aircraft/MD-80/Sounds/Effects/rain.wav</path>
 			<condition>
-				<property>sim/current-view/internal</property>
+				<property>sim/sound/internal-custom</property>
 				<greater-than>
 					<property>/environment/rain-norm</property>
 					<value>0</value>
@@ -1004,7 +1004,7 @@
 			<mode>looped</mode>
 			<path>Aircraft/MD-80/Sounds/Effects/rain-windshield.wav</path>
 			<condition>
-				<property>sim/current-view/internal</property>
+				<property>sim/sound/internal-custom</property>
 				<greater-than>
 					<property>/environment/rain-norm</property>
 					<value>0</value>
@@ -1115,7 +1115,7 @@
 			<condition>
 				<and>
 					<not>
-						<property>/sim/current-view/internal</property>
+						<property>/sim/sound/internal-custom</property>
 					</not>
 					<property>/sim/model/autopush/enabled</property>
 				</and>
@@ -1138,7 +1138,7 @@
 			<path>Aircraft/MD-80/Sounds/Effects/pushback.wav</path>
 			<condition>
 				<and>
-					<property>/sim/current-view/internal</property>	
+					<property>/sim/sound/internal-custom</property>	
 					<property>/sim/model/autopush/enabled</property>
 	   		 	</and>
 			</condition>

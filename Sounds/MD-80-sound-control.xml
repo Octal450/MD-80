@@ -8,6 +8,41 @@
 			<or>
 				<equals>
 					<property>/sim/current-view/view-number</property>
+					<value>13</value>
+				</equals>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>14</value>
+				</equals>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>15</value>
+				</equals>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>16</value>
+				</equals>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>17</value>
+				</equals>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>18</value>
+				</equals>
+			</or>
+		</input>
+		<output>/sim/sound/wingview-old</output>
+	</logic>
+	<logic>
+		<input>
+			<or>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>14</value>
+				</equals>
+				<equals>
+					<property>/sim/current-view/view-number</property>
 					<value>15</value>
 				</equals>
 				<equals>
@@ -26,10 +61,6 @@
 					<property>/sim/current-view/view-number</property>
 					<value>19</value>
 				</equals>
-				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>20</value>
-				</equals>
 			</or>
 		</input>
 		<output>/sim/sound/wingview</output>
@@ -38,11 +69,26 @@
 	<logic>
 		<input>
 			<or>
-				<equals>
-					<property>/sim/current-view/internal</property>
-					<value>1</value>
-				</equals>
-				<property>/sim/sound/wingview</property>
+				<and>
+					<not><property>/sim/use-new-views</property></not>
+					<or>
+						<equals>
+							<property>/sim/current-view/internal</property>
+							<value>1</value>
+						</equals>
+						<property>/sim/sound/wingview-old</property>
+					</or>
+				</and>
+				<and>
+					<property>/sim/use-new-views</property>
+					<or>
+						<equals>
+							<property>/sim/current-view/internal</property>
+							<value>1</value>
+						</equals>
+						<property>/sim/sound/wingview</property>
+					</or>
+				</and>
 			</or>
 		</input>
 		<output>/sim/sound/internal-custom</output>
