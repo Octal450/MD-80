@@ -385,14 +385,14 @@ var init = func() {
 	var thrLGroup = thrLDisplay.createGroup();
 	var thrRGroup = thrRDisplay.createGroup();
 	
-	armL = canvasArmL.new(armLGroup, "Aircraft/MD-80/Nasal/Displays/res/FMA_Arm_Roll.svg");
-	armR = canvasArmR.new(armRGroup, "Aircraft/MD-80/Nasal/Displays/res/FMA_Arm_Roll.svg");
-	pitchL = canvasPitchL.new(pitchLGroup, "Aircraft/MD-80/Nasal/Displays/res/FMA_Pitch.svg");
-	pitchR = canvasPitchR.new(pitchRGroup, "Aircraft/MD-80/Nasal/Displays/res/FMA_Pitch.svg");
-	rollL = canvasRollL.new(rollLGroup, "Aircraft/MD-80/Nasal/Displays/res/FMA_Arm_Roll.svg");
-	rollR = canvasRollR.new(rollRGroup, "Aircraft/MD-80/Nasal/Displays/res/FMA_Arm_Roll.svg");
-	thrL = canvasThrL.new(thrLGroup, "Aircraft/MD-80/Nasal/Displays/res/FMA_Thrust.svg");
-	thrR = canvasThrR.new(thrRGroup, "Aircraft/MD-80/Nasal/Displays/res/FMA_Thrust.svg");
+	armL = canvasArmL.new(armLGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma_arm_roll.svg");
+	armR = canvasArmR.new(armRGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma_arm_roll.svg");
+	pitchL = canvasPitchL.new(pitchLGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma_pitch.svg");
+	pitchR = canvasPitchR.new(pitchRGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma_pitch.svg");
+	rollL = canvasRollL.new(rollLGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma_arm_roll.svg");
+	rollR = canvasRollR.new(rollRGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma_arm_roll.svg");
+	thrL = canvasThrL.new(thrLGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma_thrust.svg");
+	thrR = canvasThrR.new(thrRGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma_thrust.svg");
 	
 	canvasBase.setup();
 	update.start();
