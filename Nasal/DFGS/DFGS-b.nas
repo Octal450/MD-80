@@ -54,7 +54,7 @@ var Fma = {
 	},
 };
 
-var updateFma = {
+var UpdateFma = {
 	latText: "T/O",
 	thrTemp: 0,
 	vertText: "T/O CLB",
@@ -218,8 +218,8 @@ var updateFma = {
 	},
 	# Special stuff
 	locUpdate: func() {
-		updateFma.latText = Text.lat.getValue();
-		if (updateFma.latText == "LOC") {
+		UpdateFma.latText = Text.lat.getValue();
+		if (UpdateFma.latText == "LOC") {
 			if (abs(pts.Instrumentation.Nav.headingNeedleDeflectionNorm[Input.activeAp.getValue() - 1].getValue()) < 0.1) {
 				locUpdateT.stop();
 				Fma.rollB.setValue("TRK");
@@ -233,8 +233,8 @@ var updateFma = {
 		}
 	},
 	gsUpdate: func() {
-		updateFma.vertText = Text.vert.getValue();
-		if (updateFma.vertText == "G/S") {
+		UpdateFma.vertText = Text.vert.getValue();
+		if (UpdateFma.vertText == "G/S") {
 			if (abs(pts.Instrumentation.Nav.gsNeedleDeflectionNorm[Input.activeAp.getValue() - 1].getValue()) < 0.1) {
 				gsUpdateT.stop();
 				Fma.pitchB.setValue("TRK");
@@ -249,33 +249,33 @@ var updateFma = {
 	},
 };
 
-var locUpdateT = maketimer(0.5, updateFma.locUpdate, updateFma);
-var gsUpdateT = maketimer(0.5, updateFma.gsUpdate, updateFma);
+var locUpdateT = maketimer(0.5, UpdateFma.locUpdate, UpdateFma);
+var gsUpdateT = maketimer(0.5, UpdateFma.gsUpdate, UpdateFma);
 
 setlistener("/it-autoflight/input/kts-mach", func() {
-	updateFma.thr();
+	UpdateFma.thr();
 }, 0, 0);
 
 setlistener("/it-autoflight/input/kts-mach-flch", func() {
-	updateFma.vert();
+	UpdateFma.vert();
 }, 0, 0);
 
 setlistener("/instrumentation/nav[0]/nav-loc", func() {
 	if (Input.activeAp.getValue() == 1) {
-		updateFma.arm();
-		updateFma.lat();
+		UpdateFma.arm();
+		UpdateFma.lat();
 	}
 }, 0, 0);
 
 setlistener("/instrumentation/nav[1]/nav-loc", func() {
 	if (Input.activeAp.getValue() == 2) {
-		updateFma.arm();
-		updateFma.lat();
+		UpdateFma.arm();
+		UpdateFma.lat();
 	}
 }, 0, 0);
 
 setlistener("/it-autoflight/input/alt-armed", func() {
-	updateFma.altArm();
+	UpdateFma.altArm();
 }, 0, 0);
 
 # Seperated the Autothrottle from ITAF because its very different from ITAF Core. So we do it here!
@@ -290,7 +290,7 @@ var Athr = {
 		Output.thrModeTemp = Output.thrMode.getValue();
 		me.retard = Output.athr.getBoolValue() and Output.vert.getValue() != 7 and pts.Position.gearAglFt.getValue() <= 50 and Misc.flapDeg.getValue() >= 27.9 and me.triMode != 0 and me.triMode != 5;
 		
-		if (Output.thrModeTemp == 0) { # Update it as the updateFma only does it once
+		if (Output.thrModeTemp == 0) { # Update it as the UpdateFma only does it once
 			me.modeZeroCheck();
 		}
 		
@@ -299,7 +299,7 @@ var Athr = {
 		} else if (me.retard) {
 			if (Output.thrMode.getValue() != 1) {
 				Output.thrMode.setValue(1);
-				updateFma.thr();
+				UpdateFma.thr();
 			}
 		}
 	},
@@ -361,7 +361,7 @@ var Athr = {
 			Fma.stopBlink(0);
 			Output.thrMode.setValue(n);
 		}
-		updateFma.thr();
+		UpdateFma.thr();
 	},
 	toCheck: func() {
 		if (Text.vert.getValue() == "T/O CLB") {
@@ -369,7 +369,7 @@ var Athr = {
 				if (Output.thrMode.getValue() != 2) {
 					Fma.stopBlink(0);
 					Output.thrMode.setValue(2);
-					updateFma.thr();
+					UpdateFma.thr();
 				}
 			} else {
 				if (Internal.atrCmd.getBoolValue()) {
@@ -377,12 +377,12 @@ var Athr = {
 					if (Output.thrMode.getValue() != 2) {
 						Fma.stopBlink(0);
 						Output.thrMode.setValue(2);
-						updateFma.thr();
+						UpdateFma.thr();
 					}
 				} else {
 					if (Output.thrMode.getValue() != 3) {
 						Output.thrMode.setValue(3);
-						updateFma.thr();
+						UpdateFma.thr();
 						Fma.startBlink(0);
 					}
 				}
@@ -390,7 +390,7 @@ var Athr = {
 		} else {
 			if (Output.thrMode.getValue() != 3) {
 				Output.thrMode.setValue(3);
-				updateFma.thr();
+				UpdateFma.thr();
 				Fma.startBlink(0);
 			}
 		}
@@ -399,6 +399,6 @@ var Athr = {
 		if (l == "T/O" and c != "T/O") { # If last mode was T/O, and the new mode is not T/O, set EPR Lim
 			me.setMode(2);
 		}
-		updateFma.thr();
+		UpdateFma.thr();
 	},
 };

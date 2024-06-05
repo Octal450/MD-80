@@ -266,8 +266,8 @@ var ITAF = {
 		Internal.maxVs.setValue(500);
 		Internal.alt.setValue(10000);
 		Internal.altCaptureActive = 0;
-		updateFma.thr();
-		updateFma.arm();
+		UpdateFma.thr();
+		UpdateFma.arm();
 		me.updateLatText("HDG");
 		me.updateVertText("V/S");
 		if (t != 1) {
@@ -461,18 +461,18 @@ var ITAF = {
 			if (Output.ap1Temp or Output.ap2Temp) {
 				if (Internal.goAround != 3) {
 					Internal.goAround = 3;
-					updateFma.arm();
+					UpdateFma.arm();
 				}
 			} else {
 				if (Internal.goAround != 2) {
 					Internal.goAround = 2;
-					updateFma.arm();
+					UpdateFma.arm();
 				}
 			}
 		} else {
 			if (Internal.goAround != 0) {
 				Internal.goAround = 0;
-				updateFma.arm();
+				UpdateFma.arm();
 			}
 		}
 		
@@ -1056,26 +1056,26 @@ var ITAF = {
 	},
 	updateLatText: func(t) {
 		Text.lat.setValue(t);
-		updateFma.lat();
+		UpdateFma.lat();
 	},
 	updateVertText: func(t) {
 		Text.vert.setValue(t);
-		updateFma.vert();
+		UpdateFma.vert();
 	},
 	updateLnavArm: func(n) {
 		Output.lnavArm.setBoolValue(n);
-		updateFma.arm();
+		UpdateFma.arm();
 	},
 	updateLocArm: func(n) {
 		Output.locArm.setBoolValue(n);
-		updateFma.arm();
+		UpdateFma.arm();
 	},
 	updateApprArm: func(n, t = 0) {
 		Output.apprArm.setBoolValue(n);
 		if (n == 0 and t != 1) {
 			me.updateAutoLand(0);
 		} else {
-			updateFma.arm();
+			UpdateFma.arm();
 		}
 	},
 	updateAutoLand: func(n) {
@@ -1088,7 +1088,7 @@ var ITAF = {
 				me.updateVertText("G/S");
 			}
 		}
-		updateFma.arm();
+		UpdateFma.arm();
 	},
 };
 
