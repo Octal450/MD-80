@@ -719,7 +719,7 @@
 				<property>metrics/cbarw-ft</property>
 				<property>aero/function/kCmdstab</property>
 				<toradians><property>fcs-actual/stabilizer/final-deg</property></toradians>
-				<value>-2.516</value>
+				<value>-2.684</value>
 			</product>
 		</function>
 		
