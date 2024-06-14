@@ -204,6 +204,8 @@
 				<float n="4" alias="/engines/engine[1]/reverser-pos-norm"/>
 				<float n="5" alias="/gear/gear[0]/steering-norm"/>
 				<float n="6" alias="/fdm/jsbsim/fcs/slat-pos-norm"/>
+				<float n="7" alias="/controls/lighting/land-ext-l"/>
+				<float n="8" alias="/controls/lighting/land-ext-r"/>
 				<int n="0" alias="/sim/model/lights/strobe/state"/>
 				<int n="1" alias="/sim/model/lights/beacon/state"/>
 				<int n="2" alias="/controls/lighting/landing-light-n"/>

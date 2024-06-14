@@ -225,8 +225,8 @@
 		<name>Left Landing Light</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/landinglightL.xml</path>
 		<offsets>
-			<x-m>27.67</x-m>
-			<y-m>-16.0</y-m>
+			<x-m>28.1196</x-m>
+			<y-m>-16.1664</y-m>
 			<z-m>-0.23</z-m>
 		</offsets>
 	</model>
@@ -381,8 +381,8 @@
 		<name>Right Landing Light</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/landinglightR.xml</path>
 		<offsets>
-			<x-m>27.67</x-m>
-			<y-m>16.0</y-m>
+			<x-m>28.1196</x-m>
+			<y-m>16.1664</y-m>
 			<z-m>-0.23</z-m>
 		</offsets>
 	</model>
@@ -745,8 +745,8 @@
 		<name>Top Beacon</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/beacon.xml</path>
 		<offsets>
-			<x-m>23.2539</x-m>
-			<y-m>-0.000214</y-m>
+			<x-m>22.606</x-m>
+			<y-m>0.36098</y-m>
 			<z-m>2.31971</z-m>
 		</offsets>
 	</model>
@@ -755,8 +755,8 @@
 		<name>Bottom Beacon</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/beacon.xml</path>
 		<offsets>
-			<x-m>25.2005</x-m>
-			<y-m>0.191746</y-m>
+			<x-m>25.1826</x-m>
+			<y-m>0.44698</y-m>
 			<z-m>-1.51053</z-m>
 		</offsets>
 	</model>
@@ -766,8 +766,8 @@
 		<type>point</type>
 		<dim-factor><property>/sim/model/lights/beacon/state</property></dim-factor>
 		<position>
-			<x-m>23.2539</x-m>
-			<y-m>-0.000214</y-m>
+			<x-m>22.606</x-m>
+			<y-m>0.36098</y-m>
 			<z-m>2.31971</z-m>
 		</position>
 		<ambient>
@@ -801,8 +801,8 @@
 		<type>point</type>
 		<dim-factor><property>/sim/model/lights/beacon/state</property></dim-factor>
 		<position>
-			<x-m>25.2005</x-m>
-			<y-m>0.191746</y-m>
+			<x-m>25.1826</x-m>
+			<y-m>0.44698</y-m>
 			<z-m>-1.51053</z-m>
 		</position>
 		<ambient>
@@ -3018,5 +3018,25 @@
 			<z-m>-2.6</z-m>
 		</offsets>
 	</model>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>WingLightL</object-name>
+		<property>sim/multiplay/generic/float[7]</property>
+		<factor>90</factor>
+		<axis>
+			<object-name>AxisWingLightL</object-name>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>WingLightR</object-name>
+		<property>sim/multiplay/generic/float[8]</property>
+		<factor>-90</factor>
+		<axis>
+			<object-name>AxisWingLightR</object-name>
+		</axis>
+	</animation>
 
 </PropertyList>
