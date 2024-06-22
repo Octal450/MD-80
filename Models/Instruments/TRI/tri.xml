@@ -7,6 +7,18 @@
 	
 	<path>tri.ac</path>
 	
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>clOn</object-name>
+		<object-name>crOn</object-name>
+		<object-name>flxOn</object-name>
+		<object-name>gaOn</object-name>
+		<object-name>mctOn</object-name>
+		<object-name>NoMode</object-name>
+		<object-name>Text</object-name>
+		<object-name>toOn</object-name>
+	</effect>
+	
 	<animation>
 		<type>material</type>
 		<object-name>LightingGroup</object-name>
