@@ -61,7 +61,7 @@
 					<table>
 						<independentVar lookup="row">engine/limit/rated-thrust-ref</independentVar>
 						<tableData>
-							0.00     24743.1
+							0.01      3162.2
 							0.03     81455.7
 							1.00  10571289.8
 						</tableData>
@@ -530,7 +530,7 @@
 					<table>
 						<independentVar lookup="row">engine/limit/active-norm-ref</independentVar>
 						<tableData>
-							0.00     24743.1
+							0.01      3162.2
 							0.03     81455.7
 							1.00  10571289.8
 						</tableData>
@@ -611,7 +611,7 @@
 					<table>
 						<independentVar lookup="row">engine/limit/highest-norm-ref</independentVar>
 						<tableData>
-							0.00     24743.1
+							0.01      3162.2
 							0.03     81455.7
 							1.00  10571289.8
 						</tableData>
@@ -680,7 +680,7 @@
 						<table>
 							<independentVar lookup="row">engine/limit/idle-input</independentVar>
 							<tableData>
-								   24743.1  0.00
+								    3162.2  0.01
 								   81455.7  0.03
 								10571289.8  1.00
 							</tableData>
@@ -730,7 +730,7 @@
 					<table>
 						<independentVar lookup="row">engine/limit/idle-norm-ref</independentVar>
 						<tableData>
-							0.00     24743.1
+							0.01      3162.2
 							0.03     81455.7
 							1.00  10571289.8
 						</tableData>
@@ -919,7 +919,7 @@
 					<table>
 						<independentVar lookup="row">engine/art/max-norm-ref</independentVar>
 						<tableData>
-							0.00     24743.1
+							0.01      3162.2
 							0.03     81455.7
 							1.00  10571289.8
 						</tableData>
@@ -976,7 +976,7 @@
 					<table>
 						<independentVar lookup="row">engine/art/normal-norm-ref</independentVar>
 						<tableData>
-							0.00     24743.1
+							0.01      3162.2
 							0.03     81455.7
 							1.00  10571289.8
 						</tableData>
@@ -1119,7 +1119,7 @@
 					<table>
 						<independentVar lookup="row">engine/limit/man-1-norm-ref</independentVar>
 						<tableData>
-							0.00     24743.1
+							0.01      3162.2
 							0.03     81455.7
 							1.00  10571289.8
 						</tableData>
@@ -1225,7 +1225,7 @@
 					<table>
 						<independentVar lookup="row">engine/limit/man-2-norm-ref</independentVar>
 						<tableData>
-							0.00     24743.1
+							0.01      3162.2
 							0.03     81455.7
 							1.00  10571289.8
 						</tableData>
@@ -1343,7 +1343,7 @@
 						<table>
 							<independentVar lookup="row">engine/epr-actual-1-ref</independentVar>
 							<tableData>
-								   24743.1  0.00
+								    3162.2  0.01
 								   81455.7  0.03
 								10571289.8  1.00
 							</tableData>
@@ -1372,7 +1372,7 @@
 						<table>
 							<independentVar lookup="row">engine/epr-actual-2-ref</independentVar>
 							<tableData>
-								   24743.1  0.00
+								    3162.2  0.01
 								   81455.7  0.03
 								10571289.8  1.00
 							</tableData>
