@@ -88,16 +88,21 @@
 
 2D versions of certain cockpit panels are included to make certain tasks easier. These can be opened from the "2D Panels" menu.
 
-The Aircraft Config Center can be used to load panel states as well as configure aircraft and ground equipment.
+Aircraft Config Center:
+Can be used to load panel states and set ground equipment, as well as configure simulation and aircraft options.
 
-Aircraft Config Center Options:
+Simulation:
 * Keyboard Mode: Maps flight controls to number pad and number rows instead of view shortucts.
-* Combined Standby: Equips the aircraft with the combined standby instead of split instruments.
-* Auto Arm Altitude: Equips the aircraft with the optional feature to automatically arm altitude.
+* Separate Tiller Axis: Separates the tiller from the rudder and maps it to /controls/gear/steering.
+
+Aircraft:
 * Armed Altitude as Flight Levels: Equips the aircraft with the optional feature to show flight level on the FMA.
-* Use Separate Tiller Axis: Separates the tiller from the rudder and maps it to /controls/gear/steering.
-* Panel Type: Selects between Analog and EFIS panel layouts. 
-* Flight Director: EFIS panel only, selects between Single Cue (inverted V-bar) or Dual Cue (cross bars) flight directors.
+* Auto Arm Altitude: Equips the aircraft with the optional feature to automatically arm altitude.
+* Combined Standby: Equips the aircraft with the combined standby instead of split instruments.
+
+Panel Configuration:
+* Instrumentation: Selects between Analog and EFIS instrument layouts. 
+* Flight Director: EFIS panel only, selects between single cue (inverted V-bar) or dual cue (cross bars) flight directors.
 </text>
 
 </PropertyList>

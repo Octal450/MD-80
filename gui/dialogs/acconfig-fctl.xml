@@ -12,7 +12,7 @@
 		
         <text>
             <halign>left</halign>
-            <label>Flight Controls</label>
+            <label>Flight Control Monitor</label>
         </text>
 		
         <button>
@@ -32,7 +32,7 @@
 	<group>
 		<layout>hbox</layout>
 		<text>
-			<label>MD-80 Flight Controls</label>
+			<label>Surface Up = Slider Up</label>
 		</text>
 	</group>
 	
@@ -41,12 +41,12 @@
 		
 		<group>
 			<layout>hbox</layout>
-
+			
 			<hrule>
 				<stretch>true</stretch>
 			</hrule>
 			<text>
-				<label>Roll</label>
+				<label>Ailerons</label>
 			</text>
 			<hrule>
 				<stretch>true</stretch>
@@ -63,11 +63,11 @@
 					<label>L:</label>
 				</text>
 				<slider>
-					<pref-height>150</pref-height>
+					<pref-height>125</pref-height>
 					<vertical>true</vertical>
 					<property>/fdm/jsbsim/fcs-actual/aileron-l/surface-final-deg</property>
-					<min>-20</min>
-					<max>20</max>
+					<min>20</min>
+					<max>-20</max>
 					<step>0.002</step>
 					<live>true</live>
 				</slider>
@@ -80,11 +80,11 @@
 					<label>R:</label>
 				</text>
 				<slider>
-					<pref-height>150</pref-height>
+					<pref-height>125</pref-height>
 					<vertical>true</vertical>
 					<property>/fdm/jsbsim/fcs-actual/aileron-r/surface-final-deg</property>
-					<min>-20</min>
-					<max>20</max>
+					<min>20</min>
+					<max>-20</max>
 					<step>0.002</step>
 					<live>true</live>
 				</slider>
@@ -93,12 +93,12 @@
 		
 		<group>
 			<layout>hbox</layout>
-
+			
 			<hrule>
 				<stretch>true</stretch>
 			</hrule>
 			<text>
-				<label>Pitch</label>
+				<label>Spoilers</label>
 			</text>
 			<hrule>
 				<stretch>true</stretch>
@@ -115,11 +115,63 @@
 					<label>L:</label>
 				</text>
 				<slider>
-					<pref-height>150</pref-height>
+					<pref-height>100</pref-height>
+					<vertical>true</vertical>
+					<property>/fdm/jsbsim/fcs/spoiler-left-deg</property>
+					<min>0</min>
+					<max>60</max>
+					<step>0.006</step>
+					<live>true</live>
+				</slider>
+			</group>
+			
+			<group>
+				<layout>vbox</layout>
+				
+				<text>
+					<label>R:</label>
+				</text>
+				<slider>
+					<pref-height>100</pref-height>
+					<vertical>true</vertical>
+					<property>/fdm/jsbsim/fcs/spoiler-right-deg</property>
+					<min>0</min>
+					<max>60</max>
+					<step>0.006</step>
+					<live>true</live>
+				</slider>
+			</group>
+		</group>
+		
+		<group>
+			<layout>hbox</layout>
+			
+			<hrule>
+				<stretch>true</stretch>
+			</hrule>
+			<text>
+				<label>Elevators</label>
+			</text>
+			<hrule>
+				<stretch>true</stretch>
+			</hrule>
+		</group>
+		
+		<group>
+			<layout>hbox</layout>
+			
+			<group>
+				<layout>vbox</layout>
+				
+				<text>
+					<label>L:</label>
+				</text>
+				<slider>
+					<pref-height>125</pref-height>
 					<vertical>true</vertical>
 					<property>/fdm/jsbsim/fcs-actual/elevator-l/surface-final-deg</property>
-					<min>-22</min>
-					<max>20</max>
+					<min>20</min>
+					<max>-22</max>
 					<step>0.0022</step>
 					<live>true</live>
 				</slider>
@@ -129,14 +181,14 @@
 				<layout>vbox</layout>
 		
 				<text>
-					<label>Trim:</label>
+					<label>Stab:</label>
 				</text>
 				<slider>
-					<pref-height>150</pref-height>
+					<pref-height>125</pref-height>
 					<vertical>true</vertical>
 					<property>/fdm/jsbsim/fcs-actual/stabilizer/final-deg</property>
-					<min>-12.5</min>
-					<max>2.5</max>
+					<min>2.5</min>
+					<max>-12.5</max>
 					<step>0.0012</step>
 					<live>true</live>
 				</slider>
@@ -149,11 +201,11 @@
 					<label>R:</label>
 				</text>
 				<slider>
-					<pref-height>150</pref-height>
+					<pref-height>125</pref-height>
 					<vertical>true</vertical>
 					<property>/fdm/jsbsim/fcs-actual/elevator-r/surface-final-deg</property>
-					<min>-22</min>
-					<max>20</max>
+					<min>20</min>
+					<max>-22</max>
 					<step>0.0022</step>
 					<live>true</live>
 				</slider>
@@ -162,7 +214,7 @@
 		
 		<group>
 			<layout>hbox</layout>
-
+			
 			<hrule>
 				<stretch>true</stretch>
 			</hrule>

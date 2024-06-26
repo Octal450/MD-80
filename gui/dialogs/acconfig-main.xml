@@ -33,6 +33,16 @@
 			<halign>right</halign>
 			<pref-width>20</pref-width>
 			<pref-height>20</pref-height>
+			<legend>W</legend>
+			<binding>
+				<command>dialog-show</command>
+				<dialog-name>acconfig-welcome</dialog-name>
+			</binding>
+		</button>
+		<button>
+			<halign>right</halign>
+			<pref-width>20</pref-width>
+			<pref-height>20</pref-height>
 			<legend>X</legend>
 			<key>Esc</key>
 			<binding>
@@ -54,29 +64,11 @@
 				
 				<button>
 					<halign>center</halign>
-					<legend>Welcome</legend>
-					<pref-width>140</pref-width>
-					<binding>
-						<command>dialog-show</command>
-						<dialog-name>acconfig-welcome</dialog-name>
-					</binding>
-				</button>
-				<button>
-					<halign>center</halign>
 					<legend>Select Livery</legend>
 					<pref-width>140</pref-width>
 					<binding>
 						<command>nasal</command>
 						<script>aircraft.livery.dialog.toggle();</script>
-					</binding>
-				</button>
-				<button>
-					<halign>center</halign>
-					<legend>Checklists</legend>
-					<pref-width>140</pref-width>
-					<binding>
-						<command>dialog-show</command>
-						<dialog-name>checklist</dialog-name>
 					</binding>
 				</button>
 				<button>
@@ -90,11 +82,32 @@
 				</button>
 				<button>
 					<halign>center</halign>
+					<legend>Checklists</legend>
+					<pref-width>140</pref-width>
+					<binding>
+						<command>dialog-show</command>
+						<dialog-name>checklist</dialog-name>
+					</binding>
+				</button>
+				<button>
+					<halign>center</halign>
 					<legend>DU Framerate</legend>
 					<pref-width>140</pref-width>
 					<binding>
 						<command>dialog-show</command>
 						<dialog-name>acconfig-du-framerate</dialog-name>
+					</binding>
+				</button>
+				<button>
+					<halign>center</halign>
+					<legend>System Failures</legend>
+					<pref-width>140</pref-width>
+					<enable>
+						<not><property>/systems/acconfig/options/allow-damage</property></not>
+					</enable>
+					<binding>
+						<command>dialog-show</command>
+						<dialog-name>acconfig-failures</dialog-name>
 					</binding>
 				</button>
 			</group>
@@ -298,7 +311,7 @@
 					<stretch>true</stretch>
 				</hrule>
 				<text>
-					<label>Options (See Aircraft Help)</label>
+					<label>Simulation (See Aircraft Help)</label>
 				</text>
 				<hrule>
 					<stretch>true</stretch>
@@ -320,9 +333,37 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Combined Standby</label>
+				<label>Separate Tiller Axis</label>
 				<halign>left</halign>
-				<property>/systems/acconfig/options/combined-standby</property>
+				<property>/systems/acconfig/options/separate-tiller-axis</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>acconfig.OPTIONS.write();</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<group>
+				<layout>hbox</layout>
+				
+				<hrule>
+					<stretch>true</stretch>
+				</hrule>
+				<text>
+					<label>Aircraft (See Aircraft Help)</label>
+				</text>
+				<hrule>
+					<stretch>true</stretch>
+				</hrule>
+			</group>
+			
+			<checkbox>
+				<label>Armed Altitude as Flight Level</label>
+				<halign>left</halign>
+				<property>/systems/acconfig/options/armed-alt-as-fl</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -348,23 +389,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Armed Altitude as Flight Level</label>
+				<label>Combined Standby</label>
 				<halign>left</halign>
-				<property>/systems/acconfig/options/armed-alt-as-fl</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>acconfig.OPTIONS.write();</script>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Use Separate Tiller Axis</label>
-				<halign>left</halign>
-				<property>/systems/acconfig/options/separate-tiller-axis</property>
+				<property>/systems/acconfig/options/combined-standby</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -378,8 +405,22 @@
 			<group>
 				<layout>hbox</layout>
 				
+				<hrule>
+					<stretch>true</stretch>
+				</hrule>
 				<text>
-					<label>Panel Type:</label>
+					<label>Panel Configuration</label>
+				</text>
+				<hrule>
+					<stretch>true</stretch>
+				</hrule>
+			</group>
+			
+			<group>
+				<layout>hbox</layout>
+				
+				<text>
+					<label>Instrumentation:</label>
 				</text>
 				
 				<combo>
@@ -458,34 +499,7 @@
 					</combo>
 				</group>
 			</group>
-			
-			<group>
-				<layout>hbox</layout>
-			
-				<button>
-					<legend>Flight Controls</legend>
-					<halign>center</halign>
-					<padding>5</padding>
-					<binding>
-						<command>dialog-show</command>
-						<dialog-name>acconfig-fctl</dialog-name>
-					</binding>
-				</button>
-				
-				<button>
-					<legend>System Failures</legend>
-					<halign>center</halign>
-					<padding>5</padding>
-					<binding>
-						<command>dialog-show</command>
-						<dialog-name>acconfig-failures</dialog-name>
-					</binding>
-				</button>
-				
-			</group>
-			
 		</group>
-		
 	</group>
 	
 </PropertyList>
