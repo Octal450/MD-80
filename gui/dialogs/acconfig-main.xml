@@ -117,7 +117,7 @@
 				
 				<group>
 					<layout>hbox</layout>
-
+					
 					<hrule>
 						<stretch>true</stretch>
 					</hrule>
