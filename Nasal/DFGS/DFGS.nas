@@ -93,6 +93,7 @@ var Input = {
 	activeAp: props.globals.initNode("/it-autoflight/input/active-ap", 1, "INT"),
 	alt: props.globals.initNode("/it-autoflight/input/alt", 10000, "INT"),
 	altArmed: props.globals.initNode("/it-autoflight/input/alt-armed", 0, "BOOL"),
+	altArmedTemp: 0,
 	altDiff: 0,
 	altHundreds: props.globals.initNode("/it-autoflight/input/alt-hundreds", "000", "STRING"), # For FGCP
 	altTemp: 0,
@@ -477,14 +478,37 @@ var ITAF = {
 		}
 		
 		# Altitude Capture/Sync Logic
+		Input.altTemp = Input.alt.getValue();
 		if (Output.vertTemp != 0) {
-			Internal.alt.setValue(Input.alt.getValue());
+			Internal.alt.setValue(Input.altTemp);
 		}
-		Internal.altTemp = Internal.alt.getValue();
-		Internal.altDiff = Internal.altTemp - Position.indicatedAltitudeFtTemp;
 		
-		if (Input.altArmed.getBoolValue()) {
-			if (Output.vertTemp != 0 and Output.vertTemp != 2 and Output.vertTemp != 6) {
+		Input.altArmedTemp = Input.altArmed.getBoolValue();
+		Internal.altTemp = Internal.alt.getValue();
+		
+		if (Output.vertTemp == 0 and Input.altArmedTemp) { # This is so that we can re-capture while in ALT HLD/CAP
+			Internal.altDiff = Input.altTemp - Position.indicatedAltitudeFtTemp;
+		} else {
+			Internal.altDiff = Internal.altTemp - Position.indicatedAltitudeFtTemp;
+		}
+		
+		if (Input.altArmedTemp) {
+			if (Output.vertTemp == 0 and Input.altArmedTemp) { # This is so that we can re-capture while in ALT HLD/CAP
+				Internal.captVs = math.clamp(math.round(abs(Internal.vs.getValue()) / 5, 100), 50, 2500); # Capture limits
+				if (abs(Internal.altDiff) <= Internal.captVs and !Gear.wow1Temp and !Gear.wow2Temp) {
+					if (Input.altTemp >= Position.indicatedAltitudeFtTemp and Internal.vsTemp >= -25) { # Don't capture if we are going the wrong way
+						if (Output.vertTemp == 0) { # This is so that we can re-capture while in ALT HLD/CAP
+							Internal.alt.setValue(Input.altTemp);
+						}
+						me.setVertMode(3);
+					} else if (Input.altTemp < Position.indicatedAltitudeFtTemp and Internal.vsTemp <= 25) { # Don't capture if we are going the wrong way
+						if (Output.vertTemp == 0) { # This is so that we can re-capture while in ALT HLD/CAP
+							Internal.alt.setValue(Input.altTemp);
+						}
+						me.setVertMode(3);
+					}
+				}
+			} else if (Output.vertTemp != 0 and Output.vertTemp != 2 and Output.vertTemp != 6) {
 				Internal.captVs = math.clamp(math.round(abs(Internal.vs.getValue()) / 5, 100), 50, 2500); # Capture limits
 				if (abs(Internal.altDiff) <= Internal.captVs and !Gear.wow1Temp and !Gear.wow2Temp) {
 					if (Internal.altTemp >= Position.indicatedAltitudeFtTemp and Internal.vsTemp >= -25) { # Don't capture if we are going the wrong way
@@ -493,7 +517,7 @@ var ITAF = {
 						me.setVertMode(3);
 					}
 				}
-			} else { # If armed and in mode 0, 2, or 6, disarm
+			} else { # If armed and not allowed to, disarm
 				Input.altArmed.setBoolValue(0);
 			}
 		}

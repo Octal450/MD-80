@@ -243,13 +243,17 @@ var ApPanel = {
 	altPull: func() {
 		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			me.vertTemp = dfgs.Output.vert.getValue();
-			if (me.vertTemp != 0 and me.vertTemp != 2 and me.vertTemp != 6) {
+			if (me.vertTemp != 2 and me.vertTemp != 6) {
 				dfgs.Input.altArmed.setBoolValue(1);
 			}
 		}
 	},
 	altAdjust: func(d) {
 		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
+			dfgs.Input.altArmed.setBoolValue(0);
+			systems.WARNINGS.altitudeAlertCaptured.setValue(0); # Reset out of captured state
+			if (systems.WARNINGS.altitudeAlert.getValue() == 2) systems.WARNINGS.altitudeAlert.setValue(0); # Cancel altitude alert deviation alarm
+			
 			me.altTemp = dfgs.Input.alt.getValue();
 			if (d == 10) {
 				if (me.altTemp >= 1000) {
