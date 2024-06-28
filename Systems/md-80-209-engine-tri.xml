@@ -61,7 +61,6 @@
 					<table>
 						<independentVar lookup="row">engine/limit/rated-thrust-ref</independentVar>
 						<tableData>
-							0.01      3162.2
 							0.03     81455.7
 							1.00  10571289.8
 						</tableData>
@@ -530,7 +529,6 @@
 					<table>
 						<independentVar lookup="row">engine/limit/active-norm-ref</independentVar>
 						<tableData>
-							0.01      3162.2
 							0.03     81455.7
 							1.00  10571289.8
 						</tableData>
@@ -611,7 +609,6 @@
 					<table>
 						<independentVar lookup="row">engine/limit/highest-norm-ref</independentVar>
 						<tableData>
-							0.01      3162.2
 							0.03     81455.7
 							1.00  10571289.8
 						</tableData>
@@ -680,7 +677,6 @@
 						<table>
 							<independentVar lookup="row">engine/limit/idle-input</independentVar>
 							<tableData>
-								    3162.2  0.01
 								   81455.7  0.03
 								10571289.8  1.00
 							</tableData>
@@ -730,7 +726,6 @@
 					<table>
 						<independentVar lookup="row">engine/limit/idle-norm-ref</independentVar>
 						<tableData>
-							0.01      3162.2
 							0.03     81455.7
 							1.00  10571289.8
 						</tableData>
@@ -919,7 +914,6 @@
 					<table>
 						<independentVar lookup="row">engine/art/max-norm-ref</independentVar>
 						<tableData>
-							0.01      3162.2
 							0.03     81455.7
 							1.00  10571289.8
 						</tableData>
@@ -976,7 +970,6 @@
 					<table>
 						<independentVar lookup="row">engine/art/normal-norm-ref</independentVar>
 						<tableData>
-							0.01      3162.2
 							0.03     81455.7
 							1.00  10571289.8
 						</tableData>
@@ -1119,7 +1112,6 @@
 					<table>
 						<independentVar lookup="row">engine/limit/man-1-norm-ref</independentVar>
 						<tableData>
-							0.01      3162.2
 							0.03     81455.7
 							1.00  10571289.8
 						</tableData>
@@ -1225,7 +1217,6 @@
 					<table>
 						<independentVar lookup="row">engine/limit/man-2-norm-ref</independentVar>
 						<tableData>
-							0.01      3162.2
 							0.03     81455.7
 							1.00  10571289.8
 						</tableData>
@@ -1336,14 +1327,13 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/epr-actual-1">
+		<fcs_function name="engine/epr-actual-1-calc">
 			<function>
 				<sum>
 					<product>
 						<table>
 							<independentVar lookup="row">engine/epr-actual-1-ref</independentVar>
 							<tableData>
-								    3162.2  0.01
 								   81455.7  0.03
 								10571289.8  1.00
 							</tableData>
@@ -1352,6 +1342,20 @@
 					</product>
 					<property>engine/epr/c2</property>
 				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/epr-actual-1">
+			<function>
+				<interpolate1d>
+					<property>engine/n1-actual-1</property>
+					<value>8</value><interpolate1d> <!-- Eng off EPR -->
+						<property>velocities/mach</property>
+						<value>0.09</value><value>1.007</value>
+						<value>0.15</value><property>engine/epr/c2</property>
+					</interpolate1d>
+					<value>25.3</value><property>engine/epr-actual-1-calc</property>
+				</interpolate1d>
 			</function>
 			<output>/engines/engine[0]/epr-actual</output>
 		</fcs_function>
@@ -1365,14 +1369,13 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="engine/epr-actual-2">
+		<fcs_function name="engine/epr-actual-2-calc">
 			<function>
 				<sum>
 					<product>
 						<table>
 							<independentVar lookup="row">engine/epr-actual-2-ref</independentVar>
 							<tableData>
-								    3162.2  0.01
 								   81455.7  0.03
 								10571289.8  1.00
 							</tableData>
@@ -1381,6 +1384,20 @@
 					</product>
 					<property>engine/epr/c2</property>
 				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="engine/epr-actual-2">
+			<function>
+				<interpolate1d>
+					<property>engine/n1-actual-2</property>
+					<value>8</value><interpolate1d> <!-- Eng off EPR -->
+						<property>velocities/mach</property>
+						<value>0.09</value><value>1.007</value>
+						<value>0.15</value><property>engine/epr/c2</property>
+					</interpolate1d>
+					<value>25.3</value><property>engine/epr-actual-2-calc</property>
+				</interpolate1d>
 			</function>
 			<output>/engines/engine[1]/epr-actual</output>
 		</fcs_function>
