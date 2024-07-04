@@ -149,9 +149,11 @@ var canvasBase = {
 		if (pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() >= 60 and pts.Controls.Flight.flapsInput.getValue() > 0) {
 			me["AI_PLI"].setTranslation(0, math.clamp(Value.Ai.stallAlphaDeg - Value.Ai.alpha, -20, 20) * -12.345);
 			if (Value.Ai.alpha >= Value.Ai.stallAlphaDeg) {
-				me["AI_PLI"].setColor(1, 0, 0);
+				me["AI_PLI_dual"].setColor(1, 0, 0);
+				me["AI_PLI_single"].setColor(1, 0, 0);
 			} else {
-				me["AI_PLI"].setColor(1, 1, 1);
+				me["AI_PLI_dual"].setColor(1, 1, 1);
+				me["AI_PLI_single"].setColor(1, 1, 1);
 			}
 			
 			if (systems.DUController.flightDirector == "Dual Cue") {
