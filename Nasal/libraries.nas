@@ -113,16 +113,19 @@ canvas.Element.setVisible = func(vis) {
 	me.setBool("visible", vis);
 };
 
-# Backwards compatibility
+# Backwards compatibility, removed soon
 var ApPanel = {
 	apDisc: func() {
 		cockpit.ApPanel.apDisc();
+		gui.popupTip("libraries.ApPanel is deprecated. Please switch to cockpit.ApPanel.");
 	},
 	atDisc: func() {
 		cockpit.ApPanel.atDisc();
+		gui.popupTip("libraries.ApPanel is deprecated. Please switch to cockpit.ApPanel.");
 	},
 	toga: func() {
 		cockpit.ApPanel.toga();
+		gui.popupTip("libraries.ApPanel is deprecated. Please switch to cockpit.ApPanel.");
 	},
 };
 
