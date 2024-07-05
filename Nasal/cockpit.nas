@@ -1,4 +1,4 @@
-# McDonnell Douglas MD-80 Buttons and Switches
+# McDonnell Douglas MD-80 Cockpit Controls
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
 var furt = 0;

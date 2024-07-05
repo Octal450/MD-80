@@ -100,7 +100,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.ApPanel.apDisc();</script>
+				<script>cockpit.ApPanel.apDisc();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -140,7 +140,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.ApPanel.apDisc();</script>
+				<script>cockpit.ApPanel.apDisc();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -181,7 +181,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.ApPanel.atDisc();</script>
+				<script>cockpit.ApPanel.atDisc();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -221,7 +221,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.ApPanel.atDisc();</script>
+				<script>cockpit.ApPanel.atDisc();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -262,7 +262,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.ApPanel.toga();</script>
+				<script>cockpit.ApPanel.toga();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -302,7 +302,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.ApPanel.toga();</script>
+				<script>cockpit.ApPanel.toga();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>

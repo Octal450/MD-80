@@ -499,7 +499,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					libraries.ApPanel.spd();
+					cockpit.ApPanel.spd();
 					libraries.Sound.btn1();
 				</script>
 			</binding>
@@ -539,7 +539,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					libraries.ApPanel.mach();
+					cockpit.ApPanel.mach();
 					libraries.Sound.btn1();
 				</script>
 			</binding>
@@ -579,7 +579,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					libraries.ApPanel.eprLim();
+					cockpit.ApPanel.eprLim();
 					libraries.Sound.btn1();
 				</script>
 			</binding>
@@ -744,7 +744,7 @@
 			</mod-up>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.ApPanel.spdPush();</script>
+				<script>cockpit.ApPanel.spdPush();</script>
 			</binding>
 		</action>
 		<action>
@@ -755,14 +755,14 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.ApPanel.spdAdjust(1);</script>
+				<script>cockpit.ApPanel.spdAdjust(1);</script>
 			</binding>
 			<binding>
 				<condition>
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.ApPanel.spdAdjust(10);</script>
+				<script>cockpit.ApPanel.spdAdjust(10);</script>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
@@ -781,14 +781,14 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.ApPanel.spdAdjust(-1);</script>
+				<script>cockpit.ApPanel.spdAdjust(-1);</script>
 			</binding>
 			<binding>
 				<condition>
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.ApPanel.spdAdjust(-10);</script>
+				<script>cockpit.ApPanel.spdAdjust(-10);</script>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
@@ -869,7 +869,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					libraries.ApPanel.nav();
+					cockpit.ApPanel.nav();
 					libraries.Sound.btn1();
 				</script>
 			</binding>
@@ -909,7 +909,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					libraries.ApPanel.vorLoc();
+					cockpit.ApPanel.vorLoc();
 					libraries.Sound.btn1();
 				</script>
 			</binding>
@@ -949,7 +949,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					libraries.ApPanel.ils();
+					cockpit.ApPanel.ils();
 					libraries.Sound.btn1();
 				</script>
 			</binding>
@@ -989,7 +989,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					libraries.ApPanel.autoLand();
+					cockpit.ApPanel.autoLand();
 					libraries.Sound.btn1();
 				</script>
 			</binding>
@@ -1130,14 +1130,14 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.ApPanel.hdgPush();</script>
+				<script>cockpit.ApPanel.hdgPush();</script>
 			</binding>
 			<binding>
 				<condition>
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.ApPanel.hdgPull();</script>
+				<script>cockpit.ApPanel.hdgPull();</script>
 			</binding>
 		</action>
 		<action>
@@ -1157,7 +1157,7 @@
 			</mod-up>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.ApPanel.hdgPull();</script>
+				<script>cockpit.ApPanel.hdgPull();</script>
 			</binding>
 		</action>
 		<action>
@@ -1168,14 +1168,14 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.ApPanel.hdgAdjust(1);</script>
+				<script>cockpit.ApPanel.hdgAdjust(1);</script>
 			</binding>
 			<binding>
 				<condition>
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.ApPanel.hdgAdjust(10);</script>
+				<script>cockpit.ApPanel.hdgAdjust(10);</script>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
@@ -1194,14 +1194,14 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.ApPanel.hdgAdjust(-1);</script>
+				<script>cockpit.ApPanel.hdgAdjust(-1);</script>
 			</binding>
 			<binding>
 				<condition>
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.ApPanel.hdgAdjust(-10);</script>
+				<script>cockpit.ApPanel.hdgAdjust(-10);</script>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
@@ -1667,7 +1667,7 @@
 		<increase>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.ApPanel.vsAdjust(-1);</script>
+				<script>cockpit.ApPanel.vsAdjust(-1);</script>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
@@ -1681,7 +1681,7 @@
 		<decrease>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.ApPanel.vsAdjust(1);</script>
+				<script>cockpit.ApPanel.vsAdjust(1);</script>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
@@ -1704,7 +1704,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					libraries.ApPanel.vertSpd();
+					cockpit.ApPanel.vertSpd();
 					libraries.Sound.btn1();
 				</script>
 			</binding>
@@ -1744,7 +1744,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					libraries.ApPanel.iasMach();
+					cockpit.ApPanel.iasMach();
 					libraries.Sound.btn1();
 				</script>
 			</binding>
@@ -1784,7 +1784,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					libraries.ApPanel.altHold();
+					cockpit.ApPanel.altHold();
 					libraries.Sound.btn1();
 				</script>
 			</binding>
@@ -1824,7 +1824,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					libraries.ApPanel.turb();
+					cockpit.ApPanel.turb();
 					libraries.Sound.btn1();
 				</script>
 			</binding>
@@ -1887,7 +1887,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					libraries.ApPanel.apSwitch();
+					cockpit.ApPanel.apSwitch();
 					libraries.Sound.switch1();
 				</script>
 			</binding>
@@ -1943,7 +1943,7 @@
 				</condition>
 				<command>nasal</command>
 				<script>
-					libraries.ApPanel.apSelector();
+					cockpit.ApPanel.apSelector();
 					libraries.Sound.switch1();
 				</script>
 			</binding>
@@ -1958,7 +1958,7 @@
 				</condition>
 				<command>nasal</command>
 				<script>
-					libraries.ApPanel.apSelector();
+					cockpit.ApPanel.apSelector();
 					libraries.Sound.switch1();
 				</script>
 			</binding>
@@ -2029,14 +2029,14 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.ApPanel.altPush();</script>
+				<script>cockpit.ApPanel.altPush();</script>
 			</binding>
 			<binding>
 				<condition>
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.ApPanel.altPull();</script>
+				<script>cockpit.ApPanel.altPull();</script>
 			</binding>
 		</action>
 		<action>
@@ -2056,7 +2056,7 @@
 			</mod-up>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.ApPanel.altPull();</script>
+				<script>cockpit.ApPanel.altPull();</script>
 			</binding>
 		</action>
 		<action>
@@ -2069,9 +2069,9 @@
 				<command>nasal</command>
 				<script>
 					if (getprop("/controls/cockpit/fgcp/alt-translate") == -1) {
-						libraries.ApPanel.altAdjust(1);
+						cockpit.ApPanel.altAdjust(1);
 					} else {
-						libraries.ApPanel.altAdjust(10);
+						cockpit.ApPanel.altAdjust(10);
 					}
 				</script>
 			</binding>
@@ -2080,7 +2080,7 @@
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.ApPanel.altAdjust(1);</script>
+				<script>cockpit.ApPanel.altAdjust(1);</script>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
@@ -2101,9 +2101,9 @@
 				<command>nasal</command>
 				<script>
 					if (getprop("/controls/cockpit/fgcp/alt-translate") == -1) {
-						libraries.ApPanel.altAdjust(-1);
+						cockpit.ApPanel.altAdjust(-1);
 					} else {
-						libraries.ApPanel.altAdjust(-10);
+						cockpit.ApPanel.altAdjust(-10);
 					}
 				</script>
 			</binding>
@@ -2112,7 +2112,7 @@
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.ApPanel.altAdjust(-1);</script>
+				<script>cockpit.ApPanel.altAdjust(-1);</script>
 			</binding>
 			<binding>
 				<command>property-adjust</command>

@@ -58,24 +58,24 @@ var fgcpCanvas = {
 		# Set up clickspots
 		# Extra
 		me["Toga"].addEventListener("click", func(e) {
-			libraries.ApPanel.toga();
+			cockpit.ApPanel.toga();
 		});
 		me["AtsDisc"].addEventListener("click", func(e) {
-			libraries.ApPanel.atDisc();
+			cockpit.ApPanel.atDisc();
 		});
 		me["ApDisc"].addEventListener("click", func(e) {
-			libraries.ApPanel.apDisc();
+			cockpit.ApPanel.apDisc();
 		});
 		
 		# Left Buttons
 		me["SpdSel"].addEventListener("click", func(e) {
-			libraries.ApPanel.spd();
+			cockpit.ApPanel.spd();
 		});
 		me["MachSel"].addEventListener("click", func(e) {
-			libraries.ApPanel.mach();
+			cockpit.ApPanel.mach();
 		});
 		me["EprLim"].addEventListener("click", func(e) {
-			libraries.ApPanel.eprLim();
+			cockpit.ApPanel.eprLim();
 		});
 		
 		me["Fd1"].addEventListener("click", func(e) {
@@ -87,37 +87,37 @@ var fgcpCanvas = {
 		
 		# Center Buttons
 		me["Nav"].addEventListener("click", func(e) {
-			libraries.ApPanel.nav();
+			cockpit.ApPanel.nav();
 		});
 		me["VorLoc"].addEventListener("click", func(e) {
-			libraries.ApPanel.vorLoc();
+			cockpit.ApPanel.vorLoc();
 		});
 		me["Ils"].addEventListener("click", func(e) {
-			libraries.ApPanel.ils();
+			cockpit.ApPanel.ils();
 		});
 		me["AutoLand"].addEventListener("click", func(e) {
-			libraries.ApPanel.autoLand();
+			cockpit.ApPanel.autoLand();
 		});
 		
 		# Right Buttons
 		me["VertSpd"].addEventListener("click", func(e) {
-			libraries.ApPanel.vertSpd();
+			cockpit.ApPanel.vertSpd();
 		});
 		me["IasMach"].addEventListener("click", func(e) {
-			libraries.ApPanel.iasMach();
+			cockpit.ApPanel.iasMach();
 		});
 		me["AltHold"].addEventListener("click", func(e) {
-			libraries.ApPanel.altHold();
+			cockpit.ApPanel.altHold();
 		});
 		me["Turb"].addEventListener("click", func(e) {
-			libraries.ApPanel.turb();
+			cockpit.ApPanel.turb();
 		});
 		
 		me["Ap"].addEventListener("click", func(e) {
-			libraries.ApPanel.apSwitch();
+			cockpit.ApPanel.apSwitch();
 		});
 		me["ApSel"].addEventListener("click", func(e) {
-			libraries.ApPanel.apSelector();
+			cockpit.ApPanel.apSelector();
 		});
 		me["Fd2"].addEventListener("click", func(e) {
 			dfgs.Input.fd2.setBoolValue(!dfgs.Input.fd2.getBoolValue());
@@ -126,32 +126,32 @@ var fgcpCanvas = {
 		# Speed Knob
 		me["SpdKnob"].addEventListener("click", func(e) {
 			if (e.shiftKey or e.button == 1) {
-				libraries.ApPanel.spdPull();
+				cockpit.ApPanel.spdPull();
 			} else if (e.button == 0) {
-				libraries.ApPanel.spdPush();
+				cockpit.ApPanel.spdPush();
 			}
 		});
 		me["SpdKnob"].addEventListener("wheel", func(e) {
 			if (e.shiftKey) {
-				libraries.ApPanel.spdAdjust(10 * e.deltaY);
+				cockpit.ApPanel.spdAdjust(10 * e.deltaY);
 			} else {
-				libraries.ApPanel.spdAdjust(e.deltaY);
+				cockpit.ApPanel.spdAdjust(e.deltaY);
 			}
 		});
 		
 		# Heading Knob
 		me["HdgKnob"].addEventListener("click", func(e) {
 			if (e.shiftKey or e.button == 1) {
-				libraries.ApPanel.hdgPull();
+				cockpit.ApPanel.hdgPull();
 			} else if (e.button == 0) {
-				libraries.ApPanel.hdgPush();
+				cockpit.ApPanel.hdgPush();
 			}
 		});
 		me["HdgKnob"].addEventListener("wheel", func(e) {
 			if (e.shiftKey) {
-				libraries.ApPanel.hdgAdjust(10 * e.deltaY);
+				cockpit.ApPanel.hdgAdjust(10 * e.deltaY);
 			} else {
-				libraries.ApPanel.hdgAdjust(e.deltaY);
+				cockpit.ApPanel.hdgAdjust(e.deltaY);
 			}
 		});
 		
@@ -175,25 +175,25 @@ var fgcpCanvas = {
 		# Pitch Knob
 		me["PitchKnob"].addEventListener("wheel", func(e) {
 			if (e.shiftKey) {
-				libraries.ApPanel.vsAdjust(-10 * e.deltaY); # Inverted
+				cockpit.ApPanel.vsAdjust(-10 * e.deltaY); # Inverted
 			} else {
-				libraries.ApPanel.vsAdjust(-1 * e.deltaY); # Inverted
+				cockpit.ApPanel.vsAdjust(-1 * e.deltaY); # Inverted
 			}
 		});
 		
 		# Altitude Knob
 		me["AltKnob"].addEventListener("click", func(e) {
 			if (e.shiftKey or e.button == 1) {
-				libraries.ApPanel.altPull();
+				cockpit.ApPanel.altPull();
 			} else if (e.button == 0) {
-				libraries.ApPanel.altPush();
+				cockpit.ApPanel.altPush();
 			}
 		});
 		me["AltKnob"].addEventListener("wheel", func(e) {
 			if (e.shiftKey) {
-				libraries.ApPanel.altAdjust(e.deltaY);
+				cockpit.ApPanel.altAdjust(e.deltaY);
 			} else {
-				libraries.ApPanel.altAdjust(10 * e.deltaY);
+				cockpit.ApPanel.altAdjust(10 * e.deltaY);
 			}
 		});
 		
