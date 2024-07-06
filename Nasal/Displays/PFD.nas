@@ -43,7 +43,7 @@ var Value = {
 var canvasBase = {
 	init: func(canvasGroup, file) {
 		var font_mapper = func(family, weight) {
-			return "LiberationFonts/LiberationSans-Regular.ttf";
+			return "DULarge.ttf";
 		};
 		
 		canvas.parsesvg(canvasGroup, file, {"font-mapper": font_mapper});
@@ -87,8 +87,8 @@ var canvasBase = {
 	},
 	getKeys: func() {
 		return ["AI_arrow_dn", "AI_arrow_up", "AI_background", "AI_bank", "AI_center", "AI_dual_cue", "AI_error", "AI_group", "AI_group2", "AI_group3", "AI_PLI", "AI_PLI_dual", "AI_PLI_single", "AI_rising_runway", "AI_scale", "AI_scale_dc", "AI_single_cue",
-		"DH_below", "DH_pointer", "DH_set", "FD_v", "FD_pitch", "FD_roll", "FS_pointer", "FS_scale", "Gndspd", "GS_group", "GS_no", "GS_pointer", "GS_scale", "ILS_group", "Inner_Marker", "LOC_no", "LOC_pointer", "LOC_scale", "Middle_Marker", "NAV_ILS",
-		"NAV_pointer", "NAV_scale", "Outer_Marker", "RA_bars", "RA_scale"];
+		"DH_below", "DH_group", "DH_label", "DH_pointer", "DH_set", "FD_v", "FD_pitch", "FD_roll", "FS_pointer", "FS_scale", "Gndspd", "GS_group", "GS_no", "GS_pointer", "GS_scale", "ILS_group", "Inner_marker", "LOC_no", "LOC_pointer", "LOC_scale",
+		"Middle_marker", "NAV_ILS", "NAV_pointer", "NAV_scale", "Outer_marker", "RA_bars", "RA_scale"];
 	},
 	setup: func() {
 		# Hide the pages by default
@@ -181,21 +181,21 @@ var canvasBase = {
 		
 		# Marker Beacons
 		if (pts.Instrumentation.MarkerBeacon.inner.getBoolValue()) {
-			me["Inner_Marker"].show();
-			me["Middle_Marker"].hide();
-			me["Outer_Marker"].hide();
+			me["Inner_marker"].show();
+			me["Middle_marker"].hide();
+			me["Outer_marker"].hide();
 		} else if (pts.Instrumentation.MarkerBeacon.middle.getBoolValue()) {
-			me["Inner_Marker"].hide();
-			me["Middle_Marker"].show();
-			me["Outer_Marker"].hide();
+			me["Inner_marker"].hide();
+			me["Middle_marker"].show();
+			me["Outer_marker"].hide();
 		} else if (pts.Instrumentation.MarkerBeacon.outer.getBoolValue()) {
-			me["Inner_Marker"].hide();
-			me["Middle_Marker"].hide();
-			me["Outer_Marker"].show();
+			me["Inner_marker"].hide();
+			me["Middle_marker"].hide();
+			me["Outer_marker"].show();
 		} else {
-			me["Inner_Marker"].hide();
-			me["Middle_Marker"].hide();
-			me["Outer_Marker"].hide();
+			me["Inner_marker"].hide();
+			me["Middle_marker"].hide();
+			me["Outer_marker"].hide();
 		}
 		
 		# RA and DH
@@ -220,19 +220,21 @@ var canvasBase = {
 		if (Value.Ra.dh > 0) {
 			if (Value.Ra.agl <= Value.Ra.dh and Value.Ra.dhLatch) {
 				me["DH_below"].show();
+				me["DH_label"].hide();
 				me["DH_pointer"].setColor(0.9647, 0.8196, 0.0784);
 				me["DH_pointer"].setColorFill(0.9647, 0.8196, 0.0784);
 				me["DH_set"].hide();
 			} else {
 				me["DH_below"].hide();
+				me["DH_label"].show();
 				me["DH_pointer"].setColor(0, 0.7059, 0);
 				me["DH_pointer"].setColorFill(0, 0.7059, 0);
-				me["DH_set"].setText("DH" ~ sprintf("%03d", Value.Ra.dh));
+				me["DH_set"].setText(sprintf("%d", Value.Ra.dh));
 				me["DH_set"].show();
 			}
+			me["DH_group"].show();
 		} else {
-			me["DH_below"].hide();
-			me["DH_set"].hide();
+			me["DH_group"].hide();
 		}
 		
 		# Groundspeed
