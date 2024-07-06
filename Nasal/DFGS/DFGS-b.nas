@@ -159,7 +159,7 @@ var UpdateFma = {
 		if (Input.autoLand.getBoolValue() and me.vertText != "LAND" and me.vertText != "ROLLOUT") {
 			Fma.armA.setValue("LND");
 			me.altArm();
-		} else if (Output.apprArm.getBoolValue()) {
+		} else if (Output.gsArm.getBoolValue()) {
 			Fma.armA.setValue("ILS");
 			me.altArm();
 		} else if (Output.locArm.getBoolValue()) {
