@@ -29,7 +29,7 @@ var SYSTEM = {
 			http.load("https://raw.githubusercontent.com/Octal450/MD-80/master/revision.txt").done(func(r) me.newRevision.setValue(r.response));
 		}
 		me.revision.setValue(io.readfile(getprop("/sim/aircraft-dir") ~ "/revision.txt"));
-		print("System: MD-80 Version " ~ me.revision.getValue());
+		print("System: Version " ~ me.revision.getValue());
 	},
 	fdmInit: func() {
 		me.revisionTemp = me.revision.getValue();
@@ -94,7 +94,12 @@ var SYSTEM = {
 			me.Error.active.setBoolValue(1);
 			me.Error.reason.setValue("FGFS version is too old. Please update FlightGear to at least " ~ CONFIG.minFgfsString ~ ".");
 			me.showError();
-			print("System: FGFS Version Error");
+			print("System: FGFS version error");
+		} else if (!libraries.initDone) {
+			me.Error.active.setBoolValue(1);
+			me.Error.reason.setValue("Initialization did not complete successfully. System files may be damaged.");
+			me.showError();
+			print("System: Initialization error");
 		}
 	},
 	resetFailures: func() {

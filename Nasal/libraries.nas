@@ -80,6 +80,10 @@ var slowLoop = maketimer(1, func() {
 	if (pts.Fdm.JSBsim.Engine.Limit.overspeed.getBoolValue()) {
 		gui.popupTip("You are overspeeding the engines! Reduce power to below the EPR limit!");
 	}
+	
+	if (acconfig.SYSTEM.Error.active.getBoolValue()) {
+		systemsInit();
+	}
 });
 
 canvas.Text._lastText = canvas.Text["_lastText"];
