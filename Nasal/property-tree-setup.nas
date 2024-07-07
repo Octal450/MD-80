@@ -104,6 +104,9 @@ var Fdm = {
 				rateSwitch: props.globals.getNode("/fdm/jsbsim/fcs-actual/stabilizer/rate-switch"),
 			},
 		},
+		Performance: {
+			stabilizerDeg: props.globals.getNode("/fdm/jsbsim/performance/stabilizer-deg"),
+		},
 		Position: {
 			wow: props.globals.getNode("/fdm/jsbsim/position/wow"),
 			wowTemp: 0,
@@ -118,9 +121,6 @@ var Fdm = {
 				contentLbs: [props.globals.getNode("/fdm/jsbsim/propulsion/tank[0]/contents-lbs"), props.globals.getNode("/fdm/jsbsim/propulsion/tank[1]/contents-lbs"), props.globals.getNode("/fdm/jsbsim/propulsion/tank[2]/contents-lbs")], 
 			},
 			tatC: props.globals.getNode("/fdm/jsbsim/propulsion/tat-c"),
-		},
-		Speeds: {
-			stabilizerDeg: props.globals.getNode("/fdm/jsbsim/speeds/stabilizer-deg"),
 		},
 		Spoilers: {
 			mainGearAnd: props.globals.getNode("/fdm/jsbsim/spoilers/main-gear-and"),

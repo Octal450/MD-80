@@ -149,7 +149,7 @@
 	<system file="md-80-ignition"/>
 	<system file="md-80-217a-engine-tri"/>
 	<system file="md-80-apu"/>
-	<system file="md-80-speeds"/>
+	<system file="md-80-performance"/>
 	<system file="md-80-cockpit"/>
 	<system file="md-80-instrumentation"/>
 	<system file="glass-effect"/>

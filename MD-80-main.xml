@@ -133,10 +133,10 @@
 						</binding>
 					</item>
 					<item>
-						<label>Speed/CG Applet</label>
+						<label>Performance Applet</label>
 						<binding>
 							<command>dialog-show</command>
-							<dialog-name>speedscg</dialog-name>
+							<dialog-name>performance</dialog-name>
 						</binding>
 					</item>
 					<item>
