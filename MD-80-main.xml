@@ -1458,6 +1458,7 @@
 			<hdg type="int">360</hdg>
 			<kts type="int">250</kts>
 			<kts-mach type="bool">0</kts-mach>
+			<kts-mach-fgcp type="bool">0</kts-mach-fgcp>
 			<mach type="double">0.5</mach>
 		</input>
 		<internal n="0">

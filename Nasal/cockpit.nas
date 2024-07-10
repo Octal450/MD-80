@@ -84,12 +84,14 @@ var ApPanel = {
 	},
 	spdPush: func() {
 		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
-			dfgs.Input.ktsMach.setBoolValue(!dfgs.Input.ktsMach.getBoolValue());
+			dfgs.ITAF.spdPush();
 		}
 	},
 	spdAdjust: func(d) {
 		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
-			if (dfgs.Input.ktsMach.getBoolValue()) {
+			dfgs.ITAF.spdAdjustCheck();
+			if (dfgs.Input.ktsMachFgcp.getBoolValue()) {
+				if (abs(d) > 1) d = d / 2;
 				me.machTemp = math.round(dfgs.Input.mach.getValue() + (d * 0.002), (abs(d * 0.002))); # Kill floating point error
 				if (me.machTemp < 0.50) {
 					dfgs.Input.mach.setValue(0.50);
@@ -110,7 +112,7 @@ var ApPanel = {
 			}
 		}
 	},
-	spd: func() {
+	spdSel: func() {
 		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
 			me.vertTemp = dfgs.Output.vert.getValue();
 			dfgs.Input.ktsMach.setBoolValue(0);
@@ -121,14 +123,16 @@ var ApPanel = {
 			}
 		}
 	},
-	mach: func() {
+	machSel: func() {
 		if (systems.ELEC.Generic.fgcp.getValue() >= 24) {
-			me.vertTemp = dfgs.Output.vert.getValue();
-			dfgs.Input.ktsMach.setBoolValue(1);
-			dfgs.Athr.setMode(0); # Thrust
-			if (me.vertTemp == 4 or me.vertTemp == 7) {
-				dfgs.Input.vert.setValue(1);
-				dfgs.Fma.startBlink(3);
+			if (dfgs.Velocities.indicatedMach.getValue() >= 0.4995) {
+				me.vertTemp = dfgs.Output.vert.getValue();
+				dfgs.Input.ktsMach.setBoolValue(1);
+				dfgs.Athr.setMode(0); # Thrust
+				if (me.vertTemp == 4 or me.vertTemp == 7) {
+					dfgs.Input.vert.setValue(1);
+					dfgs.Fma.startBlink(3);
+				}
 			}
 		}
 	},

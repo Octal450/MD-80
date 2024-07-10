@@ -119,6 +119,8 @@ var Input = {
 	kts: props.globals.initNode("/it-autoflight/input/kts", 100, "INT"),
 	ktsFlch: props.globals.initNode("/it-autoflight/input/kts-flch", 100, "INT"),
 	ktsMach: props.globals.initNode("/it-autoflight/input/kts-mach", 0, "BOOL"),
+	ktsMachFgcp: props.globals.initNode("/it-autoflight/input/kts-mach-fgcp", 0, "BOOL"),
+	ktsMachFgcpTime: -5,
 	ktsMachFlch: props.globals.initNode("/it-autoflight/input/kts-mach-flch", 0, "BOOL"),
 	lat: props.globals.initNode("/it-autoflight/input/lat", 3, "INT"),
 	latTemp: 3,
@@ -224,12 +226,13 @@ var ITAF = {
 			Input.bankLimitSw.setValue(4); # 30
 			Input.hdg.setValue(360);
 			Input.ktsMach.setBoolValue(0);
+			Input.ktsMachFgcp.setBoolValue(0);
 			Input.ktsMachFlch.setBoolValue(0);
 			Input.kts.setValue(100);
 			Input.ktsFlch.setValue(100);
-			Input.mach.setValue(0.5);
+			Input.mach.setValue(0.76);
+			Input.machX1000.setValue(760);
 			Input.machFlch.setValue(0.5);
-			Input.machX1000.setValue(500);
 			Input.machFlchX1000.setValue(500);
 			Input.trueCourse.setBoolValue(0);
 			Input.activeAp.setValue(1);
@@ -540,6 +543,14 @@ var ITAF = {
 		
 		# FMA Update
 		Fma.loop();
+		
+		# FGCP Temporary Swap Reset
+		if (Input.ktsMachFgcpTime != -5) {
+			if (Input.ktsMachFgcpTime + 3 < pts.Sim.Time.elapsedSec.getValue()) {
+				Input.ktsMachFgcpTime = -5;
+				Input.ktsMachFgcp.setBoolValue(Input.ktsMach.getBoolValue());
+			}
+		}
 	},
 	slowLoop: func() {
 		# Reset system once flight complete
@@ -1048,13 +1059,13 @@ var ITAF = {
 			me.updateVertText("T/O CLB");
 		}
 	},
-	syncKts: func() {
+	syncKts: func() { # Unused
 		Input.kts.setValue(math.clamp(math.round(Velocities.indicatedAirspeedKt.getValue()), 100, 340));
 	},
 	syncKtsFlch: func() {
 		Input.ktsFlch.setValue(math.clamp(math.round(Velocities.indicatedAirspeedKt.getValue()), 100, 340));
 	},
-	syncMach: func() {
+	syncMach: func() { # Unused
 		Velocities.indicatedMachTemp = Velocities.indicatedMach.getValue();
 		Input.mach.setValue(math.clamp(math.round(Velocities.indicatedMachTemp, 0.002), 0.5, 0.9));
 		Input.machX1000.setValue(math.clamp(math.round(Velocities.indicatedMachTemp * 1000, 2), 500, 900));
@@ -1079,6 +1090,33 @@ var ITAF = {
 		Orientation.pitchDegTemp = Orientation.pitchDeg.getValue();
 		Input.pitch.setValue(math.clamp(math.round(Orientation.pitchDegTemp), -10, 25));
 		Input.pitchAbs.setValue(abs(math.clamp(math.round(Orientation.pitchDegTemp), -10, 25)));
+	},
+	ktsMachChanged: func() {
+		Input.ktsMachFgcp.setBoolValue(Input.ktsMach.getBoolValue());
+		# Cancel FGCP temporary swap
+		Input.ktsMachFgcpTime = -5;
+		Input.ktsMachFgcp.setBoolValue(Input.ktsMach.getBoolValue());
+	},
+	spdPush: func() {
+		if (Output.thrMode.getValue() == 0) {
+			if (Input.ktsMachFgcpTime != -5) {
+				Input.ktsMachFgcpTime = -5;
+				Input.ktsMachFgcp.setBoolValue(Input.ktsMach.getBoolValue());
+			} else {
+				Input.ktsMachFgcp.setBoolValue(!Input.ktsMach.getBoolValue()); # Set to !ktsMach NOT !ktsMachFgcp
+				Input.ktsMachFgcpTime = pts.Sim.Time.elapsedSec.getValue();
+			}
+		} else {
+			Input.ktsMach.setBoolValue(!Input.ktsMach.getBoolValue());
+			# Cancel FGCP temporary swap
+			Input.ktsMachFgcpTime = -5;
+			Input.ktsMachFgcp.setBoolValue(Input.ktsMach.getBoolValue());
+		}
+	},
+	spdAdjustCheck: func() {
+		if (Input.ktsMachFgcpTime != -5) { # If temporary swap active, resync timer
+			Input.ktsMachFgcpTime = pts.Sim.Time.elapsedSec.getValue();
+		}
 	},
 	updateLatText: func(t) {
 		Text.lat.setValue(t);
@@ -1154,11 +1192,7 @@ setlistener("/it-autoflight/input/fd2", func() {
 });
 
 setlistener("/it-autoflight/input/kts-mach", func() {
-	if (Input.ktsMach.getBoolValue()) {
-		ITAF.syncMach();
-	} else {
-		ITAF.syncKts();
-	}
+	ITAF.ktsMachChanged();
 }, 0, 0);
 
 setlistener("/it-autoflight/input/kts-mach-flch", func() {

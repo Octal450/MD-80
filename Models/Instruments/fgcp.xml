@@ -499,7 +499,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					cockpit.ApPanel.spd();
+					cockpit.ApPanel.spdSel();
 					libraries.Sound.btn1();
 				</script>
 			</binding>
@@ -539,7 +539,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
-					cockpit.ApPanel.mach();
+					cockpit.ApPanel.machSel();
 					libraries.Sound.btn1();
 				</script>
 			</binding>
@@ -621,7 +621,7 @@
 		<alignment>right-bottom</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>number-value</type>
-		<format>%3.0f</format>
+		<format>%003.0f</format>
 		<property>it-autoflight/input/kts</property>
 		<truncate>false</truncate>
 		<font>Std7SegCustom.ttf</font>
@@ -644,7 +644,7 @@
 		<alignment>right-bottom</alignment>
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>number-value</type>
-		<format>.%3.0f</format>
+		<format>.%003.0f</format>
 		<property>it-autoflight/input/mach-x1000</property>
 		<truncate>false</truncate>
 		<font>Std7SegCustom.ttf</font>
@@ -683,14 +683,14 @@
 		<type>select</type>
 		<object-name>Digits.Ias</object-name>
 		<condition>
-			<not><property>it-autoflight/input/kts-mach</property></not>
+			<not><property>it-autoflight/input/kts-mach-fgcp</property></not>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>Digits.Mach</object-name>
 		<condition>
-			<property>it-autoflight/input/kts-mach</property>
+			<property>it-autoflight/input/kts-mach-fgcp</property>
 		</condition>
 	</animation>
 	

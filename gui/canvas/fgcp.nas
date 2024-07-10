@@ -69,10 +69,10 @@ var fgcpCanvas = {
 		
 		# Left Buttons
 		me["SpdSel"].addEventListener("click", func(e) {
-			cockpit.ApPanel.spd();
+			cockpit.ApPanel.spdSel();
 		});
 		me["MachSel"].addEventListener("click", func(e) {
-			cockpit.ApPanel.mach();
+			cockpit.ApPanel.machSel();
 		});
 		me["EprLim"].addEventListener("click", func(e) {
 			cockpit.ApPanel.eprLim();
@@ -209,7 +209,7 @@ var fgcpCanvas = {
 				me["Pitch_7seg"].setText("-8.888");
 			} else {
 				# Speed
-				if (dfgs.Input.ktsMach.getBoolValue()) {
+				if (dfgs.Input.ktsMachFgcp.getBoolValue()) {
 					me["Spd_7seg"].setText("." ~ sprintf("%03d", dfgs.Input.mach.getValue() * 1000));
 				} else {
 					me["Spd_7seg"].setText(sprintf("%03d", dfgs.Input.kts.getValue()));

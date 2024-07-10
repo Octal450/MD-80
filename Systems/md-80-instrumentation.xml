@@ -131,7 +131,7 @@
 			<default value="/instrumentation/airspeed-indicator[0]/bug-kts-input"/>
 			<test logic="AND" value="/it-autoflight/input/mach-kts-equiv">
 				/instrumentation/airspeed-indicator[0]/power-avail eq 1
-				/it-autoflight/input/kts-mach eq 1
+				/it-autoflight/input/kts-mach-fgcp eq 1
 			</test>
 			<test value="/it-autoflight/input/kts">
 				/instrumentation/airspeed-indicator[0]/power-avail eq 1
@@ -252,7 +252,7 @@
 			<default value="/instrumentation/airspeed-indicator[1]/bug-kts-input"/>
 			<test logic="AND" value="/it-autoflight/input/mach-kts-equiv">
 				/instrumentation/airspeed-indicator[1]/power-avail eq 1
-				/it-autoflight/input/kts-mach eq 1
+				/it-autoflight/input/kts-mach-fgcp eq 1
 			</test>
 			<test value="/it-autoflight/input/kts">
 				/instrumentation/airspeed-indicator[1]/power-avail eq 1
