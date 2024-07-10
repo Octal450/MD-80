@@ -45,10 +45,10 @@
 	</fdm>
 	
 	<limits>
-		<mass-and-balance>
-			<maximum-takeoff-mass-lbs>139994</maximum-takeoff-mass-lbs>
-			<maximum-landing-mass-lbs>127868</maximum-landing-mass-lbs>
-			<maximum-zero-fuel-mass-lbs>117947</maximum-zero-fuel-mass-lbs>
+		<mass-and-balance> <!-- Data source: TCDS -->
+			<maximum-landing-mass-lbs>130000</maximum-landing-mass-lbs>
+			<maximum-takeoff-mass-lbs>142000</maximum-takeoff-mass-lbs>
+			<maximum-zero-fuel-mass-lbs>120000</maximum-zero-fuel-mass-lbs>
 		</mass-and-balance>
 	</limits>
 	
