@@ -40,6 +40,7 @@ var FPLN = {
 
 var Gear = {
 	wow0: props.globals.getNode("/gear/gear[0]/wow", 1),
+	wow0Temp: 1,
 	wow0Timer: props.globals.getNode("/gear/gear[0]/wow-timer", 1),
 	wow1: props.globals.getNode("/gear/gear[1]/wow", 1),
 	wow1Temp: 1,
@@ -124,8 +125,8 @@ var Input = {
 	mach: props.globals.initNode("/it-autoflight/input/mach", 0.5, "DOUBLE"),
 	machFlch: props.globals.initNode("/it-autoflight/input/mach-flch", 0.5, "DOUBLE"),
 	machFlchX1000: props.globals.initNode("/it-autoflight/input/mach-flch-x1000", 500, "INT"),
-	machX1000: props.globals.initNode("/it-autoflight/input/mach-x1000", 500, "INT"),
 	machTemp: 0,
+	machX1000: props.globals.initNode("/it-autoflight/input/mach-x1000", 500, "INT"),
 	pitch: props.globals.initNode("/it-autoflight/input/pitch", 0, "INT"),
 	pitchAbs: props.globals.initNode("/it-autoflight/input/pitch-abs", 0, "INT"), # Set by property rule
 	radioSelTemp: 0,
@@ -392,12 +393,13 @@ var ITAF = {
 		
 		# Autoland Logic
 		Input.autoLandTemp = Input.autoLand.getBoolValue();
+		Gear.wow0Temp = Gear.wow0.getBoolValue();
 		if (Output.ap1Temp or Output.ap2Temp) {
 			if ((Output.vertTemp == 2 or Output.vertTemp == 6) and Input.autoLandTemp) {
 				Input.radioSelTemp = Input.activeAp.getValue() - 1;
 				Radio.locDeflTemp[Input.radioSelTemp] = Radio.locDefl[Input.radioSelTemp].getValue();
 				Radio.signalQualityTemp[Input.radioSelTemp] = Radio.signalQuality[Input.radioSelTemp].getValue();
-				Internal.canAutoland = (abs(Radio.locDeflTemp[Input.radioSelTemp]) <= 0.1 and Radio.locDeflTemp[Input.radioSelTemp] != 0 and Radio.signalQualityTemp[Input.radioSelTemp] >= 0.99) or Gear.wow0.getBoolValue();
+				Internal.canAutoland = (abs(Radio.locDeflTemp[Input.radioSelTemp]) <= 0.1 and Radio.locDeflTemp[Input.radioSelTemp] != 0 and Radio.signalQualityTemp[Input.radioSelTemp] >= 0.99) or Gear.wow0Temp;
 			} else {
 				Internal.canAutoland = 0;
 			}
@@ -459,7 +461,7 @@ var ITAF = {
 		
 		# Go Around Arm
 		if (Gear.wow0Timer.getValue() < 1 and Output.vertTemp != 7 and Position.gearAglFtTemp < 1500 and Misc.flapDeg.getValue() >= 25.9) {
-			if (Output.ap1Temp or Output.ap2Temp) {
+			if ((Output.ap1Temp or Output.ap2Temp) and !Gear.wow0Temp) {
 				if (Internal.goAround != 3) {
 					Internal.goAround = 3;
 					UpdateFma.arm();
