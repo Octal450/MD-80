@@ -372,14 +372,27 @@
 		</pure_gain>
 		
 		<!-- Vmin -->
-		<pure_gain name="dfgs/speeds/vmin">
-			<input>dfgs/speeds/vss-kts</input>
-			<gain>1.1</gain> <!-- 1.1Vstall -->
+		<fcs_function name="dfgs/speeds/vmin">
+			<function>
+				<product>
+					<property>dfgs/speeds/vss-kts</property>
+					<sum>
+						<value>1.15</value> <!-- 1.15Vstall -->
+						<table>
+							<independentVar lookup="row">atmosphere/density-altitude</independentVar>
+							<tableData>
+								    0  0.0000
+								45000  0.2302
+							</tableData>
+						</table>
+					</sum>
+				</product>
+			</function>
 			<clipto>
 				<min>dfgs/speeds/vss</min>
 				<max>100000</max>
 			</clipto>
-		</pure_gain>
+		</fcs_function>
 		
 		<fcs_function name="dfgs/speeds/vmin-mach">
 			<function>

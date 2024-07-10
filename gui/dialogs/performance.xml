@@ -23,6 +23,7 @@
 			setprop("/sim/gui/dialogs/performance/flap-retract-round", math.round(getprop("/fdm/jsbsim/performance/flap-retract")));
 			setprop("/sim/gui/dialogs/performance/slat-retract-round", math.round(getprop("/fdm/jsbsim/performance/slat-retract")));
 			setprop("/sim/gui/dialogs/performance/min-maneuver-round", math.round(getprop("/fdm/jsbsim/performance/min-maneuver")));
+			setprop("/sim/gui/dialogs/performance/vref-round", math.round(getprop("/fdm/jsbsim/performance/vref")));
 			
 			var loop = maketimer(0.1, func() {
 				setprop("/sim/gui/dialogs/performance/cg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/cg-percent-mac"), 0.1)) ~ "% MAC");
@@ -38,6 +39,7 @@
 				setprop("/sim/gui/dialogs/performance/flap-retract-round", math.round(getprop("/fdm/jsbsim/performance/flap-retract")));
 				setprop("/sim/gui/dialogs/performance/slat-retract-round", math.round(getprop("/fdm/jsbsim/performance/slat-retract")));
 				setprop("/sim/gui/dialogs/performance/min-maneuver-round", math.round(getprop("/fdm/jsbsim/performance/min-maneuver")));
+				setprop("/sim/gui/dialogs/performance/vref-round", math.round(getprop("/fdm/jsbsim/performance/vref")));
 			});
 			loop.start();
 		</open>
@@ -258,7 +260,7 @@
 		<text>
 			<row>2</row>
 			<col>0</col>
-			<label>MIN MNVR: </label>
+			<label>CLEAN MNVR: </label>
 		</text>
 		<text>
 			<row>2</row>
@@ -266,6 +268,31 @@
 			<label>999</label>
 			<live>true</live>
 			<property>/sim/gui/dialogs/performance/min-maneuver-round</property>
+		</text>
+	</group>
+	
+	<hrule/>
+	
+	<text>
+		<row>0</row>
+		<col>0</col>
+		<label>Based on current flap setting:</label>
+	</text>
+	
+	<group>
+		<layout>table</layout>
+		
+		<text>
+			<row>1</row>
+			<col>0</col>
+			<label>VREF: </label>
+		</text>
+		<text>
+			<row>1</row>
+			<col>1</col>
+			<label>999</label>
+			<live>true</live>
+			<property>/sim/gui/dialogs/performance/vref-round</property>
 		</text>
 	</group>
 
