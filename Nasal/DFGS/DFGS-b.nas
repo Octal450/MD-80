@@ -8,6 +8,7 @@ var Fma = {
 	pitchB: props.globals.initNode("/instrumentation/fma/pitch-mode-b", "", "STRING"),
 	rollA: props.globals.initNode("/instrumentation/fma/roll-mode-a", "", "STRING"),
 	rollB: props.globals.initNode("/instrumentation/fma/roll-mode-b", "", "STRING"),
+	spdLow: 0,
 	thrA: props.globals.initNode("/instrumentation/fma/thr-mode-a", "", "STRING"),
 	thrB: props.globals.initNode("/instrumentation/fma/thr-mode-b", "", "STRING"),
 	Blink: {
@@ -39,6 +40,17 @@ var Fma = {
 			canvas_fma.Value.blinkActive[3] = 1;
 		} else {
 			canvas_fma.Value.blinkActive[3] = 0;
+		}
+		
+		Output.vertTemp = Output.vert.getValue();
+		if (Output.vertTemp != 4 and Output.vertTemp != 7 and !pts.Fdm.JSBsim.Position.wow.getBoolValue()) {
+			if (Velocities.indicatedAirspeedKt.getValue() <= pts.Fdm.JSBsim.Dfgs.Speeds.vmin90Percent.getValue()) {
+				me.spdLow = 1;
+			} else {
+				me.spdLow = 0;
+			}
+		} else {
+			me.spdLow = 0;
 		}
 	},
 	startBlink: func(w) { # 0 THR, 1 ARM, 2 ROLL, 3 PITCH

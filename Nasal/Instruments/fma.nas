@@ -157,7 +157,10 @@ var canvasBase = {
 				me["Line1"].setText("");
 				me["Line2"].setText("");
 			} else {
-				if (w == 3 and dfgs.Output.vert.getValue() == 1 and abs(dfgs.Input.vs.getValue()) < 50) {
+				if (w == 3 and dfgs.Fma.spdLow and Value.blink < 2) {
+					me["Line1"].setText("SPD");
+					me["Line2"].setText("LOW");
+				} else if (w == 3 and dfgs.Output.vert.getValue() == 1 and abs(dfgs.Input.vs.getValue()) < 50) {
 					me["Line1"].setText("ALT");
 					me["Line2"].setText("HLD");
 				} else {

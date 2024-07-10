@@ -394,6 +394,11 @@
 			</clipto>
 		</fcs_function>
 		
+		<pure_gain name="dfgs/speeds/vmin-90-percent">
+			<input>dfgs/speeds/vmin</input>
+			<gain>0.9</gain>
+		</pure_gain>
+		
 		<fcs_function name="dfgs/speeds/vmin-mach">
 			<function>
 				<product>

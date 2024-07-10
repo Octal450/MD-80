@@ -85,6 +85,7 @@ var Fdm = {
 				vmax: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmax"),
 				vmaxMach: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmax-mach"),
 				vmin: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin"),
+				vmin90Percent: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin-90-percent"),
 				vminMach: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin-mach"),
 			},
 			stallAlphaDeg: props.globals.getNode("/fdm/jsbsim/dfgs/stall-alpha-deg"),
