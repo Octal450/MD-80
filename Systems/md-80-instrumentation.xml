@@ -306,7 +306,7 @@
 			</test>
 			<test logic="AND" value="1">
 				/instrumentation/ai[0]/power-avail eq 1
-				/systems/ahrs[0]/aligned eq 1
+				/systems/platform[0]/aligned eq 1
 			</test>
 		</switch>
 		
@@ -469,7 +469,7 @@
 			<default value="/fdm/jsbsim/aero/beta-deg"/>
 			<test logic="OR" value="0">
 				/instrumentation/ai[0]/power-avail ne 1
-				/systems/ahrs[0]/aligned ne 1
+				/systems/platform[0]/aligned ne 1
 			</test>
 			<test value="/instrumentation/ai[0]/slip-skid-Ny">
 				position/wow eq 1
@@ -497,7 +497,7 @@
 			</test>
 			<test logic="AND" value="1">
 				/instrumentation/ai[1]/power-avail eq 1
-				/systems/ahrs[1]/aligned eq 1
+				/systems/platform[1]/aligned eq 1
 			</test>
 		</switch>
 		
@@ -660,7 +660,7 @@
 			<default value="/fdm/jsbsim/aero/beta-deg"/>
 			<test logic="OR" value="0">
 				/instrumentation/ai[1]/power-avail ne 1
-				/systems/ahrs[1]/aligned ne 1
+				/systems/platform[1]/aligned ne 1
 			</test>
 			<test value="/instrumentation/ai[1]/slip-skid-Ny">
 				position/wow eq 1
@@ -1106,7 +1106,7 @@
 			</test>
 			<test logic="AND" value="1"> <!-- Uses AHRS 2 -->
 				/instrumentation/rmi[0]/power-avail eq 1
-				/systems/ahrs[1]/aligned eq 1
+				/systems/platform[1]/aligned eq 1
 			</test>
 		</switch>
 		
@@ -1219,7 +1219,7 @@
 			</test>
 			<test logic="AND" value="1"> <!-- Uses AHRS 1 -->
 				/instrumentation/rmi[1]/power-avail eq 1
-				/systems/ahrs[0]/aligned eq 1
+				/systems/platform[0]/aligned eq 1
 			</test>
 		</switch>
 		
@@ -1336,7 +1336,7 @@
 			</test>
 			<test logic="AND" value="1">
 				/instrumentation/hsi[0]/power-avail eq 1
-				/systems/ahrs[0]/aligned eq 1
+				/systems/platform[0]/aligned eq 1
 			</test>
 		</switch>
 		
@@ -1450,7 +1450,7 @@
 			</test>
 			<test logic="AND" value="1">
 				/instrumentation/hsi[1]/power-avail eq 1
-				/systems/ahrs[1]/aligned eq 1
+				/systems/platform[1]/aligned eq 1
 			</test>
 		</switch>
 		

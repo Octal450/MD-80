@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 
-<!-- McDonnell Douglas MD-80 Attitude Heading Reference System -->
+<!-- McDonnell Douglas MD-80 AHRS and IRS -->
 <!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
 
-<system name="MD-80: AHRS">
+<system name="MD-80: AHRS and IRS">
 	
 	<property value="0">/systems/ahrs[0]/aligned</property>
 	<property value="0">/systems/ahrs[1]/aligned</property>
 	
-	<channel name="Logic" execrate="8">
+	<channel name="AHRS Logic" execrate="8">
 		
 		<switch name="/systems/ahrs-common/align-time">
 			<default value="1"/> <!-- 45 seconds -->
@@ -183,6 +183,40 @@
 				/systems/ahrs[1]/align-cmd eq 1
 				/systems/ahrs[1]/aligned ne 1
 			</test>
+		</switch>
+	
+	</channel>
+	
+	<!-- IRS TBD -->
+	
+	<channel name="Platform Select">
+		
+		<switch name="/systems/platform[0]/aligned">
+			<default value="/systems/ahrs[0]/aligned"/>
+			<!--test logic="AND" value="/systems/iru[0]/aligned">
+				/systems/acconfig/options/irs-equipped eq 1
+			</test-->
+		</switch>
+		
+		<switch name="/systems/platform[0]/aligning">
+			<default value="/systems/ahrs[0]/aligning"/>
+			<!--test logic="AND" value="/systems/iru[0]/aligning">
+				/systems/acconfig/options/irs-equipped eq 1
+			</test-->
+		</switch>
+		
+		<switch name="/systems/platform[1]/aligned">
+			<default value="/systems/ahrs[1]/aligned"/>
+			<!--test logic="AND" value="/systems/iru[1]/aligned">
+				/systems/acconfig/options/irs-equipped eq 1
+			</test-->
+		</switch>
+		
+		<switch name="/systems/platform[1]/aligning">
+			<default value="/systems/ahrs[1]/aligning"/>
+			<!--test logic="AND" value="/systems/iru[1]/aligning">
+				/systems/acconfig/options/irs-equipped eq 1
+			</test-->
 		</switch>
 	
 	</channel>

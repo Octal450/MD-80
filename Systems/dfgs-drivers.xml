@@ -16,6 +16,10 @@
 					<property>/it-autoflight/input/active-ap</property>
 					<value>1</value>
 				</equals>
+				<equals>
+					<property>/systems/platform[0]/aligned</property>
+					<value>1</value>
+				</equals>
 				<greater-than-equals>
 					<property>/systems/hydraulics/sys-l-psi</property>
 					<value>950</value>
@@ -35,6 +39,10 @@
 				<equals>
 					<property>/it-autoflight/input/active-ap</property>
 					<value>2</value>
+				</equals>
+				<equals>
+					<property>/systems/platform[1]/aligned</property>
+					<value>1</value>
 				</equals>
 				<greater-than-equals>
 					<property>/systems/hydraulics/sys-r-psi</property>

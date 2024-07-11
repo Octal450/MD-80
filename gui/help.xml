@@ -92,6 +92,7 @@ Aircraft Config Center:
 Can be used to load panel states and set ground equipment, as well as configure simulation and aircraft options.
 
 Simulation:
+* IRS Aligns Instantly: Skips the ~10 minute alignment process of the IRS (if equipped).
 * Keyboard Mode: Maps flight controls to number pad and number rows instead of view shortucts.
 * Separate Tiller Axis: Separates the tiller from the rudder and maps it to /controls/gear/steering.
 
@@ -99,6 +100,7 @@ Aircraft:
 * Armed Altitude as Flight Levels: Equips the aircraft with the optional feature to show flight level on the FMA.
 * Auto Arm Altitude: Equips the aircraft with the optional feature to automatically arm altitude.
 * Combined Standby: Equips the aircraft with the combined standby instead of split instruments.
+* IRS Equipped: Equips the aircraft with the IRS instead of AHRS (EFIS panel only).
 
 Panel Configuration:
 * Instrumentation: Selects between Analog and EFIS instrument layouts. 

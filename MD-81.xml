@@ -139,7 +139,7 @@
 	
 	<system file="md-80-libraries"/>
 	<system file="md-80-electrical"/>
-	<system file="md-80-ahrs"/>
+	<system file="md-80-ahrs-irs"/>
 	<system file="md-80-fuel"/>
 	<system file="md-80-hydraulics"/>
 	<system file="md-80-pneumatics"/>

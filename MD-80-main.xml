@@ -1497,12 +1497,14 @@
 					<show-wingtip type="bool">1</show-wingtip>
 				</autopush>
 				<combined-standby type="bool">0</combined-standby>
-				<flight-director type="string">Single Cue</flight-director>
-				<keyboard-mode type="bool">0</keyboard-mode>
 				<du n="0">
 					<nd-fps type="double">20</nd-fps>
 					<pfd-fps type="double">20</pfd-fps>
 				</du>
+				<flight-director type="string">Single Cue</flight-director>
+				<irs-aligns-instantly type="bool">0</irs-aligns-instantly>
+				<irs-equipped type="bool">0</irs-equipped>
+				<keyboard-mode type="bool">0</keyboard-mode>
 				<panel type="string">Analog</panel>
 				<separate-tiller-axis type="bool">0</separate-tiller-axis>
 			</options>

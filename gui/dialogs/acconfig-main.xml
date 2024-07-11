@@ -319,6 +319,23 @@
 			</group>
 			
 			<checkbox>
+				<enable>
+					<property>/systems/acconfig/options/irs-equipped</property>
+				</enable>
+				<label>IRS Aligns Instantly</label>
+				<halign>left</halign>
+				<property>/systems/acconfig/options/irs-aligns-instantly</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>acconfig.OPTIONS.write();</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
 				<label>Keyboard Mode</label>
 				<halign>left</halign>
 				<property>/systems/acconfig/options/keyboard-mode</property>

@@ -1,13 +1,6 @@
 # McDonnell Douglas MD-80 Misc Systems
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
-# AHRS
-var AHRS = {
-	Ahrs: {
-		aligned: [props.globals.getNode("/systems/ahrs[0]/aligned"), props.globals.getNode("/systems/ahrs[1]/aligned")],
-	},
-};
-
 # APU
 var APU = {
 	egt: props.globals.getNode("/engines/engine[2]/egt-actual"),
@@ -273,6 +266,13 @@ var IGNITION = {
 				pts.Fdm.JSBsim.Propulsion.Engine.n2[n].setValue(0.1);
 			}
 		}, 0.1);
+	},
+};
+
+# Platform (AHRS and IRS)
+var Platform = {
+	Unit: {
+		aligned: [props.globals.getNode("/systems/platform[0]/aligned"), props.globals.getNode("/systems/platform[1]/aligned")],
 	},
 };
 
