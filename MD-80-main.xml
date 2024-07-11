@@ -652,8 +652,6 @@
 			<annun-test type="bool">0</annun-test>
 			<gpws type="int">0</gpws>
 			<gpws-cover type="bool">0</gpws-cover>
-			<modekb type="int">2</modekb> <!-- For temporary ND -->
-			<modekb2 type="int">2</modekb2> <!-- For temporary ND -->
 			<max-spd-warn-test type="int">0</max-spd-warn-test>
 			<minimums type="int">200</minimums>
 			<no-smoking-sign type="int">1</no-smoking-sign> <!-- Smoking is bad! -->
