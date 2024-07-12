@@ -4,7 +4,7 @@
 
 var DUController = {
 	errorActive: 0,
-	flightDirector: "SINGLE CUE",
+	flightDirector: "Single Cue",
 	PwrSource: {
 		acR: 0,
 		emerAc: 0,
