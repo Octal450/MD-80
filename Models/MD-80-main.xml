@@ -313,7 +313,7 @@
 		</attenuation>
 		<spot-exponent>40</spot-exponent>
 		<spot-cutoff>20</spot-cutoff>
-		<range-m>5</range-m>
+		<range-m>50</range-m>
 	</light>
 	
 	<light>
@@ -355,7 +355,7 @@
 		</attenuation>
 		<spot-exponent>40</spot-exponent>
 		<spot-cutoff>20</spot-cutoff>
-		<range-m>5</range-m>
+		<range-m>50</range-m>
 	</light>
 	
 	<model>
@@ -705,7 +705,7 @@
 		</attenuation>
 		<spot-exponent>10</spot-exponent>
 		<spot-cutoff>45</spot-cutoff>
-		<range-m>5</range-m>
+		<range-m>50</range-m>
 	</light>
 	
 	<model>
@@ -757,7 +757,7 @@
 		</attenuation>
 		<spot-exponent>10</spot-exponent>
 		<spot-cutoff>45</spot-cutoff>
-		<range-m>5</range-m>
+		<range-m>50</range-m>
 	</light>
 	
 	<model>
@@ -809,7 +809,7 @@
 		</attenuation>
 		<spot-exponent>10</spot-exponent>
 		<spot-cutoff>45</spot-cutoff>
-		<range-m>5</range-m>
+		<range-m>50</range-m>
 	</light>
 	
 	<model>
@@ -861,7 +861,7 @@
 		</attenuation>
 		<spot-exponent>10</spot-exponent>
 		<spot-cutoff>45</spot-cutoff>
-		<range-m>5</range-m>
+		<range-m>50</range-m>
 	</light>
 	
 	<model>
@@ -913,7 +913,7 @@
 		</attenuation>
 		<spot-exponent>10</spot-exponent>
 		<spot-cutoff>45</spot-cutoff>
-		<range-m>5</range-m>
+		<range-m>50</range-m>
 	</light>
 	
 	<model>
@@ -965,7 +965,7 @@
 		</attenuation>
 		<spot-exponent>10</spot-exponent>
 		<spot-cutoff>45</spot-cutoff>
-		<range-m>5</range-m>
+		<range-m>50</range-m>
 	</light>
 	
 	<model>
@@ -1017,7 +1017,7 @@
 		</attenuation>
 		<spot-exponent>10</spot-exponent>
 		<spot-cutoff>45</spot-cutoff>
-		<range-m>5</range-m>
+		<range-m>50</range-m>
 	</light>
 	
 	<model>
@@ -1069,7 +1069,7 @@
 		</attenuation>
 		<spot-exponent>10</spot-exponent>
 		<spot-cutoff>45</spot-cutoff>
-		<range-m>5</range-m>
+		<range-m>50</range-m>
 	</light>
 	
 	<model>
@@ -1994,7 +1994,7 @@
 			<entry><ind>1.0</ind><dep>17.1029376</dep></entry>
 		</interpolation>
 		<center>
-			<x-m>2.55</x-m>
+			<x-m>2.550</x-m>
 			<y-m>0</y-m>
 			<z-m>-1.667</z-m>
 		</center>
