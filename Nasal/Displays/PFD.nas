@@ -86,9 +86,9 @@ var canvasBase = {
 		return me;
 	},
 	getKeys: func() {
-		return ["AI_arrow_dn", "AI_arrow_up", "AI_background", "AI_bank", "AI_center", "AI_dual_cue", "AI_error", "AI_group", "AI_group2", "AI_group3", "AI_PLI", "AI_PLI_dual", "AI_PLI_single", "AI_rising_runway", "AI_scale", "AI_scale_dc", "AI_single_cue",
-		"DH_below", "DH_group", "DH_label", "DH_pointer", "DH_set", "FD_v", "FD_pitch", "FD_roll", "FS_pointer", "FS_scale", "Gndspd", "GS_group", "GS_no", "GS_pointer", "GS_scale", "ILS_group", "Inner_marker", "LOC_no", "LOC_pointer", "LOC_scale",
-		"Middle_marker", "NAV_ILS", "NAV_pointer", "NAV_scale", "Outer_marker", "RA_bars", "RA_scale"];
+		return ["AI_arrow_dn", "AI_arrow_up", "AI_background", "AI_bank", "AI_center", "AI_dual_cue", "AI_error", "AI_group", "AI_group2", "AI_group3", "AI_PLI", "AI_PLI_dual_cue", "AI_PLI_single_cue", "AI_rising_runway", "AI_scale", "AI_scale_dc",
+		"AI_single_cue", "DH_below", "DH_group", "DH_label", "DH_pointer", "DH_set", "FD_v", "FD_pitch", "FD_roll", "FS_pointer", "FS_scale", "Gndspd", "GS_group", "GS_no", "GS_pointer", "GS_scale", "ILS_group", "Inner_marker", "LOC_no", "LOC_pointer",
+		"LOC_scale", "Middle_marker", "NAV_ILS", "NAV_pointer", "NAV_scale", "Outer_marker", "RA_bars", "RA_scale"];
 	},
 	setup: func() {
 		# Hide the pages by default
@@ -149,23 +149,23 @@ var canvasBase = {
 		if (pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() >= 60 and pts.Controls.Flight.flapsInput.getValue() > 0) {
 			me["AI_PLI"].setTranslation(0, math.clamp(Value.Ai.stallAlphaDeg - Value.Ai.alpha, -20, 20) * -12.345);
 			if (Value.Ai.alpha >= Value.Ai.stallAlphaDeg) {
-				me["AI_PLI_dual"].setColor(1, 0, 0);
-				me["AI_PLI_single"].setColor(1, 0, 0);
+				me["AI_PLI_dual_cue"].setColor(1, 0, 0);
+				me["AI_PLI_single_cue"].setColor(1, 0, 0);
 			} else {
-				me["AI_PLI_dual"].setColor(1, 1, 1);
-				me["AI_PLI_single"].setColor(1, 1, 1);
+				me["AI_PLI_dual_cue"].setColor(1, 1, 1);
+				me["AI_PLI_single_cue"].setColor(1, 1, 1);
 			}
 			
 			if (systems.DUController.flightDirector == "Dual Cue") {
-				me["AI_PLI_dual"].show();
-				me["AI_PLI_single"].hide();
+				me["AI_PLI_dual_cue"].show();
+				me["AI_PLI_single_cue"].hide();
 			} else {
-				me["AI_PLI_dual"].hide();
-				me["AI_PLI_single"].show();
+				me["AI_PLI_dual_cue"].hide();
+				me["AI_PLI_single_cue"].show();
 			}
 		} else {
-			me["AI_PLI_dual"].hide();
-			me["AI_PLI_single"].hide();
+			me["AI_PLI_dual_cue"].hide();
+			me["AI_PLI_single_cue"].hide();
 		}
 		
 		if (Value.Ai.pitch > 30) {

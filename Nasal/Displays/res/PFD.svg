@@ -41,9 +41,9 @@
      inkscape:window-height="1057"
      id="namedview371"
      showgrid="false"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="1246.8351"
-     inkscape:cy="3204.5061"
+     inkscape:zoom="2"
+     inkscape:cx="787.55842"
+     inkscape:cy="515.63636"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -2712,13 +2712,14 @@
        inkscape:label="#path5110"
        d="m 584.86498,402.58758 16.10982,-24.40903 m 1.1076,24.40903 16.10982,-24.40903 m -50.54451,24.40904 16.10969,-24.40905 m 35.54214,24.40904 16.10982,-24.40903 m -17.83322,25.44044 -50.35627,0 M 446.98474,402.58759 430.875,378.17854 m -1.10759,24.40905 -16.10974,-24.40905 m 50.54425,24.40906 -16.1096,-24.40907 m -35.54196,24.40906 -16.10974,-24.40905 m 17.83337,25.44046 50.35602,0"
        style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="AI_PLI_dual" />
+       id="AI_PLI_dual_cue" />
     <path
        sodipodi:nodetypes="cccccccccccccccccc"
        inkscape:connector-curvature="0"
        d="m 555.90642,406.214 3.3e-4,-25 m 39.975,33.383 3.3e-4,-25 m -119.92616,16.617 3.3e-4,-25 m -39.976,33.383 3.3e-4,-25 m 199.87667,33.383 0,-25 m -239.852,25 0,-25 m 119.926,0.634 0,-25 m -119.926,51.86595 116.196,-24.366 7.4605,0 116.1955,24.36563"
        style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="AI_PLI_single" />
+       id="AI_PLI_single_cue"
+       inkscape:label="#AI_PLI_single" />
   </g>
   <g
      id="DH_group"
