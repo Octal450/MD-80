@@ -313,7 +313,7 @@
 		</attenuation>
 		<spot-exponent>40</spot-exponent>
 		<spot-cutoff>20</spot-cutoff>
-		<range-m>50</range-m>
+		<range-m>5</range-m>
 	</light>
 	
 	<light>
@@ -355,7 +355,7 @@
 		</attenuation>
 		<spot-exponent>40</spot-exponent>
 		<spot-cutoff>20</spot-cutoff>
-		<range-m>50</range-m>
+		<range-m>5</range-m>
 	</light>
 	
 	<model>
@@ -389,7 +389,7 @@
 		</position>
 		<direction>
 			<x>1.0</x>
-			<y>-0.50</y>
+			<y>-0.5</y>
 			<z>0.10</z>
 		</direction>
 		<ambient>
@@ -431,7 +431,7 @@
 		</position>
 		<direction>
 			<x>1.0</x>
-			<y>0.50</y>
+			<y>0.5</y>
 			<z>0.10</z>
 		</direction>
 		<ambient>
@@ -467,7 +467,7 @@
 		<path>Aircraft/MD-80/Models/Effects/Lights/groundFloodLightL.xml</path>
 		<offsets>
 			<x-m>12.995</x-m>
-			<y-m>-1.50</y-m>
+			<y-m>-1.5</y-m>
 			<z-m>-0.292114</z-m>
 		</offsets>
 	</model>
@@ -477,7 +477,7 @@
 		<path>Aircraft/MD-80/Models/Effects/Lights/groundFloodLightR.xml</path>
 		<offsets>
 			<x-m>12.995</x-m>
-			<y-m>1.50</y-m>
+			<y-m>1.5</y-m>
 			<z-m>-0.292114</z-m>
 		</offsets>
 	</model>
@@ -615,7 +615,7 @@
 		</specular>
 		<attenuation>
 			<c>1.0</c>
-			<l>1.50</l>
+			<l>1.5</l>
 			<q>8.33</q>
 		</attenuation>
 		<range-m>3</range-m>
@@ -705,7 +705,7 @@
 		</attenuation>
 		<spot-exponent>10</spot-exponent>
 		<spot-cutoff>45</spot-cutoff>
-		<range-m>50</range-m>
+		<range-m>5</range-m>
 	</light>
 	
 	<model>
@@ -733,7 +733,7 @@
 			<z>-0.25</z>
 		</direction>
 		<ambient>
-			<r>0.50</r>
+			<r>0.5</r>
 			<g>0.00</g>
 			<b>0.00</b>
 			<a>1</a>
@@ -757,7 +757,7 @@
 		</attenuation>
 		<spot-exponent>10</spot-exponent>
 		<spot-cutoff>45</spot-cutoff>
-		<range-m>50</range-m>
+		<range-m>5</range-m>
 	</light>
 	
 	<model>
@@ -809,7 +809,7 @@
 		</attenuation>
 		<spot-exponent>10</spot-exponent>
 		<spot-cutoff>45</spot-cutoff>
-		<range-m>50</range-m>
+		<range-m>5</range-m>
 	</light>
 	
 	<model>
@@ -837,7 +837,7 @@
 			<z>-0.25</z>
 		</direction>
 		<ambient>
-			<r>0.50</r>
+			<r>0.5</r>
 			<g>0.00</g>
 			<b>0.00</b>
 			<a>1</a>
@@ -861,7 +861,7 @@
 		</attenuation>
 		<spot-exponent>10</spot-exponent>
 		<spot-cutoff>45</spot-cutoff>
-		<range-m>50</range-m>
+		<range-m>5</range-m>
 	</light>
 	
 	<model>
@@ -913,7 +913,7 @@
 		</attenuation>
 		<spot-exponent>10</spot-exponent>
 		<spot-cutoff>45</spot-cutoff>
-		<range-m>50</range-m>
+		<range-m>5</range-m>
 	</light>
 	
 	<model>
@@ -941,7 +941,7 @@
 			<z>-0.25</z>
 		</direction>
 		<ambient>
-			<r>0.50</r>
+			<r>0.5</r>
 			<g>0.00</g>
 			<b>0.00</b>
 			<a>1</a>
@@ -965,7 +965,7 @@
 		</attenuation>
 		<spot-exponent>10</spot-exponent>
 		<spot-cutoff>45</spot-cutoff>
-		<range-m>50</range-m>
+		<range-m>5</range-m>
 	</light>
 	
 	<model>
@@ -1017,7 +1017,7 @@
 		</attenuation>
 		<spot-exponent>10</spot-exponent>
 		<spot-cutoff>45</spot-cutoff>
-		<range-m>50</range-m>
+		<range-m>5</range-m>
 	</light>
 	
 	<model>
@@ -1045,7 +1045,7 @@
 			<z>-0.25</z>
 		</direction>
 		<ambient>
-			<r>0.50</r>
+			<r>0.5</r>
 			<g>0.00</g>
 			<b>0.00</b>
 			<a>1</a>
@@ -1069,7 +1069,7 @@
 		</attenuation>
 		<spot-exponent>10</spot-exponent>
 		<spot-cutoff>45</spot-cutoff>
-		<range-m>50</range-m>
+		<range-m>5</range-m>
 	</light>
 	
 	<model>
@@ -1994,7 +1994,7 @@
 			<entry><ind>1.0</ind><dep>17.1029376</dep></entry>
 		</interpolation>
 		<center>
-			<x-m>2.550</x-m>
+			<x-m>2.55</x-m>
 			<y-m>0</y-m>
 			<z-m>-1.667</z-m>
 		</center>
