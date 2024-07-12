@@ -16,37 +16,6 @@
 		<object-name>WindowsCockpit</object-name>
 	</effect>
 	
- <!-- Tyre Smoke -->
-<model>
-  <path>Aircraft/MD-80/Models/Effects/tyre-smoke-nose.xml</path>
-  <name>tyre-smoke-n</name>
-  <offsets>
-   <x-m>2.40</x-m>
-   <y-m>0</y-m>
-   <z-m>-2.18</z-m>
-  </offsets>
- </model>
- 
- <model>
-  <path>Aircraft/MD-80/Models/Effects/tyre-smoke-left.xml</path>
-  <name>tyre-smoke-l</name>
-  <offsets>
-   <x-m>24.36</x-m>
-   <y-m>-2.57</y-m>
-   <z-m>-2.43</z-m>
-  </offsets>
- </model>
- 
- <model>
-  <path>Aircraft/MD-80/Models/Effects/tyre-smoke-right.xml</path>
-  <name>tyre-smoke-r</name>
-  <offsets>
-   <x-m>24.36</x-m>
-   <y-m>2.57</y-m>
-   <z-m>-2.436</z-m>
-  </offsets>
- </model>
-
 	<!-- Contrails -->
 	<model>
 		<path>Aircraft/MD-80/Models/Effects/Contrail/contrail-eng1.xml</path>
@@ -56,7 +25,7 @@
 			<z-m>0.982</z-m>
 		</offsets>
 	</model>
-
+	
 	<model>
 		<path>Aircraft/MD-80/Models/Effects/Contrail/contrail-eng2.xml</path>
 		<offsets>
@@ -65,162 +34,18 @@
 			<z-m>0.982</z-m>
 		</offsets>
 	</model>
-
-<!-- Fuel Truck -->
-
-<model>
-	<name>fuel-truck</name>
-	<path>Aircraft/MD-80/Models/Services/Fuel-Truck/Fuel_Truck_Short_VolvoFM.xml</path>
-	<offsets>
-		<x-m>14</x-m>
-     	 	<y-m>6</y-m>
-     		 <z-m>1.81</z-m>
-	</offsets>
-	<condition>
-		<and>
-		<less-than>	
-	         <property>velocities/groundspeed-kt</property>
-	         <value>1</value>
-	         </less-than>
-		<equals>
-			<property>services/fuel-truck/enable</property>
-			<value>1</value>
-		</equals>
-		</and>
-	</condition>
-</model>
-
-<!-- De-icing Truck -->
-
-<model>
-	<name>de-ice-truck</name>
-	<path>Aircraft/MD-80/Models/Services/De-Icing/volvo_deicing_truck.xml</path>
-	<condition>
-		<and>		
-		<equals>
-			<property>services/deicing_truck/enable</property>
-			<value>1</value>
-		</equals>
-		<less-than>	
-	         <property>velocities/groundspeed-kt</property>
-	         <value>1</value>
-         	</less-than>
-		</and>
-	</condition>
-	<offsets>
-		<x-m>0</x-m><!--original -15-->
-		<y-m>8</y-m>
-		<z-m>-2.48</z-m>
-		<heading-deg>160</heading-deg>
-	</offsets>
-</model>
-
-
-<!-- Baggage Truck -->
-
-<model>
-	<name>baggage-truck</name>
-	<path>Aircraft/MD-80/Models/Services/Baggage/cargo_ramp.xml</path>
-	<condition>
-		<and>
-		<equals>
-			<property>services/baggage/enable</property>
-			<value>1</value>
-		</equals>
-		<less-than>	
-	         <property>velocities/groundspeed-kt</property>
-	         <value>1</value>
-         	</less-than>
-		</and>
-	</condition>
-	<offsets>
-		<x-m>-4.2</x-m>
-		<y-m>0</y-m>
-		<z-m>0.95</z-m>
-		<heading-deg>0</heading-deg>
-	</offsets>
-
-</model>
-
-<!-- External Power -->
-
-<model>
-	<name>ext-pwr</name>
-	<path>Aircraft/MD-80/Models/Services/External-Power/ext-pwr-box.ac</path>
-	<condition>
-		<and>
-		<equals>
-			<property>services/ext-pwr/enable</property>
-			<value>1</value>
-		</equals>
-		<less-than>	
-	         <property>velocities/groundspeed-kt</property>
-	         <value>1</value>
-         	</less-than>
-		</and>
-	</condition>
-	<offsets>
-		<x-m>18</x-m>
-		<y-m>2</y-m>
-		<z-m>2.16</z-m>
-		<heading-deg>0</heading-deg>
-	</offsets>
-</model>
-
-<!-- Bus -->
-
-<model>
-<name>Bus</name>
- <path>Aircraft/MD-80/Models/Services/Bus/bus.xml</path>
- <condition>
-  <property>controls/switches/bus</property>
-            <less-than>
-                <property>velocities/groundspeed-kt</property>
-                <value>1</value>
-            </less-than>
- </condition>
-<offsets>
-            <x-m>6</x-m>
-            <y-m>-10</y-m>
-            <z-m>-2.5</z-m>
-            <pitch-deg>-1</pitch-deg>
-            <heading-deg>-270</heading-deg>
-        </offsets>
-</model>
-
-<!--stairs-->
-
-<model>
- <path>Aircraft/MD-80/Models/Services/Stairs/stairs.xml</path>
- <name>l1</name>
- <offsets>
-  <x-m>4.4</x-m>
-  <y-m>-1.67</y-m>
-  <z-m>0.0000</z-m>
-  <heading-deg>-8</heading-deg>
- </offsets>
- <condition>
-	<and>
-	<property>services/stairs/l1</property>
-	<less-than>	
-	         <property>velocities/groundspeed-kt</property>
-	         <value>1</value>
-         </less-than>
-	</and>
- </condition>
-</model>
-
+	
     <effect>
 		<inherits-from>Models/Effects/Exterior/exterior-glass-reflection</inherits-from>
 		<object-name>WindowsCockpit</object-name>
     </effect>
-
+	
 	<!-- Sub-Model Imports -->
 	<model>
 		<name>Cockpit</name>
 		<path>Aircraft/MD-80/Models/MD-80-cockpit.xml</path>
 	</model>
-
+	
 	<model>
 		<name>Left Landing Light</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/landinglightL.xml</path>
@@ -272,7 +97,7 @@
 		<spot-cutoff>25.0</spot-cutoff>
 		<range-m>2500.0</range-m>
 	</light>
-
+	
 	<model>
 		<name>Nose Landing Light</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/landinglightN.xml</path>
@@ -740,7 +565,7 @@
 		<spot-cutoff>25</spot-cutoff>
 		<range-m>75</range-m>
 	</light>
-
+	
 	<model>
 		<name>Top Beacon</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/beacon.xml</path>
@@ -750,7 +575,7 @@
 			<z-m>2.31971</z-m>
 		</offsets>
 	</model>
-
+	
 	<model>
 		<name>Bottom Beacon</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/beacon.xml</path>
@@ -832,7 +657,7 @@
 	</light>
 	
 	<model>
-		<name>Left Position Light FWD</name>
+		<name>Left Position Light Fwd</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/rednav.xml</path>
 		<offsets>
 			<x-m>27.47</x-m>
@@ -842,7 +667,7 @@
 	</model>
 	
 	<light>
-		<name>Left Position Light FWD Compositor</name>
+		<name>Left Position Light Fwd Compositor</name>
 		<type>spot</type>
 		<dim-factor><property>/fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
 		<position>
@@ -884,7 +709,7 @@
 	</light>
 	
 	<model>
-		<name>Left Strobe Light FWD</name>
+		<name>Left Strobe Light Fwd</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/strobe.xml</path>
 		<offsets>
 			<x-m>27.47</x-m>
@@ -894,7 +719,7 @@
 	</model>
 	
 	<light>
-		<name>Left Strobe Light FWD Compositor</name>
+		<name>Left Strobe Light Fwd Compositor</name>
 		<type>spot</type>
 		<dim-factor><property>/sim/model/lights/strobe/state</property></dim-factor>
 		<position>
@@ -936,7 +761,7 @@
 	</light>
 	
 	<model>
-		<name>Right Position Light FWD</name>
+		<name>Right Position Light Fwd</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/greennav.xml</path>
 		<offsets>
 			<x-m>27.47</x-m>
@@ -946,7 +771,7 @@
 	</model>
 	
 	<light>
-		<name>Right Position Light FWD Compositor</name>
+		<name>Right Position Light Fwd Compositor</name>
 		<type>spot</type>
 		<dim-factor><property>/fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
 		<position>
@@ -988,7 +813,7 @@
 	</light>
 	
 	<model>
-		<name>Right Strobe Light FWD</name>
+		<name>Right Strobe Light Fwd</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/strobe.xml</path>
 		<offsets>
 			<x-m>27.47</x-m>
@@ -998,7 +823,7 @@
 	</model>
 	
 	<light>
-		<name>Right Strobe Light FWD Compositor</name>
+		<name>Right Strobe Light Fwd Compositor</name>
 		<type>spot</type>
 		<dim-factor><property>/sim/model/lights/strobe/state</property></dim-factor>
 		<position>
@@ -1040,7 +865,7 @@
 	</light>
 	
 	<model>
-		<name>Left Position Light AFT</name>
+		<name>Left Position Light Aft</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/rearnav.xml</path>
 		<offsets>
 			<x-m>29.0</x-m>
@@ -1050,7 +875,7 @@
 	</model>
 	
 	<light>
-		<name>Left Position Light AFT Compositor</name>
+		<name>Left Position Light Aft Compositor</name>
 		<type>spot</type>
 		<dim-factor><property>/fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
 		<position>
@@ -1092,7 +917,7 @@
 	</light>
 	
 	<model>
-		<name>Left Strobe Light AFT</name>
+		<name>Left Strobe Light Aft</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/strobe-aft.xml</path>
 		<offsets>
 			<x-m>29.0</x-m>
@@ -1102,7 +927,7 @@
 	</model>
 	
 	<light>
-		<name>Left Strobe Light AFT Compositor</name>
+		<name>Left Strobe Light Aft Compositor</name>
 		<type>spot</type>
 		<dim-factor><property>/sim/model/lights/strobe/state</property></dim-factor>
 		<position>
@@ -1144,7 +969,7 @@
 	</light>
 	
 	<model>
-		<name>Right Position Light AFT</name>
+		<name>Right Position Light Aft</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/rearnav.xml</path>
 		<offsets>
 			<x-m>29.0</x-m>
@@ -1154,7 +979,7 @@
 	</model>
 	
 	<light>
-		<name>Right Position Light AFT Compositor</name>
+		<name>Right Position Light Aft Compositor</name>
 		<type>spot</type>
 		<dim-factor><property>/fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
 		<position>
@@ -1196,7 +1021,7 @@
 	</light>
 	
 	<model>
-		<name>Right Strobe Light AFT</name>
+		<name>Right Strobe Light Aft</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/strobe-aft.xml</path>
 		<offsets>
 			<x-m>29.0</x-m>
@@ -1206,7 +1031,7 @@
 	</model>
 	
 	<light>
-		<name>Right Strobe Light AFT Compositor</name>
+		<name>Right Strobe Light Aft Compositor</name>
 		<type>spot</type>
 		<dim-factor><property>/sim/model/lights/strobe/state</property></dim-factor>
 		<position>
@@ -1248,7 +1073,7 @@
 	</light>
 	
 	<model>
-		<name>Left Logo Light AFT</name>
+		<name>Left Logo Light Aft</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/rearlogoL.xml</path>
 		<offsets>
 			<x-m>29.0</x-m>
@@ -1258,7 +1083,7 @@
 	</model>
 	
 	<model>
-		<name>Right Logo Light AFT</name>
+		<name>Right Logo Light Aft</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/rearlogoR.xml</path>
 		<offsets>
 			<x-m>29.0</x-m>
@@ -1308,346 +1133,303 @@
 		<spot-cutoff>4.5</spot-cutoff>
 		<range-m>100</range-m>
 	</light>
-
-<animation>
-  <type>noshadow</type>
-  <object-name>WheelWellsMG</object-name>
-  <object-name>SlatStrutsL</object-name>
-  <object-name>SlatStrutsR</object-name>
-</animation>
-
-
-<!-- Special shaders -->
-<!--
-<animation>
-  <type>shader</type>
-  <shader>chrome</shader>
-  <texture>Aircraft/MD-80/Models/txt_environment.png</texture>
-  <object-name>WindowsCockpit</object-name>
-</animation>
--->
-
-<!-- Cabin Window Glow -->
-<!--
-<animation>
-  <type>select</type>
-  <object-name>WinGlow</object-name>
-  <condition>
-    <greater-than>
-      <property>controls/lighting/cabin</property>
-      <value>0</value>
-    </greater-than>
-  </condition>
-</animation>
-<animation>
-  <type>material</type>
-  <object-name>WinGlow</object-name>
-  <emission>
-    <red>0.34</red>
-    <green>0.34</green>
-    <blue>0.34</blue>
-    <factor-prop>controls/lighting/cabin</factor-prop>
-  </emission>
-</animation>
--->
-
-
-<!-- Slats -->
-
-<animation>
-  <type>translate</type>
-  <object-name>SlatsL</object-name>
-  <object-name>SlatStrutsL</object-name>
-  <property>sim/multiplay/generic/float[6]</property>
-  <interpolation>
-    <entry><ind>  0</ind><dep>0.0</dep></entry>
-    <entry><ind>0.5</ind><dep>0.4</dep></entry>
-    <entry><ind>  1</ind><dep>0.8</dep></entry> <!-- 888 before y component added -->
-  </interpolation>
-  <axis>
-    <x>-0.870</x>
-    <y>-0.2</y>
-    <z>-0.180</z>
-  </axis>
-</animation>
-<animation>
-  <type>translate</type>
-  <object-name>SlatsR</object-name>
-  <object-name>SlatStrutsR</object-name>
-  <property>sim/multiplay/generic/float[6]</property>
-  <interpolation>
-    <entry><ind>  0</ind><dep>0.0</dep></entry>
-    <entry><ind>0.5</ind><dep>0.4</dep></entry>
-    <entry><ind>  1</ind><dep>0.8</dep></entry>
-  </interpolation>
-  <axis>
-    <x>-0.870</x>
-    <y>0.2</y>
-    <z>-0.180</z>
-  </axis>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>SlatsL</object-name>
-  <object-name>SlatStrutsL</object-name>
-  <property>sim/multiplay/generic/float[6]</property>
-  <interpolation>
-    <entry><ind>  0</ind><dep>0.0</dep></entry>
-    <entry><ind>0.5</ind><dep>1.2</dep></entry>
-    <entry><ind>  1</ind><dep>2.4</dep></entry>
-  </interpolation>
-  <center>
-    <x-m>20.745</x-m>
-    <y-m>-1.629</y-m>
-    <z-m>-0.306</z-m>
-  </center>
-  <axis>
-    <x>0</x>
-    <y>0</y>
-    <z>1</z>
-  </axis>
-</animation>
-<animation>
-  <type>rotate</type>
-  <object-name>SlatsL</object-name>
-  <object-name>SlatStrutsL</object-name>
-  <property>sim/multiplay/generic/float[6]</property>
-  <interpolation>
-    <entry><ind>  0</ind><dep>0.0</dep></entry>
-    <entry><ind>0.5</ind><dep>0.28</dep></entry>
-    <entry><ind>  1</ind><dep>0.56</dep></entry>
-  </interpolation>
-  <center>
-    <x-m>20.745</x-m>
-    <y-m>-1.629</y-m>
-    <z-m>-0.306</z-m>
-  </center>
-  <axis>
-    <x>-1</x>
-    <y>0</y>
-    <z>0</z>
-  </axis>
-</animation> 
-
-<animation>
-  <type>rotate</type>
-  <object-name>SlatsR</object-name>
-  <object-name>SlatStrutsR</object-name>
-  <property>sim/multiplay/generic/float[6]</property>
-  <interpolation>
-    <entry><ind>  0</ind><dep>0.0</dep></entry>
-    <entry><ind>0.5</ind><dep>1.2</dep></entry>
-    <entry><ind>  1</ind><dep>2.4</dep></entry>
-  </interpolation>
-  <center>
-    <x-m>20.745</x-m>
-    <y-m>1.629</y-m>
-    <z-m>-0.306</z-m>
-  </center>
-  <axis>
-    <x>0</x>
-    <y>0</y>
-    <z>-1</z>
-  </axis>
-</animation> 
-<animation>
-  <type>rotate</type>
-  <object-name>SlatsR</object-name>
-  <object-name>SlatStrutsR</object-name>
-  <property>sim/multiplay/generic/float[6]</property>
-  <interpolation>
-    <entry><ind>  0</ind><dep>0.0</dep></entry>
-    <entry><ind>0.5</ind><dep>0.28</dep></entry>
-    <entry><ind>  1</ind><dep>0.56</dep></entry>
-  </interpolation>
-  <center>
-    <x-m>20.745</x-m>
-    <y-m>1.629</y-m>
-    <z-m>-0.306</z-m>
-  </center>
-  <axis>
-    <x>1</x>
-    <y>0</y>
-    <z>0</z>
-  </axis>
-</animation> 
-
-
-<!-- Flaps -->
-
-<animation>
-  <type>rotate</type>
-  <object-name>FlapInL</object-name>
-  <object-name>FlapHorns2InL</object-name>
-  <object-name>FlapGussetL</object-name>
-  <object-name>FlapDoorL</object-name>
-  <property>surface-positions/flap-pos-norm</property>
-  <interpolation>
-    <entry><ind>  0.0</ind><dep> 0.0</dep></entry>
-    <entry><ind>  1.0</ind><dep>40</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>24.894</x1-m>
-    <y1-m>-5.036</y1-m>
-    <z1-m>-1.138</z1-m>
-    <x2-m>24.894</x2-m>
-    <y2-m>-1.635</y2-m>
-    <z2-m>-1.355</z2-m>
-  </axis>
-</animation>
-<animation>
-  <type>rotate</type>
-  <object-name>FlapInR</object-name>
-  <object-name>FlapHorns2InR</object-name>
-  <object-name>FlapGussetR</object-name>
-  <object-name>FlapDoorR</object-name>
-  <property>surface-positions/flap-pos-norm</property>
-  <interpolation>
-    <entry><ind>  0.0</ind><dep> 0.0</dep></entry>
-    <entry><ind>  1.0</ind><dep>40.0</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>24.894</x1-m>
-    <y1-m>1.635</y1-m>
-    <z1-m>-1.355</z1-m>
-    <x2-m>24.894</x2-m>
-    <y2-m>5.036</y2-m>
-    <z2-m>-1.138</z2-m>
-  </axis>
-</animation>
-
-<animation>
-  <type>rotate</type>
-  <object-name>FlapOutL</object-name>
-  <object-name>FlapHorns2OutL</object-name>
-  <property>surface-positions/flap-pos-norm</property>
-  <interpolation>
-
-    <!-- Positions modified by a factor of 1.0425 to align flap segments -->
-    <entry><ind>  0.0</ind><dep> 0.0</dep></entry>
-    <entry><ind>  1.0</ind><dep>41.7</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>26.311</x1-m>
-    <y1-m>-10.031</y1-m>
-    <z1-m>-0.663</z1-m>
-    <x2-m>24.894</x2-m>
-    <y2-m>-5.036</y2-m>
-    <z2-m>-1.138</z2-m>
-  </axis>
-</animation>
-<animation>
-  <type>rotate</type>
-  <object-name>FlapOutR</object-name>
-  <object-name>FlapHorns2OutR</object-name>
-  <property>surface-positions/flap-pos-norm</property>
-  <interpolation>
-    <!-- Positions modified by a factor of 1.0425 to align flap segments -->
-    <entry><ind>  0.0</ind><dep> 0.0</dep></entry>
-    <entry><ind>  1.0</ind><dep>41.7</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>24.894</x1-m>
-    <y1-m>5.036</y1-m>
-    <z1-m>-1.138</z1-m>
-    <x2-m>26.311</x2-m>
-    <y2-m>10.031</y2-m>
-    <z2-m>-0.663</z2-m>
-  </axis>
-</animation>
-
-<!-- Compound flap bridging -->
-
-<animation>
-  <type>translate</type>
-  <object-name>FlapOut2L</object-name>
-  <object-name>FlapIn2L</object-name>
-  <object-name>FlapOut2R</object-name>
-  <object-name>FlapIn2R</object-name>
-  <property>surface-positions/flap-pos-norm</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>0.0</dep></entry>
-    <entry><ind>1</ind><dep>0.35</dep></entry>
-  </interpolation>
-  <axis>
-    <x>1</x>
-    <y>0</y>
-    <z>-0.05</z>
-  </axis>
-</animation>
-<animation>
-  <type>rotate</type>
-  <object-name>FlapIn2L</object-name>
-  <property>surface-positions/flap-pos-norm</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>0</dep></entry>
-    <entry><ind>0.5</ind><dep>10</dep></entry>
-    <entry><ind>1</ind><dep>40</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>24.852</x1-m>
-    <y1-m>-5.022</y1-m>
-    <z1-m>-0.384</z1-m>
-    <x2-m>24.857</x2-m>
-    <y2-m>-1.635</y2-m>
-    <z2-m>-0.577</z2-m>
-  </axis>
-</animation>
-<animation>
-  <type>rotate</type>
-  <object-name>FlapOut2L</object-name>
-  <property>surface-positions/flap-pos-norm</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>0</dep></entry>
-    <entry><ind>0.5</ind><dep>10</dep></entry>
-    <entry><ind>1</ind><dep>40</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>26.393</x1-m>
-    <y1-m>-10.431</y1-m>
-    <z1-m>-0.208</z1-m>
-    <x2-m>24.891</x2-m>
-    <y2-m>-5.155</y2-m>
-    <z2-m>-0.379</z2-m>
-  </axis>
-</animation>
-<animation>
-  <type>rotate</type>
-  <object-name>FlapIn2R</object-name>
-  <property>surface-positions/flap-pos-norm</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>0</dep></entry>
-    <entry><ind>0.5</ind><dep>10</dep></entry>
-    <entry><ind>1</ind><dep>40</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>24.857</x1-m>
-    <y1-m>1.635</y1-m>
-    <z1-m>-0.577</z1-m>
-    <x2-m>24.852</x2-m>
-    <y2-m>5.022</y2-m>
-    <z2-m>-0.384</z2-m>
-  </axis>
-</animation>
-<animation>
-  <type>rotate</type>
-  <object-name>FlapOut2R</object-name>
-  <property>surface-positions/flap-pos-norm</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>0</dep></entry>
-    <entry><ind>0.5</ind><dep>10</dep></entry>
-    <entry><ind>1</ind><dep>40</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>24.891</x1-m>
-    <y1-m>5.155</y1-m>
-    <z1-m>-0.379</z1-m>
-    <x2-m>26.393</x2-m>
-    <y2-m>10.431</y2-m>
-    <z2-m>-0.208</z2-m>
-  </axis>
-</animation>
+	
+	<animation>
+		<type>noshadow</type>
+		<object-name>WheelWellsMG</object-name>
+		<object-name>SlatStrutsL</object-name>
+		<object-name>SlatStrutsR</object-name>
+	</animation>
+	
+	<!-- Slats -->
+	<animation>
+		<type>translate</type>
+		<object-name>SlatsL</object-name>
+		<object-name>SlatStrutsL</object-name>
+		<property>sim/multiplay/generic/float[6]</property>
+		<interpolation>
+			<entry><ind>0.0</ind><dep>0.0</dep></entry>
+			<entry><ind>0.5</ind><dep>0.4</dep></entry>
+			<entry><ind>1.0</ind><dep>0.8</dep></entry> <!-- 0.888 before y component added -->
+		</interpolation>
+		<axis>
+			<x>-0.87</x>
+			<y>-0.2</y>
+			<z>-0.18</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>SlatsR</object-name>
+		<object-name>SlatStrutsR</object-name>
+		<property>sim/multiplay/generic/float[6]</property>
+		<interpolation>
+			<entry><ind>0.0</ind><dep>0.0</dep></entry>
+			<entry><ind>0.5</ind><dep>0.4</dep></entry>
+			<entry><ind>1.0</ind><dep>0.8</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-0.87</x>
+			<y>0.2</y>
+			<z>-0.18</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>SlatsL</object-name>
+		<object-name>SlatStrutsL</object-name>
+		<property>sim/multiplay/generic/float[6]</property>
+		<interpolation>
+			<entry><ind>0.0</ind><dep>0.0</dep></entry>
+			<entry><ind>0.5</ind><dep>1.2</dep></entry>
+			<entry><ind>1.0</ind><dep>2.4</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>20.745</x-m>
+			<y-m>-1.629</y-m>
+			<z-m>-0.306</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>SlatsL</object-name>
+		<object-name>SlatStrutsL</object-name>
+		<property>sim/multiplay/generic/float[6]</property>
+		<interpolation>
+			<entry><ind>0.0</ind><dep>0.00</dep></entry>
+			<entry><ind>0.5</ind><dep>0.28</dep></entry>
+			<entry><ind>1.0</ind><dep>0.56</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>20.745</x-m>
+			<y-m>-1.629</y-m>
+			<z-m>-0.306</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>SlatsR</object-name>
+		<object-name>SlatStrutsR</object-name>
+		<property>sim/multiplay/generic/float[6]</property>
+		<interpolation>
+			<entry><ind>0.0</ind><dep>0.0</dep></entry>
+			<entry><ind>0.5</ind><dep>1.2</dep></entry>
+			<entry><ind>1.0</ind><dep>2.4</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>20.745</x-m>
+			<y-m>1.629</y-m>
+			<z-m>-0.306</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>-1</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>SlatsR</object-name>
+		<object-name>SlatStrutsR</object-name>
+		<property>sim/multiplay/generic/float[6]</property>
+		<interpolation>
+			<entry><ind>0.0</ind><dep>0.00</dep></entry>
+			<entry><ind>0.5</ind><dep>0.28</dep></entry>
+			<entry><ind>1.0</ind><dep>0.56</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>20.745</x-m>
+			<y-m>1.629</y-m>
+			<z-m>-0.306</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- Flaps -->
+	<animation>
+		<type>rotate</type>
+		<object-name>FlapInL</object-name>
+		<object-name>FlapHorns2InL</object-name>
+		<object-name>FlapGussetL</object-name>
+		<object-name>FlapDoorL</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>1</ind><dep>40</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>24.894</x1-m>
+			<y1-m>-5.036</y1-m>
+			<z1-m>-1.138</z1-m>
+			<x2-m>24.894</x2-m>
+			<y2-m>-1.635</y2-m>
+			<z2-m>-1.355</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>FlapInR</object-name>
+		<object-name>FlapHorns2InR</object-name>
+		<object-name>FlapGussetR</object-name>
+		<object-name>FlapDoorR</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>1</ind><dep>40</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>24.894</x1-m>
+			<y1-m>1.635</y1-m>
+			<z1-m>-1.355</z1-m>
+			<x2-m>24.894</x2-m>
+			<y2-m>5.036</y2-m>
+			<z2-m>-1.138</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>FlapOutL</object-name>
+		<object-name>FlapHorns2OutL</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<interpolation> <!-- Positions modified by a factor of 1.0425 to align flap segments -->
+			<entry><ind>0</ind><dep> 0.0</dep></entry>
+			<entry><ind>1</ind><dep>41.7</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>26.311</x1-m>
+			<y1-m>-10.031</y1-m>
+			<z1-m>-0.663</z1-m>
+			<x2-m>24.894</x2-m>
+			<y2-m>-5.036</y2-m>
+			<z2-m>-1.138</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>FlapOutR</object-name>
+		<object-name>FlapHorns2OutR</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<interpolation> <!-- Positions modified by a factor of 1.0425 to align flap segments -->
+			<entry><ind>0</ind><dep> 0.0</dep></entry>
+			<entry><ind>1</ind><dep>41.7</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>24.894</x1-m>
+			<y1-m>5.036</y1-m>
+			<z1-m>-1.138</z1-m>
+			<x2-m>26.311</x2-m>
+			<y2-m>10.031</y2-m>
+			<z2-m>-0.663</z2-m>
+		</axis>
+	</animation>
+	
+	<!-- Compound flap bridging -->
+	<animation>
+		<type>translate</type>
+		<object-name>FlapOut2L</object-name>
+		<object-name>FlapIn2L</object-name>
+		<object-name>FlapOut2R</object-name>
+		<object-name>FlapIn2R</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0.0</dep></entry>
+			<entry><ind>1</ind><dep>0.35</dep></entry>
+		</interpolation>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>-0.05</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>FlapIn2L</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<interpolation>
+			<entry><ind>0.0</ind><dep> 0</dep></entry>
+			<entry><ind>0.5</ind><dep>10</dep></entry>
+			<entry><ind>1.0</ind><dep>40</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>24.852</x1-m>
+			<y1-m>-5.022</y1-m>
+			<z1-m>-0.384</z1-m>
+			<x2-m>24.857</x2-m>
+			<y2-m>-1.635</y2-m>
+			<z2-m>-0.577</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>FlapOut2L</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<interpolation>
+			<entry><ind>0.0</ind><dep> 0</dep></entry>
+			<entry><ind>0.5</ind><dep>10</dep></entry>
+			<entry><ind>1.0</ind><dep>40</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>26.393</x1-m>
+			<y1-m>-10.431</y1-m>
+			<z1-m>-0.208</z1-m>
+			<x2-m>24.891</x2-m>
+			<y2-m>-5.155</y2-m>
+			<z2-m>-0.379</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>FlapIn2R</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<interpolation>
+			<entry><ind>0.0</ind><dep> 0</dep></entry>
+			<entry><ind>0.5</ind><dep>10</dep></entry>
+			<entry><ind>1.0</ind><dep>40</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>24.857</x1-m>
+			<y1-m>1.635</y1-m>
+			<z1-m>-0.577</z1-m>
+			<x2-m>24.852</x2-m>
+			<y2-m>5.022</y2-m>
+			<z2-m>-0.384</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>FlapOut2R</object-name>
+		<property>surface-positions/flap-pos-norm</property>
+		<interpolation>
+			<entry><ind>0.0</ind><dep> 0</dep></entry>
+			<entry><ind>0.5</ind><dep>10</dep></entry>
+			<entry><ind>1.0</ind><dep>40</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>24.891</x1-m>
+			<y1-m>5.155</y1-m>
+			<z1-m>-0.379</z1-m>
+			<x2-m>26.393</x2-m>
+			<y2-m>10.431</y2-m>
+			<z2-m>-0.208</z2-m>
+		</axis>
+	</animation>
 	
 	<!-- Ailerons -->
 	<animation>
@@ -2086,7 +1868,7 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-	</animation> 
+	</animation>
 	
 	<animation>
 		<type>rotate</type>
@@ -2122,7 +1904,7 @@
 			<y2-m>-0.375</y2-m>
 			<z2-m>-1.145</z2-m>
 		</axis>
-	</animation> 
+	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>LGNDoorAftR</object-name>
@@ -2139,7 +1921,7 @@
 			<y2-m>0.375</y2-m>
 			<z2-m>-1.177</z2-m>
 		</axis>
-	</animation> 
+	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>LGNDoorForL</object-name>
@@ -2158,7 +1940,7 @@
 			<y2-m>-0.375</y2-m>
 			<z2-m>-0.865</z2-m>
 		</axis>
-	</animation> 
+	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>LGNDoorForR</object-name>
@@ -2177,7 +1959,7 @@
 			<y2-m>0.375</y2-m>
 			<z2-m>-1.177</z2-m>
 		</axis>
-	</animation> 
+	</animation>
 	
 	<animation>
 		<type>translate</type>
@@ -2221,7 +2003,7 @@
 			<y>-1</y>
 			<z>0</z>
 		</axis>
-	</animation> 
+	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>LGNTorqueBarLow</object-name>
@@ -2249,7 +2031,7 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-	</animation> 
+	</animation>
 	
 	<animation>
 		<type>spin</type>
@@ -2269,7 +2051,7 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-	</animation> 
+	</animation>
 	
 	<!-- Main Gear L -->
 	<animation>
@@ -2334,7 +2116,7 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation> 
+	</animation>
 	
 	<animation>
 		<type>rotate</type>
@@ -2354,7 +2136,7 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation> 
+	</animation>
 	
 	<animation>
 		<type>translate</type>
@@ -2387,7 +2169,7 @@
 			<y2-m>-2.788</y2-m>
 			<z2-m>-0.895</z2-m>
 		</axis>
-	</animation> 
+	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>LGDoorInL</object-name>
@@ -2406,7 +2188,7 @@
 			<y2-m>-0.150</y2-m>
 			<z2-m>-1.500</z2-m>
 		</axis>
-	</animation> 
+	</animation>
 	
 	<animation>
 		<type>rotate</type>
@@ -2435,7 +2217,7 @@
 			<y>-1</y>
 			<z>0</z>
 		</axis>
-	</animation> 
+	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>LGLTorqueBarLow</object-name>
@@ -2463,7 +2245,7 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-	</animation> 
+	</animation>
 	
 	<animation>
 		<type>spin</type>
@@ -2480,7 +2262,7 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-	</animation> 
+	</animation>
 	
 	<!-- Main Gear R -->
 	<animation>
@@ -2545,7 +2327,7 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation> 
+	</animation>
 
 	<animation>
 		<type>rotate</type>
@@ -2565,7 +2347,7 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-	</animation> 
+	</animation>
 	
 	<animation>
 		<type>translate</type>
@@ -2598,7 +2380,7 @@
 			<y2-m>2.788</y2-m>
 			<z2-m>-0.839</z2-m>
 		</axis>
-	</animation> 
+	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>LGDoorInR</object-name>
@@ -2617,7 +2399,7 @@
 			<y2-m>0.150</y2-m>
 			<z2-m>-1.502</z2-m>
 		</axis>
-	</animation> 
+	</animation>
 	
 	<animation>
 		<type>rotate</type>
@@ -2646,7 +2428,7 @@
 			<y>-1</y>
 			<z>0</z>
 		</axis>
-	</animation> 
+	</animation>
 	<animation>
 		<type>rotate</type>
 		<object-name>LGRTorqueBarLow</object-name>
@@ -2674,7 +2456,7 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-	</animation> 
+	</animation>
 	
 	<animation>
 		<type>spin</type>
@@ -2691,324 +2473,322 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-	</animation> 
-
-<!-- Engine fans -->
-
-<animation>
-  <type>select</type>
-  <object-name>EngFanDiskL</object-name>
-  <condition>
-    <greater-than>
-      <property>engines/engine[3]/n1</property>
-      <value>5</value>
-    </greater-than>
-  </condition>
-</animation>
-<animation>
-  <type>select</type>
-  <object-name>EngFanDiskR</object-name>
-  <condition>
-    <greater-than>
-      <property>engines/engine[4]/n1</property>
-      <value>5</value>
-    </greater-than>
-  </condition>
-</animation>
-
-<animation>
-  <type>select</type>
-  <object-name>EngFanDiskL1</object-name>
-  <condition>
-    <less-than-equals>
-      <property>engines/engine[3]/n1</property>
-      <value>5</value>
-    </less-than-equals>
-  </condition>
-</animation>
-<animation>
-  <type>select</type>
-  <object-name>EngFanDiskR1</object-name>
-  <condition>
-    <less-than-equals>
-      <property>engines/engine[4]/n1</property>
-      <value>5</value>
-    </less-than-equals>
-  </condition>
-</animation>
-
-<animation>
-  <type>spin</type>
-  <object-name>EngFanDiskL</object-name>
-  <property>engines/engine[3]/n1</property>
-  <factor>1</factor>
-  <axis>
-    <x1-m>31.431</x1-m>
-    <y1-m>-2.7</y1-m>
-    <z1-m>0.769</z1-m>
-    <x2-m>33.757</x2-m>
-    <y2-m>-2.7</y2-m>
-    <z2-m>0.687</z2-m>
-  </axis>
-</animation> 
-<animation>
-  <type>spin</type>
-  <object-name>EngFanDiskR</object-name>
-  <property>engines/engine[4]/n1</property>
-  <factor>1</factor>
-  <axis>
-    <x1-m>31.431</x1-m>
-    <y1-m>2.7</y1-m>
-    <z1-m>0.769</z1-m>
-    <x2-m>33.757</x2-m>
-    <y2-m>2.7</y2-m>
-    <z2-m>0.687</z2-m>
-  </axis>
-</animation> 
-
-<animation>
-  <type>spin</type>
-  <object-name>EngFanDiskL1</object-name>
-  <property>engines/engine[3]/n1</property>
-  <factor>1</factor>
-  <axis>
-    <x1-m>31.431</x1-m>
-    <y1-m>-2.7</y1-m>
-    <z1-m>0.769</z1-m>
-    <x2-m>33.757</x2-m>
-    <y2-m>-2.7</y2-m>
-    <z2-m>0.687</z2-m>
-  </axis>
-</animation> 
-<animation>
-  <type>spin</type>
-  <object-name>EngFanDiskR1</object-name>
-  <property>engines/engine[4]/n1</property>
-  <factor>1</factor>
-  <axis>
-    <x1-m>31.431</x1-m>
-    <y1-m>2.7</y1-m>
-    <z1-m>0.769</z1-m>
-    <x2-m>33.757</x2-m>
-    <y2-m>2.7</y2-m>
-    <z2-m>0.687</z2-m>
-  </axis>
-</animation> 
-
-<!-- Engine reversers -->
-
-<animation>
-  <type>rotate</type>
-  <object-name>EngRevStrutFDL</object-name>
-  <object-name>EngRevDL</object-name>
-  <property>sim/multiplay/generic/float[3]</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>  0</dep></entry>
-    <entry><ind>1</ind><dep>142</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>36.999</x1-m>
-    <y1-m>-3.215</y1-m>
-    <z1-m>0.728</z1-m>
-    <x2-m>36.991</x2-m>
-    <y2-m>-2.146</y2-m>
-    <z2-m>0.516</z2-m>
-  </axis>
-</animation> 
-<animation>
-  <type>rotate</type>
-  <object-name>EngRevDL</object-name>
-  <property>sim/multiplay/generic/float[3]</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>  0</dep></entry>
-    <entry><ind>1</ind><dep>-67</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>36.213</x1-m>
-    <y1-m>-3.318</y1-m>
-    <z1-m>0.674</z1-m>
-    <x2-m>36.204</x2-m>
-    <y2-m>-2.082</y2-m>
-    <z2-m>0.429</z2-m>
-  </axis>
-</animation> 
-<animation>
-  <type>rotate</type>
-  <object-name>EngRevStrutADL</object-name>
-  <property>sim/multiplay/generic/float[3]</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>  0</dep></entry>
-    <entry><ind>1</ind><dep>190</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>37.234</x1-m>
-    <y1-m>-3.215</y1-m>
-    <z1-m>0.720</z1-m>
-    <x2-m>37.226</x2-m>
-    <y2-m>-2.146</y2-m>
-    <z2-m>0.508</z2-m>
-  </axis>
-</animation> 
-
-<animation>
-  <type>rotate</type>
-  <object-name>EngRevStrutFVL</object-name>
-  <object-name>EngRevVL</object-name>
-  <property>sim/multiplay/generic/float[3]</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>   0</dep></entry>
-    <entry><ind>1</ind><dep>-142</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>36.992</x1-m>
-    <y1-m>-3.254</y1-m>
-    <z1-m>0.532</z1-m>
-    <x2-m>36.985</x2-m>
-    <y2-m>-2.185</y2-m>
-    <z2-m>0.320</z2-m>
-  </axis>
-</animation> 
-<animation>
-  <type>rotate</type>
-  <object-name>EngRevVL</object-name>
-  <property>sim/multiplay/generic/float[3]</property>
-  <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>67</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>36.213</x1-m>
-    <y1-m>-3.318</y1-m>
-    <z1-m>0.674</z1-m>
-    <x2-m>36.204</x2-m>
-    <y2-m>-2.082</y2-m>
-    <z2-m>0.429</z2-m>
-  </axis>
-</animation> 
-<animation>
-  <type>rotate</type>
-  <object-name>EngRevStrutAVL</object-name>
-  <property>sim/multiplay/generic/float[3]</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>   0</dep></entry>
-    <entry><ind>1</ind><dep>-190</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>37.227</x1-m>
-    <y1-m>-3.254</y1-m>
-    <z1-m>0.524</z1-m>
-    <x2-m>37.219</x2-m>
-    <y2-m>-2.185</y2-m>
-    <z2-m>0.312</z2-m>
-  </axis>
-</animation> 
-
-<animation>
-  <type>rotate</type>
-  <object-name>EngRevStrutFDR</object-name>
-  <object-name>EngRevDR</object-name>
-  <property>sim/multiplay/generic/float[4]</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>  0</dep></entry>
-    <entry><ind>1</ind><dep>142</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>36.991</x1-m>
-    <y1-m>2.146</y1-m>
-    <z1-m>0.516</z1-m>
-    <x2-m>36.999</x2-m>
-    <y2-m>3.215</y2-m>
-    <z2-m>0.728</z2-m>
-  </axis>
-</animation> 
-<animation>
-  <type>rotate</type>
-  <object-name>EngRevDR</object-name>
-  <property>sim/multiplay/generic/float[4]</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>  0</dep></entry>
-    <entry><ind>1</ind><dep>-67</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>36.204</x1-m>
-    <y1-m>2.082</y1-m>
-    <z1-m>0.429</z1-m>
-    <x2-m>36.213</x2-m>
-    <y2-m>3.318</y2-m>
-    <z2-m>0.674</z2-m>
-  </axis>
-</animation> 
-<animation>
-  <type>rotate</type>
-  <object-name>EngRevStrutADR</object-name>
-  <property>sim/multiplay/generic/float[4]</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>  0</dep></entry>
-    <entry><ind>1</ind><dep>190</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>37.226</x1-m>
-    <y1-m>2.146</y1-m>
-    <z1-m>0.508</z1-m>
-    <x2-m>37.234</x2-m>
-    <y2-m>3.215</y2-m>
-    <z2-m>0.720</z2-m>
-  </axis>
-</animation> 
-
-<animation>
-  <type>rotate</type>
-  <object-name>EngRevStrutFVR</object-name>
-  <object-name>EngRevVR</object-name>
-  <property>sim/multiplay/generic/float[4]</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>   0</dep></entry>
-    <entry><ind>1</ind><dep>-142</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>36.985</x1-m>
-    <y1-m>2.185</y1-m>
-    <z1-m>0.320</z1-m>
-    <x2-m>36.992</x2-m>
-    <y2-m>3.254</y2-m>
-    <z2-m>0.532</z2-m>
-  </axis>
-</animation> 
-<animation>
-  <type>rotate</type>
-  <object-name>EngRevVR</object-name>
-  <property>sim/multiplay/generic/float[4]</property>
-  <interpolation>
-    <entry><ind>0</ind><dep> 0</dep></entry>
-    <entry><ind>1</ind><dep>67</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>36.204</x1-m>
-    <y1-m>2.082</y1-m>
-    <z1-m>0.429</z1-m>
-    <x2-m>36.213</x2-m>
-    <y2-m>3.318</y2-m>
-    <z2-m>0.674</z2-m>
-  </axis>
-</animation> 
-<animation>
-  <type>rotate</type>
-  <object-name>EngRevStrutAVR</object-name>
-  <property>sim/multiplay/generic/float[4]</property>
-  <interpolation>
-    <entry><ind>0</ind><dep>   0</dep></entry>
-    <entry><ind>1</ind><dep>-190</dep></entry>
-  </interpolation>
-  <axis>
-    <x1-m>37.219</x1-m>
-    <y1-m>2.185</y1-m>
-    <z1-m>0.312</z1-m>
-    <x2-m>37.227</x2-m>
-    <y2-m>3.254</y2-m>
-    <z2-m>0.524</z2-m>
-  </axis>
-</animation>
-
+	</animation>
+	
+	<!-- Engine Fans -->
+	<animation>
+		<type>select</type>
+		<object-name>EngFanDiskL</object-name>
+		<condition>
+			<greater-than>
+				<property>engines/engine[3]/n1</property>
+				<value>5</value>
+			</greater-than>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>EngFanDiskR</object-name>
+		<condition>
+			<greater-than>
+				<property>engines/engine[4]/n1</property>
+				<value>5</value>
+			</greater-than>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>EngFanDiskL1</object-name>
+		<condition>
+			<less-than-equals>
+				<property>engines/engine[3]/n1</property>
+				<value>5</value>
+			</less-than-equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>EngFanDiskR1</object-name>
+		<condition>
+			<less-than-equals>
+				<property>engines/engine[4]/n1</property>
+				<value>5</value>
+			</less-than-equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>spin</type>
+		<object-name>EngFanDiskL</object-name>
+		<property>engines/engine[3]/n1</property>
+		<factor>1</factor>
+		<axis>
+			<x1-m>31.431</x1-m>
+			<y1-m>-2.7</y1-m>
+			<z1-m>0.769</z1-m>
+			<x2-m>33.757</x2-m>
+			<y2-m>-2.7</y2-m>
+			<z2-m>0.687</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>spin</type>
+		<object-name>EngFanDiskR</object-name>
+		<property>engines/engine[4]/n1</property>
+		<factor>1</factor>
+		<axis>
+			<x1-m>31.431</x1-m>
+			<y1-m>2.7</y1-m>
+			<z1-m>0.769</z1-m>
+			<x2-m>33.757</x2-m>
+			<y2-m>2.7</y2-m>
+			<z2-m>0.687</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>spin</type>
+		<object-name>EngFanDiskL1</object-name>
+		<property>engines/engine[3]/n1</property>
+		<factor>1</factor>
+		<axis>
+			<x1-m>31.431</x1-m>
+			<y1-m>-2.7</y1-m>
+			<z1-m>0.769</z1-m>
+			<x2-m>33.757</x2-m>
+			<y2-m>-2.7</y2-m>
+			<z2-m>0.687</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>spin</type>
+		<object-name>EngFanDiskR1</object-name>
+		<property>engines/engine[4]/n1</property>
+		<factor>1</factor>
+		<axis>
+			<x1-m>31.431</x1-m>
+			<y1-m>2.7</y1-m>
+			<z1-m>0.769</z1-m>
+			<x2-m>33.757</x2-m>
+			<y2-m>2.7</y2-m>
+			<z2-m>0.687</z2-m>
+		</axis>
+	</animation>
+	
+	<!-- Engine Reversers -->
+	<animation>
+		<type>rotate</type>
+		<object-name>EngRevStrutFDL</object-name>
+		<object-name>EngRevDL</object-name>
+		<property>sim/multiplay/generic/float[3]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>  0</dep></entry>
+			<entry><ind>1</ind><dep>142</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>36.999</x1-m>
+			<y1-m>-3.215</y1-m>
+			<z1-m>0.728</z1-m>
+			<x2-m>36.991</x2-m>
+			<y2-m>-2.146</y2-m>
+			<z2-m>0.516</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>EngRevDL</object-name>
+		<property>sim/multiplay/generic/float[3]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>  0</dep></entry>
+			<entry><ind>1</ind><dep>-67</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>36.213</x1-m>
+			<y1-m>-3.318</y1-m>
+			<z1-m>0.674</z1-m>
+			<x2-m>36.204</x2-m>
+			<y2-m>-2.082</y2-m>
+			<z2-m>0.429</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>EngRevStrutADL</object-name>
+		<property>sim/multiplay/generic/float[3]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>  0</dep></entry>
+			<entry><ind>1</ind><dep>190</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>37.234</x1-m>
+			<y1-m>-3.215</y1-m>
+			<z1-m>0.720</z1-m>
+			<x2-m>37.226</x2-m>
+			<y2-m>-2.146</y2-m>
+			<z2-m>0.508</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>EngRevStrutFVL</object-name>
+		<object-name>EngRevVL</object-name>
+		<property>sim/multiplay/generic/float[3]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>   0</dep></entry>
+			<entry><ind>1</ind><dep>-142</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>36.992</x1-m>
+			<y1-m>-3.254</y1-m>
+			<z1-m>0.532</z1-m>
+			<x2-m>36.985</x2-m>
+			<y2-m>-2.185</y2-m>
+			<z2-m>0.320</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>EngRevVL</object-name>
+		<property>sim/multiplay/generic/float[3]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>1</ind><dep>67</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>36.213</x1-m>
+			<y1-m>-3.318</y1-m>
+			<z1-m>0.674</z1-m>
+			<x2-m>36.204</x2-m>
+			<y2-m>-2.082</y2-m>
+			<z2-m>0.429</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>EngRevStrutAVL</object-name>
+		<property>sim/multiplay/generic/float[3]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>   0</dep></entry>
+			<entry><ind>1</ind><dep>-190</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>37.227</x1-m>
+			<y1-m>-3.254</y1-m>
+			<z1-m>0.524</z1-m>
+			<x2-m>37.219</x2-m>
+			<y2-m>-2.185</y2-m>
+			<z2-m>0.312</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>EngRevStrutFDR</object-name>
+		<object-name>EngRevDR</object-name>
+		<property>sim/multiplay/generic/float[4]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>  0</dep></entry>
+			<entry><ind>1</ind><dep>142</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>36.991</x1-m>
+			<y1-m>2.146</y1-m>
+			<z1-m>0.516</z1-m>
+			<x2-m>36.999</x2-m>
+			<y2-m>3.215</y2-m>
+			<z2-m>0.728</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>EngRevDR</object-name>
+		<property>sim/multiplay/generic/float[4]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>  0</dep></entry>
+			<entry><ind>1</ind><dep>-67</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>36.204</x1-m>
+			<y1-m>2.082</y1-m>
+			<z1-m>0.429</z1-m>
+			<x2-m>36.213</x2-m>
+			<y2-m>3.318</y2-m>
+			<z2-m>0.674</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>EngRevStrutADR</object-name>
+		<property>sim/multiplay/generic/float[4]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>  0</dep></entry>
+			<entry><ind>1</ind><dep>190</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>37.226</x1-m>
+			<y1-m>2.146</y1-m>
+			<z1-m>0.508</z1-m>
+			<x2-m>37.234</x2-m>
+			<y2-m>3.215</y2-m>
+			<z2-m>0.720</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>EngRevStrutFVR</object-name>
+		<object-name>EngRevVR</object-name>
+		<property>sim/multiplay/generic/float[4]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>   0</dep></entry>
+			<entry><ind>1</ind><dep>-142</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>36.985</x1-m>
+			<y1-m>2.185</y1-m>
+			<z1-m>0.320</z1-m>
+			<x2-m>36.992</x2-m>
+			<y2-m>3.254</y2-m>
+			<z2-m>0.532</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>EngRevVR</object-name>
+		<property>sim/multiplay/generic/float[4]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 0</dep></entry>
+			<entry><ind>1</ind><dep>67</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>36.204</x1-m>
+			<y1-m>2.082</y1-m>
+			<z1-m>0.429</z1-m>
+			<x2-m>36.213</x2-m>
+			<y2-m>3.318</y2-m>
+			<z2-m>0.674</z2-m>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>EngRevStrutAVR</object-name>
+		<property>sim/multiplay/generic/float[4]</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>   0</dep></entry>
+			<entry><ind>1</ind><dep>-190</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>37.219</x1-m>
+			<y1-m>2.185</y1-m>
+			<z1-m>0.312</z1-m>
+			<x2-m>37.227</x2-m>
+			<y2-m>3.254</y2-m>
+			<z2-m>0.524</z2-m>
+		</axis>
+	</animation>
+	
 	<model>
 		<name>Pushback</name>
 		<path>Aircraft/MD-80/Models/Services/Pushback/Douglas.xml</path>
