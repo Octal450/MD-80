@@ -80,6 +80,23 @@
 		</condition>
 	</animation>
 	
+	<!-- Model Imports -->
+	<model>
+		<name>Overhead</name>
+		<path>Aircraft/MD-80/Models/Overhead/overhead.xml</path>
+		<offsets>
+			<x-m>3.05128</x-m>
+			<y-m>0.0</y-m>
+			<z-m>1.66523</z-m>
+			<pitch-deg>63</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<name>Instruments</name>
+		<path>Aircraft/MD-80/Models/MD-80-instruments.xml</path>
+	</model>
+	
 	<!-- Lights -->
 	<animation>
 		<type>material</type>
@@ -358,23 +375,6 @@
 			<z>0</z>
 		</axis>
 	</animation>
-	
-	<!-- Model Imports -->
-	<model>
-		<name>Overhead</name>
-		<path>Aircraft/MD-80/Models/Overhead/overhead.xml</path>
-		<offsets>
-			<x-m>3.05128</x-m>
-			<y-m>0.0</y-m>
-			<z-m>1.66523</z-m>
-			<pitch-deg>63</pitch-deg>
-		</offsets>
-	</model>
-
-	<model>
-		<name>Instruments</name>
-		<path>Aircraft/MD-80/Models/MD-80-instruments.xml</path>
-	</model>
 	
 	<!-- Panel glows -->
 	<animation>
