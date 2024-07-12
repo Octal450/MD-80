@@ -103,7 +103,7 @@
 		<path>Aircraft/MD-80/Models/Effects/Lights/landinglightN.xml</path>
 		<offsets>
 			<x-m>2.46026</x-m>
-			<y-m>0.1</y-m>
+			<y-m>0.13963</y-m>
 			<z-m>-1.32</z-m>
 		</offsets>
 	</model>
@@ -114,7 +114,7 @@
 		<dim-factor><property>/fdm/jsbsim/exterior-lights/nose-landing-light</property></dim-factor>
 		<position>
 			<x-m>2.46026</x-m>
-			<y-m>0.1</y-m>
+			<y-m>0.13963</y-m>
 			<z-m>-1.32</z-m>
 		</position>
 		<direction>
@@ -155,7 +155,7 @@
 		<path>Aircraft/MD-80/Models/Effects/Lights/taxilight.xml</path>
 		<offsets>
 			<x-m>2.46026</x-m>
-			<y-m>-0.1</y-m>
+			<y-m>-0.13963</y-m>
 			<z-m>-1.32</z-m>
 		</offsets>
 	</model>
@@ -166,7 +166,7 @@
 		<type>spot</type>
 		<position>
 			<x-m>2.46026</x-m>
-			<y-m>-0.1</y-m>
+			<y-m>-0.13963</y-m>
 			<z-m>-1.32</z-m>
 		</position>
 		<direction>
@@ -1855,8 +1855,8 @@
 		<object-name>LGNTorqueBarUp</object-name>
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>93</dep></entry>
-			<entry><ind>1.0</ind><dep> 0</dep></entry>
+			<entry><ind>0.0</ind><dep>100</dep></entry>
+			<entry><ind>1.0</ind><dep>  0</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>2.569</x-m>
@@ -1897,12 +1897,12 @@
 			<entry><ind>1.0</ind><dep>90</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>2.629</x1-m>
-			<y1-m>-0.375</y1-m>
-			<z1-m>-1.177</z1-m>
-			<x2-m>2.010</x2-m>
-			<y2-m>-0.375</y2-m>
-			<z2-m>-1.145</z2-m>
+			<x1-m>2.6287</x1-m>
+			<y1-m>-0.3249</y1-m>
+			<z1-m>-1.1899</z1-m>
+			<x2-m>2.01021</x2-m>
+			<y2-m>-0.3249</y2-m>
+			<z2-m>-1.17003</z2-m>
 		</axis>
 	</animation>
 	<animation>
@@ -1914,12 +1914,12 @@
 			<entry><ind>1.0</ind><dep>90</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>2.010</x1-m>
-			<y1-m>0.375</y1-m>
-			<z1-m>-1.145</z1-m>
-			<x2-m>2.629</x2-m>
-			<y2-m>0.375</y2-m>
-			<z2-m>-1.177</z2-m>
+			<x1-m>2.01021</x1-m>
+			<y1-m>0.3249</y1-m>
+			<z1-m>-1.17003</z1-m>
+			<x2-m>2.6287</x2-m>
+			<y2-m>0.3249</y2-m>
+			<z2-m>-1.1899</z2-m>
 		</axis>
 	</animation>
 	<animation>
@@ -1928,17 +1928,17 @@
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>0.3</ind><dep>90</dep></entry>
-			<entry><ind>0.9</ind><dep>90</dep></entry>
+			<entry><ind>0.2</ind><dep>90</dep></entry>
+			<entry><ind>0.8</ind><dep>90</dep></entry>
 			<entry><ind>1.0</ind><dep> 0</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>2.629</x1-m>
-			<y1-m>-0.375</y1-m>
-			<z1-m>-1.177</z1-m>
-			<x2-m>0.840</x2-m>
-			<y2-m>-0.375</y2-m>
-			<z2-m>-0.865</z2-m>
+			<x1-m>2.01021</x1-m>
+			<y1-m>-0.3249</y1-m>
+			<z1-m>-1.17003</z1-m>
+			<x2-m>0.84042</x2-m>
+			<y2-m>-0.3249</y2-m>
+			<z2-m>-0.89021</z2-m>
 		</axis>
 	</animation>
 	<animation>
@@ -1947,17 +1947,17 @@
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep> 0</dep></entry>
-			<entry><ind>0.3</ind><dep>90</dep></entry>
-			<entry><ind>0.9</ind><dep>90</dep></entry>
+			<entry><ind>0.2</ind><dep>90</dep></entry>
+			<entry><ind>0.8</ind><dep>90</dep></entry>
 			<entry><ind>1.0</ind><dep> 0</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>0.840</x1-m>
-			<y1-m>0.375</y1-m>
-			<z1-m>-0.865</z1-m>
-			<x2-m>2.629</x2-m>
-			<y2-m>0.375</y2-m>
-			<z2-m>-1.177</z2-m>
+			<x1-m>0.84042</x1-m>
+			<y1-m>0.3249</y1-m>
+			<z1-m>-0.89021</z1-m>
+			<x2-m>2.01021</x2-m>
+			<y2-m>0.3249</y2-m>
+			<z2-m>-1.17003</z2-m>
 		</axis>
 	</animation>
 	
@@ -2181,12 +2181,12 @@
 			<entry><ind>1.0</ind><dep> 0</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>23.624</x1-m>
-			<y1-m>-0.150</y1-m>
-			<z1-m>-1.502</z1-m>
-			<x2-m>24.909</x2-m>
-			<y2-m>-0.150</y2-m>
-			<z2-m>-1.500</z2-m>
+			<x1-m>23.6241</x1-m>
+			<y1-m>-0.2</y1-m>
+			<z1-m>-1.5015</z1-m>
+			<x2-m>24.9094</x2-m>
+			<y2-m>-0.2</y2-m>
+			<z2-m>-1.49966</z2-m>
 		</axis>
 	</animation>
 	
@@ -2392,12 +2392,12 @@
 			<entry><ind>1.0</ind><dep> 0</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>24.909</x1-m>
-			<y1-m>0.150</y1-m>
-			<z1-m>-1.500</z1-m>
-			<x2-m>23.624</x2-m>
-			<y2-m>0.150</y2-m>
-			<z2-m>-1.502</z2-m>
+			<x1-m>24.9094</x1-m>
+			<y1-m>0.2</y1-m>
+			<z1-m>-1.49966</z1-m>
+			<x2-m>23.6241</x2-m>
+			<y2-m>0.2</y2-m>
+			<z2-m>-1.5015</z2-m>
 		</axis>
 	</animation>
 	
