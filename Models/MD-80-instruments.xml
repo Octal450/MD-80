@@ -32,10 +32,10 @@
 		<name>L_efis</name>
 		<path>Aircraft/MD-80/Models/Instruments/EFIS/efis1.xml</path>
 		<condition>
-			<equals>
+			<not-equals>
 				<property>systems/acconfig/options/panel</property>
-				<value>EFIS</value>
-			</equals>
+				<value>Analog</value>
+			</not-equals>
 		</condition>
 		<offsets>
 			<x-m>2.579</x-m>
@@ -51,10 +51,10 @@
 		<name>clock</name>
 		<path>Aircraft/MD-80/Models/Instruments/clock1.xml</path>
 		<condition>
-			<equals>
+			<not-equals>
 				<property>systems/acconfig/options/panel</property>
-				<value>EFIS</value>
-			</equals>
+				<value>Analog</value>
+			</not-equals>
 		</condition>
 		<offsets>
 			<x-m>2.248</x-m>
@@ -124,10 +124,10 @@
 		<name>pfd</name>
 		<path>Aircraft/MD-80/Models/Instruments/PFD/PFD1.xml</path>
 		<condition>
-			<equals>
+			<not-equals>
 				<property>systems/acconfig/options/panel</property>
-				<value>EFIS</value>
-			</equals>
+				<value>Analog</value>
+			</not-equals>
 		</condition>
 		<offsets>
 			<x-m>2.225</x-m>
@@ -158,10 +158,10 @@
 		<name>nd</name>
 		<path>Aircraft/MD-80/Models/Instruments/ND/ND_L.xml</path>
 		<condition>
-			<equals>
+			<not-equals>
 				<property>systems/acconfig/options/panel</property>
-				<value>EFIS</value>
-			</equals>
+				<value>Analog</value>
+			</not-equals>
 		</condition>
 		<offsets>
 			<x-m>2.248</x-m>
@@ -192,10 +192,10 @@
 		<name>alt</name>
 		<path>Aircraft/MD-80/Models/Instruments/altimeter1.xml</path>
 		<condition>
-			<equals>
+			<not-equals>
 				<property>systems/acconfig/options/panel</property>
-				<value>EFIS</value>
-			</equals>
+				<value>Analog</value>
+			</not-equals>
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
@@ -226,10 +226,10 @@
 		<name>efisdim</name>
 		<path>Aircraft/MD-80/Models/Instruments/efis_dimmer_1.xml</path>
 		<condition>
-			<equals>
+			<not-equals>
 				<property>systems/acconfig/options/panel</property>
-				<value>EFIS</value>
-			</equals>
+				<value>Analog</value>
+			</not-equals>
 		</condition>
 		<offsets>
 			<x-m>2.23</x-m>
@@ -710,10 +710,10 @@
 		<name>R_efis</name>
 		<path>Aircraft/MD-80/Models/Instruments/EFIS/efis2.xml</path>
 		<condition>
-			<equals>
+			<not-equals>
 				<property>systems/acconfig/options/panel</property>
-				<value>EFIS</value>
-			</equals>
+				<value>Analog</value>
+			</not-equals>
 		</condition>
 		<offsets>
 			<x-m>2.579</x-m>
@@ -729,10 +729,10 @@
 		<name>pfd2</name>
 		<path>Aircraft/MD-80/Models/Instruments/PFD/PFD2.xml</path>
 		<condition>
-			<equals>
+			<not-equals>
 				<property>systems/acconfig/options/panel</property>
-				<value>EFIS</value>
-			</equals>
+				<value>Analog</value>
+			</not-equals>
 		</condition>
 		<offsets>
 			<x-m>2.225</x-m>
@@ -763,10 +763,10 @@
 		<name>nd2</name>
 		<path>Aircraft/MD-80/Models/Instruments/ND/ND_R.xml</path>
 		<condition>
-			<equals>
+			<not-equals>
 				<property>systems/acconfig/options/panel</property>
-				<value>EFIS</value>
-			</equals>
+				<value>Analog</value>
+			</not-equals>
 		</condition>
 		<offsets>
 			<x-m>2.248</x-m>
@@ -819,10 +819,10 @@
 		<name>alt_R</name>
 		<path>Aircraft/MD-80/Models/Instruments/altimeter2.xml</path>
 		<condition>
-			<equals>
+			<not-equals>
 				<property>systems/acconfig/options/panel</property>
-				<value>EFIS</value>
-			</equals>
+				<value>Analog</value>
+			</not-equals>
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
@@ -853,10 +853,10 @@
 		<name>efisdim_R</name>
 		<path>Aircraft/MD-80/Models/Instruments/efis_dimmer_2.xml</path>
 		<condition>
-			<equals>
+			<not-equals>
 				<property>systems/acconfig/options/panel</property>
-				<value>EFIS</value>
-			</equals>
+				<value>Analog</value>
+			</not-equals>
 		</condition>
 		<offsets>
 			<x-m>2.23</x-m>
@@ -887,10 +887,10 @@
 		<name>clock_R</name>
 		<path>Aircraft/MD-80/Models/Instruments/clock2.xml</path>
 		<condition>
-			<equals>
+			<not-equals>
 				<property>systems/acconfig/options/panel</property>
-				<value>EFIS</value>
-			</equals>
+				<value>Analog</value>
+			</not-equals>
 		</condition>
 		<offsets>
 			<x-m>2.248</x-m>

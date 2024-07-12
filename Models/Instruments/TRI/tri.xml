@@ -285,8 +285,8 @@
 		<object-name>flxOn</object-name>
 		<object-name>gaOn</object-name>
 		<object-name>mctOn</object-name>
-		<object-name>toOn</object-name>
 		<object-name>NoMode</object-name>
+		<object-name>toOn</object-name>
 		<condition>
 			<equals>
 				<property>fdm/jsbsim/dfgs/power-avail</property>

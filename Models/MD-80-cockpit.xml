@@ -20,8 +20,8 @@
 		</axis>
 	</animation>
 	
-	<!-- Lights -->
-	<animation> <!-- Don't remove or else weird darkness happens -->
+	<!-- Don't remove or else weird darkness happens -->
+	<animation>
 		<type>material</type>
 		<object-name>AirVents</object-name>
 		<object-name>FDFloorCarpet</object-name>
@@ -35,6 +35,8 @@
 		<object-name>Moulding</object-name>
 		<object-name>Moulding.001</object-name>
 		<object-name>PanelMainC</object-name>
+		<object-name>PanelMainC3A</object-name>
+		<object-name>PanelMainC3E</object-name>
 		<object-name>PanelMainD</object-name>
 		<object-name>PanelMainL</object-name>
 		<object-name>PanelMainR</object-name>
@@ -56,6 +58,29 @@
 		</emission>
 	</animation>
 	
+	<!-- AI hole select -->
+	<animation>
+		<type>select</type>
+		<object-name>PanelMainC3A</object-name>
+		<condition>
+			<not-equals>
+				<property>systems/acconfig/options/panel</property>
+				<value>EFIS + EDP</value>
+			</not-equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>PanelMainC3E</object-name>
+		<condition>
+			<equals>
+				<property>systems/acconfig/options/panel</property>
+				<value>EFIS + EDP</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<!-- Lights -->
 	<animation>
 		<type>material</type>
 		<object-name>ARTText</object-name>
