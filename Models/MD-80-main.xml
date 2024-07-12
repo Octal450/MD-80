@@ -1469,7 +1469,7 @@
 		<factor>1</factor>  
 		<axis>
 			<x1-m>27.731</x1-m>
-			<y1-m>-12.690</y1-m>
+			<y1-m>-12.69</y1-m>
 			<z1-m>-0.203</z1-m>
 			<x2-m>27.543</x2-m>
 			<y2-m>-11.855</y2-m>
@@ -1517,7 +1517,7 @@
 			<y1-m>11.855</y1-m>
 			<z1-m>-0.239</z1-m>
 			<x2-m>27.731</x2-m>
-			<y2-m>12.690</y2-m>
+			<y2-m>12.69</y2-m>
 			<z2-m>-0.203</z2-m>
 		</axis>
 	</animation>
@@ -1763,7 +1763,7 @@
 		<property>fdm/jsbsim/fcs-actual/rudder/surface-final-deg</property>
 		<factor>-1</factor>
 		<axis>
-			<x1-m>41.690</x1-m>
+			<x1-m>41.69</x1-m>
 			<y1-m>0</y1-m>
 			<z1-m>5.039</z1-m>
 			<x2-m>38.847</x2-m>
