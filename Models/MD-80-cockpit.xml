@@ -348,7 +348,7 @@
 
 	<model>
 		<name>Instruments</name>
-		<path>Aircraft/MD-80/Models/MD-80_Instruments.xml</path>
+		<path>Aircraft/MD-80/Models/MD-80-instruments.xml</path>
 	</model>
 	
 	<!-- Panel glows -->

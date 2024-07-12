@@ -218,7 +218,7 @@
 	<!-- Sub-Model Imports -->
 	<model>
 		<name>Cockpit</name>
-		<path>Aircraft/MD-80/Models/MD-80_Cockpit.xml</path>
+		<path>Aircraft/MD-80/Models/MD-80-cockpit.xml</path>
 	</model>
 
 	<model>
