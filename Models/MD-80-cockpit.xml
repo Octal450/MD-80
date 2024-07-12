@@ -91,7 +91,7 @@
 			<pitch-deg>63</pitch-deg>
 		</offsets>
 	</model>
-
+	
 	<model>
 		<name>Instruments</name>
 		<path>Aircraft/MD-80/Models/MD-80-instruments.xml</path>
