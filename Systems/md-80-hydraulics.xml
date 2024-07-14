@@ -184,7 +184,7 @@
 				<ifthen>
 					<ge>
 						<property>/systems/hydraulics/sys-r-qty</property>
-						<value>1.0</value>
+						<value>1</value>
 					</ge>
 					<max>
 						<property>/systems/hydraulics/r-pump-psi</property>
@@ -200,7 +200,7 @@
 				<ifthen>
 					<ge>
 						<property>/systems/hydraulics/sys-r-qty</property>
-						<value>1.0</value>
+						<value>1</value>
 					</ge>
 					<max>
 						<property>/systems/hydraulics/sys-r-pre-psi-cmd</property>
