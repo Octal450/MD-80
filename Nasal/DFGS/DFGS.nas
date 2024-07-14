@@ -116,19 +116,19 @@ var Input = {
 	fd2: props.globals.initNode("/it-autoflight/input/fd2", 0, "BOOL"),
 	hdg: props.globals.initNode("/it-autoflight/input/hdg", 0, "INT"),
 	hdgCalc: 0,
-	kts: props.globals.initNode("/it-autoflight/input/kts", 100, "INT"),
-	ktsFlch: props.globals.initNode("/it-autoflight/input/kts-flch", 100, "INT"),
+	kts: props.globals.initNode("/it-autoflight/input/kts", 250, "INT"),
+	ktsFlch: props.globals.initNode("/it-autoflight/input/kts-flch", 250, "INT"),
 	ktsMach: props.globals.initNode("/it-autoflight/input/kts-mach", 0, "BOOL"),
 	ktsMachFgcp: props.globals.initNode("/it-autoflight/input/kts-mach-fgcp", 0, "BOOL"),
 	ktsMachFgcpTime: -5,
 	ktsMachFlch: props.globals.initNode("/it-autoflight/input/kts-mach-flch", 0, "BOOL"),
 	lat: props.globals.initNode("/it-autoflight/input/lat", 3, "INT"),
 	latTemp: 3,
-	mach: props.globals.initNode("/it-autoflight/input/mach", 0.5, "DOUBLE"),
-	machFlch: props.globals.initNode("/it-autoflight/input/mach-flch", 0.5, "DOUBLE"),
-	machFlchX1000: props.globals.initNode("/it-autoflight/input/mach-flch-x1000", 500, "INT"),
+	mach: props.globals.initNode("/it-autoflight/input/mach", 0.76, "DOUBLE"),
+	machFlch: props.globals.initNode("/it-autoflight/input/mach-flch", 0.76, "DOUBLE"),
+	machFlchX1000: props.globals.initNode("/it-autoflight/input/mach-flch-x1000", 760, "INT"),
 	machTemp: 0,
-	machX1000: props.globals.initNode("/it-autoflight/input/mach-x1000", 500, "INT"),
+	machX1000: props.globals.initNode("/it-autoflight/input/mach-x1000", 760, "INT"),
 	pitch: props.globals.initNode("/it-autoflight/input/pitch", 0, "INT"),
 	pitchAbs: props.globals.initNode("/it-autoflight/input/pitch-abs", 0, "INT"), # Set by property rule
 	radioSelTemp: 0,
@@ -227,12 +227,12 @@ var ITAF = {
 			Input.ktsMach.setBoolValue(0);
 			Input.ktsMachFgcp.setBoolValue(0);
 			Input.ktsMachFlch.setBoolValue(0);
-			Input.kts.setValue(100);
-			Input.ktsFlch.setValue(100);
+			Input.kts.setValue(250);
+			Input.ktsFlch.setValue(250);
 			Input.mach.setValue(0.76);
 			Input.machX1000.setValue(760);
-			Input.machFlch.setValue(0.5);
-			Input.machFlchX1000.setValue(500);
+			Input.machFlch.setValue(0.76);
+			Input.machFlchX1000.setValue(760);
 			Input.trueCourse.setBoolValue(0);
 			Input.activeAp.setValue(1);
 		}

@@ -1450,7 +1450,7 @@
 			<kts type="int">250</kts>
 			<kts-mach type="bool">0</kts-mach>
 			<kts-mach-fgcp type="bool">0</kts-mach-fgcp>
-			<mach type="double">0.5</mach>
+			<mach type="double">0.76</mach>
 		</input>
 		<internal n="0">
 			<alt type="int">10000</alt>
