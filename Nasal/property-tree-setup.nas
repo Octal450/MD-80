@@ -98,7 +98,6 @@ var Fdm = {
 			Limit: {
 				overspeed: props.globals.getNode("/fdm/jsbsim/engine/limit/overspeed"),
 			},
-			throttleLever: [props.globals.getNode("/fdm/jsbsim/engine/throttle-lever[0]"), props.globals.getNode("/fdm/jsbsim/engine/throttle-lever[1]")],
 		},
 		FcsActual: {
 			Stabilizer: {
