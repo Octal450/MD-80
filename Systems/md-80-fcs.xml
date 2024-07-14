@@ -345,7 +345,7 @@
 		
 		<switch name="fcs-actual/elevator-l/lag">
 			<default value="fcs-actual/aero-lag"/> <!-- For aerodynamically flown -->
-			<test logic="AND" value="20">
+			<test logic="AND" value="26.5">
 				/systems/hydraulics/sys-l-psi ge 950
 				fcs-actual/elevator/pwr-active eq 1
 			</test>
@@ -458,7 +458,7 @@
 		
 		<switch name="fcs-actual/elevator-r/lag">
 			<default value="fcs-actual/aero-lag"/> <!-- For aerodynamically flown -->
-			<test logic="AND" value="20"> <!-- Not a typo, left hydraulic on both -->
+			<test logic="AND" value="26.5"> <!-- Not a typo, left hydraulic on both -->
 				/systems/hydraulics/sys-l-psi ge 950
 				fcs-actual/elevator/pwr-active eq 1
 			</test>
@@ -702,7 +702,7 @@
 		
 		<switch name="fcs-actual/rudder/lag">
 			<default value="fcs-actual/aero-lag"/> <!-- For aerodynamically flown -->
-			<test logic="AND" value="20">
+			<test logic="AND" value="25.5">
 				fcs-actual/rudder/pwr-active eq 1
 			</test>
 		</switch>
