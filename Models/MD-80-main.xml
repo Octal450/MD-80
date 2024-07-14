@@ -59,7 +59,7 @@
 	<light>
 		<name>Left Landing Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/fdm/jsbsim/exterior-lights/left-landing-light</property></dim-factor>
+		<dim-factor><property>fdm/jsbsim/exterior-lights/left-landing-light</property></dim-factor>
 		<position>
 			<x-m>27.67</x-m>
 			<y-m>-16.0</y-m>
@@ -111,7 +111,7 @@
 	<light>
 		<name>Nose Landing Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/fdm/jsbsim/exterior-lights/nose-landing-light</property></dim-factor>
+		<dim-factor><property>fdm/jsbsim/exterior-lights/nose-landing-light</property></dim-factor>
 		<position>
 			<x-m>2.46026</x-m>
 			<y-m>0.13963</y-m>
@@ -162,7 +162,7 @@
 	
 	<light>
 		<name>Nose Taxi Light Compositor</name>
-		<dim-factor><property>/fdm/jsbsim/exterior-lights/nose-taxi-light</property></dim-factor>
+		<dim-factor><property>fdm/jsbsim/exterior-lights/nose-taxi-light</property></dim-factor>
 		<type>spot</type>
 		<position>
 			<x-m>2.46026</x-m>
@@ -215,7 +215,7 @@
 	<light>
 		<name>Right Landing Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/fdm/jsbsim/exterior-lights/right-landing-light</property></dim-factor>
+		<dim-factor><property>fdm/jsbsim/exterior-lights/right-landing-light</property></dim-factor>
 		<position>
 			<x-m>27.67</x-m>
 			<y-m>16.0</y-m>
@@ -277,7 +277,7 @@
 	<light>
 		<name>Left Wing Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/fdm/jsbsim/exterior-lights/left-wing-light</property></dim-factor>
+		<dim-factor><property>fdm/jsbsim/exterior-lights/left-wing-light</property></dim-factor>
 		<position>
 			<x-m>15.9823</x-m>
 			<y-m>-1.64884</y-m>
@@ -319,7 +319,7 @@
 	<light>
 		<name>Right Wing Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/fdm/jsbsim/exterior-lights/right-wing-light</property></dim-factor>
+		<dim-factor><property>fdm/jsbsim/exterior-lights/right-wing-light</property></dim-factor>
 		<position>
 			<x-m>15.9823</x-m>
 			<y-m>1.64884</y-m>
@@ -381,7 +381,7 @@
 	<light>
 		<name>Left Nacelle Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/fdm/jsbsim/exterior-lights/left-wing-light</property></dim-factor>
+		<dim-factor><property>fdm/jsbsim/exterior-lights/left-wing-light</property></dim-factor>
 		<position>
 			<x-m>29.7552</x-m>
 			<y-m>-1.68808</y-m>
@@ -423,7 +423,7 @@
 	<light>
 		<name>Right Nacelle Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/fdm/jsbsim/exterior-lights/right-wing-light</property></dim-factor>
+		<dim-factor><property>fdm/jsbsim/exterior-lights/right-wing-light</property></dim-factor>
 		<position>
 			<x-m>29.7552</x-m>
 			<y-m>1.68808</y-m>
@@ -485,7 +485,7 @@
 	<light>
 		<name>Left Ground Flood Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/fdm/jsbsim/exterior-lights/ground-flood-light-l</property></dim-factor>
+		<dim-factor><property>fdm/jsbsim/exterior-lights/ground-flood-light-l</property></dim-factor>
 		<position>
 			<x-m>12.995</x-m>
 			<y-m>-1.44773</y-m>
@@ -527,7 +527,7 @@
 	<light>
 		<name>Right Ground Flood Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/fdm/jsbsim/exterior-lights/ground-flood-light-r</property></dim-factor>
+		<dim-factor><property>fdm/jsbsim/exterior-lights/ground-flood-light-r</property></dim-factor>
 		<position>
 			<x-m>12.995</x-m>
 			<y-m>1.44773</y-m>
@@ -669,7 +669,7 @@
 	<light>
 		<name>Left Position Light Fwd Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
+		<dim-factor><property>fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
 		<position>
 			<x-m>27.47</x-m>
 			<y-m>-16.02</y-m>
@@ -773,7 +773,7 @@
 	<light>
 		<name>Right Position Light Fwd Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
+		<dim-factor><property>fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
 		<position>
 			<x-m>27.47</x-m>
 			<y-m>16.02</y-m>
@@ -877,7 +877,7 @@
 	<light>
 		<name>Left Position Light Aft Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
+		<dim-factor><property>fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
 		<position>
 			<x-m>29.0</x-m>
 			<y-m>-16.3553</y-m>
@@ -981,7 +981,7 @@
 	<light>
 		<name>Right Position Light Aft Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
+		<dim-factor><property>fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
 		<position>
 			<x-m>29.0</x-m>
 			<y-m>16.3553</y-m>
@@ -1095,7 +1095,7 @@
 	<light>
 		<name>Left Logo Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/controls/lighting/logo-lights</property></dim-factor>
+		<dim-factor><property>fdm/jsbsim/exterior-lights/logo-lights</property></dim-factor>
 		<position>
 			<x-m>29.0</x-m>
 			<y-m>-16.2553</y-m>
@@ -1104,6 +1104,48 @@
 		<direction>
 			<x>0.60</x>
 			<y>0.866</y>
+			<z>0.175</z>
+		</direction>
+		<ambient>
+			<r>1.00</r>
+			<g>1.00</g>
+			<b>1.00</b>
+			<a>1</a>
+		</ambient>
+		<diffuse>
+			<r>1.00</r>
+			<g>1.00</g>
+			<b>1.00</b>
+			<a>1</a>
+		</diffuse>
+		<specular>
+			<r>0.98</r>
+			<g>0.98</g>
+			<b>0.98</b>
+			<a>1</a>
+		</specular>
+	    <attenuation>
+			<c>1.0</c>
+			<l>0.09</l>
+			<q>0.03</q>
+		</attenuation>
+		<spot-exponent>400</spot-exponent>
+		<spot-cutoff>4.5</spot-cutoff>
+		<range-m>100</range-m>
+	</light>
+	
+	<light>
+		<name>Right Logo Light Compositor</name>
+		<type>spot</type>
+		<dim-factor><property>fdm/jsbsim/exterior-lights/logo-lights</property></dim-factor>
+		<position>
+			<x-m>29.0</x-m>
+			<y-m>16.2553</y-m>
+			<z-m>-0.044478</z-m>
+		</position>
+		<direction>
+			<x>0.60</x>
+			<y>-0.866</y>
 			<z>0.175</z>
 		</direction>
 		<ambient>

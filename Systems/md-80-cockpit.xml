@@ -1381,6 +1381,22 @@
 			</test>
 		</switch>
 		
+		<switch name="exterior-lights/beacon">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/beacon eq 1
+				/systems/electrical/bus/emer-ac ge 112
+			</test>
+		</switch>
+		
+		<switch name="exterior-lights/logo-lights">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/logo-lights eq 1
+				/systems/electrical/bus/ac-gndsvc ge 112
+			</test>
+		</switch>
+		
 		<switch name="exterior-lights/left-wing-light-cmd">
 			<default value="0"/>
 			<test logic="AND" value="1">

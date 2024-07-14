@@ -16,10 +16,6 @@ setprop("/sim/menubar/default/menu[5]/item[11]/enabled", 0);
 setprop("/sim/menubar/default/menu[5]/item[12]/enabled", 0);
 setprop("/sim/multiplay/visibility-range-nm", 130);
 
-# Aircraft Lighting
-var beacon = aircraft.light.new("/sim/model/lights/beacon", [0.15, 1.35], "/controls/lighting/beacon");
-var strobe = aircraft.light.new("/sim/model/lights/strobe", [0.2, 1], "/fdm/jsbsim/exterior-lights/strobe-light");
-
 var initDone = 0;
 var systemsInit = func() {
 	systems.APU.init();
@@ -372,7 +368,11 @@ setlistener("/controls/flight/auto-coordination", func() {
 	screen.log.write("Auto Coordination has been disabled as it is not compatible with the flight control system of this aircraft", 1, 0, 0);
 });
 
-# Custom Sounds
+# Aircraft Lighting
+var beacon = aircraft.light.new("/sim/model/lights/beacon", [0.15, 1.35], "/fdm/jsbsim/exterior-lights/beacon");
+var strobe = aircraft.light.new("/sim/model/lights/strobe", [0.2, 1], "/fdm/jsbsim/exterior-lights/strobe-light");
+
+# Sounds
 var Sound = {
 	btn1: func() {
 		if (pts.Sim.Sound.btn1.getBoolValue()) {
