@@ -286,7 +286,7 @@ var PANEL = {
 			pts.Controls.Flight.flaps.setValue(0.36); # 11/MID
 			pts.Controls.Flight.speedbrakeArm.setBoolValue(1);
 		} else {
-			pts.Controls.Flight.elevatorTrim.setValue(-0.296); # About 3.7ANU
+			pts.Controls.Flight.elevatorTrim.setValue(-0.24); # About 3.0ANU
 			pts.Controls.Flight.flaps.setValue(0);
 			pts.Controls.Flight.speedbrakeArm.setBoolValue(0);
 		}
