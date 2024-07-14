@@ -481,21 +481,6 @@
 	</pid-controller>
 	
 	<filter>
-		<name>System Command: Throttle Comparator</name>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression>
-				<max>
-					<property>/controls/cockpit/throttle-lever[0]</property>
-					<property>/controls/cockpit/throttle-lever[1]</property>
-				</max>
-			</expression>
-		</input>
-		<output>/fdm/jsbsim/engine/throttle-compare-max</output>
-	</filter>
-	
-	<filter>
 		<name>System Command: Throttle Inactive Sync</name>
 		<type>gain</type>
 		<gain>1.0</gain>

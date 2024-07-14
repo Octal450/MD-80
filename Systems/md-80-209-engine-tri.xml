@@ -1153,6 +1153,11 @@
 			</test>
 		</switch>
 		
+		<lag_filter name="engine/control-1/throttle-pos-lag">
+			<input>engine/control-1/throttle-pos</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<summer name="engine/control-1/throttle-pos-art">
 			<input>engine/control-1/throttle-pos</input>
 			<input>engine/art/output</input>
@@ -1258,6 +1263,11 @@
 			</test>
 		</switch>
 		
+		<lag_filter name="engine/control-2/throttle-pos-lag">
+			<input>engine/control-2/throttle-pos</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<summer name="engine/control-2/throttle-pos-art">
 			<input>engine/control-2/throttle-pos</input>
 			<input>engine/art/output</input>
@@ -1292,6 +1302,16 @@
 			<c1>1.25</c1>
 			<output>fcs/throttle-pos-norm[1]</output>
 		</lag_filter>
+		
+		<!-- Comparator -->
+		<fcs_function name="engine/throttle-compare-max">
+			<function>
+				<max> <!-- Don't use clipped -->
+					<property>engine/control-1/throttle-pos-lag</property>
+					<property>engine/control-2/throttle-pos-lag</property>
+				</max>
+			</function>
+		</fcs_function>
 	
 	</channel>
 	
