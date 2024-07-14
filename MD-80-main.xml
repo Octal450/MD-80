@@ -741,8 +741,6 @@
 			</external_reactions>
 			<fcs n="0">
 				<slat-pos-deg type="double">0</slat-pos-deg>
-				<throttle-lever-feedback n="0" type="double">0</throttle-lever-feedback>
-				<throttle-lever-feedback n="1" type="double">0</throttle-lever-feedback>
 			</fcs>
 			<fcs-actual n="0">
 				<stabilizer n="0">
