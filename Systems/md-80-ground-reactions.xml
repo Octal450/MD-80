@@ -70,7 +70,7 @@
 		<static_friction>0.4</static_friction>
 		<dynamic_friction>0.6</dynamic_friction>
 		<rolling_friction>0.02</rolling_friction>
-		<spring_coeff unit="LBS/FT">56789</spring_coeff>
+		<spring_coeff unit="LBS/FT">46127</spring_coeff>
 		<damping_coeff unit="LBS/FT/SEC">11135</damping_coeff>
 		<max_steer unit="DEG">0</max_steer>
 		<table name="CORNERING_COEFF" type="internal">
@@ -126,7 +126,7 @@
 		<static_friction>0.4</static_friction>
 		<dynamic_friction>0.6</dynamic_friction>
 		<rolling_friction>0.02</rolling_friction>
-		<spring_coeff unit="LBS/FT">56789</spring_coeff>
+		<spring_coeff unit="LBS/FT">46127</spring_coeff>
 		<damping_coeff unit="LBS/FT/SEC">11135</damping_coeff>
 		<max_steer unit="DEG">0</max_steer>
 		<table name="CORNERING_COEFF" type="internal">
