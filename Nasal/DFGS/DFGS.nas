@@ -182,7 +182,6 @@ var Output = {
 	ap2Temp: 0,
 	athr: props.globals.initNode("/it-autoflight/output/athr", 0, "BOOL"),
 	athrTemp: 0,
-	clamp: props.globals.initNode("/it-autoflight/output/clamp", 0, "BOOL"),
 	fastSlow: props.globals.initNode("/it-autoflight/output/fast-slow", 0, "DOUBLE"),
 	fd1: props.globals.initNode("/it-autoflight/output/fd1", 0, "BOOL"),
 	fd1Temp: 0,
