@@ -54,7 +54,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/v1-delta-11">
+		<fcs_function name="performance/v1-delta-11"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
@@ -86,7 +86,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/v1-delta-15">
+		<fcs_function name="performance/v1-delta-15"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
@@ -118,7 +118,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/v1-minimum">
+		<fcs_function name="performance/v1-minimum"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
@@ -233,7 +233,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/vr-delta-11">
+		<fcs_function name="performance/vr-delta-11"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
@@ -276,7 +276,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/vr-delta-15">
+		<fcs_function name="performance/vr-delta-15"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
@@ -308,7 +308,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/vr-minimum">
+		<fcs_function name="performance/vr-minimum"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
@@ -443,7 +443,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/v2-minimum">
+		<fcs_function name="performance/v2-minimum"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
