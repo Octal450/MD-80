@@ -462,7 +462,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="dfgs/speeds/v2-minimum">
+		<fcs_function name="dfgs/speeds/v2-minimum"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
