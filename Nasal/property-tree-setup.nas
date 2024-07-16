@@ -204,6 +204,7 @@ var Orientation = {
 
 var Options = {
 	fms: props.globals.getNode("/options/fms"),
+	irsEquipped: props.globals.getNode("/options/irs-equipped"),
 };
 
 var Position = {

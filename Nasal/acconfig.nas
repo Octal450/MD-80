@@ -456,3 +456,12 @@ setlistener("/sim/signals/reinit", func(s) {
 		PANEL.coldDark(1);
 	}
 });
+
+# Panel Handler
+setlistener("/systems/acconfig/options/panel", func() {
+	if (pts.Systems.Acconfig.Options.panel.getValue() == "EFIS + EDP") {
+		pts.Options.irsEquipped.setBoolValue(1);
+	} else {
+		pts.Options.irsEquipped.setBoolValue(0);
+	}
+});

@@ -35,6 +35,7 @@
 		<object-name>BLimit.ind</object-name>
 		<object-name>BtnText</object-name>
 		<object-name>FGCPLabels</object-name>
+		<object-name>FGCPLabelsLts</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.6</green>
@@ -47,6 +48,7 @@
 		<inherits-from>Effects/model-transparent</inherits-from>
 		<object-name>BtnText</object-name>
 		<object-name>FGCPLabels</object-name>
+		<object-name>FGCPLabelsLts</object-name>
 	</effect>
 	
 	<animation>

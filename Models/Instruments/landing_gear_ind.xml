@@ -26,6 +26,10 @@
 						<property>fdm/jsbsim/gear/unit[2]/status</property>
 						<value>0</value>
 					</equals>
+					<equals>
+						<property>controls/switches/annun-test</property>
+						<value>0</value>
+					</equals>
 				</and>
 			</or>
 		</condition>
@@ -48,6 +52,10 @@
 						<property>fdm/jsbsim/gear/unit[2]/status</property>
 						<value>0</value>
 					</not-equals>
+					<equals>
+						<property>controls/switches/annun-test</property>
+						<value>1</value>
+					</equals>
 				</or>
 			</and>
 		</condition>
@@ -63,10 +71,16 @@
 					<property>systems/electrical/bus/dc-bat</property>
 					<value>24</value>
 				</less-than>
-				<equals>
-					<property>fdm/jsbsim/gear/unit[0]/status</property>
-					<value>0</value>
-				</equals>
+				<and>
+					<equals>
+						<property>fdm/jsbsim/gear/unit[0]/status</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>controls/switches/annun-test</property>
+						<value>0</value>
+					</equals>
+				</and>
 			</or>
 		</condition>
 	</animation>
@@ -83,6 +97,10 @@
 					<property>fdm/jsbsim/gear/unit[0]/status</property>
 					<value>1</value>
 				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>0</value>
+				</equals>
 			</and>
 		</condition>
 	</animation>
@@ -95,10 +113,16 @@
 					<property>systems/electrical/bus/dc-bat</property>
 					<value>24</value>
 				</greater-than-equals>
-				<equals>
-					<property>fdm/jsbsim/gear/unit[0]/status</property>
-					<value>2</value>
-				</equals>
+				<or>
+					<equals>
+						<property>fdm/jsbsim/gear/unit[0]/status</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>controls/switches/annun-test</property>
+						<value>1</value>
+					</equals>
+				</or>
 			</and>
 		</condition>
 	</animation>
@@ -113,10 +137,16 @@
 					<property>systems/electrical/bus/dc-bat</property>
 					<value>24</value>
 				</less-than>
-				<equals>
-					<property>fdm/jsbsim/gear/unit[1]/status</property>
-					<value>0</value>
-				</equals>
+				<and>
+					<equals>
+						<property>fdm/jsbsim/gear/unit[1]/status</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>controls/switches/annun-test</property>
+						<value>0</value>
+					</equals>
+				</and>
 			</or>
 		</condition>
 	</animation>
@@ -133,6 +163,10 @@
 					<property>fdm/jsbsim/gear/unit[1]/status</property>
 					<value>1</value>
 				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>0</value>
+				</equals>
 			</and>
 		</condition>
 	</animation>
@@ -145,10 +179,16 @@
 					<property>systems/electrical/bus/dc-bat</property>
 					<value>24</value>
 				</greater-than-equals>
-				<equals>
-					<property>fdm/jsbsim/gear/unit[1]/status</property>
-					<value>2</value>
-				</equals>
+				<or>
+					<equals>
+						<property>fdm/jsbsim/gear/unit[1]/status</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>controls/switches/annun-test</property>
+						<value>1</value>
+					</equals>
+				</or>
 			</and>
 		</condition>
 	</animation>
@@ -163,10 +203,16 @@
 					<property>systems/electrical/bus/dc-bat</property>
 					<value>24</value>
 				</less-than>
-				<equals>
-					<property>fdm/jsbsim/gear/unit[2]/status</property>
-					<value>0</value>
-				</equals>
+				<and>
+					<equals>
+						<property>fdm/jsbsim/gear/unit[2]/status</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>controls/switches/annun-test</property>
+						<value>0</value>
+					</equals>
+				</and>
 			</or>
 		</condition>
 	</animation>
@@ -183,6 +229,10 @@
 					<property>fdm/jsbsim/gear/unit[2]/status</property>
 					<value>1</value>
 				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>0</value>
+				</equals>
 			</and>
 		</condition>
 	</animation>
@@ -195,10 +245,16 @@
 					<property>systems/electrical/bus/dc-bat</property>
 					<value>24</value>
 				</greater-than-equals>
-				<equals>
-					<property>fdm/jsbsim/gear/unit[2]/status</property>
-					<value>2</value>
-				</equals>
+				<or>
+					<equals>
+						<property>fdm/jsbsim/gear/unit[2]/status</property>
+						<value>2</value>
+					</equals>
+					<equals>
+						<property>controls/switches/annun-test</property>
+						<value>1</value>
+					</equals>
+				</or>
 			</and>
 		</condition>
 	</animation>

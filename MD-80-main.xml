@@ -1471,6 +1471,10 @@
 		</sound>
 	</it-autoflight>
 	
+	<options n="0">
+		<irs-equipped type="bool">0</irs-equipped> <!-- Set depending on panel type -->
+	</options>
+	
 	<services n="0">
 		<chocks n="0">
 			<enable type="bool">1</enable>
@@ -1494,7 +1498,6 @@
 				</du>
 				<flight-director type="string">Single Cue</flight-director>
 				<irs-aligns-instantly type="bool">0</irs-aligns-instantly>
-				<irs-equipped type="bool">0</irs-equipped>
 				<keyboard-mode type="bool">0</keyboard-mode>
 				<panel type="string">Analog</panel>
 				<separate-tiller-axis type="bool">0</separate-tiller-axis>

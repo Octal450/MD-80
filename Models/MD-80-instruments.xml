@@ -271,7 +271,13 @@
 		<name>stbyasi</name>
 		<path>Aircraft/MD-80/Models/Instruments/stbyasi.xml</path>
 		<condition>
-			<not><property>systems/acconfig/options/combined-standby</property></not>
+			<and>
+				<not><property>systems/acconfig/options/combined-standby</property></not>
+				<not-equals>
+					<property>systems/acconfig/options/panel</property>
+					<value>EFIS + EDP</value>
+				</not-equals>
+			</and>
 		</condition>
 		<offsets>
 			<x-m>2.248</x-m>
@@ -372,7 +378,13 @@
 		<name>stbyalt</name>
 		<path>Aircraft/MD-80/Models/Instruments/stbyalt.xml</path>
 		<condition>
-			<not><property>systems/acconfig/options/combined-standby</property></not>
+			<and>
+				<not><property>systems/acconfig/options/combined-standby</property></not>
+				<not-equals>
+					<property>systems/acconfig/options/panel</property>
+					<value>EFIS + EDP</value>
+				</not-equals>
+			</and>
 		</condition>
 		<offsets>
 			<x-m>2.2355</x-m>
@@ -386,7 +398,13 @@
 		<name>stbycombo</name>
 		<path>Aircraft/MD-80/Models/Instruments/stbycombo.xml</path>
 		<condition>
-			<property>systems/acconfig/options/combined-standby</property>
+			<or>
+				<property>systems/acconfig/options/combined-standby</property>
+				<equals>
+					<property>systems/acconfig/options/panel</property>
+					<value>EFIS + EDP</value>
+				</equals>
+			</or>
 		</condition>
 		<offsets>
 			<x-m>2.235</x-m>

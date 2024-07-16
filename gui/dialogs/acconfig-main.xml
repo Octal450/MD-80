@@ -320,7 +320,7 @@
 			
 			<checkbox>
 				<enable>
-					<property>/systems/acconfig/options/irs-equipped</property>
+					<property>options/irs-equipped</property>
 				</enable>
 				<label>IRS Aligns Instantly</label>
 				<halign>left</halign>
@@ -406,6 +406,12 @@
 			</checkbox>
 			
 			<checkbox>
+				<enable>
+					<not-equals>
+						<property>/systems/acconfig/options/panel</property>
+						<value>EFIS + EDP</value>
+					</not-equals>
+				</enable>
 				<label>Combined Standby</label>
 				<halign>left</halign>
 				<property>/systems/acconfig/options/combined-standby</property>
@@ -493,10 +499,10 @@
 					</text>
 					<combo>
 						<visible>
-							<equals>
+							<not-equals>
 								<property>/systems/acconfig/options/panel</property>
-								<value>EFIS</value>
-							</equals>
+								<value>Analog</value>
+							</not-equals>
 						</visible>
 						<row>0</row>
 						<col>0</col>

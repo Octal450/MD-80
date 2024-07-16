@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
-<!-- 3D by Josh Davidson and Ethan Hooper -->
 
 <PropertyList>
 	
@@ -15,12 +14,16 @@
 		<object-name>Face</object-name>
 		<object-name>Labels</object-name>
 		<object-name>LabelsAuxTanks</object-name>
+		<object-name>LabelsEfis</object-name>
+		<object-name>LabelsIrs</object-name>
 		<object-name>IntegrityAcDcVoltFreq</object-name>
 		<object-name>IntegrityCadc</object-name>
 		<object-name>IntegrityEfisSel</object-name>
 		<object-name>IntegrityEngSync</object-name>
 		<object-name>IntegrityFdCmd</object-name>
 		<object-name>IntegrityFlood</object-name>
+		<object-name>IntegrityIrs1</object-name>
+		<object-name>IntegrityIrs2</object-name>
 		<object-name>IntegrityMeterSelHeat</object-name>
 		<object-name>IntegrityPanel</object-name>
 		<object-name>IntegrityVertGyro</object-name>
@@ -39,10 +42,21 @@
 		<object-name>EfisSel</object-name>
 		<object-name>LabelsEfis</object-name>
 		<condition>
-			<equals>
+			<not-equals>
 				<property>systems/acconfig/options/panel</property>
-				<value>EFIS</value>
-			</equals>
+				<value>Analog</value>
+			</not-equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>BackgroundIrs</object-name>
+		<object-name>Irs1</object-name>
+		<object-name>Irs2</object-name>
+		<object-name>LabelsIrs</object-name>
+		<condition>
+			<property>options/irs-equipped</property>
 		</condition>
 	</animation>
 	
