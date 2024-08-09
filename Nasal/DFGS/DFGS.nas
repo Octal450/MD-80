@@ -49,6 +49,8 @@ var Gear = {
 };
 
 var Misc = {
+	elapsedSec: props.globals.getNode("/sim/time/elapsed-sec", 1),
+	elapsedSecTemp: 0,
 	flapDeg: props.globals.getNode("/fdm/jsbsim/fcs/flap-pos-deg", 1),
 	flapDegTemp: 0,
 };
@@ -147,6 +149,7 @@ var Internal = {
 	altCaptureActive: 0,
 	altDiff: 0,
 	altPredicted: props.globals.initNode("/it-autoflight/internal/altitude-predicted", 0, "DOUBLE"),
+	altReArmTime: -5,
 	altTemp: 0,
 	atrCmd: props.globals.getNode("/fdm/jsbsim/dfgs/atr/cmd"),
 	bankLimit: props.globals.initNode("/it-autoflight/internal/bank-limit", 30, "INT"),
@@ -291,6 +294,11 @@ var ITAF = {
 		}
 		Sound.apOffSingle.setBoolValue(0);
 		systems.WARNINGS.altitudeAlert.setValue(0); # Cancel altitude alert
+		if (pts.Systems.Acconfig.Options.autoArmAlt.getBoolValue()) {
+			Internal.altReArmTime = pts.Sim.Time.elapsedSec.getValue();
+		} else {
+			Internal.altReArmTime = -5;
+		}
 		loopTimer.start();
 		slowLoopTimer.start();
 	},
@@ -544,10 +552,24 @@ var ITAF = {
 		Fma.loop();
 		
 		# FGCP Temporary Swap Reset
+		Misc.elapsedSecTemp = Misc.elapsedSec.getValue();
 		if (Input.ktsMachFgcpTime != -5) {
-			if (Input.ktsMachFgcpTime + 3 < pts.Sim.Time.elapsedSec.getValue()) {
+			if (Input.ktsMachFgcpTime + 3 < Misc.elapsedSecTemp) {
 				Input.ktsMachFgcpTime = -5;
 				Input.ktsMachFgcp.setBoolValue(Input.ktsMach.getBoolValue());
+			}
+		}
+		
+		# Auto Altitude Arm
+		if (Internal.altReArmTime != -5) {
+			if (!Input.altArmed.getBoolValue()) {
+				if (Internal.altReArmTime + 1 < Misc.elapsedSecTemp) {
+					Internal.altReArmTime = -5;
+					Output.vertTemp = Output.vert.getValue();
+					if (pts.Systems.Acconfig.Options.autoArmAlt.getBoolValue() and Output.vertTemp != 2 and Output.vertTemp != 6 and !(Output.vertTemp == 0 and Input.altTemp == Internal.altTemp)) {
+						Input.altArmed.setBoolValue(1);
+					}
+				}
 			}
 		}
 	},
@@ -1263,11 +1285,11 @@ var atsKill = maketimer(0.4, func() {
 	}
 });
 
-# For FGCP
 setlistener("/it-autoflight/input/alt", func() {
 	Input.altTemp = Input.alt.getValue();
 	Input.altHundreds.setValue(right(sprintf("%03d", Input.altTemp), 3));
 	
+	# For FGCP
 	if (Input.altTemp < 1000) {
 		Input.altThousands.setValue("==");
 	} else if (Input.altTemp < 10000) {
@@ -1275,6 +1297,9 @@ setlistener("/it-autoflight/input/alt", func() {
 	} else {
 		Input.altThousands.setValue(sprintf("%d", math.floor(Input.altTemp / 1000)));
 	}
+	
+	# Schedule Auto Re-Arm
+	Internal.altReArmTime = pts.Sim.Time.elapsedSec.getValue();
 }, 0, 0);
 
 # For Canvas Nav Display.
@@ -1286,15 +1311,6 @@ setlistener("/it-autoflight/internal/alt", func() {
 	setprop("/autopilot/settings/target-altitude-ft", getprop("/it-autoflight/internal/alt"));
 	systems.WARNINGS.altitudeAlertCaptured.setValue(0); # Reset out of captured state
 	if (systems.WARNINGS.altitudeAlert.getValue() == 2) systems.WARNINGS.altitudeAlert.setValue(0); # Cancel altitude alert deviation alarm
-	
-	if (pts.Systems.Acconfig.Options.autoArmAlt.getBoolValue() and !Input.altArmed.getBoolValue()) {
-		settimer(func() {
-			Output.vertTemp = Output.vert.getValue();
-			if (Output.vertTemp != 0 and Output.vertTemp != 2 and Output.vertTemp != 6) {
-				Input.altArmed.setBoolValue(1);
-			}
-		}, 1);
-	}
 }, 0, 0);
 
 var loopTimer = maketimer(0.1, ITAF, ITAF.loop);
