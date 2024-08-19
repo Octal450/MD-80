@@ -147,7 +147,7 @@
 		<switch name="/instrumentation/airspeed-indicator[1]/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-r ge 112
+				/systems/electrical/bus/ac-radio-r ge 112
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -264,20 +264,9 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<!-- Airspeed Indicator Standby -->
-		<switch name="/instrumentation/stby-asi/power-avail">
-			<default value="1"/>
-		</switch>
-		
-		<switch name="/instrumentation/stby-asi/speed-kt-input">
-			<default value="/instrumentation/stby-asi/speed-kt-input"/>
-			<test value="/instrumentation/airspeed-indicator/indicated-speed-kt">
-				/instrumentation/stby-asi/power-avail eq 1
-			</test>
-		</switch>
-		
+		<!-- Airspeed Indicator Standby (Pneumatic) -->
 		<actuator name="/instrumentation/stby-asi/speed-kt-actuator">
-			<input>/instrumentation/stby-asi/speed-kt-input</input>
+			<input>/instrumentation/airspeed-indicator/indicated-speed-kt</input>
 			<rate_limit>100</rate_limit>
 		</actuator>
 		
@@ -485,7 +474,7 @@
 		<switch name="/instrumentation/ai[1]/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-r ge 112
+				/systems/electrical/bus/ac-radio-r ge 112
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -813,7 +802,7 @@
 		<switch name="/instrumentation/agl[1]/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-r ge 112
+				/systems/electrical/bus/ac-radio-r ge 112
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -958,7 +947,7 @@
 		<switch name="/instrumentation/altimeter[1]/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-r ge 112
+				/systems/electrical/bus/ac-radio-r ge 112
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -1094,7 +1083,7 @@
 		<switch name="/instrumentation/rmi[0]/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-r ge 112
+				/systems/electrical/bus/ac-radio-r ge 112
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -1438,7 +1427,7 @@
 		<switch name="/instrumentation/hsi[1]/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-r ge 112
+				/systems/electrical/bus/ac-radio-r ge 112
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -1753,7 +1742,7 @@
 		<switch name="/instrumentation/epr[0]/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-l ge 112
+				/systems/electrical/bus/emer-ac ge 112
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -2028,7 +2017,7 @@
 		<switch name="/instrumentation/egt[1]/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/emer-dc ge 24
+				/systems/electrical/bus/dc-trans ge 24
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -2216,7 +2205,7 @@
 		<switch name="/instrumentation/ot[0]/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-l ge 112
+				/systems/electrical/bus/inst-ac-l ge 24
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -2237,7 +2226,7 @@
 		<switch name="/instrumentation/ot[1]/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-r ge 112
+				/systems/electrical/bus/inst-ac-r ge 24
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -2262,7 +2251,7 @@
 		<switch name="/instrumentation/oq[0]/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-l ge 112
+				/systems/electrical/bus/dc-l ge 24
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -2283,7 +2272,7 @@
 		<switch name="/instrumentation/oq[1]/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-r ge 112
+				/systems/electrical/bus/dc-r ge 24
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -2307,7 +2296,7 @@
 		<switch name="/instrumentation/flap-slat/power-avail-l">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-l ge 112
+				/systems/electrical/bus/dc-radio-l ge 24
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -2327,7 +2316,7 @@
 		<switch name="/instrumentation/flap-slat/power-avail-r">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-r ge 112
+				/systems/electrical/bus/dc-radio-r ge 24
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -2376,7 +2365,7 @@
 		<switch name="/instrumentation/hyd-press/power-avail-l">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-l ge 112
+				/systems/electrical/bus/inst-ac-l ge 24
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -2397,7 +2386,7 @@
 		<switch name="/instrumentation/hyd-press/power-avail-r">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-r ge 112
+				/systems/electrical/bus/inst-ac-r ge 24
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -2418,7 +2407,7 @@
 		<switch name="/instrumentation/hyd-qty/power-avail-l">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-l ge 112
+				/systems/electrical/bus/inst-ac-l ge 24
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -2439,7 +2428,7 @@
 		<switch name="/instrumentation/hyd-qty/power-avail-r">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-r ge 112
+				/systems/electrical/bus/inst-ac-r ge 24
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>

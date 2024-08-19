@@ -6,6 +6,8 @@ var ELEC = {
 	Bus: {
 		acGenL: props.globals.getNode("/systems/electrical/bus/ac-gen-l"),
 		acGenR: props.globals.getNode("/systems/electrical/bus/ac-gen-r"),
+		acRadioL: props.globals.getNode("/systems/electrical/bus/ac-radio-l"),
+		acRadioR: props.globals.getNode("/systems/electrical/bus/ac-radio-r"),
 		acGndSvc: props.globals.getNode("/systems/electrical/bus/ac-gndsvc"),
 		acTie: props.globals.getNode("/systems/electrical/bus/ac-tie"),
 		acL: props.globals.getNode("/systems/electrical/bus/ac-l"),
@@ -14,10 +16,14 @@ var ELEC = {
 		dcBatDirect: props.globals.getNode("/systems/electrical/bus/dc-bat-direct"),
 		dcL: props.globals.getNode("/systems/electrical/bus/dc-l"),
 		dcR: props.globals.getNode("/systems/electrical/bus/dc-r"),
+		dcRadioL: props.globals.getNode("/systems/electrical/bus/dc-radio-l"),
+		dcRadioR: props.globals.getNode("/systems/electrical/bus/dc-radio-r"),
 		dcTie: props.globals.getNode("/systems/electrical/bus/dc-tie"),
 		dcTrans: props.globals.getNode("/systems/electrical/bus/dc-trans"),
 		emerAc: props.globals.getNode("/systems/electrical/bus/emer-ac"),
 		emerDc: props.globals.getNode("/systems/electrical/bus/emer-dc"),
+		instAcL: props.globals.getNode("/systems/electrical/bus/inst-ac-l"),
+		instAcR: props.globals.getNode("/systems/electrical/bus/inst-ac-r"),
 	},
 	Fail: {
 		acTie: props.globals.getNode("/systems/failures/electrical/ac-tie"),

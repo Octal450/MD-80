@@ -21,10 +21,10 @@
 		<switch name="dfgs/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-l ge 112
-				/systems/electrical/bus/ac-r ge 112
-				/systems/electrical/bus/dc-l ge 24
-				/systems/electrical/bus/dc-r ge 24
+				/systems/electrical/bus/ac-radio-l ge 112
+				/systems/electrical/bus/ac-radio-r ge 112
+				/systems/electrical/bus/dc-radio-l ge 24
+				/systems/electrical/bus/dc-radio-r ge 24
 			</test>
 		</switch>
 		

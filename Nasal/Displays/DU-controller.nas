@@ -6,7 +6,7 @@ var DUController = {
 	errorActive: 0,
 	flightDirector: "Single Cue",
 	PwrSource: {
-		acR: 0,
+		acRadioR: 0,
 		emerAc: 0,
 	},
 	showNd1: props.globals.initNode("/instrumentation/nd/show-nd1", 0, "BOOL"),
@@ -37,7 +37,7 @@ var DUController = {
 		
 		if (pts.Systems.Acconfig.Options.panel.getValue() == "EFIS") {
 			if (!me.errorActive) {
-				me.PwrSource.acR = systems.ELEC.Bus.acR.getValue();
+				me.PwrSource.acRadioR = systems.ELEC.Bus.acRadioR.getValue();
 				me.PwrSource.emerAc = systems.ELEC.Bus.emerAc.getValue();
 				
 				if (me.PwrSource.emerAc >= 112 and pts.Instrumentation.Du.pfdDimmer[0].getValue() > 0.01) {
@@ -65,7 +65,7 @@ var DUController = {
 					}
 				}
 				
-				if (me.PwrSource.acR >= 112 and pts.Instrumentation.Du.pfdDimmer[1].getValue() > 0.01) {
+				if (me.PwrSource.acRadioR >= 112 and pts.Instrumentation.Du.pfdDimmer[1].getValue() > 0.01) {
 					if (!me.updatePfd2) {
 						me.updatePfd2 = 1;
 						canvas_pfd.pfd2.update();
@@ -78,7 +78,7 @@ var DUController = {
 					}
 				}
 				
-				if (me.PwrSource.acR >= 112 and pts.Instrumentation.Du.ndDimmer[1].getValue() > 0.01) {
+				if (me.PwrSource.acRadioR >= 112 and pts.Instrumentation.Du.ndDimmer[1].getValue() > 0.01) {
 					if (!me.updateNd2) {
 						me.updateNd2 = 1;
 						me.showNd2.setBoolValue(1); # Temporary

@@ -718,6 +718,16 @@
 			<gain>1.0</gain>
 		</pure_gain>
 		
+		<pure_gain name="/systems/electrical/bus/ac-radio-l">
+			<input>/systems/electrical/bus/ac-l</input>
+			<gain>1.0</gain>
+		</pure_gain>
+		
+		<pure_gain name="/systems/electrical/bus/inst-ac-l"> <!-- AC transformer -->
+			<input>/systems/electrical/bus/ac-l</input>
+			<gain>0.24347826087</gain>
+		</pure_gain>
+		
 		<!-- AC R Bus/AC Gen R Bus -->
 		<switch name="/systems/electrical/bus/ac-gen-r-src">
 			<default value="0"/> <!-- OFF -->
@@ -757,6 +767,16 @@
 		<pure_gain name="/systems/electrical/bus/ac-r">
 			<input>/systems/electrical/bus/ac-gen-r</input>
 			<gain>1.0</gain>
+		</pure_gain>
+		
+		<pure_gain name="/systems/electrical/bus/ac-radio-r">
+			<input>/systems/electrical/bus/ac-r</input>
+			<gain>1.0</gain>
+		</pure_gain>
+		
+		<pure_gain name="/systems/electrical/bus/inst-ac-r"> <!-- AC transformer -->
+			<input>/systems/electrical/bus/ac-r</input>
+			<gain>0.24347826087</gain>
 		</pure_gain>
 		
 		<!-- AC Tie Bus AC Gen Bus Relays (continued) -->
@@ -1084,6 +1104,11 @@
 			</function>
 		</fcs_function>
 		
+		<pure_gain name="/systems/electrical/bus/dc-radio-l">
+			<input>/systems/electrical/bus/dc-l</input>
+			<gain>1.0</gain>
+		</pure_gain>
+		
 		<!-- AC Ground Service Bus DC R Bus Relay -->
 		<switch name="/systems/electrical/relay/tr-r2-dc/contact-pos">
 			<default value="0"/>
@@ -1135,6 +1160,11 @@
 				</max>
 			</function>
 		</fcs_function>
+		
+		<pure_gain name="/systems/electrical/bus/dc-radio-r">
+			<input>/systems/electrical/bus/dc-r</input>
+			<gain>1.0</gain>
+		</pure_gain>
 		
 		<!-- DC Tie Bus DC Bus Relays (continued) -->
 		<!-- These outputs are from the DC Bus to the DC Tie Bus -->
@@ -1336,46 +1366,46 @@
 		</fcs_function>
 		
 		<!-- Power Instrumentation -->
-		<switch name="/systems/electrical/generic/ac-l">
+		<switch name="/systems/electrical/generic/ac-radio-l">
 			<default value="0"/>
 			<test value="28">
-				/systems/electrical/bus/ac-l ge 112
+				/systems/electrical/bus/ac-radio-l ge 112
 			</test>
 			<output>/systems/electrical/outputs/adf[0]</output>
 			<output>/systems/electrical/outputs/ra[0]</output>
 		</switch>
 		
-		<switch name="/systems/electrical/generic/ac-r">
+		<switch name="/systems/electrical/generic/ac-radio-r">
 			<default value="0"/>
 			<test value="28">
-				/systems/electrical/bus/ac-r ge 112
+				/systems/electrical/bus/ac-radio-r ge 112
 			</test>
 			<output>/systems/electrical/outputs/adf[1]</output>
 			<output>/systems/electrical/outputs/ra[1]</output>
 		</switch>
 		
-		<switch name="/systems/electrical/generic/dc-l">
+		<switch name="/systems/electrical/generic/dc-radio-l">
 			<default value="0"/>
 			<test value="28">
-				/systems/electrical/bus/dc-l ge 24
+				/systems/electrical/bus/dc-radio-l ge 24
 			</test>
 			<output>/systems/electrical/outputs/comm[1]</output>
 			<output>/systems/electrical/outputs/fma[0]</output>
 		</switch>
 		
-		<switch name="/systems/electrical/generic/dc-both">
+		<switch name="/systems/electrical/generic/dc-radio-both">
 			<default value="0"/>
 			<test logic="OR" value="28">
-				/systems/electrical/bus/dc-l ge 24
-				/systems/electrical/bus/dc-r ge 24
+				/systems/electrical/bus/dc-radio-l ge 24
+				/systems/electrical/bus/dc-radio-r ge 24
 			</test>
 			<output>/systems/electrical/outputs/transponder</output>
 		</switch>
 		
-		<switch name="/systems/electrical/generic/dc-r">
+		<switch name="/systems/electrical/generic/dc-radio-r">
 			<default value="0"/>
 			<test value="28">
-				/systems/electrical/bus/dc-r ge 24
+				/systems/electrical/bus/dc-radio-r ge 24
 			</test>
 			<output>/systems/electrical/outputs/comm[2]</output>
 			<output>/systems/electrical/outputs/fma[1]</output>
@@ -1396,8 +1426,8 @@
 			<description>This makes the FG stuff work because we killed the generic electrical</description>
 			<default value="0"/>
 			<test logic="OR" value="28">
-				/systems/electrical/bus/dc-l ge 24
-				/systems/electrical/bus/dc-r ge 24
+				/systems/electrical/bus/dc-radio-l ge 24
+				/systems/electrical/bus/dc-radio-r ge 24
 				/systems/electrical/bus/emer-dc ge 24
 			</test>
 			<output>/systems/electrical/outputs/efis</output>
