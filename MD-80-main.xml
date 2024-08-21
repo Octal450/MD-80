@@ -576,10 +576,10 @@
 				<aux-trans-fwd-b type="int">0</aux-trans-fwd-b>
 				<channel-select type="bool">0</channel-select>
 				<channel-test type="bool">0</channel-test>
-				<pump-aft-c type="bool">0</pump-aft-c>
+				<pump-aft-c type="int">0</pump-aft-c>
 				<pump-aft-l type="bool">0</pump-aft-l>
 				<pump-aft-r type="bool">0</pump-aft-r>
-				<pump-fwd-c type="bool">0</pump-fwd-c>
+				<pump-fwd-c type="int">0</pump-fwd-c>
 				<pump-fwd-l type="bool">0</pump-fwd-l>
 				<pump-fwd-r type="bool">0</pump-fwd-r>
 				<pump-start type="bool">0</pump-start>

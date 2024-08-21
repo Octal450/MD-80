@@ -175,10 +175,10 @@ var FUEL = {
 		me.Switch.auxTransAftB.setValue(0);
 		me.Switch.auxTransFwdA.setValue(0);
 		me.Switch.auxTransFwdB.setValue(0);
-		me.Switch.pumpAftC.setBoolValue(0);
+		me.Switch.pumpAftC.setValue(0);
 		me.Switch.pumpAftL.setBoolValue(0);
 		me.Switch.pumpAftR.setBoolValue(0);
-		me.Switch.pumpFwdC.setBoolValue(0);
+		me.Switch.pumpFwdC.setValue(0);
 		me.Switch.pumpFwdL.setBoolValue(0);
 		me.Switch.pumpFwdR.setBoolValue(0);
 		me.Switch.pumpStart.setBoolValue(0);

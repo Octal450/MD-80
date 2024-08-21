@@ -336,8 +336,8 @@ var PANEL = {
 				systems.FUEL.Switch.pumpFwdL.setBoolValue(1);
 				systems.FUEL.Switch.pumpFwdR.setBoolValue(1);
 				if (pts.Fdm.JSBsim.Propulsion.Tank.contentLbs[1].getValue() > 10) {
-					systems.FUEL.Switch.pumpAftC.setBoolValue(1);
-					systems.FUEL.Switch.pumpFwdC.setBoolValue(1);
+					systems.FUEL.Switch.pumpAftC.setValue(1);
+					systems.FUEL.Switch.pumpFwdC.setValue(1);
 				}
 				systems.FUEL.Switch.pumpStart.setBoolValue(0);
 				systems.PNEU.Switch.bleedApu.setValue(1);
@@ -373,8 +373,8 @@ var PANEL = {
 		systems.FUEL.Switch.pumpFwdL.setBoolValue(1);
 		systems.FUEL.Switch.pumpFwdR.setBoolValue(1);
 		if (pts.Fdm.JSBsim.Propulsion.Tank.contentLbs[1].getValue() > 10) {
-			systems.FUEL.Switch.pumpAftC.setBoolValue(1);
-			systems.FUEL.Switch.pumpFwdC.setBoolValue(1);
+			systems.FUEL.Switch.pumpAftC.setValue(1);
+			systems.FUEL.Switch.pumpFwdC.setValue(1);
 		}
 		systems.IGNITION.Switch.ign.setValue(1);
 		systems.PNEU.Switch.supplyL.setValue(2);
