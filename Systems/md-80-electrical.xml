@@ -5,7 +5,6 @@
 
 <system name="MD-80: Electrical">
 	
-	<property value="0">/systems/electrical/ac-tie</property>
 	<property value="0">/systems/electrical/bus/ac-tie</property>
 	<property value="0">/systems/electrical/bus/dc-tie</property>
 	<property value="0">/systems/electrical/bus/ac-gen-l-src</property>
