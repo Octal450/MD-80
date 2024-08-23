@@ -444,17 +444,10 @@
 		</fcs_function>
 		
 		<!-- IDG AC Gen Bus Relays -->
-		<switch name="/systems/electrical/relay/idg-ac-gen-l/command-pos">
-			<default value="0"/>
-			<test value="1">
-				/controls/electrical/switches/gen-l eq 1
-			</test>
-		</switch>
-		
 		<switch name="/systems/electrical/relay/idg-ac-gen-l/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/systems/electrical/relay/idg-ac-gen-l/command-pos eq 1
+				/controls/electrical/switches/gen-l eq 1
 				/systems/electrical/sources/idg-l/output-volt ge 112
 			</test>
 		</switch>
@@ -471,17 +464,10 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/electrical/relay/idg-ac-gen-r/command-pos">
-			<default value="0"/> 
-			<test value="1">
-				/controls/electrical/switches/gen-r eq 1
-			</test>
-		</switch>
-		
 		<switch name="/systems/electrical/relay/idg-ac-gen-r/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/systems/electrical/relay/idg-ac-gen-r/command-pos eq 1
+				/controls/electrical/switches/gen-r eq 1
 				/systems/electrical/sources/idg-r/output-volt ge 112
 			</test>
 		</switch>
@@ -499,17 +485,10 @@
 		</switch>
 		
 		<!-- APU AC Gen Bus Relays -->
-		<switch name="/systems/electrical/relay/apu-ac-gen-l/command-pos">
-			<default value="0"/>
-			<test value="1">
-				/controls/electrical/switches/apu-pwr-l eq 1
-			</test>
-		</switch>
-		
 		<switch name="/systems/electrical/relay/apu-ac-gen-l/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1"> <!-- Priority: IDG -->
-				/systems/electrical/relay/apu-ac-gen-l/command-pos eq 1
+				/controls/electrical/switches/apu-pwr-l eq 1
 				/systems/electrical/relay/idg-ac-gen-l/contact-pos ne 1
 				/systems/electrical/sources/apu/output-volt ge 112
 			</test>
@@ -527,17 +506,10 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/electrical/relay/apu-ac-gen-r/command-pos">
-			<default value="0"/>
-			<test value="1">
-				/controls/electrical/switches/apu-pwr-r eq 1
-			</test>
-		</switch>
-		
 		<switch name="/systems/electrical/relay/apu-ac-gen-r/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1"> <!-- Priority: IDG -->
-				/systems/electrical/relay/apu-ac-gen-r/command-pos eq 1
+				/controls/electrical/switches/apu-pwr-r eq 1
 				/systems/electrical/relay/idg-ac-gen-r/contact-pos ne 1
 				/systems/electrical/sources/apu/output-volt ge 112
 			</test>
@@ -556,17 +528,10 @@
 		</switch>
 		
 		<!-- EXT AC Gen Bus Relays -->
-		<switch name="/systems/electrical/relay/ext-ac-gen-l/command-pos">
-			<default value="0"/>
-			<test value="1">
-				/controls/electrical/switches/ext-pwr-l eq 1
-			</test>
-		</switch>
-		
 		<switch name="/systems/electrical/relay/ext-ac-gen-l/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1"> <!-- Priority: IDG, APU -->
-				/systems/electrical/relay/ext-ac-gen-l/command-pos eq 1
+				/controls/electrical/switches/ext-pwr-l eq 1
 				/systems/electrical/relay/idg-ac-gen-l/contact-pos ne 1
 				/systems/electrical/relay/apu-ac-gen-l/contact-pos ne 1
 				/systems/electrical/sources/ext/output-volt ge 112
@@ -585,17 +550,10 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/electrical/relay/ext-ac-gen-r/command-pos">
-			<default value="0"/>
-			<test value="1">
-				/controls/electrical/switches/ext-pwr-r eq 1
-			</test>
-		</switch>
-		
 		<switch name="/systems/electrical/relay/ext-ac-gen-r/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1"> <!-- Priority: IDG, APU -->
-				/systems/electrical/relay/ext-ac-gen-r/command-pos eq 1
+				/controls/electrical/switches/ext-pwr-r eq 1
 				/systems/electrical/relay/idg-ac-gen-r/contact-pos ne 1
 				/systems/electrical/relay/apu-ac-gen-r/contact-pos ne 1
 				/systems/electrical/sources/ext/output-volt ge 112
