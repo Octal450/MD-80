@@ -88,7 +88,7 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Eng 1 Generator</label>
+				<label>Eng L Generator</label>
 				<halign>left</halign>
 				<property>/systems/failures/electrical/gen-l</property>
 				<binding>
@@ -98,7 +98,7 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Eng 2 Generator</label>
+				<label>Eng R Generator</label>
 				<halign>left</halign>
 				<property>/systems/failures/electrical/gen-r</property>
 				<binding>
@@ -152,7 +152,7 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Bleed Eng 1</label>
+				<label>Bleed Eng L</label>
 				<halign>left</halign>
 				<property>/systems/failures/pneumatics/bleed-l</property>
 				<binding>
@@ -162,7 +162,7 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Bleed Eng 2</label>
+				<label>Bleed Eng R</label>
 				<halign>left</halign>
 				<property>/systems/failures/pneumatics/bleed-r</property>
 				<binding>
