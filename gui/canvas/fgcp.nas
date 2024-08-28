@@ -125,11 +125,7 @@ var fgcpCanvas = {
 		
 		# Speed Knob
 		me["SpdKnob"].addEventListener("click", func(e) {
-			if (e.shiftKey or e.button == 1) {
-				cockpit.ApPanel.spdPull();
-			} else if (e.button == 0) {
-				cockpit.ApPanel.spdPush();
-			}
+			cockpit.ApPanel.spdPush();
 		});
 		me["SpdKnob"].addEventListener("wheel", func(e) {
 			if (e.shiftKey) {
