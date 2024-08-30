@@ -145,9 +145,6 @@ var UpdateFma = {
 			Fma.pitchA.setValue("G/S");
 			me.gsUpdate();
 			gsUpdateT.start();
-		} else if (me.vertText == "FPA") {
-			Fma.pitchA.setValue("");
-			Fma.pitchB.setValue("");
 		} else if (me.vertText == "LAND") {
 			Fma.pitchA.setValue("AUT");
 			Fma.pitchB.setValue("LND");
