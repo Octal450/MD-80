@@ -270,7 +270,7 @@ var IGNITION = {
 };
 
 # Platform (AHRS and IRS)
-var Platform = {
+var PLATFORM = {
 	Unit: {
 		aligned: [props.globals.getNode("/systems/platform[0]/aligned"), props.globals.getNode("/systems/platform[1]/aligned")],
 	},
