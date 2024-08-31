@@ -365,9 +365,9 @@ var PANEL = {
 		systems.ELEC.Switch.groundCart.setBoolValue(1); # autoConfigRunning cancels disable check in libraries.nas
 		systems.ELEC.Switch.extPwrL.setBoolValue(1);
 		systems.ELEC.Switch.extPwrR.setBoolValue(1);
-		pts.Controls.Switches.seatbeltSign.setBoolValue(1);
 		pts.Controls.Lighting.beacon.setBoolValue(1);
 		pts.Controls.Lighting.positionStrobeLight.setValue(0.5);
+		pts.Controls.Switches.seatbeltSign.setBoolValue(1);
 		systems.FUEL.Switch.pumpAftL.setBoolValue(1);
 		systems.FUEL.Switch.pumpAftR.setBoolValue(1);
 		systems.FUEL.Switch.pumpFwdL.setBoolValue(1);
