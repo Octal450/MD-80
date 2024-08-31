@@ -74,25 +74,6 @@ var Fdm = {
 			alphaDegDamped: props.globals.getNode("/fdm/jsbsim/aero/alpha-deg-damped"),
 			alphaDegDampedPli: props.globals.getNode("/fdm/jsbsim/aero/alpha-deg-damped-pli"),
 		},
-		Dfgs: {
-			nlgTimer5: {
-				wowTimer: props.globals.getNode("/fdm/jsbsim/dfgs/nlg-timer-5/wow-timer"),
-			},
-			powerAvail: props.globals.getNode("/fdm/jsbsim/dfgs/power-avail"),
-			powerAvailTemp: 0,
-			Speeds: {
-				vmaxType: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmax-type"),
-				vmax: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmax"),
-				vmaxMach: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmax-mach"),
-				vmin: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin"),
-				vmin90Percent: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin-90-percent"),
-				vminMach: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin-mach"),
-			},
-			stallAlphaDeg: props.globals.getNode("/fdm/jsbsim/dfgs/stall-alpha-deg"),
-			StickPusher: {
-				active: props.globals.getNode("/fdm/jsbsim/dfgs/stick-pusher/active"),
-			},
-		},
 		Engine: {
 			atsCmdRawPid: props.globals.initNode("/fdm/jsbsim/engine/ats-cmd-raw-pid", 0, "DOUBLE"),
 			Limit: {

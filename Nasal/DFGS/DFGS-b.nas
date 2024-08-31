@@ -1,6 +1,28 @@
 # McDonnell Douglas MD-80 DFGS Interface
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
+var Main = {
+	nlgTimer5: {
+		wowTimer: props.globals.getNode("/fdm/jsbsim/dfgs/nlg-timer-5/wow-timer"),
+	},
+	powerAvail: props.globals.getNode("/fdm/jsbsim/dfgs/power-avail"),
+	powerAvailTemp: 0,
+	stallAlphaDeg: props.globals.getNode("/fdm/jsbsim/dfgs/stall-alpha-deg"),
+	StickPusher: {
+		active: props.globals.getNode("/fdm/jsbsim/dfgs/stick-pusher/active"),
+	},
+};
+
+var Speeds = {
+	vmaxType: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmax-type"),
+	vmax: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmax"),
+	vmaxMach: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmax-mach"),
+	vmin: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin"),
+	vmin90Percent: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin-90-percent"),
+	vminMach: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin-mach"),
+	vmoMmo: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmo-mmo"),
+};
+
 var Fma = {
 	armA: props.globals.initNode("/instrumentation/fma/arm-mode-a", "", "STRING"),
 	armB: props.globals.initNode("/instrumentation/fma/arm-mode-b", "", "STRING"),
@@ -44,7 +66,7 @@ var Fma = {
 		
 		Output.vertTemp = Output.vert.getValue();
 		if (Output.vertTemp != 4 and Output.vertTemp != 7 and !pts.Fdm.JSBsim.Position.wow.getBoolValue()) {
-			if (Velocities.indicatedAirspeedKt.getValue() <= pts.Fdm.JSBsim.Dfgs.Speeds.vmin90Percent.getValue()) {
+			if (Velocities.indicatedAirspeedKt.getValue() <= Speeds.vmin90Percent.getValue()) {
 				me.spdLow = 1;
 			} else {
 				me.spdLow = 0;
@@ -315,15 +337,15 @@ var Athr = {
 	modeZeroCheck: func() {
 		me.atsCmdRawPid = pts.Fdm.JSBsim.Engine.atsCmdRawPid.getValue();
 		me.ktsMach = Input.ktsMach.getBoolValue();
-		if (Input.mach.getValue() < pts.Fdm.JSBsim.Dfgs.Speeds.vminMach.getValue() and me.ktsMach) {
+		if (Input.mach.getValue() < Speeds.vminMach.getValue() and me.ktsMach) {
 			Fma.thrA.setValue("ALFA");
 			Fma.thrB.setValue("SPD");
-		} else if (Input.kts.getValue() < pts.Fdm.JSBsim.Dfgs.Speeds.vmin.getValue() and !me.ktsMach) {
+		} else if (Input.kts.getValue() < Speeds.vmin.getValue() and !me.ktsMach) {
 			Fma.thrA.setValue("ALFA");
 			Fma.thrB.setValue("SPD");
-		} else if (Input.mach.getValue() > pts.Fdm.JSBsim.Dfgs.Speeds.vmaxMach.getValue() and me.ktsMach) {
+		} else if (Input.mach.getValue() > Speeds.vmaxMach.getValue() and me.ktsMach) {
 			me.setVmaxCheckFma();
-		} else if (Input.kts.getValue() > pts.Fdm.JSBsim.Dfgs.Speeds.vmax.getValue() and !me.ktsMach) {
+		} else if (Input.kts.getValue() > Speeds.vmax.getValue() and !me.ktsMach) {
 			me.setVmaxCheckFma();
 		} else if (me.atsCmdRawPid >= systems.THRLIM.Control.atsMax[0].getValue() - 0.005 or me.atsCmdRawPid >= systems.THRLIM.Control.atsMax[1].getValue() - 0.005) {
 			if (me.ktsMach) {
@@ -346,7 +368,7 @@ var Athr = {
 		}
 	},
 	setVmaxCheckFma: func() {
-		me.vmaxTypeTemp = pts.Fdm.JSBsim.Dfgs.Speeds.vmaxType.getValue();
+		me.vmaxTypeTemp = Speeds.vmaxType.getValue();
 		if (me.vmaxTypeTemp == 0) {
 			Fma.thrA.setValue("VMO");
 			Fma.thrB.setValue("LIM");

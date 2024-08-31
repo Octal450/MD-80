@@ -310,7 +310,7 @@ var ITAF = {
 		
 		# Trip system off
 		if (Output.ap1Temp or Output.ap2Temp) { 
-			if (abs(Controls.aileron.getValue()) >= 0.2 or abs(Controls.elevator.getValue()) >= 0.2 or pts.Fdm.JSBsim.Dfgs.StickPusher.active.getBoolValue() or pts.Fdm.JSBsim.Aero.alphaDegDamped.getValue() >= pts.Fdm.JSBsim.Dfgs.stallAlphaDeg.getValue()) {
+			if (abs(Controls.aileron.getValue()) >= 0.2 or abs(Controls.elevator.getValue()) >= 0.2 or dfgs.Main.StickPusher.active.getBoolValue() or pts.Fdm.JSBsim.Aero.alphaDegDamped.getValue() >= dfgs.Main.stallAlphaDeg.getValue()) {
 				me.ap1Master(0);
 				me.ap2Master(0);
 			}
@@ -330,15 +330,15 @@ var ITAF = {
 		}
 		
 		# AP Power Warning - when DFGS power cycles, sounds warning
-		pts.Fdm.JSBsim.Dfgs.powerAvailTemp = pts.Fdm.JSBsim.Dfgs.powerAvail.getValue();
-		if (pts.Fdm.JSBsim.Dfgs.powerAvailTemp == 1) {
+		dfgs.Main.powerAvailTemp = dfgs.Main.powerAvail.getBoolValue();
+		if (dfgs.Main.powerAvailTemp) {
 			if (acconfig.SYSTEM.autoConfigRunning.getBoolValue()) { # Don't do it during autoconfig
 				Sound.enablePowerApOff = 0;
 			} else if (Sound.enablePowerApOff) {
 				Sound.apOffSingle.setBoolValue(1);
 				Sound.enablePowerApOff = 0;
 			}
-		} else if (pts.Fdm.JSBsim.Dfgs.powerAvailTemp == 0) {
+		} else if (!dfgs.Main.powerAvailTemp) {
 			Sound.enablePowerApOff = 1;
 			Sound.apOffSingle.setBoolValue(0);
 		}
@@ -439,7 +439,7 @@ var ITAF = {
 						me.updateLatText("RLOU");
 						me.updateVertText("ROLLOUT");
 					} else {
-						if (pts.Fdm.JSBsim.Dfgs.nlgTimer5.wowTimer.getValue() == 1 and (Output.ap1Temp == 1 or Output.ap2Temp == 1)) { # Trip off after 5 seconds
+						if (dfgs.Main.nlgTimer5.wowTimer.getValue() == 1 and (Output.ap1Temp == 1 or Output.ap2Temp == 1)) { # Trip off after 5 seconds
 							me.ap1Master(0);
 							me.ap2Master(0);
 						}
