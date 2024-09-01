@@ -306,7 +306,7 @@ setlistener("/instrumentation/nav[1]/nav-loc", func() {
 }, 0, 0);
 
 setlistener("/it-autoflight/input/alt-armed", func() {
-	UpdateFma.altArm();
+	UpdateFma.arm();
 }, 0, 0);
 
 # Seperated the Autothrottle from ITAF because its very different from ITAF Core. So we do it here!
