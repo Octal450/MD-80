@@ -211,6 +211,7 @@
 			<test logic="AND" value="dfgs/speeds/mmo-kts">
 				dfgs/speeds/mmo-kts lt dfgs/speeds/vmo
 				position/wow eq 0
+				/sim/time/elapsed-sec gt 0
 			</test>
 		</switch>
 		
@@ -235,6 +236,7 @@
 			<test logic="AND" value="dfgs/speeds/flap-slat-max-mach-kts">
 				dfgs/speeds/mmo-kts lt 280
 				position/wow eq 0
+				/sim/time/elapsed-sec gt 0
 			</test>
 		</switch>
 		
@@ -243,6 +245,7 @@
 			<test logic="AND" value="dfgs/speeds/flap-slat-max-mach-kts">
 				dfgs/speeds/mmo-kts lt 240
 				position/wow eq 0
+				/sim/time/elapsed-sec gt 0
 			</test>
 		</switch>
 		
@@ -251,6 +254,7 @@
 			<test logic="AND" value="dfgs/speeds/flap-slat-max-mach-kts">
 				dfgs/speeds/mmo-kts lt 185
 				position/wow eq 0
+				/sim/time/elapsed-sec gt 0
 			</test>
 		</switch>
 		
