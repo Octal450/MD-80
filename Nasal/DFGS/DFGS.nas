@@ -171,6 +171,7 @@ var Internal = {
 	navCourseTrackErrorDeg: [props.globals.initNode("/it-autoflight/internal/nav1-course-track-error-deg", 0, "DOUBLE"), props.globals.initNode("/it-autoflight/internal/nav2-course-track-error-deg", 0, "DOUBLE")],
 	navHeadingErrorDeg: [props.globals.initNode("/it-autoflight/internal/nav1-heading-error-deg", 0, "DOUBLE"), props.globals.initNode("/it-autoflight/internal/nav2-heading-error-deg", 0, "DOUBLE")],
 	navHeadingErrorDegTemp: [0, 0],
+	syncedAlt: 0,
 	takeoffHdg: props.globals.initNode("/it-autoflight/internal/takeoff-hdg", 0, "INT"),
 	takeoffLvl: props.globals.initNode("/it-autoflight/internal/takeoff-lvl", 1, "BOOL"),
 	togaKts: props.globals.initNode("/it-autoflight/internal/toga-kts", 150, "INT"),
@@ -540,6 +541,13 @@ var ITAF = {
 				me.resetClimbRateLim();
 				me.updateVertText("ALT HLD");
 			}
+		}
+		
+		# Synced Logic - Make sure Temp is refreshed when you compare here
+		if (Input.altTemp == Internal.altTemp) { # Internal.altTemp is already updated after the syncing logic sets it
+			Internal.syncedAlt = 1;
+		} else {
+			Internal.syncedAlt = 0;
 		}
 		
 		# Bank Limits
