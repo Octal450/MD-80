@@ -791,7 +791,7 @@
 			<test value="40">
 				/controls/flight/flaps-input eq 5
 			</test>
-			<output>dfgs/flaps-cmd</output>
+			<output>dfgs/flaps-cmd-feedback</output>
 		</switch>
 		
 		<switch name="/controls/flight/slats-cmd">

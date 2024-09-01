@@ -5,7 +5,7 @@
 
 <system name="MD-80: DFGS">
 	
-	<property value="0">dfgs/flaps-cmd</property>
+	<property value="0">dfgs/flaps-cmd-feedback</property>
 	<property value="340">dfgs/speeds/vmo</property>
 	<property value="0">engine/throttle-lever-feedback[0]</property>
 	<property value="0">engine/throttle-lever-feedback[1]</property>
@@ -575,8 +575,8 @@
 				aero/alpha-deg-damped ge dfgs/stall-appr-alpha-deg
 				position/wow eq 0
 				/instrumentation/airspeed-indicator/indicated-speed-kt le dfgs/speeds/flap-15-slat-full-max-kts
-				dfgs/flaps-cmd ge 1
-				dfgs/flaps-cmd lt 14
+				dfgs/flaps-cmd-feedback ge 1
+				dfgs/flaps-cmd-feedback lt 14
 			</test>
 		</switch>
 	
