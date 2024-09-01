@@ -39,6 +39,7 @@ var Fma = {
 	},
 	loop: func() {
 		me.Blink.elapsed = pts.Sim.Time.elapsedSec.getValue();
+		
 		if (me.Blink.elapsed <= me.Blink.time[0] + 5) {
 			if (Output.athr.getBoolValue()) {
 				canvas_fma.Value.blinkActive[0] = 1;
