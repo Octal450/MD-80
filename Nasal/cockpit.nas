@@ -201,6 +201,7 @@ var ApPanel = {
 				}
 			} else if (me.vertTemp == 4) {
 				if (dfgs.Input.ktsMachFlch.getBoolValue()) {
+					if (abs(d) > 1) d = d / 2;
 					me.machFlchTemp = math.round(dfgs.Input.machFlch.getValue() + (d * -0.002), (abs(d * 0.002))); # Kill floating point error
 					if (me.machFlchTemp < 0.50) {
 						dfgs.Input.machFlch.setValue(0.50);
