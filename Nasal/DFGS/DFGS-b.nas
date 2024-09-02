@@ -1,4 +1,4 @@
-# McDonnell Douglas MD-80 DFGS Interface
+# McDonnell Douglas MD-80 DFGS
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
 var Main = {
