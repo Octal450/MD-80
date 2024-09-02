@@ -76,16 +76,16 @@ var Fma = {
 			me.spdLow = 0;
 		}
 	},
-	startBlink: func(w) { # 0 THR, 1 ARM, 2 ROLL, 3 PITCH
-		if (w == 0 and !Output.athr.getBoolValue()) return;
-		me.Blink.time[w] = pts.Sim.Time.elapsedSec.getValue();
+	startBlink: func(window) { # 0 THR, 1 ARM, 2 ROLL, 3 PITCH
+		if (window == 0 and !Output.athr.getBoolValue()) return;
+		me.Blink.time[window] = pts.Sim.Time.elapsedSec.getValue();
 	},
-	startLongBlink: func(w) { # 0 THR, 1 ARM, 2 ROLL, 3 PITCH
-		if (w == 0 and !Output.athr.getBoolValue()) return;
-		me.Blink.time[w] = 1000000000; # Really really long!
+	startLongBlink: func(window) { # 0 THR, 1 ARM, 2 ROLL, 3 PITCH
+		if (window == 0 and !Output.athr.getBoolValue()) return;
+		me.Blink.time[window] = 1000000000; # Really really long!
 	},
-	stopBlink: func(w) {
-		me.Blink.time[w] = -5;
+	stopBlink: func(window) {
+		me.Blink.time[window] = -5;
 	},
 };
 
