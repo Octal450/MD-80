@@ -40,6 +40,7 @@ var DUController = {
 				me.PwrSource.acRadioR = systems.ELEC.Bus.acRadioR.getValue();
 				me.PwrSource.emerAc = systems.ELEC.Bus.emerAc.getValue();
 				
+				# Emer AC
 				if (me.PwrSource.emerAc >= 112 and pts.Instrumentation.Du.pfdDimmer[0].getValue() > 0.01) {
 					if (!me.updatePfd1) {
 						me.updatePfd1 = 1;
@@ -65,6 +66,7 @@ var DUController = {
 					}
 				}
 				
+				# AC Radio R
 				if (me.PwrSource.acRadioR >= 112 and pts.Instrumentation.Du.pfdDimmer[1].getValue() > 0.01) {
 					if (!me.updatePfd2) {
 						me.updatePfd2 = 1;
