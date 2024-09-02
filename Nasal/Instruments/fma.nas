@@ -144,9 +144,9 @@ var canvasBase = {
 			thrR.page.hide();
 		}
 	},
-	updateCommon: func(w) { # w is window, 0 thrust, 1 arm, 2 roll, 3 pitch
+	updateCommon: func(window) { # w is window, 0 thrust, 1 arm, 2 roll, 3 pitch
 		if (Value.annunTest) { # Stays active for 5 seconds
-			if (w == 1 or w == 2) {
+			if (window == 1 or window == 2) {
 				me["Line1"].setText("###");
 				me["Line2"].setText("###");
 			} else {
@@ -154,23 +154,23 @@ var canvasBase = {
 				me["Line2"].setText("####");
 			}
 		} else {
-			if (Value.blinkActive[w] and Value.blink < 2) {
+			if (Value.blinkActive[window] and Value.blink < 2) {
 				me["Line1"].setText("");
 				me["Line2"].setText("");
 			} else {
-				if (w == 3 and dfgs.Fma.spdLow and Value.blink < 2) {
+				if (window == 3 and dfgs.Fma.spdLow and Value.blink < 2) {
 					me["Line1"].setText("SPD");
 					me["Line2"].setText("LOW");
-				} else if (w == 3 and dfgs.Output.vert.getValue() == 1 and abs(dfgs.Input.vs.getValue()) < 50) {
+				} else if (window == 3 and dfgs.Output.vert.getValue() == 1 and abs(dfgs.Input.vs.getValue()) < 50) {
 					me["Line1"].setText("ALT");
 					me["Line2"].setText("HLD");
 				} else {
-					me["Line1"].setText(Modes.Line1[w].getValue());
-					Value.line2 = Modes.Line2[w].getValue();
+					me["Line1"].setText(Modes.Line1[window].getValue());
+					Value.line2 = Modes.Line2[window].getValue();
 					
-					if (w == 0 and Value.line2 == "FLX") { # For THR window Flex Temp
+					if (window == 0 and Value.line2 == "FLX") { # For THR window Flex Temp
 						me["Line2"].setText(sprintf("%02d", systems.THRLIM.Limit.flexTemp.getValue()));
-					} else if (w == 1 and Value.line2 == "ALT" and pts.Systems.Acconfig.Options.armedAltAsFl.getBoolValue()) { # For ARM window Altitude as Flight Level
+					} else if (window == 1 and Value.line2 == "ALT" and pts.Systems.Acconfig.Options.armedAltAsFl.getBoolValue()) { # For ARM window Altitude as Flight Level
 						Value.altStr = sprintf("%d", math.round(dfgs.Input.alt.getValue() / 100));
 						if (int(Value.altStr) < 10) {
 							Value.altStr = "==" ~ Value.altStr;
