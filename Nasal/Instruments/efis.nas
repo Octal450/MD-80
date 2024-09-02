@@ -1,4 +1,4 @@
-# MD-80 EFIS Controller
+# McDonnell Douglas MD-80 EFIS Controller
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
 var EFIS = {
