@@ -25,6 +25,7 @@ var Modes = { # 0 thrust, 1 arm, 2 roll, 3 pitch
 
 var Value = {
 	activeModeInt: 0,
+	altStr: "",
 	annunTest: 0,
 	apOn: 0,
 	atsOn: 0,
@@ -170,7 +171,14 @@ var canvasBase = {
 					if (w == 0 and Value.line2 == "FLX") { # For THR window Flex Temp
 						me["Line2"].setText(sprintf("%02d", systems.THRLIM.Limit.flexTemp.getValue()));
 					} else if (w == 1 and Value.line2 == "ALT" and pts.Systems.Acconfig.Options.armedAltAsFl.getBoolValue()) { # For ARM window Altitude as Flight Level
-						me["Line2"].setText(sprintf("%03d", math.round(dfgs.Input.alt.getValue() / 100)));
+						Value.altStr = sprintf("%d", math.round(dfgs.Input.alt.getValue() / 100));
+						if (int(Value.altStr) < 10) {
+							Value.altStr = "==" ~ Value.altStr;
+						} else if (int(Value.altStr) < 100) {
+							Value.altStr = "=" ~ Value.altStr;
+						}
+						
+						me["Line2"].setText(Value.altStr);
 					} else {
 						me["Line2"].setText(Value.line2);
 					}
