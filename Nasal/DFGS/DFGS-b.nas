@@ -338,13 +338,13 @@ var Athr = {
 	modeZeroCheck: func() {
 		me.atsCmdRawPid = pts.Fdm.JSBsim.Engine.atsCmdRawPid.getValue();
 		me.ktsMach = Input.ktsMach.getBoolValue();
-		if (Input.mach.getValue() < Speeds.vminMach.getValue() and me.ktsMach) {
+		if (Input.mach.getValue() < Speeds.vminMach.getValue() - 0.0000001 and me.ktsMach) {
 			Fma.thrA.setValue("ALFA");
 			Fma.thrB.setValue("SPD");
 		} else if (Input.kts.getValue() < Speeds.vmin.getValue() and !me.ktsMach) {
 			Fma.thrA.setValue("ALFA");
 			Fma.thrB.setValue("SPD");
-		} else if (Input.mach.getValue() > Speeds.vmaxMach.getValue() and me.ktsMach) {
+		} else if (Input.mach.getValue() > Speeds.vmaxMach.getValue() + 0.0000001 and me.ktsMach) {
 			me.setVmaxCheckFma();
 		} else if (Input.kts.getValue() > Speeds.vmax.getValue() and !me.ktsMach) {
 			me.setVmaxCheckFma();
