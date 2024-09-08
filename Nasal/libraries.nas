@@ -49,12 +49,7 @@ var fdmInit = setlistener("/sim/signals/fdm-initialized", func() {
 var systemsLoop = maketimer(0.1, func() {
 	systems.DUController.loop();
 	systems.THRLIM.loop();
-	
-	if (pts.Velocities.groundspeedKt.getValue() >= 15) {
-		pts.Systems.Shake.effect.setBoolValue(1);
-	} else {
-		pts.Systems.Shake.effect.setBoolValue(0);
-	}
+	SHAKE.loop();
 	
 	pts.Services.Chocks.enableTemp = pts.Services.Chocks.enable.getBoolValue();
 	pts.Velocities.groundspeedKtTemp = pts.Velocities.groundspeedKt.getValue();
@@ -371,6 +366,36 @@ setlistener("/controls/flight/auto-coordination", func() {
 # Aircraft Lighting
 var beacon = aircraft.light.new("/sim/model/lights/beacon", [0.15, 1.35], "/fdm/jsbsim/exterior-lights/beacon");
 var strobe = aircraft.light.new("/sim/model/lights/strobe", [0.2, 1], "/fdm/jsbsim/exterior-lights/strobe-light");
+
+# Shaking Logic
+var SHAKE = {
+	force: 0,
+	rollspeedMs: [0, 0, 0],
+	wow: [0, 0, 0],
+	loop: func() {
+		me.rollspeedMs[0] = pts.Gear.rollspeedMs[0].getValue();
+		me.rollspeedMs[1] = pts.Gear.rollspeedMs[1].getValue();
+		me.rollspeedMs[2] = pts.Gear.rollspeedMs[2].getValue();
+		me.wow[0] = pts.Gear.wow[0].getBoolValue();
+		me.wow[1] = pts.Gear.wow[1].getBoolValue();
+		me.wow[2] = pts.Gear.wow[2].getBoolValue();
+		
+		if (pts.Velocities.groundspeedKt.getValue() >= 1 and (me.wow[0] or me.wow[1] or me.wow[2])) {
+			if (me.wow[0]) {
+				me.force = me.rollspeedMs[0] / 94000;
+			} else {
+				me.force = math.max(me.rollspeedMs[1], me.rollspeedMs[2]) / 188000;
+			}
+			
+			interpolate(pts.Systems.Shake.shaking, 0, 0.03);
+			settimer(func() {
+				interpolate(pts.Systems.Shake.shaking, me.force * 1.5, 0.03); 
+			}, 0.5);
+		} else {
+			pts.Systems.Shake.shaking.setBoolValue(0);
+		}	    
+	},
+};
 
 # Sounds
 var Sound = {

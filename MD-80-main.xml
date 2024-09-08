@@ -1584,7 +1584,6 @@
 			<sys-r-qty-input type="double">8</sys-r-qty-input> <!-- Randomized later in sim init -->
 		</hydraulics>
 		<shake n="0">
-			<effect type="bool">0</effect>
 			<shaking type="double">0</shaking>
 		</shake>
 	</systems>
