@@ -448,11 +448,11 @@
 				<property>sim/sound/internal-custom</property>
 			</condition>
 			<volume>
-				<property>/sim/sound/engine/MDA_REV1</property>
+				<property>/sim/sound/engine/MDA_REV</property>
 				<factor>0.7</factor>
 			</volume>
 			<pitch>
-				<property>/sim/sound/enginep/MDA_REV1</property>
+				<property>/sim/sound/enginep/MDA_REV</property>
 			</pitch>
 			<position>
 				<x>33.37</x>
@@ -599,7 +599,7 @@
 			</position>
 		</MDB_WHN>
 		
-		<MDA_REV>
+		<MDB_REV>
 			<name>MD-80 Reverser</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/reverser.wav</path>
 			<mode>looped</mode>
@@ -607,18 +607,18 @@
 				<property>sim/sound/internal-custom</property>
 			</condition>
 			<volume>
-				<property>/sim/sound/engine/MDA_REV2</property>
+				<property>/sim/sound/engine/MDB_REV</property>
 				<factor>0.7</factor>
 			</volume>
 			<pitch>
-				<property>/sim/sound/enginep/MDA_REV2</property>
+				<property>/sim/sound/enginep/MDB_REV</property>
 			</pitch>
 			<position>
 				<x>33.37</x>
 				<y>-2.7</y>
 				<z>0.7</z>
 			</position>
-		</MDA_REV>
+		</MDB_REV>
 		
 		<!-- COMBUSTION/THRUST ENGINE 1 -->
 		

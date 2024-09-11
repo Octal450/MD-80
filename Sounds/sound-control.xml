@@ -216,7 +216,7 @@
 		</expression>
 	</input>
 	<output>
-		<property>/sim/sound/engine/MDA_REV1</property>
+		<property>/sim/sound/engine/MDA_REV</property>
 	</output>
 </filter>
 
@@ -236,7 +236,7 @@
 	</expression>
 	</input>
 	<output>
-		<property>/sim/sound/enginep/MDA_REV1</property>
+		<property>/sim/sound/enginep/MDA_REV</property>
 	</output>
 </filter>
 
@@ -257,7 +257,7 @@
 		</expression>
 	</input>
 	<output>
-		<property>/sim/sound/engine/MDA_REV2</property>
+		<property>/sim/sound/engine/MDB_REV</property>
 	</output>
 </filter>
 
@@ -277,7 +277,7 @@
 	</expression>
 	</input>
 	<output>
-		<property>/sim/sound/enginep/MDA_REV2</property>
+		<property>/sim/sound/enginep/MDB_REV</property>
 	</output>
 </filter>
 
