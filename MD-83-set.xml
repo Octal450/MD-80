@@ -28,9 +28,6 @@
 			</preview>
 		</previews>
 		<primary-set>true</primary-set>
-		<sound>
-			<path>Aircraft/MD-80/Sounds/jt8d-sound.xml</path>
-		</sound>
     </sim>
 	
 	<consumables n="0">
