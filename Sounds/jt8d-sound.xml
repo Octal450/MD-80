@@ -303,7 +303,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_1</property>
-				<factor>0.5</factor>
+				<factor>0.7</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_WHN_1</property>
@@ -324,7 +324,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_2</property>
-				<factor>0.5</factor>
+				<factor>0.7</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_WHN_2</property>
@@ -343,7 +343,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_3</property>
-				<factor>0.5</factor>
+				<factor>0.7</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_WHN_3</property>
@@ -362,7 +362,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_howl</property>
-				<factor>0.3</factor>
+				<factor>0.4</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_howl</property>
@@ -381,7 +381,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_hum_high</property>
-				<factor>0.5</factor>
+				<factor>0.7</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_hum</property>
@@ -408,7 +408,7 @@
 			</volume>
 			<volume>
 				<property>sim/sound/internal-custom</property>
-				<factor>0.5</factor>
+				<factor>0.7</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_WHN_4</property>
@@ -428,7 +428,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_5</property>
-				<factor>0.5</factor>
+				<factor>0.7</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_WHN_5</property>
@@ -449,7 +449,7 @@
 			</condition>
 			<volume>
 				<property>/sim/sound/engine/MDA_REV1</property>
-				<factor>0.5</factor>
+				<factor>0.7</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_REV1</property>
@@ -469,7 +469,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_1</property>
-				<factor>0.5</factor>
+				<factor>0.7</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_WHN_1</property>
@@ -490,7 +490,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_2</property>
-				<factor>0.5</factor>
+				<factor>0.7</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_WHN_2</property>
@@ -509,7 +509,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_3</property>
-				<factor>0.5</factor>
+				<factor>0.7</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_WHN_3</property>
@@ -528,7 +528,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_howl</property>
-				<factor>0.3</factor>
+				<factor>0.4</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_howl</property>
@@ -547,7 +547,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_hum_high</property>
-				<factor>0.5</factor>
+				<factor>0.7</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_hum</property>
@@ -568,7 +568,7 @@
 				<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_4</property>
-				<factor>0.5</factor>
+				<factor>0.7</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_WHN_4</property>
@@ -587,7 +587,7 @@
 				<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_5</property>
-				<factor>0.5</factor>
+				<factor>0.7</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_WHN_5</property>
@@ -608,7 +608,7 @@
 			</condition>
 			<volume>
 				<property>/sim/sound/engine/MDA_REV2</property>
-				<factor>0.5</factor>
+				<factor>0.7</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_REV2</property>
@@ -626,7 +626,7 @@
 			<name>MDA CMB 0</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/rumble.wav</path>
 			<mode>looped</mode>
-				<property>sim/sound/internal-custom</property>
+			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_CMB_1</property>
 				<factor>0.4</factor>
@@ -647,7 +647,7 @@
 			<name>MDB CMB 0</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/rumble.wav</path>
 			<mode>looped</mode>
-			<property>engines/engine[1]/epr</property>
+			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_CMB_1</property>
 				<factor>0.4</factor>
