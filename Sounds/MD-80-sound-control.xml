@@ -649,7 +649,7 @@
 		<input>
 			<expression>
 				<table>
-					<property>/engines/engine[0]/n1-actual</property>
+					<property>/engines/engine[1]/n1-actual</property>
 					<entry><ind>25.3</ind> <dep>0.000</dep></entry>
 					<entry><ind>050</ind> <dep>0.463</dep></entry>
 					<entry><ind>062</ind> <dep>0.360</dep></entry>
