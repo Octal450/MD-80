@@ -399,20 +399,13 @@
 			<name>MDA WHN 4</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/buzz_low.wav</path>
 			<mode>looped</mode>
-			<property>engines/engine[0]/n1</property>
+			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_4</property>
-			</volume>
-			<volume>
-				<property>sim/sound/internal-custom</property>
-			</volume>
-			<volume>
-				<property>sim/sound/internal-custom</property>
 				<factor>0.7</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_WHN_4</property>
-				<offset>0</offset>
 			</pitch>
 			<position>
 				<x>33.37</x>
@@ -441,7 +434,7 @@
 		</MDA_WHN>
 		
 		<MDA_REV>
-			<name>MD-80 Reverser</name>
+			<name>MDA Reverser</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/reverser.wav</path>
 			<mode>looped</mode>
 			<condition>
@@ -565,7 +558,7 @@
 			<name>MDB WHN 4</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/buzz_low.wav</path>
 			<mode>looped</mode>
-				<property>sim/sound/internal-custom</property>
+			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_4</property>
 				<factor>0.7</factor>
@@ -584,7 +577,7 @@
 			<name>MDB WHN 5</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/buzz.wav</path>
 			<mode>looped</mode>
-				<property>sim/sound/internal-custom</property>
+			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_5</property>
 				<factor>0.7</factor>
@@ -600,7 +593,7 @@
 		</MDB_WHN>
 		
 		<MDB_REV>
-			<name>MD-80 Reverser</name>
+			<name>MDB Reverser</name>
 			<path>Aircraft/MD-80/Sounds/SASA/Engines/reverser.wav</path>
 			<mode>looped</mode>
 			<condition>
