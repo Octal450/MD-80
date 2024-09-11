@@ -951,7 +951,7 @@
 			</key>
 			<key n="54">
 				<name>6</name>
-				<desc>AFS Panel/Aileron Right</desc>
+				<desc>Glareshield View/Aileron Right</desc>
 				<binding>
 					<condition>
 						<not><property>/systems/acconfig/options/keyboard-mode</property></not>
