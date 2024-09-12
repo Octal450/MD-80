@@ -245,7 +245,7 @@
 				<product>
 					<table>
 						<property>/velocities/groundspeed-kt</property>
-						<entry><ind>030</ind> <dep>0.0</dep></entry>
+						<entry><ind> 30</ind> <dep>0.0</dep></entry>
 						<entry><ind>200</ind> <dep>0.7</dep></entry>
 						<entry><ind>350</ind> <dep>2.0</dep></entry>
 						<entry><ind>500</ind> <dep>5.0</dep></entry>
