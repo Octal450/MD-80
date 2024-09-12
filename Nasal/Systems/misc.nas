@@ -346,7 +346,7 @@ var THRLIM = {
 		} else if (me.Limit.activeModeIntTemp == 4) {
 			me.Limit.activeMode.setValue("CR ");
 		} else if (me.Limit.activeModeIntTemp == 5) {
-			me.Limit.activeMode.setValue("T/O"); # Check
+			me.Limit.activeMode.setValue("FLX");
 			dfgs.Athr.toCheck();
 		} else if (me.Limit.activeModeIntTemp == 6) {
 			me.Limit.activeMode.setValue("---");

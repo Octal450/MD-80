@@ -428,7 +428,7 @@ var Athr = {
 		}
 	},
 	limitChanged: func(l, c) {
-		if (l == "T/O" and c != "T/O") { # If last mode was T/O, and the new mode is not T/O, set EPR Lim
+		if ((l == "T/O" or l == "FLX") and (c != "T/O" and c != "FLX")) { # If last mode was T/O or FLX, and the new mode is not T/O or FLX, set EPR Lim
 			me.setMode(2);
 		}
 		UpdateFma.thr();
