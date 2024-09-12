@@ -225,8 +225,9 @@
 			<cockpit type="int">4</cockpit>
 			<model type="int">4</model>
 		</rating>
-		<sound>
+		<sound n="0">
 			<path>Aircraft/MD-80/Sounds/sound.xml</path>
+			<suppress-warning type="bool">1</suppress-warning>
 		</sound>
 		<startup>
 			<splash-texture>Aircraft/MD-80/gui/splash/MD-80.png</splash-texture>
