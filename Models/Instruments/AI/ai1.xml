@@ -6,6 +6,11 @@
 	
 	<path>ai.ac</path>
 	
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>HorizonInnerShadow</object-name>
+	</effect>
+	
 	<animation>
 		<type>material</type>
 		<object-name>LightingGroup</object-name>
