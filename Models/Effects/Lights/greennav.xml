@@ -7,6 +7,11 @@
 	<path>greennav.ac</path>
 	<nopreview/>
 	
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>Light</object-name>
+	</effect>
+	
 	<animation>
 		<type>noshadow</type>
 		<object-name>green-navlightals</object-name>
