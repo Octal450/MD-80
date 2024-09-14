@@ -1,7 +1,7 @@
 AC3Db
 MATERIAL "ac3dmat1" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 64  trans 0
 MATERIAL "ac3dmat1" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 64  trans 0
-MATERIAL "ac3dmat1" rgb 0 0 0  amb 0 0 0  emis 1 1 1  spec 0 0 0  shi 64  trans 0
+MATERIAL "ac3dmat1" rgb 1 1 1  amb 0 0 0  emis 1 1 1  spec 0 0 0  shi 64  trans 0
 OBJECT world
 kids 7
 OBJECT poly
