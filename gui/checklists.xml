@@ -249,6 +249,10 @@
 				<value>SET, ARMED</value>
 			</item>
 			<item>
+				<name>BANK LIMIT</name>
+				<value>15 DEG</value>
+			</item>
+			<item>
 				<name>IGNITION</name>
 				<value>OVRD</value>
 			</item>

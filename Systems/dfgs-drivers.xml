@@ -364,14 +364,31 @@
 		<input>
 			<condition>
 				<equals>
-					<property>/it-autoflight/output/vert</property>
-					<value>7</value>
+					<property>/it-autoflight/mode/vert</property>
+					<value>T/O CLB</value>
 				</equals>
 			</condition>
 			<expression>
 				<product>
 					<difference>
 						<property>/fdm/jsbsim/dfgs/speeds/v2-plus-10</property>
+						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+					</difference>
+					<value>0.1</value>
+				</product>
+			</expression>
+		</input>
+		<input>
+			<condition>
+				<equals>
+					<property>/it-autoflight/mode/vert</property>
+					<value>G/A CLB</value>
+				</equals>
+			</condition>
+			<expression>
+				<product>
+					<difference>
+						<property>/fdm/jsbsim/dfgs/speeds/vmin-plus-5</property>
 						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
 					</difference>
 					<value>0.1</value>
@@ -1146,11 +1163,20 @@
 		<input>
 			<condition>
 				<equals>
-					<property>/it-autoflight/output/vert</property>
-					<value>7</value>
+					<property>/it-autoflight/mode/vert</property>
+					<value>T/O CLB</value>
 				</equals>
 			</condition>
 			<property>/fdm/jsbsim/dfgs/speeds/v2-plus-10</property>
+		</input>
+		<input>
+			<condition>
+				<equals>
+					<property>/it-autoflight/mode/vert</property>
+					<value>G/A CLB</value>
+				</equals>
+			</condition>
+			<property>/fdm/jsbsim/dfgs/speeds/vmin-plus-5</property>
 		</input>
 		<input>
 			<condition>
@@ -1203,15 +1229,6 @@
 		</input>
 		<input>/it-autoflight/input/kts</input>
 		<output>/it-autoflight/output/fast-slow-input</output>
-		<min>
-			<condition>
-				<equals>
-					<property>/it-autoflight/output/vert</property>
-					<value>7</value>
-				</equals>
-			</condition>
-			<property>/fdm/jsbsim/dfgs/speeds/v2-plus-10</property>
-		</min>
 		<min>/fdm/jsbsim/dfgs/speeds/vmin</min>
 		<max>/fdm/jsbsim/dfgs/speeds/vmax</max>
 	</filter>

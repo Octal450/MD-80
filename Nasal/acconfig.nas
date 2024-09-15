@@ -429,6 +429,7 @@ var PANEL = {
 						if (t == 1) {
 							systems.BRAKES.Switch.abs.setValue(-1); # T/O
 							systems.BRAKES.Switch.arm.setBoolValue(1);
+							dfgs.Input.bankLimitSw.setValue(1); # 15
 							dfgs.Input.toga.setValue(1);
 						}
 					}
