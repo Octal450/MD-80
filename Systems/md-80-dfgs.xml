@@ -371,7 +371,7 @@
 		<switch name="dfgs/speeds/flap-11-slat-mid-max-kts">
 			<default value="280"/>
 			<test logic="AND" value="dfgs/speeds/flap-slat-max-mach-kts">
-				dfgs/speeds/mmo-kts lt 280
+				dfgs/speeds/flap-slat-max-mach-kts lt 280
 				position/wow eq 0
 				/sim/time/elapsed-sec gt 0
 			</test>
@@ -380,7 +380,7 @@
 		<switch name="dfgs/speeds/flap-15-slat-full-max-kts">
 			<default value="240"/>
 			<test logic="AND" value="dfgs/speeds/flap-slat-max-mach-kts">
-				dfgs/speeds/mmo-kts lt 240
+				dfgs/speeds/flap-slat-max-mach-kts lt 240
 				position/wow eq 0
 				/sim/time/elapsed-sec gt 0
 			</test>
@@ -389,7 +389,7 @@
 		<switch name="dfgs/speeds/flap-28-40-max-kts">
 			<default value="185"/>
 			<test logic="AND" value="dfgs/speeds/flap-slat-max-mach-kts">
-				dfgs/speeds/mmo-kts lt 185
+				dfgs/speeds/flap-slat-max-mach-kts lt 185
 				position/wow eq 0
 				/sim/time/elapsed-sec gt 0
 			</test>
