@@ -176,13 +176,19 @@
 			</function>
 		</fcs_function>
 		
+		<fcs_function name="/systems/pneumatics/bleed-l-psi-pre-cmd">
+			<function>
+				<max>
+					<property>/systems/pneumatics/eng-l-psi</property>
+					<property>/systems/pneumatics/total-l-x-bleed-psi</property>
+				</max>
+			</function>
+		</fcs_function>
+		
 		<fcs_function name="/systems/pneumatics/bleed-l-psi-cmd">
 			<function>
 				<sum>
-					<max>
-						<property>/systems/pneumatics/eng-l-psi</property>
-						<property>/systems/pneumatics/total-l-x-bleed-psi</property>
-					</max>
+					<property>/systems/pneumatics/bleed-l-psi-pre-cmd</property>
 					<min>
 						<property>/systems/pneumatics/pack-l-delta-psi</property>
 						<product>
@@ -223,13 +229,19 @@
 			</function>
 		</fcs_function>
 		
+		<fcs_function name="/systems/pneumatics/bleed-r-psi-pre-cmd">
+			<function>
+				<max>
+					<property>/systems/pneumatics/eng-r-psi</property>
+					<property>/systems/pneumatics/total-r-x-bleed-psi</property>
+				</max>
+			</function>
+		</fcs_function>
+		
 		<fcs_function name="/systems/pneumatics/bleed-r-psi-cmd">
 			<function>
 				<sum>
-					<max>
-						<property>/systems/pneumatics/eng-r-psi</property>
-						<property>/systems/pneumatics/total-r-x-bleed-psi</property>
-					</max>
+					<property>/systems/pneumatics/bleed-r-psi-pre-cmd</property>
 					<min>
 						<property>/systems/pneumatics/pack-r-delta-psi</property>
 						<product>
@@ -266,7 +278,7 @@
 						</nq>
 					</and>
 					<table>
-						<independentVar lookup="row">/systems/pneumatics/bleed-l-psi-cmd</independentVar>
+						<independentVar lookup="row">/systems/pneumatics/bleed-l-psi-pre-cmd</independentVar>
 						<tableData>
 							10   0
 							16 -12
@@ -334,7 +346,7 @@
 						</nq>
 					</and>
 					<table>
-						<independentVar lookup="row">/systems/pneumatics/bleed-r-psi-cmd</independentVar>
+						<independentVar lookup="row">/systems/pneumatics/bleed-r-psi-pre-cmd</independentVar>
 						<tableData>
 							10   0
 							16 -12
