@@ -66,7 +66,7 @@ var Fma = {
 		}
 		
 		Output.vertTemp = Output.vert.getValue();
-		if (Output.vertTemp != 4 and Output.vertTemp != 7 and !pts.Fdm.JSBsim.Position.wow.getBoolValue()) {
+		if (Output.vertTemp != 4 and Output.vertTemp != 7 and !pts.Fdm.JSBSim.Position.wow.getBoolValue()) {
 			if (Velocities.indicatedAirspeedKt.getValue() <= Speeds.vmin90Percent.getValue()) {
 				me.spdLow = 1;
 			} else {
@@ -336,7 +336,7 @@ var Athr = {
 		}
 	},
 	modeZeroCheck: func() {
-		me.atsCmdRawPid = pts.Fdm.JSBsim.Engine.atsCmdRawPid.getValue();
+		me.atsCmdRawPid = pts.Fdm.JSBSim.Engine.atsCmdRawPid.getValue();
 		me.ktsMach = Input.ktsMach.getBoolValue();
 		if (Input.mach.getValue() < Speeds.vminMach.getValue() - 0.0000001 and me.ktsMach) {
 			Fma.thrA.setValue("ALFA");
@@ -397,7 +397,7 @@ var Athr = {
 	},
 	toCheck: func() {
 		if (Text.vert.getValue() == "T/O CLB") {
-			if (pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() < 60 and pts.Fdm.JSBsim.Position.wow.getBoolValue()) {
+			if (pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() < 60 and pts.Fdm.JSBSim.Position.wow.getBoolValue()) {
 				if (Output.thrMode.getValue() != 2) {
 					Fma.stopBlink(0);
 					Output.thrMode.setValue(2);

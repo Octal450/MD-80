@@ -17,14 +17,14 @@ var APU = {
 	fastStart: func() {
 		me.Switch.master.setValue(1);
 		settimer(func() { # Give the fuel system a moment to provide fuel in the pipe
-			pts.Fdm.JSBsim.Propulsion.setRunning.setValue(2);
+			pts.Fdm.JSBSim.Propulsion.setRunning.setValue(2);
 		}, 1);
 	},
 	stopRpm: func() {
 		settimer(func() { # Required delay
 			if (me.n2.getValue() >= 1) {
-				pts.Fdm.JSBsim.Propulsion.Engine.n1[2].setValue(0.1);
-				pts.Fdm.JSBsim.Propulsion.Engine.n2[2].setValue(0.1);
+				pts.Fdm.JSBSim.Propulsion.Engine.n1[2].setValue(0.1);
+				pts.Fdm.JSBSim.Propulsion.Engine.n2[2].setValue(0.1);
 			}
 		}, 0.1);
 	},
@@ -256,14 +256,14 @@ var IGNITION = {
 	},
 	fastStart: func(n) {
 		ENGINE.cutoffSwitch[n].setBoolValue(0);
-		pts.Fdm.JSBsim.Propulsion.setRunning.setValue(n);
+		pts.Fdm.JSBSim.Propulsion.setRunning.setValue(n);
 	},
 	fastStop: func(n) {
 		ENGINE.cutoffSwitch[n].setBoolValue(1);
 		settimer(func() { # Required delay
 			if (pts.Engines.Engine.n2Actual[n].getValue() > 1) {
-				pts.Fdm.JSBsim.Propulsion.Engine.n1[n].setValue(0.1);
-				pts.Fdm.JSBsim.Propulsion.Engine.n2[n].setValue(0.1);
+				pts.Fdm.JSBSim.Propulsion.Engine.n1[n].setValue(0.1);
+				pts.Fdm.JSBSim.Propulsion.Engine.n2[n].setValue(0.1);
 			}
 		}, 0.1);
 	},

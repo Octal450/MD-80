@@ -282,7 +282,7 @@ var PANEL = {
 		libraries.systemsInit();
 		pts.Controls.Flight.speedbrake.setValue(0);
 		if (t == 1) {
-			pts.Controls.Flight.elevatorTrim.setValue(math.round(pts.Fdm.JSBsim.Performance.stabilizerDeg.getValue(), 0.1) / -12.5); # Trim value for CG
+			pts.Controls.Flight.elevatorTrim.setValue(math.round(pts.Fdm.JSBSim.Performance.stabilizerDeg.getValue(), 0.1) / -12.5); # Trim value for CG
 			pts.Controls.Flight.flaps.setValue(0.36); # 11/MID
 			pts.Controls.Flight.speedbrakeArm.setBoolValue(1);
 		} else {
@@ -337,7 +337,7 @@ var PANEL = {
 				systems.FUEL.Switch.pumpAftR.setBoolValue(1);
 				systems.FUEL.Switch.pumpFwdL.setBoolValue(1);
 				systems.FUEL.Switch.pumpFwdR.setBoolValue(1);
-				if (pts.Fdm.JSBsim.Propulsion.Tank.contentLbs[1].getValue() > 10) {
+				if (pts.Fdm.JSBSim.Propulsion.Tank.contentLbs[1].getValue() > 10) {
 					systems.FUEL.Switch.pumpAftC.setValue(1);
 					systems.FUEL.Switch.pumpFwdC.setValue(1);
 				}
@@ -378,7 +378,7 @@ var PANEL = {
 		systems.FUEL.Switch.pumpAftR.setBoolValue(1);
 		systems.FUEL.Switch.pumpFwdL.setBoolValue(1);
 		systems.FUEL.Switch.pumpFwdR.setBoolValue(1);
-		if (pts.Fdm.JSBsim.Propulsion.Tank.contentLbs[1].getValue() > 10) {
+		if (pts.Fdm.JSBSim.Propulsion.Tank.contentLbs[1].getValue() > 10) {
 			systems.FUEL.Switch.pumpAftC.setValue(1);
 			systems.FUEL.Switch.pumpFwdC.setValue(1);
 		}

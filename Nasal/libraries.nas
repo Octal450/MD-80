@@ -54,7 +54,7 @@ var systemsLoop = maketimer(0.1, func() {
 	
 	pts.Services.Chocks.enableTemp = pts.Services.Chocks.enable.getBoolValue();
 	pts.Velocities.groundspeedKtTemp = pts.Velocities.groundspeedKt.getValue();
-	if ((pts.Velocities.groundspeedKtTemp >= 2 or !pts.Fdm.JSBsim.Position.wow.getBoolValue()) and pts.Services.Chocks.enableTemp) {
+	if ((pts.Velocities.groundspeedKtTemp >= 2 or !pts.Fdm.JSBSim.Position.wow.getBoolValue()) and pts.Services.Chocks.enableTemp) {
 		pts.Services.Chocks.enable.setBoolValue(0);
 	}
 	
@@ -69,7 +69,7 @@ var systemsLoop = maketimer(0.1, func() {
 });
 
 var slowLoop = maketimer(1, func() {
-	if (pts.Fdm.JSBsim.Engine.Limit.overspeed.getBoolValue()) {
+	if (pts.Fdm.JSBSim.Engine.Limit.overspeed.getBoolValue()) {
 		gui.popupTip("You are overspeeding the engines! Reduce power to below the EPR limit!");
 	}
 	
@@ -165,10 +165,10 @@ controls.flapsDown = func(step) {
 
 var leverCockpit = 3;
 controls.gearDown = func(d) { # Requires a mod-up
-	pts.Fdm.JSBsim.Position.wowTemp = pts.Fdm.JSBsim.Position.wow.getBoolValue();
+	pts.Fdm.JSBSim.Position.wowTemp = pts.Fdm.JSBSim.Position.wow.getBoolValue();
 	leverCockpit = systems.GEAR.Switch.leverCockpit.getValue();
 	if (d < 0) {
-		if (pts.Fdm.JSBsim.Position.wowTemp) {
+		if (pts.Fdm.JSBSim.Position.wowTemp) {
 			if (leverCockpit == 3) {
 				systems.GEAR.Switch.leverCockpit.setValue(2);
 			} else if (leverCockpit == 0) {
@@ -178,7 +178,7 @@ controls.gearDown = func(d) { # Requires a mod-up
 			systems.GEAR.Switch.leverCockpit.setValue(0);
 		}
 	} else if (d > 0) {
-		if (pts.Fdm.JSBsim.Position.wowTemp) {
+		if (pts.Fdm.JSBSim.Position.wowTemp) {
 			if (leverCockpit == 3) {
 				systems.GEAR.Switch.leverCockpit.setValue(2);
 			} else if (leverCockpit == 0) {
@@ -209,7 +209,7 @@ controls.gearDownSmart = func(d) { # Used by cockpit, requires a mod-up
 }
 
 controls.gearToggle = func() {
-	if (!pts.Fdm.JSBsim.Position.wow.getBoolValue()) {
+	if (!pts.Fdm.JSBSim.Position.wow.getBoolValue()) {
 		if (systems.GEAR.Switch.leverCockpit.getValue() >= 2) {
 			systems.GEAR.Switch.leverCockpit.setValue(0);
 		} else {
@@ -240,7 +240,7 @@ var speedbrakeKey = func() {
 		pts.Controls.Flight.speedbrakeArm.setBoolValue(0);
 	} else {
 		pts.Controls.Flight.speedbrakeTemp = pts.Controls.Flight.speedbrake.getValue();
-		if (pts.Fdm.JSBsim.Spoilers.mainGearAnd.getBoolValue()) {
+		if (pts.Fdm.JSBSim.Spoilers.mainGearAnd.getBoolValue()) {
 			if (pts.Controls.Flight.speedbrakeTemp < 0.2) {
 				pts.Controls.Flight.speedbrake.setValue(0.2);
 			} else if (pts.Controls.Flight.speedbrakeTemp < 0.4) {
@@ -269,7 +269,7 @@ var speedbrakeKey = func() {
 var deploySpeedbrake = func() {
 	pts.Controls.Flight.speedbrakeArm.setBoolValue(0);
 	pts.Controls.Flight.speedbrakeTemp = pts.Controls.Flight.speedbrake.getValue();
-	if (pts.Fdm.JSBsim.Spoilers.mainGearAnd.getBoolValue()) {
+	if (pts.Fdm.JSBSim.Spoilers.mainGearAnd.getBoolValue()) {
 		if (pts.Controls.Flight.speedbrakeTemp < 0.2) {
 			pts.Controls.Flight.speedbrake.setValue(0.2);
 		} else if (pts.Controls.Flight.speedbrakeTemp < 0.4) {
@@ -293,7 +293,7 @@ var deploySpeedbrake = func() {
 var retractSpeedbrake = func() {
 	pts.Controls.Flight.speedbrakeArm.setBoolValue(0);
 	pts.Controls.Flight.speedbrakeTemp = pts.Controls.Flight.speedbrake.getValue();
-	if (pts.Fdm.JSBsim.Spoilers.mainGearAnd.getBoolValue()) {
+	if (pts.Fdm.JSBSim.Spoilers.mainGearAnd.getBoolValue()) {
 		if (pts.Controls.Flight.speedbrakeTemp > 0.6) {
 			pts.Controls.Flight.speedbrake.setValue(0.6);
 		} else if (pts.Controls.Flight.speedbrakeTemp > 0.4) {
@@ -331,7 +331,7 @@ controls.elevatorTrim = func(d) {
 		dfgs.ITAF.ap2Master(0);
 	}
 	if (systems.ELEC.Bus.emerAc.getValue() >= 112) { # Check?
-		slewProp("/controls/flight/elevator-trim", d * (pts.Fdm.JSBsim.FcsActual.Stabilizer.rateSwitch.getValue() / 12.5)); # Rate normalized by max degrees (rate / 12.5)
+		slewProp("/controls/flight/elevator-trim", d * (pts.Fdm.JSBSim.FcsActual.Stabilizer.rateSwitch.getValue() / 12.5)); # Rate normalized by max degrees (rate / 12.5)
 	}
 }
 
@@ -342,7 +342,7 @@ setlistener("/controls/flight/elevator-trim", func() {
 }, 0, 0);
 
 # Override FG's generic brake
-controls.applyBrakes = func(v, which = 0) { # No interpolate, that's bad, we will apply rate-limit in JSBsim
+controls.applyBrakes = func(v, which = 0) { # No interpolate, that's bad, we will apply rate-limit in JSBSim
 	if (which <= 0) {
 		systems.GEAR.Switch.brakeLeft.setValue(v);
 	}

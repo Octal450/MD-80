@@ -158,7 +158,7 @@
 		
 		<fcs_function name="/systems/apu/n1-cmd">
 			<function>
-				<table> <!-- JSBsim only allows linear, so lets make our own curve based on a recording of real -->
+				<table> <!-- JSBSim only allows linear, so lets make our own curve based on a recording of real -->
 					<independentVar lookup="row">/engines/engine[2]/n1</independentVar>
 					<tableData>
 						  0.0    0.0
@@ -217,7 +217,7 @@
 		
 		<fcs_function name="/systems/apu/n2-cmd">
 			<function>
-				<table> <!-- JSBsim only allows linear, so lets make our own curve based on a recording of real -->
+				<table> <!-- JSBSim only allows linear, so lets make our own curve based on a recording of real -->
 					<independentVar lookup="row">/engines/engine[2]/n2</independentVar>
 					<tableData>
 						  0.0    0.0

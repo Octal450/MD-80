@@ -133,7 +133,7 @@ var canvasBase = {
 			Value.Ai.risingRunwayOffset = 12.066; # Align it properly
 		}
 		
-		Value.Ai.alpha = pts.Fdm.JSBsim.Aero.alphaDegDampedPli.getValue();
+		Value.Ai.alpha = pts.Fdm.JSBSim.Aero.alphaDegDampedPli.getValue();
 		Value.Ai.pitch = pts.Orientation.pitchDeg.getValue();
 		Value.Ai.roll = pts.Orientation.rollDeg.getValue();
 		Value.Ai.stallAlphaDeg = dfgs.Main.stallAlphaDeg.getValue();

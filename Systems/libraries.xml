@@ -4,7 +4,7 @@
 
 <PropertyList>
 	
-	<!-- Not in JSBsim, cause then it takes too long to tune -->
+	<!-- Not in JSBSim, cause then it takes too long to tune -->
 	<filter>
 		<name>EPR C1</name>
 		<type>gain</type>
@@ -146,7 +146,7 @@
 		<output>/controls/switches/minimums-minus-50</output>
 	</filter>
 	
-	<!-- Because overwriting from JSBsim doesn't work -->
+	<!-- Because overwriting from JSBSim doesn't work -->
 	<filter>
 		<name>Engine 1 Cutoff</name>
 		<type>gain</type>
