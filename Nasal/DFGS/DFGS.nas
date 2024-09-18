@@ -1083,6 +1083,8 @@ var ITAF = {
 			if (Output.lat.getValue() != 5) { # Don't accidently disarm LNAV
 				me.setLatMode(5);
 				me.updateLatText("T/O");
+			} else {
+				me.updateLatText("T/O");
 			}
 			me.setVertMode(7);
 			me.updateVertText("T/O CLB");
