@@ -1,0 +1,729 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-80 Misc -->
+<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+
+<system name="MD-80: Misc"> <!-- Everything here is after all systems -->
+	
+	<channel name="Misc Logic" execrate="8">
+		
+		<actuator name="/controls/switches/annun-test-5sec">
+			<input>/controls/switches/annun-test</input>
+			<rate_limit sense="incr">1000</rate_limit>
+			<rate_limit sense="decr">0.2</rate_limit> <!-- 5 seconds-->
+		</actuator>
+		
+		<switch name="/controls/switches/seatbelt-sign-status">
+			<default value="0"/>
+			<test value="1">
+				/controls/switches/seatbelt-sign eq 1
+			</test>
+			<test logic="AND" value="1">
+				/controls/switches/seatbelt-sign eq 0.5
+				<test logic="OR">
+					/controls/flight/flaps-input ne 0
+					/controls/gear/lever eq 1
+				</test>
+			</test>
+		</switch>
+		
+		<switch name="/controls/switches/no-smoking-sign-status">
+			<default value="0"/>
+			<test value="1">
+				/controls/switches/no-smoking-sign eq 1
+			</test>
+			<test logic="AND" value="1">
+				/controls/switches/no-smoking-sign eq 0.5
+				/controls/gear/lever eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/mk-viii/inputs/discretes/audio-inhibit-tie">
+			<default value="0"/>
+			<test value="1">
+				/controls/switches/gpws eq -1
+			</test>
+			<output>/instrumentation/mk-viii/inputs/discretes/audio-inhibit</output>
+		</switch>
+		
+		<switch name="/instrumentation/mk-viii/inputs/discretes/self-test-tie">
+			<default value="0"/>
+			<test value="1">
+				/controls/switches/gpws eq 1
+			</test>
+			<output>/instrumentation/mk-viii/inputs/discretes/self-test</output>
+		</switch>
+	
+	</channel>
+	
+	<channel name="Exterior Lights" execrate="2">
+		
+		<switch name="exterior-lights/nose-landing-light-cmd">
+			<default value="0"/>
+			<test logic="AND" value="0.6">
+				/controls/lighting/landing-light-n eq 0.5
+				/controls/gear/lever eq 1
+				/gear/gear[0]/position-norm ge 0.99
+				/systems/electrical/bus/emer-ac ge 112
+			</test>
+			<test logic="AND" value="1">
+				/controls/lighting/landing-light-n eq 1.0
+				/controls/gear/lever eq 1
+				/gear/gear[0]/position-norm ge 0.99
+				/systems/electrical/bus/emer-ac ge 112
+			</test>
+		</switch>
+		
+		<lag_filter name="exterior-lights/nose-landing-light">
+			<input>exterior-lights/nose-landing-light-cmd</input>
+			<c1>7.5</c1>
+		</lag_filter>
+		
+		<switch name="exterior-lights/left-landing-light-ext-cmd">
+			<default value="0"/>
+			<test value="1">
+				/controls/lighting/landing-light-l ge 0.5
+			</test>
+		</switch>
+		
+		<switch name="exterior-lights/left-landing-light-ext-rate">
+			<default value="0"/>
+			<test value="0.14285714285"> <!-- 7 seconds -->
+				/systems/electrical/bus/ac-l ge 112
+			</test>
+		</switch>
+		
+		<actuator name="exterior-lights/left-landing-light-ext">
+			<input>exterior-lights/left-landing-light-ext-cmd</input>
+			<rate_limit>exterior-lights/left-landing-light-ext-rate</rate_limit>
+		</actuator>
+		
+		<switch name="exterior-lights/left-landing-light-cmd">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/landing-light-l eq 1
+				exterior-lights/left-landing-light-ext eq 1
+				/systems/electrical/bus/ac-l ge 112
+			</test>
+		</switch>
+		
+		<lag_filter name="exterior-lights/left-landing-light">
+			<input>exterior-lights/left-landing-light-cmd</input>
+			<c1>7.5</c1>
+		</lag_filter>
+		
+		<switch name="exterior-lights/right-landing-light-ext-cmd">
+			<default value="0"/>
+			<test value="1">
+				/controls/lighting/landing-light-r ge 0.5
+			</test>
+		</switch>
+		
+		<switch name="exterior-lights/right-landing-light-ext-rate">
+			<default value="0"/>
+			<test value="0.14285714285"> <!-- 7 seconds -->
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+		</switch>
+		
+		<actuator name="exterior-lights/right-landing-light-ext">
+			<input>exterior-lights/right-landing-light-ext-cmd</input>
+			<rate_limit>exterior-lights/right-landing-light-ext-rate</rate_limit>
+		</actuator>
+		
+		<switch name="exterior-lights/right-landing-light-cmd">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/landing-light-r eq 1
+				exterior-lights/right-landing-light-ext eq 1
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+		</switch>
+		
+		<lag_filter name="exterior-lights/right-landing-light">
+			<input>exterior-lights/right-landing-light-cmd</input>
+			<c1>7.5</c1>
+		</lag_filter>
+		
+		<switch name="exterior-lights/ground-flood-light-l">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/ground-flood-light-l eq 1
+				/systems/electrical/bus/ac-l ge 112
+			</test>
+		</switch>
+		
+		<switch name="exterior-lights/ground-flood-light-r">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/ground-flood-light-r eq 1
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+		</switch>
+		
+		<switch name="exterior-lights/position-light">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/position-strobe-light ge 0.5
+				/systems/electrical/bus/emer-ac ge 112
+			</test>
+		</switch>
+		
+		<switch name="exterior-lights/strobe-light">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/position-strobe-light eq 1
+				/gear/gear[0]/wow ne 1
+				/systems/electrical/bus/emer-ac ge 112
+			</test>
+		</switch>
+		
+		<switch name="exterior-lights/beacon">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/beacon eq 1
+				/systems/electrical/bus/emer-ac ge 112
+			</test>
+		</switch>
+		
+		<switch name="exterior-lights/logo-lights">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/logo-lights eq 1
+				/systems/electrical/bus/ac-gndsvc ge 112
+			</test>
+		</switch>
+		
+		<switch name="exterior-lights/left-wing-light-cmd">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/wing-lights eq 0.5
+				/systems/electrical/bus/ac-l ge 112
+			</test>
+		</switch>
+		
+		<lag_filter name="exterior-lights/left-wing-light">
+			<input>exterior-lights/left-wing-light-cmd</input>
+			<c1>7.5</c1>
+		</lag_filter>
+		
+		<switch name="exterior-lights/right-wing-light-cmd">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/lighting/wing-lights ge 0.5
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+		</switch>
+		
+		<lag_filter name="exterior-lights/right-wing-light">
+			<input>exterior-lights/right-wing-light-cmd</input>
+			<c1>7.5</c1>
+		</lag_filter>
+	
+	</channel>
+	
+	<channel name="CAWS and Warnings Logic" execrate="8">
+		
+		<!-- Altitude Alert -->
+		<switch name="/systems/caws/logic/altitude-alert-captured">
+			<default value="/systems/caws/logic/altitude-alert-captured"/>
+			<test value="0">
+				/it-autoflight/input/alt-diff-abs ge 800
+			</test>
+			<test value="1">
+				/it-autoflight/input/alt-diff-abs le 250
+			</test>
+		</switch>
+		
+		<switch name="/systems/caws/logic/altitude-alert">
+			<default value="/systems/caws/logic/altitude-alert"/>
+			<test logic="OR" value="0"> <!-- Reset -->
+				/it-autoflight/input/alt-diff-abs le 250
+				fcs/flap-pos-deg ge 26
+				/it-autoflight/output/vert eq 2
+				/it-autoflight/output/vert eq 6
+				position/wow eq 1
+				<test logic="AND"> <!-- Approaching only -->
+					/systems/caws/logic/altitude-alert eq 1
+					/it-autoflight/input/alt-diff-abs ge 800
+				</test>
+			</test>
+			<test logic="AND" value="1"> <!-- Approaching -->
+				/systems/caws/logic/altitude-alert-captured eq 0
+				/it-autoflight/input/alt-diff-abs gt 250
+				/it-autoflight/input/alt-diff-abs le 750
+			</test>
+			<test logic="AND" value="2"> <!-- Deviating -->
+				/systems/caws/logic/altitude-alert-captured eq 1
+				/it-autoflight/input/alt-diff-abs gt 250
+			</test>
+		</switch>
+		
+		<switch name="/systems/caws/logic/altitude-alert-aural-1"> <!-- Prevent aural from playing if newly set altitude is inside the alert zone -->
+			<default value="/systems/caws/logic/altitude-alert-aural-1"/>
+			<test logic="AND" value="0">
+				/systems/caws/logic/altitude-alert eq 0
+				/it-autoflight/input/alt-diff-abs le 700
+			</test>
+			<test value="1">
+				/it-autoflight/input/alt-diff-abs ge 800
+			</test>
+		</switch>
+		
+		<!-- Landing Gear -->
+		<switch name="/systems/caws/logic/landing-gear-idle">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/instrumentation/airspeed-indicator/indicated-speed-kt lt 210
+				/position/gear-agl-ft le 1500
+				<test logic="OR">
+					engine/control-1/throttle-pos lt 0.01
+					engine/control-2/throttle-pos lt 0.01
+				</test>
+			</test>
+		</switch>
+		
+		<switch name="/systems/caws/logic/landing-gear-inhibit">
+			<default value="0"/>
+			<test value="/controls/warnings/gear-warning-inhibit">
+				/systems/caws/logic/landing-gear-idle eq 1
+			</test>
+			<output>/controls/warnings/gear-warning-inhibit</output> <!-- So it resets properly -->
+		</switch>
+		
+		<switch name="/systems/caws/logic/landing-gear">
+			<default value="0"/>
+			<test logic="AND" value="0">
+				gear/unit[0]/status eq 2
+				gear/unit[1]/status eq 2
+				gear/unit[2]/status eq 2
+			</test>
+			<test logic="OR" value="1">
+				<test logic="AND">
+					/systems/caws/logic/landing-gear-idle eq 1
+					/systems/caws/logic/landing-gear-inhibit eq 0
+				</test>
+				fcs/flap-pos-deg ge 26
+			</test>
+		</switch>
+		
+		<!-- Overspeed -->
+		<switch name="/systems/caws/logic/overspeed">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/instrumentation/airspeed-indicator/indicated-speed-kt gt dfgs/speeds/vmo-mmo
+				/controls/switches/max-spd-warn-test ne 0
+			</test>
+		</switch>
+		
+		<!-- Slat Overspeed -->
+		<switch name="/systems/caws/logic/slat-overspeed">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/caws/logic/overspeed eq 0
+				fcs/slat-pos-deg ge 11
+				/instrumentation/airspeed-indicator/indicated-speed-kt gt dfgs/speeds/flap-15-slat-full-max-kts
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/logic/overspeed eq 0
+				fcs/slat-pos-deg ge 1
+				/instrumentation/airspeed-indicator/indicated-speed-kt gt dfgs/speeds/flap-11-slat-mid-max-kts
+			</test>
+		</switch>
+		
+		<!-- Stabilizer Buzz + Motion -->
+		<pid name="/systems/caws/logic/stabilizer-rate">
+			<input>fcs-actual/stabilizer/final-deg</input>
+			<kp>0.0</kp>
+			<ki>0.0</ki>
+			<kd>1.0</kd>
+		</pid>
+		
+		<fcs_function name="/systems/caws/logic/stabilizer-rate-abs">
+			<function>
+				<abs>
+					<property>/systems/caws/logic/stabilizer-rate</property>
+				</abs>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/caws/logic/stabilizer-moving">
+			<default value="0"/>
+			<test logic="AND" value="-1"> <!-- Up -->
+				position/wow eq 0
+				/systems/caws/logic/stabilizer-rate lt -0.01
+			</test>
+			<test logic="AND" value="1"> <!-- Down -->
+				position/wow eq 0
+				/systems/caws/logic/stabilizer-rate gt 0.01
+			</test>
+		</switch>
+		
+		<switch name="/systems/caws/logic/stabilizer-stored-up">
+			<default value="fcs-actual/stabilizer/final-deg"/>
+			<test value="/systems/caws/logic/stabilizer-stored-up">
+				/systems/caws/logic/stabilizer-moving eq -1
+			</test>
+		</switch>
+		
+		<switch name="/systems/caws/logic/stabilizer-stored-dn">
+			<default value="fcs-actual/stabilizer/final-deg"/>
+			<test value="/systems/caws/logic/stabilizer-stored-dn">
+				/systems/caws/logic/stabilizer-moving eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/caws/logic/stabilizer-stored">
+			<default value="/systems/caws/logic/stabilizer-stored-up"/>
+			<test value="/systems/caws/logic/stabilizer-stored-dn">
+				/systems/caws/logic/stabilizer-moving eq 1
+			</test>
+		</switch>
+		
+		<summer name="/systems/caws/logic/stabilizer-stored-error">
+			<input>fcs-actual/stabilizer/final-deg</input>
+			<input>-/systems/caws/logic/stabilizer-stored</input>
+		</summer>
+		
+		<switch name="/systems/caws/logic/stabilizer-motion">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				<test logic="AND">
+					/systems/caws/logic/stabilizer-moving eq -1
+					/systems/caws/logic/stabilizer-stored-error lt -2
+				</test>
+				<test logic="AND">
+					/systems/caws/logic/stabilizer-moving eq 1
+					/systems/caws/logic/stabilizer-stored-error gt 2
+				</test>
+			</test>
+		</switch>
+		
+		<switch name="/systems/caws/logic/stabilizer-buzz">
+			<default value="0"/>
+			<test value="0">
+				/systems/caws/logic/stabilizer-motion eq 1
+			</test>
+			<test logic="OR" value="1">
+				<test logic="AND">
+					/systems/caws/logic/stabilizer-moving eq -1
+					/systems/caws/logic/stabilizer-stored-error lt -0.5
+				</test>
+				<test logic="AND">
+					/systems/caws/logic/stabilizer-moving eq 1
+					/systems/caws/logic/stabilizer-stored-error gt 0.5
+				</test>
+			</test>
+		</switch>
+		
+		<!-- Stall -->
+		<switch name="/systems/caws/logic/stall">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				aero/alpha-deg-damped ge dfgs/stall-appr-alpha-deg
+				position/wow ne 1
+			</test>
+			<test value="1">
+				/controls/switches/stall-test ne 0
+			</test>
+		</switch>
+		
+		<!-- Wheel Not Turning -->
+		<fcs_function name="/gear/wheel-not-turning/n-l-avg">
+			<function>
+				<avg>
+					<property>gear/unit[0]/wheel-speed-fps</property>
+					<property>gear/unit[1]/wheel-speed-fps</property>
+				</avg>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/gear/wheel-not-turning/n-r-avg">
+			<function>
+				<avg>
+					<property>gear/unit[0]/wheel-speed-fps</property>
+					<property>gear/unit[2]/wheel-speed-fps</property>
+				</avg>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/gear/wheel-not-turning/l-r-avg">
+			<function>
+				<avg>
+					<property>gear/unit[1]/wheel-speed-fps</property>
+					<property>gear/unit[2]/wheel-speed-fps</property>
+				</avg>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/gear/wheel-not-turning/l-r-q-n">
+			<function>
+				<quotient>
+					<property>/gear/wheel-not-turning/l-r-avg</property>
+					<property>gear/unit[0]/wheel-speed-fps</property>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/gear/wheel-not-turning/n-r-q-l">
+			<function>
+				<quotient>
+					<property>/gear/wheel-not-turning/n-r-avg</property>
+					<property>gear/unit[1]/wheel-speed-fps</property>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/gear/wheel-not-turning/n-l-q-r">
+			<function>
+				<quotient>
+					<property>/gear/wheel-not-turning/n-l-avg</property>
+					<property>gear/unit[2]/wheel-speed-fps</property>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<switch name="/gear/wheel-not-turning/active"> <!-- If any is greater than 20% slower (1.2 quotient) while WOW -->
+			<default value="0"/>
+			<test logic="OR" value="0">
+				gear/unit[0]/WOW eq 0
+				gear/unit[1]/WOW eq 0
+				gear/unit[2]/WOW eq 0
+				/instrumentation/airspeed-indicator/indicated-speed-kt lt 30
+			</test>
+			<test logic="OR" value="1">
+				/gear/wheel-not-turning/l-r-q-n ge 1.2
+				/gear/wheel-not-turning/n-r-q-l ge 1.2
+				/gear/wheel-not-turning/n-l-q-r ge 1.2
+			</test>
+		</switch>
+	
+	</channel>
+	
+	<channel name="CAWS Sound Controller" execrate="8">
+		
+		<fcs_function name="/systems/caws/random">
+			<function>
+				<urandom/>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/caws/logic/stall-random">
+			<default value="/systems/caws/random"/>
+			<test value="-1">
+				/controls/switches/stall-test eq -1
+			</test>
+			<test value="1">
+				/controls/switches/stall-test eq 1
+			</test>
+		</switch>
+		
+		<!-- Autopilot Horn -->
+		<switch name="/systems/caws/apoff/trigger">
+			<default value="/systems/caws/apoff/trigger"/>
+			<test logic="OR" value="0">
+				/systems/electrical/outputs/mk-viii lt 24
+				/systems/caws/apoff/out eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/apoff/out eq 0
+				/it-autoflight/sound/apoff eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/caws/apoff/actuator">
+			<input>/systems/caws/apoff/trigger</input>
+			<rate_limit sense="incr">0.35</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>/systems/caws/apoff/out</output>
+		</actuator>
+		
+		<!-- Autopilot Horn Once -->
+		<switch name="/systems/caws/apoff/single-trigger">
+			<default value="/systems/caws/apoff/single-trigger"/>
+			<test logic="OR" value="0">
+				/systems/electrical/outputs/mk-viii lt 24
+				<test logic="AND">
+					/it-autoflight/sound/apoff-single eq 0
+					/systems/caws/apoff/single-out eq 1
+				</test>
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/apoff/single-out eq 0
+				/it-autoflight/sound/apoff-single eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/caws/apoff/single-actuator">
+			<input>/systems/caws/apoff/single-trigger</input>
+			<rate_limit sense="incr">0.35</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>/systems/caws/apoff/single-out</output>
+		</actuator>
+		
+		<!-- Landing Gear Horn -->
+		<switch name="/systems/caws/landing-gear/trigger">
+			<default value="/systems/caws/landing-gear/trigger"/>
+			<test logic="OR" value="0">
+				/systems/electrical/outputs/mk-viii lt 24
+				/systems/caws/landing-gear/out eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/landing-gear/out eq 0
+				/systems/caws/logic/landing-gear eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/caws/landing-gear/actuator">
+			<input>/systems/caws/landing-gear/trigger</input>
+			<rate_limit sense="incr">0.35</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>/systems/caws/landing-gear/out</output>
+		</actuator>
+		
+		<!-- Overspeed Horn -->
+		<switch name="/systems/caws/overspeed/trigger">
+			<default value="/systems/caws/overspeed/trigger"/>
+			<test logic="OR" value="0">
+				/systems/electrical/outputs/mk-viii lt 24
+				/systems/caws/overspeed/out eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/overspeed/out eq 0
+				/systems/caws/logic/overspeed eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/caws/overspeed/actuator">
+			<input>/systems/caws/overspeed/trigger</input>
+			<rate_limit sense="incr">0.35</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>/systems/caws/overspeed/out</output>
+		</actuator>
+		
+		<!-- Slat Overspeed Horn -->
+		<switch name="/systems/caws/slat-overspeed/trigger">
+			<default value="/systems/caws/slat-overspeed/trigger"/>
+			<test logic="OR" value="0">
+				/systems/electrical/outputs/mk-viii lt 24
+				/systems/caws/slat-overspeed/out eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/slat-overspeed/out eq 0
+				/systems/caws/logic/slat-overspeed eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/caws/slat-overspeed/actuator">
+			<input>/systems/caws/slat-overspeed/trigger</input>
+			<rate_limit sense="incr">0.35</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>/systems/caws/slat-overspeed/out</output>
+		</actuator>
+		
+		<!-- Stabilizer Motion Horn -->
+		<switch name="/systems/caws/stabilizer-motion/trigger">
+			<default value="/systems/caws/stabilizer-motion/trigger"/>
+			<test logic="OR" value="0">
+				/systems/electrical/outputs/mk-viii lt 24
+				/systems/caws/stabilizer-motion/out eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/stabilizer-motion/out eq 0
+				/systems/caws/logic/stabilizer-motion eq 1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/caws/stabilizer-motion/rate"> <!-- So that it goes off roughly every 2 degrees -->
+			<input>/systems/caws/logic/stabilizer-rate-abs</input>
+			<gain>0.5</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/caws/stabilizer-motion/actuator">
+			<input>/systems/caws/stabilizer-motion/trigger</input>
+			<rate_limit sense="incr">/systems/caws/stabilizer-motion/rate</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>/systems/caws/stabilizer-motion/out</output>
+		</actuator>
+		
+		<!-- Stabilizer Buzz Horn -->
+		<switch name="/systems/caws/stabilizer-buzz/trigger">
+			<default value="/systems/caws/stabilizer-buzz/trigger"/>
+			<test logic="OR" value="0">
+				/systems/electrical/outputs/mk-viii lt 24
+				/systems/caws/stabilizer-buzz/out eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/stabilizer-buzz/out eq 0
+				/systems/caws/logic/stabilizer-buzz eq 1
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/caws/stabilizer-buzz/rate"> <!-- So that it goes off roughly every 0.5 degrees -->
+			<input>/systems/caws/logic/stabilizer-rate-abs</input>
+			<gain>2.0</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/caws/stabilizer-buzz/actuator">
+			<input>/systems/caws/stabilizer-buzz/trigger</input>
+			<rate_limit sense="incr">/systems/caws/stabilizer-buzz/rate</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>/systems/caws/stabilizer-buzz/out</output>
+		</actuator>
+		
+		<!-- Stall Horns -->
+		<switch name="/systems/caws/stall-1/trigger">
+			<default value="/systems/caws/stall-1/trigger"/>
+			<test logic="OR" value="0">
+				/systems/electrical/outputs/mk-viii lt 24
+				/systems/caws/stall-1/out eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/stall-1/out eq 0
+				/systems/caws/logic/stall eq 1
+				/controls/switches/stall-test ne 0
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/stall-1/out eq 0
+				/systems/caws/logic/stall eq 1
+				/systems/caws/stall-2/out eq 0
+				/systems/caws/logic/stall-random ge 0
+			</test>
+		</switch>
+		
+		<actuator name="/systems/caws/stall-1/actuator">
+			<input>/systems/caws/stall-1/trigger</input>
+			<rate_limit sense="incr">0.35</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>/systems/caws/stall-1/out</output>
+		</actuator>
+		
+		<switch name="/systems/caws/stall-2/trigger">
+			<default value="/systems/caws/stall-2/trigger"/>
+			<test logic="OR" value="0">
+				/systems/electrical/outputs/mk-viii lt 24
+				/systems/caws/stall-2/out eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/stall-2/out eq 0
+				/systems/caws/logic/stall eq 1
+				/controls/switches/stall-test ne 0
+			</test>
+			<test logic="AND" value="1">
+				/systems/caws/stall-2/out eq 0
+				/systems/caws/logic/stall eq 1
+				/systems/caws/stall-1/out eq 0
+				/systems/caws/logic/stall-random lt 0
+			</test>
+		</switch>
+		
+		<actuator name="/systems/caws/stall-2/actuator">
+			<input>/systems/caws/stall-2/trigger</input>
+			<rate_limit sense="incr">0.35</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+			<output>/systems/caws/stall-2/out</output>
+		</actuator>
+	
+	</channel>
+
+</system>
