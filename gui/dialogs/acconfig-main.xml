@@ -320,7 +320,7 @@
 			
 			<checkbox>
 				<enable>
-					<property>options/irs-equipped</property>
+					<property>systems/acconfig/options/irs-equipped</property>
 				</enable>
 				<label>IRS Aligns Instantly</label>
 				<halign>left</halign>
@@ -415,6 +415,32 @@
 				<label>Combined Standby</label>
 				<halign>left</halign>
 				<property>/systems/acconfig/options/combined-standby</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>acconfig.OPTIONS.write();</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<enable>
+					<and>
+						<equals>
+							<property>/fdm/jsbsim/position/wow</property>
+							<value>1</value>
+						</equals>
+						<less-than>
+							<property>/velocities/groundspeed-kt</property>
+							<value>2</value>
+						</less-than>
+					</and>
+				</enable>
+				<label>IRS Equipped</label>
+				<halign>left</halign>
+				<property>/systems/acconfig/options/irs-equipped</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>

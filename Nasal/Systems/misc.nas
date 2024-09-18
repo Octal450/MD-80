@@ -269,10 +269,28 @@ var IGNITION = {
 	},
 };
 
+# IRS
+var IRS = {
+	Iru: {
+		alignTimer: [props.globals.getNode("/systems/iru[0]/align-timer"), props.globals.getNode("/systems/iru[1]/align-timer")],
+		alignTimeRemainingMinutes: [props.globals.getNode("/systems/iru[0]/align-time-remaining-minutes"), props.globals.getNode("/systems/iru[1]/align-time-remaining-minutes")],
+		attAvail: [props.globals.getNode("/systems/iru[0]/att-avail"), props.globals.getNode("/systems/iru[1]/att-avail")],
+		mainAvail: [props.globals.getNode("/systems/iru[0]/main-avail"), props.globals.getNode("/systems/iru[1]/main-avail")],
+	},
+	Switch: {
+		knob: [props.globals.getNode("/controls/iru[0]/switches/knob"), props.globals.getNode("/controls/iru[1]/switches/knob")],
+	},
+	init: func() {
+		me.Switch.knob[0].setValue(0);
+		me.Switch.knob[1].setValue(0);
+	},
+};
+
 # Platform (AHRS and IRS)
 var PLATFORM = {
 	Unit: {
 		aligned: [props.globals.getNode("/systems/platform[0]/aligned"), props.globals.getNode("/systems/platform[1]/aligned")],
+		attAvail: [props.globals.getNode("/systems/platform[0]/att-avail"), props.globals.getNode("/systems/platform[1]/att-avail")],
 	},
 };
 

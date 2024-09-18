@@ -185,7 +185,6 @@ var Orientation = {
 
 var Options = {
 	fms: props.globals.getNode("/options/fms"),
-	irsEquipped: props.globals.getNode("/options/irs-equipped"),
 };
 
 var Position = {
@@ -257,6 +256,7 @@ var Systems = {
 				ndFps: props.globals.getNode("/systems/acconfig/options/du/nd-fps"),
 				pfdFps: props.globals.getNode("/systems/acconfig/options/du/pfd-fps"),
 			},
+			irsEquipped: props.globals.getNode("/systems/acconfig/options/irs-equipped"),
 			panel: props.globals.getNode("/systems/acconfig/options/panel"),
 		},
 	},

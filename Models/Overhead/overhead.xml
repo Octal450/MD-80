@@ -56,7 +56,7 @@
 		<object-name>Irs2</object-name>
 		<object-name>LabelsIrs</object-name>
 		<condition>
-			<property>options/irs-equipped</property>
+			<property>systems/acconfig/options/irs-equipped</property>
 		</condition>
 	</animation>
 	
@@ -2261,6 +2261,77 @@
 			<binding>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<!-- IRS -->
+	<animation>
+		<type>knob</type>
+		<object-name>Irs1</object-name>
+		<property>controls/cockpit/overhead/iru-knob[0]</property>
+		<drag-scale-px>15</drag-scale-px>
+		<interpolation>
+			<entry><ind>0</ind><dep>-90</dep></entry>
+			<entry><ind>3</ind><dep> 45</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.06867</y-m>
+			<z-m>-0.05024</z-m>
+		</center>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/iru[0]/switches/knob</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>3</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.knb1();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>Irs2</object-name>
+		<property>controls/cockpit/overhead/iru-knob[1]</property>
+		<drag-scale-px>15</drag-scale-px>
+		<interpolation>
+			<entry><ind>0</ind><dep>-90</dep></entry>
+			<entry><ind>3</ind><dep> 45</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.15814</y-m>
+			<z-m>-0.05024</z-m>
+		</center>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/iru[1]/switches/knob</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>3</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.knb1();</script>
 			</binding>
 		</action>
 	</animation>

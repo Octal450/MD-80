@@ -7,13 +7,232 @@
 	
 	<property value="0">/systems/ahrs[0]/aligned</property>
 	<property value="0">/systems/ahrs[1]/aligned</property>
-	<property value="0">/systems/irs[0]/aligned</property>
-	<property value="0">/systems/irs[1]/aligned</property>
+	<property value="0">/systems/iru[0]/aligned</property>
+	<property value="0">/systems/iru[1]/aligned</property>
+	
+	<channel name="IRS Logic" execrate="8">
+		
+		<switch name="/systems/iru-common/align-time">
+			<default value="1"/> <!-- 450 seconds -->
+			<test value="10000"> <!-- Instant -->
+				/systems/acconfig/options/irs-equipped eq 0
+			</test>
+			<test logic="OR" value="300"> <!-- 2 seconds -->
+				/systems/acconfig/options/irs-aligns-instantly eq 1
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/iru[0]/powered"> <!-- DC-BAT is temporary, replace with dedicated battery later -->
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/ac-radio-l ge 112
+				/systems/electrical/bus/dc-bat ge 24
+			</test>
+		</switch>
+		
+		<switch name="/systems/iru[1]/powered"> <!-- DC-BAT is temporary, replace with dedicated battery later -->
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/ac-radio-r ge 112
+				/systems/electrical/bus/dc-bat ge 24
+			</test>
+		</switch>
+	
+	</channel>
+	
+	<channel name="IRU 1 Alignment" execrate="8">
+		
+		<switch name="/systems/iru[0]/can-align"> <!-- Flip flop, so that if it can't aligned, switch must be reset to off -->
+			<default value="/systems/iru[0]/can-align"/>
+			<test logic="OR" value="1">
+				/systems/iru[0]/aligned eq 1
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<test logic="OR" value="0">
+				/orientation/pitch-rate-degps lt -1
+				/orientation/pitch-rate-degps gt 1
+				/orientation/roll-rate-degps lt -1
+				/orientation/roll-rate-degps gt 1
+				/velocities/groundspeed-kt gt 2
+			</test>
+			<test logic="AND" value="1"> <!-- Only reset when the switch is off -->
+				/controls/iru[0]/switches/knob eq 0
+			</test>
+		</switch>
+		
+		<switch name="/systems/iru[0]/align-cmd">
+			<default value="0"/>
+			<test logic="AND" value="0"> <!-- Cancel align if not aligned and can't align -->
+				/systems/iru[0]/aligned ne 1
+				/systems/iru[0]/can-align ne 1
+			</test>
+			<test logic="AND" value="1">
+				/controls/iru[0]/switches/knob ge 1
+				/systems/iru[0]/powered eq 1
+				/controls/iru[0]/switches/knob lt 3
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/iru[0]/align-timer-input">
+			<input>/systems/iru[0]/align-cmd</input>
+			<gain>450</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/iru[0]/align-timer">
+			<input>/systems/iru[0]/align-timer-input</input>
+			<rate_limit sense="incr">/systems/iru-common/align-time</rate_limit>
+			<rate_limit sense="decr">100000</rate_limit>
+		</actuator>
+		
+		<fcs_function name="/systems/iru[0]/align-time-remaining-minutes">
+			<function>
+				<quotient>
+					<difference>
+						<property>/systems/iru[0]/align-timer-input</property>
+						<property>/systems/iru[0]/align-timer</property>
+					</difference>
+					<value>60</value>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/iru[0]/aligned">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/iru[0]/align-timer eq 450
+				/controls/iru[0]/switches/knob eq 2
+			</test>
+		</switch>
+		
+		<switch name="/systems/iru[0]/aligning">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/iru[0]/align-cmd eq 1
+				/systems/iru[0]/aligned ne 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/iru[0]/att-avail">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/iru[0]/powered eq 1
+				/controls/iru[0]/switches/knob eq 3
+			</test>
+			<test value="1">
+				/systems/iru[0]/aligned eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/iru[0]/main-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/iru[0]/aligned eq 1
+			</test>
+		</switch>
+	
+	</channel>
+	
+	<channel name="IRU 2 Alignment" execrate="8">
+		
+		<switch name="/systems/iru[1]/can-align"> <!-- Flip flop, so that if it can't aligned, switch must be reset to off -->
+			<default value="/systems/iru[1]/can-align"/>
+			<test logic="OR" value="1">
+				/systems/iru[1]/aligned eq 1
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<test logic="OR" value="0">
+				/orientation/pitch-rate-degps lt -1
+				/orientation/pitch-rate-degps gt 1
+				/orientation/roll-rate-degps lt -1
+				/orientation/roll-rate-degps gt 1
+				/velocities/groundspeed-kt gt 2
+			</test>
+			<test logic="AND" value="1"> <!-- Only reset when the switch is off -->
+				/controls/iru[1]/switches/knob eq 0
+			</test>
+		</switch>
+		
+		<switch name="/systems/iru[1]/align-cmd">
+			<default value="0"/>
+			<test logic="AND" value="0"> <!-- Cancel align if not aligned and can't align -->
+				/systems/iru[1]/aligned ne 1
+				/systems/iru[1]/can-align ne 1
+				/controls/iru[1]/switches/knob eq 3
+			</test>
+			<test logic="AND" value="1">
+				/controls/iru[1]/switches/knob ge 1
+				/systems/iru[1]/powered eq 1
+				/controls/iru[1]/switches/knob lt 3
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/iru[1]/align-timer-input">
+			<input>/systems/iru[1]/align-cmd</input>
+			<gain>450</gain>
+		</pure_gain>
+		
+		<actuator name="/systems/iru[1]/align-timer">
+			<input>/systems/iru[1]/align-timer-input</input>
+			<rate_limit sense="incr">/systems/iru-common/align-time</rate_limit>
+			<rate_limit sense="decr">100000</rate_limit>
+		</actuator>
+		
+		<fcs_function name="/systems/iru[1]/align-time-remaining-minutes">
+			<function>
+				<quotient>
+					<difference>
+						<property>/systems/iru[1]/align-timer-input</property>
+						<property>/systems/iru[1]/align-timer</property>
+					</difference>
+					<value>60</value>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/iru[1]/aligned">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/iru[1]/align-timer eq 450
+				/controls/iru[1]/switches/knob eq 2
+			</test>
+		</switch>
+		
+		<switch name="/systems/iru[1]/aligning">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/iru[1]/align-cmd eq 1
+				/systems/iru[1]/aligned ne 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/iru[1]/att-avail">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/iru[1]/powered eq 1
+				/controls/iru[1]/switches/knob eq 3
+			</test>
+			<test value="1">
+				/systems/iru[1]/aligned eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/iru[1]/main-avail">
+			<default value="0"/>
+			<test value="1">
+				/systems/iru[1]/aligned eq 1
+			</test>
+		</switch>
+	
+	</channel>
 	
 	<channel name="AHRS Logic" execrate="8">
 		
 		<switch name="/systems/ahrs-common/align-time">
 			<default value="1"/> <!-- 45 seconds -->
+			<test value="10000"> <!-- Instant -->
+				/systems/acconfig/options/irs-equipped eq 1
+			</test>
 			<test value="45"> <!-- 1 second -->
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
@@ -193,30 +412,44 @@
 		
 		<switch name="/systems/platform[0]/aligned">
 			<default value="/systems/ahrs[0]/aligned"/>
-			<!--test logic="AND" value="/systems/iru[0]/aligned">
-				/options/irs-equipped eq 1
-			</test-->
+			<test logic="AND" value="/systems/iru[0]/aligned">
+				/systems/acconfig/options/irs-equipped eq 1
+			</test>
 		</switch>
 		
 		<switch name="/systems/platform[0]/aligning">
 			<default value="/systems/ahrs[0]/aligning"/>
-			<!--test logic="AND" value="/systems/iru[0]/aligning">
-				/options/irs-equipped eq 1
-			</test-->
+			<test logic="AND" value="/systems/iru[0]/aligning">
+				/systems/acconfig/options/irs-equipped eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/platform[0]/att-avail">
+			<default value="/systems/ahrs[0]/aligned"/>
+			<test logic="AND" value="/systems/iru[0]/att-avail">
+				/systems/acconfig/options/irs-equipped eq 1
+			</test>
 		</switch>
 		
 		<switch name="/systems/platform[1]/aligned">
 			<default value="/systems/ahrs[1]/aligned"/>
-			<!--test logic="AND" value="/systems/iru[1]/aligned">
-				/options/irs-equipped eq 1
-			</test-->
+			<test logic="AND" value="/systems/iru[1]/aligned">
+				/systems/acconfig/options/irs-equipped eq 1
+			</test>
 		</switch>
 		
 		<switch name="/systems/platform[1]/aligning">
 			<default value="/systems/ahrs[1]/aligning"/>
-			<!--test logic="AND" value="/systems/iru[1]/aligning">
-				/options/irs-equipped eq 1
-			</test-->
+			<test logic="AND" value="/systems/iru[1]/aligning">
+				/systems/acconfig/options/irs-equipped eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/platform[1]/att-avail">
+			<default value="/systems/ahrs[1]/aligned"/>
+			<test logic="AND" value="/systems/iru[1]/att-avail">
+				/systems/acconfig/options/irs-equipped eq 1
+			</test>
 		</switch>
 	
 	</channel>

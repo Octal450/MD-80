@@ -27,6 +27,7 @@ var systemsInit = func() {
 	systems.GEAR.init();
 	systems.HYD.init();
 	systems.IGNITION.init();
+	systems.IRS.init();
 	systems.PNEU.init();
 	dfgs.ITAF.init(0);
 	systems.THRLIM.init();

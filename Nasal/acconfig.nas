@@ -318,6 +318,8 @@ var PANEL = {
 		pts.Controls.Lighting.emerLt.setValue(0.5);
 		systems.FUEL.Switch.pumpStart.setBoolValue(1);
 		systems.APU.fastStart();
+		systems.IRS.Switch.knob[0].setValue(1);
+		systems.IRS.Switch.knob[1].setValue(1);
 		pts.Controls.Lighting.beacon.setBoolValue(1);
 		pts.Controls.Lighting.positionStrobeLight.setValue(0.5);
 		pts.Controls.Switches.seatbeltSign.setBoolValue(1);
@@ -340,6 +342,8 @@ var PANEL = {
 					systems.FUEL.Switch.pumpFwdC.setValue(1);
 				}
 				systems.FUEL.Switch.pumpStart.setBoolValue(0);
+				systems.IRS.Switch.knob[0].setValue(2);
+				systems.IRS.Switch.knob[1].setValue(2);
 				systems.PNEU.Switch.bleedApu.setValue(1);
 				systems.PNEU.Switch.xBleedL.setValue(1);
 				systems.PNEU.Switch.xBleedR.setValue(1);
@@ -365,6 +369,8 @@ var PANEL = {
 		systems.ELEC.Switch.groundCart.setBoolValue(1); # autoConfigRunning cancels disable check in libraries.nas
 		systems.ELEC.Switch.extPwrL.setBoolValue(1);
 		systems.ELEC.Switch.extPwrR.setBoolValue(1);
+		systems.IRS.Switch.knob[0].setValue(1);
+		systems.IRS.Switch.knob[1].setValue(1);
 		pts.Controls.Lighting.beacon.setBoolValue(1);
 		pts.Controls.Lighting.positionStrobeLight.setValue(0.5);
 		pts.Controls.Switches.seatbeltSign.setBoolValue(1);
@@ -407,6 +413,8 @@ var PANEL = {
 				systems.HYD.Switch.lPump.setValue(2);
 				systems.HYD.Switch.rPump.setValue(2);
 				systems.IGNITION.Switch.ign.setValue(0);
+				systems.IRS.Switch.knob[0].setValue(2);
+				systems.IRS.Switch.knob[1].setValue(2);
 				systems.PNEU.Switch.xBleedL.setValue(0);
 				systems.PNEU.Switch.xBleedR.setValue(0);
 				# XPDR TA/RA
@@ -455,14 +463,5 @@ SYSTEM.simInit();
 setlistener("/sim/signals/reinit", func(s) {
 	if (!s.getBoolValue() and libraries.initDone) {
 		PANEL.coldDark(1);
-	}
-});
-
-# Panel Handler
-setlistener("/systems/acconfig/options/panel", func() {
-	if (pts.Systems.Acconfig.Options.panel.getValue() == "EFIS + EDP") {
-		pts.Options.irsEquipped.setBoolValue(1);
-	} else {
-		pts.Options.irsEquipped.setBoolValue(0);
 	}
 });

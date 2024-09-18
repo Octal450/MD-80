@@ -254,7 +254,7 @@ var canvasPfd1 = {
 		Value.Misc.lat = dfgs.Output.lat.getValue();
 		Value.Ra.agl = pts.Position.gearAglFt.getValue();
 		
-		if (systems.PLATFORM.Unit.aligned[0].getBoolValue()) {
+		if (systems.PLATFORM.Unit.attAvail[0].getBoolValue()) {
 			if (dfgs.Output.fd1.getBoolValue()) {
 				if (systems.DUController.flightDirector == "Dual Cue") {
 					me["FD_v"].hide();
@@ -358,7 +358,7 @@ var canvasPfd2 = {
 		Value.Misc.lat = dfgs.Output.lat.getValue();
 		Value.Ra.agl = pts.Position.gearAglFt.getValue();
 		
-		if (systems.PLATFORM.Unit.aligned[1].getBoolValue()) {
+		if (systems.PLATFORM.Unit.attAvail[1].getBoolValue()) {
 			if (dfgs.Output.fd2.getBoolValue()) {
 				if (systems.DUController.flightDirector == "Dual Cue") {
 					me["FD_v"].hide();

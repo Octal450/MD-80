@@ -583,6 +583,16 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/overhead/iru-knob[0]">
+			<input>/controls/iru[0]/switches/knob</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/iru-knob[1]">
+			<input>/controls/iru[1]/switches/knob</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/overhead/mach-trim">
 			<input>/controls/fctl/switches/mach-trim</input>
 			<c1>20</c1>
