@@ -54,6 +54,7 @@
 		<object-name>BackgroundIrs</object-name>
 		<object-name>Irs1</object-name>
 		<object-name>Irs2</object-name>
+		<object-name>IrsLights</object-name>
 		<object-name>LabelsIrs</object-name>
 		<condition>
 			<property>systems/acconfig/options/irs-equipped</property>
@@ -81,6 +82,7 @@
 		<object-name>EmerPwrInUseOn</object-name>
 		<object-name>ExtPwrAvailOn</object-name>
 		<object-name>ExtPwrAvail2On</object-name>
+		<object-name>IrsLights</object-name>
 		<condition>
 			<greater-than-equals>
 				<property>systems/electrical/bus/dc-bat</property>
@@ -2299,6 +2301,112 @@
 				<script>libraries.Sound.knb1();</script>
 			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>IrsAlign1</object-name>
+		<condition>
+			<or>
+				<property>controls/iru[0]/lights/align</property>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>IrsBatFail1</object-name>
+		<condition>
+			<or>
+				<property>controls/iru[0]/lights/bat-fail</property>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>IrsFault1</object-name>
+		<condition>
+			<or>
+				<property>controls/iru[0]/lights/fault</property>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>IrsOnBat1</object-name>
+		<condition>
+			<or>
+				<property>controls/iru[0]/lights/on-bat</property>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>IrsAlign2</object-name>
+		<condition>
+			<or>
+				<property>controls/iru[1]/lights/align</property>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>IrsBatFail2</object-name>
+		<condition>
+			<or>
+				<property>controls/iru[1]/lights/bat-fail</property>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>IrsFault2</object-name>
+		<condition>
+			<or>
+				<property>controls/iru[1]/lights/fault</property>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>IrsOnBat2</object-name>
+		<condition>
+			<or>
+				<property>controls/iru[1]/lights/on-bat</property>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
 	</animation>
 	
 	<animation>

@@ -17,7 +17,18 @@
 			<test value="10000"> <!-- Instant -->
 				/systems/acconfig/options/irs-equipped eq 0
 			</test>
-			<test logic="OR" value="300"> <!-- 2 seconds -->
+			<test logic="OR" value="225"> <!-- 2 seconds -->
+				/systems/acconfig/options/irs-aligns-instantly eq 1
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/iru-common/bite-check-time">
+			<default value="1"/> <!-- 15 seconds -->
+			<test value="10000"> <!-- Instant -->
+				/systems/acconfig/options/irs-equipped eq 0
+			</test>
+			<test logic="OR" value="15"> <!-- 1 second -->
 				/systems/acconfig/options/irs-aligns-instantly eq 1
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
@@ -41,7 +52,7 @@
 	
 	</channel>
 	
-	<channel name="IRU 1 Alignment" execrate="8">
+	<channel name="IRU 1" execrate="8">
 		
 		<switch name="/systems/iru[0]/can-align"> <!-- Flip flop, so that if it can't aligned, switch must be reset to off -->
 			<default value="/systems/iru[0]/can-align"/>
@@ -130,10 +141,39 @@
 				/systems/iru[0]/aligned eq 1
 			</test>
 		</switch>
+		
+		<switch name="/systems/iru[0]/bite-check">
+			<default value="0"/>
+			<test logic="AND" value="15">
+				/controls/iru[0]/switches/knob ge 1
+				/systems/iru[0]/powered eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/iru[0]/bite-check-timer">
+			<input>/systems/iru[0]/bite-check</input>
+			<rate_limit sense="incr">/systems/iru-common/bite-check-time</rate_limit>
+			<rate_limit sense="decr">100000</rate_limit>
+		</actuator>
+		
+		<switch name="/controls/iru[0]/lights/align"> <!-- Blinks with no position after align timer -->
+			<default value="0"/>
+			<test value="1">
+				/systems/iru[0]/aligning eq 1
+			</test>
+		</switch>
+		
+		<switch name="/controls/iru[0]/lights/on-bat">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/iru[0]/bite-check-timer gt 0
+				/systems/iru[0]/bite-check-timer lt 15
+			</test>
+		</switch>
 	
 	</channel>
 	
-	<channel name="IRU 2 Alignment" execrate="8">
+	<channel name="IRU 2" execrate="8">
 		
 		<switch name="/systems/iru[1]/can-align"> <!-- Flip flop, so that if it can't aligned, switch must be reset to off -->
 			<default value="/systems/iru[1]/can-align"/>
@@ -223,6 +263,35 @@
 				/systems/iru[1]/aligned eq 1
 			</test>
 		</switch>
+		
+		<switch name="/systems/iru[1]/bite-check">
+			<default value="0"/>
+			<test logic="AND" value="15">
+				/controls/iru[1]/switches/knob ge 1
+				/systems/iru[1]/powered eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/iru[1]/bite-check-timer">
+			<input>/systems/iru[1]/bite-check</input>
+			<rate_limit sense="incr">/systems/iru-common/bite-check-time</rate_limit>
+			<rate_limit sense="decr">100000</rate_limit>
+		</actuator>
+		
+		<switch name="/controls/iru[1]/lights/align"> <!-- Blinks with no position after align timer -->
+			<default value="0"/>
+			<test value="1">
+				/systems/iru[1]/aligning eq 1
+			</test>
+		</switch>
+		
+		<switch name="/controls/iru[1]/lights/on-bat">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/iru[1]/bite-check-timer gt 0
+				/systems/iru[1]/bite-check-timer lt 15
+			</test>
+		</switch>
 	
 	</channel>
 	
@@ -286,7 +355,7 @@
 	
 	</channel>
 	
-	<channel name="AHRS 1 Alignment" execrate="8">
+	<channel name="AHRS 1" execrate="8">
 		
 		<switch name="/systems/ahrs[0]/can-align"> <!-- Flip flop, so that if it can't aligned, power must be cycled -->
 			<default value="/systems/ahrs[0]/can-align"/>
@@ -347,7 +416,7 @@
 	
 	</channel>
 	
-	<channel name="AHRS 2 Alignment" execrate="8">
+	<channel name="AHRS 2" execrate="8">
 		
 		<switch name="/systems/ahrs[1]/can-align"> <!-- Flip flop, so that if it can't aligned, power must be cycled -->
 			<default value="/systems/ahrs[1]/can-align"/>
