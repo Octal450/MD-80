@@ -18,7 +18,7 @@
 			<feed>3</feed>
 			<thruster file="direct">
 				<location unit="M"> <!-- Fudged for accuracy -->
-					<x>24.20826</x>
+					<x>33.7569</x>
 					<y>-1.4</y>
 					<z>0.0014</z>
 				</location>
@@ -34,7 +34,7 @@
 			<feed>4</feed>
 			<thruster file="direct">
 				<location unit="M"> <!-- Fudged for accuracy -->
-					<x>24.20826</x>
+					<x>33.7569</x>
 					<y>1.4</y>
 					<z>0.0014</z>
 				</location>
