@@ -76,6 +76,13 @@ var slowLoop = maketimer(1, func() {
 	if (acconfig.SYSTEM.Error.active.getBoolValue()) {
 		systemsInit();
 	}
+	
+	# Panel forcer - makes sure an invalid panel configuration is never used
+	if (pts.Systems.Acconfig.Options.panel.getValue() == "Analog") {
+		if (pts.Systems.Acconfig.Options.irsEquipped.getBoolValue()) {
+			pts.Systems.Acconfig.Options.irsEquipped.setBoolValue(0);
+		}
+	}
 });
 
 canvas.Text._lastText = canvas.Text["_lastText"];

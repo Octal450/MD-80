@@ -436,6 +436,10 @@
 							<property>/velocities/groundspeed-kt</property>
 							<value>2</value>
 						</less-than>
+						<not-equals>
+							<property>/systems/acconfig/options/panel</property>
+							<value>Analog</value>
+						</not-equals>
 					</and>
 				</enable>
 				<label>IRS Equipped</label>
@@ -492,6 +496,15 @@
 					<value>EFIS</value>
 					<binding>
 						<command>dialog-apply</command>
+					</binding>
+					<binding>
+						<equals>
+							<property>/systems/acconfig/options/panel</property>
+							<value>Analog</value>
+						</equals>
+						<command>property-assign</command>
+						<property>/systems/acconfig/options/irs-equipped</property>
+						<value>0</value>
 					</binding>
 					<binding>
 						<command>nasal</command>
