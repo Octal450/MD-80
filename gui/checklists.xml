@@ -499,10 +499,6 @@
 				<name>TRANSPONDER</name>
 				<value>STBY</value>
 			</item>
-			<item>
-				<name>SLIDES</name>
-				<value>DISARMED</value>
-			</item>
 		</page>
 	</checklist>
 	
