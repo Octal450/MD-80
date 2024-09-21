@@ -199,6 +199,10 @@
 				<value>OFF/ON</value>
 			</item>
 			<item>
+				<name>PITOT HEAT SELECTOR</name>
+				<value>CAPT</value>
+			</item>
+			<item>
 				<name>ANNUNCIATOR PANEL</name>
 				<value>CHECKED</value>
 			</item>
@@ -448,6 +452,14 @@
 			<item>
 				<name>FLAPS &amp; SLATS</name>
 				<value>UP &amp; RETRACTED</value>
+			</item>
+			<item>
+				<name>PITOT HEAT SELECTOR</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>LIGHTS</name>
+				<value>AS REQUIRED</value>
 			</item>
 		</page>
 	</checklist>
