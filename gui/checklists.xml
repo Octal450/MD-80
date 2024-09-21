@@ -485,7 +485,7 @@
 			</item>
 			<item>
 				<name>ANTI-ICE</name>
-				<value>SET</value>
+				<value>OFF</value>
 			</item>
 			<item>
 				<name>BEACON</name>
@@ -519,6 +519,10 @@
 			</item>
 			<item>
 				<name>ANTI-ICE</name>
+				<value>OFF</value>
+			</item>
+			<item>
+				<name>IRS SELECTORS (IF EQUIPPED)</name>
 				<value>OFF</value>
 			</item>
 			<item>
