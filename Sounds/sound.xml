@@ -303,7 +303,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_1</property>
-				<factor>0.7</factor>
+				<factor>0.9</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_WHN_1</property>
@@ -324,7 +324,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_2</property>
-				<factor>0.7</factor>
+				<factor>0.9</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_WHN_2</property>
@@ -343,7 +343,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_3</property>
-				<factor>0.7</factor>
+				<factor>0.9</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_WHN_3</property>
@@ -381,7 +381,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_hum_high</property>
-				<factor>0.7</factor>
+				<factor>0.9</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_hum</property>
@@ -402,7 +402,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_4</property>
-				<factor>0.7</factor>
+				<factor>0.9</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_WHN_4</property>
@@ -421,7 +421,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_5</property>
-				<factor>0.7</factor>
+				<factor>0.9</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_WHN_5</property>
@@ -442,7 +442,7 @@
 			</condition>
 			<volume>
 				<property>/sim/sound/engine/MDA_REV</property>
-				<factor>0.7</factor>
+				<factor>0.9</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_REV</property>
@@ -462,7 +462,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_1</property>
-				<factor>0.7</factor>
+				<factor>0.9</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_WHN_1</property>
@@ -483,7 +483,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_2</property>
-				<factor>0.7</factor>
+				<factor>0.9</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_WHN_2</property>
@@ -502,7 +502,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_3</property>
-				<factor>0.7</factor>
+				<factor>0.9</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_WHN_3</property>
@@ -540,7 +540,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_hum_high</property>
-				<factor>0.7</factor>
+				<factor>0.9</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_hum</property>
@@ -561,7 +561,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_4</property>
-				<factor>0.7</factor>
+				<factor>0.9</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_WHN_4</property>
@@ -580,7 +580,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_5</property>
-				<factor>0.7</factor>
+				<factor>0.9</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_WHN_5</property>
@@ -601,7 +601,7 @@
 			</condition>
 			<volume>
 				<property>/sim/sound/engine/MDB_REV</property>
-				<factor>0.7</factor>
+				<factor>0.9</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_REV</property>
@@ -622,7 +622,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDA_CMB_1</property>
-				<factor>0.4</factor>
+				<factor>0.6</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_CMB_1</property>
@@ -643,7 +643,7 @@
 			<property>sim/sound/internal-custom</property>
 			<volume>
 				<property>/sim/sound/engine/MDB_CMB_1</property>
-				<factor>0.4</factor>
+				<factor>0.6</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_CMB_1</property>
@@ -668,13 +668,14 @@
 			</condition>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_1</property>
+				<factor>1.2</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_WHN_1</property>
 			</pitch>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>33.37</x>
+				<x>10</x>
 				<y>2.7</y>
 				<z>0.7</z>
 			</position>
@@ -691,13 +692,14 @@
 			</condition>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_2</property>
+				<factor>1.2</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_WHN_2</property>
 			</pitch>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>33.37</x>
+				<x>10</x>
 				<y>2.7</y>
 				<z>0.7</z>
 			</position>
@@ -716,6 +718,7 @@
 			</condition>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_3</property>
+				<factor>1.2</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_WHN_3</property>
@@ -728,7 +731,7 @@
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>33.37</x>
+				<x>10</x>
 				<y>2.7</y>
 				<z>0.7</z>
 			</position>
@@ -747,7 +750,7 @@
 			</condition>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_4</property>
-				<factor>0.8</factor>
+				<factor>1.2</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_WHN_4</property>
@@ -760,7 +763,7 @@
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>33.37</x>
+				<x>10</x>
 				<y>2.7</y>
 				<z>0.7</z>
 			</position>
@@ -777,10 +780,11 @@
 			</condition>
 			<volume>
 				<property>/sim/sound/engine/MDA_WHN_5</property>
+				<factor>1.2</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDA_WHN_5</property>
-				<factor>0.98</factor>
+				<factor>0.5</factor>
 			</pitch>
 			<orientation>
 				<x>-1</x>
@@ -790,7 +794,7 @@
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>33.37</x>
+				<x>10</x>
 				<y>2.7</y>
 				<z>0.7</z>
 			</position>
@@ -809,13 +813,14 @@
 			</condition>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_1</property>
+				<factor>1.2</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_WHN_1</property>
 			</pitch>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>33.37</x>
+				<x>10</x>
 				<y>-2.7</y>
 				<z>0.7</z>
 			</position>
@@ -832,13 +837,14 @@
 			</condition>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_2</property>
+				<factor>1.2</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_WHN_2</property>
 			</pitch>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>33.37</x>
+				<x>10</x>
 				<y>-2.7</y>
 				<z>0.7</z>
 			</position>
@@ -857,6 +863,7 @@
 			</condition>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_3</property>
+				<factor>1.2</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_WHN_3</property>
@@ -869,7 +876,7 @@
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>33.37</x>
+				<x>10</x>
 				<y>-2.7</y>
 				<z>0.7</z>
 			</position>
@@ -888,7 +895,7 @@
 			</condition>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_4</property>
-				<factor>0.8</factor>
+				<factor>1.2</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_WHN_4</property>
@@ -901,7 +908,7 @@
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>33.37</x>
+				<x>10</x>
 				<y>-2.7</y>
 				<z>0.7</z>
 			</position>
@@ -918,10 +925,11 @@
 			</condition>
 			<volume>
 				<property>/sim/sound/engine/MDB_WHN_5</property>
+				<factor>1.2</factor>
 			</volume>
 			<pitch>
 				<property>/sim/sound/enginep/MDB_WHN_5</property>
-				<factor>0.98</factor>
+				<factor>0.5</factor>
 			</pitch>
 			<orientation>
 				<x>-1</x>
@@ -931,7 +939,7 @@
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
-				<x>33.37</x>
+				<x>10</x>
 				<y>-2.7</y>
 				<z>0.7</z>
 			</position>
