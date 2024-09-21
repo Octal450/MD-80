@@ -207,7 +207,7 @@
 				<value>SET, TAK OFF, TAK OFF</value>
 			</item>
 			<item>
-				<name>TO DATA, TRP, ART</name>
+				<name>TO DATA, TRP/TRI, ART</name>
 				<value>CONFIRMED &amp; SET</value>
 			</item>
 			<item>
@@ -287,7 +287,7 @@
 				<value>CHECKED</value>
 			</item>
 			<item>
-				<name>TRP</name>
+				<name>TRP/TRI</name>
 				<value>CL</value>
 			</item>
 			<item>
@@ -348,7 +348,7 @@
 				<value>SET</value>
 			</item>
 			<item>
-				<name>TRP</name>
+				<name>TRP/TRI</name>
 				<value>GA</value>
 			</item>
 			<item>
