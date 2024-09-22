@@ -17,7 +17,7 @@
 			<test value="10000"> <!-- Instant -->
 				/systems/acconfig/options/irs-equipped eq 0
 			</test>
-			<test logic="OR" value="225"> <!-- 2 seconds -->
+			<test logic="OR" value="900"> <!-- 0.5 seconds -->
 				/systems/acconfig/options/irs-aligns-instantly eq 1
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
@@ -302,7 +302,7 @@
 			<test value="10000"> <!-- Instant -->
 				/systems/acconfig/options/irs-equipped eq 1
 			</test>
-			<test value="45"> <!-- 1 second -->
+			<test value="90"> <!-- 0.5 seconds -->
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
