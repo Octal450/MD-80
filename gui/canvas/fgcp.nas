@@ -23,8 +23,9 @@ var fgcpCanvas = {
 		return m;
 	},
 	getKeys: func() {
-		return ["Ap", "ApDisc", "ApSel", "AltHold", "AltKnob", "Alt_7seg", "Alt_thousand_7seg", "AtsDisc", "AutoLand", "AutoThrot", "Bank10", "Bank15", "Bank20", "Bank25", "Bank30", "BankLimit", "Display", "EprLim", "Fd1", "Fd2", "FmsOvrd", "HdgKnob", "Hdg_7seg",
-		"IasMach", "Ils", "MachSel", "Nav", "PerfVnav", "PerfVnavText", "PitchMode_16seg", "PitchKnob", "Pitch_7seg", "SpdKnob", "SpdSel", "Spd_7seg", "Toga", "Turb", "VertSpd", "VorLoc"];
+		return ["Ap", "ApDisc", "ApSel", "AltHold", "AltKnob", "AltMinus", "AltPlus", "Alt_7seg", "Alt_thousand_7seg", "AtsDisc", "AutoLand", "AutoThrot", "Bank10", "Bank15", "Bank20", "Bank25", "Bank30", "BankLimit", "Display", "EprLim", "Fd1", "Fd2",
+		"FmsOvrd", "HdgKnob", "HdgMinus", "HdgPlus", "Hdg_7seg", "IasMach", "Ils", "MachSel", "Nav", "PerfVnav", "PerfVnavText", "PitchMode_16seg", "PitchKnob", "PitchMinus", "PitchPlus", "Pitch_7seg", "SpdKnob", "SpdMinus", "SpdPlus", "SpdSel", "Spd_7seg",
+		"Toga", "Turb", "VertSpd", "VorLoc"];
 	},
 	close: func() {
 		me._dialogUpdate.stop();
@@ -134,6 +135,20 @@ var fgcpCanvas = {
 				cockpit.ApPanel.spdAdjust(e.deltaY);
 			}
 		});
+		me["SpdMinus"].addEventListener("click", func(e) {
+			if (e.shiftKey) {
+				cockpit.ApPanel.spdAdjust(-10);
+			} else {
+				cockpit.ApPanel.spdAdjust(-1);
+			}
+		});
+		me["SpdPlus"].addEventListener("click", func(e) {
+			if (e.shiftKey) {
+				cockpit.ApPanel.spdAdjust(10);
+			} else {
+				cockpit.ApPanel.spdAdjust(1);
+			}
+		});
 		
 		# Heading Knob
 		me["HdgKnob"].addEventListener("click", func(e) {
@@ -148,6 +163,20 @@ var fgcpCanvas = {
 				cockpit.ApPanel.hdgAdjust(10 * e.deltaY);
 			} else {
 				cockpit.ApPanel.hdgAdjust(e.deltaY);
+			}
+		});
+		me["HdgMinus"].addEventListener("click", func(e) {
+			if (e.shiftKey) {
+				cockpit.ApPanel.hdgAdjust(-10);
+			} else {
+				cockpit.ApPanel.hdgAdjust(-1);
+			}
+		});
+		me["HdgPlus"].addEventListener("click", func(e) {
+			if (e.shiftKey) {
+				cockpit.ApPanel.hdgAdjust(10);
+			} else {
+				cockpit.ApPanel.hdgAdjust(1);
 			}
 		});
 		
@@ -176,6 +205,20 @@ var fgcpCanvas = {
 				cockpit.ApPanel.vsAdjust(-1 * e.deltaY); # Inverted
 			}
 		});
+		me["PitchMinus"].addEventListener("click", func(e) {
+			if (e.shiftKey) {
+				cockpit.ApPanel.vsAdjust(-10);
+			} else {
+				cockpit.ApPanel.vsAdjust(-1);
+			}
+		});
+		me["PitchPlus"].addEventListener("click", func(e) {
+			if (e.shiftKey) {
+				cockpit.ApPanel.vsAdjust(10);
+			} else {
+				cockpit.ApPanel.vsAdjust(1);
+			}
+		});
 		
 		# Altitude Knob
 		me["AltKnob"].addEventListener("click", func(e) {
@@ -190,6 +233,20 @@ var fgcpCanvas = {
 				cockpit.ApPanel.altAdjust(e.deltaY);
 			} else {
 				cockpit.ApPanel.altAdjust(10 * e.deltaY);
+			}
+		});
+		me["AltMinus"].addEventListener("click", func(e) {
+			if (e.shiftKey) {
+				cockpit.ApPanel.altAdjust(-10);
+			} else {
+				cockpit.ApPanel.altAdjust(-1);
+			}
+		});
+		me["AltPlus"].addEventListener("click", func(e) {
+			if (e.shiftKey) {
+				cockpit.ApPanel.altAdjust(10);
+			} else {
+				cockpit.ApPanel.altAdjust(1);
 			}
 		});
 		
