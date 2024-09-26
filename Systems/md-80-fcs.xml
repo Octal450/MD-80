@@ -556,17 +556,14 @@
 			</test>
 		</switch>
 		
-		<aerosurface_scale name="fcs-actual/stabilizer/cmd-deg">
+		<pure_gain name="fcs-actual/stabilizer/cmd-deg">
 			<input>/controls/flight/elevator-trim</input>
-			<domain>
-				<min>-1.0</min>
-				<max>0.2</max>
-			</domain>
-			<range>
+			<gain>12.5</gain>
+			<clipto>
 				<min>-12.5</min>
 				<max>2.5</max>
-			</range>
-		</aerosurface_scale>
+			</clipto>
+		</pure_gain>
 		
 		<actuator name="fcs-actual/stabilizer/final-actuator">
 			<input>fcs-actual/stabilizer/cmd-deg</input>
