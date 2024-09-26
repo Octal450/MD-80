@@ -327,6 +327,37 @@
 			</function>
 		</fcs_function>
 		
+		<switch name="dfgs/speeds/v2-target-ias-input">
+			<default value="/instrumentation/airspeed-indicator/indicated-speed-kt"/>
+			<test logic="AND" value="dfgs/speeds/v2-target-ias-input">
+				libraries/engine-out eq 1
+			</test>
+		</switch>
+		
+		<fcs_function name="dfgs/speeds/v2-target"> <!-- Target V2 for TAK OFF -->
+			<function>
+				<integer>
+					<sum>
+						<ifthen>
+							<eq>
+								<property>libraries/engine-out</property>
+								<value>1</value>
+							</eq>
+							<min>
+								<max>
+									<property>dfgs/speeds/v2-target-ias-input</property>
+									<property>dfgs/speeds/v2</property>
+								</max>
+								<property>dfgs/speeds/v2-plus-10</property>
+							</min>
+							<property>dfgs/speeds/v2-plus-10</property>
+						</ifthen>
+						<value>0.5</value>
+					</sum>
+				</integer>
+			</function>
+		</fcs_function>
+		
 		<!-- Vmo/Mmo -->
 		<fcs_function name="dfgs/speeds/mmo-kts">
 			<function>
@@ -544,6 +575,17 @@
 					<property>dfgs/speeds/vmin</property>
 					<value>5</value>
 				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="dfgs/speeds/ga-target"> <!-- Target V2 for GO RND -->
+			<function>
+				<integer>
+					<sum>
+						<property>dfgs/speeds/vmin-plus-5</property>
+						<value>0.5</value>
+					</sum>
+				</integer>
 			</function>
 		</fcs_function>
 		
