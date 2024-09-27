@@ -139,9 +139,14 @@
 						<enable>
 							<and>
 								<not><property>/systems/acconfig/autoconfig-running</property></not>
-								<property>/gear/gear[0]/wow</property>
-								<property>/gear/gear[1]/wow</property>
-								<property>/gear/gear[2]/wow</property>
+								<equals>
+									<property>/fdm/jsbsim/position/wow</property>
+									<value>1</value>
+								</equals>
+								<less-than>
+									<property>/velocities/groundspeed-kt</property>
+									<value>2</value>
+								</less-than>
 							</and>
 						</enable>
 						<binding>
@@ -159,9 +164,14 @@
 						<enable>
 							<and>
 								<not><property>/systems/acconfig/autoconfig-running</property></not>
-								<property>/gear/gear[0]/wow</property>
-								<property>/gear/gear[1]/wow</property>
-								<property>/gear/gear[2]/wow</property>
+								<equals>
+									<property>/fdm/jsbsim/position/wow</property>
+									<value>1</value>
+								</equals>
+								<less-than>
+									<property>/velocities/groundspeed-kt</property>
+									<value>2</value>
+								</less-than>
 							</and>
 						</enable>
 						<binding>
@@ -179,9 +189,14 @@
 						<enable>
 							<and>
 								<not><property>/systems/acconfig/autoconfig-running</property></not>
-								<property>/gear/gear[0]/wow</property>
-								<property>/gear/gear[1]/wow</property>
-								<property>/gear/gear[2]/wow</property>
+								<equals>
+									<property>/fdm/jsbsim/position/wow</property>
+									<value>1</value>
+								</equals>
+								<less-than>
+									<property>/velocities/groundspeed-kt</property>
+									<value>2</value>
+								</less-than>
 							</and>
 						</enable>
 						<binding>
@@ -199,9 +214,14 @@
 						<enable>
 							<and>
 								<not><property>/systems/acconfig/autoconfig-running</property></not>
-								<property>/gear/gear[0]/wow</property>
-								<property>/gear/gear[1]/wow</property>
-								<property>/gear/gear[2]/wow</property>
+								<equals>
+									<property>/fdm/jsbsim/position/wow</property>
+									<value>1</value>
+								</equals>
+								<less-than>
+									<property>/velocities/groundspeed-kt</property>
+									<value>2</value>
+								</less-than>
 							</and>
 						</enable>
 						<binding>
