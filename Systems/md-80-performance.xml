@@ -7,7 +7,7 @@
 	
 	<property value="11">performance/flap-setting</property>
 	
-	<channel name="Speed Calculations" execrate="8">
+	<channel name="Performance Calculations" execrate="8">
 		
 		<!-- V1 -->
 		<fcs_function name="performance/v1-table"> <!-- From FCOM + Extrapolation -->
