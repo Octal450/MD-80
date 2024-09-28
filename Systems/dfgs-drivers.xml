@@ -1229,6 +1229,15 @@
 		</input>
 		<input>/it-autoflight/input/kts</input>
 		<output>/it-autoflight/output/fast-slow-input</output>
+		<min>
+			<condition>
+				<equals>
+					<property>/it-autoflight/output/vert</property>
+					<value>7</value>
+				</equals>
+			</condition>
+			<value>0</value>
+		</min>
 		<min>/fdm/jsbsim/dfgs/speeds/vmin</min>
 		<max>/fdm/jsbsim/dfgs/speeds/vmax</max>
 	</filter>
