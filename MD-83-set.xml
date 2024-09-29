@@ -5,7 +5,7 @@
 <PropertyList include="MD-80-main.xml">
 	
     <sim>
-		<aero>MD-83</aero>
+		<aero>FDE/MD-83</aero>
 		<description>McDonnell Douglas MD-83 (JT8D-219)</description>
 		<flight-model>jsb</flight-model>
 		<model n="0">
