@@ -6,12 +6,12 @@
 	
 	<fileheader>
 		<author>Josh Davidson (Octal450)</author>
-		<description>MD-80 FDE</description>
+		<description>MD-81 FDE with JT8D-209 Engines</description>
 	</fileheader>
 	
-	<metrics file="Systems/md-80-metrics"/>
-	<mass_balance file="Systems/md-80-mass-balance"/>
-	<ground_reactions file="Systems/md-80-ground-reactions"/>
+	<metrics file="FDE/Config/md-80-metrics"/>
+	<mass_balance file="FDE/Config/md-80-mass-balance"/>
+	<ground_reactions file="FDE/Config/md-80-ground-reactions"/>
 	
 	<propulsion>
 		<engine file="jt8d-209_1">
@@ -155,7 +155,7 @@
 	<system file="md-80-instrumentation"/>
 	
 	<flight_control name="none"/>
-	<aerodynamics file="Systems/md-80-aerodynamics.xml"/>
-	<external_reactions file="Systems/md-80-external-reactions"/>
+	<aerodynamics file="FDE/Config/md-80-aerodynamics.xml"/>
+	<external_reactions file="FDE/Config/md-80-external-reactions"/>
 
 </fdm_config>
