@@ -784,7 +784,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<toradians><property>aero/function/kCndr</property></toradians>
-				<value>0.037</value>
+				<value>0.03923</value>
 			</product>
 		</function>
 	
