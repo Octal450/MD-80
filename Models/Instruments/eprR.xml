@@ -9,10 +9,7 @@
 	
 	<animation>
 		<type>material</type>
-		<object-name>Face</object-name>
-		<object-name>Needle</object-name>
-		<object-name>EprLimit</object-name>
-		<object-name>Digits</object-name>
+		<object-name>LightingGroup</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.6</green>
@@ -53,7 +50,7 @@
 	
 	<animation>
 		<type>textranslate</type>
-		<object-name>epr1</object-name>
+		<object-name>Epr1</object-name>
 		<property>instrumentation/epr[1]/epr-d100</property>
 		<factor>0.0697</factor>
 		<step>1</step>
@@ -67,7 +64,7 @@
 	
 	<animation>
 		<type>textranslate</type>
-		<object-name>epr2</object-name>
+		<object-name>Epr2</object-name>
 		<property>instrumentation/epr[1]/epr-d10</property>
 		<factor>0.0697</factor>
 		<step>1</step>
@@ -81,8 +78,8 @@
 	
 	<animation>
 		<type>textranslate</type>
-		<object-name>epr3</object-name>
-		<object-name>eprLines</object-name>
+		<object-name>Epr3</object-name>
+		<object-name>EprLines</object-name>
 		<property>instrumentation/epr[1]/epr-d1</property>
 		<factor>0.0697</factor>
 		<axis>
@@ -94,9 +91,9 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>cmd1</object-name>
-		<object-name>cmd2</object-name>
-		<object-name>cmd3</object-name>
+		<object-name>Cmd1</object-name>
+		<object-name>Cmd2</object-name>
+		<object-name>Cmd3</object-name>
 		<condition>
 			<and>
 				<property>instrumentation/epr[1]/power-avail</property>
@@ -107,21 +104,21 @@
 	
 	<animation>
 		<type>textranslate</type>
-		<object-name>cmd1</object-name>
+		<object-name>Cmd1</object-name>
 		<property>instrumentation/epr[1]/cmd-d100</property>
 		<factor>0.0697</factor>
 		<step>1</step>
 		<scroll>0.01</scroll>
 		<axis>
 			<x>0</x>
-			<y>1</y>
+			<y>1</y>0
 			<z>0</z>
 		</axis>
 	</animation>
 	
 	<animation>
 		<type>textranslate</type>
-		<object-name>cmd2</object-name>
+		<object-name>Cmd2</object-name>
 		<property>instrumentation/epr[1]/cmd-d10</property>
 		<factor>0.0697</factor>
 		<step>1</step>
@@ -135,7 +132,7 @@
 	
 	<animation>
 		<type>textranslate</type>
-		<object-name>cmd3</object-name>
+		<object-name>Cmd3</object-name>
 		<property>instrumentation/epr[1]/cmd-d1</property>
 		<factor>0.0697</factor>
 		<axis>
@@ -238,6 +235,17 @@
 				<wrap>true</wrap>
 			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Flag</object-name>
+		<condition>
+			<not-equals>
+				<property>instrumentation/epr[1]/power-avail</property>
+				<value>1</value>
+			</not-equals>
+		</condition>
 	</animation>
 
 </PropertyList>
