@@ -424,7 +424,7 @@ name "eprLines"
 loc 3.33897e-06 0.00053072 0.0934778
 data 9
 epr3.mesh
-texture "TRI/tri-digits.jpg"
+texture "digits-roll.jpg"
 crease 45.000000
 numvert 4
 0 0.00255008 -0.00718193
