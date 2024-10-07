@@ -482,7 +482,7 @@
 						</eq>
 						<value>3000</value>
 						<product>
-							<integer>
+							<floor>
 								<sum>
 									<quotient>
 										<property>propulsion/tank[0]/contents-lbs</property>
@@ -490,7 +490,7 @@
 									</quotient>
 									<value>0.5</value>
 								</sum>
-							</integer>
+							</floor>
 							<value>25</value>
 						</product>
 					</ifthen>
@@ -513,7 +513,7 @@
 						</eq>
 						<value>3000</value>
 						<product>
-							<integer>
+							<floor>
 								<sum>
 									<quotient>
 										<property>propulsion/tank[1]/contents-lbs</property>
@@ -521,7 +521,7 @@
 									</quotient>
 									<value>0.5</value>
 								</sum>
-							</integer>
+							</floor>
 							<value>25</value>
 						</product>
 					</ifthen>
@@ -544,7 +544,7 @@
 						</eq>
 						<value>3000</value>
 						<product>
-							<integer>
+							<floor>
 								<sum>
 									<quotient>
 										<property>propulsion/tank[2]/contents-lbs</property>
@@ -552,7 +552,7 @@
 									</quotient>
 									<value>0.5</value>
 								</sum>
-							</integer>
+							</floor>
 							<value>25</value>
 						</product>
 					</ifthen>
@@ -575,7 +575,7 @@
 						</eq>
 						<value>3000</value>
 						<product>
-							<integer>
+							<floor>
 								<sum>
 									<quotient>
 										<property>propulsion/tank[6]/contents-lbs</property>
@@ -583,7 +583,7 @@
 									</quotient>
 									<value>0.5</value>
 								</sum>
-							</integer>
+							</floor>
 							<value>25</value>
 						</product>
 					</ifthen>
@@ -606,7 +606,7 @@
 						</eq>
 						<value>3000</value>
 						<product>
-							<integer>
+							<floor>
 								<sum>
 									<quotient>
 										<property>propulsion/tank[7]/contents-lbs</property>
@@ -614,7 +614,7 @@
 									</quotient>
 									<value>0.5</value>
 								</sum>
-							</integer>
+							</floor>
 							<value>25</value>
 						</product>
 					</ifthen>

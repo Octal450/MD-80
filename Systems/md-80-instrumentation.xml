@@ -57,7 +57,7 @@
 		
 		<fcs_function name="/instrumentation/airspeed-indicator[0]/mach-digit-cmd">
 			<function>
-				<integer>
+				<floor>
 					<sum>
 						<product>
 							<property>/instrumentation/airspeed-indicator[0]/mach-input</property>
@@ -65,7 +65,7 @@
 						</product>
 						<value>0.5</value>
 					</sum>
-				</integer>
+				</floor>
 			</function>
 			<clipto>
 				<min>150</min>
@@ -178,7 +178,7 @@
 		
 		<fcs_function name="/instrumentation/airspeed-indicator[1]/mach-digit-cmd">
 			<function>
-				<integer>
+				<floor>
 					<sum>
 						<product>
 							<property>/instrumentation/airspeed-indicator[1]/mach-input</property>
@@ -186,7 +186,7 @@
 						</product>
 						<value>0.5</value>
 					</sum>
-				</integer>
+				</floor>
 			</function>
 			<clipto>
 				<min>150</min>
@@ -1571,7 +1571,7 @@
 							<property>/instrumentation/hsi[0]/slaved-to-gps</property>
 							<value>1</value>
 						</eq>
-						<integer>
+						<floor>
 							<sum>
 								<product>
 									<property>/autopilot/route-manager/wp[0]/dist</property>
@@ -1579,8 +1579,8 @@
 								</product>
 								<value>0.5</value>
 							</sum>
-						</integer>
-						<integer>
+						</floor>
+						<floor>
 							<sum>
 								<product>
 									<property>/instrumentation/dme[0]/indicated-distance-nm</property>
@@ -1588,7 +1588,7 @@
 								</product>
 								<value>0.5</value>
 							</sum>
-						</integer>
+						</floor>
 					</ifthen>
 				</ifthen>
 			</function>
@@ -1628,7 +1628,7 @@
 							<property>/instrumentation/hsi[1]/slaved-to-gps</property>
 							<value>1</value>
 						</eq>
-						<integer>
+						<floor>
 							<sum>
 								<product>
 									<property>/autopilot/route-manager/wp[0]/dist</property>
@@ -1636,8 +1636,8 @@
 								</product>
 								<value>0.5</value>
 							</sum>
-						</integer>
-						<integer>
+						</floor>
+						<floor>
 							<sum>
 								<product>
 									<property>/instrumentation/dme[1]/indicated-distance-nm</property>
@@ -1645,7 +1645,7 @@
 								</product>
 								<value>0.5</value>
 							</sum>
-						</integer>
+						</floor>
 					</ifthen>
 				</ifthen>
 			</function>
@@ -1769,9 +1769,9 @@
 				<product>
 					<difference>
 						<property>/instrumentation/epr[0]/epr-input</property>
-						<integer>
+						<floor>
 							<property>/instrumentation/epr[0]/epr-input</property>
-						</integer>
+						</floor>
 					</difference>
 					<value>10</value>
 				</product>
@@ -1807,9 +1807,9 @@
 				<product>
 					<difference>
 						<property>/instrumentation/epr[0]/cmd-input</property>
-						<integer>
+						<floor>
 							<property>/instrumentation/epr[0]/cmd-input</property>
-						</integer>
+						</floor>
 					</difference>
 					<value>10</value>
 				</product>
@@ -1878,9 +1878,9 @@
 				<product>
 					<difference>
 						<property>/instrumentation/epr[1]/epr-input</property>
-						<integer>
+						<floor>
 							<property>/instrumentation/epr[1]/epr-input</property>
-						</integer>
+						</floor>
 					</difference>
 					<value>10</value>
 				</product>
@@ -1916,9 +1916,9 @@
 				<product>
 					<difference>
 						<property>/instrumentation/epr[1]/cmd-input</property>
-						<integer>
+						<floor>
 							<property>/instrumentation/epr[1]/cmd-input</property>
-						</integer>
+						</floor>
 					</difference>
 					<value>10</value>
 				</product>
@@ -2464,14 +2464,14 @@
 		
 		<fcs_function name="/instrumentation/tri/rat-fixed">
 			<function>
-				<integer>
+				<floor>
 					<sum>
 						<abs>
 							<property>/instrumentation/tri/rat-cmd</property>
 						</abs>
 						<value>0.5</value> <!-- Make it round correctly -->
 					</sum>
-				</integer>
+				</floor>
 			</function>
 		</fcs_function>
 		
@@ -2534,9 +2534,9 @@
 				<product>
 					<difference>
 						<property>/instrumentation/tri/limit-active</property>
-						<integer>
+						<floor>
 							<property>/instrumentation/tri/limit-active</property>
-						</integer>
+						</floor>
 					</difference>
 					<value>10</value>
 				</product>
@@ -2570,18 +2570,18 @@
 		
 		<fcs_function name="/instrumentation/assumed-temp/input-d10">
 			<function>
-				<integer>
+				<floor>
 					<quotient>
 						<property>/instrumentation/assumed-temp/input-fixed</property>
 						<value>10</value>
 					</quotient>
-				</integer>
+				</floor>
 			</function>
 		</fcs_function>
 		
 		<fcs_function name="/instrumentation/assumed-temp/input-d1">
 			<function>
-				<integer>
+				<floor>
 					<product>
 						<fraction>
 							<quotient>
@@ -2591,7 +2591,7 @@
 						</fraction>
 						<value>10</value>
 					</product>
-				</integer>
+				</floor>
 			</function>
 		</fcs_function>
 		
@@ -2662,7 +2662,7 @@
 					</eq>
 					<value>888888</value>
 					<product>
-						<integer>
+						<floor>
 							<sum>
 								<quotient>
 									<sum>
@@ -2673,7 +2673,7 @@
 								</quotient>
 								<value>0.5</value>
 							</sum>
-						</integer>
+						</floor>
 						<value>25</value>
 					</product>
 				</ifthen>

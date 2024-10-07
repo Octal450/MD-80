@@ -195,7 +195,7 @@
 		<fcs_function name="engine/limit/go-around">
 			<function>
 				<quotient>
-					<integer>
+					<floor>
 						<sum>
 							<product>
 								<property>engine/limit/go-around-ref</property>
@@ -203,7 +203,7 @@
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
 						</sum>
-					</integer>
+					</floor>
 					<value>1000</value>
 				</quotient>
 			</function>
@@ -300,7 +300,7 @@
 		<fcs_function name="engine/limit/takeoff">
 			<function>
 				<quotient>
-					<integer>
+					<floor>
 						<sum>
 							<product>
 								<property>engine/limit/takeoff-final-ref</property>
@@ -308,7 +308,7 @@
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
 						</sum>
-					</integer>
+					</floor>
 					<value>1000</value>
 				</quotient>
 			</function>
@@ -344,7 +344,7 @@
 		<fcs_function name="engine/limit/mct">
 			<function>
 				<quotient>
-					<integer>
+					<floor>
 						<sum>
 							<product>
 								<property>engine/limit/mct-ref</property>
@@ -352,7 +352,7 @@
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
 						</sum>
-					</integer>
+					</floor>
 					<value>1000</value>
 				</quotient>
 			</function>
@@ -389,7 +389,7 @@
 		<fcs_function name="engine/limit/climb">
 			<function>
 				<quotient>
-					<integer>
+					<floor>
 						<sum>
 							<product>
 								<property>engine/limit/climb-ref</property>
@@ -397,7 +397,7 @@
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
 						</sum>
-					</integer>
+					</floor>
 					<value>1000</value>
 				</quotient>
 			</function>
@@ -434,7 +434,7 @@
 		<fcs_function name="engine/limit/cruise">
 			<function>
 				<quotient>
-					<integer>
+					<floor>
 						<sum>
 							<product>
 								<property>engine/limit/cruise-ref</property>
@@ -442,7 +442,7 @@
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
 						</sum>
-					</integer>
+					</floor>
 					<value>1000</value>
 				</quotient>
 			</function>
@@ -684,7 +684,7 @@
 		<fcs_function name="engine/limit/idle">
 			<function>
 				<quotient>
-					<integer>
+					<floor>
 						<sum>
 							<product>
 								<property>engine/limit/idle-ref</property>
@@ -692,7 +692,7 @@
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
 						</sum>
-					</integer>
+					</floor>
 					<value>1000</value>
 				</quotient>
 			</function>
@@ -880,7 +880,7 @@
 				<quotient>
 					<difference>
 						<quotient>
-							<integer>
+							<floor>
 								<sum>
 									<product>
 										<property>engine/limit/takeoff-max-ref</property>
@@ -888,7 +888,7 @@
 									</product>
 									<value>0.5</value> <!-- Make it round correctly -->
 								</sum>
-							</integer>
+							</floor>
 							<value>1000</value>
 						</quotient>
 						<property>engine/epr/c2</property>
@@ -936,7 +936,7 @@
 				<quotient>
 					<difference>
 						<quotient>
-							<integer>
+							<floor>
 								<sum>
 									<product>
 										<property>engine/limit/takeoff-ref</property>
@@ -944,7 +944,7 @@
 									</product>
 									<value>0.5</value> <!-- Make it round correctly -->
 								</sum>
-							</integer>
+							</floor>
 							<value>1000</value>
 						</quotient>
 						<property>engine/epr/c2</property>

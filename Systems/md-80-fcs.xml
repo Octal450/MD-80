@@ -722,7 +722,7 @@
 		<fcs_function name="/controls/flight/flaps-fixed"> <!-- Rounds to 4 figures to fix a potential problem -->
 			<function>
 				<quotient>
-					<integer>
+					<floor>
 						<sum>
 							<product>
 								<property>/controls/flight/flaps</property>
@@ -730,7 +730,7 @@
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
 						</sum>
-					</integer>
+					</floor>
 					<value>10000</value>
 				</quotient>
 			</function>
@@ -761,12 +761,12 @@
 		
 		<fcs_function name="/controls/flight/dial-a-flap-int"> <!-- Not used yet -->
 			<function>
-				<integer>
+				<floor>
 					<sum>
 						<property>/controls/flight/dial-a-flap</property>
 						<value>0.5</value> <!-- Make the integer rounded correctly -->
 					</sum>
-				</integer>
+				</floor>
 			</function>
 			<clipto>
 				<min>10</min>

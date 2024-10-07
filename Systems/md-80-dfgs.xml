@@ -336,7 +336,7 @@
 		
 		<fcs_function name="dfgs/speeds/v2-target"> <!-- Target V2 for TAK OFF -->
 			<function>
-				<integer>
+				<floor>
 					<sum>
 						<ifthen>
 							<eq>
@@ -354,7 +354,7 @@
 						</ifthen>
 						<value>0.5</value>
 					</sum>
-				</integer>
+				</floor>
 			</function>
 		</fcs_function>
 		
@@ -580,12 +580,12 @@
 		
 		<fcs_function name="dfgs/speeds/ga-target"> <!-- Target V2 for GO RND -->
 			<function>
-				<integer>
+				<floor>
 					<sum>
 						<property>dfgs/speeds/vmin-plus-5</property>
 						<value>0.5</value>
 					</sum>
-				</integer>
+				</floor>
 			</function>
 		</fcs_function>
 		
