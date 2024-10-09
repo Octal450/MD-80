@@ -586,7 +586,7 @@
 			</condition>
 		</enable>
 		<input>/controls/flight/elevator</input>
-		<output>/fdm/jsbsim/dfgs/afs/pitch-cmd</output>
+		<output>/systems/dfgs/afs/pitch-cmd</output>
 	</filter>
 	
 	<filter>
@@ -608,7 +608,7 @@
 			<property>/it-autoflight/internal/elevator-cmd</property>
 		</input>
 		<input>0.05</input>
-		<output>/fdm/jsbsim/dfgs/afs/pitch-cmd</output>
+		<output>/systems/dfgs/afs/pitch-cmd</output>
 		<max-rate-of-change>1.2</max-rate-of-change>
 	</filter>
 	
@@ -627,7 +627,7 @@
 				<greater-than-equals>
 					<expression>
 						<abs>
-							<property>/fdm/jsbsim/dfgs/afs/pitch-cmd</property>
+							<property>/systems/dfgs/afs/pitch-cmd</property>
 						</abs>
 					</expression>
 					<value>0.05</value>
@@ -640,7 +640,7 @@
 				<less-than>
 					<expression>
 						<abs>
-							<property>/fdm/jsbsim/dfgs/afs/pitch-cmd</property>
+							<property>/systems/dfgs/afs/pitch-cmd</property>
 						</abs>
 					</expression>
 					<value>0.01</value>
@@ -682,7 +682,7 @@
 		<input>
 			<condition>
 				<greater-than>
-					<property>/fdm/jsbsim/dfgs/afs/pitch-cmd</property>
+					<property>/systems/dfgs/afs/pitch-cmd</property>
 					<value>0.001</value>
 				</greater-than>
 			</condition>
@@ -691,7 +691,7 @@
 		<input>
 			<condition>
 				<less-than>
-					<property>/fdm/jsbsim/dfgs/afs/pitch-cmd</property>
+					<property>/systems/dfgs/afs/pitch-cmd</property>
 					<value>-0.001</value>
 				</less-than>
 			</condition>
@@ -703,7 +703,7 @@
 		<max-rate-of-change>
 			<expression>
 				<table>
-					<abs><property>/fdm/jsbsim/dfgs/afs/pitch-cmd</property></abs>
+					<abs><property>/systems/dfgs/afs/pitch-cmd</property></abs>
 					<entry><ind>0.01</ind><dep>0.002</dep></entry>
 					<entry><ind>0.10</ind><dep>0.010</dep></entry>
 				</table>
@@ -724,7 +724,7 @@
 				</table>
 			</expression>
 		</input>
-		<output>/fdm/jsbsim/dfgs/mach-trim/output</output>
+		<output>/systems/dfgs/mach-trim/output</output>
 	</filter>
 
 </PropertyList>

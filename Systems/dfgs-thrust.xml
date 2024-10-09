@@ -29,7 +29,7 @@
 		<min>
 			<expression>
 				<max>
-					<property>/fdm/jsbsim/dfgs/speeds/vmin</property>
+					<property>/systems/dfgs/speeds/vmin</property>
 					<difference>
 						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
 						<value>25</value>
@@ -40,7 +40,7 @@
 		<max>
 			<expression>
 				<min>
-					<property>/fdm/jsbsim/dfgs/speeds/vmax</property>
+					<property>/systems/dfgs/speeds/vmax</property>
 					<sum>
 						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
 						<value>25</value>
@@ -95,7 +95,7 @@
 		<min>
 			<expression>
 				<max>
-					<property>/fdm/jsbsim/dfgs/speeds/vmin-mach</property>
+					<property>/systems/dfgs/speeds/vmin-mach</property>
 					<difference>
 						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
 						<value>0.045</value>
@@ -106,7 +106,7 @@
 		<max>
 			<expression>
 				<min>
-					<property>/fdm/jsbsim/dfgs/speeds/vmax-mach</property>
+					<property>/systems/dfgs/speeds/vmax-mach</property>
 					<sum>
 						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
 						<value>0.045</value>

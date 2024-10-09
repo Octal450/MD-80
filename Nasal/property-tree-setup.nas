@@ -79,9 +79,6 @@ var Fdm = {
 				rateSwitch: props.globals.getNode("/fdm/jsbsim/fcs-actual/stabilizer/rate-switch"),
 			},
 		},
-		Performance: {
-			stabilizerDeg: props.globals.getNode("/fdm/jsbsim/performance/stabilizer-deg"),
-		},
 		Position: {
 			wow: props.globals.getNode("/fdm/jsbsim/position/wow"),
 			wowTemp: 0,
@@ -250,6 +247,9 @@ var Systems = {
 			irsEquipped: props.globals.getNode("/systems/acconfig/options/irs-equipped"),
 			panel: props.globals.getNode("/systems/acconfig/options/panel"),
 		},
+	},
+	Performance: {
+		stabilizerDeg: props.globals.getNode("/systems/performance/stabilizer-deg"),
 	},
 	Shake: {
 		shaking: props.globals.getNode("/systems/shake/shaking"),

@@ -95,8 +95,8 @@
 		
 		<switch name="fcs-actual/aileron/yoke-switch">
 			<default value="/controls/flight/aileron"/>
-			<test value="dfgs/afs/roll-cmd">
-				dfgs/afs/enabled eq 1
+			<test value="/systems/dfgs/afs/roll-cmd">
+				/systems/dfgs/afs/enabled eq 1
 			</test>
 		</switch>
 		
@@ -112,13 +112,13 @@
 		
 		<switch name="fcs-actual/elevator/yoke-switch">
 			<default value="/controls/flight/elevator"/>
-			<test value="dfgs/afs/pitch-cmd">
-				dfgs/afs/enabled eq 1
+			<test value="/systems/dfgs/afs/pitch-cmd">
+				/systems/dfgs/afs/enabled eq 1
 			</test>
 		</switch>
 		
 		<scheduled_gain name="fcs-actual/elevator/mach-trim"> <!-- So that we still get full -1 to 1 deflection -->
-			<input>dfgs/mach-trim/output</input>
+			<input>/systems/dfgs/mach-trim/output</input>
 			<gain>/controls/fcs/mach-trim</gain>
 			<table>
 				<independentVar lookup="row">fcs-actual/elevator/yoke-switch</independentVar>
@@ -131,7 +131,7 @@
 		</scheduled_gain>
 		
 		<scheduled_gain name="fcs-actual/elevator/stick-pusher"> <!-- To allow pilot to override -->
-			<input>dfgs/stick-pusher/output</input>
+			<input>/systems/dfgs/stick-pusher/output</input>
 			<table>
 				<independentVar lookup="row">fcs-actual/elevator/yoke-switch</independentVar>
 				<tableData>
@@ -158,8 +158,8 @@
 		
 		<switch name="fcs-actual/rudder/pedal-switch">
 			<default value="/controls/flight/rudder"/>
-			<test value="dfgs/afs/yaw-cmd">
-				dfgs/yaw/autoland-switch eq 1
+			<test value="/systems/dfgs/afs/yaw-cmd">
+				/systems/dfgs/yaw/autoland-switch eq 1
 			</test>
 		</switch>
 		
@@ -577,7 +577,7 @@
 	<channel name="Rudder">
 		
 		<summer name="fcs-actual/rudder/input-sum">
-			<input>dfgs/rudder-output</input>
+			<input>/systems/dfgs/rudder-output</input>
 			<input>fcs-actual/rudder/trim</input>
 			<clipto>
 				<min>-1.0</min>
@@ -788,14 +788,14 @@
 			<test value="40">
 				/controls/flight/flaps-input eq 5
 			</test>
-			<output>dfgs/flaps-cmd-feedback</output>
+			<output>/systems/dfgs/flaps-cmd-feedback</output>
 		</switch>
 		
 		<switch name="/controls/flight/slats-cmd">
 			<default value="0"/>
 			<test logic="OR" value="20"> <!-- 14 or greater -->
 				/controls/flight/flaps-cmd ge 14
-				dfgs/auto-slat-ext eq 1
+				/systems/dfgs/auto-slat-ext eq 1
 			</test>
 			<test value="10">
 				/controls/flight/flaps-input ge 1
@@ -1111,7 +1111,7 @@
 		</pure_gain>
 		
 		<summer name="fcs-actual/tiller/afs-cmd-input">
-			<input>dfgs/afs/yaw-cmd</input>
+			<input>/systems/dfgs/afs/yaw-cmd</input>
 			<input>fcs-actual/rudder/trim</input> <!-- 10 of 17 -->
 			<clipto>
 				<min>-1.0</min>
@@ -1231,7 +1231,7 @@
 				/sim/model/autopush/connected eq 1
 			</test>
 			<test value="fcs-actual/tiller/afs-cmd-deg">
-				dfgs/afs/enabled eq 1
+				/systems/dfgs/afs/enabled eq 1
 			</test>
 			<test value="fcs-actual/tiller/tiller-cmd-deg">
 				/systems/acconfig/options/separate-tiller-axis eq 1

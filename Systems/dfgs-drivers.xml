@@ -9,7 +9,7 @@
 		<input>
 			<and>
 				<equals>
-					<property>/fdm/jsbsim/dfgs/power-avail</property>
+					<property>/systems/dfgs/power-avail</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -33,7 +33,7 @@
 		<input>
 			<and>
 				<equals>
-					<property>/fdm/jsbsim/dfgs/power-avail</property>
+					<property>/systems/dfgs/power-avail</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -57,7 +57,7 @@
 		<input>
 			<and>
 				<equals>
-					<property>/fdm/jsbsim/dfgs/power-avail</property>
+					<property>/systems/dfgs/power-avail</property>
 					<value>1</value>
 				</equals>
 				<not-equals>
@@ -371,7 +371,7 @@
 			<expression>
 				<product>
 					<difference>
-						<property>/fdm/jsbsim/dfgs/speeds/v2-target</property>
+						<property>/systems/dfgs/speeds/v2-target</property>
 						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
 					</difference>
 					<value>0.1</value>
@@ -388,7 +388,7 @@
 			<expression>
 				<product>
 					<difference>
-						<property>/fdm/jsbsim/dfgs/speeds/ga-target</property>
+						<property>/systems/dfgs/speeds/ga-target</property>
 						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
 					</difference>
 					<value>0.1</value>
@@ -1167,7 +1167,7 @@
 					<value>T/O CLB</value>
 				</equals>
 			</condition>
-			<property>/fdm/jsbsim/dfgs/speeds/v2-target</property>
+			<property>/systems/dfgs/speeds/v2-target</property>
 		</input>
 		<input>
 			<condition>
@@ -1176,7 +1176,7 @@
 					<value>G/A CLB</value>
 				</equals>
 			</condition>
-			<property>/fdm/jsbsim/dfgs/speeds/ga-target</property>
+			<property>/systems/dfgs/speeds/ga-target</property>
 		</input>
 		<input>
 			<condition>
@@ -1238,8 +1238,8 @@
 			</condition>
 			<value>0</value>
 		</min>
-		<min>/fdm/jsbsim/dfgs/speeds/vmin</min>
-		<max>/fdm/jsbsim/dfgs/speeds/vmax</max>
+		<min>/systems/dfgs/speeds/vmin</min>
+		<max>/systems/dfgs/speeds/vmax</max>
 	</filter>
 	
 	<filter>

@@ -3,24 +3,24 @@
 
 var Main = {
 	nlgTimer5: {
-		wowTimer: props.globals.getNode("/fdm/jsbsim/dfgs/nlg-timer-5/wow-timer"),
+		wowTimer: props.globals.getNode("/systems/dfgs/nlg-timer-5/wow-timer"),
 	},
-	powerAvail: props.globals.getNode("/fdm/jsbsim/dfgs/power-avail"),
+	powerAvail: props.globals.getNode("/systems/dfgs/power-avail"),
 	powerAvailTemp: 0,
-	stallAlphaDeg: props.globals.getNode("/fdm/jsbsim/dfgs/stall-alpha-deg"),
+	stallAlphaDeg: props.globals.getNode("/systems/dfgs/stall-alpha-deg"),
 	StickPusher: {
-		active: props.globals.getNode("/fdm/jsbsim/dfgs/stick-pusher/active"),
+		active: props.globals.getNode("/systems/dfgs/stick-pusher/active"),
 	},
 };
 
 var Speeds = {
-	vmaxType: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmax-type"),
-	vmax: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmax"),
-	vmaxMach: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmax-mach"),
-	vmin: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin"),
-	vmin90Percent: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin-90-percent"),
-	vminMach: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmin-mach"),
-	vmoMmo: props.globals.getNode("/fdm/jsbsim/dfgs/speeds/vmo-mmo"),
+	vmaxType: props.globals.getNode("/systems/dfgs/speeds/vmax-type"),
+	vmax: props.globals.getNode("/systems/dfgs/speeds/vmax"),
+	vmaxMach: props.globals.getNode("/systems/dfgs/speeds/vmax-mach"),
+	vmin: props.globals.getNode("/systems/dfgs/speeds/vmin"),
+	vmin90Percent: props.globals.getNode("/systems/dfgs/speeds/vmin-90-percent"),
+	vminMach: props.globals.getNode("/systems/dfgs/speeds/vmin-mach"),
+	vmoMmo: props.globals.getNode("/systems/dfgs/speeds/vmo-mmo"),
 };
 
 var Fma = {

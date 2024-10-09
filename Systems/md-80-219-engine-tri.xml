@@ -1025,7 +1025,7 @@
 		<switch name="/systems/engines/art/armed">
 			<default value="1"/>
 			<test logic="OR" value="0">
-				dfgs/power-avail eq 0
+				/systems/dfgs/power-avail eq 0
 				/controls/dfgs/art ne 1
 				fcs/slat-pos-deg lt 0.01
 				/systems/engines/art/state-switch eq 0

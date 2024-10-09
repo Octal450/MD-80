@@ -5,16 +5,16 @@
 
 <system name="MD-80: Performance"> <!-- Extra speed computations that are not computed by the DFGS/FMS -->
 	
-	<property value="11">performance/flap-setting</property>
+	<property value="11">/systems/performance/flap-setting</property>
 	
 	<channel name="Performance Calculations" execrate="8">
 		
 		<!-- V1 -->
-		<fcs_function name="performance/v1-table"> <!-- From FCOM + Extrapolation -->
+		<fcs_function name="/systems/performance/v1-table"> <!-- From FCOM + Extrapolation -->
 			<function>
 				<table>
 					<independentVar lookup="row">inertia/weight-lbs</independentVar>
-					<independentVar lookup="column">performance/flap-setting</independentVar>
+					<independentVar lookup="column">/systems/performance/flap-setting</independentVar>
 					<tableData>
 						        4    11   15
 						 90000  110  101  100
@@ -54,7 +54,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/v1-delta-11"> <!-- From FCOM -->
+		<fcs_function name="/systems/performance/v1-delta-11"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
@@ -86,7 +86,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/v1-delta-15"> <!-- From FCOM -->
+		<fcs_function name="/systems/performance/v1-delta-15"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
@@ -118,12 +118,12 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/v1-minimum"> <!-- From FCOM -->
+		<fcs_function name="/systems/performance/v1-minimum"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
 					<independentVar lookup="column">propulsion/tat-c</independentVar>
-					<independentVar lookup="table">performance/flap-setting</independentVar>
+					<independentVar lookup="table">/systems/performance/flap-setting</independentVar>
 					<tableData breakPoint="11">
 						     -40   20   21   25   26   30   31   35   36   40   41   45
 						   0  116  116  116  116  116  116  114  114  112  112  110  110
@@ -166,34 +166,34 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/v1-delta">
+		<fcs_function name="/systems/performance/v1-delta">
 			<function>
 				<interpolate1d>
-					<property>performance/flap-setting</property>
-					<value>11</value><property>performance/v1-delta-11</property>
-					<value>15</value><property>performance/v1-delta-15</property>
+					<property>/systems/performance/flap-setting</property>
+					<value>11</value><property>/systems/performance/v1-delta-11</property>
+					<value>15</value><property>/systems/performance/v1-delta-15</property>
 				</interpolate1d>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/v1">
+		<fcs_function name="/systems/performance/v1">
 			<function>
 				<max>
 					<sum>
-						<property>performance/v1-table</property>
-						<property>performance/v1-delta</property>
+						<property>/systems/performance/v1-table</property>
+						<property>/systems/performance/v1-delta</property>
 					</sum>
-					<property>performance/v1-minimum</property>
+					<property>/systems/performance/v1-minimum</property>
 				</max>
 			</function>
 		</fcs_function>
 		
 		<!-- VR -->
-		<fcs_function name="performance/vr-table"> <!-- From FCOM + Extrapolation -->
+		<fcs_function name="/systems/performance/vr-table"> <!-- From FCOM + Extrapolation -->
 			<function>
 				<table>
 					<independentVar lookup="row">inertia/weight-lbs</independentVar>
-					<independentVar lookup="column">performance/flap-setting</independentVar>
+					<independentVar lookup="column">/systems/performance/flap-setting</independentVar>
 					<tableData>
 						        4    11   15
 						 90000  120  110  108
@@ -233,7 +233,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/vr-delta-11"> <!-- From FCOM -->
+		<fcs_function name="/systems/performance/vr-delta-11"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
@@ -276,7 +276,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/vr-delta-15"> <!-- From FCOM -->
+		<fcs_function name="/systems/performance/vr-delta-15"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
@@ -308,12 +308,12 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/vr-minimum"> <!-- From FCOM -->
+		<fcs_function name="/systems/performance/vr-minimum"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
 					<independentVar lookup="column">propulsion/tat-c</independentVar>
-					<independentVar lookup="table">performance/flap-setting</independentVar>
+					<independentVar lookup="table">/systems/performance/flap-setting</independentVar>
 					<tableData breakPoint="4">
 						     -40   20   21   25   26   30   31   35   36   40   41   45
 						   0  122  122  122  122  122  122  120  120  118  118  116  116
@@ -375,35 +375,35 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/vr-delta">
+		<fcs_function name="/systems/performance/vr-delta">
 			<function>
 				<interpolate1d>
-					<property>performance/flap-setting</property>
-					<value>11</value><property>performance/vr-delta-11</property>
-					<value>15</value><property>performance/vr-delta-15</property>
+					<property>/systems/performance/flap-setting</property>
+					<value>11</value><property>/systems/performance/vr-delta-11</property>
+					<value>15</value><property>/systems/performance/vr-delta-15</property>
 				</interpolate1d>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/vr">
+		<fcs_function name="/systems/performance/vr">
 			<function>
 				<max>
-					<property>performance/v1</property>
+					<property>/systems/performance/v1</property>
 					<sum>
-						<property>performance/vr-table</property>
-						<property>performance/vr-delta</property>
+						<property>/systems/performance/vr-table</property>
+						<property>/systems/performance/vr-delta</property>
 					</sum>
-					<property>performance/vr-minimum</property>
+					<property>/systems/performance/vr-minimum</property>
 				</max>
 			</function>
 		</fcs_function>
 		
 		<!-- V2 --> <!-- Also check md-80-dfgs.xml -->
-		<fcs_function name="performance/v2-table"> <!-- From FCOM + Extrapolation -->
+		<fcs_function name="/systems/performance/v2-table"> <!-- From FCOM + Extrapolation -->
 			<function>
 				<table>
 					<independentVar lookup="row">inertia/weight-lbs</independentVar>
-					<independentVar lookup="column">performance/flap-setting</independentVar>
+					<independentVar lookup="column">/systems/performance/flap-setting</independentVar>
 					<tableData>
 						        4    11   15
 						 90000  130  120  119
@@ -443,12 +443,12 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/v2-minimum"> <!-- From FCOM -->
+		<fcs_function name="/systems/performance/v2-minimum"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
 					<independentVar lookup="column">propulsion/tat-c</independentVar>
-					<independentVar lookup="table">performance/flap-setting</independentVar>
+					<independentVar lookup="table">/systems/performance/flap-setting</independentVar>
 					<tableData breakPoint="4">
 						     -40   20   21   25   26   30   31   35   36   40   41   45
 						   0  132  132  132  132  131  131  129  129  127  127  125  125
@@ -510,44 +510,44 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/v2">
+		<fcs_function name="/systems/performance/v2">
 			<function>
 				<max>
-					<property>performance/v2-table</property>
-					<property>performance/v2-minimum</property>
+					<property>/systems/performance/v2-table</property>
+					<property>/systems/performance/v2-minimum</property>
 				</max>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/flap-retract-11">
+		<fcs_function name="/systems/performance/flap-retract-11">
 			<function>
 				<sum>
-					<property>performance/v2</property>
+					<property>/systems/performance/v2</property>
 					<value>5</value>
 				</sum>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/flap-retract-15">
+		<fcs_function name="/systems/performance/flap-retract-15">
 			<function>
 				<sum>
-					<property>performance/v2</property>
+					<property>/systems/performance/v2</property>
 					<value>15</value>
 				</sum>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/flap-retract">
+		<fcs_function name="/systems/performance/flap-retract">
 			<function>
 				<interpolate1d>
-					<property>performance/flap-setting</property>
-					<value>11</value><property>performance/flap-retract-11</property>
-					<value>15</value><property>performance/flap-retract-15</property>
+					<property>/systems/performance/flap-setting</property>
+					<value>11</value><property>/systems/performance/flap-retract-11</property>
+					<value>15</value><property>/systems/performance/flap-retract-15</property>
 				</interpolate1d>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/slat-retract"> <!-- From FCOM + Extrapolation -->
+		<fcs_function name="/systems/performance/slat-retract"> <!-- From FCOM + Extrapolation -->
 			<function>
 				<table>
 					<independentVar lookup="row">inertia/weight-lbs</independentVar>
@@ -589,7 +589,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="performance/min-maneuver"> <!-- From FCOM + Extrapolation -->
+		<fcs_function name="/systems/performance/min-maneuver"> <!-- From FCOM + Extrapolation -->
 			<function>
 				<table>
 					<independentVar lookup="row">inertia/weight-lbs</independentVar>
@@ -632,7 +632,7 @@
 		</fcs_function>
 		
 		<!-- Vref -->
-		<fcs_function name="performance/vref">
+		<fcs_function name="/systems/performance/vref">
 			<function>
 				<product>
 					<difference>
@@ -690,12 +690,12 @@
 		</fcs_function>
 		
 		<!-- Stabilizer Computer -->
-		<fcs_function name="performance/stabilizer-deg">
+		<fcs_function name="/systems/performance/stabilizer-deg">
 			<function>
 				<table>
 					<independentVar lookup="row">inertia/cg-percent-mac</independentVar>
 					<independentVar lookup="column">zero</independentVar> <!-- Take advantage of the table lookup to interpolate -->
-					<independentVar lookup="table">performance/flap-setting</independentVar>
+					<independentVar lookup="table">/systems/performance/flap-setting</independentVar>
 					<tableData breakPoint="4">
 						    0    1
 						 0  8.4  8.4

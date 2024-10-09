@@ -311,7 +311,7 @@
 		<switch name="/systems/caws/logic/overspeed">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/instrumentation/airspeed-indicator/indicated-speed-kt gt dfgs/speeds/vmo-mmo
+				/instrumentation/airspeed-indicator/indicated-speed-kt gt /systems/dfgs/speeds/vmo-mmo
 				/controls/switches/max-spd-warn-test ne 0
 			</test>
 		</switch>
@@ -322,12 +322,12 @@
 			<test logic="AND" value="1">
 				/systems/caws/logic/overspeed eq 0
 				fcs/slat-pos-deg ge 11
-				/instrumentation/airspeed-indicator/indicated-speed-kt gt dfgs/speeds/flap-15-slat-full-max-kts
+				/instrumentation/airspeed-indicator/indicated-speed-kt gt /systems/dfgs/speeds/flap-15-slat-full-max-kts
 			</test>
 			<test logic="AND" value="1">
 				/systems/caws/logic/overspeed eq 0
 				fcs/slat-pos-deg ge 1
-				/instrumentation/airspeed-indicator/indicated-speed-kt gt dfgs/speeds/flap-11-slat-mid-max-kts
+				/instrumentation/airspeed-indicator/indicated-speed-kt gt /systems/dfgs/speeds/flap-11-slat-mid-max-kts
 			</test>
 		</switch>
 		
@@ -420,7 +420,7 @@
 		<switch name="/systems/caws/logic/stall">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				aero/alpha-deg-damped ge dfgs/stall-appr-alpha-deg
+				aero/alpha-deg-damped ge /systems/dfgs/stall-appr-alpha-deg
 				position/wow ne 1
 			</test>
 			<test value="1">

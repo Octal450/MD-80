@@ -283,7 +283,7 @@ var PANEL = {
 		libraries.systemsInit();
 		pts.Controls.Flight.speedbrake.setValue(0);
 		if (t == 1) {
-			pts.Controls.Flight.elevatorTrim.setValue(math.round(pts.Fdm.JSBSim.Performance.stabilizerDeg.getValue(), 0.1) / -12.5); # Trim value for CG
+			pts.Controls.Flight.elevatorTrim.setValue(math.round(pts.Systems.Performance.stabilizerDeg.getValue(), 0.1) / -12.5); # Trim value for CG
 			pts.Controls.Flight.flaps.setValue(0.36); # 11/MID
 			pts.Controls.Flight.speedbrakeArm.setBoolValue(1);
 		} else {

@@ -117,7 +117,7 @@
 		
 		<switch name="/instrumentation/airspeed-indicator[0]/vmo-mmo-input">
 			<default value="/instrumentation/airspeed-indicator[0]/vmo-mmo-input"/>
-			<test value="dfgs/speeds/vmo-mmo">
+			<test value="/systems/dfgs/speeds/vmo-mmo">
 				/instrumentation/airspeed-indicator[0]/power-avail eq 1
 			</test>
 		</switch>
@@ -238,7 +238,7 @@
 		
 		<switch name="/instrumentation/airspeed-indicator[1]/vmo-mmo-input">
 			<default value="/instrumentation/airspeed-indicator[1]/vmo-mmo-input"/>
-			<test value="dfgs/speeds/vmo-mmo">
+			<test value="/systems/dfgs/speeds/vmo-mmo">
 				/instrumentation/airspeed-indicator[1]/power-avail eq 1
 			</test>
 		</switch>
@@ -2336,7 +2336,7 @@
 		<switch name="/instrumentation/flap-slat/slat">
 			<default value="2"/> <!-- Disag -->
 			<test value="3"> <!-- Auto and Disag -->
-				dfgs/auto-slat-ext eq 1
+				/systems/dfgs/auto-slat-ext eq 1
 			</test>
 			<test logic="AND" value="4"> <!-- Land -->
 				fcs/slat-pos-deg ge 19.9
@@ -2453,11 +2453,11 @@
 		<switch name="/instrumentation/tri/rat-cmd">
 			<default value="/instrumentation/tri/rat-cmd"/>
 			<test logic="AND" value="12">
-				dfgs/power-avail eq 1
+				/systems/dfgs/power-avail eq 1
 				/systems/engines/limit/active-mode-int eq 6
 			</test>
 			<test logic="OR" value="propulsion/tat-c">
-				dfgs/power-avail eq 1
+				/systems/dfgs/power-avail eq 1
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
@@ -2519,7 +2519,7 @@
 		<switch name="/instrumentation/tri/limit-active">
 			<default value="/instrumentation/tri/limit-active"/>
 			<test logic="OR" value="/systems/engines/limit/active-ind">
-				dfgs/power-avail eq 1
+				/systems/dfgs/power-avail eq 1
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>

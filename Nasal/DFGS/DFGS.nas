@@ -151,7 +151,7 @@ var Internal = {
 	altPredicted: props.globals.initNode("/it-autoflight/internal/altitude-predicted", 0, "DOUBLE"),
 	altReArmTime: -5,
 	altTemp: 0,
-	atrCmd: props.globals.getNode("/fdm/jsbsim/dfgs/atr/cmd"),
+	atrCmd: props.globals.getNode("/systems/dfgs/atr/cmd"),
 	bankLimit: props.globals.initNode("/it-autoflight/internal/bank-limit", 30, "INT"),
 	bankLimitAuto: props.globals.initNode("/it-autoflight/internal/bank-limit-auto", 0, "DOUBLE"),
 	bankLimitMax: [10, 15, 20, 25, 30],

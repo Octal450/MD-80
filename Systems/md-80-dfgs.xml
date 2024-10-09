@@ -5,20 +5,20 @@
 
 <system name="MD-80: DFGS">
 	
-	<property value="0">dfgs/flaps-cmd-feedback</property>
-	<property value="340">dfgs/speeds/vmo</property>
+	<property value="0">/systems/dfgs/flaps-cmd-feedback</property>
+	<property value="340">/systems/dfgs/speeds/vmo</property>
 	<property value="0">/systems/engines/throttle-lever-feedback[0]</property>
 	<property value="0">/systems/engines/throttle-lever-feedback[1]</property>
 	<property value="0">/systems/abs/disarm</property>
 	
 	<!-- Default gains for tuning -->
-	<property value="0">dfgs/yaw/yd-p-gain-tune</property>
-	<property value="0">dfgs/yaw/tc-p-gain-tune</property>
-	<property value="0">dfgs/yaw/tc-d-gain-tune</property>
+	<property value="0">/systems/dfgs/yaw/yd-p-gain-tune</property>
+	<property value="0">/systems/dfgs/yaw/tc-p-gain-tune</property>
+	<property value="0">/systems/dfgs/yaw/tc-d-gain-tune</property>
 	
 	<channel name="Libraries">
 		
-		<switch name="dfgs/power-avail">
+		<switch name="/systems/dfgs/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
 				/systems/electrical/bus/ac-radio-l ge 112
@@ -28,7 +28,7 @@
 			</test>
 		</switch>
 		
-		<switch name="dfgs/afs/enabled">
+		<switch name="/systems/dfgs/afs/enabled">
 			<default value="0"/>
 			<test logic="OR" value="1">
 				/it-autoflight/output/ap1 eq 1
@@ -46,10 +46,10 @@
 			<c1>10</c1>
 		</lag_filter>
 		
-		<switch name="dfgs/yaw/cmd-on">
+		<switch name="/systems/dfgs/yaw/cmd-on">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				dfgs/afs/enabled eq 1
+				/systems/dfgs/afs/enabled eq 1
 				/controls/fcs/yaw-damper eq 0
 			</test>
 			<test value="1">
@@ -57,20 +57,20 @@
 			</test>
 		</switch>
 		
-		<switch name="dfgs/yaw/active">
+		<switch name="/systems/dfgs/yaw/active">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				position/wow eq 0
 				/position/gear-agl-ft ge 50
-				dfgs/yaw/cmd-on eq 1
-				dfgs/power-avail eq 1
+				/systems/dfgs/yaw/cmd-on eq 1
+				/systems/dfgs/power-avail eq 1
 			</test>
 		</switch>
 		
-		<switch name="dfgs/yaw/autoland-switch">
+		<switch name="/systems/dfgs/yaw/autoland-switch">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				dfgs/afs/enabled eq 1
+				/systems/dfgs/afs/enabled eq 1
 				/it-autoflight/output/lat eq 4
 			</test>
 		</switch>
@@ -101,17 +101,17 @@
 			</function>
 		</fcs_function>
 		
-		<summer name="dfgs/atr/epr-differential">
+		<summer name="/systems/dfgs/atr/epr-differential">
 			<input>/engines/engine[0]/epr-actual</input>
 			<input>-/engines/engine[1]/epr-actual</input>
 		</summer>
 		
-		<summer name="dfgs/atr/n1-differential">
+		<summer name="/systems/dfgs/atr/n1-differential">
 			<input>/engines/engine[0]/n1-actual</input>
 			<input>-/engines/engine[1]/n1-actual</input>
 		</summer>
 		
-		<switch name="dfgs/atr/descend-switch">
+		<switch name="/systems/dfgs/atr/descend-switch">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/it-autoflight/output/vert eq 7
@@ -120,13 +120,13 @@
 			</test>
 		</switch>
 		
-		<actuator name="dfgs/atr/descend-timer">
-			<input>dfgs/atr/descend-switch</input>
+		<actuator name="/systems/dfgs/atr/descend-timer">
+			<input>/systems/dfgs/atr/descend-switch</input>
 			<rate_limit sense="incr">0.2</rate_limit> <!-- 5 seconds -->
 			<rate_limit sense="decr">10000</rate_limit> <!-- Instant -->
 		</actuator>
 		
-		<fcs_function name="dfgs/atr/go-around-buffer">
+		<fcs_function name="/systems/dfgs/atr/go-around-buffer">
 			<function>
 				<difference>
 					<property>/systems/engines/limit/go-around</property>
@@ -135,28 +135,28 @@
 			</function>
 		</fcs_function>
 		
-		<switch name="dfgs/atr/cmd">
+		<switch name="/systems/dfgs/atr/cmd">
 			<default value="0"/>
 			<test logic="OR" value="0">
 				/it-autoflight/output/athr eq 0
 				/position/gear-agl-ft lt 350
-				/engines/engine[0]/epr-actual ge dfgs/atr/go-around-buffer
-				/engines/engine[1]/epr-actual ge dfgs/atr/go-around-buffer
+				/engines/engine[0]/epr-actual ge /systems/dfgs/atr/go-around-buffer
+				/engines/engine[1]/epr-actual ge /systems/dfgs/atr/go-around-buffer
 			</test>
 			<test logic="AND" value="1">
-				dfgs/atr/epr-differential ge 0.25
-				dfgs/atr/n1-differential ge 7
+				/systems/dfgs/atr/epr-differential ge 0.25
+				/systems/dfgs/atr/n1-differential ge 7
 			</test>
 			<test logic="AND" value="1">
-				dfgs/atr/epr-differential le -0.25
-				dfgs/atr/n1-differential le -7
+				/systems/dfgs/atr/epr-differential le -0.25
+				/systems/dfgs/atr/n1-differential le -7
 			</test>
 			<test value="1">
-				dfgs/atr/descend-timer eq 1
+				/systems/dfgs/atr/descend-timer eq 1
 			</test>
 		</switch>
 		
-		<fcs_function name="dfgs/nlg-timer-5/wow-timer-cmd">
+		<fcs_function name="/systems/dfgs/nlg-timer-5/wow-timer-cmd">
 			<function>
 				<sum> <!-- Inverter, so that it is 1 at sim start -->
 					<product>
@@ -168,17 +168,17 @@
 			</function>
 		</fcs_function>
 		
-		<actuator name="dfgs/nlg-timer-5/wow-timer-pos">
-			<input>dfgs/nlg-timer-5/wow-timer-cmd</input>
+		<actuator name="/systems/dfgs/nlg-timer-5/wow-timer-pos">
+			<input>/systems/dfgs/nlg-timer-5/wow-timer-cmd</input>
 			<rate_limit sense="incr">1000</rate_limit>
 			<rate_limit sense="decr">0.2</rate_limit> <!-- 5 seconds -->
 		</actuator>
 		
-		<fcs_function name="dfgs/nlg-timer-5/wow-timer">
+		<fcs_function name="/systems/dfgs/nlg-timer-5/wow-timer">
 			<function>
 				<sum> <!-- Inverter, so that it is 1 at sim start -->
 					<product>
-						<property>dfgs/nlg-timer-5/wow-timer-pos</property>
+						<property>/systems/dfgs/nlg-timer-5/wow-timer-pos</property>
 						<value>-1</value>
 					</product>
 					<value>1</value>
@@ -191,18 +191,18 @@
 	<channel name="Envelope Protection Calculations" execrate="8">
 		
 		<!-- V2 --> <!-- Also check md-80-performance.xml -->
-		<switch name="dfgs/speeds/flap-wow-switch">
+		<switch name="/systems/dfgs/speeds/flap-wow-switch">
 			<default value="fcs/flap-pos-deg"/>
-			<test value="dfgs/speeds/flap-wow-switch">
+			<test value="/systems/dfgs/speeds/flap-wow-switch">
 				position/wow eq 0
 			</test>
 		</switch>
 		
-		<fcs_function name="dfgs/speeds/v2-table"> <!-- From FCOM + Extrapolation -->
+		<fcs_function name="/systems/dfgs/speeds/v2-table"> <!-- From FCOM + Extrapolation -->
 			<function>
 				<table>
 					<independentVar lookup="row">inertia/weight-lbs</independentVar>
-					<independentVar lookup="column">dfgs/speeds/flap-wow-switch</independentVar>
+					<independentVar lookup="column">/systems/dfgs/speeds/flap-wow-switch</independentVar>
 					<tableData>
 						        4    11   15
 						 90000  130  120  119
@@ -242,12 +242,12 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="dfgs/speeds/v2-minimum"> <!-- From FCOM -->
+		<fcs_function name="/systems/dfgs/speeds/v2-minimum"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
 					<independentVar lookup="column">propulsion/tat-c</independentVar>
-					<independentVar lookup="table">dfgs/speeds/flap-wow-switch</independentVar>
+					<independentVar lookup="table">/systems/dfgs/speeds/flap-wow-switch</independentVar>
 					<tableData breakPoint="4">
 						     -40   20   21   25   26   30   31   35   36   40   41   45
 						   0  132  132  132  132  131  131  129  129  127  127  125  125
@@ -309,32 +309,32 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="dfgs/speeds/v2">
+		<fcs_function name="/systems/dfgs/speeds/v2">
 			<function>
 				<max>
-					<property>dfgs/speeds/v2-table</property>
-					<property>dfgs/speeds/v2-minimum</property>
+					<property>/systems/dfgs/speeds/v2-table</property>
+					<property>/systems/dfgs/speeds/v2-minimum</property>
 				</max>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="dfgs/speeds/v2-plus-10">
+		<fcs_function name="/systems/dfgs/speeds/v2-plus-10">
 			<function>
 				<sum>
-					<property>dfgs/speeds/v2</property>
+					<property>/systems/dfgs/speeds/v2</property>
 					<value>10</value>
 				</sum>
 			</function>
 		</fcs_function>
 		
-		<switch name="dfgs/speeds/v2-target-ias-input">
+		<switch name="/systems/dfgs/speeds/v2-target-ias-input">
 			<default value="/instrumentation/airspeed-indicator/indicated-speed-kt"/>
-			<test logic="AND" value="dfgs/speeds/v2-target-ias-input">
+			<test logic="AND" value="/systems/dfgs/speeds/v2-target-ias-input">
 				libraries/engine-out eq 1
 			</test>
 		</switch>
 		
-		<fcs_function name="dfgs/speeds/v2-target"> <!-- Target V2 for TAK OFF -->
+		<fcs_function name="/systems/dfgs/speeds/v2-target"> <!-- Target V2 for TAK OFF -->
 			<function>
 				<floor>
 					<sum>
@@ -345,12 +345,12 @@
 							</eq>
 							<min>
 								<max>
-									<property>dfgs/speeds/v2-target-ias-input</property>
-									<property>dfgs/speeds/v2</property>
+									<property>/systems/dfgs/speeds/v2-target-ias-input</property>
+									<property>/systems/dfgs/speeds/v2</property>
 								</max>
-								<property>dfgs/speeds/v2-plus-10</property>
+								<property>/systems/dfgs/speeds/v2-plus-10</property>
 							</min>
-							<property>dfgs/speeds/v2-plus-10</property>
+							<property>/systems/dfgs/speeds/v2-plus-10</property>
 						</ifthen>
 						<value>0.5</value>
 					</sum>
@@ -359,7 +359,7 @@
 		</fcs_function>
 		
 		<!-- Vmo/Mmo -->
-		<fcs_function name="dfgs/speeds/mmo-kts">
+		<fcs_function name="/systems/dfgs/speeds/mmo-kts">
 			<function>
 				<product>
 					<quotient>
@@ -374,17 +374,17 @@
 			</function>
 		</fcs_function>
 		
-		<switch name="dfgs/speeds/vmo-mmo">
-			<default value="dfgs/speeds/vmo"/>
-			<test logic="AND" value="dfgs/speeds/mmo-kts">
-				dfgs/speeds/mmo-kts lt dfgs/speeds/vmo
+		<switch name="/systems/dfgs/speeds/vmo-mmo">
+			<default value="/systems/dfgs/speeds/vmo"/>
+			<test logic="AND" value="/systems/dfgs/speeds/mmo-kts">
+				/systems/dfgs/speeds/mmo-kts lt /systems/dfgs/speeds/vmo
 				position/wow eq 0
 				/sim/time/elapsed-sec gt 0
 			</test>
 		</switch>
 		
 		<!-- Flap/Slat Max -->
-		<fcs_function name="dfgs/speeds/flap-slat-max-mach-kts">
+		<fcs_function name="/systems/dfgs/speeds/flap-slat-max-mach-kts">
 			<function>
 				<product>
 					<quotient>
@@ -399,64 +399,64 @@
 			</function>
 		</fcs_function>
 		
-		<switch name="dfgs/speeds/flap-11-slat-mid-max-kts">
+		<switch name="/systems/dfgs/speeds/flap-11-slat-mid-max-kts">
 			<default value="280"/>
-			<test logic="AND" value="dfgs/speeds/flap-slat-max-mach-kts">
-				dfgs/speeds/flap-slat-max-mach-kts lt 280
+			<test logic="AND" value="/systems/dfgs/speeds/flap-slat-max-mach-kts">
+				/systems/dfgs/speeds/flap-slat-max-mach-kts lt 280
 				position/wow eq 0
 				/sim/time/elapsed-sec gt 0
 			</test>
 		</switch>
 		
-		<switch name="dfgs/speeds/flap-15-slat-full-max-kts">
+		<switch name="/systems/dfgs/speeds/flap-15-slat-full-max-kts">
 			<default value="240"/>
-			<test logic="AND" value="dfgs/speeds/flap-slat-max-mach-kts">
-				dfgs/speeds/flap-slat-max-mach-kts lt 240
+			<test logic="AND" value="/systems/dfgs/speeds/flap-slat-max-mach-kts">
+				/systems/dfgs/speeds/flap-slat-max-mach-kts lt 240
 				position/wow eq 0
 				/sim/time/elapsed-sec gt 0
 			</test>
 		</switch>
 		
-		<switch name="dfgs/speeds/flap-28-40-max-kts">
+		<switch name="/systems/dfgs/speeds/flap-28-40-max-kts">
 			<default value="185"/>
-			<test logic="AND" value="dfgs/speeds/flap-slat-max-mach-kts">
-				dfgs/speeds/flap-slat-max-mach-kts lt 185
+			<test logic="AND" value="/systems/dfgs/speeds/flap-slat-max-mach-kts">
+				/systems/dfgs/speeds/flap-slat-max-mach-kts lt 185
 				position/wow eq 0
 				/sim/time/elapsed-sec gt 0
 			</test>
 		</switch>
 		
-		<switch name="dfgs/speeds/vmax">
-			<default value="dfgs/speeds/vmo-mmo"/>
-			<test value="dfgs/speeds/flap-28-40-max-kts">
+		<switch name="/systems/dfgs/speeds/vmax">
+			<default value="/systems/dfgs/speeds/vmo-mmo"/>
+			<test value="/systems/dfgs/speeds/flap-28-40-max-kts">
 				fcs/flap-pos-deg ge 16
 			</test>
-			<test logic="OR" value="dfgs/speeds/flap-15-slat-full-max-kts">
+			<test logic="OR" value="/systems/dfgs/speeds/flap-15-slat-full-max-kts">
 				fcs/flap-pos-deg ge 12
 				fcs/slat-pos-deg ge 11
 			</test>
-			<test logic="OR" value="dfgs/speeds/flap-11-slat-mid-max-kts">
+			<test logic="OR" value="/systems/dfgs/speeds/flap-11-slat-mid-max-kts">
 				fcs/flap-pos-deg ge 1
 				fcs/slat-pos-deg ge 1
 			</test>
 		</switch>
 		
-		<switch name="dfgs/speeds/vmax-type"> <!-- Used by FMA -->
+		<switch name="/systems/dfgs/speeds/vmax-type"> <!-- Used by FMA -->
 			<default value="0"/> <!-- Vmo -->
 			<test value="3"> <!-- Flap Limit -->
-				dfgs/speeds/vmax eq dfgs/speeds/flap-28-40-max-kts
+				/systems/dfgs/speeds/vmax eq /systems/dfgs/speeds/flap-28-40-max-kts
 			</test>
 			<test logic="OR" value="2"> <!-- Slat Limit -->
-				dfgs/speeds/vmax eq dfgs/speeds/flap-11-slat-mid-max-kts
-				dfgs/speeds/vmax eq dfgs/speeds/flap-15-slat-full-max-kts
+				/systems/dfgs/speeds/vmax eq /systems/dfgs/speeds/flap-11-slat-mid-max-kts
+				/systems/dfgs/speeds/vmax eq /systems/dfgs/speeds/flap-15-slat-full-max-kts
 			</test>
 			<test logic="AND" value="1"> <!-- Mmo -->
-				dfgs/speeds/vmax eq dfgs/speeds/vmo-mmo
-				dfgs/speeds/vmo-mmo ne dfgs/speeds/vmo
+				/systems/dfgs/speeds/vmax eq /systems/dfgs/speeds/vmo-mmo
+				/systems/dfgs/speeds/vmo-mmo ne /systems/dfgs/speeds/vmo
 			</test>
 		</switch>
 		
-		<fcs_function name="dfgs/speeds/vmax-mach">
+		<fcs_function name="/systems/dfgs/speeds/vmax-mach">
 			<function>
 				<product>
 					<quotient>
@@ -466,13 +466,13 @@
 							<value>0.0001</value>
 						</max>
 					</quotient>
-					<property>dfgs/speeds/vmax</property>
+					<property>/systems/dfgs/speeds/vmax</property>
 				</product>
 			</function>
 		</fcs_function>
 		
 		<!-- Vss -->
-		<fcs_function name="dfgs/speeds/vss-kts"> <!-- From FCOM + Extrapolation -->
+		<fcs_function name="/systems/dfgs/speeds/vss-kts"> <!-- From FCOM + Extrapolation -->
 			<function>
 				<table>
 					<independentVar lookup="row">inertia/weight-lbs</independentVar>
@@ -514,7 +514,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="dfgs/speeds/vss-roll-factor"> <!-- Not 100% sure the 80 does this, but I assume it does -->
+		<fcs_function name="/systems/dfgs/speeds/vss-roll-factor"> <!-- Not 100% sure the 80 does this, but I assume it does -->
 			<function>
 				<sqrt> <!-- Take the square root to get the factor -->
 					<quotient> <!-- Calculate neutral load factor from bank -->
@@ -534,21 +534,21 @@
 			</function>
 		</fcs_function>
 		
-		<pure_gain name="dfgs/speeds/vss">
-			<input>dfgs/speeds/vss-kts</input>
-			<gain>dfgs/speeds/vss-roll-factor</gain>
+		<pure_gain name="/systems/dfgs/speeds/vss">
+			<input>/systems/dfgs/speeds/vss-kts</input>
+			<gain>/systems/dfgs/speeds/vss-roll-factor</gain>
 			<clipto>
 				<min>0</min>
-				<max>dfgs/speeds/vmo-mmo</max>
+				<max>/systems/dfgs/speeds/vmo-mmo</max>
 			</clipto>
 		</pure_gain>
 		
 		<!-- Vmin -->
-		<fcs_function name="dfgs/speeds/vmin">
+		<fcs_function name="/systems/dfgs/speeds/vmin">
 			<function>
 				<product>
 					<difference>
-						<property>dfgs/speeds/vss-kts</property>
+						<property>/systems/dfgs/speeds/vss-kts</property>
 						<value>10</value>
 					</difference>
 					<sum>
@@ -564,37 +564,37 @@
 				</product>
 			</function>
 			<clipto>
-				<min>dfgs/speeds/vss</min>
+				<min>/systems/dfgs/speeds/vss</min>
 				<max>100000</max>
 			</clipto>
 		</fcs_function>
 		
-		<fcs_function name="dfgs/speeds/vmin-plus-5">
+		<fcs_function name="/systems/dfgs/speeds/vmin-plus-5">
 			<function>
 				<sum>
-					<property>dfgs/speeds/vmin</property>
+					<property>/systems/dfgs/speeds/vmin</property>
 					<value>5</value>
 				</sum>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="dfgs/speeds/ga-target"> <!-- Target V2 for GO RND -->
+		<fcs_function name="/systems/dfgs/speeds/ga-target"> <!-- Target V2 for GO RND -->
 			<function>
 				<floor>
 					<sum>
-						<property>dfgs/speeds/vmin-plus-5</property>
+						<property>/systems/dfgs/speeds/vmin-plus-5</property>
 						<value>0.5</value>
 					</sum>
 				</floor>
 			</function>
 		</fcs_function>
 		
-		<pure_gain name="dfgs/speeds/vmin-90-percent">
-			<input>dfgs/speeds/vmin</input>
+		<pure_gain name="/systems/dfgs/speeds/vmin-90-percent">
+			<input>/systems/dfgs/speeds/vmin</input>
 			<gain>0.9</gain>
 		</pure_gain>
 		
-		<fcs_function name="dfgs/speeds/vmin-mach">
+		<fcs_function name="/systems/dfgs/speeds/vmin-mach">
 			<function>
 				<product>
 					<quotient>
@@ -604,13 +604,13 @@
 							<value>0.0001</value>
 						</max>
 					</quotient>
-					<property>dfgs/speeds/vmin</property>
+					<property>/systems/dfgs/speeds/vmin</property>
 				</product>
 			</function>
 		</fcs_function>
 		
 		<!-- Stall -->
-		<fcs_function name="dfgs/stall-alpha-deg">
+		<fcs_function name="/systems/dfgs/stall-alpha-deg">
 			<function>
 				<table>
 					<independentVar lookup="row">velocities/mach</independentVar>
@@ -622,19 +622,19 @@
 			</function>
 		</fcs_function>
 		
-		<pure_gain name="dfgs/stall-appr-alpha-deg">
-			<input>dfgs/stall-alpha-deg</input>
+		<pure_gain name="/systems/dfgs/stall-appr-alpha-deg">
+			<input>/systems/dfgs/stall-alpha-deg</input>
 			<gain>0.9</gain> <!-- 90% -->
 		</pure_gain>
 		
-		<switch name="dfgs/auto-slat-ext">
+		<switch name="/systems/dfgs/auto-slat-ext">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				aero/alpha-deg-damped ge dfgs/stall-appr-alpha-deg
+				aero/alpha-deg-damped ge /systems/dfgs/stall-appr-alpha-deg
 				position/wow eq 0
-				/instrumentation/airspeed-indicator/indicated-speed-kt le dfgs/speeds/flap-15-slat-full-max-kts
-				dfgs/flaps-cmd-feedback ge 1
-				dfgs/flaps-cmd-feedback lt 14
+				/instrumentation/airspeed-indicator/indicated-speed-kt le /systems/dfgs/speeds/flap-15-slat-full-max-kts
+				/systems/dfgs/flaps-cmd-feedback ge 1
+				/systems/dfgs/flaps-cmd-feedback lt 14
 			</test>
 		</switch>
 	
@@ -642,7 +642,7 @@
 	
 	<channel name="Gains">
 		
-		<fcs_function name="dfgs/yaw/yd-p-gain">
+		<fcs_function name="/systems/dfgs/yaw/yd-p-gain">
 			<function>
 				<product>
 					<table>
@@ -652,13 +652,13 @@
 							350 -1.0
 						</tableData>
 					</table>
-					<!--property>dfgs/yaw/yd-p-gain-tune</property--> <!-- For tuning -->
-					<property>dfgs/yaw/active</property>
+					<!--property>/systems/dfgs/yaw/yd-p-gain-tune</property--> <!-- For tuning -->
+					<property>/systems/dfgs/yaw/active</property>
 				</product>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="dfgs/yaw/tc-p-gain">
+		<fcs_function name="/systems/dfgs/yaw/tc-p-gain">
 			<function>
 				<product>
 					<table>
@@ -668,13 +668,13 @@
 							350  0.5
 						</tableData>
 					</table>
-					<!--property>dfgs/yaw/tc-p-gain-tune</property--> <!-- For tuning -->
-					<property>dfgs/yaw/active</property>
+					<!--property>/systems/dfgs/yaw/tc-p-gain-tune</property--> <!-- For tuning -->
+					<property>/systems/dfgs/yaw/active</property>
 				</product>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="dfgs/yaw/tc-d-gain">
+		<fcs_function name="/systems/dfgs/yaw/tc-d-gain">
 			<function>
 				<product>
 					<table>
@@ -684,8 +684,8 @@
 							350  1
 						</tableData>
 					</table>
-					<!--property>dfgs/yaw/tc-d-gain-tune</property--> <!-- For tuning -->
-					<property>dfgs/yaw/active</property>
+					<!--property>/systems/dfgs/yaw/tc-d-gain-tune</property--> <!-- For tuning -->
+					<property>/systems/dfgs/yaw/active</property>
 				</product>
 			</function>
 		</fcs_function>
@@ -694,31 +694,31 @@
 	
 	<channel name="DFGS: Stick Pusher">
 		
-		<switch name="dfgs/stick-pusher/alpha-latch">
-			<default value="dfgs/stick-pusher/alpha-latch"/>
+		<switch name="/systems/dfgs/stick-pusher/alpha-latch">
+			<default value="/systems/dfgs/stick-pusher/alpha-latch"/>
 			<test logic="OR" value="0">
 				position/wow eq 1
-				dfgs/power-avail eq 0
+				/systems/dfgs/power-avail eq 0
 				/controls/flight/flaps-input eq 0
-				aero/alpha-deg-damped le dfgs/stall-appr-alpha-deg
+				aero/alpha-deg-damped le /systems/dfgs/stall-appr-alpha-deg
 				/accelerations/pilot-g le 0.6
 			</test>
 			<test logic="AND" value="1">
-				aero/alpha-deg-damped ge dfgs/stall-alpha-deg
+				aero/alpha-deg-damped ge /systems/dfgs/stall-alpha-deg
 				position/wow ne 1
 			</test>
 		</switch>
 		
-		<switch name="dfgs/stick-pusher/active">
+		<switch name="/systems/dfgs/stick-pusher/active">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				dfgs/power-avail eq 1
-				dfgs/stick-pusher/alpha-latch eq 1
+				/systems/dfgs/power-avail eq 1
+				/systems/dfgs/stick-pusher/alpha-latch eq 1
 			</test>
 		</switch>
 		
-		<actuator name="dfgs/stick-pusher/output">
-			<input>dfgs/stick-pusher/active</input>
+		<actuator name="/systems/dfgs/stick-pusher/output">
+			<input>/systems/dfgs/stick-pusher/active</input>
 			<rate_limit sense="incr">5.0</rate_limit>
 			<rate_limit sense="decr">1000</rate_limit>
 		</actuator>
@@ -727,11 +727,11 @@
 	
 	<channel name="DFGS: Yaw Axis and Yaw Damper">
 		
-		<fcs_function name="dfgs/yaw/rudder-nul">
+		<fcs_function name="/systems/dfgs/yaw/rudder-nul">
 			<function>
 				<table>
 					<independentVar lookup="row">/controls/flight/rudder</independentVar>
-					<independentVar lookup="column">dfgs/yaw/autoland-switch</independentVar>
+					<independentVar lookup="column">/systems/dfgs/yaw/autoland-switch</independentVar>
 					<tableData>
 						       0  1
 						-1.00 -1  0
@@ -743,81 +743,81 @@
 			</function>
 		</fcs_function>
 		
-		<washout_filter name="dfgs/yaw/r-washout">
+		<washout_filter name="/systems/dfgs/yaw/r-washout">
 			<input>velocities/r-rad_sec</input>
 			<c1>0.5</c1>
 		</washout_filter>
 		
-		<switch name="dfgs/yaw/r-switched">
-			<default value="dfgs/yaw/r-washout"/>
+		<switch name="/systems/dfgs/yaw/r-switched">
+			<default value="/systems/dfgs/yaw/r-washout"/>
 			<test value="0">
-				dfgs/yaw/active ne 1
+				/systems/dfgs/yaw/active ne 1
 			</test>
 		</switch>
 		
-		<pure_gain name="dfgs/yaw/yd-f">
-			<input>dfgs/yaw/r-switched</input>
-			<gain>dfgs/yaw/yd-p-gain</gain>
+		<pure_gain name="/systems/dfgs/yaw/yd-f">
+			<input>/systems/dfgs/yaw/r-switched</input>
+			<gain>/systems/dfgs/yaw/yd-p-gain</gain>
 			<clipto>
 				<min>-0.5</min>
 				<max>0.5</max>
 			</clipto>
 		</pure_gain>
 		
-		<switch name="dfgs/yaw/slip-skid-raw">
+		<switch name="/systems/dfgs/yaw/slip-skid-raw">
 			<default value="aero/beta-rad"/>
 			<test logic="OR" value="0">
 				position/wow eq 1
 			</test>
 		</switch>
 		
-		<lag_filter name="dfgs/yaw/slip-skid">
-			<input>dfgs/yaw/slip-skid-raw</input>
+		<lag_filter name="/systems/dfgs/yaw/slip-skid">
+			<input>/systems/dfgs/yaw/slip-skid-raw</input>
 			<c1>2.5</c1>
 		</lag_filter>
 		
-		<pid name="dfgs/yaw/tc-pd">
-			<input>dfgs/yaw/slip-skid</input>
-			<kp>dfgs/yaw/tc-p-gain</kp>
+		<pid name="/systems/dfgs/yaw/tc-pd">
+			<input>/systems/dfgs/yaw/slip-skid</input>
+			<kp>/systems/dfgs/yaw/tc-p-gain</kp>
 			<ki>0.0</ki>
-			<kd>dfgs/yaw/tc-d-gain</kd>
+			<kd>/systems/dfgs/yaw/tc-d-gain</kd>
 			<clipto>
 				<min>-0.2</min>
 				<max>0.2</max>
 			</clipto>
 		</pid>
 		
-		<switch name="dfgs/yaw/tc-pd-s">
-			<default value="dfgs/yaw/tc-pd"/>
+		<switch name="/systems/dfgs/yaw/tc-pd-s">
+			<default value="/systems/dfgs/yaw/tc-pd"/>
 			<test logic="OR" value="0">
-				dfgs/yaw/active ne 1
-				dfgs/yaw/autoland-switch eq 1
+				/systems/dfgs/yaw/active ne 1
+				/systems/dfgs/yaw/autoland-switch eq 1
 			</test>
 		</switch>
 		
-		<switch name="dfgs/yaw/afs-cmd">
+		<switch name="/systems/dfgs/yaw/afs-cmd">
 			<default value="0"/>
-			<test value="dfgs/afs/yaw-cmd">
-				dfgs/yaw/autoland-switch eq 1
+			<test value="/systems/dfgs/afs/yaw-cmd">
+				/systems/dfgs/yaw/autoland-switch eq 1
 			</test>
 		</switch>
 		
-		<summer name="dfgs/yaw/output-sum">
-			<input>dfgs/yaw/yd-f</input>
-			<input>dfgs/yaw/tc-pd-s</input>
-			<input>dfgs/yaw/afs-cmd</input>
+		<summer name="/systems/dfgs/yaw/output-sum">
+			<input>/systems/dfgs/yaw/yd-f</input>
+			<input>/systems/dfgs/yaw/tc-pd-s</input>
+			<input>/systems/dfgs/yaw/afs-cmd</input>
 		</summer>
 		
-		<switch name="dfgs/yaw/output">
-			<default value="dfgs/yaw/afs-cmd"/> <!-- DFGS keeps working even if YD is unavail -->
-			<test value="dfgs/yaw/output-sum">
-				dfgs/yaw/active eq 1
+		<switch name="/systems/dfgs/yaw/output">
+			<default value="/systems/dfgs/yaw/afs-cmd"/> <!-- DFGS keeps working even if YD is unavail -->
+			<test value="/systems/dfgs/yaw/output-sum">
+				/systems/dfgs/yaw/active eq 1
 			</test>
 		</switch>
 		
-		<summer name="dfgs/rudder-output">
-			<input>dfgs/yaw/rudder-nul</input>
-			<input>dfgs/yaw/output</input>
+		<summer name="/systems/dfgs/rudder-output">
+			<input>/systems/dfgs/yaw/rudder-nul</input>
+			<input>/systems/dfgs/yaw/output</input>
 			<clipto>
 				<min>-1.0</min>
 				<max>1.0</max>

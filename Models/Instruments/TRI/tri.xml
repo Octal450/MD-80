@@ -38,7 +38,7 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>fdm/jsbsim/dfgs/power-avail</property>
+						<property>systems/dfgs/power-avail</property>
 						<value>1</value>
 					</equals>
 				</condition>
@@ -73,7 +73,7 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>fdm/jsbsim/dfgs/power-avail</property>
+						<property>systems/dfgs/power-avail</property>
 						<value>1</value>
 					</equals>
 				</condition>
@@ -108,7 +108,7 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>fdm/jsbsim/dfgs/power-avail</property>
+						<property>systems/dfgs/power-avail</property>
 						<value>1</value>
 					</equals>
 				</condition>
@@ -143,7 +143,7 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>fdm/jsbsim/dfgs/power-avail</property>
+						<property>systems/dfgs/power-avail</property>
 						<value>1</value>
 					</equals>
 				</condition>
@@ -178,7 +178,7 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>fdm/jsbsim/dfgs/power-avail</property>
+						<property>systems/dfgs/power-avail</property>
 						<value>1</value>
 					</equals>
 				</condition>
@@ -213,7 +213,7 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>fdm/jsbsim/dfgs/power-avail</property>
+						<property>systems/dfgs/power-avail</property>
 						<value>1</value>
 					</equals>
 				</condition>
@@ -248,7 +248,7 @@
 			<binding>
 				<condition>
 					<equals>
-						<property>fdm/jsbsim/dfgs/power-avail</property>
+						<property>systems/dfgs/power-avail</property>
 						<value>1</value>
 					</equals>
 				</condition>
@@ -289,7 +289,7 @@
 		<object-name>toOn</object-name>
 		<condition>
 			<equals>
-				<property>fdm/jsbsim/dfgs/power-avail</property>
+				<property>systems/dfgs/power-avail</property>
 				<value>1</value>
 			</equals>
 		</condition>
@@ -562,7 +562,7 @@
 		<object-name>FlagRat</object-name>
 		<condition>
 			<not-equals>
-				<property>fdm/jsbsim/dfgs/power-avail</property>
+				<property>systems/dfgs/power-avail</property>
 				<value>1</value>
 			</not-equals>
 		</condition>

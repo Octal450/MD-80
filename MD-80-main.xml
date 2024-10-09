@@ -699,16 +699,6 @@
 	
 	<fdm n="0">
 		<jsbsim n="0">
-			<dfgs n="0">
-				<afs n="0">
-					<pitch-cmd type="double">0</pitch-cmd>
-					<roll-cmd type="double">0</roll-cmd>
-					<yaw-cmd type="double">0</yaw-cmd>
-				</afs>
-				<mach-trim n="0">
-					<output type="double">0</output>
-				</mach-trim>
-			</dfgs>
 			<external_reactions n="0">
 				<tractor>
 					<magnitude alias="/sim/model/autopush/force-lbf"/>
@@ -1511,10 +1501,18 @@
 			</stall-2>
 		</caws>
 		<dfgs n="0">
+			<afs n="0">
+				<pitch-cmd type="double">0</pitch-cmd>
+				<roll-cmd type="double">0</roll-cmd>
+				<yaw-cmd type="double">0</yaw-cmd>
+			</afs>
 			<lights n="0">
 				<art type="bool">0</art>
 				<art-ready type="bool">0</art-ready>
 			</lights>
+			<mach-trim n="0">
+				<output type="double">0</output>
+			</mach-trim>
 		</dfgs>
 		<engines n="0">
 			<ats-cmd-1 type="double">0</ats-cmd-1>
