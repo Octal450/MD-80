@@ -170,7 +170,7 @@
 							<value>1</value>
 						</equals>
 						<equals>
-							<property>/controls/pneumatics/switches/radio-rack</property>
+							<property>/controls/pneumatics/radio-rack</property>
 							<value>1</value>
 						</equals>
 					</or>

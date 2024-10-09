@@ -7,8 +7,8 @@
 var Controls = {
 	Dfgs: {
 		Switches: {
-			art: props.globals.getNode("/controls/dfgs/switches/art"),
-			artCover: props.globals.getNode("/controls/dfgs/switches/art-cover"),
+			art: props.globals.getNode("/controls/dfgs/art"),
+			artCover: props.globals.getNode("/controls/dfgs/art-cover"),
 		},
 	},
 	Flight: {

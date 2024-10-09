@@ -114,7 +114,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>controls/dfgs/lights/art-ready</property>
+					<property>systems/dfgs/lights/art-ready</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -131,7 +131,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>controls/dfgs/lights/art</property>
+					<property>systems/dfgs/lights/art</property>
 					<value>1</value>
 				</equals>
 				<equals>

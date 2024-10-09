@@ -119,7 +119,7 @@
 		
 		<scheduled_gain name="fcs-actual/elevator/mach-trim"> <!-- So that we still get full -1 to 1 deflection -->
 			<input>dfgs/mach-trim/output</input>
-			<gain>/controls/fctl/switches/mach-trim</gain>
+			<gain>/controls/fcs/mach-trim</gain>
 			<table>
 				<independentVar lookup="row">fcs-actual/elevator/yoke-switch</independentVar>
 				<tableData>
@@ -594,7 +594,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/hydraulics/sys-r-psi ge 950
-				/controls/fctl/switches/rudder-pwr eq 1
+				/controls/fcs/rudder-pwr eq 1
 				/systems/failures/fctl/rudder-pwr ne 1
 			</test>
 		</switch>
@@ -906,7 +906,7 @@
 				/systems/hydraulics/sys-r-psi ge 950
 			</test>
 			<test logic="AND" value="0.0166667"> <!-- About 60 sec -->
-				/controls/hydraulics/switches/gear-gravity-ext eq 1
+				/controls/hydraulics/gear-gravity-ext eq 1
 				/accelerations/pilot-g ge 0.5
 			</test>
 		</switch>
@@ -949,7 +949,7 @@
 				/systems/hydraulics/sys-r-psi ge 950
 			</test>
 			<test logic="AND" value="0.0222222"> <!-- About 45 sec -->
-				/controls/hydraulics/switches/gear-gravity-ext eq 1
+				/controls/hydraulics/gear-gravity-ext eq 1
 				/accelerations/pilot-g ge 0.5
 			</test>
 		</switch>
@@ -992,7 +992,7 @@
 				/systems/hydraulics/sys-r-psi ge 950
 			</test>
 			<test logic="AND" value="0.0222222"> <!-- About 45 sec -->
-				/controls/hydraulics/switches/gear-gravity-ext eq 1
+				/controls/hydraulics/gear-gravity-ext eq 1
 				/accelerations/pilot-g ge 0.5
 			</test>
 		</switch>

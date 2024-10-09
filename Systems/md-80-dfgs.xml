@@ -50,10 +50,10 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				dfgs/afs/enabled eq 1
-				/controls/fctl/switches/yaw-damper eq 0
+				/controls/fcs/yaw-damper eq 0
 			</test>
 			<test value="1">
-				/controls/fctl/switches/yaw-damper eq 1
+				/controls/fcs/yaw-damper eq 1
 			</test>
 		</switch>
 		

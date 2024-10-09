@@ -12,7 +12,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-l ge 112
-				/controls/fuel/switches/pump-aft-l eq 1
+				/controls/fuel/pump-aft-l eq 1
 				/systems/failures/fuel/pumps-l ne 1
 			</test>
 		</switch>
@@ -32,7 +32,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-r ge 112
-				/controls/fuel/switches/pump-fwd-l eq 1
+				/controls/fuel/pump-fwd-l eq 1
 				/systems/failures/fuel/pumps-l ne 1
 			</test>
 		</switch>
@@ -52,7 +52,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-r ge 112
-				/controls/fuel/switches/pump-aft-c eq 1
+				/controls/fuel/pump-aft-c eq 1
 				/systems/failures/fuel/pumps-c ne 1
 			</test>
 		</switch>
@@ -72,7 +72,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-l ge 112
-				/controls/fuel/switches/pump-fwd-c eq 1
+				/controls/fuel/pump-fwd-c eq 1
 				/systems/failures/fuel/pumps-c ne 1
 			</test>
 		</switch>
@@ -92,7 +92,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-gndsvc ge 112
-				/controls/fuel/switches/pump-aft-r eq 1
+				/controls/fuel/pump-aft-r eq 1
 				/systems/failures/fuel/pumps-r ne 1
 			</test>
 		</switch>
@@ -112,7 +112,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-l ge 112
-				/controls/fuel/switches/pump-fwd-r eq 1
+				/controls/fuel/pump-fwd-r eq 1
 				/systems/failures/fuel/pumps-r ne 1
 			</test>
 		</switch>
@@ -132,7 +132,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/dc-trans ge 24
-				/controls/fuel/switches/pump-start eq 1
+				/controls/fuel/pump-start eq 1
 				/systems/failures/fuel/pump-start ne 1
 			</test>
 		</switch>
@@ -219,7 +219,7 @@
 			<default value="0"/>
 			<test logic="AND" value="9">
 				/systems/fuel/feed-r eq 1
-				/controls/fuel/switches/x-feed eq 1
+				/controls/fuel/x-feed eq 1
 				/systems/fuel/center-feeding ne 1
 				propulsion/tank[2]/contents-lbs gt 10
 				propulsion/tank[3]/contents-lbs lt 9
@@ -239,7 +239,7 @@
 			<default value="0"/>
 			<test logic="AND" value="9">
 				/systems/fuel/feed-l eq 1
-				/controls/fuel/switches/x-feed eq 1
+				/controls/fuel/x-feed eq 1
 				/systems/fuel/center-feeding ne 1
 				propulsion/tank[0]/contents-lbs gt 10
 				propulsion/tank[4]/contents-lbs lt 9
@@ -271,7 +271,7 @@
 			<test logic="AND" value="9">
 				/systems/apu/fuel-feed eq 1
 				/systems/fuel/feed-l eq 1
-				/controls/fuel/switches/x-feed eq 1
+				/controls/fuel/x-feed eq 1
 				/systems/fuel/center-feeding ne 1
 				propulsion/tank[0]/contents-lbs gt 10
 				propulsion/tank[5]/contents-lbs lt 4
@@ -347,7 +347,7 @@
 					<value>88888</value>
 					<ifthen>
 						<eq>
-							<property>/controls/fuel/switches/channel-test</property>
+							<property>/controls/fuel/channel-test</property>
 							<value>1</value>
 						</eq>
 						<value>3000</value>
@@ -378,7 +378,7 @@
 					<value>88888</value>
 					<ifthen>
 						<eq>
-							<property>/controls/fuel/switches/channel-test</property>
+							<property>/controls/fuel/channel-test</property>
 							<value>1</value>
 						</eq>
 						<value>3000</value>
@@ -409,7 +409,7 @@
 					<value>88888</value>
 					<ifthen>
 						<eq>
-							<property>/controls/fuel/switches/channel-test</property>
+							<property>/controls/fuel/channel-test</property>
 							<value>1</value>
 						</eq>
 						<value>3000</value>

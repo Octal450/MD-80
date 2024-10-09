@@ -87,7 +87,7 @@
 					</nq>
 					<table>
 						<independentVar lookup="row">/engines/engine[0]/n2-actual</independentVar>
-						<independentVar lookup="column">/controls/hydraulics/switches/l-pump</independentVar>
+						<independentVar lookup="column">/controls/hydraulics/l-pump</independentVar>
 						<tableData>
 							       1     2
 							40    40    40
@@ -102,7 +102,7 @@
 		<switch name="/systems/hydraulics/l-pump-psi">
 			<default value="40"/>
 			<test value="/systems/hydraulics/l-pump-psi-input">
-				/controls/hydraulics/switches/l-pump gt 0
+				/controls/hydraulics/l-pump gt 0
 			</test>
 		</switch>
 		
@@ -151,7 +151,7 @@
 					</nq>
 					<table>
 						<independentVar lookup="row">/engines/engine[1]/n2-actual</independentVar>
-						<independentVar lookup="column">/controls/hydraulics/switches/r-pump</independentVar>
+						<independentVar lookup="column">/controls/hydraulics/r-pump</independentVar>
 						<tableData>
 							       1     2
 							40    40    40
@@ -166,7 +166,7 @@
 		<switch name="/systems/hydraulics/r-pump-psi">
 			<default value="40"/>
 			<test value="/systems/hydraulics/r-pump-psi-input">
-				/controls/hydraulics/switches/r-pump gt 0
+				/controls/hydraulics/r-pump gt 0
 			</test>
 		</switch>
 		
@@ -174,7 +174,7 @@
 			<default value="0"/>
 			<test logic="AND" value="2980">
 				/systems/electrical/bus/emer-ac ge 112
-				/controls/hydraulics/switches/aux-pump ne 0
+				/controls/hydraulics/aux-pump ne 0
 				/systems/failures/hydraulics/aux-pump ne 1
 			</test>
 		</switch>
@@ -219,7 +219,7 @@
 		
 		<!-- Trans Pump -->
 		<actuator name="/systems/hydraulics/trans-valve">
-			<input>/controls/hydraulics/switches/trans</input>
+			<input>/controls/hydraulics/trans</input>
 			<rate_limit>0.333</rate_limit> <!-- 3 seconds -->
 		</actuator>
 		

@@ -122,7 +122,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electrical/switches/apu-gndsvc</property>
+				<property>controls/electrical/apu-gndsvc</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -161,7 +161,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electrical/switches/ext-gndsvc</property>
+				<property>controls/electrical/ext-gndsvc</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -201,7 +201,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electrical/switches/csd-l</property>
+				<property>controls/electrical/csd-l</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -240,7 +240,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electrical/switches/csd-r</property>
+				<property>controls/electrical/csd-r</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -280,7 +280,7 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/electrical/switches/gen-l</property>
+				<property>controls/electrical/gen-l</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
@@ -289,7 +289,7 @@
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/electrical/switches/gen-l</property>
+				<property>controls/electrical/gen-l</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -301,7 +301,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/electrical/switches/gen-l</property>
+							<property>controls/electrical/gen-l</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -311,12 +311,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/electrical/switches/gen-l</property>
+							<property>controls/electrical/gen-l</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/electrical/switches/gen-l</property>
+					<property>controls/electrical/gen-l</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -327,7 +327,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/electrical/switches/gen-l</property>
+				<property>controls/electrical/gen-l</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -339,7 +339,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/electrical/switches/gen-l</property>
+							<property>controls/electrical/gen-l</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -349,12 +349,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/electrical/switches/gen-l</property>
+							<property>controls/electrical/gen-l</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/electrical/switches/gen-l</property>
+					<property>controls/electrical/gen-l</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -391,7 +391,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electrical/switches/gen-apu</property>
+				<property>controls/electrical/gen-apu</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -431,7 +431,7 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/electrical/switches/gen-r</property>
+				<property>controls/electrical/gen-r</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
@@ -440,7 +440,7 @@
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/electrical/switches/gen-r</property>
+				<property>controls/electrical/gen-r</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -452,7 +452,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/electrical/switches/gen-r</property>
+							<property>controls/electrical/gen-r</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -462,12 +462,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/electrical/switches/gen-r</property>
+							<property>controls/electrical/gen-r</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/electrical/switches/gen-r</property>
+					<property>controls/electrical/gen-r</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -478,7 +478,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/electrical/switches/gen-r</property>
+				<property>controls/electrical/gen-r</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -490,7 +490,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/electrical/switches/gen-r</property>
+							<property>controls/electrical/gen-r</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -500,12 +500,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/electrical/switches/gen-r</property>
+							<property>controls/electrical/gen-r</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/electrical/switches/gen-r</property>
+					<property>controls/electrical/gen-r</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -543,7 +543,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electrical/switches/apu-pwr-l</property>
+				<property>controls/electrical/apu-pwr-l</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -600,7 +600,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electrical/switches/apu-pwr-r</property>
+				<property>controls/electrical/apu-pwr-r</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -639,7 +639,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electrical/switches/ext-pwr-l</property>
+				<property>controls/electrical/ext-pwr-l</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -654,7 +654,7 @@
 		<object-name>ExtPwrAvail2On</object-name>
 		<condition>
 			<or>
-				<property>controls/electrical/switches/ground-cart</property>
+				<property>controls/electrical/ground-cart</property>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -693,7 +693,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electrical/switches/ext-pwr-r</property>
+				<property>controls/electrical/ext-pwr-r</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -732,7 +732,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electrical/switches/galley</property>
+				<property>controls/electrical/galley</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -771,7 +771,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electrical/switches/ac-tie</property>
+				<property>controls/electrical/ac-tie</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -810,7 +810,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electrical/switches/dc-tie</property>
+				<property>controls/electrical/dc-tie</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -906,7 +906,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/pneumatics/switches/bleed-apu</property>
+				<property>controls/pneumatics/bleed-apu</property>
 				<value>0</value>
 				<value>1</value>
 				<value>2</value>
@@ -922,7 +922,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/pneumatics/switches/bleed-apu</property>
+				<property>controls/pneumatics/bleed-apu</property>
 				<value>2</value>
 				<value>1</value>
 				<value>0</value>
@@ -962,7 +962,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/apu/switches/master</property>
+				<property>controls/apu/master</property>
 				<value>0</value>
 				<value>1</value>
 				<value>2</value>
@@ -975,7 +975,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/apu/switches/master</property>
+							<property>controls/apu/master</property>
 							<value>2</value>
 						</equals>
 					</condition>
@@ -985,12 +985,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/apu/switches/master</property>
+							<property>controls/apu/master</property>
 							<value>2</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/apu/switches/master</property>
+					<property>controls/apu/master</property>
 					<value>1</value>
 				</binding>
 			</mod-up>
@@ -1001,7 +1001,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/apu/switches/master</property>
+				<property>controls/apu/master</property>
 				<value>1</value>
 				<value>0</value>
 			</binding>
@@ -1034,7 +1034,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/electrical/switches/emer-pwr</property>
+				<property>controls/electrical/emer-pwr</property>
 				<factor>1</factor>
 				<min>0</min>
 				<max>1</max>
@@ -1052,7 +1052,7 @@
 		<object-name>EmerPwrInUseOn</object-name>
 		<condition>
 			<or>
-				<property>controls/electrical/lights/emer-pwr-on</property>
+				<property>systems/electrical/lights/emer-pwr-on</property>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -1110,7 +1110,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/electrical/switches/battery</property>
+				<property>controls/electrical/battery</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1150,7 +1150,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fuel/switches/pump-start</property>
+				<property>controls/fuel/pump-start</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1187,7 +1187,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/ignition/switches/ign</property>
+				<property>controls/ignition/ign</property>
 				<value>-1</value>
 				<value>0</value>
 				<value>1</value>
@@ -1203,7 +1203,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/ignition/switches/ign</property>
+				<property>controls/ignition/ign</property>
 				<value>1</value>
 				<value>0</value>
 				<value>-1</value>
@@ -1446,7 +1446,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fuel/switches/pump-aft-l</property>
+				<property>controls/fuel/pump-aft-l</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1485,7 +1485,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fuel/switches/pump-aft-c</property>
+				<property>controls/fuel/pump-aft-c</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1524,7 +1524,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fuel/switches/pump-aft-r</property>
+				<property>controls/fuel/pump-aft-r</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1563,7 +1563,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fuel/switches/pump-fwd-l</property>
+				<property>controls/fuel/pump-fwd-l</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1602,7 +1602,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fuel/switches/pump-fwd-c</property>
+				<property>controls/fuel/pump-fwd-c</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1641,7 +1641,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fuel/switches/pump-fwd-r</property>
+				<property>controls/fuel/pump-fwd-r</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1681,7 +1681,7 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/fuel/switches/aux-trans-aft-a</property>
+				<property>controls/fuel/aux-trans-aft-a</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
@@ -1690,7 +1690,7 @@
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/fuel/switches/aux-trans-aft-a</property>
+				<property>controls/fuel/aux-trans-aft-a</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -1702,7 +1702,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/switches/aux-trans-aft-a</property>
+							<property>controls/fuel/aux-trans-aft-a</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -1712,12 +1712,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/switches/aux-trans-aft-a</property>
+							<property>controls/fuel/aux-trans-aft-a</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/fuel/switches/aux-trans-aft-a</property>
+					<property>controls/fuel/aux-trans-aft-a</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -1728,7 +1728,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/fuel/switches/aux-trans-aft-a</property>
+				<property>controls/fuel/aux-trans-aft-a</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -1740,7 +1740,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/switches/aux-trans-aft-a</property>
+							<property>controls/fuel/aux-trans-aft-a</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -1750,12 +1750,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/switches/aux-trans-aft-a</property>
+							<property>controls/fuel/aux-trans-aft-a</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/fuel/switches/aux-trans-aft-a</property>
+					<property>controls/fuel/aux-trans-aft-a</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -1793,7 +1793,7 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/fuel/switches/aux-trans-aft-b</property>
+				<property>controls/fuel/aux-trans-aft-b</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
@@ -1802,7 +1802,7 @@
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/fuel/switches/aux-trans-aft-b</property>
+				<property>controls/fuel/aux-trans-aft-b</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -1814,7 +1814,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/switches/aux-trans-aft-b</property>
+							<property>controls/fuel/aux-trans-aft-b</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -1824,12 +1824,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/switches/aux-trans-aft-b</property>
+							<property>controls/fuel/aux-trans-aft-b</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/fuel/switches/aux-trans-aft-b</property>
+					<property>controls/fuel/aux-trans-aft-b</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -1840,7 +1840,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/fuel/switches/aux-trans-aft-b</property>
+				<property>controls/fuel/aux-trans-aft-b</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -1852,7 +1852,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/switches/aux-trans-aft-b</property>
+							<property>controls/fuel/aux-trans-aft-b</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -1862,12 +1862,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/switches/aux-trans-aft-b</property>
+							<property>controls/fuel/aux-trans-aft-b</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/fuel/switches/aux-trans-aft-b</property>
+					<property>controls/fuel/aux-trans-aft-b</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -1905,7 +1905,7 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/fuel/switches/aux-trans-fwd-a</property>
+				<property>controls/fuel/aux-trans-fwd-a</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
@@ -1914,7 +1914,7 @@
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/fuel/switches/aux-trans-fwd-a</property>
+				<property>controls/fuel/aux-trans-fwd-a</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -1926,7 +1926,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/switches/aux-trans-fwd-a</property>
+							<property>controls/fuel/aux-trans-fwd-a</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -1936,12 +1936,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/switches/aux-trans-fwd-a</property>
+							<property>controls/fuel/aux-trans-fwd-a</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/fuel/switches/aux-trans-fwd-a</property>
+					<property>controls/fuel/aux-trans-fwd-a</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -1952,7 +1952,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/fuel/switches/aux-trans-fwd-a</property>
+				<property>controls/fuel/aux-trans-fwd-a</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -1964,7 +1964,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/switches/aux-trans-fwd-a</property>
+							<property>controls/fuel/aux-trans-fwd-a</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -1974,12 +1974,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/switches/aux-trans-fwd-a</property>
+							<property>controls/fuel/aux-trans-fwd-a</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/fuel/switches/aux-trans-fwd-a</property>
+					<property>controls/fuel/aux-trans-fwd-a</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -2017,7 +2017,7 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/fuel/switches/aux-trans-fwd-b</property>
+				<property>controls/fuel/aux-trans-fwd-b</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
@@ -2026,7 +2026,7 @@
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/fuel/switches/aux-trans-fwd-b</property>
+				<property>controls/fuel/aux-trans-fwd-b</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -2038,7 +2038,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/switches/aux-trans-fwd-b</property>
+							<property>controls/fuel/aux-trans-fwd-b</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -2048,12 +2048,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/switches/aux-trans-fwd-b</property>
+							<property>controls/fuel/aux-trans-fwd-b</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/fuel/switches/aux-trans-fwd-b</property>
+					<property>controls/fuel/aux-trans-fwd-b</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -2064,7 +2064,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/fuel/switches/aux-trans-fwd-b</property>
+				<property>controls/fuel/aux-trans-fwd-b</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -2076,7 +2076,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/switches/aux-trans-fwd-b</property>
+							<property>controls/fuel/aux-trans-fwd-b</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -2086,12 +2086,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/switches/aux-trans-fwd-b</property>
+							<property>controls/fuel/aux-trans-fwd-b</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/fuel/switches/aux-trans-fwd-b</property>
+					<property>controls/fuel/aux-trans-fwd-b</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -2290,7 +2290,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/iru[0]/switches/knob</property>
+				<property>controls/iru[0]/knob</property>
 				<factor>1</factor>
 				<min>0</min>
 				<max>3</max>
@@ -2308,7 +2308,7 @@
 		<object-name>IrsAlign1</object-name>
 		<condition>
 			<or>
-				<property>controls/iru[0]/lights/align</property>
+				<property>systems/iru[0]/lights/align</property>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -2321,7 +2321,7 @@
 		<object-name>IrsBatFail1</object-name>
 		<condition>
 			<or>
-				<property>controls/iru[0]/lights/bat-fail</property>
+				<property>systems/iru[0]/lights/bat-fail</property>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -2334,7 +2334,7 @@
 		<object-name>IrsFault1</object-name>
 		<condition>
 			<or>
-				<property>controls/iru[0]/lights/fault</property>
+				<property>systems/iru[0]/lights/fault</property>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -2347,7 +2347,7 @@
 		<object-name>IrsOnBat1</object-name>
 		<condition>
 			<or>
-				<property>controls/iru[0]/lights/on-bat</property>
+				<property>systems/iru[0]/lights/on-bat</property>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -2361,7 +2361,7 @@
 		<object-name>IrsAlign2</object-name>
 		<condition>
 			<or>
-				<property>controls/iru[1]/lights/align</property>
+				<property>systems/iru[1]/lights/align</property>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -2374,7 +2374,7 @@
 		<object-name>IrsBatFail2</object-name>
 		<condition>
 			<or>
-				<property>controls/iru[1]/lights/bat-fail</property>
+				<property>systems/iru[1]/lights/bat-fail</property>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -2387,7 +2387,7 @@
 		<object-name>IrsFault2</object-name>
 		<condition>
 			<or>
-				<property>controls/iru[1]/lights/fault</property>
+				<property>systems/iru[1]/lights/fault</property>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -2400,7 +2400,7 @@
 		<object-name>IrsOnBat2</object-name>
 		<condition>
 			<or>
-				<property>controls/iru[1]/lights/on-bat</property>
+				<property>systems/iru[1]/lights/on-bat</property>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -2431,7 +2431,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/iru[1]/switches/knob</property>
+				<property>controls/iru[1]/knob</property>
 				<factor>1</factor>
 				<min>0</min>
 				<max>3</max>
@@ -2800,7 +2800,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/fctl/switches/yaw-damper</property>
+				<property>controls/fcs/yaw-damper</property>
 				<value>0</value>
 				<value>1</value>
 				<value>2</value>
@@ -2816,7 +2816,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/fctl/switches/yaw-damper</property>
+				<property>controls/fcs/yaw-damper</property>
 				<value>2</value>
 				<value>1</value>
 				<value>0</value>
@@ -2858,7 +2858,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fctl/switches/mach-trim</property>
+				<property>controls/fcs/mach-trim</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -2930,7 +2930,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/pneumatics/switches/cockpit-temp</property>
+				<property>controls/pneumatics/cockpit-temp</property>
 				<factor>0.05</factor>
 				<min>0</min>
 				<max>0.85</max>
@@ -2966,7 +2966,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/pneumatics/switches/supply-l</property>
+				<property>controls/pneumatics/supply-l</property>
 				<value>0</value>
 				<value>1</value>
 				<value>2</value>
@@ -2982,7 +2982,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/pneumatics/switches/supply-l</property>
+				<property>controls/pneumatics/supply-l</property>
 				<value>2</value>
 				<value>1</value>
 				<value>0</value>
@@ -3022,7 +3022,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/pneumatics/switches/supply-r</property>
+				<property>controls/pneumatics/supply-r</property>
 				<value>0</value>
 				<value>1</value>
 				<value>2</value>
@@ -3038,7 +3038,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/pneumatics/switches/supply-r</property>
+				<property>controls/pneumatics/supply-r</property>
 				<value>2</value>
 				<value>1</value>
 				<value>0</value>
@@ -3073,7 +3073,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/pneumatics/switches/cabin-temp</property>
+				<property>controls/pneumatics/cabin-temp</property>
 				<factor>0.05</factor>
 				<min>0</min>
 				<max>0.85</max>
@@ -3103,7 +3103,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/pneumatics/switches/temp-sel</property>
+				<property>controls/pneumatics/temp-sel</property>
 				<factor>1</factor>
 				<min>0</min>
 				<max>1</max>
@@ -3146,7 +3146,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/pneumatics/switches/radio-rack</property>
+				<property>controls/pneumatics/radio-rack</property>
 			</binding>
 			<binding>
 				<command>nasal</command>

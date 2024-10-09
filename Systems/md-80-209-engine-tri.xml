@@ -292,7 +292,7 @@
 				engine/limit/active-mode-int eq 5
 			</test>
 			<test logic="OR" value="engine/limit/takeoff-max-ref">
-				/controls/dfgs/switches/art ne 1
+				/controls/dfgs/art ne 1
 				engine/art/active eq 1
 			</test>
 		</switch>
@@ -1040,7 +1040,7 @@
 			<default value="1"/>
 			<test logic="OR" value="0">
 				dfgs/power-avail eq 0
-				/controls/dfgs/switches/art ne 1
+				/controls/dfgs/art ne 1
 				fcs/slat-pos-deg lt 0.01
 				engine/art/state-switch eq 0
 				engine/art/wow-switch eq 0
@@ -1062,7 +1062,7 @@
 				engine/art/n1-error le -30
 				engine/art/n1-error ge 30
 			</test>
-			<output>/controls/dfgs/lights/art</output>
+			<output>/systems/dfgs/lights/art</output>
 		</switch>
 		
 		<switch name="engine/art/armed-light">
@@ -1071,7 +1071,7 @@
 				engine/art/armed eq 1
 				engine/art/active ne 1
 			</test>
-			<output>/controls/dfgs/lights/art-ready</output>
+			<output>/systems/dfgs/lights/art-ready</output>
 		</switch>
 		
 		<pure_gain name="engine/art/output">

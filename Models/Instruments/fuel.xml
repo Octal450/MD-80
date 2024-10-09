@@ -30,7 +30,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>TestKnob</object-name>
-		<property>controls/fuel/switches/channel-test</property>
+		<property>controls/fuel/channel-test</property>
 		<factor>-0.005</factor>
 		<axis>
 			<x>1</x>
@@ -47,13 +47,13 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/fuel/switches/channel-test</property>
+				<property>controls/fuel/channel-test</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>controls/fuel/switches/channel-test</property>
+					<property>controls/fuel/channel-test</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -64,7 +64,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fuel/switches/channel-select</property>
+				<property>controls/fuel/channel-select</property>
 			</binding>
 		</action>
 	</animation>

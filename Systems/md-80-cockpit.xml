@@ -11,12 +11,12 @@
 		
 		<!-- General -->
 		<lag_filter name="/controls/cockpit/art">
-			<input>/controls/dfgs/switches/art</input>
+			<input>/controls/dfgs/art</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/art-cover">
-			<input>/controls/dfgs/switches/art-cover</input>
+			<input>/controls/dfgs/art-cover</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -232,7 +232,7 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/fuel-channel-select">
-			<input>/controls/fuel/switches/channel-select</input>
+			<input>/controls/fuel/channel-select</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -243,22 +243,22 @@
 		</actuator>
 		
 		<lag_filter name="/controls/cockpit/hyd-aux-pump">
-			<input>/controls/hydraulics/switches/aux-pump</input>
+			<input>/controls/hydraulics/aux-pump</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/hyd-l-pump">
-			<input>/controls/hydraulics/switches/l-pump</input>
+			<input>/controls/hydraulics/l-pump</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/hyd-r-pump">
-			<input>/controls/hydraulics/switches/r-pump</input>
+			<input>/controls/hydraulics/r-pump</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/hyd-trans">
-			<input>/controls/hydraulics/switches/trans</input>
+			<input>/controls/hydraulics/trans</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -392,88 +392,88 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/x-bleed-l-lever">
-			<input>/controls/pneumatics/switches/x-bleed-l</input>
+			<input>/controls/pneumatics/x-bleed-l</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/x-bleed-r-lever">
-			<input>/controls/pneumatics/switches/x-bleed-r</input>
+			<input>/controls/pneumatics/x-bleed-r</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/x-feed-lever">
-			<input>/controls/fuel/switches/x-feed</input>
+			<input>/controls/fuel/x-feed</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<!-- Overhead -->
 		<lag_filter name="/controls/cockpit/overhead/ac-tie">
-			<input>/controls/electrical/switches/ac-tie</input>
+			<input>/controls/electrical/ac-tie</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/air-supply-l">
-			<input>/controls/pneumatics/switches/supply-l</input>
+			<input>/controls/pneumatics/supply-l</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/air-supply-r">
-			<input>/controls/pneumatics/switches/supply-r</input>
+			<input>/controls/pneumatics/supply-r</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/apu-bleed">
-			<input>/controls/pneumatics/switches/bleed-apu</input>
+			<input>/controls/pneumatics/bleed-apu</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/apu-gen">
-			<input>/controls/electrical/switches/gen-apu</input>
+			<input>/controls/electrical/gen-apu</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/apu-master">
-			<input>/controls/apu/switches/master</input>
+			<input>/controls/apu/master</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/apu-pwr-gndsvc">
-			<input>/controls/electrical/switches/apu-gndsvc</input>
+			<input>/controls/electrical/apu-gndsvc</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/apu-pwr-l">
-			<input>/controls/electrical/switches/apu-pwr-l</input>
+			<input>/controls/electrical/apu-pwr-l</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/apu-pwr-r">
-			<input>/controls/electrical/switches/apu-pwr-r</input>
+			<input>/controls/electrical/apu-pwr-r</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/aux-trans-aft-a">
-			<input>/controls/fuel/switches/aux-trans-aft-a</input>
+			<input>/controls/fuel/aux-trans-aft-a</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/aux-trans-aft-b">
-			<input>/controls/fuel/switches/aux-trans-aft-b</input>
+			<input>/controls/fuel/aux-trans-aft-b</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<switch name="/controls/cockpit/overhead/battery-in"> <!-- Makes the animation nice for rotate then twist and vice versa -->
 			<default value="0"/>
 			<test logic="AND" value="0.8">
-				/controls/electrical/switches/battery eq 0
+				/controls/electrical/battery eq 0
 				/controls/cockpit/overhead/battery-out gt 0.81
 			</test>
 			<test logic="AND" value="0.8">
-				/controls/electrical/switches/battery eq 1
+				/controls/electrical/battery eq 1
 				/controls/cockpit/overhead/battery-out lt 0.79
 			</test>
 			<test value="1">
-				/controls/electrical/switches/battery eq 1
+				/controls/electrical/battery eq 1
 			</test>
 		</switch>
 		
@@ -484,27 +484,27 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/cabin-temp">
-			<input>/controls/pneumatics/switches/cabin-temp</input>
+			<input>/controls/pneumatics/cabin-temp</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/cockpit-temp">
-			<input>/controls/pneumatics/switches/cockpit-temp</input>
+			<input>/controls/pneumatics/cockpit-temp</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/csd-l">
-			<input>/controls/electrical/switches/csd-l</input>
+			<input>/controls/electrical/csd-l</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/csd-r">
-			<input>/controls/electrical/switches/csd-r</input>
+			<input>/controls/electrical/csd-r</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/dc-tie">
-			<input>/controls/electrical/switches/dc-tie</input>
+			<input>/controls/electrical/dc-tie</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -514,7 +514,7 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/emer-pwr">
-			<input>/controls/electrical/switches/emer-pwr</input>
+			<input>/controls/electrical/emer-pwr</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -524,42 +524,42 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/ext-pwr-gndsvc">
-			<input>/controls/electrical/switches/ext-gndsvc</input>
+			<input>/controls/electrical/ext-gndsvc</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/ext-pwr-l">
-			<input>/controls/electrical/switches/ext-pwr-l</input>
+			<input>/controls/electrical/ext-pwr-l</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/ext-pwr-r">
-			<input>/controls/electrical/switches/ext-pwr-r</input>
+			<input>/controls/electrical/ext-pwr-r</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/aux-trans-fwd-a">
-			<input>/controls/fuel/switches/aux-trans-fwd-a</input>
+			<input>/controls/fuel/aux-trans-fwd-a</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/aux-trans-fwd-b">
-			<input>/controls/fuel/switches/aux-trans-fwd-b</input>
+			<input>/controls/fuel/aux-trans-fwd-b</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/galley-bus">
-			<input>/controls/electrical/switches/galley</input>
+			<input>/controls/electrical/galley</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/gen-l">
-			<input>/controls/electrical/switches/gen-l</input>
+			<input>/controls/electrical/gen-l</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/gen-r">
-			<input>/controls/electrical/switches/gen-r</input>
+			<input>/controls/electrical/gen-r</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -574,7 +574,7 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/ign">
-			<input>/controls/ignition/switches/ign</input>
+			<input>/controls/ignition/ign</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -584,17 +584,17 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/iru-knob[0]">
-			<input>/controls/iru[0]/switches/knob</input>
+			<input>/controls/iru[0]/knob</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/iru-knob[1]">
-			<input>/controls/iru[1]/switches/knob</input>
+			<input>/controls/iru[1]/knob</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/mach-trim">
-			<input>/controls/fctl/switches/mach-trim</input>
+			<input>/controls/fcs/mach-trim</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -614,37 +614,37 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/pump-aft-c">
-			<input>/controls/fuel/switches/pump-aft-c</input>
+			<input>/controls/fuel/pump-aft-c</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/pump-aft-l">
-			<input>/controls/fuel/switches/pump-aft-l</input>
+			<input>/controls/fuel/pump-aft-l</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/pump-aft-r">
-			<input>/controls/fuel/switches/pump-aft-r</input>
+			<input>/controls/fuel/pump-aft-r</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/pump-fwd-c">
-			<input>/controls/fuel/switches/pump-fwd-c</input>
+			<input>/controls/fuel/pump-fwd-c</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/pump-fwd-l">
-			<input>/controls/fuel/switches/pump-fwd-l</input>
+			<input>/controls/fuel/pump-fwd-l</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/pump-fwd-r">
-			<input>/controls/fuel/switches/pump-fwd-r</input>
+			<input>/controls/fuel/pump-fwd-r</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/radio-rack">
-			<input>/controls/pneumatics/switches/radio-rack</input>
+			<input>/controls/pneumatics/radio-rack</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -669,7 +669,7 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/start-pump">
-			<input>/controls/fuel/switches/pump-start</input>
+			<input>/controls/fuel/pump-start</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -684,12 +684,12 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/temp-sel">
-			<input>/controls/pneumatics/switches/temp-sel</input>
+			<input>/controls/pneumatics/temp-sel</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/yaw-damper">
-			<input>/controls/fctl/switches/yaw-damper</input>
+			<input>/controls/fcs/yaw-damper</input>
 			<c1>20</c1>
 		</lag_filter>
 	

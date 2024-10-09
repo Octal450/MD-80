@@ -12,11 +12,11 @@
 			<test logic="AND" value="1">
 				/systems/electrical/bus/emer-ac ge 112
 				position/wow eq 1
-				/controls/ignition/switches/ign eq 1
+				/controls/ignition/ign eq 1
 			</test>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/emer-ac ge 112
-				/controls/ignition/switches/ign eq -1
+				/controls/ignition/ign eq -1
 			</test>
 		</switch>
 		
@@ -24,7 +24,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/emer-ac ge 112
-				/controls/ignition/switches/ign ne 0
+				/controls/ignition/ign ne 0
 			</test>
 		</switch>
 		

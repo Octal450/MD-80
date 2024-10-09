@@ -862,7 +862,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/fuel/switches/x-feed</property>
+				<property>controls/fuel/x-feed</property>
 				<factor>-1</factor>
 				<min>0</min>
 				<max>1</max>
@@ -960,7 +960,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/pneumatics/switches/x-bleed-l</property>
+				<property>controls/pneumatics/x-bleed-l</property>
 				<factor>1</factor>
 				<min>0</min>
 				<max>1</max>
@@ -989,7 +989,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/pneumatics/switches/x-bleed-r</property>
+				<property>controls/pneumatics/x-bleed-r</property>
 				<factor>1</factor>
 				<min>0</min>
 				<max>1</max>
@@ -1446,26 +1446,26 @@
 		<increase>
 			<binding>
 				<condition>
-					<not><property>controls/dfgs/switches/art</property></not>
+					<not><property>controls/dfgs/art</property></not>
 				</condition>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/dfgs/switches/art</property>
+				<property>controls/dfgs/art</property>
 				<value>1</value>
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/dfgs/switches/art-cover</property>
+				<property>controls/dfgs/art-cover</property>
 				<value>0</value>
 			</binding>
 		</increase>
 		<decrease>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/dfgs/switches/art-cover</property>
+				<property>controls/dfgs/art-cover</property>
 				<value>1</value>
 			</binding>
 		</decrease>
@@ -1501,14 +1501,14 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<condition>
-					<property>controls/dfgs/switches/art-cover</property>
+					<property>controls/dfgs/art-cover</property>
 				</condition>
 				<command>property-toggle</command>
-				<property>controls/dfgs/switches/art</property>
+				<property>controls/dfgs/art</property>
 			</binding>
 			<binding>
 				<condition>
-					<property>controls/dfgs/switches/art-cover</property>
+					<property>controls/dfgs/art-cover</property>
 				</condition>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>

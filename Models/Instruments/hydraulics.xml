@@ -47,7 +47,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/hydraulics/switches/trans</property>
+				<property>/controls/hydraulics/trans</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
@@ -86,7 +86,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/hydraulics/switches/l-pump</property>
+				<property>/controls/hydraulics/l-pump</property>
 				<value>0</value>
 				<value>1</value>
 				<value>2</value>
@@ -98,7 +98,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/hydraulics/switches/l-pump</property>
+				<property>/controls/hydraulics/l-pump</property>
 				<value>2</value>
 				<value>1</value>
 				<value>0</value>
@@ -134,7 +134,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/hydraulics/switches/r-pump</property>
+				<property>/controls/hydraulics/r-pump</property>
 				<value>0</value>
 				<value>1</value>
 				<value>2</value>
@@ -146,7 +146,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/hydraulics/switches/r-pump</property>
+				<property>/controls/hydraulics/r-pump</property>
 				<value>2</value>
 				<value>1</value>
 				<value>0</value>
@@ -182,7 +182,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/hydraulics/switches/aux-pump</property>
+				<property>/controls/hydraulics/aux-pump</property>
 				<value>-1</value>
 				<value>0</value>
 				<value>1</value>
@@ -198,7 +198,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/hydraulics/switches/aux-pump</property>
+				<property>/controls/hydraulics/aux-pump</property>
 				<value>1</value>
 				<value>0</value>
 				<value>-1</value>

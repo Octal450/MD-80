@@ -465,9 +465,7 @@
 	
 	<controls n="0">
 		<apu n="0">
-			<switches n="0">
-				<master type="int">0</master>
-			</switches>
+			<master type="int">0</master>
 		</apu>
 		<cockpit n="0">
 			<baro-rotate n="0" type="int">49984</baro-rotate> <!-- So the symbol is upright -->
@@ -496,35 +494,27 @@
 			<mins-rotate n="1" type="int">49984</mins-rotate> <!-- So the symbol is upright -->
 		</cockpit>
 		<dfgs n="0">
-			<lights n="0">
-				<art type="bool">0</art>
-				<art-ready type="bool">0</art-ready>
-			</lights>
-			<switches n="0">
-				<art type="bool">1</art>
-				<art-cover type="bool">0</art-cover>
-			</switches>
+			<art type="bool">1</art>
+			<art-cover type="bool">0</art-cover>
 		</dfgs>
 		<electrical n="0">
-			<switches n="0">
-				<ac-tie type="bool">1</ac-tie>
-				<apu-gndsvc type="bool">0</apu-gndsvc>
-				<apu-pwr-l type="bool">0</apu-pwr-l>
-				<apu-pwr-r type="bool">0</apu-pwr-r>
-				<battery type="bool">0</battery>
-				<csd-l type="bool">1</csd-l>
-				<csd-r type="bool">1</csd-r>
-				<dc-tie type="bool">0</dc-tie>
-				<emer-pwr type="bool">0</emer-pwr>
-				<ext-gndsvc type="bool">0</ext-gndsvc>
-				<ext-pwr-l type="bool">0</ext-pwr-l>
-				<ext-pwr-r type="bool">0</ext-pwr-r>
-				<galley type="bool">1</galley>
-				<gen-apu type="bool">1</gen-apu>
-				<gen-l type="int">1</gen-l>
-				<gen-r type="int">1</gen-r>
-				<ground-cart type="bool">0</ground-cart>
-			</switches>
+			<ac-tie type="bool">1</ac-tie>
+			<apu-gndsvc type="bool">0</apu-gndsvc>
+			<apu-pwr-l type="bool">0</apu-pwr-l>
+			<apu-pwr-r type="bool">0</apu-pwr-r>
+			<battery type="bool">0</battery>
+			<csd-l type="bool">1</csd-l>
+			<csd-r type="bool">1</csd-r>
+			<dc-tie type="bool">0</dc-tie>
+			<emer-pwr type="bool">0</emer-pwr>
+			<ext-gndsvc type="bool">0</ext-gndsvc>
+			<ext-pwr-l type="bool">0</ext-pwr-l>
+			<ext-pwr-r type="bool">0</ext-pwr-r>
+			<galley type="bool">1</galley>
+			<gen-apu type="bool">1</gen-apu>
+			<gen-l type="int">1</gen-l>
+			<gen-r type="int">1</gen-r>
+			<ground-cart type="bool">0</ground-cart>
 		</electrical>
 		<engines n="0">
 			<covers n="0">
@@ -558,13 +548,11 @@
 			</engine>
 			<fu-reset type="bool">0</fu-reset>
 		</engines>
-		<fctl n="0">
-			<switches n="0">
-				<mach-trim type="bool">1</mach-trim>
-				<rudder-pwr type="bool">1</rudder-pwr>
-				<yaw-damper type="int">1</yaw-damper>
-			</switches>
-		</fctl>
+		<fcs n="0">
+			<mach-trim type="bool">1</mach-trim>
+			<rudder-pwr type="bool">1</rudder-pwr>
+			<yaw-damper type="int">1</yaw-damper>
+		</fcs>
 		<flight n="0">
 			<aileron-drives-tiller type="bool">0</aileron-drives-tiller>
 			<dial-a-flap type="double">0</dial-a-flap> <!-- Rounded in md-80-fcs.xml -->
@@ -573,22 +561,20 @@
 			<speedbrake-arm type="bool">0</speedbrake-arm>
 		</flight>
 		<fuel n="0">
-			<switches n="0">
-				<aux-trans-aft-a type="int">0</aux-trans-aft-a>
-				<aux-trans-aft-b type="int">0</aux-trans-aft-b>
-				<aux-trans-fwd-a type="int">0</aux-trans-fwd-a>
-				<aux-trans-fwd-b type="int">0</aux-trans-fwd-b>
-				<channel-select type="bool">0</channel-select>
-				<channel-test type="bool">0</channel-test>
-				<pump-aft-c type="int">0</pump-aft-c>
-				<pump-aft-l type="bool">0</pump-aft-l>
-				<pump-aft-r type="bool">0</pump-aft-r>
-				<pump-fwd-c type="int">0</pump-fwd-c>
-				<pump-fwd-l type="bool">0</pump-fwd-l>
-				<pump-fwd-r type="bool">0</pump-fwd-r>
-				<pump-start type="bool">0</pump-start>
-				<x-feed type="bool">0</x-feed>
-			</switches>
+			<aux-trans-aft-a type="int">0</aux-trans-aft-a>
+			<aux-trans-aft-b type="int">0</aux-trans-aft-b>
+			<aux-trans-fwd-a type="int">0</aux-trans-fwd-a>
+			<aux-trans-fwd-b type="int">0</aux-trans-fwd-b>
+			<channel-select type="bool">0</channel-select>
+			<channel-test type="bool">0</channel-test>
+			<pump-aft-c type="int">0</pump-aft-c>
+			<pump-aft-l type="bool">0</pump-aft-l>
+			<pump-aft-r type="bool">0</pump-aft-r>
+			<pump-fwd-c type="int">0</pump-fwd-c>
+			<pump-fwd-l type="bool">0</pump-fwd-l>
+			<pump-fwd-r type="bool">0</pump-fwd-r>
+			<pump-start type="bool">0</pump-start>
+			<x-feed type="bool">0</x-feed>
 		</fuel>
 		<gear n="0">
 			<abs n="0">
@@ -601,28 +587,20 @@
 			<lever-cockpit type="int">3</lever-cockpit>
 		</gear>
 		<hydraulics n="0">
-			<switches n="0">
-				<aux-pump type="int">0</aux-pump>
-				<gear-gravity-ext type="bool">0</gear-gravity-ext>
-				<l-pump type="int">0</l-pump>
-				<r-pump type="int">0</r-pump>
-				<trans type="bool">0</trans>
-			</switches>
+			<aux-pump type="int">0</aux-pump>
+			<gear-gravity-ext type="bool">0</gear-gravity-ext>
+			<l-pump type="int">0</l-pump>
+			<r-pump type="int">0</r-pump>
+			<trans type="bool">0</trans>
 		</hydraulics>
 		<ignition n="0">
-			<switches n="0">
-				<ign type="int">0</ign>
-			</switches>
+			<ign type="int">0</ign>
 		</ignition>
 		<iru n="0">
-			<switches n="0">
-				<knob type="int">0</knob>
-			</switches>
+			<knob type="int">0</knob>
 		</iru>
 		<iru n="1">
-			<switches n="0">
-				<knob type="int">0</knob>
-			</switches>
+			<knob type="int">0</knob>
 		</iru>
 		<lighting n="0">
 			<beacon type="bool">0</beacon>
@@ -648,19 +626,17 @@
 			<wing-lights type="double">0</wing-lights>
 		</lighting>
 		<pneumatics n="0">
-			<switches n="0">
-				<bleed-apu type="int">0</bleed-apu>
-				<cabin-temp type="double">0.45</cabin-temp>
-				<cockpit-temp type="double">0.45</cockpit-temp>
-				<ground-air type="bool">0</ground-air>
-				<instrument-flow type="bool">0</instrument-flow>
-				<radio-rack type="bool">0</radio-rack>
-				<supply-l type="int">0</supply-l>
-				<supply-r type="int">0</supply-r>
-				<temp-sel type="bool">0</temp-sel>
-				<x-bleed-l type="bool">0</x-bleed-l>
-				<x-bleed-r type="bool">0</x-bleed-r>
-			</switches>
+			<bleed-apu type="int">0</bleed-apu>
+			<cabin-temp type="double">0.45</cabin-temp>
+			<cockpit-temp type="double">0.45</cockpit-temp>
+			<ground-air type="bool">0</ground-air>
+			<instrument-flow type="bool">0</instrument-flow>
+			<radio-rack type="bool">0</radio-rack>
+			<supply-l type="int">0</supply-l>
+			<supply-r type="int">0</supply-r>
+			<temp-sel type="bool">0</temp-sel>
+			<x-bleed-l type="bool">0</x-bleed-l>
+			<x-bleed-r type="bool">0</x-bleed-r>
 		</pneumatics>
 		<switches n="0">
 			<annun-test type="bool">0</annun-test>
@@ -1547,6 +1523,12 @@
 				<out type="double">0</out>
 			</stall-2>
 		</caws>
+		<dfgs n="0">
+			<lights n="0">
+				<art type="bool">0</art>
+				<art-ready type="bool">0</art-ready>
+			</lights>
+		</dfgs>
 		<failures n="0">
 			<electrical n="0">
 				<ac-tie type="bool">0</ac-tie>

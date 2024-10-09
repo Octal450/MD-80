@@ -9,7 +9,7 @@ var APU = {
 	n2: props.globals.getNode("/engines/engine[2]/n2-actual"),
 	state: props.globals.getNode("/engines/engine[2]/state"),
 	Switch: {
-		master: props.globals.getNode("/controls/apu/switches/master"),
+		master: props.globals.getNode("/controls/apu/master"),
 	},
 	init: func() {
 		me.Switch.master.setValue(0);
@@ -200,9 +200,9 @@ var FCTL = {
 		yawDamper: props.globals.getNode("/systems/failures/fctl/yaw-damper"),
 	},
 	Switch: {
-		machTrim: props.globals.getNode("/controls/fctl/switches/mach-trim"),
-		rudderPwr: props.globals.getNode("/controls/fctl/switches/rudder-pwr"),
-		yawDamper: props.globals.getNode("/controls/fctl/switches/yaw-damper"),
+		machTrim: props.globals.getNode("/controls/fcs/mach-trim"),
+		rudderPwr: props.globals.getNode("/controls/fcs/rudder-pwr"),
+		yawDamper: props.globals.getNode("/controls/fcs/yaw-damper"),
 	},
 	init: func() {
 		me.resetFailures();
@@ -249,7 +249,7 @@ var IGNITION = {
 	starter1: props.globals.getNode("/systems/ignition/starter-1"),
 	starter2: props.globals.getNode("/systems/ignition/starter-2"),
 	Switch: {
-		ign: props.globals.getNode("/controls/ignition/switches/ign"),
+		ign: props.globals.getNode("/controls/ignition/ign"),
 	},
 	init: func() {
 		me.Switch.ign.setBoolValue(0);
@@ -278,7 +278,7 @@ var IRS = {
 		mainAvail: [props.globals.getNode("/systems/iru[0]/main-avail"), props.globals.getNode("/systems/iru[1]/main-avail")],
 	},
 	Switch: {
-		knob: [props.globals.getNode("/controls/iru[0]/switches/knob"), props.globals.getNode("/controls/iru[1]/switches/knob")],
+		knob: [props.globals.getNode("/controls/iru[0]/knob"), props.globals.getNode("/controls/iru[1]/knob")],
 	},
 	init: func() {
 		me.Switch.knob[0].setValue(0);

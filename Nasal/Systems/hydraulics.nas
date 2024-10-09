@@ -24,11 +24,11 @@ var HYD = {
 		sysRInput: props.globals.getNode("/systems/hydraulics/sys-r-qty-input"),
 	},
 	Switch: {
-		auxPump: props.globals.getNode("/controls/hydraulics/switches/aux-pump"),
-		gearGravityExt: props.globals.getNode("/controls/hydraulics/switches/gear-gravity-ext"),
-		lPump: props.globals.getNode("/controls/hydraulics/switches/l-pump"),
-		rPump: props.globals.getNode("/controls/hydraulics/switches/r-pump"),
-		trans: props.globals.getNode("/controls/hydraulics/switches/trans"),
+		auxPump: props.globals.getNode("/controls/hydraulics/aux-pump"),
+		gearGravityExt: props.globals.getNode("/controls/hydraulics/gear-gravity-ext"),
+		lPump: props.globals.getNode("/controls/hydraulics/l-pump"),
+		rPump: props.globals.getNode("/controls/hydraulics/r-pump"),
+		trans: props.globals.getNode("/controls/hydraulics/trans"),
 	},
 	init: func() {
 		me.resetFailures();

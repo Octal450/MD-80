@@ -9,7 +9,7 @@
 		
 		<!-- Bleed Inputs -->
 		<pure_gain name="/systems/pneumatics/apu-valve-input">
-			<input>/controls/pneumatics/switches/bleed-apu</input>
+			<input>/controls/pneumatics/bleed-apu</input>
 			<gain>1.0</gain>
 			<clipto>
 				<min>0.0</min>
@@ -26,7 +26,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/pneumatics/apu-valve eq 1
-				/controls/apu/switches/master ge 1
+				/controls/apu/master ge 1
 				/engines/engine[2]/n2-actual ge 93
 				/systems/failures/pneumatics/bleed-apu ne 1
 			</test>
@@ -82,13 +82,13 @@
 		<switch name="/systems/pneumatics/ground-psi">
 			<default value="0"/>
 			<test logic="AND" value="44">
-				/controls/pneumatics/switches/ground-air eq 1
+				/controls/pneumatics/ground-air eq 1
 			</test>
 		</switch>
 		
 		<!-- Crossbleed L Valve -->
 		<actuator name="/systems/pneumatics/x-bleed/l-valve">
-			<input>/controls/pneumatics/switches/x-bleed-l</input>
+			<input>/controls/pneumatics/x-bleed-l</input>
 			<rate_limit>0.333</rate_limit> <!-- 3 seconds -->
 		</actuator>
 		
@@ -101,7 +101,7 @@
 		
 		<!-- Crossbleed R Valve -->
 		<actuator name="/systems/pneumatics/x-bleed/r-valve">
-			<input>/controls/pneumatics/switches/x-bleed-r</input>
+			<input>/controls/pneumatics/x-bleed-r</input>
 			<rate_limit>0.333</rate_limit> <!-- 3 seconds -->
 		</actuator>
 		
@@ -269,7 +269,7 @@
 				<ifthen>
 					<and>
 						<gt>
-							<property>/controls/pneumatics/switches/supply-l</property>
+							<property>/controls/pneumatics/supply-l</property>
 							<value>0</value>
 						</gt>
 						<nq>
@@ -295,7 +295,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/pneumatics/bleed-l-psi-cmd ge 10.5
-				/controls/pneumatics/switches/supply-l gt 0
+				/controls/pneumatics/supply-l gt 0
 				/systems/failures/pneumatics/pack-l ne 1
 			</test>
 		</switch>
@@ -337,7 +337,7 @@
 				<ifthen>
 					<and>
 						<gt>
-							<property>/controls/pneumatics/switches/supply-r</property>
+							<property>/controls/pneumatics/supply-r</property>
 							<value>0</value>
 						</gt>
 						<nq>
@@ -363,7 +363,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/pneumatics/bleed-r-psi-cmd ge 10.5
-				/controls/pneumatics/switches/supply-r gt 0
+				/controls/pneumatics/supply-r gt 0
 				/systems/failures/pneumatics/pack-r ne 1
 			</test>
 		</switch>

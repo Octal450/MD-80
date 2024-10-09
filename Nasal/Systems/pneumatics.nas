@@ -22,17 +22,17 @@ var PNEU = {
 		ground: props.globals.getNode("/systems/pneumatics/ground-psi"),
 	},
 	Switch: {
-		bleedApu: props.globals.getNode("/controls/pneumatics/switches/bleed-apu"),
-		cabinTemp: props.globals.getNode("/controls/pneumatics/switches/cabin-temp"),
-		cockpitTemp: props.globals.getNode("/controls/pneumatics/switches/cockpit-temp"),
-		groundAir: props.globals.getNode("/controls/pneumatics/switches/ground-air"), # No switch in cockpit
-		instrumentFlow: props.globals.getNode("/controls/pneumatics/switches/instrument-flow"),
-		radioRack: props.globals.getNode("/controls/pneumatics/switches/radio-rack"),
-		supplyL: props.globals.getNode("/controls/pneumatics/switches/supply-l"),
-		supplyR: props.globals.getNode("/controls/pneumatics/switches/supply-r"),
-		tempSel: props.globals.getNode("/controls/pneumatics/switches/temp-sel"),
-		xBleedL: props.globals.getNode("/controls/pneumatics/switches/x-bleed-l"),
-		xBleedR: props.globals.getNode("/controls/pneumatics/switches/x-bleed-r"),
+		bleedApu: props.globals.getNode("/controls/pneumatics/bleed-apu"),
+		cabinTemp: props.globals.getNode("/controls/pneumatics/cabin-temp"),
+		cockpitTemp: props.globals.getNode("/controls/pneumatics/cockpit-temp"),
+		groundAir: props.globals.getNode("/controls/pneumatics/ground-air"), # No switch in cockpit
+		instrumentFlow: props.globals.getNode("/controls/pneumatics/instrument-flow"),
+		radioRack: props.globals.getNode("/controls/pneumatics/radio-rack"),
+		supplyL: props.globals.getNode("/controls/pneumatics/supply-l"),
+		supplyR: props.globals.getNode("/controls/pneumatics/supply-r"),
+		tempSel: props.globals.getNode("/controls/pneumatics/temp-sel"),
+		xBleedL: props.globals.getNode("/controls/pneumatics/x-bleed-l"),
+		xBleedR: props.globals.getNode("/controls/pneumatics/x-bleed-r"),
 	},
 	init: func() {
 		me.resetFailures();
