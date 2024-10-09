@@ -71,83 +71,83 @@
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/fcs-actual/aileron-l/control-tab-final-deg</property>
+				<property>/systems/fcs/aileron-l/control-tab-final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/fcs-actual/aileron-l/trim-tab-final-deg</property>
+				<property>/systems/fcs/aileron-l/trim-tab-final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/fcs-actual/aileron-l/surface-final-deg</property>
+				<property>/systems/fcs/aileron-l/surface-final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/fcs-actual/aileron-r/control-tab-final-deg</property>
+				<property>/systems/fcs/aileron-r/control-tab-final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/fcs-actual/aileron-r/trim-tab-final-deg</property>
+				<property>/systems/fcs/aileron-r/trim-tab-final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/fcs-actual/aileron-r/surface-final-deg</property>
+				<property>/systems/fcs/aileron-r/surface-final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/fcs-actual/elevator-l/control-tab-final-deg</property>
+				<property>/systems/fcs/elevator-l/control-tab-final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/fcs-actual/elevator-l/surface-final-deg</property>
+				<property>/systems/fcs/elevator-l/surface-final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/fcs-actual/elevator-l/geared-tab-final-deg</property>
+				<property>/systems/fcs/elevator-l/geared-tab-final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/fcs-actual/elevator-r/control-tab-final-deg</property>
+				<property>/systems/fcs/elevator-r/control-tab-final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/fcs-actual/elevator-r/surface-final-deg</property>
+				<property>/systems/fcs/elevator-r/surface-final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/fcs-actual/elevator-r/geared-tab-final-deg</property>
+				<property>/systems/fcs/elevator-r/geared-tab-final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/fcs-actual/stabilizer/final-deg</property>
+				<property>/systems/fcs/stabilizer/final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/fcs-actual/rudder/surface-final-deg</property>
+				<property>/systems/fcs/rudder/surface-final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/hydraulics/spoiler-l1/final-deg</property>
+				<property>/systems/fcs/spoiler-l1/final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/hydraulics/spoiler-l2/final-deg</property>
+				<property>/systems/fcs/spoiler-l2/final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/hydraulics/spoiler-l3/final-deg</property>
+				<property>/systems/fcs/spoiler-l3/final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/hydraulics/spoiler-r1/final-deg</property>
+				<property>/systems/fcs/spoiler-r1/final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/hydraulics/spoiler-r2/final-deg</property>
+				<property>/systems/fcs/spoiler-r2/final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/fdm/jsbsim/hydraulics/spoiler-r3/final-deg</property>
+				<property>/systems/fcs/spoiler-r3/final-deg</property>
 			</signal>
 		</signals>
 	</config>

@@ -65,7 +65,7 @@
 				<slider>
 					<pref-height>125</pref-height>
 					<vertical>true</vertical>
-					<property>/fdm/jsbsim/fcs-actual/aileron-l/surface-final-deg</property>
+					<property>/systems/fcs/aileron-l/surface-final-deg</property>
 					<min>20</min>
 					<max>-20</max>
 					<step>0.002</step>
@@ -82,7 +82,7 @@
 				<slider>
 					<pref-height>125</pref-height>
 					<vertical>true</vertical>
-					<property>/fdm/jsbsim/fcs-actual/aileron-r/surface-final-deg</property>
+					<property>/systems/fcs/aileron-r/surface-final-deg</property>
 					<min>20</min>
 					<max>-20</max>
 					<step>0.002</step>
@@ -169,7 +169,7 @@
 				<slider>
 					<pref-height>125</pref-height>
 					<vertical>true</vertical>
-					<property>/fdm/jsbsim/fcs-actual/elevator-l/surface-final-deg</property>
+					<property>/systems/fcs/elevator-l/surface-final-deg</property>
 					<min>20</min>
 					<max>-22</max>
 					<step>0.0022</step>
@@ -186,7 +186,7 @@
 				<slider>
 					<pref-height>125</pref-height>
 					<vertical>true</vertical>
-					<property>/fdm/jsbsim/fcs-actual/stabilizer/final-deg</property>
+					<property>/systems/fcs/stabilizer/final-deg</property>
 					<min>2.5</min>
 					<max>-12.5</max>
 					<step>0.0012</step>
@@ -203,7 +203,7 @@
 				<slider>
 					<pref-height>125</pref-height>
 					<vertical>true</vertical>
-					<property>/fdm/jsbsim/fcs-actual/elevator-r/surface-final-deg</property>
+					<property>/systems/fcs/elevator-r/surface-final-deg</property>
 					<min>20</min>
 					<max>-22</max>
 					<step>0.0022</step>
@@ -234,7 +234,7 @@
 				
 				<slider>
 					<pref-width>150</pref-width>
-					<property>/fdm/jsbsim/fcs-actual/rudder/surface-final-deg</property>
+					<property>/systems/fcs/rudder/surface-final-deg</property>
 					<min>-22</min>
 					<max>22</max>
 					<step>0.0022</step>

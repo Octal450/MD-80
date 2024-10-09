@@ -195,12 +195,13 @@ var doFullThrust = func() {
 }
 
 # Flight Controls
-var FCTL = {
+var FCS = {
 	Fail: {
-		elevatorPwr: props.globals.getNode("/systems/failures/fctl/elevator-pwr"),
-		rudderPwr: props.globals.getNode("/systems/failures/fctl/rudder-pwr"),
-		yawDamper: props.globals.getNode("/systems/failures/fctl/yaw-damper"),
+		elevatorPwr: props.globals.getNode("/systems/failures/fcs/elevator-pwr"),
+		rudderPwr: props.globals.getNode("/systems/failures/fcs/rudder-pwr"),
+		yawDamper: props.globals.getNode("/systems/failures/fcs/yaw-damper"),
 	},
+	stabilizerRate: props.globals.getNode("/systems/fcs/stabilizer/rate-switch"),
 	Switch: {
 		machTrim: props.globals.getNode("/controls/fcs/mach-trim"),
 		rudderPwr: props.globals.getNode("/controls/fcs/rudder-pwr"),

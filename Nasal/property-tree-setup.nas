@@ -74,11 +74,6 @@ var Fdm = {
 			alphaDegDamped: props.globals.getNode("/fdm/jsbsim/aero/alpha-deg-damped"),
 			alphaDegDampedPli: props.globals.getNode("/fdm/jsbsim/aero/alpha-deg-damped-pli"),
 		},
-		FcsActual: {
-			Stabilizer: {
-				rateSwitch: props.globals.getNode("/fdm/jsbsim/fcs-actual/stabilizer/rate-switch"),
-			},
-		},
 		Position: {
 			wow: props.globals.getNode("/fdm/jsbsim/position/wow"),
 			wowTemp: 0,

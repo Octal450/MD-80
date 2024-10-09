@@ -189,7 +189,7 @@
 					<show type="bool"/>
 					<show-wingtip type="bool"/>
 				</route>
-				<steer-cmd-norm alias="/fdm/jsbsim/fcs-actual/tiller/autopush-cmd"/>
+				<steer-cmd-norm alias="/systems/fcs/tiller/autopush-cmd"/>
 				<stopping-distance-m type="float">5.0</stopping-distance-m>
 				<target-speed-km_h type="float">0.0</target-speed-km_h>
 				<yaw alias="/fdm/jsbsim/fcs/steer-deg"/>
@@ -709,11 +709,6 @@
 			<fcs n="0">
 				<slat-pos-deg type="double">0</slat-pos-deg>
 			</fcs>
-			<fcs-actual n="0">
-				<stabilizer n="0">
-					<final-deg type="double">0</final-deg>
-				</stabilizer>
-			</fcs-actual>
 			<inertia n="0">
 				<empty-weight-x-in type="double">953.081102</empty-weight-x-in> <!-- 24.20826 meters, 34.3% MAC -->
 			</inertia>
@@ -1536,11 +1531,11 @@
 				<gen-l type="bool">0</gen-l>
 				<gen-r type="bool">0</gen-r>
 			</electrical>
-			<fctl n="0">
+			<fcs n="0">
 				<elevator-pwr type="bool">0</elevator-pwr>
 				<rudder-pwr type="bool">0</rudder-pwr>
 				<yaw-damper type="bool">0</yaw-damper>
-			</fctl>
+			</fcs>
 			<fuel n="0">
 				<aux-trans-a type="bool">0</aux-trans-a>
 				<aux-trans-b type="bool">0</aux-trans-b>
@@ -1570,6 +1565,11 @@
 				<pack-r type="bool">0</pack-r>
 			</pneumatics>
 		</failures>
+		<fcs n="0">
+			<stabilizer n="0">
+				<final-deg type="double">0</final-deg>
+			</stabilizer>
+		</fcs>
 		<hydraulics n="0">
 			<sys-l-qty-input type="double">8</sys-l-qty-input> <!-- Randomized later in sim init -->
 			<sys-r-qty-input type="double">8</sys-r-qty-input> <!-- Randomized later in sim init -->

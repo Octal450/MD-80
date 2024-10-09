@@ -1114,7 +1114,7 @@
 		<type>rotate</type>
 		<object-name>PedalL</object-name>
 		<object-name>PedalRodL</object-name>
-		<property>fdm/jsbsim/fcs-actual/rudder-pedal</property>
+		<property>systems/fcs/rudder-pedal</property>
 		<factor>10</factor> 
 		<center>
 			<x-m>2.02</x-m>
@@ -1149,7 +1149,7 @@
 		<type>rotate</type>
 		<object-name>PedalR</object-name>
 		<object-name>PedalRodR</object-name>
-		<property>fdm/jsbsim/fcs-actual/rudder-pedal</property>
+		<property>systems/fcs/rudder-pedal</property>
 		<factor>-10</factor>   
 		<center>
 			<x-m>2.02</x-m>
@@ -1188,7 +1188,7 @@
 		<object-name>YokeL.001</object-name>
 		<object-name>YokeTrimL</object-name>
 		<object-name>apoff</object-name>
-		<property>fdm/jsbsim/fcs-actual/elevator-yoke</property>
+		<property>systems/fcs/elevator-yoke</property>
 		<factor>-12</factor>
 		<center>
 			<x-m>2.626</x-m>
@@ -1207,7 +1207,7 @@
 		<object-name>YokeL</object-name>
 		<object-name>YokeTrimL</object-name>
 		<object-name>apoff</object-name>
-		<property>fdm/jsbsim/fcs-actual/aileron-yoke</property>
+		<property>systems/fcs/aileron-yoke</property>
 		<factor>-90</factor>
 		<center>
 			<x-m>0</x-m>
@@ -1228,7 +1228,7 @@
 		<object-name>YokeR.001</object-name>
 		<object-name>YokeTrimR</object-name>
 		<object-name>apoff2</object-name>
-		<property>fdm/jsbsim/fcs-actual/elevator-yoke</property>
+		<property>systems/fcs/elevator-yoke</property>
 		<factor>-12</factor>
 		<center>
 			<x-m>2.626</x-m>
@@ -1247,7 +1247,7 @@
 		<object-name>YokeR</object-name>
 		<object-name>YokeTrimR</object-name>
 		<object-name>apoff2</object-name>
-		<property>fdm/jsbsim/fcs-actual/aileron-yoke</property>
+		<property>systems/fcs/aileron-yoke</property>
 		<factor>-90</factor>
 		<center>
 			<x-m>0</x-m>

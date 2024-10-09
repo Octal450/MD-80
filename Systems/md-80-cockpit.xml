@@ -293,7 +293,7 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/tiller-handle">
-			<input>fcs-actual/tiller/handle</input>
+			<input>/systems/fcs/tiller/handle</input>
 			<c1>20</c1>
 		</lag_filter>
 		

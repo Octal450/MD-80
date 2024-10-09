@@ -13,7 +13,7 @@
 			setprop("/sim/gui/dialogs/performance/cg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/cg-percent-mac"), 0.1)) ~ "% MAC");
 			setprop("/sim/gui/dialogs/performance/zfwcg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/zfwcg-percent-mac"), 0.1)) ~ "% MAC");
 			
-			setprop("/sim/gui/dialogs/performance/current-stabilizer-deg-round", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/fcs-actual/stabilizer/final-deg"), 0.1) * -1) ~ " DEG");
+			setprop("/sim/gui/dialogs/performance/current-stabilizer-deg-round", sprintf("%4.1f", math.round(getprop("/systems/fcs/stabilizer/final-deg"), 0.1) * -1) ~ " DEG");
 			
 			setprop("/sim/gui/dialogs/performance/v1-round", math.round(getprop("/systems/performance/v1")));
 			setprop("/sim/gui/dialogs/performance/vr-round", math.round(getprop("/systems/performance/vr")));
@@ -29,7 +29,7 @@
 				setprop("/sim/gui/dialogs/performance/cg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/cg-percent-mac"), 0.1)) ~ "% MAC");
 				setprop("/sim/gui/dialogs/performance/zfwcg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/zfwcg-percent-mac"), 0.1)) ~ "% MAC");
 				
-				setprop("/sim/gui/dialogs/performance/current-stabilizer-deg-round", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/fcs-actual/stabilizer/final-deg"), 0.1) * -1) ~ " DEG");
+				setprop("/sim/gui/dialogs/performance/current-stabilizer-deg-round", sprintf("%4.1f", math.round(getprop("/systems/fcs/stabilizer/final-deg"), 0.1) * -1) ~ " DEG");
 				
 				setprop("/sim/gui/dialogs/performance/v1-round", math.round(getprop("/systems/performance/v1")));
 				setprop("/sim/gui/dialogs/performance/vr-round", math.round(getprop("/systems/performance/vr")));

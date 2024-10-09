@@ -59,7 +59,7 @@
 	<light>
 		<name>Left Landing Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>fdm/jsbsim/exterior-lights/left-landing-light</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/left-landing-light</property></dim-factor>
 		<position>
 			<x-m>27.67</x-m>
 			<y-m>-16.0</y-m>
@@ -111,7 +111,7 @@
 	<light>
 		<name>Nose Landing Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>fdm/jsbsim/exterior-lights/nose-landing-light</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/nose-landing-light</property></dim-factor>
 		<position>
 			<x-m>2.46026</x-m>
 			<y-m>0.13963</y-m>
@@ -162,7 +162,7 @@
 	
 	<light>
 		<name>Nose Taxi Light Compositor</name>
-		<dim-factor><property>fdm/jsbsim/exterior-lights/nose-taxi-light</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/nose-taxi-light</property></dim-factor>
 		<type>spot</type>
 		<position>
 			<x-m>2.46026</x-m>
@@ -215,7 +215,7 @@
 	<light>
 		<name>Right Landing Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>fdm/jsbsim/exterior-lights/right-landing-light</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/right-landing-light</property></dim-factor>
 		<position>
 			<x-m>27.67</x-m>
 			<y-m>16.0</y-m>
@@ -277,7 +277,7 @@
 	<light>
 		<name>Left Wing Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>fdm/jsbsim/exterior-lights/left-wing-light</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/left-wing-light</property></dim-factor>
 		<position>
 			<x-m>15.9823</x-m>
 			<y-m>-1.64884</y-m>
@@ -319,7 +319,7 @@
 	<light>
 		<name>Right Wing Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>fdm/jsbsim/exterior-lights/right-wing-light</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/right-wing-light</property></dim-factor>
 		<position>
 			<x-m>15.9823</x-m>
 			<y-m>1.64884</y-m>
@@ -381,7 +381,7 @@
 	<light>
 		<name>Left Nacelle Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>fdm/jsbsim/exterior-lights/left-wing-light</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/left-wing-light</property></dim-factor>
 		<position>
 			<x-m>29.7552</x-m>
 			<y-m>-1.68808</y-m>
@@ -423,7 +423,7 @@
 	<light>
 		<name>Right Nacelle Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>fdm/jsbsim/exterior-lights/right-wing-light</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/right-wing-light</property></dim-factor>
 		<position>
 			<x-m>29.7552</x-m>
 			<y-m>1.68808</y-m>
@@ -485,7 +485,7 @@
 	<light>
 		<name>Left Ground Flood Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>fdm/jsbsim/exterior-lights/ground-flood-light-l</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/ground-flood-light-l</property></dim-factor>
 		<position>
 			<x-m>12.995</x-m>
 			<y-m>-1.44773</y-m>
@@ -527,7 +527,7 @@
 	<light>
 		<name>Right Ground Flood Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>fdm/jsbsim/exterior-lights/ground-flood-light-r</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/ground-flood-light-r</property></dim-factor>
 		<position>
 			<x-m>12.995</x-m>
 			<y-m>1.44773</y-m>
@@ -669,7 +669,7 @@
 	<light>
 		<name>Left Position Light Fwd Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/position-light</property></dim-factor>
 		<position>
 			<x-m>27.47</x-m>
 			<y-m>-16.02</y-m>
@@ -773,7 +773,7 @@
 	<light>
 		<name>Right Position Light Fwd Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/position-light</property></dim-factor>
 		<position>
 			<x-m>27.47</x-m>
 			<y-m>16.02</y-m>
@@ -877,7 +877,7 @@
 	<light>
 		<name>Left Position Light Aft Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/position-light</property></dim-factor>
 		<position>
 			<x-m>29.0</x-m>
 			<y-m>-16.3553</y-m>
@@ -981,7 +981,7 @@
 	<light>
 		<name>Right Position Light Aft Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>fdm/jsbsim/exterior-lights/position-light</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/position-light</property></dim-factor>
 		<position>
 			<x-m>29.0</x-m>
 			<y-m>16.3553</y-m>
@@ -1095,7 +1095,7 @@
 	<light>
 		<name>Left Logo Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>fdm/jsbsim/exterior-lights/logo-lights</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/logo-lights</property></dim-factor>
 		<position>
 			<x-m>29.0</x-m>
 			<y-m>-16.2553</y-m>
@@ -1137,7 +1137,7 @@
 	<light>
 		<name>Right Logo Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>fdm/jsbsim/exterior-lights/logo-lights</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/logo-lights</property></dim-factor>
 		<position>
 			<x-m>29.0</x-m>
 			<y-m>16.2553</y-m>
@@ -1479,7 +1479,7 @@
 		<object-name>AileronL</object-name>
 		<object-name>AilTabControlL</object-name>
 		<object-name>AilTabTrimL</object-name>
-		<property>fdm/jsbsim/fcs-actual/aileron-l/surface-final-deg</property>
+		<property>systems/fcs/aileron-l/surface-final-deg</property>
 		<factor>1</factor>   
 		<axis>
 			<x1-m>27.573</x1-m>
@@ -1493,7 +1493,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>AilTabControlL</object-name>
-		<property>fdm/jsbsim/fcs-actual/aileron-l/control-tab-final-deg</property>
+		<property>systems/fcs/aileron-l/control-tab-final-deg</property>
 		<factor>1</factor> 
 		<axis>
 			<x1-m>27.511</x1-m>
@@ -1507,7 +1507,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>AilTabTrimL</object-name>
-		<property>fdm/jsbsim/fcs-actual/aileron-l/trim-tab-final-deg</property>
+		<property>systems/fcs/aileron-l/trim-tab-final-deg</property>
 		<factor>1</factor>  
 		<axis>
 			<x1-m>27.731</x1-m>
@@ -1524,7 +1524,7 @@
 		<object-name>AileronR</object-name>
 		<object-name>AilTabControlR</object-name>
 		<object-name>AilTabTrimR</object-name>
-		<property>fdm/jsbsim/fcs-actual/aileron-r/surface-final-deg</property>
+		<property>systems/fcs/aileron-r/surface-final-deg</property>
 		<factor>1</factor> 
 		<axis>
 			<x1-m>26.644</x1-m>
@@ -1538,7 +1538,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>AilTabControlR</object-name>
-		<property>fdm/jsbsim/fcs-actual/aileron-r/control-tab-final-deg</property>
+		<property>systems/fcs/aileron-r/control-tab-final-deg</property>
 		<factor>1</factor> 
 		<axis>
 			<x1-m>27.251</x1-m>
@@ -1552,7 +1552,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>AilTabTrimR</object-name>
-		<property>fdm/jsbsim/fcs-actual/aileron-r/trim-tab-final-deg</property>
+		<property>systems/fcs/aileron-r/trim-tab-final-deg</property>
 		<factor>1</factor>  
 		<axis>
 			<x1-m>27.543</x1-m>
@@ -1568,7 +1568,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SpoilerL1</object-name>
-		<property>fdm/jsbsim/hydraulics/spoiler-l1/final-deg</property>
+		<property>systems/fcs/spoiler-l1/final-deg</property>
 		<factor>-1</factor>
 		<axis>
 			<x1-m>24.872</x1-m>
@@ -1582,7 +1582,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SpoilerL2</object-name>
-		<property>fdm/jsbsim/hydraulics/spoiler-l2/final-deg</property>
+		<property>systems/fcs/spoiler-l2/final-deg</property>
 		<factor>-1</factor>
 		<axis>
 			<x1-m>26.247</x1-m>
@@ -1596,7 +1596,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SpoilerL3</object-name>
-		<property>fdm/jsbsim/hydraulics/spoiler-l3/final-deg</property>
+		<property>systems/fcs/spoiler-l3/final-deg</property>
 		<factor>-1</factor>
 		<axis>
 			<x1-m>26.247</x1-m>
@@ -1611,7 +1611,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SpoilerR1</object-name>
-		<property>fdm/jsbsim/hydraulics/spoiler-r1/final-deg</property>
+		<property>systems/fcs/spoiler-r1/final-deg</property>
 		<factor>-1</factor>
 		<axis>
 			<x1-m>24.872</x1-m>
@@ -1625,7 +1625,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SpoilerR2</object-name>
-		<property>fdm/jsbsim/hydraulics/spoiler-r2/final-deg</property>
+		<property>systems/fcs/spoiler-r2/final-deg</property>
 		<factor>-1</factor>
 		<axis>
 			<x1-m>25.008</x1-m>
@@ -1639,7 +1639,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SpoilerR3</object-name>
-		<property>fdm/jsbsim/hydraulics/spoiler-r3/final-deg</property>
+		<property>systems/fcs/spoiler-r3/final-deg</property>
 		<factor>-1</factor>
 		<axis>
 			<x1-m>25.008</x1-m>
@@ -1663,7 +1663,7 @@
 		<object-name>ElTabControlR</object-name>
 		<object-name>ElTabGearedR</object-name>
 		<object-name>ElTabAntifloatR</object-name>
-		<property>fdm/jsbsim/fcs-actual/stabilizer/final-deg</property>
+		<property>systems/fcs/stabilizer/final-deg</property>
 		<factor>1</factor>
 		<center>
 			<x-m>41.691</x-m>
@@ -1683,7 +1683,7 @@
 		<object-name>ElTabControlL</object-name>
 		<object-name>ElTabGearedL</object-name>
 		<object-name>ElTabAntifloatL</object-name>
-		<property>fdm/jsbsim/fcs-actual/elevator-l/surface-final-deg</property>
+		<property>systems/fcs/elevator-l/surface-final-deg</property>
 		<factor>1</factor>
 		<axis>
 			<x1-m>44.801</x1-m>
@@ -1697,7 +1697,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElTabControlL</object-name>
-		<property>fdm/jsbsim/fcs-actual/elevator-l/control-tab-final-deg</property>
+		<property>systems/fcs/elevator-l/control-tab-final-deg</property>
 		<factor>1</factor>   
 		<axis>
 			<x1-m>43.848</x1-m>
@@ -1711,7 +1711,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElTabGearedL</object-name>
-		<property>fdm/jsbsim/fcs-actual/elevator-l/geared-tab-final-deg</property>
+		<property>systems/fcs/elevator-l/geared-tab-final-deg</property>
 		<factor>1</factor>
 		<axis>
 			<x1-m>44.572</x1-m>
@@ -1725,7 +1725,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElTabAntifloatL</object-name>
-		<property>fdm/jsbsim/fcs-actual/elevator-l/anti-float-tab-final-deg</property>
+		<property>systems/fcs/elevator-l/anti-float-tab-final-deg</property>
 		<factor>1</factor>
 		<axis>
 			<x1-m>45.072</x1-m>
@@ -1743,7 +1743,7 @@
 		<object-name>ElTabControlR</object-name>
 		<object-name>ElTabGearedR</object-name>
 		<object-name>ElTabAntifloatR</object-name>
-		<property>fdm/jsbsim/fcs-actual/elevator-r/surface-final-deg</property>
+		<property>systems/fcs/elevator-r/surface-final-deg</property>
 		<factor>1</factor>
 		<axis>
 			<x1-m>42.359</x1-m>
@@ -1757,7 +1757,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElTabControlR</object-name>
-		<property>fdm/jsbsim/fcs-actual/elevator-r/control-tab-final-deg</property>
+		<property>systems/fcs/elevator-r/control-tab-final-deg</property>
 		<factor>1</factor>  
 		<axis>
 			<x1-m>43.236</x1-m>
@@ -1771,7 +1771,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElTabGearedR</object-name>
-		<property>fdm/jsbsim/fcs-actual/elevator-r/geared-tab-final-deg</property>
+		<property>systems/fcs/elevator-r/geared-tab-final-deg</property>
 		<factor>1</factor>
 		<axis>
 			<x1-m>43.889</x1-m>
@@ -1785,7 +1785,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElTabAntifloatR</object-name>
-		<property>fdm/jsbsim/fcs-actual/elevator-r/anti-float-tab-final-deg</property>
+		<property>systems/fcs/elevator-r/anti-float-tab-final-deg</property>
 		<factor>1</factor>
 		<axis>
 			<x1-m>45.072</x1-m>
@@ -1802,7 +1802,7 @@
 		<type>rotate</type>
 		<object-name>Rudder</object-name>
 		<object-name>RudderTabControl</object-name>
-		<property>fdm/jsbsim/fcs-actual/rudder/surface-final-deg</property>
+		<property>systems/fcs/rudder/surface-final-deg</property>
 		<factor>-1</factor>
 		<axis>
 			<x1-m>41.69</x1-m>
@@ -1817,7 +1817,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>RudderTabControl</object-name>
-		<property>fdm/jsbsim/fcs-actual/rudder/control-tab-final-deg</property>
+		<property>systems/fcs/rudder/control-tab-final-deg</property>
 		<factor>-1</factor>
 		<axis>
 			<x1-m>41.628</x1-m>

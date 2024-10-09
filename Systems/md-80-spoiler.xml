@@ -189,7 +189,7 @@
 			<function>
 				<quotient>
 					<table>
-						<independentVar lookup="row">fcs-actual/aileron/yoke-switch</independentVar>
+						<independentVar lookup="row">/systems/fcs/aileron/yoke-switch</independentVar>
 						<tableData>
 							-1.0000000 -35
 							-0.0555555   0
@@ -202,7 +202,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="hydraulics/spoiler-droop-rate">
+		<fcs_function name="/systems/fcs/spoiler-droop-rate">
 			<function>
 				<table>
 					<independentVar lookup="row">aero/qbar-psf</independentVar>
@@ -218,28 +218,28 @@
 	
 	<channel name="Spoiler L1">
 		
-		<switch name="hydraulics/spoiler-l1/lock">
+		<switch name="/systems/fcs/spoiler-l1/lock">
 			<default value="0"/>
 			<test value="/systems/spoilers/main-cmd">
 				/systems/spoilers/ground-spoiler-unlocked eq 1
 			</test>
 		</switch>
 		
-		<switch name="hydraulics/spoiler-l1/switch">
+		<switch name="/systems/fcs/spoiler-l1/switch">
 			<default value="0"/>
-			<test logic="OR" value="hydraulics/spoiler-l1/lock">
+			<test logic="OR" value="/systems/fcs/spoiler-l1/lock">
 				/systems/hydraulics/sys-l-psi ge 950
 				/systems/hydraulics/sys-r-psi ge 950
 			</test>
 		</switch>
 		
-		<pure_gain name="hydraulics/spoiler-l1/cmd-deg">
-			<input>hydraulics/spoiler-l1/switch</input>
+		<pure_gain name="/systems/fcs/spoiler-l1/cmd-deg">
+			<input>/systems/fcs/spoiler-l1/switch</input>
 			<gain>60</gain>
 		</pure_gain>
 		
-		<switch name="hydraulics/spoiler-l1/rate">
-			<default value="hydraulics/spoiler-droop-rate"/>
+		<switch name="/systems/fcs/spoiler-l1/rate">
+			<default value="/systems/fcs/spoiler-droop-rate"/>
 			<test value="100">
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
@@ -249,18 +249,18 @@
 			</test>
 		</switch>
 		
-		<actuator name="hydraulics/spoiler-l1/final-actuator">
-			<input>hydraulics/spoiler-l1/cmd-deg</input>
-			<rate_limit>hydraulics/spoiler-l1/rate</rate_limit>
+		<actuator name="/systems/fcs/spoiler-l1/final-actuator">
+			<input>/systems/fcs/spoiler-l1/cmd-deg</input>
+			<rate_limit>/systems/fcs/spoiler-l1/rate</rate_limit>
 			<lag>26.5</lag>
-			<output>hydraulics/spoiler-l1/final-deg</output>
+			<output>/systems/fcs/spoiler-l1/final-deg</output>
 		</actuator>
 	
 	</channel>
 	
 	<channel name="Spoiler L2">
 		
-		<summer name="hydraulics/spoiler-l2/sum">
+		<summer name="/systems/fcs/spoiler-l2/sum">
 			<input>-/systems/spoilers/aileron</input>
 			<input>/systems/spoilers/main-cmd</input>
 			<clipto>
@@ -269,20 +269,20 @@
 			</clipto>
 		</summer>
 		
-		<switch name="hydraulics/spoiler-l2/switch">
+		<switch name="/systems/fcs/spoiler-l2/switch">
 			<default value="0"/>
-			<test value="hydraulics/spoiler-l2/sum">
+			<test value="/systems/fcs/spoiler-l2/sum">
 				/systems/hydraulics/sys-l-psi ge 950
 			</test>
 		</switch>
 		
-		<pure_gain name="hydraulics/spoiler-l2/cmd-deg">
-			<input>hydraulics/spoiler-l2/switch</input>
+		<pure_gain name="/systems/fcs/spoiler-l2/cmd-deg">
+			<input>/systems/fcs/spoiler-l2/switch</input>
 			<gain>60</gain>
 		</pure_gain>
 		
-		<switch name="hydraulics/spoiler-l2/rate">
-			<default value="hydraulics/spoiler-droop-rate"/>
+		<switch name="/systems/fcs/spoiler-l2/rate">
+			<default value="/systems/fcs/spoiler-droop-rate"/>
 			<test value="100">
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
@@ -291,18 +291,18 @@
 			</test>
 		</switch>
 		
-		<actuator name="hydraulics/spoiler-l2/final-actuator">
-			<input>hydraulics/spoiler-l2/cmd-deg</input>
-			<rate_limit>hydraulics/spoiler-l2/rate</rate_limit>
+		<actuator name="/systems/fcs/spoiler-l2/final-actuator">
+			<input>/systems/fcs/spoiler-l2/cmd-deg</input>
+			<rate_limit>/systems/fcs/spoiler-l2/rate</rate_limit>
 			<lag>26.5</lag>
-			<output>hydraulics/spoiler-l2/final-deg</output>
+			<output>/systems/fcs/spoiler-l2/final-deg</output>
 		</actuator>
 	
 	</channel>
 	
 	<channel name="Spoiler L3">
 		
-		<summer name="hydraulics/spoiler-l3/sum">
+		<summer name="/systems/fcs/spoiler-l3/sum">
 			<input>-/systems/spoilers/aileron</input>
 			<input>/systems/spoilers/main-cmd</input>
 			<clipto>
@@ -311,20 +311,20 @@
 			</clipto>
 		</summer>
 		
-		<switch name="hydraulics/spoiler-l3/switch">
+		<switch name="/systems/fcs/spoiler-l3/switch">
 			<default value="0"/>
-			<test value="hydraulics/spoiler-l3/sum">
+			<test value="/systems/fcs/spoiler-l3/sum">
 				/systems/hydraulics/sys-r-psi ge 950
 			</test>
 		</switch>
 		
-		<pure_gain name="hydraulics/spoiler-l3/cmd-deg">
-			<input>hydraulics/spoiler-l3/switch</input>
+		<pure_gain name="/systems/fcs/spoiler-l3/cmd-deg">
+			<input>/systems/fcs/spoiler-l3/switch</input>
 			<gain>60</gain>
 		</pure_gain>
 		
-		<switch name="hydraulics/spoiler-l3/rate">
-			<default value="hydraulics/spoiler-droop-rate"/>
+		<switch name="/systems/fcs/spoiler-l3/rate">
+			<default value="/systems/fcs/spoiler-droop-rate"/>
 			<test value="100">
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
@@ -333,39 +333,39 @@
 			</test>
 		</switch>
 		
-		<actuator name="hydraulics/spoiler-l3/final-actuator">
-			<input>hydraulics/spoiler-l3/cmd-deg</input>
-			<rate_limit>hydraulics/spoiler-l3/rate</rate_limit>
+		<actuator name="/systems/fcs/spoiler-l3/final-actuator">
+			<input>/systems/fcs/spoiler-l3/cmd-deg</input>
+			<rate_limit>/systems/fcs/spoiler-l3/rate</rate_limit>
 			<lag>26.5</lag>
-			<output>hydraulics/spoiler-l3/final-deg</output>
+			<output>/systems/fcs/spoiler-l3/final-deg</output>
 		</actuator>
 	
 	</channel>
 	
 	<channel name="Spoiler R1">
 		
-		<switch name="hydraulics/spoiler-r1/lock">
+		<switch name="/systems/fcs/spoiler-r1/lock">
 			<default value="0"/>
 			<test value="/systems/spoilers/main-cmd">
 				/systems/spoilers/ground-spoiler-unlocked eq 1
 			</test>
 		</switch>
 		
-		<switch name="hydraulics/spoiler-r1/switch">
+		<switch name="/systems/fcs/spoiler-r1/switch">
 			<default value="0"/>
-			<test logic="OR" value="hydraulics/spoiler-r1/lock">
+			<test logic="OR" value="/systems/fcs/spoiler-r1/lock">
 				/systems/hydraulics/sys-l-psi ge 950
 				/systems/hydraulics/sys-r-psi ge 950
 			</test>
 		</switch>
 		
-		<pure_gain name="hydraulics/spoiler-r1/cmd-deg">
-			<input>hydraulics/spoiler-r1/switch</input>
+		<pure_gain name="/systems/fcs/spoiler-r1/cmd-deg">
+			<input>/systems/fcs/spoiler-r1/switch</input>
 			<gain>60</gain>
 		</pure_gain>
 		
-		<switch name="hydraulics/spoiler-r1/rate">
-			<default value="hydraulics/spoiler-droop-rate"/>
+		<switch name="/systems/fcs/spoiler-r1/rate">
+			<default value="/systems/fcs/spoiler-droop-rate"/>
 			<test value="100">
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
@@ -375,18 +375,18 @@
 			</test>
 		</switch>
 		
-		<actuator name="hydraulics/spoiler-r1/final-actuator">
-			<input>hydraulics/spoiler-r1/cmd-deg</input>
-			<rate_limit>hydraulics/spoiler-r1/rate</rate_limit>
+		<actuator name="/systems/fcs/spoiler-r1/final-actuator">
+			<input>/systems/fcs/spoiler-r1/cmd-deg</input>
+			<rate_limit>/systems/fcs/spoiler-r1/rate</rate_limit>
 			<lag>26.5</lag>
-			<output>hydraulics/spoiler-r1/final-deg</output>
+			<output>/systems/fcs/spoiler-r1/final-deg</output>
 		</actuator>
 	
 	</channel>
 	
 	<channel name="Spoiler R2">
 		
-		<summer name="hydraulics/spoiler-r2/sum">
+		<summer name="/systems/fcs/spoiler-r2/sum">
 			<input>/systems/spoilers/aileron</input>
 			<input>/systems/spoilers/main-cmd</input>
 			<clipto>
@@ -395,20 +395,20 @@
 			</clipto>
 		</summer>
 		
-		<switch name="hydraulics/spoiler-r2/switch">
+		<switch name="/systems/fcs/spoiler-r2/switch">
 			<default value="0"/>
-			<test value="hydraulics/spoiler-r2/sum">
+			<test value="/systems/fcs/spoiler-r2/sum">
 				/systems/hydraulics/sys-l-psi ge 950
 			</test>
 		</switch>
 		
-		<pure_gain name="hydraulics/spoiler-r2/cmd-deg">
-			<input>hydraulics/spoiler-r2/switch</input>
+		<pure_gain name="/systems/fcs/spoiler-r2/cmd-deg">
+			<input>/systems/fcs/spoiler-r2/switch</input>
 			<gain>60</gain>
 		</pure_gain>
 		
-		<switch name="hydraulics/spoiler-r2/rate">
-			<default value="hydraulics/spoiler-droop-rate"/>
+		<switch name="/systems/fcs/spoiler-r2/rate">
+			<default value="/systems/fcs/spoiler-droop-rate"/>
 			<test value="100">
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
@@ -417,18 +417,18 @@
 			</test>
 		</switch>
 		
-		<actuator name="hydraulics/spoiler-r2/final-actuator">
-			<input>hydraulics/spoiler-r2/cmd-deg</input>
-			<rate_limit>hydraulics/spoiler-r2/rate</rate_limit>
+		<actuator name="/systems/fcs/spoiler-r2/final-actuator">
+			<input>/systems/fcs/spoiler-r2/cmd-deg</input>
+			<rate_limit>/systems/fcs/spoiler-r2/rate</rate_limit>
 			<lag>26.5</lag>
-			<output>hydraulics/spoiler-r2/final-deg</output>
+			<output>/systems/fcs/spoiler-r2/final-deg</output>
 		</actuator>
 	
 	</channel>
 	
 	<channel name="Spoiler R3">
 		
-		<summer name="hydraulics/spoiler-r3/sum">
+		<summer name="/systems/fcs/spoiler-r3/sum">
 			<input>/systems/spoilers/aileron</input>
 			<input>/systems/spoilers/main-cmd</input>
 			<clipto>
@@ -437,20 +437,20 @@
 			</clipto>
 		</summer>
 		
-		<switch name="hydraulics/spoiler-r3/switch">
+		<switch name="/systems/fcs/spoiler-r3/switch">
 			<default value="0"/>
-			<test value="hydraulics/spoiler-r3/sum">
+			<test value="/systems/fcs/spoiler-r3/sum">
 				/systems/hydraulics/sys-r-psi ge 950
 			</test>
 		</switch>
 		
-		<pure_gain name="hydraulics/spoiler-r3/cmd-deg">
-			<input>hydraulics/spoiler-r3/switch</input>
+		<pure_gain name="/systems/fcs/spoiler-r3/cmd-deg">
+			<input>/systems/fcs/spoiler-r3/switch</input>
 			<gain>60</gain>
 		</pure_gain>
 		
-		<switch name="hydraulics/spoiler-r3/rate">
-			<default value="hydraulics/spoiler-droop-rate"/>
+		<switch name="/systems/fcs/spoiler-r3/rate">
+			<default value="/systems/fcs/spoiler-droop-rate"/>
 			<test value="100">
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
@@ -459,11 +459,11 @@
 			</test>
 		</switch>
 		
-		<actuator name="hydraulics/spoiler-r3/final-actuator">
-			<input>hydraulics/spoiler-r3/cmd-deg</input>
-			<rate_limit>hydraulics/spoiler-r3/rate</rate_limit>
+		<actuator name="/systems/fcs/spoiler-r3/final-actuator">
+			<input>/systems/fcs/spoiler-r3/cmd-deg</input>
+			<rate_limit>/systems/fcs/spoiler-r3/rate</rate_limit>
 			<lag>26.5</lag>
-			<output>hydraulics/spoiler-r3/final-deg</output>
+			<output>/systems/fcs/spoiler-r3/final-deg</output>
 		</actuator>
 	
 	</channel>
@@ -471,9 +471,9 @@
 	<channel name="Output">
 		
 		<summer name="fcs/spoiler-left-sum">
-			<input>hydraulics/spoiler-l1/final-actuator</input>
-			<input>hydraulics/spoiler-l2/final-actuator</input>
-			<input>hydraulics/spoiler-l3/final-actuator</input>
+			<input>/systems/fcs/spoiler-l1/final-actuator</input>
+			<input>/systems/fcs/spoiler-l2/final-actuator</input>
+			<input>/systems/fcs/spoiler-l3/final-actuator</input>
 		</summer>
 		
 		<fcs_function name="fcs/spoiler-left-deg">
@@ -487,9 +487,9 @@
 		</fcs_function>
 		
 		<summer name="fcs/spoiler-right-sum">
-			<input>hydraulics/spoiler-r1/final-actuator</input>
-			<input>hydraulics/spoiler-r2/final-actuator</input>
-			<input>hydraulics/spoiler-r3/final-actuator</input>
+			<input>/systems/fcs/spoiler-r1/final-actuator</input>
+			<input>/systems/fcs/spoiler-r2/final-actuator</input>
+			<input>/systems/fcs/spoiler-r3/final-actuator</input>
 		</summer>
 		
 		<fcs_function name="fcs/spoiler-right-deg">

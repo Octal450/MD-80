@@ -340,7 +340,7 @@
 			<checkbox>
 				<label>Elevator Power</label>
 				<halign>left</halign>
-				<property>/systems/failures/fctl/elevator-pwr</property>
+				<property>/systems/failures/fcs/elevator-pwr</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -350,7 +350,7 @@
 			<checkbox>
 				<label>Rudder Power</label>
 				<halign>left</halign>
-				<property>/systems/failures/fctl/rudder-pwr</property>
+				<property>/systems/failures/fcs/rudder-pwr</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -360,7 +360,7 @@
 			<checkbox>
 				<label>Yaw Damper</label>
 				<halign>left</halign>
-				<property>/systems/failures/fctl/yaw-damper</property>
+				<property>/systems/failures/fcs/yaw-damper</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>

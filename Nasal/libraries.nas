@@ -22,7 +22,7 @@ var systemsInit = func() {
 	systems.BRAKES.init();
 	systems.ELEC.init();
 	systems.ENGINE.init();
-	systems.FCTL.init();
+	systems.FCS.init();
 	systems.FUEL.init();
 	systems.GEAR.init();
 	systems.HYD.init();
@@ -307,7 +307,7 @@ controls.elevatorTrim = func(d) {
 		dfgs.ITAF.ap2Master(0);
 	}
 	if (systems.ELEC.Bus.emerAc.getValue() >= 112) { # Check?
-		slewProp("/controls/flight/elevator-trim", d * (pts.Fdm.JSBSim.FcsActual.Stabilizer.rateSwitch.getValue() / 12.5)); # Rate normalized by max degrees (rate / 12.5)
+		slewProp("/controls/flight/elevator-trim", d * (systems.FCS.stabilizerRate.getValue() / 12.5)); # Rate normalized by max degrees (rate / 12.5)
 	}
 }
 
@@ -341,8 +341,8 @@ setlistener("/controls/flight/auto-coordination", func() {
 });
 
 # Aircraft Lighting
-var beacon = aircraft.light.new("/sim/model/lights/beacon", [0.15, 1.35], "/fdm/jsbsim/exterior-lights/beacon");
-var strobe = aircraft.light.new("/sim/model/lights/strobe", [0.2, 1], "/fdm/jsbsim/exterior-lights/strobe-light");
+var beacon = aircraft.light.new("/sim/model/lights/beacon", [0.15, 1.35], "/systems/exterior-lights/beacon");
+var strobe = aircraft.light.new("/sim/model/lights/strobe", [0.2, 1], "/systems/exterior-lights/strobe-light");
 
 # Shaking Logic
 var SHAKE = {
