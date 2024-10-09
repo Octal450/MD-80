@@ -301,7 +301,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>fdm/jsbsim/engine/limit/active-mode-int</property>
+					<property>systems/engines/limit/active-mode-int</property>
 					<value>0</value>
 				</equals>
 				<equals>
@@ -318,7 +318,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>fdm/jsbsim/engine/limit/active-mode-int</property>
+					<property>systems/engines/limit/active-mode-int</property>
 					<value>5</value>
 				</equals>
 				<equals>
@@ -335,7 +335,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>fdm/jsbsim/engine/limit/active-mode-int</property>
+					<property>systems/engines/limit/active-mode-int</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -352,7 +352,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>fdm/jsbsim/engine/limit/active-mode-int</property>
+					<property>systems/engines/limit/active-mode-int</property>
 					<value>2</value>
 				</equals>
 				<equals>
@@ -369,7 +369,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>fdm/jsbsim/engine/limit/active-mode-int</property>
+					<property>systems/engines/limit/active-mode-int</property>
 					<value>3</value>
 				</equals>
 				<equals>
@@ -386,7 +386,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>fdm/jsbsim/engine/limit/active-mode-int</property>
+					<property>systems/engines/limit/active-mode-int</property>
 					<value>4</value>
 				</equals>
 				<equals>
@@ -574,7 +574,7 @@
 		<condition>
 			<or>
 				<equals>
-					<property>fdm/jsbsim/engine/limit/active-mode-int</property>
+					<property>systems/engines/limit/active-mode-int</property>
 					<value>-1</value>
 				</equals>
 				<equals>

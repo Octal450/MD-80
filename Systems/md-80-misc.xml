@@ -277,8 +277,8 @@
 				/instrumentation/airspeed-indicator/indicated-speed-kt lt 210
 				/position/gear-agl-ft le 1500
 				<test logic="OR">
-					engine/control-1/throttle-pos lt 0.01
-					engine/control-2/throttle-pos lt 0.01
+					/systems/engines/control-1/throttle-pos lt 0.01
+					/systems/engines/control-2/throttle-pos lt 0.01
 				</test>
 			</test>
 		</switch>

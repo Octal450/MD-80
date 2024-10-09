@@ -69,7 +69,7 @@ var systemsLoop = maketimer(0.1, func() {
 });
 
 var slowLoop = maketimer(1, func() {
-	if (pts.Fdm.JSBSim.Engine.Limit.overspeed.getBoolValue()) {
+	if (systems.ENGINE.overspeed.getBoolValue()) {
 		gui.popupTip("You are overspeeding the engines! Reduce power to below the EPR limit!");
 	}
 	

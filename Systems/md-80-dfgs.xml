@@ -7,8 +7,8 @@
 	
 	<property value="0">dfgs/flaps-cmd-feedback</property>
 	<property value="340">dfgs/speeds/vmo</property>
-	<property value="0">engine/throttle-lever-feedback[0]</property>
-	<property value="0">engine/throttle-lever-feedback[1]</property>
+	<property value="0">/systems/engines/throttle-lever-feedback[0]</property>
+	<property value="0">/systems/engines/throttle-lever-feedback[1]</property>
 	<property value="0">/systems/abs/disarm</property>
 	
 	<!-- Default gains for tuning -->
@@ -129,7 +129,7 @@
 		<fcs_function name="dfgs/atr/go-around-buffer">
 			<function>
 				<difference>
-					<property>engine/limit/go-around</property>
+					<property>/systems/engines/limit/go-around</property>
 					<value>0.01</value>
 				</difference>
 			</function>
@@ -897,8 +897,8 @@
 				/systems/abs/active ne 1
 			</test>
 			<test logic="AND" value="1">
-				engine/throttle-lever-feedback[0] lt 0.05
-				engine/throttle-lever-feedback[1] lt 0.05
+				/systems/engines/throttle-lever-feedback[0] lt 0.05
+				/systems/engines/throttle-lever-feedback[1] lt 0.05
 			</test>
 		</switch>
 		
@@ -906,11 +906,11 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/abs/throttle-can-disarm eq 1
-				engine/throttle-lever-feedback[0] ge 0.05
+				/systems/engines/throttle-lever-feedback[0] ge 0.05
 			</test>
 			<test logic="AND" value="1">
 				/systems/abs/throttle-can-disarm eq 1
-				engine/throttle-lever-feedback[1] ge 0.05
+				/systems/engines/throttle-lever-feedback[1] ge 0.05
 			</test>
 		</switch>
 		

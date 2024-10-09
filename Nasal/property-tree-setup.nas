@@ -74,12 +74,6 @@ var Fdm = {
 			alphaDegDamped: props.globals.getNode("/fdm/jsbsim/aero/alpha-deg-damped"),
 			alphaDegDampedPli: props.globals.getNode("/fdm/jsbsim/aero/alpha-deg-damped-pli"),
 		},
-		Engine: {
-			atsCmdRawPid: props.globals.initNode("/fdm/jsbsim/engine/ats-cmd-raw-pid", 0, "DOUBLE"),
-			Limit: {
-				overspeed: props.globals.getNode("/fdm/jsbsim/engine/limit/overspeed"),
-			},
-		},
 		FcsActual: {
 			Stabilizer: {
 				rateSwitch: props.globals.getNode("/fdm/jsbsim/fcs-actual/stabilizer/rate-switch"),

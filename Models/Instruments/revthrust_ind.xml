@@ -29,7 +29,7 @@
 		<condition>
 			<or>
 				<greater-than-equals>
-					<property>fdm/jsbsim/engine/reverse-1/position-norm</property>
+					<property>systems/engines/reverse-1/position-norm</property>
 					<value>0.95</value>
 				</greater-than-equals>
 				<equals>
@@ -46,7 +46,7 @@
 		<condition>
 			<or>
 				<greater-than-equals>
-					<property>fdm/jsbsim/engine/reverse-2/position-norm</property>
+					<property>systems/engines/reverse-2/position-norm</property>
 					<value>0.95</value>
 				</greater-than-equals>
 				<equals>
@@ -63,7 +63,7 @@
 		<condition>
 			<or>
 				<greater-than-equals>
-					<property>fdm/jsbsim/engine/reverse-1/position-norm</property>
+					<property>systems/engines/reverse-1/position-norm</property>
 					<value>0.05</value>
 				</greater-than-equals>
 				<equals>
@@ -80,7 +80,7 @@
 		<condition>
 			<or>
 				<greater-than-equals>
-					<property>fdm/jsbsim/engine/reverse-2/position-norm</property>
+					<property>systems/engines/reverse-2/position-norm</property>
 					<value>0.05</value>
 				</greater-than-equals>
 				<equals>

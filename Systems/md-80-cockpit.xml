@@ -380,15 +380,15 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/throttle-lever[0]">
-			<input>engine/control-1/throttle-pos</input>
+			<input>/systems/engines/control-1/throttle-pos</input>
 			<c1>20</c1>
-			<output>engine/throttle-lever-feedback[0]</output>
+			<output>/systems/engines/throttle-lever-feedback[0]</output>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/throttle-lever[1]">
-			<input>engine/control-2/throttle-pos</input>
+			<input>/systems/engines/control-2/throttle-pos</input>
 			<c1>20</c1>
-			<output>engine/throttle-lever-feedback[1]</output>
+			<output>/systems/engines/throttle-lever-feedback[1]</output>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/x-bleed-l-lever">

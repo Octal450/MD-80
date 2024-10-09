@@ -56,6 +56,7 @@ setlistener("/controls/abs/armed", func {
 
 # Engine Control
 var ENGINE = {
+	atsCmdRawPid: props.globals.initNode("/systems/engines/ats-cmd-raw-pid", 0, "DOUBLE"),
 	Cover: {
 		startL: props.globals.getNode("/controls/engines/covers/start-l"),
 		startR: props.globals.getNode("/controls/engines/covers/start-r"),
@@ -66,6 +67,7 @@ var ENGINE = {
 	fuReset: props.globals.getNode("/controls/engines/fu-reset"),
 	manEpr: [props.globals.getNode("/controls/engines/engine[0]/man-epr"), props.globals.getNode("/controls/engines/engine[1]/man-epr")],
 	manEprSet: [props.globals.getNode("/controls/engines/engine[0]/man-epr-set"), props.globals.getNode("/controls/engines/engine[1]/man-epr-set")],
+	overspeed: props.globals.getNode("/systems/engines/limit/overspeed"),
 	reverseEngage: [props.globals.getNode("/controls/engines/engine[0]/reverse-engage"), props.globals.getNode("/controls/engines/engine[1]/reverse-engage")],
 	reverseEngageTemp: [0, 0],
 	startSwitch: [props.globals.getNode("/controls/engines/engine[0]/start-switch"), props.globals.getNode("/controls/engines/engine[1]/start-switch")],
@@ -297,26 +299,26 @@ var PLATFORM = {
 # Thrust Limits
 var THRLIM = {
 	Control: {
-		atsMax: [props.globals.getNode("/fdm/jsbsim/engine/control-1/ats-max"), props.globals.getNode("/fdm/jsbsim/engine/control-2/ats-max")],
+		atsMax: [props.globals.getNode("/systems/engines/control-1/ats-max"), props.globals.getNode("/systems/engines/control-2/ats-max")],
 	},
 	pitchMode: 0,
 	Limit: {
-		active: props.globals.getNode("/fdm/jsbsim/engine/limit/active"),
-		activeMode: props.globals.getNode("/fdm/jsbsim/engine/limit/active-mode"),
-		activeModeInt: props.globals.getNode("/fdm/jsbsim/engine/limit/active-mode-int"), # -1 NONE, 0 T/O, 1 G/A, 2 MCT, 3 CLB, 4 CRZ, 5 T/O FLX, 6 TEST
+		active: props.globals.getNode("/systems/engines/limit/active"),
+		activeMode: props.globals.getNode("/systems/engines/limit/active-mode"),
+		activeModeInt: props.globals.getNode("/systems/engines/limit/active-mode-int"), # -1 NONE, 0 T/O, 1 G/A, 2 MCT, 3 CLB, 4 CRZ, 5 T/O FLX, 6 TEST
 		activeModeIntTemp: 0,
 		activeModeLast: "T/O",
-		activeNorm: props.globals.getNode("/fdm/jsbsim/engine/limit/active-norm"),
-		cruise: props.globals.getNode("/fdm/jsbsim/engine/limit/cruise"),
-		climb: props.globals.getNode("/fdm/jsbsim/engine/limit/climb"),
-		flexTemp: props.globals.getNode("/fdm/jsbsim/engine/limit/flex-temp"),
-		goAround: props.globals.getNode("/fdm/jsbsim/engine/limit/go-around"),
-		highestNorm: props.globals.getNode("/fdm/jsbsim/engine/limit/highest-norm"),
-		idleNorm: props.globals.getNode("/fdm/jsbsim/engine/limit/idle-norm"),
-		mct: props.globals.getNode("/fdm/jsbsim/engine/limit/mct"),
-		takeoff: props.globals.getNode("/fdm/jsbsim/engine/limit/takeoff"),
+		activeNorm: props.globals.getNode("/systems/engines/limit/active-norm"),
+		cruise: props.globals.getNode("/systems/engines/limit/cruise"),
+		climb: props.globals.getNode("/systems/engines/limit/climb"),
+		flexTemp: props.globals.getNode("/systems/engines/limit/flex-temp"),
+		goAround: props.globals.getNode("/systems/engines/limit/go-around"),
+		highestNorm: props.globals.getNode("/systems/engines/limit/highest-norm"),
+		idleNorm: props.globals.getNode("/systems/engines/limit/idle-norm"),
+		mct: props.globals.getNode("/systems/engines/limit/mct"),
+		takeoff: props.globals.getNode("/systems/engines/limit/takeoff"),
 	},
-	throttleCompareMax: props.globals.getNode("/fdm/jsbsim/engine/throttle-compare-max"),
+	throttleCompareMax: props.globals.getNode("/systems/engines/throttle-compare-max"),
 	init: func() {
 		me.Limit.activeModeInt.setValue(-1);
 		me.Limit.activeMode.setValue("---");

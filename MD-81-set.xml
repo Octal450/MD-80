@@ -30,17 +30,6 @@
 		<primary-set>true</primary-set>
     </sim>
 	
-	<fdm n="0">
-		<jsbsim n="0">
-			<engine n="0">
-				<limit n="0">
-					<rated-epr-offset type="double">0</rated-epr-offset>
-					<rated-thrust type="double">18500</rated-thrust>
-				</limit>
-			</engine>
-		</jsbsim>
-	</fdm>
-	
 	<limits>
 		<mass-and-balance> <!-- Data source: TCDS -->
 			<maximum-landing-mass-lbs>130000</maximum-landing-mass-lbs>

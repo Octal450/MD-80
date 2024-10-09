@@ -1749,7 +1749,7 @@
 		
 		<switch name="/instrumentation/epr[0]/epr-input">
 			<default value="/instrumentation/epr[0]/epr-input"/>
-			<test value="engine/epr-actual-1">
+			<test value="/systems/engines/epr-actual-1">
 				/instrumentation/epr[0]/power-avail eq 1
 			</test>
 		</switch>
@@ -1836,7 +1836,7 @@
 				/instrumentation/epr[0]/power-avail eq 1
 				/controls/engines/engine[0]/man-epr-set eq 1
 			</test>
-			<test value="engine/limit/active">
+			<test value="/systems/engines/limit/active">
 				/instrumentation/epr[0]/power-avail eq 1
 			</test>
 		</switch>
@@ -1858,7 +1858,7 @@
 		
 		<switch name="/instrumentation/epr[1]/epr-input">
 			<default value="/instrumentation/epr[1]/epr-input"/>
-			<test value="engine/epr-actual-2">
+			<test value="/systems/engines/epr-actual-2">
 				/instrumentation/epr[1]/power-avail eq 1
 			</test>
 		</switch>
@@ -1945,7 +1945,7 @@
 				/instrumentation/epr[1]/power-avail eq 1
 				/controls/engines/engine[1]/man-epr-set eq 1
 			</test>
-			<test value="engine/limit/active">
+			<test value="/systems/engines/limit/active">
 				/instrumentation/epr[1]/power-avail eq 1
 			</test>
 		</switch>
@@ -1962,23 +1962,23 @@
 		
 		<!-- N1/N2 Gauge 1 -->
 		<lag_filter name="/instrumentation/n[0]/n1">
-			<input>engine/n1-actual-1</input>
+			<input>/systems/engines/n1-actual-1</input>
 			<c1>15</c1>
 		</lag_filter>
 		
 		<lag_filter name="/instrumentation/n[0]/n2">
-			<input>engine/n2-actual-1</input>
+			<input>/systems/engines/n2-actual-1</input>
 			<c1>15</c1>
 		</lag_filter>
 		
 		<!-- N1/N2 Gauge 2 -->
 		<lag_filter name="/instrumentation/n[1]/n1">
-			<input>engine/n1-actual-2</input>
+			<input>/systems/engines/n1-actual-2</input>
 			<c1>15</c1>
 		</lag_filter>
 		
 		<lag_filter name="/instrumentation/n[1]/n2">
-			<input>engine/n2-actual-2</input>
+			<input>/systems/engines/n2-actual-2</input>
 			<c1>15</c1>
 		</lag_filter>
 		
@@ -2003,7 +2003,7 @@
 		
 		<switch name="/instrumentation/egt[0]/egt-input">
 			<default value="/instrumentation/egt[0]/egt-input"/>
-			<test value="engine/egt-actual-1">
+			<test value="/systems/engines/egt-actual-1">
 				/instrumentation/egt[0]/power-avail eq 1
 			</test>
 		</switch>
@@ -2024,7 +2024,7 @@
 		
 		<switch name="/instrumentation/egt[1]/egt-input">
 			<default value="/instrumentation/egt[1]/egt-input"/>
-			<test value="engine/egt-actual-2">
+			<test value="/systems/engines/egt-actual-2">
 				/instrumentation/egt[1]/power-avail eq 1
 			</test>
 		</switch>
@@ -2070,7 +2070,7 @@
 		
 		<switch name="/instrumentation/ff[0]/ff-input">
 			<default value="/instrumentation/ff[0]/ff-input"/>
-			<test value="engine/ff-actual-1">
+			<test value="/systems/engines/ff-actual-1">
 				/instrumentation/ff[0]/power-avail eq 1
 			</test>
 		</switch>
@@ -2116,7 +2116,7 @@
 		
 		<switch name="/instrumentation/ff[1]/ff-input">
 			<default value="/instrumentation/ff[1]/ff-input"/>
-			<test value="engine/ff-actual-2">
+			<test value="/systems/engines/ff-actual-2">
 				/instrumentation/ff[1]/power-avail eq 1
 			</test>
 		</switch>
@@ -2454,7 +2454,7 @@
 			<default value="/instrumentation/tri/rat-cmd"/>
 			<test logic="AND" value="12">
 				dfgs/power-avail eq 1
-				engine/limit/active-mode-int eq 6
+				/systems/engines/limit/active-mode-int eq 6
 			</test>
 			<test logic="OR" value="propulsion/tat-c">
 				dfgs/power-avail eq 1
@@ -2518,7 +2518,7 @@
 		
 		<switch name="/instrumentation/tri/limit-active">
 			<default value="/instrumentation/tri/limit-active"/>
-			<test logic="OR" value="engine/limit/active-ind">
+			<test logic="OR" value="/systems/engines/limit/active-ind">
 				dfgs/power-avail eq 1
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
@@ -2561,7 +2561,7 @@
 			<function>
 				<sum>
 					<abs>
-						<property>engine/limit/flex-temp</property>
+						<property>/systems/engines/limit/flex-temp</property>
 					</abs>
 					<value>0.5</value> <!-- Make it round correctly -->
 				</sum>

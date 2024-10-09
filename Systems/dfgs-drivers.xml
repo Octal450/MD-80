@@ -61,11 +61,11 @@
 					<value>1</value>
 				</equals>
 				<not-equals>
-					<property>fdm/jsbsim/engine/limit/active-mode-int</property>
+					<property>systems/engines/limit/active-mode-int</property>
 					<value>-1</value>
 				</not-equals>
 				<not-equals>
-					<property>fdm/jsbsim/engine/limit/active-mode-int</property>
+					<property>systems/engines/limit/active-mode-int</property>
 					<value>6</value>
 				</not-equals>
 				<or>
