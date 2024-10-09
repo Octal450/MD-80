@@ -33,16 +33,16 @@ var APU = {
 # Brakes
 var BRAKES = {
 	Abs: {
-		armed: props.globals.getNode("/gear/abs/armed"),
-		disarm: props.globals.getNode("/gear/abs/disarm"),
-		mode: props.globals.getNode("/gear/abs/mode"), # -2: RTO MAX, -1: RTO MIN, 0: OFF, 1: MIN, 2: MED, 3: MAX
+		armed: props.globals.getNode("/systems/abs/armed"),
+		disarm: props.globals.getNode("/systems/abs/disarm"),
+		mode: props.globals.getNode("/systems/abs/mode"), # -2: RTO MAX, -1: RTO MIN, 0: OFF, 1: MIN, 2: MED, 3: MAX
 	},
 	Fail: {
 		abs: props.globals.getNode("/systems/failures/brakes/abs"),
 	},
 	Switch: {
-		abs: props.globals.getNode("/controls/gear/abs/knob"), # -1: RTO, 0: OFF, 1: MIN, 2: MED, 3: MAX
-		arm: props.globals.getNode("/controls/gear/abs/armed"),
+		abs: props.globals.getNode("/controls/abs/knob"), # -1: RTO, 0: OFF, 1: MIN, 2: MED, 3: MAX
+		arm: props.globals.getNode("/controls/abs/armed"),
 	},
 	init: func() {
 		me.Switch.abs.setValue(0);
@@ -50,7 +50,7 @@ var BRAKES = {
 	},
 };
 
-setlistener("/controls/gear/abs/armed", func {
+setlistener("/controls/abs/armed", func {
 	libraries.Sound.switch1();
 }, 0, 0);
 

@@ -319,12 +319,12 @@
 		
 		<!-- Pedestal -->
 		<lag_filter name="/controls/cockpit/abs-armed">
-			<input>/controls/gear/abs/armed</input>
+			<input>/controls/abs/armed</input>
 			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/abs-knob">
-			<input>/controls/gear/abs/knob</input>
+			<input>/controls/abs/knob</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -370,7 +370,7 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/spoilers-lever-rotate">
-			<input>spoilers/lever-cmd</input>
+			<input>/systems/spoilers/lever-cmd</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -697,12 +697,12 @@
 	
 	<channel name="Lights" execrate="8">
 			
-		<switch name="/gear/abs/lights/disarm">
+		<switch name="/systems/abs/lights/disarm">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/controls/gear/lever-cockpit ge 2
-				/gear/abs/knob-input ne 0
-				/gear/abs/armed-input eq 0
+				/systems/abs/knob-input ne 0
+				/systems/abs/armed-input eq 0
 			</test>
 		</switch>
 	

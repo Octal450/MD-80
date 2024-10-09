@@ -464,6 +464,11 @@
 	</consumables>
 	
 	<controls n="0">
+		<abs n="0">
+			<armed type="bool">0</armed>
+			<armed-momentary type="bool">0</armed-momentary>
+			<knob type="int">0</knob>
+		</abs>
 		<apu n="0">
 			<master type="int">0</master>
 		</apu>
@@ -577,11 +582,6 @@
 			<x-feed type="bool">0</x-feed>
 		</fuel>
 		<gear n="0">
-			<abs n="0">
-				<armed type="bool">0</armed>
-				<armed-momentary type="bool">0</armed-momentary>
-				<knob type="int">0</knob>
-			</abs>
 			<brake-parking type="bool">0</brake-parking>
 			<brake-parking-switch type="bool">0</brake-parking-switch>
 			<lever-cockpit type="int">3</lever-cockpit>
@@ -745,10 +745,6 @@
 	</fdm>
 	
 	<gear n="0">
-		<abs n="0">
-			<armed type="bool">0</armed>
-			<mode type="int">0</mode>
-		</abs>
 		<gear n="0">
 			<tyre-smoke type="bool">0</tyre-smoke>
 		</gear>
@@ -1468,6 +1464,10 @@
 	</services>
 	
 	<systems n="0">
+		<abs n="0">
+			<armed type="bool">0</armed>
+			<mode type="int">0</mode>
+		</abs>
 		<acconfig n="0">
 			<autoconfig-running type="bool">0</autoconfig-running>
 			<options n="0">

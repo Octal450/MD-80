@@ -103,9 +103,6 @@ var Fdm = {
 			},
 			tatC: props.globals.getNode("/fdm/jsbsim/propulsion/tat-c"),
 		},
-		Spoilers: {
-			mainGearAnd: props.globals.getNode("/fdm/jsbsim/spoilers/main-gear-and"),
-		},
 	},
 };
 
@@ -262,6 +259,9 @@ var Systems = {
 	},
 	Shake: {
 		shaking: props.globals.getNode("/systems/shake/shaking"),
+	},
+	Spoilers: {
+		mainGearAnd: props.globals.getNode("/systems/spoilers/main-gear-and"),
 	},
 };
 

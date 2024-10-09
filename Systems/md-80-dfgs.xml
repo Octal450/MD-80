@@ -9,7 +9,7 @@
 	<property value="340">dfgs/speeds/vmo</property>
 	<property value="0">engine/throttle-lever-feedback[0]</property>
 	<property value="0">engine/throttle-lever-feedback[1]</property>
-	<property value="0">/gear/abs/disarm</property>
+	<property value="0">/systems/abs/disarm</property>
 	
 	<!-- Default gains for tuning -->
 	<property value="0">dfgs/yaw/yd-p-gain-tune</property>
@@ -829,72 +829,72 @@
 	<channel name="DFGS: Autobrake">
 		
 		<!-- Logic -->
-		<switch name="/gear/abs/knob-input">
+		<switch name="/systems/abs/knob-input">
 			<default value="0"/>
-			<test value="/controls/gear/abs/knob">
+			<test value="/controls/abs/knob">
 				/systems/electrical/outputs/idk ge 24
 			</test>
 		</switch>
 		
-		<switch name="/gear/abs/can-arm">
+		<switch name="/systems/abs/can-arm">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/gear/abs/knob-input gt 0
+				/systems/abs/knob-input gt 0
 				fcs/flap-pos-deg gt 26
 				/systems/electrical/outputs/idk ge 24
-				/gear/abs/disarm ne 1
+				/systems/abs/disarm ne 1
 			</test>
 			<test logic="AND" value="1">
-				/gear/abs/knob-input lt 0
+				/systems/abs/knob-input lt 0
 				fcs/flap-pos-deg le 26
 				/systems/electrical/outputs/idk ge 24
-				/gear/abs/disarm ne 1
+				/systems/abs/disarm ne 1
 			</test>
 		</switch>
 		
-		<switch name="/gear/abs/armed-input">
-			<default value="/controls/gear/abs/armed"/>
+		<switch name="/systems/abs/armed-input">
+			<default value="/controls/abs/armed"/>
 			<test logic="AND" value="0">
-				/gear/abs/can-arm ne 1
-				/controls/gear/abs/armed-momentary ne 1
+				/systems/abs/can-arm ne 1
+				/controls/abs/armed-momentary ne 1
 			</test>
-			<output>/controls/gear/abs/armed</output>
+			<output>/controls/abs/armed</output>
 		</switch>
 		
-		<switch name="/gear/abs/mode">
+		<switch name="/systems/abs/mode">
 			<default value="0"/>
-			<test value="/gear/abs/knob-input">
-				/gear/abs/armed-input eq 1
+			<test value="/systems/abs/knob-input">
+				/systems/abs/armed-input eq 1
 			</test>
 		</switch>
 		
-		<switch name="/gear/abs/active">
+		<switch name="/systems/abs/active">
 			<description>Flip flop for autobrake engage</description>
-			<default value="/gear/abs/active"/>
+			<default value="/systems/abs/active"/>
 			<test logic="OR" value="0"> <!-- Reset -->
-				/gear/abs/armed-input ne 1
+				/systems/abs/armed-input ne 1
 			</test>
 			<test logic="AND" value="1"> <!-- Set -->
-				/gear/abs/armed-input eq 1
-				/gear/abs/mode ne 0
-				/gear/abs/spoilers-cmd-deg gt 0
+				/systems/abs/armed-input eq 1
+				/systems/abs/mode ne 0
+				/systems/abs/spoilers-cmd-deg gt 0
 				position/wow eq 1
 				/instrumentation/airspeed-indicator/indicated-speed-kt ge 50
 			</test>
 		</switch>
 		
-		<switch name="/gear/abs/rto-input-kts"> <!-- Latching Switch -->
+		<switch name="/systems/abs/rto-input-kts"> <!-- Latching Switch -->
 			<default value="/instrumentation/airspeed-indicator/indicated-speed-kt"/>
-			<test logic="AND" value="/gear/abs/rto-input-kts">
-				/gear/abs/active eq 1
-				/gear/abs/mode eq -1
+			<test logic="AND" value="/systems/abs/rto-input-kts">
+				/systems/abs/active eq 1
+				/systems/abs/mode eq -1
 			</test>
 		</switch>
 		
-		<switch name="/gear/abs/throttle-can-disarm"> <!-- That way it won't trigger if you don't happen to be perfectly idled at touchdown -->
-			<default value="/gear/abs/throttle-can-disarm"/>
+		<switch name="/systems/abs/throttle-can-disarm"> <!-- That way it won't trigger if you don't happen to be perfectly idled at touchdown -->
+			<default value="/systems/abs/throttle-can-disarm"/>
 			<test value="0">
-				/gear/abs/active ne 1
+				/systems/abs/active ne 1
 			</test>
 			<test logic="AND" value="1">
 				engine/throttle-lever-feedback[0] lt 0.05
@@ -902,97 +902,97 @@
 			</test>
 		</switch>
 		
-		<switch name="/gear/abs/throttle-disarm">
+		<switch name="/systems/abs/throttle-disarm">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/gear/abs/throttle-can-disarm eq 1
+				/systems/abs/throttle-can-disarm eq 1
 				engine/throttle-lever-feedback[0] ge 0.05
 			</test>
 			<test logic="AND" value="1">
-				/gear/abs/throttle-can-disarm eq 1
+				/systems/abs/throttle-can-disarm eq 1
 				engine/throttle-lever-feedback[1] ge 0.05
 			</test>
 		</switch>
 		
-		<switch name="/gear/abs/to-flip-flop">
-			<default value="/gear/abs/to-flip-flop"/>
+		<switch name="/systems/abs/to-flip-flop">
+			<default value="/systems/abs/to-flip-flop"/>
 			<test value="0">
-				/gear/abs/mode ge 0
+				/systems/abs/mode ge 0
 			</test>
 			<test value="1">
 				position/wow ne 1
 			</test>
 		</switch>
 		
-		<switch name="/gear/abs/to-wow-disarm"> <!-- Disarms if you left T/O on throughout full flight -->
+		<switch name="/systems/abs/to-wow-disarm"> <!-- Disarms if you left T/O on throughout full flight -->
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/gear/abs/to-flip-flop eq 1
+				/systems/abs/to-flip-flop eq 1
 				position/wow eq 1
 			</test>
 		</switch>
 		
-		<switch name="/gear/abs/disarm">
+		<switch name="/systems/abs/disarm">
 			<default value="0"/>
 			<test value="0">
-				/gear/abs/active ne 1
+				/systems/abs/active ne 1
 			</test>
 			<test logic="OR" value="1">
-				/gear/abs/throttle-disarm eq 1
+				/systems/abs/throttle-disarm eq 1
 				/controls/gear/brake-left gt 0.4
 				/controls/gear/brake-right gt 0.4
-				/gear/abs/to-wow-disarm eq 1
+				/systems/abs/to-wow-disarm eq 1
 			</test>
 		</switch>
 		
-		<switch name="/gear/abs/active-rate">
+		<switch name="/systems/abs/active-rate">
 			<default value="1000"/> <!-- Instant -->
 			<test logic="OR" value="0.33333333333"> <!-- 3 Seconds -->
-				/gear/abs/mode eq 1
-				/gear/abs/mode eq 2
+				/systems/abs/mode eq 1
+				/systems/abs/mode eq 2
 			</test>
 			<test value="1"> <!-- 1 Second -->
-				/gear/abs/mode eq 3
+				/systems/abs/mode eq 3
 			</test>
 		</switch>
 		
-		<actuator name="/gear/abs/active-slow">
-			<input>/gear/abs/active</input>
-			<rate_limit sense="incr">/gear/abs/active-rate</rate_limit>
+		<actuator name="/systems/abs/active-slow">
+			<input>/systems/abs/active</input>
+			<rate_limit sense="incr">/systems/abs/active-rate</rate_limit>
 			<rate_limit sense="decr">1000</rate_limit> <!-- Instant -->
-			<output>/gear/abs/active-slow-out</output>
+			<output>/systems/abs/active-slow-out</output>
 		</actuator>
 		
-		<switch name="/gear/abs/active-final"> <!-- Spoilers going in will temporarily remove ABS, until they put back without disarming -->
+		<switch name="/systems/abs/active-final"> <!-- Spoilers going in will temporarily remove ABS, until they put back without disarming -->
 			<default value="0"/>
-			<test logic="OR" value="/gear/abs/active-slow">
-				/gear/abs/spoilers-cmd-deg gt 0
+			<test logic="OR" value="/systems/abs/active-slow">
+				/systems/abs/spoilers-cmd-deg gt 0
 			</test>
 		</switch>
 		
-		<switch name="/gear/abs/decel-rate-cmd">
+		<switch name="/systems/abs/decel-rate-cmd">
 			<default value="0"/>
 			<test value="-5"> <!-- MIN -->
-				/gear/abs/mode eq 1
+				/systems/abs/mode eq 1
 			</test>
 			<test value="-7.5"> <!-- MED -->
-				/gear/abs/mode eq 2
+				/systems/abs/mode eq 2
 			</test>
 			<test value="-50"> <!-- MAX -->
-				/gear/abs/mode eq 3
+				/systems/abs/mode eq 3
 			</test>
 			<test logic="AND" value="-6.5"> <!-- RTO MIN -->
-				/gear/abs/mode eq -1
-				/gear/abs/rto-input-kts le 70
+				/systems/abs/mode eq -1
+				/systems/abs/rto-input-kts le 70
 			</test>
 			<test logic="AND" value="-50"> <!-- RTO MAX -->
-				/gear/abs/mode eq -1
-				/gear/abs/rto-input-kts gt 70
+				/systems/abs/mode eq -1
+				/systems/abs/rto-input-kts gt 70
 			</test>
 		</switch>
 		
 		<!-- Controller -->
-		<pid name="/gear/abs/decel-rate-kts">
+		<pid name="/systems/abs/decel-rate-kts">
 			<descripton>Use D only to calculate rate of decel</descripton>
 			<input>/velocities/groundspeed-kt</input>
 			<kp>0.0</kp>
@@ -1000,48 +1000,48 @@
 			<kd>1.0</kd>
 		</pid>
 		
-		<lag_filter name="/gear/abs/decel-rate-kts-lag">
-			<input>/gear/abs/decel-rate-kts</input>
+		<lag_filter name="/systems/abs/decel-rate-kts-lag">
+			<input>/systems/abs/decel-rate-kts</input>
 			<c1>1.0</c1>
 		</lag_filter>
 		
-		<pure_gain name="/gear/abs/decel-rate-fps2">
-			<input>/gear/abs/decel-rate-kts-lag</input>
+		<pure_gain name="/systems/abs/decel-rate-fps2">
+			<input>/systems/abs/decel-rate-kts-lag</input>
 			<gain>1.687809857099737</gain> <!-- Knots to FPS squared -->
 		</pure_gain>
 		
-		<summer name="/gear/abs/decel-error">
-			<input>/gear/abs/decel-rate-fps2</input>
-			<input>-/gear/abs/decel-rate-cmd</input>
+		<summer name="/systems/abs/decel-error">
+			<input>/systems/abs/decel-rate-fps2</input>
+			<input>-/systems/abs/decel-rate-cmd</input>
 		</summer>
 		
-		<switch name="/gear/abs/brake-cmd-trigger">
+		<switch name="/systems/abs/brake-cmd-trigger">
 			<default value="0"/>
 			<test value="-1">
-				/gear/abs/active-final ne 1
+				/systems/abs/active-final ne 1
 			</test>
 			<test logic="OR" value="1">
-				/gear/abs/brake-cmd le 0.001
-				/gear/abs/brake-cmd ge 0.999
+				/systems/abs/brake-cmd le 0.001
+				/systems/abs/brake-cmd ge 0.999
 			</test>
 		</switch>
 		
-		<pid name="/gear/abs/brake-cmd">
-			<input>/gear/abs/decel-error</input>
+		<pid name="/systems/abs/brake-cmd">
+			<input>/systems/abs/decel-error</input>
 			<kp>0.45</kp>
 			<ki>0.25</ki>
 			<kd>0.0</kd>
-			<trigger>/gear/abs/brake-cmd-trigger</trigger>
+			<trigger>/systems/abs/brake-cmd-trigger</trigger>
 			<clipto>
 				<min>0.0</min>
 				<max>1.0</max>
 			</clipto>
 		</pid>
 		
-		<switch name="/gear/abs/brake-output">
+		<switch name="/systems/abs/brake-output">
 			<default value="0"/>
-			<test value="/gear/abs/brake-cmd">
-				/gear/abs/active-final eq 1
+			<test value="/systems/abs/brake-cmd">
+				/systems/abs/active-final eq 1
 			</test>
 		</switch>
 	

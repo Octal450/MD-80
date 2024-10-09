@@ -1029,17 +1029,17 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/gear/abs/armed</property>
+				<property>controls/abs/armed</property>
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/gear/abs/armed-momentary</property>
+				<property>controls/abs/armed-momentary</property>
 				<value>1</value>
 			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
-					<property>controls/gear/abs/armed-momentary</property>
+					<property>controls/abs/armed-momentary</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -1069,7 +1069,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/gear/abs/knob</property>
+				<property>controls/abs/knob</property>
 				<factor>1</factor>
 				<min>-1</min>
 				<max>3</max>
@@ -1087,7 +1087,7 @@
 		<object-name>LampABS</object-name>
 		<condition>
 			<or>
-				<not><property>gear/abs/lights/disarm</property></not>
+				<not><property>systems/abs/lights/disarm</property></not>
 				<less-equals>
 					<property>systems/electrical/outputs/efis</property>
 					<value>25</value>
@@ -1100,7 +1100,7 @@
 		<object-name>LampABSon</object-name>
 		<condition>
 			<and>
-				<property>gear/abs/lights/disarm</property>
+				<property>systems/abs/lights/disarm</property>
 				<greater-than-equals>
 					<property>systems/electrical/outputs/efis</property>
 					<value>25</value>
