@@ -354,7 +354,7 @@
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
-				<property>gear/gear-all-norm</property>
+				<property>/systems/gear/all-norm</property>
 				<value>0.0171</value>
 			</product>
 		</function>

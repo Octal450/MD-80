@@ -294,9 +294,9 @@
 		<switch name="/systems/caws/logic/landing-gear">
 			<default value="0"/>
 			<test logic="AND" value="0">
-				gear/unit[0]/status eq 2
-				gear/unit[1]/status eq 2
-				gear/unit[2]/status eq 2
+				/systems/gear/unit[0]/status eq 2
+				/systems/gear/unit[1]/status eq 2
+				/systems/gear/unit[2]/status eq 2
 			</test>
 			<test logic="OR" value="1">
 				<test logic="AND">
@@ -429,7 +429,7 @@
 		</switch>
 		
 		<!-- Wheel Not Turning -->
-		<fcs_function name="/gear/wheel-not-turning/n-l-avg">
+		<fcs_function name="/systems/gear/wheel-not-turning/n-l-avg">
 			<function>
 				<avg>
 					<property>gear/unit[0]/wheel-speed-fps</property>
@@ -438,7 +438,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/gear/wheel-not-turning/n-r-avg">
+		<fcs_function name="/systems/gear/wheel-not-turning/n-r-avg">
 			<function>
 				<avg>
 					<property>gear/unit[0]/wheel-speed-fps</property>
@@ -447,7 +447,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/gear/wheel-not-turning/l-r-avg">
+		<fcs_function name="/systems/gear/wheel-not-turning/l-r-avg">
 			<function>
 				<avg>
 					<property>gear/unit[1]/wheel-speed-fps</property>
@@ -456,34 +456,34 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/gear/wheel-not-turning/l-r-q-n">
+		<fcs_function name="/systems/gear/wheel-not-turning/l-r-q-n">
 			<function>
 				<quotient>
-					<property>/gear/wheel-not-turning/l-r-avg</property>
+					<property>/systems/gear/wheel-not-turning/l-r-avg</property>
 					<property>gear/unit[0]/wheel-speed-fps</property>
 				</quotient>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/gear/wheel-not-turning/n-r-q-l">
+		<fcs_function name="/systems/gear/wheel-not-turning/n-r-q-l">
 			<function>
 				<quotient>
-					<property>/gear/wheel-not-turning/n-r-avg</property>
+					<property>/systems/gear/wheel-not-turning/n-r-avg</property>
 					<property>gear/unit[1]/wheel-speed-fps</property>
 				</quotient>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/gear/wheel-not-turning/n-l-q-r">
+		<fcs_function name="/systems/gear/wheel-not-turning/n-l-q-r">
 			<function>
 				<quotient>
-					<property>/gear/wheel-not-turning/n-l-avg</property>
+					<property>/systems/gear/wheel-not-turning/n-l-avg</property>
 					<property>gear/unit[2]/wheel-speed-fps</property>
 				</quotient>
 			</function>
 		</fcs_function>
 		
-		<switch name="/gear/wheel-not-turning/active"> <!-- If any is greater than 20% slower (1.2 quotient) while WOW -->
+		<switch name="/systems/gear/wheel-not-turning/active"> <!-- If any is greater than 20% slower (1.2 quotient) while WOW -->
 			<default value="0"/>
 			<test logic="OR" value="0">
 				gear/unit[0]/WOW eq 0
@@ -492,9 +492,9 @@
 				/instrumentation/airspeed-indicator/indicated-speed-kt lt 30
 			</test>
 			<test logic="OR" value="1">
-				/gear/wheel-not-turning/l-r-q-n ge 1.2
-				/gear/wheel-not-turning/n-r-q-l ge 1.2
-				/gear/wheel-not-turning/n-l-q-r ge 1.2
+				/systems/gear/wheel-not-turning/l-r-q-n ge 1.2
+				/systems/gear/wheel-not-turning/n-r-q-l ge 1.2
+				/systems/gear/wheel-not-turning/n-l-q-r ge 1.2
 			</test>
 		</switch>
 	

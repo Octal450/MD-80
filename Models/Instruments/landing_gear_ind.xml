@@ -19,11 +19,11 @@
 				</less-than>
 				<and>
 					<equals>
-						<property>fdm/jsbsim/gear/unit[1]/status</property>
+						<property>systems/gear/unit[1]/status</property>
 						<value>0</value>
 					</equals>
 					<equals>
-						<property>fdm/jsbsim/gear/unit[2]/status</property>
+						<property>systems/gear/unit[2]/status</property>
 						<value>0</value>
 					</equals>
 					<equals>
@@ -45,11 +45,11 @@
 				</greater-than-equals>
 				<or>
 					<not-equals>
-						<property>fdm/jsbsim/gear/unit[1]/status</property>
+						<property>systems/gear/unit[1]/status</property>
 						<value>0</value>
 					</not-equals>
 					<not-equals>
-						<property>fdm/jsbsim/gear/unit[2]/status</property>
+						<property>systems/gear/unit[2]/status</property>
 						<value>0</value>
 					</not-equals>
 					<equals>
@@ -73,7 +73,7 @@
 				</less-than>
 				<and>
 					<equals>
-						<property>fdm/jsbsim/gear/unit[0]/status</property>
+						<property>systems/gear/unit[0]/status</property>
 						<value>0</value>
 					</equals>
 					<equals>
@@ -94,7 +94,7 @@
 					<value>24</value>
 				</greater-than-equals>
 				<equals>
-					<property>fdm/jsbsim/gear/unit[0]/status</property>
+					<property>systems/gear/unit[0]/status</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -115,7 +115,7 @@
 				</greater-than-equals>
 				<or>
 					<equals>
-						<property>fdm/jsbsim/gear/unit[0]/status</property>
+						<property>systems/gear/unit[0]/status</property>
 						<value>2</value>
 					</equals>
 					<equals>
@@ -139,7 +139,7 @@
 				</less-than>
 				<and>
 					<equals>
-						<property>fdm/jsbsim/gear/unit[1]/status</property>
+						<property>systems/gear/unit[1]/status</property>
 						<value>0</value>
 					</equals>
 					<equals>
@@ -160,7 +160,7 @@
 					<value>24</value>
 				</greater-than-equals>
 				<equals>
-					<property>fdm/jsbsim/gear/unit[1]/status</property>
+					<property>systems/gear/unit[1]/status</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -181,7 +181,7 @@
 				</greater-than-equals>
 				<or>
 					<equals>
-						<property>fdm/jsbsim/gear/unit[1]/status</property>
+						<property>systems/gear/unit[1]/status</property>
 						<value>2</value>
 					</equals>
 					<equals>
@@ -205,7 +205,7 @@
 				</less-than>
 				<and>
 					<equals>
-						<property>fdm/jsbsim/gear/unit[2]/status</property>
+						<property>systems/gear/unit[2]/status</property>
 						<value>0</value>
 					</equals>
 					<equals>
@@ -226,7 +226,7 @@
 					<value>24</value>
 				</greater-than-equals>
 				<equals>
-					<property>fdm/jsbsim/gear/unit[2]/status</property>
+					<property>systems/gear/unit[2]/status</property>
 					<value>1</value>
 				</equals>
 				<equals>
@@ -247,7 +247,7 @@
 				</greater-than-equals>
 				<or>
 					<equals>
-						<property>fdm/jsbsim/gear/unit[2]/status</property>
+						<property>systems/gear/unit[2]/status</property>
 						<value>2</value>
 					</equals>
 					<equals>

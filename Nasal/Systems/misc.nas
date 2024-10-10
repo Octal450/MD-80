@@ -223,6 +223,7 @@ var FCS = {
 
 # Landing Gear
 var GEAR = {
+	allNorm: props.globals.getNode("/systems/gear/all-norm"),
 	cmd: props.globals.getNode("/systems/gear/cmd"),
 	Fail: {
 		leftActuator: props.globals.getNode("/systems/failures/gear/left-actuator"),
