@@ -439,6 +439,10 @@
 				fcs/flap-pos-deg ge 1
 				fcs/slat-pos-deg ge 1
 			</test>
+			<clipto>
+				<min>100</min>
+				<max>100000</max>
+			</clipto>
 		</switch>
 		
 		<switch name="/systems/dfgs/speeds/vmax-type"> <!-- Used by FMA -->
@@ -565,7 +569,7 @@
 			</function>
 			<clipto>
 				<min>/systems/dfgs/speeds/vss</min>
-				<max>100000</max>
+				<max>/systems/dfgs/speeds/vmax</max>
 			</clipto>
 		</fcs_function>
 		
