@@ -201,6 +201,7 @@ var FCS = {
 		rudderPwr: props.globals.getNode("/systems/failures/fcs/rudder-pwr"),
 		yawDamper: props.globals.getNode("/systems/failures/fcs/yaw-damper"),
 	},
+	flapsInput: props.globals.getNode("/systems/fcs/flaps/input"),
 	stabilizerRate: props.globals.getNode("/systems/fcs/stabilizer/rate-switch"),
 	Switch: {
 		machTrim: props.globals.getNode("/controls/fcs/mach-trim"),
@@ -222,6 +223,7 @@ var FCS = {
 
 # Landing Gear
 var GEAR = {
+	cmd: props.globals.getNode("/systems/gear/cmd"),
 	Fail: {
 		leftActuator: props.globals.getNode("/systems/failures/gear/left-actuator"),
 		noseActuator: props.globals.getNode("/systems/failures/gear/nose-actuator"),
@@ -232,7 +234,6 @@ var GEAR = {
 		brakeParking: props.globals.getNode("/controls/gear/brake-parking"),
 		brakeRight: props.globals.getNode("/controls/gear/brake-right"),
 		lever: props.globals.getNode("/controls/gear/lever"),
-		leverCockpit: props.globals.getNode("/controls/gear/lever-cockpit"),
 	},
 	init: func() {
 		me.resetFailures();

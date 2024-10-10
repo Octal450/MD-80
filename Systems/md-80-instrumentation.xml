@@ -2340,20 +2340,20 @@
 			</test>
 			<test logic="AND" value="4"> <!-- Land -->
 				fcs/slat-pos-deg ge 19.9
-				/controls/flight/flaps-input gt 3
+				/systems/fcs/flaps/input gt 3
 			</test>
 			<test logic="AND" value="1"> <!-- Takeoff -->
 				fcs/slat-pos-deg ge 9.9
 				fcs/slat-pos-deg le 10.1
-				/controls/flight/slats-cmd eq 10
+				/systems/fcs/slats/cmd eq 10
 			</test>
 			<test logic="AND" value="1"> <!-- Takeoff -->
 				fcs/slat-pos-deg ge 19.9
-				/controls/flight/slats-cmd eq 20
+				/systems/fcs/slats/cmd eq 20
 			</test>
 			<test logic="AND" value="0"> <!-- Off -->
 				fcs/slat-pos-deg lt 0.1
-				/controls/flight/flaps-input eq 0
+				/systems/fcs/flaps/input eq 0
 			</test>
 		</switch>
 	

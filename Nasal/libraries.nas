@@ -142,39 +142,39 @@ controls.flapsDown = func(step) {
 var leverCockpit = 3;
 controls.gearDown = func(d) { # Requires a mod-up
 	pts.Fdm.JSBSim.Position.wowTemp = pts.Fdm.JSBSim.Position.wow.getBoolValue();
-	leverCockpit = systems.GEAR.Switch.leverCockpit.getValue();
+	leverCockpit = systems.GEAR.Switch.lever.getValue();
 	if (d < 0) {
 		if (pts.Fdm.JSBSim.Position.wowTemp) {
 			if (leverCockpit == 3) {
-				systems.GEAR.Switch.leverCockpit.setValue(2);
+				systems.GEAR.Switch.lever.setValue(2);
 			} else if (leverCockpit == 0) {
-				systems.GEAR.Switch.leverCockpit.setValue(1);
+				systems.GEAR.Switch.lever.setValue(1);
 			}
 		} else {
-			systems.GEAR.Switch.leverCockpit.setValue(0);
+			systems.GEAR.Switch.lever.setValue(0);
 		}
 	} else if (d > 0) {
 		if (pts.Fdm.JSBSim.Position.wowTemp) {
 			if (leverCockpit == 3) {
-				systems.GEAR.Switch.leverCockpit.setValue(2);
+				systems.GEAR.Switch.lever.setValue(2);
 			} else if (leverCockpit == 0) {
-				systems.GEAR.Switch.leverCockpit.setValue(1);
+				systems.GEAR.Switch.lever.setValue(1);
 			}
 		} else {
-			systems.GEAR.Switch.leverCockpit.setValue(3);
+			systems.GEAR.Switch.lever.setValue(3);
 		}
 	} else {
 		if (leverCockpit == 2) {
-			systems.GEAR.Switch.leverCockpit.setValue(3);
+			systems.GEAR.Switch.lever.setValue(3);
 		} else if (leverCockpit == 1) {
-			systems.GEAR.Switch.leverCockpit.setValue(0);
+			systems.GEAR.Switch.lever.setValue(0);
 		}
 	}
 }
 
 controls.gearDownSmart = func(d) { # Used by cockpit, requires a mod-up
 	if (d) {
-		if (systems.GEAR.Switch.leverCockpit.getValue() >= 2) {
+		if (systems.GEAR.Switch.lever.getValue() >= 2) {
 			controls.gearDown(-1);
 		} else {
 			controls.gearDown(1);
@@ -186,13 +186,13 @@ controls.gearDownSmart = func(d) { # Used by cockpit, requires a mod-up
 
 controls.gearToggle = func() {
 	if (!pts.Fdm.JSBSim.Position.wow.getBoolValue()) {
-		if (systems.GEAR.Switch.leverCockpit.getValue() >= 2) {
-			systems.GEAR.Switch.leverCockpit.setValue(0);
+		if (systems.GEAR.Switch.lever.getValue() >= 2) {
+			systems.GEAR.Switch.lever.setValue(0);
 		} else {
-			systems.GEAR.Switch.leverCockpit.setValue(3);
+			systems.GEAR.Switch.lever.setValue(3);
 		}
 	} else {
-		systems.GEAR.Switch.leverCockpit.setValue(3);
+		systems.GEAR.Switch.lever.setValue(3);
 	}
 }
 
@@ -423,7 +423,7 @@ var Sound = {
 	},
 };
 
-setlistener("/controls/flight/flaps-input", func() {
+setlistener("/systems/fcs/flaps/input", func() {
 	if (pts.Sim.Sound.flapsClick.getBoolValue()) {
 		return;
 	}

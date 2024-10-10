@@ -717,9 +717,9 @@
 	
 	</channel>
 	
-	<channel name="Flap Lever">
+	<channel name="Flaps/Slats Control">
 		
-		<fcs_function name="/controls/flight/flaps-fixed"> <!-- Rounds to 4 figures to fix a potential problem -->
+		<fcs_function name="/systems/fcs/flaps/fixed"> <!-- Rounds to 4 figures to fix a potential problem -->
 			<function>
 				<quotient>
 					<floor>
@@ -736,30 +736,30 @@
 			</function>
 		</fcs_function>
 		
-		<switch name="/controls/flight/flaps-input">
+		<switch name="/systems/fcs/flaps/input">
 			<default value="0"/> <!-- UP/RET -->
 			<test logic="AND" value="1"> <!-- UP/MID -->
-				/controls/flight/flaps-fixed ge 0.20
-				/controls/flight/flaps-fixed lt 0.36
+				/systems/fcs/flaps/fixed ge 0.20
+				/systems/fcs/flaps/fixed lt 0.36
 			</test>
 			<test logic="AND" value="2"> <!-- 11/MID -->
-				/controls/flight/flaps-fixed ge 0.36
-				/controls/flight/flaps-fixed lt 0.52
+				/systems/fcs/flaps/fixed ge 0.36
+				/systems/fcs/flaps/fixed lt 0.52
 			</test>
 			<test logic="AND" value="3"> <!-- 15/EXT -->
-				/controls/flight/flaps-fixed ge 0.52
-				/controls/flight/flaps-fixed lt 0.68
+				/systems/fcs/flaps/fixed ge 0.52
+				/systems/fcs/flaps/fixed lt 0.68
 			</test>
 			<test logic="AND" value="4"> <!-- 28/EXT -->
-				/controls/flight/flaps-fixed ge 0.68
-				/controls/flight/flaps-fixed lt 0.84
+				/systems/fcs/flaps/fixed ge 0.68
+				/systems/fcs/flaps/fixed lt 0.84
 			</test>
 			<test value="5"> <!-- 40/EXT -->
-				/controls/flight/flaps-fixed ge 0.84
+				/systems/fcs/flaps/fixed ge 0.84
 			</test>
 		</switch>
 		
-		<fcs_function name="/controls/flight/dial-a-flap-int"> <!-- Not used yet -->
+		<fcs_function name="/systems/fcc/flaps/dial-a-flap-cmd"> <!-- Not used yet -->
 			<function>
 				<floor>
 					<sum>
@@ -769,36 +769,36 @@
 				</floor>
 			</function>
 			<clipto>
-				<min>10</min>
-				<max>25</max>
+				<min>0</min>
+				<max>20</max>
 			</clipto>
 		</fcs_function>
 		
-		<switch name="/controls/flight/flaps-cmd">
+		<switch name="/systems/fcs/flaps/cmd">
 			<default value="0"/>
 			<test value="11">
-				/controls/flight/flaps-input eq 2
+				/systems/fcs/flaps/input eq 2
 			</test>
 			<test value="15"> 
-				/controls/flight/flaps-input eq 3
+				/systems/fcs/flaps/input eq 3
 			</test>
 			<test value="28">
-				/controls/flight/flaps-input eq 4
+				/systems/fcs/flaps/input eq 4
 			</test>
 			<test value="40">
-				/controls/flight/flaps-input eq 5
+				/systems/fcs/flaps/input eq 5
 			</test>
 			<output>/systems/dfgs/flaps-cmd-feedback</output>
 		</switch>
 		
-		<switch name="/controls/flight/slats-cmd">
+		<switch name="/systems/fcs/slats/cmd">
 			<default value="0"/>
 			<test logic="OR" value="20"> <!-- 14 or greater -->
-				/controls/flight/flaps-cmd ge 14
+				/systems/fcs/flaps/cmd ge 14
 				/systems/dfgs/auto-slat-ext eq 1
 			</test>
 			<test value="10">
-				/controls/flight/flaps-input ge 1
+				/systems/fcs/flaps/input ge 1
 			</test>
 		</switch>
 	
@@ -806,7 +806,7 @@
 	
 	<channel name="Flaps">
 		
-		<switch name="fcs/flap-pos-rate">
+		<switch name="/systems/fcs/flaps/rate">
 			<default value="0"/>
 			<test value="100">
 				/systems/acconfig/autoconfig-running eq 1
@@ -821,14 +821,14 @@
 			</test>
 		</switch>
 		
-		<actuator name="rubbish/flap-pos-deg">
-			<input>/controls/flight/flaps-cmd</input>
-			<rate_limit>fcs/flap-pos-rate</rate_limit>
+		<actuator name="/systems/fcs/flaps/final-actuator">
+			<input>/systems/fcs/flaps/cmd</input>
+			<rate_limit>/systems/fcs/flaps/rate</rate_limit>
 			<output>fcs/flap-pos-deg</output>
 		</actuator>
 		
-		<aerosurface_scale name="rubbish/flap-pos-norm">
-			<input>fcs/flap-pos-deg</input>
+		<aerosurface_scale name="/systems/fcs/flaps/final-norm">
+			<input>/systems/fcs/flaps/final-actuator</input>
 			<domain>
 				<min>0</min>
 				<max>40</max>
@@ -844,7 +844,7 @@
 	
 	<channel name="Slats">
 		
-		<switch name="fcs/slat-pos-rate">
+		<switch name="/systems/fcs/slats/rate">
 			<default value="0"/>
 			<test value="100">
 				/systems/acconfig/autoconfig-running eq 1
@@ -859,14 +859,14 @@
 			</test>
 		</switch>
 		
-		<actuator name="rubbish/slat-pos-deg">
-			<input>/controls/flight/slats-cmd</input>
-			<rate_limit>fcs/slat-pos-rate</rate_limit>
+		<actuator name="/systems/fcs/slats/final-actuator">
+			<input>/systems/fcs/slats/cmd</input>
+			<rate_limit>/systems/fcs/slats/rate</rate_limit>
 			<output>fcs/slat-pos-deg</output>
 		</actuator>
 		
-		<aerosurface_scale name="rubbish/slat-pos-norm">
-			<input>fcs/slat-pos-deg</input>
+		<aerosurface_scale name="/systems/fcs/slats/final-norm">
+			<input>/systems/fcs/slats/final-actuator</input>
 			<domain>
 				<min>0</min>
 				<max>20</max>
@@ -882,10 +882,10 @@
 	
 	<channel name="Gear Common">
 		
-		<switch name="/controls/gear/lever">
+		<switch name="/systems/gear/cmd">
 			<default value="1"/>
 			<test value="0">
-				/controls/gear/lever-cockpit le 1
+				/controls/gear/lever le 1
 			</test>
 		</switch>
 	
@@ -926,7 +926,7 @@
 		</switch>
 		
 		<actuator name="gear/unit[0]/pos-norm-actuator">
-			<input>/controls/gear/lever</input>
+			<input>/systems/gear/cmd</input>
 			<rate_limit sense="incr">gear/unit[0]/rate-incr</rate_limit>
 			<rate_limit sense="decr">gear/unit[0]/rate-decr</rate_limit>
 			<output>gear/unit[0]/pos-norm</output>
@@ -969,7 +969,7 @@
 		</switch>
 		
 		<actuator name="gear/unit[1]/pos-norm-actuator">
-			<input>/controls/gear/lever</input>
+			<input>/systems/gear/cmd</input>
 			<rate_limit sense="incr">gear/unit[1]/rate-incr</rate_limit>
 			<rate_limit sense="decr">gear/unit[1]/rate-decr</rate_limit>
 			<output>gear/unit[1]/pos-norm</output>
@@ -1012,7 +1012,7 @@
 		</switch>
 		
 		<actuator name="gear/unit[2]/pos-norm-actuator">
-			<input>/controls/gear/lever</input>
+			<input>/systems/gear/cmd</input>
 			<rate_limit sense="incr">gear/unit[2]/rate-incr</rate_limit>
 			<rate_limit sense="decr">gear/unit[2]/rate-decr</rate_limit>
 			<output>gear/unit[2]/pos-norm</output>
@@ -1035,11 +1035,11 @@
 		<switch name="gear/unit[0]/status">
 			<default value="1"/> <!-- In transit -->
 			<test logic="AND" value="0"> <!-- Up -->
-				/controls/gear/lever-cockpit eq 0
+				/controls/gear/lever eq 0
 				gear/unit[0]/pos-norm-actuator lt 0.01
 			</test>
 			<test logic="AND" value="2"> <!-- Down -->
-				/controls/gear/lever-cockpit eq 3
+				/controls/gear/lever eq 3
 				gear/unit[0]/pos-norm-actuator gt 0.99
 			</test>
 		</switch>
@@ -1047,11 +1047,11 @@
 		<switch name="gear/unit[1]/status">
 			<default value="1"/> <!-- In transit -->
 			<test logic="AND" value="0"> <!-- Up -->
-				/controls/gear/lever-cockpit eq 0
+				/controls/gear/lever eq 0
 				gear/unit[1]/pos-norm-actuator lt 0.01
 			</test>
 			<test logic="AND" value="2"> <!-- Down -->
-				/controls/gear/lever-cockpit eq 3
+				/controls/gear/lever eq 3
 				gear/unit[1]/pos-norm-actuator gt 0.99
 			</test>
 		</switch>
@@ -1059,11 +1059,11 @@
 		<switch name="gear/unit[2]/status">
 			<default value="1"/> <!-- In transit -->
 			<test logic="AND" value="0"> <!-- Up -->
-				/controls/gear/lever-cockpit eq 0
+				/controls/gear/lever eq 0
 				gear/unit[2]/pos-norm-actuator lt 0.01
 			</test>
 			<test logic="AND" value="2"> <!-- Down -->
-				/controls/gear/lever-cockpit eq 3
+				/controls/gear/lever eq 3
 				gear/unit[2]/pos-norm-actuator gt 0.99
 			</test>
 		</switch>
@@ -1072,7 +1072,7 @@
 	
 	<channel name="Tiller">
 		
-		<switch name="/controls/gear/steering-switched">
+		<switch name="/systems/fcs/tiller/input-switched">
 			<default value="/controls/flight/rudder"/>
 			<test value="0">
 				/gear/gear[0]/wow ne 1
@@ -1086,7 +1086,7 @@
 		</switch>
 		
 		<scheduled_gain name="/systems/fcs/tiller/handle-scheduled">
-			<input>/controls/gear/steering-switched</input>
+			<input>/systems/fcs/tiller/input-switched</input>
 			<table>
 				<independentVar lookup="row">/velocities/groundspeed-kt</independentVar>
 				<independentVar lookup="column">/systems/acconfig/options/separate-tiller-axis</independentVar>

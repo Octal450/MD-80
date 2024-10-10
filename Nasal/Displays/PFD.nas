@@ -189,7 +189,7 @@ var canvasBase = {
 		
 		me["AI_bank"].setRotation(-Value.Ai.roll * D2R);
 		
-		if (pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() >= 60 and pts.Controls.Flight.flapsInput.getValue() > 0) {
+		if (pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() >= 60 and systems.FCS.flapsInput.getValue() > 0) {
 			me["AI_PLI"].setTranslation(0, math.clamp(Value.Ai.stallAlphaDeg - Value.Ai.alpha, -20, 20) * -12.345);
 			if (Value.Ai.alpha >= Value.Ai.stallAlphaDeg) {
 				me["AI_PLI_dual_cue"].setColor(1, 0, 0);

@@ -629,7 +629,7 @@
 					<pow>
 						<table>
 							<independentVar lookup="row">velocities/mach</independentVar>
-							<independentVar lookup="column">/controls/flight/flaps-input</independentVar> <!-- Take advantage of table interpolation, values same -->
+							<independentVar lookup="column">/systems/fcs/flaps/input</independentVar> <!-- Take advantage of table interpolation, values same -->
 							<independentVar lookup="table">/position/altitude-ft</independentVar>
 							<tableData breakPoint="0">
 								      0     1
@@ -1169,7 +1169,7 @@
 			</test>
 			<test logic="AND" value="/systems/engines/control-1/throttle-pos-appr">
 				position/wow eq 0
-				/controls/gear/lever eq 1
+				/systems/gear/cmd eq 1
 			</test>
 		</switch>
 		
@@ -1279,7 +1279,7 @@
 			</test>
 			<test logic="AND" value="/systems/engines/control-2/throttle-pos-appr">
 				position/wow eq 0
-				/controls/gear/lever eq 1
+				/systems/gear/cmd eq 1
 			</test>
 		</switch>
 		

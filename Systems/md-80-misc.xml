@@ -21,8 +21,8 @@
 			<test logic="AND" value="1">
 				/controls/switches/seatbelt-sign eq 0.5
 				<test logic="OR">
-					/controls/flight/flaps-input ne 0
-					/controls/gear/lever eq 1
+					/systems/fcs/flaps/input ne 0
+					/systems/gear/cmd eq 1
 				</test>
 			</test>
 		</switch>
@@ -34,7 +34,7 @@
 			</test>
 			<test logic="AND" value="1">
 				/controls/switches/no-smoking-sign eq 0.5
-				/controls/gear/lever eq 1
+				/systems/gear/cmd eq 1
 			</test>
 		</switch>
 		
@@ -62,13 +62,13 @@
 			<default value="0"/>
 			<test logic="AND" value="0.6">
 				/controls/lighting/landing-light-n eq 0.5
-				/controls/gear/lever eq 1
+				/systems/gear/cmd eq 1
 				/gear/gear[0]/position-norm ge 0.99
 				/systems/electrical/bus/emer-ac ge 112
 			</test>
 			<test logic="AND" value="1">
 				/controls/lighting/landing-light-n eq 1.0
-				/controls/gear/lever eq 1
+				/systems/gear/cmd eq 1
 				/gear/gear[0]/position-norm ge 0.99
 				/systems/electrical/bus/emer-ac ge 112
 			</test>

@@ -699,7 +699,7 @@
 			<test logic="OR" value="0">
 				position/wow eq 1
 				/systems/dfgs/power-avail eq 0
-				/controls/flight/flaps-input eq 0
+				/systems/fcs/flaps/input eq 0
 				aero/alpha-deg-damped le /systems/dfgs/stall-appr-alpha-deg
 				/accelerations/pilot-g le 0.6
 			</test>
