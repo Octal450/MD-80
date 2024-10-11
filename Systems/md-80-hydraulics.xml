@@ -5,10 +5,10 @@
 
 <system name="MD-80: Hydraulics">
 	
-	<property value="0">fcs/left-brake-actuator-feedback</property>
-	<property value="0">fcs/left-brake-input-feedback</property>
-	<property value="0">fcs/right-brake-actuator-feedback</property>
-	<property value="0">fcs/right-brake-input-feedback</property>
+	<property value="0">/systems/fcs/brakes/left-actuator-feedback</property>
+	<property value="0">/systems/fcs/brakes/left-input-feedback</property>
+	<property value="0">/systems/fcs/brakes/right-actuator-feedback</property>
+	<property value="0">/systems/fcs/brakes/right-input-feedback</property>
 	<property value="2990">/systems/hydraulics/brakes/sys-l-psi</property>
 	<property value="3010">/systems/hydraulics/brakes/sys-r-psi</property>
 	<property value="0">/systems/hydraulics/trans-sys-l-to-sys-r</property>
@@ -244,8 +244,8 @@
 			<function>
 				<abs>
 					<difference>
-						<property>fcs/left-brake-actuator-feedback</property>
-						<property>fcs/left-brake-input-feedback</property>
+						<property>/systems/fcs/brakes/left-actuator-feedback</property>
+						<property>/systems/fcs/brakes/left-input-feedback</property>
 					</difference>
 				</abs>
 			</function>
@@ -255,8 +255,8 @@
 			<function>
 				<abs>
 					<difference>
-						<property>fcs/right-brake-actuator-feedback</property>
-						<property>fcs/right-brake-input-feedback</property>
+						<property>/systems/fcs/brakes/right-actuator-feedback</property>
+						<property>/systems/fcs/brakes/right-input-feedback</property>
 					</difference>
 				</abs>
 			</function>
@@ -290,11 +290,11 @@
 				<difference>
 					<property>/systems/hydraulics/sys-l-psi</property>
 					<product>
-						<property>fcs/left-brake-actuator-feedback</property>
+						<property>/systems/fcs/brakes/left-actuator-feedback</property>
 						<value>45</value>
 					</product>
 					<product>
-						<property>fcs/right-brake-actuator-feedback</property>
+						<property>/systems/fcs/brakes/right-actuator-feedback</property>
 						<value>50</value>
 					</product>
 				</difference>
@@ -321,11 +321,11 @@
 				<difference>
 					<property>/systems/hydraulics/sys-r-psi</property>
 					<product>
-						<property>fcs/left-brake-actuator-feedback</property>
+						<property>/systems/fcs/brakes/left-actuator-feedback</property>
 						<value>50</value>
 					</product>
 					<product>
-						<property>fcs/right-brake-actuator-feedback</property>
+						<property>/systems/fcs/brakes/right-actuator-feedback</property>
 						<value>55</value>
 					</product>
 				</difference>
