@@ -219,7 +219,7 @@ var speedbrakeKey = func() {
 		pts.Controls.Flight.speedbrakeArm.setBoolValue(0);
 	} else {
 		pts.Controls.Flight.speedbrakeTemp = pts.Controls.Flight.speedbrake.getValue();
-		if (pts.Systems.Spoilers.mainGearAnd.getBoolValue()) {
+		if (systems.FCS.mainGearAnd.getBoolValue()) {
 			if (pts.Controls.Flight.speedbrakeTemp < 0.2) {
 				pts.Controls.Flight.speedbrake.setValue(0.2);
 			} else if (pts.Controls.Flight.speedbrakeTemp < 0.4) {
@@ -248,7 +248,7 @@ var speedbrakeKey = func() {
 var deploySpeedbrake = func() {
 	pts.Controls.Flight.speedbrakeArm.setBoolValue(0);
 	pts.Controls.Flight.speedbrakeTemp = pts.Controls.Flight.speedbrake.getValue();
-	if (pts.Systems.Spoilers.mainGearAnd.getBoolValue()) {
+	if (systems.FCS.mainGearAnd.getBoolValue()) {
 		if (pts.Controls.Flight.speedbrakeTemp < 0.2) {
 			pts.Controls.Flight.speedbrake.setValue(0.2);
 		} else if (pts.Controls.Flight.speedbrakeTemp < 0.4) {
@@ -272,7 +272,7 @@ var deploySpeedbrake = func() {
 var retractSpeedbrake = func() {
 	pts.Controls.Flight.speedbrakeArm.setBoolValue(0);
 	pts.Controls.Flight.speedbrakeTemp = pts.Controls.Flight.speedbrake.getValue();
-	if (pts.Systems.Spoilers.mainGearAnd.getBoolValue()) {
+	if (systems.FCS.mainGearAnd.getBoolValue()) {
 		if (pts.Controls.Flight.speedbrakeTemp > 0.6) {
 			pts.Controls.Flight.speedbrake.setValue(0.6);
 		} else if (pts.Controls.Flight.speedbrakeTemp > 0.4) {

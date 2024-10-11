@@ -208,6 +208,7 @@ var doFullThrust = func() {
 # Flight Controls
 var FCS = {
 	flapsInput: props.globals.getNode("/systems/fcs/flaps/input"),
+	mainGearAnd: props.globals.getNode("/systems/fcs/spoilers/main-gear-and"),
 	stabilizerRate: props.globals.getNode("/systems/fcs/stabilizer/rate-switch"),
 	Controls: {
 		machTrim: props.globals.getNode("/controls/fcs/mach-trim"),
