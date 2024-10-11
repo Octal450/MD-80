@@ -24,7 +24,7 @@ var ELEC = {
 		instAcL: props.globals.getNode("/systems/electrical/bus/inst-ac-l"),
 		instAcR: props.globals.getNode("/systems/electrical/bus/inst-ac-r"),
 	},
-	Fail: {
+	Failures: {
 		acTie: props.globals.getNode("/systems/failures/electrical/ac-tie"),
 		apu: props.globals.getNode("/systems/failures/electrical/apu"),
 		battery: props.globals.getNode("/systems/failures/electrical/battery"),
@@ -91,7 +91,7 @@ var ELEC = {
 			volt: props.globals.getNode("/systems/electrical/sources/tr-r2/output-volt"),
 		},
 	},
-	Switch: {
+	Controls: {
 		acTie: props.globals.getNode("/controls/electrical/ac-tie"),
 		apuGndSvc: props.globals.getNode("/controls/electrical/apu-gndsvc"),
 		apuPwrL: props.globals.getNode("/controls/electrical/apu-pwr-l"),
@@ -112,34 +112,34 @@ var ELEC = {
 	},
 	init: func() {
 		me.resetFailures();
-		me.Switch.acTie.setBoolValue(1);
-		me.Switch.apuGndSvc.setBoolValue(0);
-		me.Switch.apuPwrL.setBoolValue(0);
-		me.Switch.apuPwrR.setBoolValue(0);
-		me.Switch.battery.setBoolValue(0);
-		me.Switch.csdL.setBoolValue(1);
-		me.Switch.csdR.setBoolValue(1);
-		me.Switch.dcTie.setBoolValue(0);
-		me.Switch.emerPwr.setBoolValue(0);
-		me.Switch.extGndSvc.setBoolValue(0);
-		me.Switch.extPwrL.setBoolValue(0);
-		me.Switch.extPwrR.setBoolValue(0);
-		me.Switch.galley.setBoolValue(1);
-		me.Switch.genApu.setBoolValue(1);
-		me.Switch.genL.setValue(1);
-		me.Switch.genR.setValue(1);
-		me.Switch.groundCart.setBoolValue(0);
+		me.Controls.acTie.setBoolValue(1);
+		me.Controls.apuGndSvc.setBoolValue(0);
+		me.Controls.apuPwrL.setBoolValue(0);
+		me.Controls.apuPwrR.setBoolValue(0);
+		me.Controls.battery.setBoolValue(0);
+		me.Controls.csdL.setBoolValue(1);
+		me.Controls.csdR.setBoolValue(1);
+		me.Controls.dcTie.setBoolValue(0);
+		me.Controls.emerPwr.setBoolValue(0);
+		me.Controls.extGndSvc.setBoolValue(0);
+		me.Controls.extPwrL.setBoolValue(0);
+		me.Controls.extPwrR.setBoolValue(0);
+		me.Controls.galley.setBoolValue(1);
+		me.Controls.genApu.setBoolValue(1);
+		me.Controls.genL.setValue(1);
+		me.Controls.genR.setValue(1);
+		me.Controls.groundCart.setBoolValue(0);
 		me.Source.Bat1.percent.setValue(99.9);
 		me.Source.Bat2.percent.setValue(99.9);
 	},
 	resetFailures: func() {
-		me.Switch.csdL.setBoolValue(1);
-		me.Switch.csdR.setBoolValue(1);
-		me.Fail.acTie.setBoolValue(0);
-		me.Fail.apu.setBoolValue(0);
-		me.Fail.battery.setBoolValue(0);
-		me.Fail.dcTie.setBoolValue(0);
-		me.Fail.genL.setBoolValue(0);
-		me.Fail.genR.setBoolValue(0);
+		me.Controls.csdL.setBoolValue(1);
+		me.Controls.csdR.setBoolValue(1);
+		me.Failures.acTie.setBoolValue(0);
+		me.Failures.apu.setBoolValue(0);
+		me.Failures.battery.setBoolValue(0);
+		me.Failures.dcTie.setBoolValue(0);
+		me.Failures.genL.setBoolValue(0);
+		me.Failures.genR.setBoolValue(0);
 	},
 };

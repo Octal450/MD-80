@@ -2,7 +2,7 @@
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
 var HYD = {
-	Fail: {
+	Failures: {
 		auxPump: props.globals.getNode("/systems/failures/hydraulics/aux-pump"),
 		lPump: props.globals.getNode("/systems/failures/hydraulics/l-pump"),
 		rPump: props.globals.getNode("/systems/failures/hydraulics/r-pump"),
@@ -23,7 +23,7 @@ var HYD = {
 		sysR: props.globals.getNode("/systems/hydraulics/sys-r-qty"),
 		sysRInput: props.globals.getNode("/systems/hydraulics/sys-r-qty-input"),
 	},
-	Switch: {
+	Controls: {
 		auxPump: props.globals.getNode("/controls/hydraulics/aux-pump"),
 		gearGravityExt: props.globals.getNode("/controls/hydraulics/gear-gravity-ext"),
 		lPump: props.globals.getNode("/controls/hydraulics/l-pump"),
@@ -34,18 +34,18 @@ var HYD = {
 		me.resetFailures();
 		me.Qty.sysLInput.setValue(math.round((rand() * 8) + 10 , 0.1)); # Random between 10 and 18
 		me.Qty.sysRInput.setValue(math.round((rand() * 8) + 10 , 0.1)); # Random between 10 and 18
-		me.Switch.auxPump.setValue(0);
-		me.Switch.gearGravityExt.setBoolValue(0);
-		me.Switch.lPump.setValue(0);
-		me.Switch.rPump.setValue(0);
-		me.Switch.trans.setBoolValue(0);
+		me.Controls.auxPump.setValue(0);
+		me.Controls.gearGravityExt.setBoolValue(0);
+		me.Controls.lPump.setValue(0);
+		me.Controls.rPump.setValue(0);
+		me.Controls.trans.setBoolValue(0);
 	},
 	resetFailures: func() {
-		me.Fail.auxPump.setBoolValue(0);
-		me.Fail.lPump.setBoolValue(0);
-		me.Fail.rPump.setBoolValue(0);
-		me.Fail.trans.setBoolValue(0);
-		me.Fail.sysLLeak.setBoolValue(0);
-		me.Fail.sysRLeak.setBoolValue(0);
+		me.Failures.auxPump.setBoolValue(0);
+		me.Failures.lPump.setBoolValue(0);
+		me.Failures.rPump.setBoolValue(0);
+		me.Failures.trans.setBoolValue(0);
+		me.Failures.sysLLeak.setBoolValue(0);
+		me.Failures.sysRLeak.setBoolValue(0);
 	},
 };

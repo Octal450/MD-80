@@ -2,7 +2,7 @@
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
 var PNEU = {
-	Fail: {
+	Failures: {
 		bleedApu: props.globals.getNode("/systems/failures/pneumatics/bleed-apu"),
 		bleedL: props.globals.getNode("/systems/failures/pneumatics/bleed-l"),
 		bleedR: props.globals.getNode("/systems/failures/pneumatics/bleed-r"),
@@ -21,7 +21,7 @@ var PNEU = {
 		engR: props.globals.getNode("/systems/pneumatics/eng-r-psi"),
 		ground: props.globals.getNode("/systems/pneumatics/ground-psi"),
 	},
-	Switch: {
+	Controls: {
 		bleedApu: props.globals.getNode("/controls/pneumatics/bleed-apu"),
 		cabinTemp: props.globals.getNode("/controls/pneumatics/cabin-temp"),
 		cockpitTemp: props.globals.getNode("/controls/pneumatics/cockpit-temp"),
@@ -36,23 +36,23 @@ var PNEU = {
 	},
 	init: func() {
 		me.resetFailures();
-		me.Switch.bleedApu.setValue(0);
-		me.Switch.cabinTemp.setValue(0.45);
-		me.Switch.cockpitTemp.setValue(0.45);
-		me.Switch.groundAir.setBoolValue(0);
-		me.Switch.instrumentFlow.setValue(0);
-		me.Switch.radioRack.setBoolValue(0);
-		me.Switch.supplyL.setValue(0);
-		me.Switch.supplyR.setValue(0);
-		me.Switch.tempSel.setBoolValue(0);
-		me.Switch.xBleedL.setValue(0);
-		me.Switch.xBleedR.setValue(0);
+		me.Controls.bleedApu.setValue(0);
+		me.Controls.cabinTemp.setValue(0.45);
+		me.Controls.cockpitTemp.setValue(0.45);
+		me.Controls.groundAir.setBoolValue(0);
+		me.Controls.instrumentFlow.setValue(0);
+		me.Controls.radioRack.setBoolValue(0);
+		me.Controls.supplyL.setValue(0);
+		me.Controls.supplyR.setValue(0);
+		me.Controls.tempSel.setBoolValue(0);
+		me.Controls.xBleedL.setValue(0);
+		me.Controls.xBleedR.setValue(0);
 	},
 	resetFailures: func() {
-		me.Fail.bleedApu.setBoolValue(0);
-		me.Fail.bleedL.setBoolValue(0);
-		me.Fail.bleedR.setBoolValue(0);
-		me.Fail.packL.setBoolValue(0);
-		me.Fail.packR.setBoolValue(0);
+		me.Failures.bleedApu.setBoolValue(0);
+		me.Failures.bleedL.setBoolValue(0);
+		me.Failures.bleedR.setBoolValue(0);
+		me.Failures.packL.setBoolValue(0);
+		me.Failures.packR.setBoolValue(0);
 	},
 };
