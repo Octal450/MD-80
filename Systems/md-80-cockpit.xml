@@ -370,7 +370,7 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/spoilers-lever-rotate">
-			<input>/systems/spoilers/lever-cmd</input>
+			<input>/systems/fcs/spoilers/lever-cmd</input>
 			<c1>20</c1>
 		</lag_filter>
 		

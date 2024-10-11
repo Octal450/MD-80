@@ -24,7 +24,7 @@
 			</function>
 		</fcs_function>
 		
-		<switch name="/systems/spoilers/auto-speedbrake-arm"> <!-- Important for spoiler axis -->
+		<switch name="/systems/fcs/spoilers/auto-speedbrake-arm"> <!-- Important for spoiler axis -->
 			<default value="/controls/flight/speedbrake-arm"/>
 			<test value="0">
 				/controls/flight/speedbrake-fixed ge 0.2
@@ -32,7 +32,7 @@
 			<output>/controls/flight/speedbrake-arm</output>
 		</switch>
 		
-		<switch name="/systems/spoilers/main-gear-or">
+		<switch name="/systems/fcs/spoilers/main-gear-or">
 			<default value="0"/>
 			<test logic="OR" value="1">
 				gear/unit[1]/WOW eq 1
@@ -40,7 +40,7 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/spoilers/main-gear-and">
+		<switch name="/systems/fcs/spoilers/main-gear-and">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				gear/unit[1]/WOW eq 1
@@ -48,14 +48,14 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/spoilers/max-lever">
+		<switch name="/systems/fcs/spoilers/max-lever">
 			<default value="3"/>
 			<test value="4">
-				/systems/spoilers/main-gear-and eq 1
+				/systems/fcs/spoilers/main-gear-and eq 1
 			</test>
 		</switch>
 		
-		<switch name="/systems/spoilers/lever-input">
+		<switch name="/systems/fcs/spoilers/lever-input">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/controls/flight/speedbrake-fixed ge 0.2
@@ -74,31 +74,31 @@
 			</test>
 			<clipto>
 				<min>0</min>
-				<max>/systems/spoilers/max-lever</max>
+				<max>/systems/fcs/spoilers/max-lever</max>
 			</clipto>
 		</switch>
 		
-		<switch name="/systems/spoilers/arm-input-wow"> <!-- Latching Switch -->
+		<switch name="/systems/fcs/spoilers/arm-input-wow"> <!-- Latching Switch -->
 			<default value="position/wow"/>
-			<test logic="AND" value="/systems/spoilers/arm-input-wow">
+			<test logic="AND" value="/systems/fcs/spoilers/arm-input-wow">
 				/controls/flight/speedbrake-arm eq 1
 				position/wow eq 1
 			</test>
 		</switch>
 		
-		<switch name="/systems/spoilers/auto-speedbrake-arm-cmd">
+		<switch name="/systems/fcs/spoilers/auto-speedbrake-arm-cmd">
 			<default value="0"/>
 			<test logic="AND" value="1"> <!-- Landing -->
 				/controls/flight/speedbrake-arm eq 1
-				/systems/spoilers/arm-input-wow ne 1
+				/systems/fcs/spoilers/arm-input-wow ne 1
 			</test>
 			<test logic="AND" value="2"> <!-- RTO -->
 				/controls/flight/speedbrake-arm eq 1
-				/systems/spoilers/arm-input-wow eq 1
+				/systems/fcs/spoilers/arm-input-wow eq 1
 			</test>
 		</switch>
 		
-		<switch name="/systems/spoilers/any-reverse">
+		<switch name="/systems/fcs/spoilers/any-reverse">
 			<default value="0"/>
 			<test logic="OR" value="1">
 				/controls/engines/engine[0]/reverse-cmd eq 1
@@ -106,75 +106,75 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/spoilers/auto-speedbrake">
+		<switch name="/systems/fcs/spoilers/auto-speedbrake">
 			<description>Flip flop for autospeedbrake</description>
-			<default value="/systems/spoilers/auto-speedbrake"/>
-			<test value="/systems/spoilers/auto-speedbrake"> <!-- No power, don't do anything -->
+			<default value="/systems/fcs/spoilers/auto-speedbrake"/>
+			<test value="/systems/fcs/spoilers/auto-speedbrake"> <!-- No power, don't do anything -->
 				/systems/electrical/outputs/idk lt 25
 			</test>
 			<test logic="OR" value="0"> <!-- Reset -->
 				/systems/engines/throttle-lever-feedback[0] ge 0.05
 				/systems/engines/throttle-lever-feedback[1] ge 0.05
-				/systems/spoilers/auto-speedbrake-arm-cmd eq 0
+				/systems/fcs/spoilers/auto-speedbrake-arm-cmd eq 0
 			</test>
 			<test logic="AND" value="4"> <!-- Set --> <!-- Landing -->
 				/systems/engines/throttle-lever-feedback[0] lt 0.05
 				/systems/engines/throttle-lever-feedback[1] lt 0.05
-				/systems/spoilers/auto-speedbrake-arm-cmd eq 1
-				/systems/spoilers/main-gear-or eq 1
+				/systems/fcs/spoilers/auto-speedbrake-arm-cmd eq 1
+				/systems/fcs/spoilers/main-gear-or eq 1
 				/instrumentation/airspeed-indicator/indicated-speed-kt ge 50
 			</test>
 			<test logic="AND" value="4"> <!-- Set --> <!-- RTO -->
-				/systems/spoilers/any-reverse eq 1
-				/systems/spoilers/auto-speedbrake-arm-cmd eq 2
-				/systems/spoilers/main-gear-or eq 1
+				/systems/fcs/spoilers/any-reverse eq 1
+				/systems/fcs/spoilers/auto-speedbrake-arm-cmd eq 2
+				/systems/fcs/spoilers/main-gear-or eq 1
 				/instrumentation/airspeed-indicator/indicated-speed-kt ge 50
 			</test>
-			<output>/systems/spoilers/auto-speedbrake-feedback</output>
+			<output>/systems/fcs/spoilers/auto-speedbrake-feedback</output>
 		</switch>
 		
-		<switch name="/systems/spoilers/ground-spoiler-unlocked-cmd">
+		<switch name="/systems/fcs/spoilers/ground-spoiler-unlocked-cmd">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/systems/spoilers/main-gear-and eq 1
+				/systems/fcs/spoilers/main-gear-and eq 1
 				/systems/engines/throttle-lever-feedback[0] lt 0.05
 				/systems/engines/throttle-lever-feedback[1] lt 0.05
 			</test>
 		</switch>
 		
-		<actuator name="/systems/spoilers/ground-spoiler-unlocked">
-			<input>/systems/spoilers/ground-spoiler-unlocked-cmd</input>
+		<actuator name="/systems/fcs/spoilers/ground-spoiler-unlocked">
+			<input>/systems/fcs/spoilers/ground-spoiler-unlocked-cmd</input>
 			<rate_limit sense="incr">2</rate_limit>
 			<rate_limit sense="decr">100</rate_limit>
-			<output>/systems/spoilers/ground-spoiler-unlocked-out</output>
+			<output>/systems/fcs/spoilers/ground-spoiler-unlocked-out</output>
 		</actuator>
 		
-		<switch name="/systems/spoilers/lever-cmd">
-			<default value="/systems/spoilers/lever-input"/>
-			<test value="/systems/spoilers/auto-speedbrake">
+		<switch name="/systems/fcs/spoilers/lever-cmd">
+			<default value="/systems/fcs/spoilers/lever-input"/>
+			<test value="/systems/fcs/spoilers/auto-speedbrake">
 				/controls/flight/speedbrake-arm eq 1
 			</test>
 		</switch>
 		
-		<switch name="/systems/spoilers/main-cmd-deg">
+		<switch name="/systems/fcs/spoilers/main-cmd-deg">
 			<default value="0"/>
 			<test value="11.6">
-				/systems/spoilers/lever-cmd eq 1
+				/systems/fcs/spoilers/lever-cmd eq 1
 			</test>
 			<test value="23.2">
-				/systems/spoilers/lever-cmd eq 2
+				/systems/fcs/spoilers/lever-cmd eq 2
 			</test>
 			<test value="35">
-				/systems/spoilers/lever-cmd eq 3
+				/systems/fcs/spoilers/lever-cmd eq 3
 			</test>
 			<test value="60">
-				/systems/spoilers/lever-cmd eq 4
+				/systems/fcs/spoilers/lever-cmd eq 4
 			</test>
 			<output>/systems/abs/spoilers-cmd-deg</output>
 		</switch>
 		
-		<aerosurface_scale name="/systems/spoilers/main-cmd">
-			<input>/systems/spoilers/main-cmd-deg</input>
+		<aerosurface_scale name="/systems/fcs/spoilers/main-cmd">
+			<input>/systems/fcs/spoilers/main-cmd-deg</input>
 			<domain>
 				<min>0</min>
 				<max>60</max>
@@ -185,11 +185,11 @@
 			</range>
 		</aerosurface_scale>
 		
-		<fcs_function name="/systems/spoilers/aileron"> <!-- At 5 deg yoke deflection they start to go out, 90 deg yoke = 20 deg tab, so 5 deg yoke is 0.0555555 -->
+		<fcs_function name="/systems/fcs/spoilers/aileron"> <!-- At 5 deg yoke deflection they start to go out, 90 deg yoke = 20 deg tab, so 5 deg yoke is 0.0555555 -->
 			<function>
 				<quotient>
 					<table>
-						<independentVar lookup="row">/systems/fcs/aileron/yoke-switch</independentVar>
+						<independentVar lookup="row">/systems/fcs/aileron-yoke-switch</independentVar>
 						<tableData>
 							-1.0000000 -35
 							-0.0555555   0
@@ -220,8 +220,8 @@
 		
 		<switch name="/systems/fcs/spoiler-l1/lock">
 			<default value="0"/>
-			<test value="/systems/spoilers/main-cmd">
-				/systems/spoilers/ground-spoiler-unlocked eq 1
+			<test value="/systems/fcs/spoilers/main-cmd">
+				/systems/fcs/spoilers/ground-spoiler-unlocked eq 1
 			</test>
 		</switch>
 		
@@ -261,8 +261,8 @@
 	<channel name="Spoiler L2">
 		
 		<summer name="/systems/fcs/spoiler-l2/sum">
-			<input>-/systems/spoilers/aileron</input>
-			<input>/systems/spoilers/main-cmd</input>
+			<input>-/systems/fcs/spoilers/aileron</input>
+			<input>/systems/fcs/spoilers/main-cmd</input>
 			<clipto>
 				<min>0.0</min>
 				<max>1.0</max>
@@ -303,8 +303,8 @@
 	<channel name="Spoiler L3">
 		
 		<summer name="/systems/fcs/spoiler-l3/sum">
-			<input>-/systems/spoilers/aileron</input>
-			<input>/systems/spoilers/main-cmd</input>
+			<input>-/systems/fcs/spoilers/aileron</input>
+			<input>/systems/fcs/spoilers/main-cmd</input>
 			<clipto>
 				<min>0.0</min>
 				<max>1.0</max>
@@ -346,8 +346,8 @@
 		
 		<switch name="/systems/fcs/spoiler-r1/lock">
 			<default value="0"/>
-			<test value="/systems/spoilers/main-cmd">
-				/systems/spoilers/ground-spoiler-unlocked eq 1
+			<test value="/systems/fcs/spoilers/main-cmd">
+				/systems/fcs/spoilers/ground-spoiler-unlocked eq 1
 			</test>
 		</switch>
 		
@@ -387,8 +387,8 @@
 	<channel name="Spoiler R2">
 		
 		<summer name="/systems/fcs/spoiler-r2/sum">
-			<input>/systems/spoilers/aileron</input>
-			<input>/systems/spoilers/main-cmd</input>
+			<input>/systems/fcs/spoilers/aileron</input>
+			<input>/systems/fcs/spoilers/main-cmd</input>
 			<clipto>
 				<min>0.0</min>
 				<max>1.0</max>
@@ -429,8 +429,8 @@
 	<channel name="Spoiler R3">
 		
 		<summer name="/systems/fcs/spoiler-r3/sum">
-			<input>/systems/spoilers/aileron</input>
-			<input>/systems/spoilers/main-cmd</input>
+			<input>/systems/fcs/spoilers/aileron</input>
+			<input>/systems/fcs/spoilers/main-cmd</input>
 			<clipto>
 				<min>0.0</min>
 				<max>1.0</max>

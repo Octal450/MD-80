@@ -93,7 +93,7 @@
 			</function>
 		</fcs_function>
 		
-		<switch name="/systems/fcs/aileron/yoke-switch">
+		<switch name="/systems/fcs/aileron-yoke-switch">
 			<default value="/controls/flight/aileron"/>
 			<test value="/systems/dfgs/afs/roll-cmd">
 				/systems/dfgs/afs/enabled eq 1
@@ -101,7 +101,7 @@
 		</switch>
 		
 		<lag_filter name="/systems/fcs/aileron-yoke">
-			<input>/systems/fcs/aileron/yoke-switch</input>
+			<input>/systems/fcs/aileron-yoke-switch</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -110,18 +110,18 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<switch name="/systems/fcs/elevator/yoke-switch">
+		<switch name="/systems/fcs/elevators/yoke-switch">
 			<default value="/controls/flight/elevator"/>
 			<test value="/systems/dfgs/afs/pitch-cmd">
 				/systems/dfgs/afs/enabled eq 1
 			</test>
 		</switch>
 		
-		<scheduled_gain name="/systems/fcs/elevator/mach-trim"> <!-- So that we still get full -1 to 1 deflection -->
+		<scheduled_gain name="/systems/fcs/elevators/mach-trim"> <!-- So that we still get full -1 to 1 deflection -->
 			<input>/systems/dfgs/mach-trim/output</input>
 			<gain>/controls/fcs/mach-trim</gain>
 			<table>
-				<independentVar lookup="row">/systems/fcs/elevator/yoke-switch</independentVar>
+				<independentVar lookup="row">/systems/fcs/elevators/yoke-switch</independentVar>
 				<tableData>
 					  -1  0
 					   0  1
@@ -130,10 +130,10 @@
 			</table>
 		</scheduled_gain>
 		
-		<scheduled_gain name="/systems/fcs/elevator/stick-pusher"> <!-- To allow pilot to override -->
+		<scheduled_gain name="/systems/fcs/elevators/stick-pusher"> <!-- To allow pilot to override -->
 			<input>/systems/dfgs/stick-pusher/output</input>
 			<table>
-				<independentVar lookup="row">/systems/fcs/elevator/yoke-switch</independentVar>
+				<independentVar lookup="row">/systems/fcs/elevators/yoke-switch</independentVar>
 				<tableData>
 					  -1  0.5
 					   0  1.0
@@ -141,10 +141,10 @@
 			</table>
 		</scheduled_gain>
 		
-		<summer name="/systems/fcs/elevator/yoke-sum">
-			<input>/systems/fcs/elevator/yoke-switch</input>
-			<input>/systems/fcs/elevator/stick-pusher</input>
-			<input>/systems/fcs/elevator/mach-trim</input>
+		<summer name="/systems/fcs/elevators/yoke-sum">
+			<input>/systems/fcs/elevators/yoke-switch</input>
+			<input>/systems/fcs/elevators/stick-pusher</input>
+			<input>/systems/fcs/elevators/mach-trim</input>
 			<clipto>
 				<min>-1.0</min>
 				<max>1.0</max>
@@ -152,7 +152,7 @@
 		</summer>
 		
 		<lag_filter name="/systems/fcs/elevator-yoke">
-			<input>/systems/fcs/elevator/yoke-sum</input>
+			<input>/systems/fcs/elevators/yoke-sum</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -272,7 +272,7 @@
 	
 	<channel name="Elevator Common">
 		
-		<switch name="/systems/fcs/elevator/pwr-active">
+		<switch name="/systems/fcs/elevators/pwr-active">
 			<default value="0"/>
 			<test logic="AND" value="1"> <!-- 0.5 is +10 control tab defl -->
 				/systems/hydraulics/sys-l-psi ge 950
@@ -281,8 +281,8 @@
 			</test>
 		</switch>
 		
-		<pure_gain name="/systems/fcs/elevator/pwr-cmd-deg">
-			<input>/systems/fcs/elevator/yoke-sum</input> <!-- Don't use the lagged version -->
+		<pure_gain name="/systems/fcs/elevators/pwr-cmd-deg">
+			<input>/systems/fcs/elevators/yoke-sum</input> <!-- Don't use the lagged version -->
 			<gain>22</gain>
 			<clipto>
 				<min>10</min>
@@ -290,7 +290,7 @@
 			</clipto>
 		</pure_gain>
 		
-		<fcs_function name="/systems/fcs/elevator/float-deg"> <!-- My guess on implementing the thing that the anti-float tab corrects -->
+		<fcs_function name="/systems/fcs/elevators/float-deg"> <!-- My guess on implementing the thing that the anti-float tab corrects -->
 			<function>
 				<product>
 					<property>/systems/fcs/authority-alpha</property>
@@ -339,7 +339,7 @@
 			<default value="/systems/fcs/surface-rate"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="80">
 				/systems/hydraulics/sys-l-psi ge 950
-				/systems/fcs/elevator/pwr-active eq 1
+				/systems/fcs/elevators/pwr-active eq 1
 			</test>
 		</switch>
 		
@@ -347,7 +347,7 @@
 			<default value="/systems/fcs/aero-lag"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="26.5">
 				/systems/hydraulics/sys-l-psi ge 950
-				/systems/fcs/elevator/pwr-active eq 1
+				/systems/fcs/elevators/pwr-active eq 1
 			</test>
 		</switch>
 		
@@ -355,15 +355,15 @@
 			<default value="100000"/> <!-- So it won't blip -->
 			<test logic="AND" value="80">
 				/systems/hydraulics/sys-l-psi ge 950
-				/systems/fcs/elevator/pwr-active eq 1
+				/systems/fcs/elevators/pwr-active eq 1
 			</test>
 		</switch>
 		
 		<switch name="/systems/fcs/elevator-l/anti-up-input">
 			<default value="/systems/fcs/elevator-l/anti-up"/>
-			<test logic="AND" value="/systems/fcs/elevator/pwr-cmd-deg">
+			<test logic="AND" value="/systems/fcs/elevators/pwr-cmd-deg">
 				/systems/hydraulics/sys-l-psi ge 950
-				/systems/fcs/elevator/pwr-active eq 1
+				/systems/fcs/elevators/pwr-active eq 1
 			</test>
 		</switch>
 		
@@ -377,10 +377,10 @@
 			<function>
 				<ifthen>
 					<eq>
-						<property>/systems/fcs/elevator/pwr-active</property>
+						<property>/systems/fcs/elevators/pwr-active</property>
 						<value>1</value>
 					</eq>
-					<property>/systems/fcs/elevator/pwr-cmd-deg</property>
+					<property>/systems/fcs/elevators/pwr-cmd-deg</property>
 					<sum>
 						<product>
 							<property>/systems/fcs/elevator-l/control-tab-cmd-deg</property>
@@ -393,7 +393,7 @@
 							<property>/systems/fcs/authority-alpha</property>
 						</product>
 						<property>/systems/fcs/elevator-l/anti-up-slow</property>
-						<property>/systems/fcs/elevator/float-deg</property>
+						<property>/systems/fcs/elevators/float-deg</property>
 					</sum>
 				</ifthen>
 			</function>
@@ -452,7 +452,7 @@
 			<default value="/systems/fcs/surface-rate"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="80"> <!-- Not a typo, left hydraulic on both -->
 				/systems/hydraulics/sys-l-psi ge 950
-				/systems/fcs/elevator/pwr-active eq 1
+				/systems/fcs/elevators/pwr-active eq 1
 			</test>
 		</switch>
 		
@@ -460,7 +460,7 @@
 			<default value="/systems/fcs/aero-lag"/> <!-- For aerodynamically flown -->
 			<test logic="AND" value="26.5"> <!-- Not a typo, left hydraulic on both -->
 				/systems/hydraulics/sys-l-psi ge 950
-				/systems/fcs/elevator/pwr-active eq 1
+				/systems/fcs/elevators/pwr-active eq 1
 			</test>
 		</switch>
 		
@@ -468,15 +468,15 @@
 			<default value="100000"/> <!-- So it won't blip -->
 			<test logic="AND" value="80"> <!-- Not a typo, left hydraulic on both -->
 				/systems/hydraulics/sys-l-psi ge 950
-				/systems/fcs/elevator/pwr-active eq 1
+				/systems/fcs/elevators/pwr-active eq 1
 			</test>
 		</switch>
 		
 		<switch name="/systems/fcs/elevator-r/anti-up-input">
 			<default value="/systems/fcs/elevator-r/anti-up"/>
-			<test logic="AND" value="/systems/fcs/elevator/pwr-cmd-deg"> <!-- Not a typo, left hydraulic on both -->
+			<test logic="AND" value="/systems/fcs/elevators/pwr-cmd-deg"> <!-- Not a typo, left hydraulic on both -->
 				/systems/hydraulics/sys-l-psi ge 950
-				/systems/fcs/elevator/pwr-active eq 1
+				/systems/fcs/elevators/pwr-active eq 1
 			</test>
 		</switch>
 		
@@ -490,10 +490,10 @@
 			<function>
 				<ifthen>
 					<eq>
-						<property>/systems/fcs/elevator/pwr-active</property>
+						<property>/systems/fcs/elevators/pwr-active</property>
 						<value>1</value>
 					</eq>
-					<property>/systems/fcs/elevator/pwr-cmd-deg</property>
+					<property>/systems/fcs/elevators/pwr-cmd-deg</property>
 					<sum>
 						<product>
 							<property>/systems/fcs/elevator-r/control-tab-cmd-deg</property>
@@ -506,7 +506,7 @@
 							<property>/systems/fcs/authority-alpha</property>
 						</product>
 						<property>/systems/fcs/elevator-r/anti-up-slow</property>
-						<property>/systems/fcs/elevator/float-deg</property>
+						<property>/systems/fcs/elevators/float-deg</property>
 					</sum>
 				</ifthen>
 			</function>

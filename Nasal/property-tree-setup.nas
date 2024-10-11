@@ -235,7 +235,7 @@ var Systems = {
 		shaking: props.globals.getNode("/systems/shake/shaking"),
 	},
 	Spoilers: {
-		mainGearAnd: props.globals.getNode("/systems/spoilers/main-gear-and"),
+		mainGearAnd: props.globals.getNode("/systems/fcs/spoilers/main-gear-and"),
 	},
 };
 
