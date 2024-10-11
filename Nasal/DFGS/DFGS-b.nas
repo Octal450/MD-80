@@ -2,15 +2,11 @@
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
 var Main = {
-	nlgTimer5: {
-		wowTimer: props.globals.getNode("/systems/dfgs/nlg-timer-5/wow-timer"),
-	},
+	nlgwowTimer5: props.globals.getNode("/systems/dfgs/nlg-timer-5/wow-timer"),
 	powerAvail: props.globals.getNode("/systems/dfgs/power-avail"),
 	powerAvailTemp: 0,
 	stallAlphaDeg: props.globals.getNode("/systems/dfgs/stall-alpha-deg"),
-	StickPusher: {
-		active: props.globals.getNode("/systems/dfgs/stick-pusher/active"),
-	},
+	stickPusherActive: props.globals.getNode("/systems/dfgs/stick-pusher/active"),
 };
 
 var Speeds = {
