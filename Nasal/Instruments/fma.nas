@@ -328,7 +328,7 @@ var canvasThrR = {
 	},
 };
 
-var init = func() {
+var setup = func() {
 	armLDisplay = canvas.new({
 		"name": "armL",
 		"size": [256, 180],
