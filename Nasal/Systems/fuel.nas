@@ -2,14 +2,6 @@
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
 var FUEL = {
-	Failures: {
-		auxTransA: props.globals.getNode("/systems/failures/fuel/aux-trans-a"),
-		auxTransB: props.globals.getNode("/systems/failures/fuel/aux-trans-b"),
-		pumpsC: props.globals.getNode("/systems/failures/fuel/pumps-c"),
-		pumpsL: props.globals.getNode("/systems/failures/fuel/pumps-l"),
-		pumpsR: props.globals.getNode("/systems/failures/fuel/pumps-r"),
-		pumpStart: props.globals.getNode("/systems/failures/fuel/pump-start"),
-	},
 	Controls: {
 		auxTransAftA: props.globals.getNode("/controls/fuel/aux-trans-aft-a"),
 		auxTransAftB: props.globals.getNode("/controls/fuel/aux-trans-aft-b"),
@@ -23,6 +15,14 @@ var FUEL = {
 		pumpFwdR: props.globals.getNode("/controls/fuel/pump-fwd-r"),
 		pumpStart: props.globals.getNode("/controls/fuel/pump-start"),
 		xFeed: props.globals.getNode("/controls/fuel/x-feed"),
+	},
+	Failures: {
+		auxTransA: props.globals.getNode("/systems/failures/fuel/aux-trans-a"),
+		auxTransB: props.globals.getNode("/systems/failures/fuel/aux-trans-b"),
+		pumpsC: props.globals.getNode("/systems/failures/fuel/pumps-c"),
+		pumpsL: props.globals.getNode("/systems/failures/fuel/pumps-l"),
+		pumpsR: props.globals.getNode("/systems/failures/fuel/pumps-r"),
+		pumpStart: props.globals.getNode("/systems/failures/fuel/pump-start"),
 	},
 	init: func() {
 		me.resetFailures();

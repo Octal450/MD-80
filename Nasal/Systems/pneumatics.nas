@@ -2,13 +2,6 @@
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
 var PNEU = {
-	Failures: {
-		bleedApu: props.globals.getNode("/systems/failures/pneumatics/bleed-apu"),
-		bleedL: props.globals.getNode("/systems/failures/pneumatics/bleed-l"),
-		bleedR: props.globals.getNode("/systems/failures/pneumatics/bleed-r"),
-		packL: props.globals.getNode("/systems/failures/pneumatics/pack-l"),
-		packR: props.globals.getNode("/systems/failures/pneumatics/pack-r"),
-	},
 	Flow: {
 		packL: props.globals.getNode("/systems/pneumatics/pack-l-flow"),
 		packR: props.globals.getNode("/systems/pneumatics/pack-r-flow"),
@@ -33,6 +26,13 @@ var PNEU = {
 		tempSel: props.globals.getNode("/controls/pneumatics/temp-sel"),
 		xBleedL: props.globals.getNode("/controls/pneumatics/x-bleed-l"),
 		xBleedR: props.globals.getNode("/controls/pneumatics/x-bleed-r"),
+	},
+	Failures: {
+		bleedApu: props.globals.getNode("/systems/failures/pneumatics/bleed-apu"),
+		bleedL: props.globals.getNode("/systems/failures/pneumatics/bleed-l"),
+		bleedR: props.globals.getNode("/systems/failures/pneumatics/bleed-r"),
+		packL: props.globals.getNode("/systems/failures/pneumatics/pack-l"),
+		packR: props.globals.getNode("/systems/failures/pneumatics/pack-r"),
 	},
 	init: func() {
 		me.resetFailures();

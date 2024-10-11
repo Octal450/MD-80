@@ -24,14 +24,6 @@ var ELEC = {
 		instAcL: props.globals.getNode("/systems/electrical/bus/inst-ac-l"),
 		instAcR: props.globals.getNode("/systems/electrical/bus/inst-ac-r"),
 	},
-	Failures: {
-		acTie: props.globals.getNode("/systems/failures/electrical/ac-tie"),
-		apu: props.globals.getNode("/systems/failures/electrical/apu"),
-		battery: props.globals.getNode("/systems/failures/electrical/battery"),
-		dcTie: props.globals.getNode("/systems/failures/electrical/dc-tie"),
-		genL: props.globals.getNode("/systems/failures/electrical/gen-l"),
-		genR: props.globals.getNode("/systems/failures/electrical/gen-r"),
-	},
 	Generic: {
 		efis: props.globals.initNode("/systems/electrical/outputs/efis", 0, "DOUBLE"),
 		fgcp: props.globals.initNode("/systems/electrical/outputs/fgcp", 0, "DOUBLE"),
@@ -109,6 +101,14 @@ var ELEC = {
 		genL: props.globals.getNode("/controls/electrical/gen-l"),
 		genR: props.globals.getNode("/controls/electrical/gen-r"),
 		groundCart: props.globals.getNode("/controls/electrical/ground-cart"),
+	},
+	Failures: {
+		acTie: props.globals.getNode("/systems/failures/electrical/ac-tie"),
+		apu: props.globals.getNode("/systems/failures/electrical/apu"),
+		battery: props.globals.getNode("/systems/failures/electrical/battery"),
+		dcTie: props.globals.getNode("/systems/failures/electrical/dc-tie"),
+		genL: props.globals.getNode("/systems/failures/electrical/gen-l"),
+		genR: props.globals.getNode("/systems/failures/electrical/gen-r"),
 	},
 	init: func() {
 		me.resetFailures();

@@ -2,14 +2,6 @@
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
 var HYD = {
-	Failures: {
-		auxPump: props.globals.getNode("/systems/failures/hydraulics/aux-pump"),
-		lPump: props.globals.getNode("/systems/failures/hydraulics/l-pump"),
-		rPump: props.globals.getNode("/systems/failures/hydraulics/r-pump"),
-		trans: props.globals.getNode("/systems/failures/hydraulics/trans"),
-		sysLLeak: props.globals.getNode("/systems/failures/hydraulics/sys-l-leak"),
-		sysRLeak: props.globals.getNode("/systems/failures/hydraulics/sys-r-leak"),
-	},
 	Psi: {
 		auxPump: props.globals.getNode("/systems/hydraulics/aux-pump-psi"),
 		lPump: props.globals.getNode("/systems/hydraulics/l-pump-psi"),
@@ -29,6 +21,14 @@ var HYD = {
 		lPump: props.globals.getNode("/controls/hydraulics/l-pump"),
 		rPump: props.globals.getNode("/controls/hydraulics/r-pump"),
 		trans: props.globals.getNode("/controls/hydraulics/trans"),
+	},
+	Failures: {
+		auxPump: props.globals.getNode("/systems/failures/hydraulics/aux-pump"),
+		lPump: props.globals.getNode("/systems/failures/hydraulics/l-pump"),
+		rPump: props.globals.getNode("/systems/failures/hydraulics/r-pump"),
+		trans: props.globals.getNode("/systems/failures/hydraulics/trans"),
+		sysLLeak: props.globals.getNode("/systems/failures/hydraulics/sys-l-leak"),
+		sysRLeak: props.globals.getNode("/systems/failures/hydraulics/sys-r-leak"),
 	},
 	init: func() {
 		me.resetFailures();
