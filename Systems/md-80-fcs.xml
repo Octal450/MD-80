@@ -759,7 +759,7 @@
 			</test>
 		</switch>
 		
-		<fcs_function name="/systems/fcc/flaps/dial-a-flap-cmd"> <!-- Not used yet -->
+		<fcs_function name="/systems/fcs/flaps/dial-a-flap-cmd"> <!-- Not used yet -->
 			<function>
 				<floor>
 					<sum>
