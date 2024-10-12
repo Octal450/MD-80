@@ -1447,7 +1447,7 @@
 				<and>
 					<less-than-equals>
 						<property>/position/gear-agl-ft</property>
-						<property>/controls/switches/minimums-plus-50</property>
+						<property>/systems/misc/minimums-plus-50</property>
 					</less-than-equals>
 					<greater-than>
 						<property>/position/gear-agl-ft</property>
@@ -1465,7 +1465,7 @@
 				</and>
 			</condition>
 			<pitch>
-				<property>/controls/switches/minimums-horn-pitch</property>
+				<property>/systems/misc/minimums-horn-pitch</property>
 			</pitch>
 		</caws>
 	    <caws>
@@ -1485,7 +1485,7 @@
 					</less-than-equals>
 					<greater-than>
 						<property>/position/gear-agl-ft</property>
-						<property>/controls/switches/minimums-minus-50</property>
+						<property>/systems/misc/minimums-minus-50</property>
 					</greater-than>
 					<less-than>
 						<property>/position/gear-agl-ft-2-sec</property>

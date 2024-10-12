@@ -67,25 +67,6 @@
 		<filter-time>0.32</filter-time>
 	</filter>
 	
-	<filter>
-		<name>Groundspeed Meters Per Second</name>
-		<type>gain</type>
-		<gain>0.5144444444444</gain>
-		<input>/velocities/groundspeed-kt</input>
-		<output>/velocities/groundspeed-mps</output>
-		<min>0</min>
-		<max>1000</max>
-	</filter>
-	
-	<predict-simple>
-		<name>Groundspeed Meters Per Second Ahead</name>
-		<debug>false</debug>
-		<input>/velocities/groundspeed-mps</input>
-		<output>/velocities/groundspeed-mps-ahead</output>
-		<seconds>1.5</seconds>
-		<filter-gain>0.0</filter-gain>
-	</predict-simple>
-	
 	<predict-simple>
 		<name>Gear AGL Altitude</name>
 		<debug>false</debug>
@@ -108,7 +89,7 @@
 				</sum>
 			</expression>
 		</input>
-		<output>/controls/switches/minimums-plus-50</output>
+		<output>/systems/misc/minimums-plus-50</output>
 	</filter>
 	
 	<filter>
@@ -119,14 +100,14 @@
 				<table>
 					<difference>
 						<property>/position/gear-agl-ft</property>
-						<property>/controls/switches/minimums-plus-50</property>
+						<property>/systems/misc/minimums-plus-50</property>
 					</difference>
 					<entry><ind>  0</ind><dep>0.0</dep></entry>
 					<entry><ind>-50</ind><dep>0.7</dep></entry>
 				</table>
 			</expression>
 		</input>
-		<output>/controls/switches/minimums-horn-pitch</output>
+		<output>/systems/misc/minimums-horn-pitch</output>
 		<filter-time>0.08</filter-time>
 	</filter>
 	
@@ -143,7 +124,7 @@
 				</difference>
 			</expression>
 		</input>
-		<output>/controls/switches/minimums-minus-50</output>
+		<output>/systems/misc/minimums-minus-50</output>
 	</filter>
 	
 	<!-- Because overwriting from JSBSim doesn't work -->
