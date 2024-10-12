@@ -439,7 +439,7 @@ var ITAF = {
 						me.updateLatText("RLOU");
 						me.updateVertText("ROLLOUT");
 					} else {
-						if (dfgs.Main.nlgWowTimer5.getValue() == 1 and (Output.ap1Temp == 1 or Output.ap2Temp == 1)) { # Trip off after 5 seconds
+						if (Main.nlgWowTimer5.getValue() == 1 and (Output.ap1Temp == 1 or Output.ap2Temp == 1)) { # Trip off after 5 seconds
 							me.ap1Master(0);
 							me.ap2Master(0);
 						}
