@@ -5,12 +5,6 @@
 # Usage Example: pts.Class.SubClass.node.getValue()
 
 var Controls = {
-	Dfgs: {
-		Switches: {
-			art: props.globals.getNode("/controls/dfgs/art"),
-			artCover: props.globals.getNode("/controls/dfgs/art-cover"),
-		},
-	},
 	Flight: {
 		aileronDrivesTiller: props.globals.getNode("/controls/flight/aileron-drives-tiller"),
 		autoCoordination: props.globals.getNode("/controls/flight/auto-coordination", 1),

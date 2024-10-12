@@ -340,14 +340,14 @@ var THRLIM = {
 	},
 	loop: func() {
 		if (me.Limit.activeModeInt.getValue() == 5) {
-			if (pts.Controls.Dfgs.Switches.art.getBoolValue()) {
+			if (dfgs.Main.art.getBoolValue()) {
 				me.setMode(-1);
 			}
 		}
 	},
 	setMode: func(m) {
 		if (m == 5) {
-			if (pts.Controls.Dfgs.Switches.art.getBoolValue()) {
+			if (dfgs.Main.art.getBoolValue()) {
 				me.Limit.activeModeInt.setValue(-1);
 			} else {
 				me.Limit.activeModeInt.setValue(5);

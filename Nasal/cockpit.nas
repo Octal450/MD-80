@@ -5,8 +5,8 @@ var furt = 0;
 
 # Resets buttons to the default values
 var variousReset = func() {
-	pts.Controls.Dfgs.Switches.art.setBoolValue(1);
-	pts.Controls.Dfgs.Switches.artCover.setBoolValue(0);
+	dfgs.Main.art.setBoolValue(1);
+	dfgs.Main.artCover.setBoolValue(0);
 	pts.Controls.Flight.dialAFlap.setValue(0);
 	pts.Controls.Lighting.beacon.setBoolValue(0);
 	pts.Controls.Lighting.captDigitalKnb.setValue(1);

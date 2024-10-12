@@ -2,6 +2,8 @@
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
 var Main = {
+	art: props.globals.getNode("/controls/dfgs/art"),
+	artCover: props.globals.getNode("/controls/dfgs/art-cover"),
 	nlgWowTimer5: props.globals.getNode("/systems/dfgs/nlg-timer-5/wow-timer"),
 	nlgWowTimer20: props.globals.getNode("/systems/dfgs/nlg-timer-20/wow-timer"),
 	powerAvail: props.globals.getNode("/systems/dfgs/power-avail"),
