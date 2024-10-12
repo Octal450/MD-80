@@ -21,15 +21,15 @@ var systemsInit = func() {
 	# Standard modules
 	systems.APU.init();
 	systems.BRAKES.init();
-	systems.ELEC.init();
-	systems.ENGINE.init();
+	systems.ELECTRICAL.init();
+	systems.ENGINES.init();
 	systems.FCS.init();
 	systems.FUEL.init();
 	systems.GEAR.init();
-	systems.HYD.init();
+	systems.HYDRAULICS.init();
 	systems.IGNITION.init();
 	systems.IRS.init();
-	systems.PNEU.init();
+	systems.PNEUMATICS.init();
 	dfgs.ITAF.init(0);
 	systems.THRLIM.init();
 	instruments.EFIS.init();
@@ -62,17 +62,17 @@ var systemsLoop = maketimer(0.1, func() {
 	}
 	
 	if ((pts.Velocities.groundspeedKtTemp >= 2 or (!systems.GEAR.Controls.brakeParking.getBoolValue() and !pts.Services.Chocks.enableTemp)) and !acconfig.SYSTEM.autoConfigRunning.getBoolValue()) {
-		if (systems.ELEC.Controls.groundCart.getBoolValue()) {
-			systems.ELEC.Controls.groundCart.setBoolValue(0);
+		if (systems.ELECTRICAL.Controls.groundCart.getBoolValue()) {
+			systems.ELECTRICAL.Controls.groundCart.setBoolValue(0);
 		}
-		if (systems.PNEU.Controls.groundAir.getBoolValue()) {
-			systems.PNEU.Controls.groundAir.setBoolValue(0);
+		if (systems.PNEUMATICS.Controls.groundAir.getBoolValue()) {
+			systems.PNEUMATICS.Controls.groundAir.setBoolValue(0);
 		}
 	}
 });
 
 var slowLoop = maketimer(1, func() {
-	if (systems.ENGINE.overspeed.getBoolValue()) {
+	if (systems.ENGINES.overspeed.getBoolValue()) {
 		gui.popupTip("You are overspeeding the engines! Reduce power to below the EPR limit!");
 	}
 	
@@ -309,7 +309,7 @@ controls.elevatorTrim = func(d) {
 	if (dfgs.Output.ap2.getBoolValue()) {
 		dfgs.ITAF.ap2Master(0);
 	}
-	if (systems.ELEC.Bus.emerAc.getValue() >= 112) { # Check?
+	if (systems.ELECTRICAL.Bus.emerAc.getValue() >= 112) { # Check?
 		slewProp("/controls/flight/elevator-trim", d * (systems.FCS.stabilizerRate.getValue() / 12.5)); # Rate normalized by max degrees (rate / 12.5)
 	}
 }
@@ -440,7 +440,7 @@ setlistener("/controls/switches/seatbelt-sign-status", func() {
 	if (pts.Sim.Sound.seatbeltSign.getBoolValue()) {
 		return;
 	}
-	if (systems.ELEC.Generic.efis.getValue() >= 25) {
+	if (systems.ELECTRICAL.Generic.efis.getValue() >= 25) {
 		pts.Sim.Sound.noSmokingSignInhibit.setBoolValue(1); # Prevent no smoking sound from playing at same time
 		pts.Sim.Sound.seatbeltSign.setBoolValue(1);
 		settimer(func() {
@@ -454,7 +454,7 @@ setlistener("/controls/switches/no-smoking-sign-status", func() {
 	if (pts.Sim.Sound.noSmokingSign.getBoolValue()) {
 		return;
 	}
-	if (systems.ELEC.Generic.efis.getValue() >= 25 and !pts.Sim.Sound.noSmokingSignInhibit.getBoolValue()) {
+	if (systems.ELECTRICAL.Generic.efis.getValue() >= 25 and !pts.Sim.Sound.noSmokingSignInhibit.getBoolValue()) {
 		pts.Sim.Sound.noSmokingSign.setBoolValue(1);
 		settimer(func() {
 			pts.Sim.Sound.noSmokingSign.setBoolValue(0);

@@ -99,12 +99,12 @@ var SYSTEM = {
 		}
 	},
 	resetFailures: func() {
-		systems.ELEC.resetFailures();
+		systems.ELECTRICAL.resetFailures();
 		systems.FCS.resetFailures();
 		systems.FUEL.resetFailures();
 		systems.GEAR.resetFailures();
-		systems.HYD.resetFailures();
-		systems.PNEU.resetFailures();
+		systems.HYDRAULICS.resetFailures();
+		systems.PNEUMATICS.resetFailures();
 	},
 	showError: func() {
 		libraries.systemsLoop.stop();
@@ -315,7 +315,7 @@ var PANEL = {
 		me.panelBase(0);
 		
 		pts.Services.Chocks.enable.setBoolValue(1);
-		systems.ELEC.Controls.battery.setBoolValue(1);
+		systems.ELECTRICAL.Controls.battery.setBoolValue(1);
 		pts.Controls.Lighting.emerLt.setValue(0.5);
 		systems.FUEL.Controls.pumpStart.setBoolValue(1);
 		systems.APU.fastStart();
@@ -332,8 +332,8 @@ var PANEL = {
 			if (systems.APU.state.getValue() == 3) {
 				removelistener(me.l1);
 				me.l1 = nil; # Important
-				systems.ELEC.Controls.apuPwrL.setBoolValue(1);
-				systems.ELEC.Controls.apuPwrR.setBoolValue(1);
+				systems.ELECTRICAL.Controls.apuPwrL.setBoolValue(1);
+				systems.ELECTRICAL.Controls.apuPwrR.setBoolValue(1);
 				systems.FUEL.Controls.pumpAftL.setBoolValue(1);
 				systems.FUEL.Controls.pumpAftR.setBoolValue(1);
 				systems.FUEL.Controls.pumpFwdL.setBoolValue(1);
@@ -345,9 +345,9 @@ var PANEL = {
 				systems.FUEL.Controls.pumpStart.setBoolValue(0);
 				systems.IRS.Controls.knob[0].setValue(2);
 				systems.IRS.Controls.knob[1].setValue(2);
-				systems.PNEU.Controls.bleedApu.setValue(1);
-				systems.PNEU.Controls.xBleedL.setValue(1);
-				systems.PNEU.Controls.xBleedR.setValue(1);
+				systems.PNEUMATICS.Controls.bleedApu.setValue(1);
+				systems.PNEUMATICS.Controls.xBleedL.setValue(1);
+				systems.PNEUMATICS.Controls.xBleedR.setValue(1);
 				dfgs.Input.fd1.setBoolValue(1);
 				dfgs.Input.fd2.setBoolValue(1);
 				
@@ -365,11 +365,11 @@ var PANEL = {
 		me.panelBase(t);
 		
 		pts.Services.Chocks.enable.setBoolValue(0);
-		systems.ELEC.Controls.battery.setBoolValue(1);
+		systems.ELECTRICAL.Controls.battery.setBoolValue(1);
 		pts.Controls.Lighting.emerLt.setValue(0.5);
-		systems.ELEC.Controls.groundCart.setBoolValue(1); # autoConfigRunning cancels disable check in libraries.nas
-		systems.ELEC.Controls.extPwrL.setBoolValue(1);
-		systems.ELEC.Controls.extPwrR.setBoolValue(1);
+		systems.ELECTRICAL.Controls.groundCart.setBoolValue(1); # autoConfigRunning cancels disable check in libraries.nas
+		systems.ELECTRICAL.Controls.extPwrL.setBoolValue(1);
+		systems.ELECTRICAL.Controls.extPwrR.setBoolValue(1);
 		systems.IRS.Controls.knob[0].setValue(1);
 		systems.IRS.Controls.knob[1].setValue(1);
 		pts.Controls.Lighting.beacon.setBoolValue(1);
@@ -384,15 +384,15 @@ var PANEL = {
 			systems.FUEL.Controls.pumpFwdC.setValue(1);
 		}
 		systems.IGNITION.Controls.ign.setValue(1);
-		systems.PNEU.Controls.supplyL.setValue(2);
-		systems.PNEU.Controls.supplyR.setValue(2);
-		systems.PNEU.Controls.xBleedL.setValue(1);
-		systems.PNEU.Controls.xBleedL.setValue(1);
-		systems.PNEU.Controls.xBleedR.setValue(1);
+		systems.PNEUMATICS.Controls.supplyL.setValue(2);
+		systems.PNEUMATICS.Controls.supplyR.setValue(2);
+		systems.PNEUMATICS.Controls.xBleedL.setValue(1);
+		systems.PNEUMATICS.Controls.xBleedL.setValue(1);
+		systems.PNEUMATICS.Controls.xBleedR.setValue(1);
 		systems.THRLIM.setMode(0); # T/O
 		systems.APU.stopRpm();
 		
-		if (systems.ENGINE.state[0].getValue() != 3 or systems.ENGINE.state[1].getValue() != 3) {
+		if (systems.ENGINES.state[0].getValue() != 3 or systems.ENGINES.state[1].getValue() != 3) {
 			engTimer = 3;
 			settimer(func() {
 				if (!me.stop) {
@@ -405,19 +405,19 @@ var PANEL = {
 		}
 		
 		me.l1 = setlistener("/engines/engine[1]/state", func() {
-			if (systems.ENGINE.state[1].getValue() == 3) {
+			if (systems.ENGINES.state[1].getValue() == 3) {
 				removelistener(me.l1);
 				me.l1 = nil; # Important
-				systems.ELEC.Controls.groundCart.setBoolValue(0);
-				systems.ELEC.Controls.extPwrL.setBoolValue(0);
-				systems.ELEC.Controls.extPwrR.setBoolValue(0);
-				systems.HYD.Controls.lPump.setValue(2);
-				systems.HYD.Controls.rPump.setValue(2);
+				systems.ELECTRICAL.Controls.groundCart.setBoolValue(0);
+				systems.ELECTRICAL.Controls.extPwrL.setBoolValue(0);
+				systems.ELECTRICAL.Controls.extPwrR.setBoolValue(0);
+				systems.HYDRAULICS.Controls.lPump.setValue(2);
+				systems.HYDRAULICS.Controls.rPump.setValue(2);
 				systems.IGNITION.Controls.ign.setValue(0);
 				systems.IRS.Controls.knob[0].setValue(2);
 				systems.IRS.Controls.knob[1].setValue(2);
-				systems.PNEU.Controls.xBleedL.setValue(0);
-				systems.PNEU.Controls.xBleedR.setValue(0);
+				systems.PNEUMATICS.Controls.xBleedL.setValue(0);
+				systems.PNEUMATICS.Controls.xBleedR.setValue(0);
 				# XPDR TA/RA
 				dfgs.Input.fd1.setBoolValue(1);
 				dfgs.Input.fd2.setBoolValue(1);

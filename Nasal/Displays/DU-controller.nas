@@ -37,8 +37,8 @@ var DUController = {
 		
 		if (pts.Systems.Acconfig.Options.panel.getValue() == "EFIS") {
 			if (!me.errorActive) {
-				me.PwrSource.acRadioR = systems.ELEC.Bus.acRadioR.getValue();
-				me.PwrSource.emerAc = systems.ELEC.Bus.emerAc.getValue();
+				me.PwrSource.acRadioR = systems.ELECTRICAL.Bus.acRadioR.getValue();
+				me.PwrSource.emerAc = systems.ELECTRICAL.Bus.emerAc.getValue();
 				
 				# Emer AC
 				if (me.PwrSource.emerAc >= 112 and pts.Instrumentation.Du.pfdDimmer[0].getValue() > 0.01) {

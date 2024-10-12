@@ -23,8 +23,8 @@ var APU = {
 	stopRpm: func() {
 		settimer(func() { # Required delay
 			if (me.n2.getValue() >= 1) {
-				pts.Fdm.JSBSim.Propulsion.Engine.n1[2].setValue(0.1);
-				pts.Fdm.JSBSim.Propulsion.Engine.n2[2].setValue(0.1);
+				pts.Fdm.JSBSim.Propulsion.ENGINES.n1[2].setValue(0.1);
+				pts.Fdm.JSBSim.Propulsion.ENGINES.n2[2].setValue(0.1);
 			}
 		}, 0.1);
 	},
@@ -55,7 +55,7 @@ setlistener("/controls/abs/armed", func {
 }, 0, 0);
 
 # Engine Control
-var ENGINE = {
+var ENGINES = {
 	atsCmdRawPid: props.globals.initNode("/systems/engines/ats-cmd-raw-pid", 0, "DOUBLE"),
 	egt: [props.globals.getNode("/engines/engine[0]/egt-actual"), props.globals.getNode("/engines/engine[1]/egt-actual")],
 	epr: [props.globals.getNode("/engines/engine[0]/epr-actual"), props.globals.getNode("/engines/engine[1]/epr-actual")],
@@ -97,8 +97,8 @@ var ENGINE = {
 		me.Controls.start[1].setBoolValue(0);
 		me.Cover.startL.setBoolValue(0);
 		me.Cover.startR.setBoolValue(0);
-		systems.ENGINE.oilQtyInput[0].setValue(math.round((rand() * 4) + 14 , 0.1)); # Random between 14 and 18
-		systems.ENGINE.oilQtyInput[1].setValue(math.round((rand() * 4) + 14 , 0.1)); # Random between 14 and 18
+		systems.ENGINES.oilQtyInput[0].setValue(math.round((rand() * 4) + 14 , 0.1)); # Random between 14 and 18
+		systems.ENGINES.oilQtyInput[1].setValue(math.round((rand() * 4) + 14 , 0.1)); # Random between 14 and 18
 	},
 	adjustManEpr: func(n, d) {
 		if (me.Controls.manEprSet[n].getBoolValue() and pts.Instrumentation.Epr.powerAvail[n].getBoolValue()) {
@@ -278,9 +278,9 @@ var IGNITION = {
 	fastStop: func(n) {
 		ENGINE.Controls.cutoff[n].setBoolValue(1);
 		settimer(func() { # Required delay
-			if (systems.ENGINE.n2[n].getValue() > 1) {
-				pts.Fdm.JSBSim.Propulsion.Engine.n1[n].setValue(0.1);
-				pts.Fdm.JSBSim.Propulsion.Engine.n2[n].setValue(0.1);
+			if (systems.ENGINES.n2[n].getValue() > 1) {
+				pts.Fdm.JSBSim.Propulsion.ENGINES.n1[n].setValue(0.1);
+				pts.Fdm.JSBSim.Propulsion.ENGINES.n2[n].setValue(0.1);
 			}
 		}, 0.1);
 	},

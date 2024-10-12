@@ -1,7 +1,7 @@
 # McDonnell Douglas MD-80 Hydraulic System
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
-var HYD = {
+var HYDRAULICS = {
 	Psi: {
 		auxPump: props.globals.getNode("/systems/hydraulics/aux-pump-psi"),
 		lPump: props.globals.getNode("/systems/hydraulics/l-pump-psi"),

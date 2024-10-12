@@ -191,14 +191,14 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>nasal</command>
-				<script>systems.ENGINE.adjustManEpr(1, 1);</script>
+				<script>systems.ENGINES.adjustManEpr(1, 1);</script>
 			</binding>
 			<binding>
 				<condition>
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>nasal</command>
-				<script>systems.ENGINE.adjustManEpr(1, 10);</script>
+				<script>systems.ENGINES.adjustManEpr(1, 10);</script>
 			</binding>
 			<binding>
 				<command>property-adjust</command>
@@ -217,14 +217,14 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>nasal</command>
-				<script>systems.ENGINE.adjustManEpr(1, -1);</script>
+				<script>systems.ENGINES.adjustManEpr(1, -1);</script>
 			</binding>
 			<binding>
 				<condition>
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>nasal</command>
-				<script>systems.ENGINE.adjustManEpr(1, -10);</script>
+				<script>systems.ENGINES.adjustManEpr(1, -10);</script>
 			</binding>
 			<binding>
 				<command>property-adjust</command>

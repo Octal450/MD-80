@@ -1,7 +1,7 @@
 # McDonnell Douglas MD-80 Pneumatic System
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
-var PNEU = {
+var PNEUMATICS = {
 	Flow: {
 		packL: props.globals.getNode("/systems/pneumatics/pack-l-flow"),
 		packR: props.globals.getNode("/systems/pneumatics/pack-r-flow"),

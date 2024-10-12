@@ -332,7 +332,7 @@ var Athr = {
 		}
 	},
 	modeZeroCheck: func() {
-		me.atsCmdRawPid = systems.ENGINE.atsCmdRawPid.getValue();
+		me.atsCmdRawPid = systems.ENGINES.atsCmdRawPid.getValue();
 		me.ktsMach = Input.ktsMach.getBoolValue();
 		if (Input.mach.getValue() < Speeds.vminMach.getValue() - 0.0000001 and me.ktsMach) {
 			Fma.thrA.setValue("ALFA");

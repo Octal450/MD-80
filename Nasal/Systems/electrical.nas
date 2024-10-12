@@ -1,7 +1,7 @@
 # McDonnell Douglas MD-80 Electrical System
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
-var ELEC = {
+var ELECTRICAL = {
 	Bus: {
 		acGenL: props.globals.getNode("/systems/electrical/bus/ac-gen-l"),
 		acGenR: props.globals.getNode("/systems/electrical/bus/ac-gen-r"),

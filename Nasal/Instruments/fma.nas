@@ -68,7 +68,7 @@ var canvasBase = {
 		Value.apOn = dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue();
 		Value.atsOn = dfgs.Output.athr.getBoolValue();
 		
-		if (systems.ELEC.Generic.fma[0].getValue() >= 24) {
+		if (systems.ELECTRICAL.Generic.fma[0].getValue() >= 24) {
 			if (Value.annunTest) {
 				thrL.update();
 				thrL.page.show();
@@ -106,7 +106,7 @@ var canvasBase = {
 			thrL.page.hide();
 		}
 		
-		if (systems.ELEC.Generic.fma[1].getValue() >= 24) {
+		if (systems.ELECTRICAL.Generic.fma[1].getValue() >= 24) {
 			if (Value.annunTest) {
 				thrR.update();
 				thrR.page.show();
