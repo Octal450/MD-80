@@ -1453,13 +1453,13 @@
 						<property>/position/gear-agl-ft</property>
 						<property>/controls/switches/minimums</property>
 					</greater-than>
-					<property>/controls/misc/minimums-latch-sound</property>
+					<property>/systems/misc/minimums-latch-sound</property>
 					<greater-than-equals>
 						<property>/systems/electrical/outputs/mk-viii</property>
 						<value>24</value>
 					</greater-than-equals>
 					<equals>
-						<property>/fdm/jsbsim/position/wow</property>
+						<property>/position/wow</property>
 						<value>0</value>
 					</equals>
 				</and>

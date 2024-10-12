@@ -1012,13 +1012,13 @@
 		<switch name="/systems/engines/art/wow-switch">
 			<default value="/systems/engines/art/wow-switch"/>
 			<test logic="AND" value="0">
-				/gear/gear[0]/wow-timer lt 1
+				/systems/dfgs/nlg-timer-20/wow-timer lt 1
 				/systems/engines/art/active eq 0
 				/systems/engines/limit/active-mode-int ne 0
 				/systems/engines/limit/active-mode-int ne 1
 			</test>
 			<test value="1">
-				/gear/gear[0]/wow-timer eq 1
+				/systems/dfgs/nlg-timer-20/wow-timer eq 1
 			</test>
 		</switch>
 		

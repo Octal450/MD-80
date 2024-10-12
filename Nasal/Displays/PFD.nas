@@ -259,7 +259,7 @@ var canvasBase = {
 			me["RA_scale"].hide();
 		}
 		
-		Value.Ra.dhLatch = pts.Controls.Misc.minimumsLatch.getBoolValue();
+		Value.Ra.dhLatch = pts.Systems.Misc.minimumsLatch.getBoolValue();
 		if (Value.Ra.dh > 0) {
 			if (Value.Ra.agl <= Value.Ra.dh and Value.Ra.dhLatch) {
 				me["DH_below"].show();

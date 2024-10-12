@@ -41,7 +41,6 @@ var FPLN = {
 var Gear = {
 	wow0: props.globals.getNode("/gear/gear[0]/wow", 1),
 	wow0Temp: 1,
-	wow0Timer: props.globals.getNode("/gear/gear[0]/wow-timer", 1),
 	wow1: props.globals.getNode("/gear/gear[1]/wow", 1),
 	wow1Temp: 1,
 	wow2: props.globals.getNode("/gear/gear[2]/wow", 1),
@@ -471,7 +470,7 @@ var ITAF = {
 		}
 		
 		# Go Around Arm
-		if (Gear.wow0Timer.getValue() < 1 and Output.vertTemp != 7 and Position.gearAglFtTemp < 1500 and Misc.flapDeg.getValue() >= 25.9) {
+		if (Main.nlgWowTimer20.getValue() < 1 and Output.vertTemp != 7 and Position.gearAglFtTemp < 1500 and Misc.flapDeg.getValue() >= 25.9) {
 			if ((Output.ap1Temp or Output.ap2Temp) and !Gear.wow0Temp) {
 				if (Internal.goAround != 3) {
 					Internal.goAround = 3;
@@ -1069,7 +1068,7 @@ var ITAF = {
 	takeoffGoAround: func() {
 		Output.vertTemp = Output.vert.getValue();
 		Misc.flapDegTemp = Misc.flapDeg.getValue();
-		if (Gear.wow0Timer.getValue() < 1 and Output.vertTemp != 7 and Position.gearAglFt.getValue() < 1500 and Misc.flapDegTemp >= 25.9) {
+		if (Main.nlgWowTimer20.getValue() < 1 and Output.vertTemp != 7 and Position.gearAglFt.getValue() < 1500 and Misc.flapDegTemp >= 25.9) {
 			systems.THRLIM.setMode(1); # G/A
 			me.setLatMode(5);
 			me.updateLatText("G/A");

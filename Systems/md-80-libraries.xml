@@ -14,6 +14,7 @@
 				gear/unit[1]/WOW eq 1
 				gear/unit[2]/WOW eq 1
 			</test>
+			<output>/position/wow</output> <!-- Copy to local tree -->
 		</switch>
 		
 		<switch name="aero/alpha-deg-fixed">
@@ -120,42 +121,12 @@
 				</product>
 			</function>
 		</fcs_function>
-		
-		<fcs_function name="/gear/gear[0]/wow-timer-cmd">
-			<function>
-				<sum> <!-- Inverter, so that it is 1 at sim start -->
-					<product>
-						<property>gear/unit[0]/WOW</property>
-						<value>-1</value>
-					</product>
-					<value>1</value>
-				</sum>
-			</function>
-		</fcs_function>
-		
-		<actuator name="/gear/gear[0]/wow-timer-pos">
-			<input>/gear/gear[0]/wow-timer-cmd</input>
-			<rate_limit sense="incr">1000</rate_limit>
-			<rate_limit sense="decr">0.05</rate_limit> <!-- 20 seconds-->
-		</actuator>
-		
-		<fcs_function name="/gear/gear[0]/wow-timer">
-			<function>
-				<sum> <!-- Inverter, so that it is 1 at sim start -->
-					<product>
-						<property>/gear/gear[0]/wow-timer-pos</property>
-						<value>-1</value>
-					</product>
-					<value>1</value>
-				</sum>
-			</function>
-		</fcs_function>
 	
 	</channel>
 	
 	<channel name="Execrate 8 Libraries" execrate="8">
 		
-		<switch name="libraries/engine-out">
+		<switch name="/systems/engines/engine-out">
 			<default value="0"/>
 			<test logic="OR" value="1">
 				/engines/engine[0]/state ne 3
@@ -163,7 +134,7 @@
 			</test>
 		</switch>
 		
-		<fcs_function name="libraries/blink-med">
+		<fcs_function name="/systems/libraries/blink-med">
 			<function>
 				<floor>
 					<mod>
@@ -177,7 +148,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/controls/misc/minimums-latch-input">
+		<fcs_function name="/systems/misc/minimums-latch-input">
 			<function>
 				<sum>
 					<property>/controls/switches/minimums</property>
@@ -186,24 +157,24 @@
 			</function>
 		</fcs_function>
 		
-		<switch name="/controls/misc/minimums-latch">
-			<default value="/controls/misc/minimums-latch"/>
+		<switch name="/systems/misc/minimums-latch">
+			<default value="/systems/misc/minimums-latch"/>
 			<test value="0">
 				position/wow eq 1
 			</test>
 			<test value="1">
-				position/gear-agl-ft ge /controls/misc/minimums-latch-input
+				position/gear-agl-ft ge /systems/misc/minimums-latch-input
 			</test>
 		</switch>
 		
-		<switch name="/controls/misc/minimums-latch-sound">
-			<default value="/controls/misc/minimums-latch-sound"/>
+		<switch name="/systems/misc/minimums-latch-sound">
+			<default value="/systems/misc/minimums-latch-sound"/>
 			<test logic="OR" value="0">
 				position/wow eq 1
 				position/gear-agl-ft lt /controls/switches/minimums
 			</test>
 			<test value="1">
-				position/gear-agl-ft ge /controls/misc/minimums-latch-input
+				position/gear-agl-ft ge /systems/misc/minimums-latch-input
 			</test>
 		</switch>
 	

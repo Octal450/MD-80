@@ -57,7 +57,7 @@ var systemsLoop = maketimer(0.1, func() {
 	
 	pts.Services.Chocks.enableTemp = pts.Services.Chocks.enable.getBoolValue();
 	pts.Velocities.groundspeedKtTemp = pts.Velocities.groundspeedKt.getValue();
-	if ((pts.Velocities.groundspeedKtTemp >= 2 or !pts.Fdm.JSBSim.Position.wow.getBoolValue()) and pts.Services.Chocks.enableTemp) {
+	if ((pts.Velocities.groundspeedKtTemp >= 2 or !pts.Position.wow.getBoolValue()) and pts.Services.Chocks.enableTemp) {
 		pts.Services.Chocks.enable.setBoolValue(0);
 	}
 	
@@ -144,10 +144,10 @@ controls.flapsDown = func(step) {
 
 var leverCockpit = 3;
 controls.gearDown = func(d) { # Requires a mod-up
-	pts.Fdm.JSBSim.Position.wowTemp = pts.Fdm.JSBSim.Position.wow.getBoolValue();
+	pts.Position.wowTemp = pts.Position.wow.getBoolValue();
 	leverCockpit = systems.GEAR.Controls.lever.getValue();
 	if (d < 0) {
-		if (pts.Fdm.JSBSim.Position.wowTemp) {
+		if (pts.Position.wowTemp) {
 			if (leverCockpit == 3) {
 				systems.GEAR.Controls.lever.setValue(2);
 			} else if (leverCockpit == 0) {
@@ -157,7 +157,7 @@ controls.gearDown = func(d) { # Requires a mod-up
 			systems.GEAR.Controls.lever.setValue(0);
 		}
 	} else if (d > 0) {
-		if (pts.Fdm.JSBSim.Position.wowTemp) {
+		if (pts.Position.wowTemp) {
 			if (leverCockpit == 3) {
 				systems.GEAR.Controls.lever.setValue(2);
 			} else if (leverCockpit == 0) {
@@ -188,7 +188,7 @@ controls.gearDownSmart = func(d) { # Used by cockpit, requires a mod-up
 }
 
 controls.gearToggle = func() {
-	if (!pts.Fdm.JSBSim.Position.wow.getBoolValue()) {
+	if (!pts.Position.wow.getBoolValue()) {
 		if (systems.GEAR.Controls.lever.getValue() >= 2) {
 			systems.GEAR.Controls.lever.setValue(0);
 		} else {

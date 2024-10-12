@@ -37,9 +37,6 @@ var Controls = {
 		taxiLight: props.globals.getNode("/controls/lighting/taxi-light"),
 		wingLights: props.globals.getNode("/controls/lighting/wing-lights"),
 	},
-	Misc: {
-		minimumsLatch: props.globals.getNode("/controls/misc/minimums-latch"),
-	},
 	Switches: {
 		annunTest: props.globals.getNode("/controls/switches/annun-test"),
 		annunTest5Sec: props.globals.getNode("/controls/switches/annun-test-5sec"),
@@ -58,10 +55,6 @@ var Fdm = {
 		Aero: {
 			alphaDegDamped: props.globals.getNode("/fdm/jsbsim/aero/alpha-deg-damped"),
 			alphaDegDampedPli: props.globals.getNode("/fdm/jsbsim/aero/alpha-deg-damped-pli"),
-		},
-		Position: {
-			wow: props.globals.getNode("/fdm/jsbsim/position/wow"),
-			wowTemp: 0,
 		},
 		Propulsion: {
 			Engine: {
@@ -157,6 +150,8 @@ var Options = {
 
 var Position = {
 	gearAglFt: props.globals.getNode("/position/gear-agl-ft"),
+	wow: props.globals.getNode("/position/wow"),
+	wowTemp: 0,
 };
 
 var Services = {
@@ -227,6 +222,9 @@ var Systems = {
 			irsEquipped: props.globals.getNode("/systems/acconfig/options/irs-equipped"),
 			panel: props.globals.getNode("/systems/acconfig/options/panel"),
 		},
+	},
+	Misc: {
+		minimumsLatch: props.globals.getNode("/systems/misc/minimums-latch"),
 	},
 	Performance: {
 		stabilizerDeg: props.globals.getNode("/systems/performance/stabilizer-deg"),

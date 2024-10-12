@@ -738,7 +738,7 @@
 	
 	<channel name="Radio Altimeters" execrate="2">
 		
-		<summer name="/controls/misc/minimums-diff">
+		<summer name="/systems/misc/minimums-diff">
 			<input>/position/gear-agl-ft</input>
 			<input>-/controls/switches/minimums</input>
 		</summer>
@@ -777,14 +777,14 @@
 			<test logic="OR" value="1">
 				/controls/switches/annun-test eq 1
 				<test logic="AND">
-					/controls/misc/minimums-latch eq 1
+					/systems/misc/minimums-latch eq 1
 					/position/gear-agl-ft le /controls/switches/minimums
 				</test>
 			</test>
 		</switch>
 		
 		<actuator name="/instrumentation/agl[0]/minimums-actuator">
-			<input>/controls/misc/minimums-diff</input>
+			<input>/systems/misc/minimums-diff</input>
 			<rate_limit>1500</rate_limit>
 		</actuator>
 		
@@ -832,14 +832,14 @@
 			<test logic="OR" value="1">
 				/controls/switches/annun-test eq 1
 				<test logic="AND">
-					/controls/misc/minimums-latch eq 1
+					/systems/misc/minimums-latch eq 1
 					/position/gear-agl-ft le /controls/switches/minimums
 				</test>
 			</test>
 		</switch>
 		
 		<actuator name="/instrumentation/agl[1]/minimums-actuator">
-			<input>/controls/misc/minimums-diff</input>
+			<input>/systems/misc/minimums-diff</input>
 			<rate_limit>1500</rate_limit>
 		</actuator>
 		
@@ -938,7 +938,7 @@
 				/systems/caws/logic/altitude-alert eq 1
 				<test logic="AND">
 					/systems/caws/logic/altitude-alert eq 2
-					libraries/blink-med eq 1
+					/systems/libraries/blink-med eq 1
 				</test>
 			</test>
 		</switch>
@@ -1024,7 +1024,7 @@
 				/systems/caws/logic/altitude-alert eq 1
 				<test logic="AND">
 					/systems/caws/logic/altitude-alert eq 2
-					libraries/blink-med eq 1
+					/systems/libraries/blink-med eq 1
 				</test>
 			</test>
 		</switch>

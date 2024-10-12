@@ -140,7 +140,7 @@
 							<and>
 								<not><property>/systems/acconfig/autoconfig-running</property></not>
 								<equals>
-									<property>/fdm/jsbsim/position/wow</property>
+									<property>/position/wow</property>
 									<value>1</value>
 								</equals>
 								<less-than>
@@ -165,7 +165,7 @@
 							<and>
 								<not><property>/systems/acconfig/autoconfig-running</property></not>
 								<equals>
-									<property>/fdm/jsbsim/position/wow</property>
+									<property>/position/wow</property>
 									<value>1</value>
 								</equals>
 								<less-than>
@@ -190,7 +190,7 @@
 							<and>
 								<not><property>/systems/acconfig/autoconfig-running</property></not>
 								<equals>
-									<property>/fdm/jsbsim/position/wow</property>
+									<property>/position/wow</property>
 									<value>1</value>
 								</equals>
 								<less-than>
@@ -215,7 +215,7 @@
 							<and>
 								<not><property>/systems/acconfig/autoconfig-running</property></not>
 								<equals>
-									<property>/fdm/jsbsim/position/wow</property>
+									<property>/position/wow</property>
 									<value>1</value>
 								</equals>
 								<less-than>
@@ -247,7 +247,7 @@
 				<enable>
 					<and>
 						<equals>
-							<property>/fdm/jsbsim/position/wow</property>
+							<property>/position/wow</property>
 							<value>1</value>
 						</equals>
 						<less-than>
@@ -449,7 +449,7 @@
 				<enable>
 					<and>
 						<equals>
-							<property>/fdm/jsbsim/position/wow</property>
+							<property>/position/wow</property>
 							<value>1</value>
 						</equals>
 						<less-than>
@@ -500,7 +500,7 @@
 					<enable>
 						<and>
 							<equals>
-								<property>/fdm/jsbsim/position/wow</property>
+								<property>/position/wow</property>
 								<value>1</value>
 							</equals>
 							<less-than>

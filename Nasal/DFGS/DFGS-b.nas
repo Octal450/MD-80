@@ -2,7 +2,8 @@
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
 var Main = {
-	nlgwowTimer5: props.globals.getNode("/systems/dfgs/nlg-timer-5/wow-timer"),
+	nlgWowTimer5: props.globals.getNode("/systems/dfgs/nlg-timer-5/wow-timer"),
+	nlgWowTimer20: props.globals.getNode("/systems/dfgs/nlg-timer-20/wow-timer"),
 	powerAvail: props.globals.getNode("/systems/dfgs/power-avail"),
 	powerAvailTemp: 0,
 	stallAlphaDeg: props.globals.getNode("/systems/dfgs/stall-alpha-deg"),
@@ -62,7 +63,7 @@ var Fma = {
 		}
 		
 		Output.vertTemp = Output.vert.getValue();
-		if (Output.vertTemp != 4 and Output.vertTemp != 7 and !pts.Fdm.JSBSim.Position.wow.getBoolValue()) {
+		if (Output.vertTemp != 4 and Output.vertTemp != 7 and !pts.Position.wow.getBoolValue()) {
 			if (Velocities.indicatedAirspeedKt.getValue() <= Speeds.vmin90Percent.getValue()) {
 				me.spdLow = 1;
 			} else {
@@ -393,7 +394,7 @@ var Athr = {
 	},
 	toCheck: func() {
 		if (Text.vert.getValue() == "T/O CLB") {
-			if (pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() < 60 and pts.Fdm.JSBSim.Position.wow.getBoolValue()) {
+			if (pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() < 60 and pts.Position.wow.getBoolValue()) {
 				if (Output.thrMode.getValue() != 2) {
 					Fma.stopBlink(0);
 					Output.thrMode.setValue(2);
