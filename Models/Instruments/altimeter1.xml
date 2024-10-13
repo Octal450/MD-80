@@ -6,7 +6,7 @@
 <PropertyList>
 	
 	<path>altimeter.ac</path>
-
+	
 	<animation>
 		<type>material</type>
 		<object-name>LightingGroup</object-name>
