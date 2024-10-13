@@ -6,6 +6,12 @@
 	
 	<path>hsi-buttons.ac</path>
 	
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>NavSrc.Fms</object-name>
+		<object-name>NavSrc.Nav</object-name>
+	</effect>
+	
 	<animation>
 		<type>select</type>
 		<object-name>NavSrc.Fms</object-name>
