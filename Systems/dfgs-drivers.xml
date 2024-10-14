@@ -1068,14 +1068,7 @@
 			</condition>
 			<property>/it-autoflight/fd/pitch-bar-takeoff</property>
 		</input>
-		<input>
-			<expression>
-				<difference>
-					<value>6.7</value>
-					<property>/orientation/pitch-deg</property>
-				</difference>
-			</expression>
-		</input>
+		<input>7</input>
 		<output>/it-autoflight/fd/pitch-bar-takeoff</output>
 	</filter>
 	
