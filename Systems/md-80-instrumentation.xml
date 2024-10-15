@@ -2651,9 +2651,9 @@
 	
 	</channel>
 	
-	<channel name="Misc Cockpit Indications" execrate="8">
+	<channel name="Fuel Gauge" execrate="8">
 		
-		<fcs_function name="inertia/weight-lbs-ind">
+		<fcs_function name="/instrumentation/fuel/gw-lbs">
 			<function>
 				<ifthen>
 					<eq>

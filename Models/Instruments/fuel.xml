@@ -228,7 +228,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>number-value</type>
 		<format>%2.0f</format>
-		<property>fdm/jsbsim/inertia/weight-lbs-ind</property>
+		<property>instrumentation/fuel/gw-lbs</property>
 		<truncate>false</truncate>
 		<font>Std7SegCustom.ttf</font>
 		<draw-text>true</draw-text>
