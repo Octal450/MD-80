@@ -1473,13 +1473,14 @@
 		</axis>
 	</animation>
 	
+	<!-- Rotors node is used as a hack to bring properties over MP without using up floats -->
 	<!-- Ailerons -->
 	<animation>
 		<type>rotate</type>
 		<object-name>AileronL</object-name>
 		<object-name>AilTabControlL</object-name>
 		<object-name>AilTabTrimL</object-name>
-		<property>systems/fcs/aileron-l/surface-final-deg</property>
+		<property>rotors/main/blade[0]/flap-deg</property>
 		<factor>1</factor>   
 		<axis>
 			<x1-m>27.573</x1-m>
@@ -1493,7 +1494,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>AilTabControlL</object-name>
-		<property>systems/fcs/aileron-l/control-tab-final-deg</property>
+		<property>rotors/main/blade[2]/position-deg</property>
 		<factor>1</factor> 
 		<axis>
 			<x1-m>27.511</x1-m>
@@ -1507,7 +1508,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>AilTabTrimL</object-name>
-		<property>systems/fcs/aileron-l/trim-tab-final-deg</property>
+		<property>rotors/main/blade[2]/flap-deg</property>
 		<factor>1</factor>  
 		<axis>
 			<x1-m>27.731</x1-m>
@@ -1524,7 +1525,7 @@
 		<object-name>AileronR</object-name>
 		<object-name>AilTabControlR</object-name>
 		<object-name>AilTabTrimR</object-name>
-		<property>systems/fcs/aileron-r/surface-final-deg</property>
+		<property>rotors/main/blade[1]/flap-deg</property>
 		<factor>1</factor> 
 		<axis>
 			<x1-m>26.644</x1-m>
@@ -1538,7 +1539,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>AilTabControlR</object-name>
-		<property>systems/fcs/aileron-r/control-tab-final-deg</property>
+		<property>rotors/main/blade[3]/position-deg</property>
 		<factor>1</factor> 
 		<axis>
 			<x1-m>27.251</x1-m>
@@ -1552,7 +1553,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>AilTabTrimR</object-name>
-		<property>systems/fcs/aileron-r/trim-tab-final-deg</property>
+		<property>rotors/main/blade[3]/flap-deg</property>
 		<factor>1</factor>  
 		<axis>
 			<x1-m>27.543</x1-m>
@@ -1568,7 +1569,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SpoilerL1</object-name>
-		<property>systems/fcs/spoiler-l1/final-deg</property>
+		<property>sim/multiplay/generic/float[9]</property>
 		<factor>-1</factor>
 		<axis>
 			<x1-m>24.872</x1-m>
@@ -1582,7 +1583,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SpoilerL2</object-name>
-		<property>systems/fcs/spoiler-l2/final-deg</property>
+		<property>sim/multiplay/generic/float[10]</property>
 		<factor>-1</factor>
 		<axis>
 			<x1-m>26.247</x1-m>
@@ -1596,7 +1597,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SpoilerL3</object-name>
-		<property>systems/fcs/spoiler-l3/final-deg</property>
+		<property>sim/multiplay/generic/float[11]</property>
 		<factor>-1</factor>
 		<axis>
 			<x1-m>26.247</x1-m>
@@ -1611,7 +1612,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SpoilerR1</object-name>
-		<property>systems/fcs/spoiler-r1/final-deg</property>
+		<property>sim/multiplay/generic/float[12]</property>
 		<factor>-1</factor>
 		<axis>
 			<x1-m>24.872</x1-m>
@@ -1625,7 +1626,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SpoilerR2</object-name>
-		<property>systems/fcs/spoiler-r2/final-deg</property>
+		<property>sim/multiplay/generic/float[13]</property>
 		<factor>-1</factor>
 		<axis>
 			<x1-m>25.008</x1-m>
@@ -1639,7 +1640,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SpoilerR3</object-name>
-		<property>systems/fcs/spoiler-r3/final-deg</property>
+		<property>sim/multiplay/generic/float[14]</property>
 		<factor>-1</factor>
 		<axis>
 			<x1-m>25.008</x1-m>
@@ -1663,7 +1664,7 @@
 		<object-name>ElTabControlR</object-name>
 		<object-name>ElTabGearedR</object-name>
 		<object-name>ElTabAntifloatR</object-name>
-		<property>systems/fcs/stabilizer/final-deg</property>
+		<property>sim/multiplay/generic/float[15]</property>
 		<factor>1</factor>
 		<center>
 			<x-m>41.691</x-m>
@@ -1683,7 +1684,7 @@
 		<object-name>ElTabControlL</object-name>
 		<object-name>ElTabGearedL</object-name>
 		<object-name>ElTabAntifloatL</object-name>
-		<property>systems/fcs/elevator-l/surface-final-deg</property>
+		<property>rotors/main/blade[0]/position-deg</property>
 		<factor>1</factor>
 		<axis>
 			<x1-m>44.801</x1-m>
@@ -1697,7 +1698,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElTabControlL</object-name>
-		<property>systems/fcs/elevator-l/control-tab-final-deg</property>
+		<property>sim/multiplay/generic/float[16]</property>
 		<factor>1</factor>   
 		<axis>
 			<x1-m>43.848</x1-m>
@@ -1711,7 +1712,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElTabGearedL</object-name>
-		<property>systems/fcs/elevator-l/geared-tab-final-deg</property>
+		<property>sim/multiplay/generic/float[17]</property>
 		<factor>1</factor>
 		<axis>
 			<x1-m>44.572</x1-m>
@@ -1725,7 +1726,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElTabAntifloatL</object-name>
-		<property>systems/fcs/elevator-l/anti-float-tab-final-deg</property>
+		<property>sim/multiplay/generic/float[18]</property>
 		<factor>1</factor>
 		<axis>
 			<x1-m>45.072</x1-m>
@@ -1743,7 +1744,7 @@
 		<object-name>ElTabControlR</object-name>
 		<object-name>ElTabGearedR</object-name>
 		<object-name>ElTabAntifloatR</object-name>
-		<property>systems/fcs/elevator-r/surface-final-deg</property>
+		<property>rotors/main/blade[1]/position-deg</property>
 		<factor>1</factor>
 		<axis>
 			<x1-m>42.359</x1-m>
@@ -1757,7 +1758,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElTabControlR</object-name>
-		<property>systems/fcs/elevator-r/control-tab-final-deg</property>
+		<property>sim/multiplay/generic/float[19]</property>
 		<factor>1</factor>  
 		<axis>
 			<x1-m>43.236</x1-m>
@@ -1771,7 +1772,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElTabGearedR</object-name>
-		<property>systems/fcs/elevator-r/geared-tab-final-deg</property>
+		<property>sim/multiplay/generic/float[20]</property>
 		<factor>1</factor>
 		<axis>
 			<x1-m>43.889</x1-m>
@@ -1785,15 +1786,15 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ElTabAntifloatR</object-name>
-		<property>systems/fcs/elevator-r/anti-float-tab-final-deg</property>
+		<property>sim/multiplay/generic/float[21]</property>
 		<factor>1</factor>
 		<axis>
-			<x1-m>45.072</x1-m>
-			<y1-m>5.895</y1-m>
-			<z1-m>5.43</z1-m>
-			<x2-m>44.616</x2-m>
-			<y2-m>4.564</y2-m>
-			<z2-m>5.5</z2-m>
+			<x1-m>44.616</x1-m>
+			<y1-m>4.564</y1-m>
+			<z1-m>5.5</z1-m>
+			<x2-m>45.072</x2-m>
+			<y2-m>5.895</y2-m>
+			<z2-m>5.43</z2-m>
 		</axis>
 	</animation>
 	
@@ -1802,7 +1803,7 @@
 		<type>rotate</type>
 		<object-name>Rudder</object-name>
 		<object-name>RudderTabControl</object-name>
-		<property>systems/fcs/rudder/surface-final-deg</property>
+		<property>rotors/tail/blade[0]/position-deg</property>
 		<factor>-1</factor>
 		<axis>
 			<x1-m>41.69</x1-m>
@@ -1817,7 +1818,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>RudderTabControl</object-name>
-		<property>systems/fcs/rudder/control-tab-final-deg</property>
+		<property>rotors/tail/blade[1]/position-deg</property>
 		<factor>-1</factor>
 		<axis>
 			<x1-m>41.628</x1-m>

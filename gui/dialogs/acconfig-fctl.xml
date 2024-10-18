@@ -117,7 +117,7 @@
 				<slider>
 					<pref-height>100</pref-height>
 					<vertical>true</vertical>
-					<property>/fdm/jsbsim/fcs/spoiler-left-deg</property>
+					<property>/systems/fcs/spoiler-left-deg</property>
 					<min>0</min>
 					<max>60</max>
 					<step>0.006</step>
@@ -134,7 +134,7 @@
 				<slider>
 					<pref-height>100</pref-height>
 					<vertical>true</vertical>
-					<property>/fdm/jsbsim/fcs/spoiler-right-deg</property>
+					<property>/systems/fcs/spoiler-right-deg</property>
 					<min>0</min>
 					<max>60</max>
 					<step>0.006</step>

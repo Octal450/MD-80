@@ -208,6 +208,19 @@
 				<float n="6" alias="/fdm/jsbsim/fcs/slat-pos-norm"/>
 				<float n="7" alias="/controls/lighting/land-ext-l"/>
 				<float n="8" alias="/controls/lighting/land-ext-r"/>
+				<float n="9" alias="/systems/fcs/spoiler-l1/final-deg"/>
+				<float n="10" alias="/systems/fcs/spoiler-l2/final-deg"/>
+				<float n="11" alias="/systems/fcs/spoiler-l3/final-deg"/>
+				<float n="12" alias="/systems/fcs/spoiler-r1/final-deg"/>
+				<float n="13" alias="/systems/fcs/spoiler-r2/final-deg"/>
+				<float n="14" alias="/systems/fcs/spoiler-r3/final-deg"/>
+				<float n="15" alias="/systems/fcs/stabilizer/final-deg"/>
+				<float n="16" alias="/systems/fcs/elevator-l/control-tab-final-deg"/>
+				<float n="17" alias="/systems/fcs/elevator-l/geared-tab-final-deg"/>
+				<float n="18" alias="/systems/fcs/elevator-l/anti-float-tab-final-deg"/>
+				<float n="19" alias="/systems/fcs/elevator-r/control-tab-final-deg"/>
+				<float n="20" alias="/systems/fcs/elevator-r/geared-tab-final-deg"/>
+				<float n="21" alias="/systems/fcs/elevator-r/anti-float-tab-final-deg"/>
 				<int n="0" alias="/sim/model/lights/strobe/state"/>
 				<int n="1" alias="/sim/model/lights/beacon/state"/>
 				<int n="2" alias="/controls/lighting/landing-light-n"/>
@@ -1432,6 +1445,35 @@
 	<position n="0">
 		<wow type="bool">1</wow>
 	</position>
+	
+	<rotors n="0"> <!-- Used as a hack to bring properties over MP without using up floats -->
+		<main n="0">
+			<blade n="0">
+				<flap-deg alias="/systems/fcs/aileron-l/surface-final-deg"/>
+				<position-deg alias="/systems/fcs/elevator-l/surface-final-deg"/>
+			</blade>
+			<blade n="1">
+				<flap-deg alias="/systems/fcs/aileron-r/surface-final-deg"/>
+				<position-deg alias="/systems/fcs/elevator-r/surface-final-deg"/>
+			</blade>
+			<blade n="2">
+				<flap-deg alias="/systems/fcs/aileron-l/trim-tab-final-deg"/>
+				<position-deg alias="/systems/fcs/aileron-l/control-tab-final-deg"/>
+			</blade>
+			<blade n="3">
+				<flap-deg alias="/systems/fcs/aileron-r/trim-tab-final-deg"/>
+				<position-deg alias="/systems/fcs/aileron-r/control-tab-final-deg"/>
+			</blade>
+		</main>
+		<tail n="0">
+			<blade n="0">
+				<position-deg alias="/systems/fcs/rudder/surface-final-deg"/>
+			</blade>
+			<blade n="1">
+				<position-deg alias="/systems/fcs/rudder/control-tab-final-deg"/>
+			</blade>
+		</tail>
+	</rotors>
 	
 	<services n="0">
 		<chocks n="0">

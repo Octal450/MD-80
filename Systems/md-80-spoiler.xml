@@ -470,44 +470,42 @@
 	
 	<channel name="Output">
 		
-		<summer name="fcs/spoiler-left-sum">
+		<summer name="/systems/fcs/spoiler-left-sum">
 			<input>/systems/fcs/spoiler-l1/final-actuator</input>
 			<input>/systems/fcs/spoiler-l2/final-actuator</input>
 			<input>/systems/fcs/spoiler-l3/final-actuator</input>
 		</summer>
 		
-		<fcs_function name="fcs/spoiler-left-deg">
+		<fcs_function name="/systems/fcs/spoiler-left-deg">
 			<function>
 				<quotient>
-					<property>fcs/spoiler-left-sum</property>
+					<property>/systems/fcs/spoiler-left-sum</property>
 					<value>3</value>
 				</quotient>
 			</function>
-			<output>fcs/spoiler-left-feedback</output>
 		</fcs_function>
 		
-		<summer name="fcs/spoiler-right-sum">
+		<summer name="/systems/fcs/spoiler-right-sum">
 			<input>/systems/fcs/spoiler-r1/final-actuator</input>
 			<input>/systems/fcs/spoiler-r2/final-actuator</input>
 			<input>/systems/fcs/spoiler-r3/final-actuator</input>
 		</summer>
 		
-		<fcs_function name="fcs/spoiler-right-deg">
+		<fcs_function name="/systems/fcs/spoiler-right-deg">
 			<function>
 				<quotient>
-					<property>fcs/spoiler-right-sum</property>
+					<property>/systems/fcs/spoiler-right-sum</property>
 					<value>3</value>
 				</quotient>
 			</function>
-			<output>fcs/spoiler-right-feedback</output>
 		</fcs_function>
 		
-		<fcs_function name="fcs/spoiler-symmetrical-deg">
+		<fcs_function name="/systems/fcs/spoiler-symmetrical-deg">
 			<function>
 				<quotient>
 					<min>
-						<property>fcs/spoiler-left-sum</property>
-						<property>fcs/spoiler-right-sum</property>
+						<property>/systems/fcs/spoiler-left-sum</property>
+						<property>/systems/fcs/spoiler-right-sum</property>
 					</min>
 					<value>3</value>
 				</quotient>
