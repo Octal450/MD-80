@@ -3,7 +3,7 @@
 <!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
 <!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
 
-<PropertyList> 
+<PropertyList> <!--  Note this file is not used for the MD-87 due to the amount of differences -->
 	
 	<path>mesh_airframe.ac</path>
 	
