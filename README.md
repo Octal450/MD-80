@@ -5,6 +5,7 @@ Present pack includes the following McDonnell Douglas MD-80 variants:
 - MD-81 (JT8D-209)
 - MD-82 (JT8D-217A)
 - MD-83 (JT8D-219)
+- MD-87 (JT8D-217C)
 
 FlightGear 2020.3.14 or later is supported. For more info, please see the [project wiki page](https://wiki.flightgear.org/McDonnell_Douglas_MD-80).
 
