@@ -717,6 +717,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
+				<property>aero/arm-factor</property> <!-- MD-87 -->
 				<property>aero/function/kCmdstab</property>
 				<toradians><property>/systems/fcs/stabilizer/final-deg</property></toradians>
 				<value>-2.732</value>

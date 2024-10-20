@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-87 JSBSim -->
+<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+
+<mass_balance>
+	
+	<ixx unit="SLUG*FT2">401483</ixx>
+	<iyy unit="SLUG*FT2">791583</iyy>
+	<izz unit="SLUG*FT2">641726</izz>
+	<ixy unit="SLUG*FT2">0</ixy>
+	<ixz unit="SLUG*FT2">0</ixz>
+	<iyz unit="SLUG*FT2">0</iyz>
+	<emptywt unit="LBS">73274</emptywt>
+	
+	<location name="CG" unit="M">
+		<x>24.20826</x> <!-- 34.3% MAC -->
+		<y>0</y>
+		<z>0.0014</z>
+	</location>
+	
+	<!-- All below positions fudged for CG accuracy -->
+	<pointmass name="Forward Cabin">
+		<weight unit="LBS">9800</weight>
+		<location name="POINTMASS" unit="M">
+			<x>18.5</x>
+			<y>0</y>
+			<z>0.984</z>
+		</location>
+	</pointmass>
+	<pointmass name="Aft Cabin">
+		<weight unit="LBS">9600</weight>
+		<location name="POINTMASS" unit="M">
+			<x>24.4</x>
+			<y>0</y>
+			<z>0.984</z>
+		</location>
+	</pointmass>
+	
+	<pointmass name="Forward Cargo">
+		<weight unit="LBS">2900</weight>
+		<location name="POINTMASS" unit="M">
+			<x>19.4</x>
+			<y>0</y>
+			<z>-0.284</z>
+		</location>
+	</pointmass>
+	<pointmass name="Aft Cargo">
+		<weight unit="LBS">2700</weight>
+		<location name="POINTMASS" unit="M">
+			<x>24.8</x>
+			<y>0</y>
+			<z>-0.284</z>
+		</location>
+	</pointmass>
+
+</mass_balance>

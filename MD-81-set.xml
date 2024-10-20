@@ -30,6 +30,14 @@
 		<primary-set>true</primary-set>
     </sim>
 	
+	<fdm n="0">
+		<jsbsim n="0">
+			<aero n="0">
+				<arm-factor type="double">1</arm-factor>
+			</aero>
+		</jsbsim>
+	</fdm>
+	
 	<limits>
 		<mass-and-balance> <!-- Data source: TCDS -->
 			<maximum-landing-mass-lbs>130000</maximum-landing-mass-lbs>

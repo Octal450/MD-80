@@ -3,9 +3,9 @@
 <!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
 <!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
 
-<PropertyList> <!--  This file is not used for the MD-87 due to the amount of differences -->
+<PropertyList> <!--  This file is separate for the MD-87 due to the amount of differences -->
 	
-	<path>mesh_airframe.ac</path>
+	<path>mesh_airframe_87.ac</path>
 	
 	<offsets>
 		<x-m>-22.6236</x-m>
@@ -20,7 +20,7 @@
 	<model>
 		<path>Aircraft/MD-80/Models/Effects/Contrail/contrail-eng1.xml</path>
 		<offsets>
-			<x-m>47</x-m>
+			<x-m>45</x-m>
 			<y-m>-2.795</y-m>
 			<z-m>0.982</z-m>
 		</offsets>
@@ -29,7 +29,7 @@
 	<model>
 		<path>Aircraft/MD-80/Models/Effects/Contrail/contrail-eng2.xml</path>
 		<offsets>
-			<x-m>47</x-m>
+			<x-m>45</x-m>
 			<y-m>2.915</y-m>
 			<z-m>0.982</z-m>
 		</offsets>
@@ -44,6 +44,9 @@
 	<model>
 		<name>Cockpit</name>
 		<path>Aircraft/MD-80/Models/MD-80-cockpit.xml</path>
+		<offsets>
+			<x-m>2.9</x-m>
+		</offsets>
 	</model>
 	
 	<model>
@@ -102,7 +105,7 @@
 		<name>Nose Landing Light</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/landinglightN.xml</path>
 		<offsets>
-			<x-m>2.46026</x-m>
+			<x-m>5.36026</x-m>
 			<y-m>0.13963</y-m>
 			<z-m>-1.32</z-m>
 		</offsets>
@@ -113,7 +116,7 @@
 		<type>spot</type>
 		<dim-factor><property>systems/exterior-lights/nose-landing-light</property></dim-factor>
 		<position>
-			<x-m>2.46026</x-m>
+			<x-m>5.36026</x-m>
 			<y-m>0.13963</y-m>
 			<z-m>-1.32</z-m>
 		</position>
@@ -154,7 +157,7 @@
 		<name>Nose Taxi Light</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/taxilight.xml</path>
 		<offsets>
-			<x-m>2.46026</x-m>
+			<x-m>5.36026</x-m>
 			<y-m>-0.13963</y-m>
 			<z-m>-1.32</z-m>
 		</offsets>
@@ -165,7 +168,7 @@
 		<dim-factor><property>systems/exterior-lights/nose-taxi-light</property></dim-factor>
 		<type>spot</type>
 		<position>
-			<x-m>2.46026</x-m>
+			<x-m>5.36026</x-m>
 			<y-m>-0.13963</y-m>
 			<z-m>-1.32</z-m>
 		</position>
@@ -1667,7 +1670,7 @@
 		<property>sim/multiplay/generic/float[15]</property>
 		<factor>1</factor>
 		<center>
-			<x-m>41.691</x-m>
+			<x-m>39.191</x-m>
 			<y-m>0</y-m>
 			<z-m>5.727</z-m>
 		</center>
@@ -1687,10 +1690,10 @@
 		<property>rotors/main/blade[0]/position-deg</property>
 		<factor>1</factor>
 		<axis>
-			<x1-m>44.801</x1-m>
+			<x1-m>42.301</x1-m>
 			<y1-m>-6.075</y1-m>
 			<z1-m>5.421</z1-m>
-			<x2-m>42.359</x2-m>
+			<x2-m>39.859</x2-m>
 			<y2-m>-0.530</y2-m>
 			<z2-m>5.711</z2-m>
 		</axis>
@@ -1701,10 +1704,10 @@
 		<property>sim/multiplay/generic/float[16]</property>
 		<factor>1</factor>   
 		<axis>
-			<x1-m>43.848</x1-m>
+			<x1-m>41.348</x1-m>
 			<y1-m>-2.319</y1-m>
 			<z1-m>5.617</z1-m>
-			<x2-m>43.236</x2-m>
+			<x2-m>40.736</x2-m>
 			<y2-m>-0.533</y2-m>
 			<z2-m>5.711</z2-m>
 		</axis>
@@ -1715,10 +1718,10 @@
 		<property>sim/multiplay/generic/float[17]</property>
 		<factor>1</factor>
 		<axis>
-			<x1-m>44.572</x1-m>
+			<x1-m>42.072</x1-m>
 			<y1-m>-4.435</y1-m>
 			<z1-m>5.507</z1-m>
-			<x2-m>43.889</x2-m>
+			<x2-m>41.389</x2-m>
 			<y2-m>-2.438</y2-m>
 			<z2-m>5.611</z2-m>
 		</axis>
@@ -1729,10 +1732,10 @@
 		<property>sim/multiplay/generic/float[18]</property>
 		<factor>1</factor>
 		<axis>
-			<x1-m>45.072</x1-m>
+			<x1-m>42.572</x1-m>
 			<y1-m>-5.895</y1-m>
 			<z1-m>5.43</z1-m>
-			<x2-m>44.616</x2-m>
+			<x2-m>42.116</x2-m>
 			<y2-m>-4.564</y2-m>
 			<z2-m>5.5</z2-m>
 		</axis>
@@ -1747,10 +1750,10 @@
 		<property>rotors/main/blade[1]/position-deg</property>
 		<factor>1</factor>
 		<axis>
-			<x1-m>42.359</x1-m>
+			<x1-m>39.859</x1-m>
 			<y1-m>0.530</y1-m>
 			<z1-m>5.711</z1-m>
-			<x2-m>44.801</x2-m>
+			<x2-m>42.301</x2-m>
 			<y2-m>6.075</y2-m>
 			<z2-m>5.421</z2-m>
 		</axis>
@@ -1761,10 +1764,10 @@
 		<property>sim/multiplay/generic/float[19]</property>
 		<factor>1</factor>  
 		<axis>
-			<x1-m>43.236</x1-m>
+			<x1-m>40.736</x1-m>
 			<y1-m>0.533</y1-m>
 			<z1-m>5.711</z1-m>
-			<x2-m>43.848</x2-m>
+			<x2-m>41.348</x2-m>
 			<y2-m>2.319</y2-m>
 			<z2-m>5.617</z2-m>
 		</axis>
@@ -1775,10 +1778,10 @@
 		<property>sim/multiplay/generic/float[20]</property>
 		<factor>1</factor>
 		<axis>
-			<x1-m>43.889</x1-m>
+			<x1-m>41.389</x1-m>
 			<y1-m>2.438</y1-m>
 			<z1-m>5.611</z1-m>
-			<x2-m>44.572</x2-m>
+			<x2-m>42.072</x2-m>
 			<y2-m>4.435</y2-m>
 			<z2-m>5.507</z2-m>
 		</axis>
@@ -1789,10 +1792,10 @@
 		<property>sim/multiplay/generic/float[21]</property>
 		<factor>1</factor>
 		<axis>
-			<x1-m>44.616</x1-m>
+			<x1-m>42.116</x1-m>
 			<y1-m>4.564</y1-m>
 			<z1-m>5.5</z1-m>
-			<x2-m>45.072</x2-m>
+			<x2-m>42.572</x2-m>
 			<y2-m>5.895</y2-m>
 			<z2-m>5.43</z2-m>
 		</axis>
@@ -1806,10 +1809,10 @@
 		<property>rotors/tail/blade[0]/position-deg</property>
 		<factor>-1</factor>
 		<axis>
-			<x1-m>41.69</x1-m>
+			<x1-m>39.19</x1-m>
 			<y1-m>0</y1-m>
 			<z1-m>5.039</z1-m>
-			<x2-m>38.847</x2-m>
+			<x2-m>36.347</x2-m>
 			<y2-m>0</y2-m>
 			<z2-m>1.882</z2-m>
 		</axis>
@@ -1821,10 +1824,10 @@
 		<property>rotors/tail/blade[1]/position-deg</property>
 		<factor>-1</factor>
 		<axis>
-			<x1-m>41.628</x1-m>
+			<x1-m>39.128</x1-m>
 			<y1-m>0</y1-m>
 			<z1-m>3.276</z1-m>
-			<x2-m>40.58</x2-m>
+			<x2-m>38.08</x2-m>
 			<y2-m>0</y2-m>
 			<z2-m>1.883</z2-m>
 		</axis>
@@ -1839,7 +1842,7 @@
 			<property>sim/multiplay/generic/bool[0]</property>
 		</condition>
 		<offsets>
-			<x-m>2.39659</x-m>
+			<x-m>5.29654</x-m>
 			<y-m>0</y-m>
 			<z-m>-2.47</z-m>
 		</offsets>
@@ -1902,7 +1905,7 @@
 			<entry><ind>1.0</ind><dep>  0</dep></entry>
 		</interpolation>
 		<center>
-			<x-m>2.569</x-m>
+			<x-m>5.469</x-m>
 			<y-m>0</y-m>
 			<z-m>-0.919</z-m>
 		</center>
@@ -1922,10 +1925,10 @@
 		<property>sim/multiplay/generic/float[5]</property>
 		<factor>-82</factor>
 		<axis>
-			<x1-m>2.382</x1-m>
+			<x1-m>5.282</x1-m>
 			<y1-m>0</y1-m>
 			<z1-m>-2.2443</z1-m>
-			<x2-m>2.522</x2-m>
+			<x2-m>5.422</x2-m>
 			<y2-m>0</y2-m>
 			<z2-m>-1.253</z2-m>
 		</axis>
@@ -1940,10 +1943,10 @@
 			<entry><ind>1.0</ind><dep>90</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>2.6287</x1-m>
+			<x1-m>5.5287</x1-m>
 			<y1-m>-0.3249</y1-m>
 			<z1-m>-1.1899</z1-m>
-			<x2-m>2.01021</x2-m>
+			<x2-m>4.91021</x2-m>
 			<y2-m>-0.3249</y2-m>
 			<z2-m>-1.17003</z2-m>
 		</axis>
@@ -1957,10 +1960,10 @@
 			<entry><ind>1.0</ind><dep>90</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>2.01021</x1-m>
+			<x1-m>4.91021</x1-m>
 			<y1-m>0.3249</y1-m>
 			<z1-m>-1.17003</z1-m>
-			<x2-m>2.6287</x2-m>
+			<x2-m>5.5287</x2-m>
 			<y2-m>0.3249</y2-m>
 			<z2-m>-1.1899</z2-m>
 		</axis>
@@ -1976,10 +1979,10 @@
 			<entry><ind>1.0</ind><dep> 0</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>2.01021</x1-m>
+			<x1-m>4.91021</x1-m>
 			<y1-m>-0.3249</y1-m>
 			<z1-m>-1.17003</z1-m>
-			<x2-m>0.84042</x2-m>
+			<x2-m>3.74042</x2-m>
 			<y2-m>-0.3249</y2-m>
 			<z2-m>-0.89021</z2-m>
 		</axis>
@@ -1995,10 +1998,10 @@
 			<entry><ind>1.0</ind><dep> 0</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>0.84042</x1-m>
+			<x1-m>3.74042</x1-m>
 			<y1-m>0.3249</y1-m>
 			<z1-m>-0.89021</z1-m>
-			<x2-m>2.01021</x2-m>
+			<x2-m>4.91021</x2-m>
 			<y2-m>0.3249</y2-m>
 			<z2-m>-1.17003</z2-m>
 		</axis>
@@ -2037,7 +2040,7 @@
 			<entry><ind>1.0</ind><dep>17.1029376</dep></entry>
 		</interpolation>
 		<center>
-			<x-m>2.55</x-m>
+			<x-m>5.45</x-m>
 			<y-m>0</y-m>
 			<z-m>-1.667</z-m>
 		</center>
@@ -2065,7 +2068,7 @@
 			<entry><ind>1.0</ind><dep>17.1029376</dep></entry>
 		</interpolation>
 		<center>
-			<x-m>2.481</x-m>
+			<x-m>5.381</x-m>
 			<y-m>0</y-m>
 			<z-m>-2.154</z-m>
 		</center>
@@ -2085,7 +2088,7 @@
 		<property>sim/multiplay/generic/float[0]</property>
 		<factor>-20.0</factor>
 		<center>
-			<x-m>2.397</x-m>
+			<x-m>5.29654</x-m>
 			<y-m>0</y-m>
 			<z-m>-2.143</z-m>
 		</center>
@@ -2630,10 +2633,10 @@
 			<entry><ind>1</ind><dep>142</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>36.999</x1-m>
+			<x1-m>34.499</x1-m>
 			<y1-m>-3.215</y1-m>
 			<z1-m>0.728</z1-m>
-			<x2-m>36.991</x2-m>
+			<x2-m>34.491</x2-m>
 			<y2-m>-2.146</y2-m>
 			<z2-m>0.516</z2-m>
 		</axis>
@@ -2647,10 +2650,10 @@
 			<entry><ind>1</ind><dep>-67</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>36.213</x1-m>
+			<x1-m>33.713</x1-m>
 			<y1-m>-3.318</y1-m>
 			<z1-m>0.674</z1-m>
-			<x2-m>36.204</x2-m>
+			<x2-m>33.704</x2-m>
 			<y2-m>-2.082</y2-m>
 			<z2-m>0.429</z2-m>
 		</axis>
@@ -2664,10 +2667,10 @@
 			<entry><ind>1</ind><dep>190</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>37.234</x1-m>
+			<x1-m>34.734</x1-m>
 			<y1-m>-3.215</y1-m>
 			<z1-m>0.720</z1-m>
-			<x2-m>37.226</x2-m>
+			<x2-m>34.726</x2-m>
 			<y2-m>-2.146</y2-m>
 			<z2-m>0.508</z2-m>
 		</axis>
@@ -2683,10 +2686,10 @@
 			<entry><ind>1</ind><dep>-142</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>36.992</x1-m>
+			<x1-m>34.492</x1-m>
 			<y1-m>-3.254</y1-m>
 			<z1-m>0.532</z1-m>
-			<x2-m>36.985</x2-m>
+			<x2-m>34.485</x2-m>
 			<y2-m>-2.185</y2-m>
 			<z2-m>0.320</z2-m>
 		</axis>
@@ -2700,10 +2703,10 @@
 			<entry><ind>1</ind><dep>67</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>36.213</x1-m>
+			<x1-m>33.713</x1-m>
 			<y1-m>-3.318</y1-m>
 			<z1-m>0.674</z1-m>
-			<x2-m>36.204</x2-m>
+			<x2-m>33.704</x2-m>
 			<y2-m>-2.082</y2-m>
 			<z2-m>0.429</z2-m>
 		</axis>
@@ -2717,10 +2720,10 @@
 			<entry><ind>1</ind><dep>-190</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>37.227</x1-m>
+			<x1-m>34.727</x1-m>
 			<y1-m>-3.254</y1-m>
 			<z1-m>0.524</z1-m>
-			<x2-m>37.219</x2-m>
+			<x2-m>34.719</x2-m>
 			<y2-m>-2.185</y2-m>
 			<z2-m>0.312</z2-m>
 		</axis>
@@ -2736,10 +2739,10 @@
 			<entry><ind>1</ind><dep>142</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>36.991</x1-m>
+			<x1-m>34.491</x1-m>
 			<y1-m>2.146</y1-m>
 			<z1-m>0.516</z1-m>
-			<x2-m>36.999</x2-m>
+			<x2-m>34.499</x2-m>
 			<y2-m>3.215</y2-m>
 			<z2-m>0.728</z2-m>
 		</axis>
@@ -2753,10 +2756,10 @@
 			<entry><ind>1</ind><dep>-67</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>36.204</x1-m>
+			<x1-m>33.704</x1-m>
 			<y1-m>2.082</y1-m>
 			<z1-m>0.429</z1-m>
-			<x2-m>36.213</x2-m>
+			<x2-m>33.713</x2-m>
 			<y2-m>3.318</y2-m>
 			<z2-m>0.674</z2-m>
 		</axis>
@@ -2770,10 +2773,10 @@
 			<entry><ind>1</ind><dep>190</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>37.226</x1-m>
+			<x1-m>34.726</x1-m>
 			<y1-m>2.146</y1-m>
 			<z1-m>0.508</z1-m>
-			<x2-m>37.234</x2-m>
+			<x2-m>34.734</x2-m>
 			<y2-m>3.215</y2-m>
 			<z2-m>0.720</z2-m>
 		</axis>
@@ -2789,10 +2792,10 @@
 			<entry><ind>1</ind><dep>-142</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>36.985</x1-m>
+			<x1-m>34.485</x1-m>
 			<y1-m>2.185</y1-m>
 			<z1-m>0.320</z1-m>
-			<x2-m>36.992</x2-m>
+			<x2-m>34.492</x2-m>
 			<y2-m>3.254</y2-m>
 			<z2-m>0.532</z2-m>
 		</axis>
@@ -2806,10 +2809,10 @@
 			<entry><ind>1</ind><dep>67</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>36.204</x1-m>
+			<x1-m>33.704</x1-m>
 			<y1-m>2.082</y1-m>
 			<z1-m>0.429</z1-m>
-			<x2-m>36.213</x2-m>
+			<x2-m>33.713</x2-m>
 			<y2-m>3.318</y2-m>
 			<z2-m>0.674</z2-m>
 		</axis>
@@ -2823,10 +2826,10 @@
 			<entry><ind>1</ind><dep>-190</dep></entry>
 		</interpolation>
 		<axis>
-			<x1-m>37.219</x1-m>
+			<x1-m>34.719</x1-m>
 			<y1-m>2.185</y1-m>
 			<z1-m>0.312</z1-m>
-			<x2-m>37.227</x2-m>
+			<x2-m>34.727</x2-m>
 			<y2-m>3.254</y2-m>
 			<z2-m>0.524</z2-m>
 		</axis>

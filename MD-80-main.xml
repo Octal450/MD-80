@@ -285,6 +285,7 @@
 			<tag>jet</tag>
 			<tag>2-engine</tag>
 		</tags>
+		<!-- MD-87 views overwrite these in its -set -->
 		<view n="0">
 			<name>Captain View</name>
 			<internal type="bool" archive="y">true</internal>

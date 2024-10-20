@@ -1,0 +1,177 @@
+﻿<?xml version="1.0"?>
+
+<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+
+<PropertyList include="MD-80-main.xml">
+	
+    <sim>
+		<aero>FDE/MD-87</aero>
+		<description>McDonnell Douglas MD-87 (JT8D-217C)</description> <!-- Note -217C is a -219 operated as a -217A -->
+		<flight-model>jsb</flight-model>
+		<model n="0">
+			<livery>
+				<file type="string">White</file>
+			</livery>
+			<n1-tach n="0">
+				<texture type="string">n1-217a.png</texture>
+			</n1-tach>
+			<n2-tach n="0">
+				<texture type="string">n2-217a.png</texture>
+			</n2-tach>
+			<path>Aircraft/MD-80/Models/MD-87.xml</path>
+		</model>
+		<previews>
+			<preview>
+				<type>exterior</type>
+				<splash type="bool">true</splash>
+				<path>gui/splash/MD-80.png</path>
+			</preview>
+		</previews>
+		<primary-set>true</primary-set>
+		<!-- Overwrite -main views with correct positions -->
+		<view n="0">
+			<name>Captain View</name>
+			<internal type="bool" archive="y">true</internal>
+			<config>
+				<x-offset-m archive="y">-0.5</x-offset-m>
+				<y-offset-m archive="y">1.31</y-offset-m>
+				<z-offset-m archive="y">-16.68</z-offset-m>
+				<default-field-of-view-deg type="double">78</default-field-of-view-deg>
+				<heading-offset-deg archive="y">0</heading-offset-deg>
+				<pitch-offset-deg archive="y">-18</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
+			</config>
+		</view>
+		<view n="100">
+			<name>First Officer View</name>
+			<type>lookfrom</type>
+			<internal type="bool" archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0.5</x-offset-m>
+				<y-offset-m archive="y">1.31</y-offset-m>
+				<z-offset-m archive="y">-16.68</z-offset-m>
+				<default-field-of-view-deg type="double">78</default-field-of-view-deg>
+				<heading-offset-deg archive="y">0</heading-offset-deg>
+				<pitch-offset-deg archive="y">-18</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
+			</config>
+		</view>
+		<view n="101"> 
+			<name>Overhead Panel</name>
+			<type>lookfrom</type>
+			<internal type="bool" archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0</x-offset-m>
+				<y-offset-m archive="y">1.14</y-offset-m>
+				<z-offset-m archive="y">-16.55</z-offset-m>
+				<default-field-of-view-deg type="double">103</default-field-of-view-deg>
+				<heading-offset-deg archive="y">0</heading-offset-deg>
+				<pitch-offset-deg archive="y">57</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
+			</config>
+		</view>
+		<view n="102">
+			<name>Forward Pedestal View</name>
+			<type>lookfrom</type>
+			<internal type="bool" archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0</x-offset-m>
+				<y-offset-m archive="y">1.3</y-offset-m>
+				<z-offset-m archive="y">-17.07</z-offset-m>
+				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
+				<heading-offset-deg archive="y">0</heading-offset-deg>
+				<pitch-offset-deg archive="y">-75</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
+			</config>
+		</view>
+		<view n="103">
+			<name>Aft Pedestal View</name>
+			<type>lookfrom</type>
+			<internal type="bool" archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0</x-offset-m>
+				<y-offset-m archive="y">1.3</y-offset-m>
+				<z-offset-m archive="y">-16.7</z-offset-m>
+				<default-field-of-view-deg type="double">84</default-field-of-view-deg>
+				<heading-offset-deg archive="y">0</heading-offset-deg>
+				<pitch-offset-deg archive="y">-75</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
+			</config>
+		</view>
+		<view n="104">
+			<name>Glareshield View</name>
+			<type>lookfrom</type>
+			<internal type="bool" archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0</x-offset-m>
+				<y-offset-m archive="y">1.31</y-offset-m>
+				<z-offset-m archive="y">-16.68</z-offset-m>
+				<default-field-of-view-deg type="double">74</default-field-of-view-deg>
+				<heading-offset-deg archive="y">0</heading-offset-deg>
+				<pitch-offset-deg archive="y">-18</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
+			</config>
+		</view>
+    </sim>
+	
+	<fdm n="0">
+		<jsbsim n="0">
+			<aero n="0"> <!-- MD-87 stab modifications -->
+				<arm-factor type="double">0.97</arm-factor>
+			</aero>
+		</jsbsim>
+	</fdm>
+	
+	<limits>
+		<mass-and-balance> <!-- Data source: TCDS -->
+			<maximum-landing-mass-lbs>130000</maximum-landing-mass-lbs>
+			<maximum-takeoff-mass-lbs>149500</maximum-takeoff-mass-lbs>
+			<maximum-zero-fuel-mass-lbs>112000</maximum-zero-fuel-mass-lbs>
+		</mass-and-balance>
+	</limits>
+	
+	<options n="0">
+		<aux-tanks type="bool">0</aux-tanks>
+		<eng type="string">217C</eng>
+		<fms type="string">CMA-900/PMS</fms>
+	</options>
+	
+	<payload n="0">
+		<weight n="0">
+			<name>Forward Cabin</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">15370</max-lb>
+		</weight>
+		<weight n="1">
+			<name>Aft Cabin</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">15185</max-lb>
+		</weight>
+		<weight n="2">
+			<name>Forward Cargo</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]"/>
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">10304</max-lb>
+		</weight>
+		<weight n="3">
+			<name>Aft Cargo</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]"/>
+			<min-lb type="double">0</min-lb>
+			<max-lb type="double">9619</max-lb>
+		</weight>
+	</payload>
+	
+	<nasal n="0">
+		<setup>
+			<script>aircraft.livery.init("Aircraft/MD-80/Models/Liveries/MD-87");</script>
+		</setup>
+    </nasal>
+
+</PropertyList>

@@ -4,11 +4,11 @@
 
 <PropertyList>
 	
-	<main include="MD-80-main.xml" omit-node="y"/>
+	<main include="MD-87-main.xml" omit-node="y"/>
 	
 	<nasal>
 		<load>
-			var livery_update = aircraft.livery_update.new("Aircraft/MD-80/Models/Liveries/MD-82");
+			var livery_update = aircraft.livery_update.new("Aircraft/MD-80/Models/Liveries/MD-87");
 		</load>
 		<unload>
 			livery_update.stop();
@@ -24,7 +24,7 @@
 		<object-name>LGNDoorForR</object-name>
 		<property-base>sim/model/livery</property-base>
 		<texture-prop>texture</texture-prop>
-		<texture>txt_fuselage.png</texture>
+		<texture>txt_fuselage_87.png</texture>
 	</animation>
 	<animation>
 		<type>material</type>

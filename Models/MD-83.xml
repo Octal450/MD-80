@@ -18,19 +18,19 @@
 	<animation>
 		<type>material</type>
 		<object-name>Fuselage</object-name>
-		<object-name>LGNDoorForL</object-name>
-		<object-name>LGNDoorForR</object-name>
 		<object-name>LGNDoorAftL</object-name>
 		<object-name>LGNDoorAftR</object-name>
+		<object-name>LGNDoorForL</object-name>
+		<object-name>LGNDoorForR</object-name>
 		<property-base>sim/model/livery</property-base>
 		<texture-prop>texture</texture-prop>
 		<texture>txt_fuselage.png</texture>
 	</animation>
 	<animation>
 		<type>material</type>
-		<object-name>WingFairing</object-name>
 		<object-name>LGDoorInL</object-name>
 		<object-name>LGDoorInR</object-name>
+		<object-name>WingFairing</object-name>
 		<property-base>sim/model/fairings</property-base>
 		<texture-prop>texture</texture-prop>
 		<texture>txt_fuselage_fairing.png</texture>
@@ -38,10 +38,10 @@
 	<animation>
 		<type>material</type>
 		<object-name>Engines</object-name>
-		<object-name>VStabilizer</object-name>
 		<object-name>Rudder</object-name>
 		<object-name>RudderTabControl</object-name>
 		<object-name>StabFairing</object-name>
+		<object-name>VStabilizer</object-name>
 		<property-base>sim/model/rudders</property-base>
 		<texture-prop>texture</texture-prop>
 		<texture>txt_vstab_engines.png</texture>
