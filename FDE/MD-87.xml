@@ -6,7 +6,7 @@
 	
 	<fileheader>
 		<author>Josh Davidson (Octal450)</author>
-		<description>MD-87 FDE with JT8D-217C Engines</description> <!-- Note -217C is a -219 operated as a -217A, so just use -217A files -->
+		<description>MD-87 FDE with JT8D-217C Engines</description> <!-- Note: -217C is a -219 operated as a -217A, so just use -217A files -->
 	</fileheader>
 	
 	<metrics file="FDE/Config/md-80-metrics"/>

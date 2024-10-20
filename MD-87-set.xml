@@ -6,7 +6,7 @@
 	
     <sim>
 		<aero>FDE/MD-87</aero>
-		<description>McDonnell Douglas MD-87 (JT8D-217C)</description> <!-- Note -217C is a -219 operated as a -217A -->
+		<description>McDonnell Douglas MD-87 (JT8D-217C)</description> <!-- Note: -217C is a -219 operated as a -217A -->
 		<flight-model>jsb</flight-model>
 		<model n="0">
 			<livery>
