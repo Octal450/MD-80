@@ -108,7 +108,7 @@ var canvasBase = {
 			} else {
 				me["ArmLine1"].setText(Modes.line1[1].getValue());
 				
-				if (Value.line2 == "ALT" and pts.Systems.Acconfig.Options.armedAltAsFl.getBoolValue()) { # For ARM window Altitude as Flight Level
+				if (Value.line2[1] == "ALT" and pts.Systems.Acconfig.Options.armedAltAsFl.getBoolValue()) { # For ARM window Altitude as Flight Level
 					Value.altStr = sprintf("%d", math.round(dfgs.Input.alt.getValue() / 100));
 					if (int(Value.altStr) < 10) {
 						Value.altStr = "==" ~ Value.altStr;
