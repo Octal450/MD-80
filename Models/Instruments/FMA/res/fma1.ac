@@ -3,27 +3,7 @@ MATERIAL "ac3dmat1" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 64  trans 
 MATERIAL "ac3dmat1" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 64  trans 0
 MATERIAL "ac3dmat1" rgb 1 1 1  amb 0 0 0  emis 1 1 1  spec 0 0 0  shi 64  trans 0
 OBJECT world
-kids 7
-OBJECT poly
-name "arm1.screen"
-data 10
-ND.screenL
-texture "screen.png"
-crease 30.000000
-numvert 4
-0.00015 0.00659 0.00395
-0.00015 -0.01475 0.00395
-0.00015 -0.01475 0.0343
-0.00015 0.00659 0.0343
-numsurf 1
-SURF 0x0
-mat 2
-refs 4
-0 1.00067 0.999407
-3 4.5e-05 0.999407
-2 4.5e-05 0.000756
-1 1.00067 0.000756
-kids 0
+kids 4
 OBJECT poly
 name "face"
 data 9
@@ -282,46 +262,6 @@ refs 4
 1 0.417533 0.934324
 3 0.250629 0.934324
 kids 0
-OBJECT poly
-name "pitch1.screen"
-data 14
-ND.screenL.003
-texture "screen.png"
-crease 30.000000
-numvert 4
-0.00015 0.00659 -0.06836
-0.00015 -0.01475 -0.06836
-0.00015 -0.01475 -0.03224
-0.00015 0.00659 -0.03224
-numsurf 1
-SURF 0x0
-mat 2
-refs 4
-0 1.00067 0.999407
-3 4.5e-05 0.999407
-2 4.5e-05 0.000756
-1 1.00067 0.000756
-kids 0
-OBJECT poly
-name "roll1.screen"
-data 14
-ND.screenL.001
-texture "screen.png"
-crease 30.000000
-numvert 4
-0.00015 0.00659 -0.02904
-0.00015 -0.01475 -0.02904
-0.00015 -0.01475 0.0013
-0.00015 0.00659 0.0013
-numsurf 1
-SURF 0x0
-mat 2
-refs 4
-0 1.00067 0.999407
-3 4.5e-05 0.999407
-2 4.5e-05 0.000756
-1 1.00067 0.000756
-kids 0
 OBJECT group
 name "rstBtn"
 kids 2
@@ -398,22 +338,56 @@ refs 4
 3 0 1
 kids 0
 OBJECT poly
-name "thr1.screen"
+name "fma1.screen"
+loc 0.00015 -0.00408 0.00324
 data 14
 ND.screenL.002
 texture "screen.png"
 crease 30.000000
-numvert 4
-0.00015 0.00659 0.03873
-0.00015 -0.01475 0.03873
-0.00015 -0.01475 0.07484
-0.00015 0.00659 0.07484
-numsurf 1
+numvert 16
+0 0.01067 -0.03548
+0 -0.01067 -0.03548
+0 -0.01067 -0.0716
+0 0.01067 -0.0716
+0 0.01067 -0.00194
+0 -0.01067 -0.00194
+0 -0.01067 -0.03228
+0 0.01067 -0.03228
+0 0.01067 0.03106
+0 -0.01067 0.03106
+0 -0.01067 0.000709996
+0 0.01067 0.000709996
+0 0.01067 0.0716
+0 -0.01067 0.0716
+0 -0.01067 0.03549
+0 0.01067 0.03549
+numsurf 4
 SURF 0x0
 mat 2
 refs 4
-0 1.00067 0.999407
-3 4.5e-05 0.999407
-2 4.5e-05 0.000756
-1 1.00067 0.000756
+3 1 1
+0 0.747765 1
+1 0.747765 0
+2 1 0
+SURF 0x0
+mat 2
+refs 4
+7 0.725419 1
+4 0.513548 1
+5 0.513548 0
+6 0.725419 0
+SURF 0x0
+mat 2
+refs 4
+11 0.495042 1
+8 0.283101 1
+9 0.283101 0
+10 0.495042 0
+SURF 0x0
+mat 2
+refs 4
+15 0.252165 1
+12 0 1
+13 0 0
+14 0.252165 0
 kids 0

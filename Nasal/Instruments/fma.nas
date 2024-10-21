@@ -1,26 +1,14 @@
 # McDonnell Douglas MD-80 FMA
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
-var armL = nil;
-var armLDisplay = nil;
-var armR = nil;
-var armRDisplay = nil;
-var pitchL = nil;
-var pitchLDisplay = nil;
-var pitchR = nil;
-var pitchRDisplay = nil;
-var rollL = nil;
-var rollLDisplay = nil;
-var rollR = nil;
-var rollRDisplay = nil;
-var thrL = nil;
-var thrLDisplay = nil;
-var thrR = nil;
-var thrRDisplay = nil;
+var fmaL = nil;
+var fmaLDisplay = nil;
+var fmaR = nil;
+var fmaRDisplay = nil;
 
 var Modes = { # 0 thrust, 1 arm, 2 roll, 3 pitch
-	Line1: [dfgs.Fma.thrA, dfgs.Fma.armA, dfgs.Fma.rollA, dfgs.Fma.pitchA],
-	Line2: [dfgs.Fma.thrB, dfgs.Fma.armB, dfgs.Fma.rollB, dfgs.Fma.pitchB],
+	line1: [dfgs.Fma.thrA, dfgs.Fma.armA, dfgs.Fma.rollA, dfgs.Fma.pitchA],
+	line2: [dfgs.Fma.thrB, dfgs.Fma.armB, dfgs.Fma.rollB, dfgs.Fma.pitchB],
 };
 
 var Value = {
@@ -31,7 +19,8 @@ var Value = {
 	atsOn: 0,
 	blink: 0,
 	blinkActive: [0, 0, 0, 0],
-	line2: "",
+	fdOn: 0,
+	line2: ["", "", "", ""],
 };
 
 var canvasBase = {
@@ -54,358 +43,179 @@ var canvasBase = {
 	getKeys: func() {
 		return [];
 	},
-	setup: func() {
-		armL.setup();
-		armR.setup();
-	},
 	update: func() {
 		# Blink Generator - We use this because the FMA updates only ever quarter second, so we need to ensure it is in sync
 		if (Value.blink < 3) Value.blink = Value.blink + 1;
 		else Value.blink = 0;
 		
+		if (systems.ELECTRICAL.Generic.fma[0].getValue() >= 24) {
+			fmaL.update();
+			fmaL.page.show();
+		} else {
+			fmaL.page.hide();
+		}
+		
+		if (systems.ELECTRICAL.Generic.fma[1].getValue() >= 24) {
+			fmaR.update();
+			fmaR.page.show();
+		} else {
+			fmaR.page.hide();
+		}
+	},
+	updateBase: func(n) {
 		Value.activeModeInt = systems.THRLIM.Limit.activeModeInt.getValue();
 		Value.annunTest = pts.Controls.Switches.annunTest5Sec.getValue() > 0;
 		Value.apOn = dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue();
 		Value.atsOn = dfgs.Output.athr.getBoolValue();
+		if (n == 0) Value.fdOn = dfgs.Output.fd1.getBoolValue();
+		if (n == 1) Value.fdOn = dfgs.Output.fd2.getBoolValue();
 		
-		if (systems.ELECTRICAL.Generic.fma[0].getValue() >= 24) {
-			if (Value.annunTest) {
-				thrL.update();
-				thrL.page.show();
-				armL.update();
-				armL.page.show();
-				pitchL.update();
-				pitchL.page.show();
-				rollL.update();
-				rollL.page.show();
+		# Thrust
+		if (Value.atsOn or Value.activeModeInt == 5 or Value.annunTest) { # For showing flex digit
+			Value.line2[0] = Modes.line2[0].getValue();
+			
+			if (Value.blinkActive[0] and Value.blink < 2) {
+				me["ThrLine1"].setText("");
+				me["ThrLine2"].setText("");
 			} else {
-				if (Value.atsOn or Value.activeModeInt == 5) { # For showing flex digit
-					thrL.update();
-					thrL.page.show();
-				} else {
-					thrL.page.hide();
-				}
+				me["ThrLine1"].setText(Modes.line1[0].getValue());
 				
-				if (dfgs.Output.fd1.getBoolValue() or Value.apOn) {
-					armL.update();
-					armL.page.show();
-					pitchL.update();
-					pitchL.page.show();
-					rollL.update();
-					rollL.page.show();
+				if (Value.line2[0] == "FLX") {
+					me["ThrLine2"].setText(sprintf("%02d", systems.THRLIM.Limit.flexTemp.getValue()));
 				} else {
-					armL.page.hide();
-					pitchL.page.hide();
-					rollL.page.hide();
+					me["ThrLine2"].setText(Value.line2[0]);
 				}
 			}
+			
+			if (!Value.atsOn and Value.activeModeInt == 5) { # For showing flex digit
+				me["ThrLine1"].hide();
+			} else {
+				me["ThrLine1"].show();
+			}
+			
+			me["Thr"].show();
 		} else {
-			armL.page.hide();
-			pitchL.page.hide();
-			rollL.page.hide();
-			thrL.page.hide();
+			me["Thr"].hide();
 		}
 		
-		if (systems.ELECTRICAL.Generic.fma[1].getValue() >= 24) {
-			if (Value.annunTest) {
-				thrR.update();
-				thrR.page.show();
-				armR.update();
-				armR.page.show();
-				pitchR.update();
-				pitchR.page.show();
-				rollR.update();
-				rollR.page.show();
+		if (Value.apOn or Value.fdOn) {
+			# Arm
+			Value.line2[1] = Modes.line2[1].getValue();
+			
+			if (Value.blinkActive[1] and Value.blink < 2) {
+				me["ArmLine1"].setText("");
+				me["ArmLine2"].setText("");
 			} else {
-				if (Value.atsOn or Value.activeModeInt == 5) { # For showing flex digit
-					thrR.update();
-					thrR.page.show();
-				} else {
-					thrR.page.hide();
-				}
+				me["ArmLine1"].setText(Modes.line1[1].getValue());
 				
-				if (dfgs.Output.fd2.getBoolValue() or Value.apOn) {
-					armR.update();
-					armR.page.show();
-					pitchR.update();
-					pitchR.page.show();
-					rollR.update();
-					rollR.page.show();
-				} else {
-					armR.page.hide();
-					pitchR.page.hide();
-					rollR.page.hide();
-				}
-			}
-		} else {
-			armR.page.hide();
-			pitchR.page.hide();
-			rollR.page.hide();
-			thrR.page.hide();
-		}
-	},
-	updateCommon: func(window) { # w is window, 0 thrust, 1 arm, 2 roll, 3 pitch
-		if (Value.annunTest) { # Stays active for 5 seconds
-			if (window == 1 or window == 2) {
-				me["Line1"].setText("###");
-				me["Line2"].setText("###");
-			} else {
-				me["Line1"].setText("####");
-				me["Line2"].setText("####");
-			}
-		} else {
-			if (Value.blinkActive[window] and Value.blink < 2) {
-				me["Line1"].setText("");
-				me["Line2"].setText("");
-			} else {
-				if (window == 3 and dfgs.Fma.spdLow and Value.blink < 2) {
-					me["Line1"].setText("SPD");
-					me["Line2"].setText("LOW");
-				} else if (window == 3 and dfgs.Output.vert.getValue() == 1 and abs(dfgs.Input.vs.getValue()) < 50) {
-					me["Line1"].setText("ALT");
-					me["Line2"].setText("HLD");
-				} else {
-					me["Line1"].setText(Modes.Line1[window].getValue());
-					Value.line2 = Modes.Line2[window].getValue();
-					
-					if (window == 0 and Value.line2 == "FLX") { # For THR window Flex Temp
-						me["Line2"].setText(sprintf("%02d", systems.THRLIM.Limit.flexTemp.getValue()));
-					} else if (window == 1 and Value.line2 == "ALT" and pts.Systems.Acconfig.Options.armedAltAsFl.getBoolValue()) { # For ARM window Altitude as Flight Level
-						Value.altStr = sprintf("%d", math.round(dfgs.Input.alt.getValue() / 100));
-						if (int(Value.altStr) < 10) {
-							Value.altStr = "==" ~ Value.altStr;
-						} else if (int(Value.altStr) < 100) {
-							Value.altStr = "=" ~ Value.altStr;
-						}
-						
-						me["Line2"].setText(Value.altStr);
-					} else {
-						me["Line2"].setText(Value.line2);
+				if (Value.line2 == "ALT" and pts.Systems.Acconfig.Options.armedAltAsFl.getBoolValue()) { # For ARM window Altitude as Flight Level
+					Value.altStr = sprintf("%d", math.round(dfgs.Input.alt.getValue() / 100));
+					if (int(Value.altStr) < 10) {
+						Value.altStr = "==" ~ Value.altStr;
+					} else if (int(Value.altStr) < 100) {
+						Value.altStr = "=" ~ Value.altStr;
 					}
+					
+					me["ArmLine2"].setText(Value.altStr);
+				} else {
+					me["ArmLine2"].setText(Value.line2[1]);
 				}
 			}
-		}
-	},
-};
-
-var canvasArmL = {
-	new: func(canvasGroup, file) {
-		var m = {parents: [canvasArmL, canvasBase]};
-		m.init(canvasGroup, file);
-
-		return m;
-	},
-	getKeys: func() {
-		return ["Line1", "Line2"];
-	},
-	setup: func() {
-		me["Line1"].setColor(0.7333, 0.3803, 0);
-		me["Line2"].setColor(0.7333, 0.3803, 0);
-	},
-	update: func() {
-		me.updateCommon(1);
-	},
-};
-
-var canvasArmR = {
-	new: func(canvasGroup, file) {
-		var m = {parents: [canvasArmR, canvasBase]};
-		m.init(canvasGroup, file);
-
-		return m;
-	},
-	getKeys: func() {
-		return ["Line1", "Line2"];
-	},
-	setup: func() {
-		me["Line1"].setColor(0.7333, 0.3803, 0);
-		me["Line2"].setColor(0.7333, 0.3803, 0);
-	},
-	update: func() {
-		me.updateCommon(1);
-	},
-};
-
-var canvasPitchL = {
-	new: func(canvasGroup, file) {
-		var m = {parents: [canvasPitchL, canvasBase]};
-		m.init(canvasGroup, file);
-
-		return m;
-	},
-	getKeys: func() {
-		return ["Line1", "Line2"];
-	},
-	update: func() {
-		me.updateCommon(3);
-	},
-};
-
-var canvasPitchR = {
-	new: func(canvasGroup, file) {
-		var m = {parents: [canvasPitchR, canvasBase]};
-		m.init(canvasGroup, file);
-
-		return m;
-	},
-	getKeys: func() {
-		return ["Line1", "Line2"];
-	},
-	update: func() {
-		me.updateCommon(3);
-	},
-};
-
-var canvasRollL = {
-	new: func(canvasGroup, file) {
-		var m = {parents: [canvasRollL, canvasBase]};
-		m.init(canvasGroup, file);
-
-		return m;
-	},
-	getKeys: func() {
-		return ["Line1", "Line2"];
-	},
-	update: func() {
-		me.updateCommon(2);
-	},
-};
-
-var canvasRollR = {
-	new: func(canvasGroup, file) {
-		var m = {parents: [canvasRollR, canvasBase]};
-		m.init(canvasGroup, file);
-
-		return m;
-	},
-	getKeys: func() {
-		return ["Line1", "Line2"];
-	},
-	update: func() {
-		me.updateCommon(2);
-	},
-};
-
-var canvasThrL = {
-	new: func(canvasGroup, file) {
-		var m = {parents: [canvasThrL, canvasBase]};
-		m.init(canvasGroup, file);
-
-		return m;
-	},
-	getKeys: func() {
-		return ["Line1", "Line2"];
-	},
-	update: func() {
-		if (!Value.atsOn and Value.activeModeInt == 5) { # For showing flex digit
-			me["Line1"].hide();
+			
+			# Roll
+			Value.line2[2] = Modes.line2[2].getValue();
+			
+			if (Value.blinkActive[2] and Value.blink < 2) {
+				me["RollLine1"].setText("");
+				me["RollLine2"].setText("");
+			} else {
+				me["RollLine1"].setText(Modes.line1[2].getValue());
+				me["RollLine2"].setText(Modes.line2[2].getValue());
+			}
+			
+			# Pitch
+			Value.line2[3] = Modes.line2[3].getValue();
+			
+			if (Value.blinkActive[3] and Value.blink < 2) {
+				me["PitchLine1"].setText("");
+				me["PitchLine2"].setText("");
+			} else {
+				if (dfgs.Fma.spdLow and Value.blink < 2) {
+					me["PitchLine1"].setText("SPD");
+					me["PitchLine2"].setText("LOW");
+				} else if (dfgs.Output.vert.getValue() == 1 and abs(dfgs.Input.vs.getValue()) < 50) {
+					me["PitchLine1"].setText("ALT");
+					me["PitchLine2"].setText("HLD");
+				} else {
+					me["PitchLine1"].setText(Modes.line1[3].getValue());
+					me["PitchLine2"].setText(Modes.line2[3].getValue());
+				}
+			}
+			
+			me["Arm"].show();
+			me["Roll"].show();
+			me["Pitch"].show();
 		} else {
-			me["Line1"].show();
+			me["Arm"].hide();
+			me["Roll"].hide();
+			me["Pitch"].hide();
 		}
-		
-		me.updateCommon(0);
 	},
 };
 
-var canvasThrR = {
+var canvasFmaL = {
 	new: func(canvasGroup, file) {
-		var m = {parents: [canvasThrR, canvasBase]};
+		var m = {parents: [canvasFmaL, canvasBase]};
 		m.init(canvasGroup, file);
 
 		return m;
 	},
 	getKeys: func() {
-		return ["Line1", "Line2"];
+		return ["Arm", "ArmLine1", "ArmLine2", "Pitch", "PitchLine1", "PitchLine2", "Roll", "RollLine1", "RollLine2", "Thr", "ThrLine1", "ThrLine2"];
 	},
 	update: func() {
-		if (!Value.atsOn and Value.activeModeInt == 5) { # For showing flex digit
-			me["Line1"].hide();
-		} else {
-			me["Line1"].show();
-		}
-		
-		me.updateCommon(0);
+		me.updateBase(0);
+	},
+};
+
+var canvasFmaR = {
+	new: func(canvasGroup, file) {
+		var m = {parents: [canvasFmaR, canvasBase]};
+		m.init(canvasGroup, file);
+
+		return m;
+	},
+	getKeys: func() {
+		return ["Arm", "ArmLine1", "ArmLine2", "Pitch", "PitchLine1", "PitchLine2", "Roll", "RollLine1", "RollLine2", "Thr", "ThrLine1", "ThrLine2"];
+	},
+	update: func() {
+		me.updateBase(1);
 	},
 };
 
 var setup = func() {
-	armLDisplay = canvas.new({
-		"name": "armL",
-		"size": [256, 180],
-		"view": [256, 180],
+	fmaLDisplay = canvas.new({
+		"name": "fmaL",
+		"size": [1208, 180],
+		"view": [1208, 180],
 		"mipmapping": 1
 	});
-	armRDisplay = canvas.new({
-		"name": "armR",
-		"size": [256, 180],
-		"view": [256, 180],
-		"mipmapping": 1
-	});
-	pitchLDisplay = canvas.new({
-		"name": "pitchL",
-		"size": [305, 180],
-		"view": [305, 180],
-		"mipmapping": 1
-	});
-	pitchRDisplay = canvas.new({
-		"name": "pitchR",
-		"size": [305, 180],
-		"view": [305, 180],
-		"mipmapping": 1
-	});
-	rollLDisplay = canvas.new({
-		"name": "rollL",
-		"size": [256, 180],
-		"view": [256, 180],
-		"mipmapping": 1
-	});
-	rollRDisplay = canvas.new({
-		"name": "rollR",
-		"size": [256, 180],
-		"view": [256, 180],
-		"mipmapping": 1
-	});
-	thrLDisplay = canvas.new({
-		"name": "thrL",
-		"size": [305, 180],
-		"view": [305, 180],
-		"mipmapping": 1
-	});
-	thrRDisplay = canvas.new({
-		"name": "thrR",
-		"size": [305, 180],
-		"view": [305, 180],
+	fmaRDisplay = canvas.new({
+		"name": "fmaR",
+		"size": [1208, 180],
+		"view": [1208, 180],
 		"mipmapping": 1
 	});
 	
-	armLDisplay.addPlacement({"node": "arm1.screen"});
-	armRDisplay.addPlacement({"node": "arm2.screen"});
-	pitchLDisplay.addPlacement({"node": "pitch1.screen"});
-	pitchRDisplay.addPlacement({"node": "pitch2.screen"});
-	rollLDisplay.addPlacement({"node": "roll1.screen"});
-	rollRDisplay.addPlacement({"node": "roll2.screen"});
-	thrLDisplay.addPlacement({"node": "thr1.screen"});
-	thrRDisplay.addPlacement({"node": "thr2.screen"});
+	fmaLDisplay.addPlacement({"node": "fma1.screen"});
+	fmaRDisplay.addPlacement({"node": "fma2.screen"});
 	
-	var armLGroup = armLDisplay.createGroup();
-	var armRGroup = armRDisplay.createGroup();
-	var pitchLGroup = pitchLDisplay.createGroup();
-	var pitchRGroup = pitchRDisplay.createGroup();
-	var rollLGroup = rollLDisplay.createGroup();
-	var rollRGroup = rollRDisplay.createGroup();
-	var thrLGroup = thrLDisplay.createGroup();
-	var thrRGroup = thrRDisplay.createGroup();
+	var fmaLGroup = fmaLDisplay.createGroup();
+	var fmaRGroup = fmaRDisplay.createGroup();
 	
-	armL = canvasArmL.new(armLGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma_arm_roll.svg");
-	armR = canvasArmR.new(armRGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma_arm_roll.svg");
-	pitchL = canvasPitchL.new(pitchLGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma_pitch.svg");
-	pitchR = canvasPitchR.new(pitchRGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma_pitch.svg");
-	rollL = canvasRollL.new(rollLGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma_arm_roll.svg");
-	rollR = canvasRollR.new(rollRGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma_arm_roll.svg");
-	thrL = canvasThrL.new(thrLGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma_thrust.svg");
-	thrR = canvasThrR.new(thrRGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma_thrust.svg");
+	fmaL = canvasFmaL.new(fmaLGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma.svg");
+	fmaR = canvasFmaR.new(fmaRGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma.svg");
 	
-	canvasBase.setup();
 	update.start();
 }
 

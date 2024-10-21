@@ -33,10 +33,7 @@
 	
 	<animation>
 		<type>material</type>
-		<object-name>arm2.screen</object-name>
-		<object-name>pitch2.screen</object-name>
-		<object-name>roll2.screen</object-name>
-		<object-name>thr2.screen</object-name>
+		<object-name>fma2.screen</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>1.0</green>
@@ -47,10 +44,7 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>arm2.screen</object-name>
-		<object-name>pitch2.screen</object-name>
-		<object-name>roll2.screen</object-name>
-		<object-name>thr2.screen</object-name>
+		<object-name>fma2.screen</object-name>
 		<condition>
 			<greater-than>
 				<property>controls/lighting/fo-digital-norm</property>

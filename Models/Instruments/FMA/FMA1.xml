@@ -33,10 +33,7 @@
 	
 	<animation>
 		<type>material</type>
-		<object-name>arm1.screen</object-name>
-		<object-name>pitch1.screen</object-name>
-		<object-name>roll1.screen</object-name>
-		<object-name>thr1.screen</object-name>
+		<object-name>fma1.screen</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>1.0</green>
@@ -47,10 +44,7 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>arm1.screen</object-name>
-		<object-name>pitch1.screen</object-name>
-		<object-name>roll1.screen</object-name>
-		<object-name>thr1.screen</object-name>
+		<object-name>fma1.screen</object-name>
 		<condition>
 			<greater-than>
 				<property>controls/lighting/capt-digital-norm</property>
