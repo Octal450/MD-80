@@ -3,7 +3,7 @@
 <!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
 <!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
 
-<PropertyList> <!-- MD-81/82/83 Instrument Configuration -->
+<PropertyList> <!-- MD-87 Instrument Configuration -->
 	
 	<animation>
 		<type>translate</type>
@@ -281,16 +281,13 @@
 	</model>
 	
 	<model>
-		<name>stbyasi</name>
-		<path>Aircraft/MD-80/Models/Instruments/stbyasi.xml</path>
+		<name>stbycombo</name>
+		<path>Aircraft/MD-80/Models/Instruments/stbycombo.xml</path>
 		<condition>
-			<and>
-				<not><property>systems/acconfig/options/combined-standby</property></not>
-				<not-equals>
-					<property>systems/acconfig/options/panel</property>
-					<value>EFIS + EDP</value>
-				</not-equals>
-			</and>
+			<not-equals>
+				<property>systems/acconfig/options/panel</property>
+				<value>EFIS + EDP</value>
+			</not-equals>
 		</condition>
 		<offsets>
 			<x-m>2.248</x-m>
@@ -388,41 +385,12 @@
 	</model>
 	
 	<model>
-		<name>stbyalt</name>
-		<path>Aircraft/MD-80/Models/Instruments/stbyalt.xml</path>
-		<condition>
-			<and>
-				<not><property>systems/acconfig/options/combined-standby</property></not>
-				<not-equals>
-					<property>systems/acconfig/options/panel</property>
-					<value>EFIS + EDP</value>
-				</not-equals>
-			</and>
-		</condition>
+		<name>fuel</name>
+		<path>Aircraft/MD-80/Models/Instruments/fuel.xml</path>
 		<offsets>
-			<x-m>2.2355</x-m>
-			<y-m>-0.18</y-m>
-			<z-m>0.823</z-m>
-			<pitch-deg>-12</pitch-deg>
-		</offsets>
-	</model>
-	
-	<model>
-		<name>stbycombo</name>
-		<path>Aircraft/MD-80/Models/Instruments/stbycombo.xml</path>
-		<condition>
-			<or>
-				<property>systems/acconfig/options/combined-standby</property>
-				<equals>
-					<property>systems/acconfig/options/panel</property>
-					<value>EFIS + EDP</value>
-				</equals>
-			</or>
-		</condition>
-		<offsets>
-			<x-m>2.235</x-m>
-			<y-m>-0.18</y-m>
-			<z-m>0.823</z-m>
+			<x-m>2.238</x-m>
+			<y-m>-0.178</y-m>
+			<z-m>0.813</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
@@ -431,9 +399,9 @@
 		<name>tri</name>
 		<path>Aircraft/MD-80/Models/Instruments/TRI/tri.xml</path>
 		<offsets>
-			<x-m>2.242</x-m>
-			<y-m>-0.099</y-m>
-			<z-m>0.813</z-m>
+			<x-m>2.218</x-m>
+			<y-m>-0.114</y-m>
+			<z-m>0.933</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
@@ -513,11 +481,32 @@
 	</model>
 	
 	<model>
+		<name>n2L</name>
+		<path>Aircraft/MD-80/Models/Instruments/n2L.xml</path>
+		<offsets>
+			<x-m>2.245</x-m>
+			<y-m>-0.031</y-m>
+			<z-m>0.783</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	<model>
+		<name>n2R</name>
+		<path>Aircraft/MD-80/Models/Instruments/n2R.xml</path>
+		<offsets>
+			<x-m>2.245</x-m>
+			<y-m>0.029</y-m>
+			<z-m>0.783</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
 		<name>fuelflowL</name>
 		<path>Aircraft/MD-80/Models/Instruments/fuelflowL.xml</path>
 		<offsets>
 			<x-m>2.245</x-m>
-			<y-m>-0.031</y-m>
+			<y-m>-0.091</y-m>
 			<z-m>0.783</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -527,7 +516,29 @@
 		<path>Aircraft/MD-80/Models/Instruments/fuelflowR.xml</path>
 		<offsets>
 			<x-m>2.245</x-m>
-			<y-m>0.029</y-m>
+			<y-m>0.089</y-m>
+			<z-m>0.783</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>ft</name>
+		<path>Aircraft/MD-80/Models/Instruments/ft.xml</path>
+		<offsets>
+			<x-m>2.233</x-m>
+			<y-m>-0.091</y-m>
+			<z-m>0.841</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>flaps</name>
+		<path>Aircraft/MD-80/Models/Instruments/flaps.xml</path>
+		<offsets>
+			<x-m>2.245</x-m>
+			<y-m>0.149</y-m>
 			<z-m>0.783</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -538,29 +549,8 @@
 		<path>Aircraft/MD-80/Models/Instruments/assumedtemp.xml</path>
 		<offsets>
 			<x-m>2.195</x-m>
-			<y-m>-0.21</y-m>
+			<y-m>-0.15</y-m>
 			<z-m>1.029</z-m>
-			<pitch-deg>-12</pitch-deg>
-		</offsets>
-	</model>
-	
-	<model>
-		<name>oqL</name>
-		<path>Aircraft/MD-80/Models/Instruments/oqL.xml</path>
-		<offsets>
-			<x-m>2.191</x-m>
-			<y-m>-0.113</y-m>
-			<z-m>1.033</z-m>
-			<pitch-deg>-12</pitch-deg>
-		</offsets>
-	</model>
-	<model>
-		<name>oqR</name>
-		<path>Aircraft/MD-80/Models/Instruments/oqR.xml</path>
-		<offsets>
-			<x-m>2.191</x-m>
-			<y-m>0.111</y-m>
-			<z-m>1.033</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
@@ -570,7 +560,7 @@
 		<path>Aircraft/MD-80/Models/Instruments/opL.xml</path>
 		<offsets>
 			<x-m>2.208</x-m>
-			<y-m>-0.113</y-m>
+			<y-m>0.119</y-m>
 			<z-m>0.957</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -580,51 +570,8 @@
 		<path>Aircraft/MD-80/Models/Instruments/opR.xml</path>
 		<offsets>
 			<x-m>2.208</x-m>
-			<y-m>0.111</y-m>
+			<y-m>0.179</y-m>
 			<z-m>0.957</z-m>
-			<pitch-deg>-12</pitch-deg>
-		</offsets>
-	</model>
-	
-	<model>
-		<name>n2L</name>
-		<path>Aircraft/MD-80/Models/Instruments/n2L.xml</path>
-		<offsets>
-			<x-m>2.221</x-m>
-			<y-m>-0.113</y-m>
-			<z-m>0.899</z-m>
-			<pitch-deg>-12</pitch-deg>
-		</offsets>
-	</model>
-	<model>
-		<name>n2R</name>
-		<path>Aircraft/MD-80/Models/Instruments/n2R.xml</path>
-		<offsets>
-			<x-m>2.221</x-m>
-			<y-m>0.111</y-m>
-			<z-m>0.899</z-m>
-			<pitch-deg>-12</pitch-deg>
-		</offsets>
-	</model>
-	
-	<model>
-		<name>ft</name>
-		<path>Aircraft/MD-80/Models/Instruments/ft.xml</path>
-		<offsets>
-			<x-m>2.208</x-m>
-			<y-m>0.171</y-m>
-			<z-m>0.957</z-m>
-			<pitch-deg>-12</pitch-deg>
-		</offsets>
-	</model>
-	
-	<model>
-		<name>flaps</name>
-		<path>Aircraft/MD-80/Models/Instruments/flaps.xml</path>
-		<offsets>
-			<x-m>2.221</x-m>
-			<y-m>0.171</y-m>
-			<z-m>0.899</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
@@ -634,8 +581,8 @@
 		<path>Aircraft/MD-80/Models/Instruments/otL.xml</path>
 		<offsets>
 			<x-m>2.221</x-m>
-			<y-m>0.276</y-m>
-			<z-m>0.898</z-m>
+			<y-m>0.119</y-m>
+			<z-m>0.899</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
@@ -643,8 +590,29 @@
 		<name>otR</name>
 		<path>Aircraft/MD-80/Models/Instruments/otR.xml</path>
 		<offsets>
+			<x-m>2.221</x-m>
+			<y-m>0.179</y-m>
+			<z-m>0.899</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>oqL</name>
+		<path>Aircraft/MD-80/Models/Instruments/oqL.xml</path>
+		<offsets>
 			<x-m>2.233</x-m>
-			<y-m>0.29</y-m>
+			<y-m>0.119</y-m>
+			<z-m>0.841</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	<model>
+		<name>oqR</name>
+		<path>Aircraft/MD-80/Models/Instruments/oqR.xml</path>
+		<offsets>
+			<x-m>2.233</x-m>
+			<y-m>0.179</y-m>
 			<z-m>0.841</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
@@ -688,17 +656,6 @@
 			<x-m>2.264</x-m>
 			<y-m>0.326</y-m>
 			<z-m>0.69</z-m>
-			<pitch-deg>-12</pitch-deg>
-		</offsets>
-	</model>
-	
-	<model>
-		<name>fuel</name>
-		<path>Aircraft/MD-80/Models/Instruments/fuel.xml</path>
-		<offsets>
-			<x-m>2.238</x-m>
-			<y-m>0.116</y-m>
-			<z-m>0.813</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>

@@ -92,11 +92,6 @@
 		</offsets>
 	</model>
 	
-	<model>
-		<name>Instruments</name>
-		<path>Aircraft/MD-80/Models/MD-80-instruments.xml</path>
-	</model>
-	
 	<!-- Lights -->
 	<animation>
 		<type>material</type>
@@ -111,6 +106,7 @@
 	
 	<animation>
 		<type>material</type>
+		<object-name>FuText</object-name>
 		<object-name>SlatText</object-name>
 		<emission>
 			<red>1.0</red>
@@ -132,6 +128,15 @@
 			<factor-prop>controls/lighting/pedestal-panel-norm</factor-prop>
 		</emission>
 	</animation>
+	
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>FuText</object-name>
+		<object-name>IntegrityABSSel</object-name>
+		<object-name>PedestalDrumText</object-name>
+		<object-name>PedestalABSText</object-name>
+		<object-name>SlatText</object-name>
+	</effect>
 	
 	<!-- Autopilot Disc -->
 	<animation>
@@ -1350,6 +1355,127 @@
 		</axis>
 	</animation>
 	
+	<!-- Select Slat/FU stuff -->
+	<animation>
+		<type>select</type>
+		<object-name>SlatFuGroup</object-name>
+		<condition>
+			<not><property>options/panel-mod</property></not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>FuGroup</object-name>
+		<condition>
+			<property>options/panel-mod</property>
+		</condition>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>SlatBar</object-name>
+		<property>options/panel-mod</property>
+		<factor>0.0343</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>SlatLights</object-name>
+		<property>options/panel-mod</property>
+		<factor>-0.051</factor>
+		<axis>
+			<x>-0.21176</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>SlatLights</object-name>
+		<property>options/panel-mod</property>
+		<factor>0.01</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- Fuel Used Reset Switch -->
+	<animation>
+		<type>rotate</type>
+		<object-name>FuelUsedReset</object-name>
+		<property>controls/cockpit/fu-reset</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 30</dep></entry>
+			<entry><ind>1</ind><dep>-30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.24961</x-m>
+			<y-m>0</y-m>
+			<z-m>0.78057</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>FuelUsedReset2</object-name>
+		<property>controls/cockpit/fu-reset</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 30</dep></entry>
+			<entry><ind>1</ind><dep>-30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.23767</x-m>
+			<y-m>0</y-m>
+			<z-m>0.83329</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>FuelUsedReset</object-name>
+		<object-name>FuelUsedReset2</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/engines/fu-reset</property>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/engines/fu-reset</property>
+					<value>0</value>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>libraries.Sound.switch1();</script>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
 	<!-- No lights without power! -->
 	<animation>
 		<type>select</type>
@@ -1378,7 +1504,6 @@
 			</or>
 		</condition>
 	</animation>
-	
 	<animation>
 		<type>select</type>
 		<object-name>Slat.Disag</object-name>
@@ -1396,7 +1521,6 @@
 			</or>
 		</condition>
 	</animation>
-	
 	<animation>
 		<type>select</type>
 		<object-name>Slat.Auto</object-name>
@@ -1410,7 +1534,6 @@
 			</or>
 		</condition>
 	</animation>
-	
 	<animation>
 		<type>select</type>
 		<object-name>Slat.Land</object-name>
@@ -1426,6 +1549,18 @@
 	</animation>
 	
 	<!-- ART Switch -->
+	<animation>
+		<type>translate</type>
+		<object-name>ARTGroup</object-name>
+		<property>options/panel-mod</property>
+		<factor>-0.152</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
 	<animation>
 		<type>knob</type>
 		<object-name>ARTCover</object-name>
@@ -1513,58 +1648,6 @@
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
 			</binding>
-		</action>
-	</animation>
-	
-	<!-- Fuel Used Reset Switch -->
-	<animation>
-		<type>rotate</type>
-		<object-name>FuelUsedReset</object-name>
-		<property>controls/cockpit/fu-reset</property>
-		<interpolation>
-			<entry><ind>0</ind><dep> 30</dep></entry>
-			<entry><ind>1</ind><dep>-30</dep></entry>
-		</interpolation>
-		<center>
-			<x-m>2.24961</x-m>
-			<y-m>0</y-m>
-			<z-m>0.78057</z-m>
-		</center>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	<animation>
-		<type>pick</type>
-		<object-name>FuelUsedReset</object-name>
-		<action>
-			<button>0</button>
-			<button>1</button>
-			<button>3</button>
-			<button>4</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/engines/fu-reset</property>
-				<value>1</value>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
-			</binding>
-			<mod-up>
-				<binding>
-					<command>property-assign</command>
-					<property>controls/engines/fu-reset</property>
-					<value>0</value>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>libraries.Sound.switch1();</script>
-				</binding>
-			</mod-up>
 		</action>
 	</animation>
 

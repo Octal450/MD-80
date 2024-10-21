@@ -46,5 +46,13 @@
 		<texture-prop>texture</texture-prop>
 		<texture>txt_vstab_engines.png</texture>
 	</animation>
+	
+	<model>
+		<name>Instruments</name>
+		<path>Aircraft/MD-80/Models/MD-87-instruments.xml</path>
+		<offsets>
+			<x-m>2.9</x-m>
+		</offsets>
+	</model>
 
 </PropertyList>

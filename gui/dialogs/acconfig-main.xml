@@ -427,10 +427,13 @@
 			
 			<checkbox>
 				<enable>
-					<not-equals>
-						<property>/systems/acconfig/options/panel</property>
-						<value>EFIS + EDP</value>
-					</not-equals>
+					<and>
+						<not><property>/options/panel-mod</property></not>
+						<not-equals>
+							<property>/systems/acconfig/options/panel</property>
+							<value>EFIS + EDP</value>
+						</not-equals>
+					</and>
 				</enable>
 				<label>Combined Standby</label>
 				<halign>left</halign>
