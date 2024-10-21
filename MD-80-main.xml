@@ -546,8 +546,6 @@
 				<cutoff-switch type="bool">1</cutoff-switch>
 				<man-epr type="double">2</man-epr>
 				<man-epr-set type="bool">0</man-epr-set>
-				<reverse-cmd type="bool">0</reverse-cmd>
-				<reverse-engage type="double">0</reverse-engage>
 				<starter type="bool">0</starter>
 				<start-switch type="bool">0</start-switch>
 			</engine>
@@ -556,8 +554,6 @@
 				<cutoff-switch type="bool">1</cutoff-switch>
 				<man-epr type="double">2</man-epr>
 				<man-epr-set type="bool">0</man-epr-set>
-				<reverse-cmd type="bool">0</reverse-cmd>
-				<reverse-engage type="double">0</reverse-engage>
 				<starter type="bool">0</starter>
 				<start-switch type="bool">0</start-switch>
 			</engine>
@@ -1568,6 +1564,14 @@
 				<active-mode-int type="int">-1</active-mode-int>
 				<flex-temp type="int">45</flex-temp>
 			</limit>
+			<reverse-1 n="0">
+				<engage type="bool">0</engage>
+				<position-cmd-out type="bool">0</position-cmd-out>
+			</reverse-1>
+			<reverse-2 n="0">
+				<engage type="bool">0</engage>
+				<position-cmd-out type="bool">0</position-cmd-out>
+			</reverse-2>
 		</engines>
 		<failures n="0">
 			<electrical n="0">

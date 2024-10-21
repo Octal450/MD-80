@@ -66,6 +66,8 @@ var ENGINES = {
 	oilQty: [props.globals.getNode("/engines/engine[0]/oil-qty"), props.globals.getNode("/engines/engine[1]/oil-qty")],
 	oilQtyInput: [props.globals.getNode("/engines/engine[0]/oil-qty-input"), props.globals.getNode("/engines/engine[1]/oil-qty-input")],
 	overspeed: props.globals.getNode("/systems/engines/limit/overspeed"),
+	reverseEngage: [props.globals.getNode("/systems/engines/reverse-1/engage"), props.globals.getNode("/systems/engines/reverse-2/engage")],
+	reverseEngageTemp: [0, 0],
 	state: [props.globals.getNode("/engines/engine[0]/state"), props.globals.getNode("/engines/engine[1]/state")],
 	Controls: {
 		cutoff: [props.globals.getNode("/controls/engines/engine[0]/cutoff-switch"), props.globals.getNode("/controls/engines/engine[1]/cutoff-switch")],
@@ -74,8 +76,6 @@ var ENGINES = {
 		fuReset: props.globals.getNode("/controls/engines/fu-reset"),
 		manEpr: [props.globals.getNode("/controls/engines/engine[0]/man-epr"), props.globals.getNode("/controls/engines/engine[1]/man-epr")],
 		manEprSet: [props.globals.getNode("/controls/engines/engine[0]/man-epr-set"), props.globals.getNode("/controls/engines/engine[1]/man-epr-set")],
-		reverseEngage: [props.globals.getNode("/controls/engines/engine[0]/reverse-engage"), props.globals.getNode("/controls/engines/engine[1]/reverse-engage")],
-		reverseEngageTemp: [0, 0],
 		start: [props.globals.getNode("/controls/engines/engine[0]/start-switch"), props.globals.getNode("/controls/engines/engine[1]/start-switch")],
 		throttle: [props.globals.getNode("/controls/engines/engine[0]/throttle"), props.globals.getNode("/controls/engines/engine[1]/throttle")],
 		throttleTemp: [0, 0],
@@ -85,14 +85,14 @@ var ENGINES = {
 		startR: props.globals.getNode("/controls/engines/covers/start-r"),
 	},
 	init: func() {
+		me.reverseEngage[0].setBoolValue(0);
+		me.reverseEngage[1].setBoolValue(0);
 		me.Controls.engSync.setValue(0);
 		me.Controls.fuReset.setBoolValue(0);
 		me.Controls.manEpr[0].setValue(2);
 		me.Controls.manEpr[1].setValue(2);
 		me.Controls.manEprSet[0].setBoolValue(0);
 		me.Controls.manEprSet[1].setBoolValue(0);
-		me.Controls.reverseEngage[0].setBoolValue(0);
-		me.Controls.reverseEngage[1].setBoolValue(0);
 		me.Controls.start[0].setBoolValue(0);
 		me.Controls.start[1].setBoolValue(0);
 		me.Cover.startL.setBoolValue(0);
@@ -118,9 +118,9 @@ var ENGINES = {
 var doRevThrust = func() {
 	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and THRLIM.throttleCompareMax.getValue() <= 0.05) {
 		ENGINES.Controls.throttleTemp[0] = ENGINES.Controls.throttle[0].getValue();
-		if (!ENGINES.Controls.reverseEngage[0].getBoolValue() or !ENGINES.Controls.reverseEngage[1].getBoolValue()) {
-			ENGINES.Controls.reverseEngage[0].setBoolValue(1);
-			ENGINES.Controls.reverseEngage[1].setBoolValue(1);
+		if (!ENGINES.reverseEngage[0].getBoolValue() or !ENGINES.reverseEngage[1].getBoolValue()) {
+			ENGINES.reverseEngage[0].setBoolValue(1);
+			ENGINES.reverseEngage[1].setBoolValue(1);
 			ENGINES.Controls.throttle[0].setValue(0);
 			ENGINES.Controls.throttle[1].setValue(0);
 		} else if (ENGINES.Controls.throttleTemp[0] < 0.4) {
@@ -136,14 +136,14 @@ var doRevThrust = func() {
 	} else {
 		ENGINES.Controls.throttle[0].setValue(0);
 		ENGINES.Controls.throttle[1].setValue(0);
-		ENGINES.Controls.reverseEngage[0].setBoolValue(0);
-		ENGINES.Controls.reverseEngage[1].setBoolValue(0);
+		ENGINES.reverseEngage[0].setBoolValue(0);
+		ENGINES.reverseEngage[1].setBoolValue(0);
 	}
 }
 
 var unRevThrust = func() {
 	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and THRLIM.throttleCompareMax.getValue() <= 0.05) {
-		if (ENGINES.Controls.reverseEngage[0].getBoolValue() or ENGINES.Controls.reverseEngage[1].getBoolValue()) {
+		if (ENGINES.reverseEngage[0].getBoolValue() or ENGINES.reverseEngage[1].getBoolValue()) {
 			ENGINES.Controls.throttleTemp[0] = ENGINES.Controls.throttle[0].getValue();
 			if (ENGINES.Controls.throttleTemp[0] > 0.7) {
 				ENGINES.Controls.throttle[0].setValue(0.7);
@@ -157,34 +157,34 @@ var unRevThrust = func() {
 			} else {
 				ENGINES.Controls.throttle[0].setValue(0);
 				ENGINES.Controls.throttle[1].setValue(0);
-				ENGINES.Controls.reverseEngage[0].setBoolValue(0);
-				ENGINES.Controls.reverseEngage[1].setBoolValue(0);
+				ENGINES.reverseEngage[0].setBoolValue(0);
+				ENGINES.reverseEngage[1].setBoolValue(0);
 			}
 		}
 	} else {
 		ENGINES.Controls.throttle[0].setValue(0);
 		ENGINES.Controls.throttle[1].setValue(0);
-		ENGINES.Controls.reverseEngage[0].setBoolValue(0);
-		ENGINES.Controls.reverseEngage[1].setBoolValue(0);
+		ENGINES.reverseEngage[0].setBoolValue(0);
+		ENGINES.reverseEngage[1].setBoolValue(0);
 	}
 }
 
 var toggleRevThrust = func() {
 	if ((pts.Gear.wow[1].getBoolValue() or pts.Gear.wow[2].getBoolValue()) and THRLIM.throttleCompareMax.getValue() <= 0.05) {
-		if (ENGINES.Controls.reverseEngage[0].getBoolValue() or ENGINES.Controls.reverseEngage[1].getBoolValue()) {
+		if (ENGINES.reverseEngage[0].getBoolValue() or ENGINES.reverseEngage[1].getBoolValue()) {
 			ENGINES.Controls.throttle[0].setValue(0);
 			ENGINES.Controls.throttle[1].setValue(0);
-			ENGINES.Controls.reverseEngage[0].setBoolValue(0);
-			ENGINES.Controls.reverseEngage[1].setBoolValue(0);
+			ENGINES.reverseEngage[0].setBoolValue(0);
+			ENGINES.reverseEngage[1].setBoolValue(0);
 		} else {
-			ENGINES.Controls.reverseEngage[0].setBoolValue(1);
-			ENGINES.Controls.reverseEngage[1].setBoolValue(1);
+			ENGINES.reverseEngage[0].setBoolValue(1);
+			ENGINES.reverseEngage[1].setBoolValue(1);
 		}
 	} else {
 		ENGINES.Controls.throttle[0].setValue(0);
 		ENGINES.Controls.throttle[1].setValue(0);
-		ENGINES.Controls.reverseEngage[0].setBoolValue(0);
-		ENGINES.Controls.reverseEngage[1].setBoolValue(0);
+		ENGINES.reverseEngage[0].setBoolValue(0);
+		ENGINES.reverseEngage[1].setBoolValue(0);
 	}
 }
 

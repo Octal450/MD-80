@@ -101,8 +101,8 @@
 		<switch name="/systems/fcs/spoilers/any-reverse">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/controls/engines/engine[0]/reverse-cmd eq 1
-				/controls/engines/engine[1]/reverse-cmd eq 1
+				/systems/engines/reverse-1/position-cmd-out eq 1
+				/systems/engines/reverse-2/position-cmd-out eq 1
 			</test>
 		</switch>
 		

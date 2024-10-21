@@ -752,9 +752,9 @@
 		<switch name="/systems/engines/reverse-1/position-cmd">
 			<default value="0"/>
 			<test value="1">
-				/controls/engines/engine[0]/reverse-engage eq 1
+				/systems/engines/reverse-1/engage eq 1
 			</test>
-			<output>/controls/engines/engine[0]/reverse-cmd</output>
+			<output>/systems/engines/reverse-1/position-cmd-out</output>
 		</switch>
 		
 		<switch name="/systems/engines/reverse-1/position-rate">
@@ -780,7 +780,7 @@
 			<function>
 				<ifthen>
 					<eq>
-						<property>/controls/engines/engine[0]/reverse-engage</property>
+						<property>/systems/engines/reverse-1/engage</property>
 						<value>1</value>
 					</eq>
 					<table>
@@ -795,10 +795,10 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/controls/engines/engine[0]/reverse-lever">
+		<fcs_function name="/systems/engines/reverse-1/throttle-lever">
 			<function>
 				<product>
-					<property>/controls/engines/engine[0]/reverse-engage</property>
+					<property>/systems/engines/reverse-1/engage</property>
 					<table>
 						<independentVar lookup="row">/controls/engines/engine[0]/throttle</independentVar>
 						<tableData>
@@ -814,9 +814,9 @@
 		<switch name="/systems/engines/reverse-2/position-cmd">
 			<default value="0"/>
 			<test value="1">
-				/controls/engines/engine[1]/reverse-engage eq 1
+				/systems/engines/reverse-2/engage eq 1
 			</test>
-			<output>/controls/engines/engine[1]/reverse-cmd</output>
+			<output>/systems/engines/reverse-2/position-cmd-out</output>
 		</switch>
 		
 		<switch name="/systems/engines/reverse-2/position-rate">
@@ -842,7 +842,7 @@
 			<function>
 				<ifthen>
 					<eq>
-						<property>/controls/engines/engine[1]/reverse-engage</property>
+						<property>/systems/engines/reverse-2/engage</property>
 						<value>1</value>
 					</eq>
 					<table>
@@ -857,10 +857,10 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/controls/engines/engine[1]/reverse-lever">
+		<fcs_function name="/systems/engines/reverse-2/throttle-lever">
 			<function>
 				<product>
-					<property>/controls/engines/engine[1]/reverse-engage</property>
+					<property>/systems/engines/reverse-2/engage</property>
 					<table>
 						<independentVar lookup="row">/controls/engines/engine[1]/throttle</independentVar>
 						<tableData>
@@ -1146,7 +1146,7 @@
 		<switch name="/systems/engines/control-1/throttle-pos">
 			<default value="/controls/engines/engine[0]/throttle"/>
 			<test value="0">
-				/controls/engines/engine[0]/reverse-engage eq 1
+				/systems/engines/reverse-1/engage eq 1
 			</test>
 			<test logic="AND" value="/systems/engines/ats-cmd-1">
 				/it-autoflight/output/athr eq 1
@@ -1180,7 +1180,7 @@
 		<switch name="/systems/engines/control-1/throttle-output">
 			<default value="/systems/engines/control-1/throttle-pos-art"/>
 			<test value="/systems/engines/reverse-1/throttle-rev">
-				/controls/engines/engine[0]/reverse-engage eq 1
+				/systems/engines/reverse-1/engage eq 1
 			</test>
 			<test logic="AND" value="/systems/engines/control-1/throttle-pos-appr">
 				position/wow eq 0
@@ -1256,7 +1256,7 @@
 		<switch name="/systems/engines/control-2/throttle-pos">
 			<default value="/controls/engines/engine[1]/throttle"/>
 			<test value="0">
-				/controls/engines/engine[1]/reverse-engage eq 1
+				/systems/engines/reverse-2/engage eq 1
 			</test>
 			<test logic="AND" value="/systems/engines/ats-cmd-2">
 				/it-autoflight/output/athr eq 1
@@ -1290,7 +1290,7 @@
 		<switch name="/systems/engines/control-2/throttle-output">
 			<default value="/systems/engines/control-2/throttle-pos-art"/>
 			<test value="/systems/engines/reverse-2/throttle-rev">
-				/controls/engines/engine[1]/reverse-engage eq 1
+				/systems/engines/reverse-2/engage eq 1
 			</test>
 			<test logic="AND" value="/systems/engines/control-2/throttle-pos-appr">
 				position/wow eq 0
