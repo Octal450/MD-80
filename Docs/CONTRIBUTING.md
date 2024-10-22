@@ -20,7 +20,7 @@ Capitalization, Indenting, and Line Breaks:
 <something>
 	<something-else>0</something-else>
 	<something-more>
-		<more-stuff></more-stuff>
+		<more-stuff>string</more-stuff>
 	</something-more>
 </something>
 ```
@@ -31,7 +31,7 @@ var something = func() {
 	somethingElse();
 }
 
-var MyClass = func() { # Notice how it is alphabetized, except that methods are always last
+var MyClass = { # Notice how it is alphabetized, except that methods are always last
 	myVariable: 0,
 	SubClass: {
 		someVariable: 0,
