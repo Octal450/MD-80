@@ -633,7 +633,7 @@
 			</function>
 		</fcs_function>
 		
-		<!-- Vref -->
+		<!-- Vref/Vapp -->
 		<switch name="/systems/performance/land-slat">
 			<default value="20"/>
 			<test value="0">
