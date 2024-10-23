@@ -276,8 +276,6 @@
 	</group>
 	
 	<button>
-		<row>0</row>
-		<col>1</col>
 		<pref-width>190</pref-width>
 		<pref-height>25</pref-height>
 		<legend>Set Takeoff ASI Bugs</legend>
@@ -400,8 +398,6 @@
 	</group>
 	
 	<button>
-		<row>0</row>
-		<col>1</col>
 		<pref-width>190</pref-width>
 		<pref-height>25</pref-height>
 		<legend>Set Landing ASI Bugs</legend>
