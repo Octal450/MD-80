@@ -143,6 +143,21 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/instrumentation/airspeed-indicator[0]/pointer-1">
+			<input>/instrumentation/airspeed-indicator/pointer-1-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/instrumentation/airspeed-indicator[0]/pointer-2">
+			<input>/instrumentation/airspeed-indicator/pointer-2-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/instrumentation/airspeed-indicator[0]/pointer-3">
+			<input>/instrumentation/airspeed-indicator/pointer-3-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<!-- Airspeed Indicator 2 -->
 		<switch name="/instrumentation/airspeed-indicator[1]/power-avail">
 			<default value="0"/>
@@ -261,6 +276,21 @@
 		
 		<lag_filter name="/instrumentation/airspeed-indicator[1]/bug-kts">
 			<input>/instrumentation/airspeed-indicator[1]/bug-kts-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/instrumentation/airspeed-indicator[1]/pointer-1">
+			<input>/instrumentation/airspeed-indicator/pointer-1-input</input> <!-- Not split intentionally -->
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/instrumentation/airspeed-indicator[1]/pointer-2">
+			<input>/instrumentation/airspeed-indicator/pointer-2-input</input> <!-- Not split intentionally -->
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/instrumentation/airspeed-indicator[1]/pointer-3">
+			<input>/instrumentation/airspeed-indicator/pointer-3-input</input> <!-- Not split intentionally -->
 			<c1>20</c1>
 		</lag_filter>
 		

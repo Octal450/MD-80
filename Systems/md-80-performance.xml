@@ -3,9 +3,11 @@
 <!-- McDonnell Douglas MD-80 Performance -->
 <!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
 
-<system name="MD-80: Performance"> <!-- Extra speed computations that are not computed by the DFGS/FMS -->
+<system name="MD-80: Performance"> <!-- Extra speed computations that are not computed by the DFGS -->
 	
-	<property value="11">/systems/performance/flap-setting</property>
+	<property value="11">/systems/performance/to-flap</property>
+	<property value="40">/systems/performance/land-flap</property>
+	<property value="0">/systems/performance/land-no-slat</property>
 	
 	<channel name="Performance Calculations" execrate="8">
 		
@@ -14,7 +16,7 @@
 			<function>
 				<table>
 					<independentVar lookup="row">inertia/weight-lbs</independentVar>
-					<independentVar lookup="column">/systems/performance/flap-setting</independentVar>
+					<independentVar lookup="column">/systems/performance/to-flap</independentVar>
 					<tableData>
 						        4    11   15
 						 90000  110  101  100
@@ -123,7 +125,7 @@
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
 					<independentVar lookup="column">propulsion/tat-c</independentVar>
-					<independentVar lookup="table">/systems/performance/flap-setting</independentVar>
+					<independentVar lookup="table">/systems/performance/to-flap</independentVar>
 					<tableData breakPoint="11">
 						     -40   20   21   25   26   30   31   35   36   40   41   45
 						   0  116  116  116  116  116  116  114  114  112  112  110  110
@@ -169,7 +171,7 @@
 		<fcs_function name="/systems/performance/v1-delta">
 			<function>
 				<interpolate1d>
-					<property>/systems/performance/flap-setting</property>
+					<property>/systems/performance/to-flap</property>
 					<value>11</value><property>/systems/performance/v1-delta-11</property>
 					<value>15</value><property>/systems/performance/v1-delta-15</property>
 				</interpolate1d>
@@ -193,7 +195,7 @@
 			<function>
 				<table>
 					<independentVar lookup="row">inertia/weight-lbs</independentVar>
-					<independentVar lookup="column">/systems/performance/flap-setting</independentVar>
+					<independentVar lookup="column">/systems/performance/to-flap</independentVar>
 					<tableData>
 						        4    11   15
 						 90000  120  110  108
@@ -313,7 +315,7 @@
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
 					<independentVar lookup="column">propulsion/tat-c</independentVar>
-					<independentVar lookup="table">/systems/performance/flap-setting</independentVar>
+					<independentVar lookup="table">/systems/performance/to-flap</independentVar>
 					<tableData breakPoint="4">
 						     -40   20   21   25   26   30   31   35   36   40   41   45
 						   0  122  122  122  122  122  122  120  120  118  118  116  116
@@ -378,7 +380,7 @@
 		<fcs_function name="/systems/performance/vr-delta">
 			<function>
 				<interpolate1d>
-					<property>/systems/performance/flap-setting</property>
+					<property>/systems/performance/to-flap</property>
 					<value>11</value><property>/systems/performance/vr-delta-11</property>
 					<value>15</value><property>/systems/performance/vr-delta-15</property>
 				</interpolate1d>
@@ -403,7 +405,7 @@
 			<function>
 				<table>
 					<independentVar lookup="row">inertia/weight-lbs</independentVar>
-					<independentVar lookup="column">/systems/performance/flap-setting</independentVar>
+					<independentVar lookup="column">/systems/performance/to-flap</independentVar>
 					<tableData>
 						        4    11   15
 						 90000  130  120  119
@@ -448,7 +450,7 @@
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
 					<independentVar lookup="column">propulsion/tat-c</independentVar>
-					<independentVar lookup="table">/systems/performance/flap-setting</independentVar>
+					<independentVar lookup="table">/systems/performance/to-flap</independentVar>
 					<tableData breakPoint="4">
 						     -40   20   21   25   26   30   31   35   36   40   41   45
 						   0  132  132  132  132  131  131  129  129  127  127  125  125
@@ -540,7 +542,7 @@
 		<fcs_function name="/systems/performance/flap-retract">
 			<function>
 				<interpolate1d>
-					<property>/systems/performance/flap-setting</property>
+					<property>/systems/performance/to-flap</property>
 					<value>11</value><property>/systems/performance/flap-retract-11</property>
 					<value>15</value><property>/systems/performance/flap-retract-15</property>
 				</interpolate1d>
@@ -632,14 +634,21 @@
 		</fcs_function>
 		
 		<!-- Vref -->
+		<switch name="/systems/performance/land-slat">
+			<default value="20"/>
+			<test value="0">
+				/systems/performance/land-no-slat eq 1
+			</test>
+		</switch>
+		
 		<fcs_function name="/systems/performance/vref">
 			<function>
 				<product>
 					<difference>
 						<table>
 							<independentVar lookup="row">inertia/weight-lbs</independentVar>
-							<independentVar lookup="column">fcs/flap-pos-deg</independentVar>
-							<independentVar lookup="table">fcs/slat-pos-deg</independentVar>
+							<independentVar lookup="column">/systems/performance/land-flap</independentVar>
+							<independentVar lookup="table">/systems/performance/land-slat</independentVar>
 							<tableData breakPoint="0">
 								        0    11   15   28   40
 								 90000  132  122  119  112  106
@@ -689,13 +698,22 @@
 			</function>
 		</fcs_function>
 		
+		<fcs_function name="/systems/performance/vapp">
+			<function>
+				<sum>
+					<property>/systems/performance/vref</property>
+					<value>5</value>
+				</sum>
+			</function>
+		</fcs_function>
+		
 		<!-- Stabilizer Computer -->
 		<fcs_function name="/systems/performance/stabilizer-deg">
 			<function>
 				<table>
 					<independentVar lookup="row">inertia/cg-percent-mac</independentVar>
 					<independentVar lookup="column">zero</independentVar> <!-- Take advantage of the table lookup to interpolate -->
-					<independentVar lookup="table">/systems/performance/flap-setting</independentVar>
+					<independentVar lookup="table">/systems/performance/to-flap</independentVar>
 					<tableData breakPoint="4">
 						    0    1
 						 0  8.4  8.4

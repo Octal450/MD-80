@@ -73,6 +73,10 @@ var Instrumentation = {
 	AirspeedIndicator: {
 		indicatedMach: props.globals.getNode("/instrumentation/airspeed-indicator/indicated-mach"),
 		indicatedSpeedKt: props.globals.getNode("/instrumentation/airspeed-indicator/indicated-speed-kt"),
+		pointer1Input: props.globals.getNode("/instrumentation/airspeed-indicator/pointer-1-input"),
+		pointer2Input: props.globals.getNode("/instrumentation/airspeed-indicator/pointer-2-input"),
+		pointer3Input: props.globals.getNode("/instrumentation/airspeed-indicator/pointer-3-input"),
+		pointer4Input: props.globals.getNode("/instrumentation/airspeed-indicator/pointer-4-input"),
 	},
 	Comm: {
 		Frequencies: {
@@ -221,7 +225,15 @@ var Systems = {
 		minimumsLatch: props.globals.getNode("/systems/misc/minimums-latch"),
 	},
 	Performance: {
+		flapRetract: props.globals.getNode("/systems/performance/flap-retract"),
+		landFlap: props.globals.getNode("/systems/performance/land-flap"),
+		landNoSlat: props.globals.getNode("/systems/performance/land-no-slat"),
+		minManeuver: props.globals.getNode("/systems/performance/min-maneuver"),
+		slatRetract: props.globals.getNode("/systems/performance/slat-retract"),
 		stabilizerDeg: props.globals.getNode("/systems/performance/stabilizer-deg"),
+		toFlap: props.globals.getNode("/systems/performance/to-flap"),
+		v1: props.globals.getNode("/systems/performance/v1"),
+		vapp: props.globals.getNode("/systems/performance/vapp"),
 	},
 	Shake: {
 		shaking: props.globals.getNode("/systems/shake/shaking"),

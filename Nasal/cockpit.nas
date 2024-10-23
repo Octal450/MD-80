@@ -39,6 +39,18 @@ var variousReset = func() {
 	pts.Instrumentation.Hsi.slavedToGps[1].setBoolValue(0);
 }
 
+var setAsiBugs = func(n) {
+	if (n == 1) {
+		pts.Instrumentation.AirspeedIndicator.pointer1Input.setValue(math.round(pts.Systems.Performance.vapp.getValue()));
+		pts.Instrumentation.AirspeedIndicator.pointer2Input.setValue(math.round(pts.Systems.Performance.slatRetract.getValue()));
+		pts.Instrumentation.AirspeedIndicator.pointer3Input.setValue(math.round(pts.Systems.Performance.minManeuver.getValue()));
+	} else {
+		pts.Instrumentation.AirspeedIndicator.pointer1Input.setValue(math.round(pts.Systems.Performance.v1.getValue()));
+		pts.Instrumentation.AirspeedIndicator.pointer2Input.setValue(math.round(pts.Systems.Performance.flapRetract.getValue()));
+		pts.Instrumentation.AirspeedIndicator.pointer3Input.setValue(math.round(pts.Systems.Performance.slatRetract.getValue()));
+	}
+}
+
 var ApPanel = {
 	hdgTemp: 0,
 	latTemp: 0,

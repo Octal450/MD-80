@@ -73,6 +73,58 @@
 	</animation>
 	
 	<animation>
+		<type>rotate</type>
+		<object-name>Pointer1</object-name>
+		<property>instrumentation/airspeed-indicator[1]/pointer-1</property>
+		<interpolation>
+			<entry><ind> 42</ind><dep> -6.00</dep></entry>
+			<entry><ind> 60</ind><dep>  4.00</dep></entry>
+			<entry><ind> 70</ind><dep>  9.53</dep></entry>
+			<entry><ind>250</ind><dep>234.00</dep></entry>
+			<entry><ind>450</ind><dep>314.00</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>Pointer2</object-name>
+		<property>instrumentation/airspeed-indicator[1]/pointer-2</property>
+		<interpolation>
+			<entry><ind> 42</ind><dep> -6.00</dep></entry>
+			<entry><ind> 60</ind><dep>  4.00</dep></entry>
+			<entry><ind> 70</ind><dep>  9.53</dep></entry>
+			<entry><ind>250</ind><dep>234.00</dep></entry>
+			<entry><ind>450</ind><dep>314.00</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>Pointer3</object-name>
+		<property>instrumentation/airspeed-indicator[1]/pointer-3</property>
+		<interpolation>
+			<entry><ind> 42</ind><dep> -6.00</dep></entry>
+			<entry><ind> 60</ind><dep>  4.00</dep></entry>
+			<entry><ind> 70</ind><dep>  9.53</dep></entry>
+			<entry><ind>250</ind><dep>234.00</dep></entry>
+			<entry><ind>450</ind><dep>314.00</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
 		<type>textranslate</type>
 		<object-name>Mach1</object-name>
 		<property>instrumentation/airspeed-indicator[1]/mach-digit-d100</property>

@@ -1189,6 +1189,9 @@
 			<indicated-mach type="double">0</indicated-mach>
 			<indicated-mach-slow type="double">0</indicated-mach-slow>
 			<indicated-speed-kt type="double">0</indicated-speed-kt>
+			<pointer-1-input type="int">140</pointer-1-input>
+			<pointer-2-input type="int">160</pointer-2-input>
+			<pointer-3-input type="int">180</pointer-3-input>
 		</airspeed-indicator>
 		<altimeter n="0">
 			<bug-input type="int">0</bug-input>

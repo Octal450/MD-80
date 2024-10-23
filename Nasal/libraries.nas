@@ -46,6 +46,9 @@ var fdmInit = setlistener("/sim/signals/fdm-initialized", func() {
 	canvas_pfd.setup();
 	canvas_fma.setup();
 	acconfig.SYSTEM.finalInit();
+	settimer(func() { # Ensure it recomputes
+		cockpit.setAsiBugs(0)
+	}, 0.5);
 	removelistener(fdmInit);
 	initDone = 1;
 });
