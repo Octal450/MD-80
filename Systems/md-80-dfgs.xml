@@ -218,21 +218,22 @@
 	
 	</channel>
 	
-	<channel name="Envelope Protection Calculations" execrate="8">
+	<channel name="Envelope Protection Calculations" execrate="8"> <!-- Also check md-80-performance.xml -->
 		
-		<!-- V2 --> <!-- Also check md-80-performance.xml -->
-		<switch name="/systems/dfgs/speeds/flap-wow-switch">
+		<!-- Takeoff/Go Around Speeds -->
+		<switch name="/systems/dfgs/speeds/flaps-wow-switch">
 			<default value="fcs/flap-pos-deg"/>
-			<test value="/systems/dfgs/speeds/flap-wow-switch">
+			<test value="/systems/dfgs/speeds/flaps-wow-switch">
 				position/wow eq 0
 			</test>
 		</switch>
 		
+		<!-- V2 -->
 		<fcs_function name="/systems/dfgs/speeds/v2-table"> <!-- From FCOM + Extrapolation -->
 			<function>
 				<table>
 					<independentVar lookup="row">inertia/weight-lbs</independentVar>
-					<independentVar lookup="column">/systems/dfgs/speeds/flap-wow-switch</independentVar>
+					<independentVar lookup="column">/systems/dfgs/speeds/flaps-wow-switch</independentVar>
 					<tableData>
 						        4    11   15
 						 90000  130  120  119
@@ -277,7 +278,7 @@
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
 					<independentVar lookup="column">propulsion/tat-c</independentVar>
-					<independentVar lookup="table">/systems/dfgs/speeds/flap-wow-switch</independentVar>
+					<independentVar lookup="table">/systems/dfgs/speeds/flaps-wow-switch</independentVar>
 					<tableData breakPoint="4">
 						     -40   20   21   25   26   30   31   35   36   40   41   45
 						   0  132  132  132  132  131  131  129  129  127  127  125  125
