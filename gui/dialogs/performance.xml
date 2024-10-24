@@ -186,7 +186,7 @@
 			<legend>&lt;</legend>
 			<binding>
 				<command>property-adjust</command>
-				<property>/systems/performance/to-flap</property>
+				<property>/systems/performance/to-flaps</property>
 				<step>-1</step>
 				<min>0</min>
 				<max>20</max>
@@ -197,7 +197,7 @@
 			<row>0</row>
 			<col>2</col>
 			<pref-width>50</pref-width>
-			<property>/systems/performance/to-flap</property>
+			<property>/systems/performance/to-flaps</property>
 			<live>true</live>
 		</input>
 		
@@ -209,7 +209,7 @@
 			<legend>&gt;</legend>
 			<binding>
 				<command>property-adjust</command>
-				<property>/systems/performance/to-flap</property>
+				<property>/systems/performance/to-flaps</property>
 				<step>1</step>
 				<min>0</min>
 				<max>20</max>
@@ -305,12 +305,12 @@
 			<binding>
 				<condition>
 					<greater-than>
-						<property>/systems/performance/land-flap</property>
+						<property>/systems/performance/land-flaps</property>
 						<value>0</value>
 					</greater-than>
 				</condition>
 				<command>property-cycle</command>
-				<property>/systems/performance/land-flap</property>
+				<property>/systems/performance/land-flaps</property>
 				<value>40</value>
 				<value>28</value>
 				<value>15</value>
@@ -323,7 +323,7 @@
 			<row>0</row>
 			<col>2</col>
 			<pref-width>50</pref-width>
-			<property>/systems/performance/land-flap</property>
+			<property>/systems/performance/land-flaps</property>
 			<live>true</live>
 		</input>
 		
@@ -336,12 +336,12 @@
 			<binding>
 				<condition>
 					<less-than>
-						<property>/systems/performance/land-flap</property>
+						<property>/systems/performance/land-flaps</property>
 						<value>40</value>
 					</less-than>
 				</condition>
 				<command>property-cycle</command>
-				<property>/systems/performance/land-flap</property>
+				<property>/systems/performance/land-flaps</property>
 				<value>0</value>
 				<value>11</value>
 				<value>15</value>
@@ -357,7 +357,7 @@
 		<checkbox>
 			<label>Slats Retracted Landing</label>
 			<halign>left</halign>
-			<property>/systems/performance/land-no-slat</property>
+			<property>/systems/performance/land-no-slats</property>
 			<binding>
 				<command>dialog-apply</command>
 			</binding>

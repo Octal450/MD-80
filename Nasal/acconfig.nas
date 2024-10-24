@@ -294,9 +294,9 @@ var PANEL = {
 		systems.GEAR.Controls.lever.setValue(3);
 		
 		# Performance Applet Reset
-		pts.Systems.Performance.landFlap.setValue(40);
-		pts.Systems.Performance.landNoSlat.setBoolValue(0);
-		pts.Systems.Performance.toFlap.setValue(11);
+		pts.Systems.Performance.landFlaps.setValue(40);
+		pts.Systems.Performance.landNoSlats.setBoolValue(0);
+		pts.Systems.Performance.toFlaps.setValue(11);
 		settimer(func() { # Ensure it recomputes
 			cockpit.setAsiBugs(0);
 		}, 0.5);
