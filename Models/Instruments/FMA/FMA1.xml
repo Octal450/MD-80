@@ -38,7 +38,7 @@
 			<red>1.0</red>
 			<green>1.0</green>
 			<blue>1.0</blue>
-			<factor-prop>controls/lighting/capt-digital-norm</factor-prop>
+			<factor-prop>systems/lighting/capt-digital</factor-prop>
 		</emission>
 	</animation>
 	
@@ -47,7 +47,7 @@
 		<object-name>fma1.screen</object-name>
 		<condition>
 			<greater-than>
-				<property>controls/lighting/capt-digital-norm</property>
+				<property>systems/lighting/capt-digital</property>
 				<value>0.01</value>
 			</greater-than>
 		</condition>

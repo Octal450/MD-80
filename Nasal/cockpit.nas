@@ -9,10 +9,10 @@ var variousReset = func() {
 	dfgs.Main.artCover.setBoolValue(0);
 	pts.Controls.Flight.dialAFlap.setValue(0);
 	pts.Controls.Lighting.beacon.setBoolValue(0);
-	pts.Controls.Lighting.captDigitalKnb.setValue(1);
+	pts.Controls.Lighting.captDigital.setValue(1);
 	pts.Controls.Lighting.emerLt.setValue(0);
-	pts.Controls.Lighting.fgcpDigitalKnb.setValue(1);
-	pts.Controls.Lighting.foDigitalKnb.setValue(1);
+	pts.Controls.Lighting.fgcpDigital.setValue(1);
+	pts.Controls.Lighting.foDigital.setValue(1);
 	pts.Controls.Lighting.landingLightL.setValue(0);
 	pts.Controls.Lighting.landingLightN.setValue(0);
 	pts.Controls.Lighting.landingLightR.setValue(0);

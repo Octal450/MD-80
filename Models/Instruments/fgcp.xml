@@ -40,7 +40,7 @@
 			<red>1.0</red>
 			<green>0.6</green>
 			<blue>0.3</blue>
-			<factor-prop>controls/lighting/fgcp-panel-norm</factor-prop>
+			<factor-prop>systems/lighting/fgcp-panel</factor-prop>
 		</emission>
 	</animation>
 	
@@ -62,7 +62,7 @@
 					<value>24</value>
 				</greater-than-equals>
 				<greater-than>
-					<property>controls/lighting/fgcp-digital-norm</property>
+					<property>systems/lighting/fgcp-digital</property>
 					<value>0.01</value>
 				</greater-than>
 			</and>
@@ -79,7 +79,7 @@
 					<value>24</value>
 				</greater-than-equals>
 				<greater-than>
-					<property>controls/lighting/fgcp-digital-norm</property>
+					<property>systems/lighting/fgcp-digital</property>
 					<value>0.01</value>
 				</greater-than>
 			</and>
@@ -94,7 +94,7 @@
 			<red>1</red>
 			<green>0.6</green>
 			<blue>0</blue>
-			<factor-prop>controls/lighting/fgcp-digital-norm</factor-prop>
+			<factor-prop>systems/lighting/fgcp-digital</factor-prop>
 		</diffuse>
 		<ambient>
 			<red>0</red>
@@ -110,7 +110,7 @@
 			<red>1</red>
 			<green>0.6</green>
 			<blue>0</blue>
-			<factor-prop>controls/lighting/fgcp-digital-norm</factor-prop>
+			<factor-prop>systems/lighting/fgcp-digital</factor-prop>
 		</emission>
 	</animation>
 	
@@ -140,7 +140,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>KnobPanel</object-name>
-		<property>controls/cockpit/fgcp/panel-knb</property>
+		<property>controls/cockpit/fgcp/panel</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -158,7 +158,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/fgcp-panel-knb</property>
+				<property>controls/lighting/fgcp-panel</property>
 				<factor>0.05</factor>
 				<min>0</min>
 				<max>1</max>
@@ -170,7 +170,7 @@
 	<animation>
 		<type>knob</type>
 		<object-name>KnobDigital</object-name>
-		<property>controls/cockpit/fgcp/digital-knb</property>
+		<property>controls/cockpit/fgcp/digital</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -188,7 +188,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/fgcp-digital-knb</property>
+				<property>controls/lighting/fgcp-digital</property>
 				<factor>0.05</factor>
 				<min>0</min>
 				<max>1</max>

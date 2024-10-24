@@ -13,7 +13,7 @@
 			<red>1.0</red>
 			<green>0.6</green>
 			<blue>0.3</blue>
-			<factor-prop>controls/lighting/pedestal-panel-norm</factor-prop>
+			<factor-prop>systems/lighting/pedestal-panel</factor-prop>
 		</emission>
 	</animation>
 	
@@ -21,7 +21,7 @@
 		<type>knob</type>
 		<object-name>KnobPanel</object-name>
 		<object-name>IntegrityPanel</object-name>
-		<property>controls/cockpit/pedestal-panel-knb</property>
+		<property>controls/cockpit/pedestal-panel</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -39,7 +39,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/pedestal-panel-knb</property>
+				<property>controls/lighting/pedestal-panel</property>
 				<factor>0.05</factor>
 				<min>0</min>
 				<max>1</max>
@@ -52,7 +52,7 @@
 		<type>knob</type>
 		<object-name>KnobPanelTop</object-name>
 		<object-name>IntegrityPanelTop</object-name>
-		<property>controls/cockpit/center-panel-knb</property>
+		<property>controls/cockpit/center-panel</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -70,7 +70,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/center-panel-knb</property>
+				<property>controls/lighting/center-panel</property>
 				<factor>0.05</factor>
 				<min>0</min>
 				<max>1</max>
@@ -83,7 +83,7 @@
 		<type>knob</type>
 		<object-name>KnobDigital</object-name>
 		<object-name>IntegrityDigital</object-name>
-		<property>controls/cockpit/pedestal-digital-knb</property>
+		<property>controls/cockpit/pedestal-digital</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -101,7 +101,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/pedestal-digital-knb</property>
+				<property>controls/lighting/pedestal-digital</property>
 				<factor>0.05</factor>
 				<min>0</min>
 				<max>1</max>
@@ -114,7 +114,7 @@
 		<type>rotate</type>
 		<object-name>KnobFlood</object-name>
 		<object-name>IntegrityFlood</object-name>
-		<property>controls/lighting/pedestal-flood-knb</property>
+		<property>controls/lighting/pedestal-flood</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>

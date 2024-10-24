@@ -14,7 +14,7 @@
 			<red>1.0</red>
 			<green>0.6</green>
 			<blue>0.3</blue>
-			<factor-prop>controls/lighting/fo-panel-norm</factor-prop>
+			<factor-prop>systems/lighting/fo-panel</factor-prop>
 		</emission>
 	</animation>
 	
@@ -22,7 +22,7 @@
 		<type>knob</type>
 		<object-name>KnobPanel</object-name>
 		<object-name>IntegrityPanel</object-name>
-		<property>controls/cockpit/fo-panel-knb</property>
+		<property>controls/cockpit/fo-panel</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -40,7 +40,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/fo-panel-knb</property>
+				<property>controls/lighting/fo-panel</property>
 				<factor>0.05</factor>
 				<min>0</min>
 				<max>1</max>
@@ -53,7 +53,7 @@
 		<type>knob</type>
 		<object-name>KnobDigital</object-name>
 		<object-name>IntegrityDigital</object-name>
-		<property>controls/cockpit/fo-digital-knb</property>
+		<property>controls/cockpit/fo-digital</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>
@@ -71,7 +71,7 @@
 		<action>
 			<binding>
 				<command>property-adjust</command>
-				<property>controls/lighting/fo-digital-knb</property>
+				<property>controls/lighting/fo-digital</property>
 				<factor>0.05</factor>
 				<min>0</min>
 				<max>1</max>
@@ -86,7 +86,7 @@
 		<object-name>KnobFloodTop</object-name>
 		<object-name>IntegrityFlood</object-name>
 		<object-name>IntegrityFloodTop</object-name>
-		<property>controls/lighting/fo-flood-knb</property>
+		<property>controls/lighting/fo-flood</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-135</dep></entry>
 			<entry><ind>1</ind><dep> 135</dep></entry>

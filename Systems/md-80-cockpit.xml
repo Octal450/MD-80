@@ -30,18 +30,18 @@
 			<c1>5</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/capt-digital-knb">
-			<input>/controls/lighting/capt-digital-knb</input>
+		<lag_filter name="/controls/cockpit/capt-digital">
+			<input>/controls/lighting/capt-digital</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/capt-panel-knb">
-			<input>/controls/lighting/capt-panel-knb</input>
+		<lag_filter name="/controls/cockpit/capt-panel">
+			<input>/controls/lighting/capt-panel</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/center-panel-knb">
-			<input>/controls/lighting/center-panel-knb</input>
+		<lag_filter name="/controls/cockpit/center-panel">
+			<input>/controls/lighting/center-panel</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -161,8 +161,8 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/fgcp/digital-knb">
-			<input>/controls/lighting/fgcp-digital-knb</input>
+		<lag_filter name="/controls/cockpit/fgcp/digital">
+			<input>/controls/lighting/fgcp-digital</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -201,8 +201,8 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/fgcp/panel-knb">
-			<input>/controls/lighting/fgcp-panel-knb</input>
+		<lag_filter name="/controls/cockpit/fgcp/panel">
+			<input>/controls/lighting/fgcp-panel</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -216,13 +216,13 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/fo-digital-knb">
-			<input>/controls/lighting/fo-digital-knb</input>
+		<lag_filter name="/controls/cockpit/fo-digital">
+			<input>/controls/lighting/fo-digital</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/fo-panel-knb">
-			<input>/controls/lighting/fo-panel-knb</input>
+		<lag_filter name="/controls/cockpit/fo-panel">
+			<input>/controls/lighting/fo-panel</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -272,13 +272,13 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/pedestal-digital-knb">
-			<input>/controls/lighting/pedestal-digital-knb</input>
+		<lag_filter name="/controls/cockpit/pedestal-digital">
+			<input>/controls/lighting/pedestal-digital</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/pedestal-panel-knb">
-			<input>/controls/lighting/pedestal-panel-knb</input>
+		<lag_filter name="/controls/cockpit/pedestal-panel">
+			<input>/controls/lighting/pedestal-panel</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -608,8 +608,8 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/overhead/overhead-panel-knb">
-			<input>/controls/lighting/overhead-panel-knb</input>
+		<lag_filter name="/controls/cockpit/overhead/overhead-panel">
+			<input>/controls/lighting/overhead-panel</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -710,72 +710,72 @@
 	
 	<channel name="Cockpit Lighting" execrate="8">
 		
-		<switch name="/controls/lighting/capt-digital-norm">
+		<switch name="/systems/lighting/capt-digital">
 			<default value="0"/>
-			<test value="/controls/lighting/capt-digital-knb">
+			<test value="/controls/lighting/capt-digital">
 				/systems/electrical/bus/ac-l ge 112
 			</test>
 		</switch>
 		
-		<switch name="/controls/lighting/capt-panel-norm">
+		<switch name="/systems/lighting/capt-panel">
 			<default value="0"/>
-			<test value="/controls/lighting/capt-panel-knb">
+			<test value="/controls/lighting/capt-panel">
 				/systems/electrical/bus/ac-l ge 112
 			</test>
 		</switch>
 		
-		<switch name="/controls/lighting/center-panel-norm">
+		<switch name="/systems/lighting/center-panel">
 			<default value="0"/>
-			<test value="/controls/lighting/center-panel-knb">
+			<test value="/controls/lighting/center-panel">
 				/systems/electrical/bus/ac-l ge 112
 			</test>
 		</switch>
 		
-		<switch name="/controls/lighting/fgcp-digital-norm">
+		<switch name="/systems/lighting/fgcp-digital">
 			<default value="0"/>
-			<test value="/controls/lighting/fgcp-digital-knb">
+			<test value="/controls/lighting/fgcp-digital">
 				/systems/electrical/bus/ac-r ge 112
 			</test>
 		</switch>
 		
-		<switch name="/controls/lighting/fgcp-panel-norm">
+		<switch name="/systems/lighting/fgcp-panel">
 			<default value="0"/>
-			<test value="/controls/lighting/fgcp-panel-knb">
+			<test value="/controls/lighting/fgcp-panel">
 				/systems/electrical/bus/ac-r ge 112
 			</test>
 		</switch>
 		
-		<switch name="/controls/lighting/fo-digital-norm">
+		<switch name="/systems/lighting/fo-digital">
 			<default value="0"/>
-			<test value="/controls/lighting/fo-digital-knb">
+			<test value="/controls/lighting/fo-digital">
 				/systems/electrical/bus/ac-r ge 112
 			</test>
 		</switch>
 		
-		<switch name="/controls/lighting/fo-panel-norm">
+		<switch name="/systems/lighting/fo-panel">
 			<default value="0"/>
-			<test value="/controls/lighting/fo-panel-knb">
+			<test value="/controls/lighting/fo-panel">
 				/systems/electrical/bus/ac-r ge 112
 			</test>
 		</switch>
 		
-		<switch name="/controls/lighting/overhead-panel-norm">
+		<switch name="/systems/lighting/overhead-panel">
 			<default value="0"/>
-			<test value="/controls/lighting/overhead-panel-knb">
+			<test value="/controls/lighting/overhead-panel">
 				/systems/electrical/bus/ac-l ge 112
 			</test>
 		</switch>
 		
-		<switch name="/controls/lighting/pedestal-digital-norm">
+		<switch name="/systems/lighting/pedestal-digital">
 			<default value="0"/>
-			<test value="/controls/lighting/pedestal-digital-knb">
+			<test value="/controls/lighting/pedestal-digital">
 				/systems/electrical/bus/ac-l ge 112
 			</test>
 		</switch>
 		
-		<switch name="/controls/lighting/pedestal-panel-norm">
+		<switch name="/systems/lighting/pedestal-panel">
 			<default value="0"/>
-			<test value="/controls/lighting/pedestal-panel-knb">
+			<test value="/controls/lighting/pedestal-panel">
 				/systems/electrical/bus/ac-l ge 112
 			</test>
 		</switch>
