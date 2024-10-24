@@ -634,7 +634,7 @@
 		</fcs_function>
 		
 		<!-- Vref/Vapp -->
-		<switch name="/systems/performance/land-slat">
+		<switch name="/systems/performance/land-slats">
 			<default value="20"/>
 			<test value="0">
 				/systems/performance/land-no-slats eq 1
@@ -648,7 +648,7 @@
 						<table>
 							<independentVar lookup="row">inertia/weight-lbs</independentVar>
 							<independentVar lookup="column">/systems/performance/land-flaps</independentVar>
-							<independentVar lookup="table">/systems/performance/land-slat</independentVar>
+							<independentVar lookup="table">/systems/performance/land-slats</independentVar>
 							<tableData breakPoint="0">
 								        0    11   15   28   40
 								 90000  132  122  119  112  106
