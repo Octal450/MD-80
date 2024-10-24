@@ -521,7 +521,7 @@
 			</function>
 		</fcs_function>
 		
-		<!-- Retract speeds -->
+		<!-- Retract Speeds -->
 		<fcs_function name="/systems/performance/flap-retract-11">
 			<function>
 				<sum>
