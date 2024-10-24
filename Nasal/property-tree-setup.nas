@@ -76,7 +76,6 @@ var Instrumentation = {
 		pointer1Input: props.globals.getNode("/instrumentation/airspeed-indicator/pointer-1-input"),
 		pointer2Input: props.globals.getNode("/instrumentation/airspeed-indicator/pointer-2-input"),
 		pointer3Input: props.globals.getNode("/instrumentation/airspeed-indicator/pointer-3-input"),
-		pointer4Input: props.globals.getNode("/instrumentation/airspeed-indicator/pointer-4-input"),
 	},
 	Comm: {
 		Frequencies: {
