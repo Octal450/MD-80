@@ -521,6 +521,7 @@
 			</function>
 		</fcs_function>
 		
+		<!-- Retract speeds -->
 		<fcs_function name="/systems/performance/flap-retract-11">
 			<function>
 				<sum>
@@ -591,6 +592,7 @@
 			</function>
 		</fcs_function>
 		
+		<!-- Min Clean Maneuver -->
 		<fcs_function name="/systems/performance/min-maneuver"> <!-- From FCOM + Extrapolation -->
 			<function>
 				<table>
