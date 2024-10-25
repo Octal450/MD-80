@@ -9,9 +9,28 @@
 		<description>MD-81 FDE with JT8D-209 Engines</description>
 	</fileheader>
 	
-	<metrics file="FDE/Config/md-80-metrics"/>
-	<mass_balance file="FDE/Config/md-80-mass-balance"/>
+	<aerodynamics file="FDE/Config/md-80-aerodynamics.xml"/>
+	<external_reactions file="FDE/Config/md-80-external-reactions"/>
 	<ground_reactions file="FDE/Config/md-80-ground-reactions"/>
+	<mass_balance file="FDE/Config/md-80-mass-balance"/>
+	<metrics file="FDE/Config/md-80-metrics"/>
+	
+	<system file="md-80-libraries"/>
+	<system file="md-80-electrical"/>
+	<system file="md-80-fuel"/>
+	<system file="md-80-hydraulics"/>
+	<system file="md-80-irs-ahrs"/>
+	<system file="md-80-pneumatics"/>
+	<system file="md-80-dfgs"/>
+	<system file="md-80-fcs"/>
+	<system file="md-80-spoiler"/>
+	<system file="md-80-ignition"/>
+	<system file="md-80-209-engine-tri"/>
+	<system file="md-80-apu"/>
+	<system file="md-80-misc"/>
+	<system file="md-80-performance"/>
+	<system file="md-80-cockpit"/>
+	<system file="md-80-instrumentation"/>
 	
 	<propulsion>
 		<engine file="jt8d-209_1">
@@ -136,26 +155,5 @@
 			<type>JET-A1</type>
 		</tank>
 	</propulsion>
-	
-	<system file="md-80-libraries"/>
-	<system file="md-80-electrical"/>
-	<system file="md-80-fuel"/>
-	<system file="md-80-hydraulics"/>
-	<system file="md-80-irs-ahrs"/>
-	<system file="md-80-pneumatics"/>
-	<system file="md-80-dfgs"/>
-	<system file="md-80-fcs"/>
-	<system file="md-80-spoiler"/>
-	<system file="md-80-ignition"/>
-	<system file="md-80-209-engine-tri"/>
-	<system file="md-80-apu"/>
-	<system file="md-80-misc"/>
-	<system file="md-80-performance"/>
-	<system file="md-80-cockpit"/>
-	<system file="md-80-instrumentation"/>
-	
-	<flight_control name="none"/>
-	<aerodynamics file="FDE/Config/md-80-aerodynamics.xml"/>
-	<external_reactions file="FDE/Config/md-80-external-reactions"/>
 
 </fdm_config>
