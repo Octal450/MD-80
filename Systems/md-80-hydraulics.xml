@@ -81,10 +81,16 @@
 		<fcs_function name="/systems/hydraulics/l-pump-psi-input">
 			<function>
 				<ifthen>
-					<nq>
-						<property>/systems/failures/hydraulics/l-pump</property>
-						<value>1</value>
-					</nq>
+					<and>
+						<nq>
+							<property>/systems/failures/hydraulics/l-pump</property>
+							<value>1</value>
+						</nq>
+						<ge>
+							<property>/systems/hydraulics/sys-l-qty</property>
+							<value>1</value>
+						</ge>
+					</and>
 					<table>
 						<independentVar lookup="row">/engines/engine[0]/n2-actual</independentVar>
 						<independentVar lookup="column">/controls/hydraulics/l-pump</independentVar>
@@ -145,10 +151,16 @@
 		<fcs_function name="/systems/hydraulics/r-pump-psi-input">
 			<function>
 				<ifthen>
-					<nq>
-						<property>/systems/failures/hydraulics/r-pump</property>
-						<value>1</value>
-					</nq>
+					<and>
+						<nq>
+							<property>/systems/failures/hydraulics/r-pump</property>
+							<value>1</value>
+						</nq>
+						<ge>
+							<property>/systems/hydraulics/sys-r-qty</property>
+							<value>1</value>
+						</ge>
+					</and>
 					<table>
 						<independentVar lookup="row">/engines/engine[1]/n2-actual</independentVar>
 						<independentVar lookup="column">/controls/hydraulics/r-pump</independentVar>
@@ -176,6 +188,7 @@
 				/systems/electrical/bus/emer-ac ge 112
 				/controls/hydraulics/aux-pump ne 0
 				/systems/failures/hydraulics/aux-pump ne 1
+				/systems/hydraulics/sys-r-qty ge 1
 			</test>
 		</switch>
 		
