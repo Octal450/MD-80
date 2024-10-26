@@ -241,6 +241,7 @@
 			<test logic="AND" value="/systems/hydraulics/sys-l-pre-psi-cmd">
 				/systems/hydraulics/trans-valve eq 1
 				/systems/failures/hydraulics/trans ne 1
+				/systems/hydraulics/sys-r-qty ge 1
 			</test>
 		</switch>
 		
@@ -249,6 +250,7 @@
 			<test logic="AND" value="/systems/hydraulics/sys-r-pre-psi-cmd">
 				/systems/hydraulics/trans-valve eq 1
 				/systems/failures/hydraulics/trans ne 1
+				/systems/hydraulics/sys-l-qty ge 1
 			</test>
 		</switch>
 		
