@@ -119,7 +119,7 @@
 				</greater-than>
 			</and>
 		</input>
-		<output>/sim/model/firetank/fluiddetection</output>
+		<output>/sim/model/firetank/fluiddetected</output>
 	</logic>
 
 	<!-- wildfire submodel triggers for foam/water or retardant graphics -->

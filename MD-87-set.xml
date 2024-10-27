@@ -22,10 +22,18 @@
 
 			<firetank>
 				<enabled type="bool">false</enabled>
-				<opentankdoors type="bool">false</opentankdoors>
 				<foam type="bool">false</foam>
-				<lowhydpres type="bool">false</lowhydpres>
-				<test type="bool">false</test>
+				<opentankdoors type="bool">false</opentankdoors>
+				<lamptest type="bool"></lamptest>
+				<ready type="bool">false</ready>
+				<notready type="bool">true</notready>
+				<droppower type="bool">false</droppower>
+				<droparm type="bool">false</droparm>
+				<bright type="bool">false</bright>
+				<fluiddetected type="bool">false</fluiddetected>
+				<spaceopen type="bool">false</spaceopen>
+				<waterdropped type="bool">false</waterdropped>
+				<retardantdropped type="bool">false</retardantdropped>
 				<!-- tank is 0 = safe / 1, 2, 3 = tank / 4 = all -->
 				<tank type="int">4</tank>
 				<!-- quantity is 1 = 25% 2 = 50% 3 = 75% 4 = salvo -->
@@ -33,11 +41,9 @@
 				<bladder-one type="int">0</bladder-one>
 				<bladder-two type="int">0</bladder-two>
 				<bladder-three type="int">0</bladder-three>
-				<droprate type="int">300</droprate><!-- for particles only -->
-				<ready type="bool">false</ready>
-				<!--tank-volume type="float">0</tank-volume-->
 				<effects>
 					<particles>
+						<droprate type="int">400</droprate><!-- for particles only -->
 						<enabled type="bool">true</enabled>
 						<redcombined type="float">0</redcombined>
 						<greencombined type="float">0</greencombined>

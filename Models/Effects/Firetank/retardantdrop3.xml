@@ -63,7 +63,7 @@
     
     <counter>
       <particles-per-sec>
-        <property>sim/model/firetank/droprate</property>
+        <property>sim/model/firetank/effects/particles/droprate</property>
         <spread>100</spread>
       </particles-per-sec>
     </counter>

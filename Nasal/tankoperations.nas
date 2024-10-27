@@ -80,7 +80,6 @@ var tank_operations = func {
 					else if (quantity == 3) weight = 26610;
 						else if (quantity == 4) weight = 35480;
         }
-        setprop("sim/model/firetank/droprate", 400);
 
         if (volume < weight) {
             volume += capacity;
