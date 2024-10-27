@@ -59,6 +59,65 @@
 		</offsets>
 	</model>
 	
+	<!-- firetank -->
+	<model>
+		<path>Aircraft/MD-80/Models/firetank.xml</path>
+		<condition>
+			<property>sim/model/firetank/enabled</property>
+		</condition>
+		<offsets>
+		  <x-m>22.60 </x-m>
+		  <y-m> 0.00 </y-m>
+		  <z-m>-2.77 </z-m>
+		</offsets>
+	</model>
+
+	<!-- Water or Retardant drop -->
+	<model>
+		<path>Aircraft/MD-80/Models/Effects/Firetank/retardantdrop3.xml</path>
+		<condition>
+			<property>sim/model/firetank/enabled</property>
+		</condition>
+		<offsets>
+		  <x-m>24.90 </x-m>
+		  <y-m> 0.00 </y-m>
+		  <z-m>-5.77 </z-m>
+		</offsets>
+	</model>
+	<model>
+		<path>Aircraft/MD-80/Models/Effects/Firetank/retardantdrop2.xml</path>
+		<condition>
+			<property>sim/model/firetank/enabled</property>
+		</condition>
+		<offsets>
+		  <x-m>18.40 </x-m>
+		  <y-m> 0.00 </y-m>
+		  <z-m>-5.77 </z-m>
+		</offsets>
+	</model>
+	<model>
+		<path>Aircraft/MD-80/Models/Effects/Firetank/retardantdrop1.xml</path>
+		<condition>
+			<property>sim/model/firetank/enabled</property>
+		</condition>
+		<offsets>
+		  <x-m>11.60 </x-m>
+		  <y-m> 0.00 </y-m>
+		  <z-m>-5.77 </z-m>
+		</offsets>
+	</model>
+
+	 <!-- Tyre Smoke -->
+	 <model>
+	  <path>Aircraft/MD-88/Models/Effects/tyre-smoke-nose.xml</path>
+	  <name>tyre-smoke-n</name>
+	  <offsets>
+	   <x-m>2.40</x-m>
+	   <y-m>0</y-m>
+	   <z-m>-2.18</z-m>
+	  </offsets>
+	 </model>
+
 	<light>
 		<name>Left Landing Light Compositor</name>
 		<type>spot</type>

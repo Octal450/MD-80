@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- McDonnell Douglas DC-10 -->
+<!-- Main model, KC-10A tanker -->
+
+<PropertyList>
+	<path>firetank.ac</path>
+
+	<offsets>
+        <z-m>0.0</z-m>
+        <y-m>0.0</y-m>
+        <x-m>0.0</x-m>
+        <pitch-deg>0.0</pitch-deg>
+    </offsets>
+
+	<!--effect>
+        <inherits-from>Aircraft/c172p/Models/Effects/exterior/dirt-leading-edge</inherits-from>
+        <object-name>tank</object-name>
+        <object-name>doors.aft</object-name>
+        <object-name>doors.ctr</object-name>
+		<object-name>fwd</object-name>
+        <object-name>doors.mounts</object-name>
+    </effect-->
+
+</PropertyList>

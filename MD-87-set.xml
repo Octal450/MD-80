@@ -19,7 +19,53 @@
 				<texture type="string">n2-217a.png</texture>
 			</n2-tach>
 			<path>Aircraft/MD-80/Models/MD-87.xml</path>
+
+			<firetank>
+				<enabled type="bool">false</enabled>
+				<opentankdoors type="bool">false</opentankdoors>
+				<foam type="bool">false</foam>
+				<lowhydpres type="bool">false</lowhydpres>
+				<test type="bool">false</test>
+				<!-- tank is 0 = safe / 1, 2, 3 = tank / 4 = all -->
+				<tank type="int">4</tank>
+				<!-- quantity is 1 = 25% 2 = 50% 3 = 75% 4 = salvo -->
+				<quantity type="int">4</quantity>
+				<bladder-one type="int">0</bladder-one>
+				<bladder-two type="int">0</bladder-two>
+				<bladder-three type="int">0</bladder-three>
+				<droprate type="int">300</droprate><!-- for particles only -->
+				<ready type="bool">false</ready>
+				<!--tank-volume type="float">0</tank-volume-->
+				<effects>
+					<particles>
+						<enabled type="bool">true</enabled>
+						<redcombined type="float">0</redcombined>
+						<greencombined type="float">0</greencombined>
+						<bluecombined type="float">0</bluecombined>
+					</particles>
+				</effects>
+			</firetank>
 		</model>
+
+		<submodels>
+			<serviceable type="bool">true</serviceable>
+			<path>Aircraft/MD-80/Models/submodels.xml</path>
+		</submodels>
+
+		<menubar>
+			<default>
+			<menu n="104">
+				<item n="5">
+					<label>Fire Tank System</label>
+					<binding>
+						<command>dialog-show</command>
+						<dialog-name>firetank</dialog-name>
+					</binding>
+				</item>
+			</menu>
+			</default>
+		</menubar>
+
 		<previews>
 			<preview>
 				<type>exterior</type>
@@ -117,7 +163,53 @@
 				<roll-offset-deg archive="y">0</roll-offset-deg>
 			</config>
 		</view>
+		
+		<systems n="0">
+			<autopilot n="7">
+				<path>Aircraft/MD-80/Systems/firetank-system.xml</path>
+			</autopilot>
+		</systems>
     </sim>
+	
+	<controls>
+		<firetank>
+			<salvodrop>
+				<cover type="bool">false</cover>
+			</salvodrop>
+			<salvodrop>
+				<switch type="bool">false</switch>
+			</salvodrop>
+			<droppower>
+				<cover type="bool">false</cover>
+			</droppower>
+			<droppower>
+				<switch type="bool">false</switch>
+			</droppower>
+			<droparm>
+				<cover type="bool">false</cover>
+			</droparm>
+			<droparm>
+				<switch type="bool">false</switch>
+			</droparm>
+			<bright>
+				<switch type="bool">false</switch>
+			</bright>
+			<test>
+				<button type="bool">false</button>
+			</test>
+			<distribution>
+				<dial type="int">0</dial>
+			</distribution>
+		</firetank>
+	</controls>
+
+	<systems>
+		<electrical>
+			<outputs>
+				<firetank type="float">0</firetank>
+			</outputs>
+		</electrical>
+	</systems>	
 	
 	<fdm n="0">
 		<jsbsim n="0">
@@ -167,12 +259,44 @@
 			<min-lb type="double">0</min-lb>
 			<max-lb type="double">9619</max-lb>
 		</weight>
+		<weight n="4">
+			<name>Retardant Tank</name>
+			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[4]"/>
+			<min-lb type="double">0</min-lb>
+			<!-- 6764.85 lb each blader -->
+			<max-lb type="double">35480</max-lb>
+		</weight>
 	</payload>
+
+	<input>
+		<keyboard>
+			<!--key n="107">
+				<name>k</name>
+				<desc>Close Tank Doors</desc>
+				<binding>
+					<command>property-toggle</command>
+					<property>sim/model/firetank/opencannonvalve</property>
+				</binding>
+			</key-->
+
+			<key n="75">
+				<name>K</name>
+				<desc>Open Tank Doors</desc>
+				<binding>
+					<command>property-toggle</command>
+					<property>controls/salvodrop/switch</property>
+				</binding>
+			</key>
+		</keyboard>
+	</input>
 	
 	<nasal n="0">
 		<setup>
 			<script>aircraft.livery.init("Aircraft/MD-80/Models/Liveries/MD-87");</script>
 		</setup>
+		<MD87>
+			<file>Aircraft/MD-80/Nasal/tankoperations.nas</file>
+		</MD87>
     </nasal>
 
 </PropertyList>

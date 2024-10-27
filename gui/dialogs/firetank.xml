@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<PropertyList>
+
+	<name>firetank</name>
+	<layout>vbox</layout>
+	<width>210</width>
+
+	<group>
+		<layout>hbox</layout>
+
+		<empty>
+			<stretch>1</stretch>
+		</empty>
+
+		<text>
+			<label>Firetank System Options</label>
+		</text>
+
+		<empty>
+			<stretch>1</stretch>
+		</empty>
+
+		<button>
+			<pref-width>16</pref-width>
+			<pref-height>16</pref-height>
+			<legend></legend>
+			<keynum>27</keynum>
+			<border>2</border>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+	</group>
+
+	<hrule />
+
+	<checkbox>
+		<halign>left</halign>
+		<label>Equip Retardant Tank</label>
+		<property>sim/model/firetank/enabled</property>
+		<binding>
+			<command>dialog-apply</command>
+		</binding>
+		<live type="bool">true</live>
+	</checkbox>
+
+	<hrule />
+
+	<checkbox>
+		<halign>left</halign>
+		<label>Use Water (retardant = default)</label>
+		<property>sim/model/firetank/foam</property>
+		<binding>
+			<command>dialog-apply</command>
+		</binding>
+		<live type="bool">true</live>
+	</checkbox>
+	<hrule />
+	<group>
+		<layout>hbox</layout>
+		<halign>center</halign>
+		<text>
+			<label>0=Safe 1-3=Tank 4=All</label>
+		</text>
+	</group>
+	<group>
+		<layout>hbox</layout>
+		<halign>left</halign>
+		<text>
+			<pref-width>10</pref-width>
+			<padding>20</padding>
+			<property>sim/model/firetank/tank</property>
+			<!--format>%1.f</format-->
+			<live type="bool">true</live>
+		</text>
+		<slider>
+			<label>Tank</label>
+			<halign>left</halign>
+			<property>sim/model/firetank/tank</property>
+			<min>0</min>
+			<max>4</max>
+			<step>1</step>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<live type="bool">true</live>
+		</slider>
+	</group>
+	<hrule />
+	<group>
+		<layout>hbox</layout>
+		<halign>center</halign>
+		<text>
+			<label>1-3=25%-75% 4=Salvo</label>
+		</text>
+	</group>
+	<group>
+		<layout>hbox</layout>
+		<halign>left</halign>
+		<text>
+			<pref-width>10</pref-width>
+			<padding>20</padding>
+			<property>sim/model/firetank/quantity</property>
+			<!--format>%1.f</format-->
+			<live type="bool">true</live>
+		</text>
+		<slider>
+			<label>Quantity</label>
+			<halign>left</halign>
+			<property>sim/model/firetank/quantity</property>
+			<min>0</min>
+			<max>4</max>
+			<step>1</step>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<live type="bool">true</live>
+		</slider>
+	</group>
+	<hrule />
+	<group>
+		<layout>hbox</layout>
+		<halign>center</halign>
+		<text>
+			<label>Tank Fill Weight</label>
+		</text>
+	</group>
+	<group>
+		<layout>hbox</layout>
+		<halign>left</halign>
+		<text>
+			<pref-width>30</pref-width>
+			<padding>20</padding>
+			<property>/fdm/jsbsim/inertia/pointmass-weight-lbs[4]</property>
+			<format>%2.00f</format>
+			<live type="bool">true</live>
+		</text>
+		<slider>
+			<label>Load</label>
+			<halign>left</halign>
+			<enable>
+				<property>sim/model/firetank/enabled</property>
+			</enable>
+			<property>/fdm/jsbsim/inertia/pointmass-weight-lbs[4]</property>
+			<min>0</min>
+			<max>35480</max>
+			<step>1</step>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<!--binding>
+				<command>nasal</command>
+				<script>
+					setprop("sim/model/firetank/tank-volume", getprop("fdm/jsbsim/inertia/pointmass-weight-lbs[4]"));
+				</script>
+			</binding-->
+			<live type="bool">true</live>
+		</slider>
+	</group>
+
+	<!--group>
+		<layout>hbox</layout>
+		<text>
+			<pref-width>20</pref-width>
+			<property>sim/weight[2]/weight-lb</property>
+			<live type="bool">true</live>
+		</text>
+		<text>
+            <label>lbs</label>
+        </text>
+		<button>
+			<legend>Fill Tank</legend>
+			<binding>
+				<command>nasal</command>
+				<script>
+					var retardant = getprop("sim/model/firetank/foam");
+					if (retardant == 1) {
+						setprop("sim/weight[2]/weight-lb", 100080);
+					} else {
+						setprop("sim/weight[2]/weight-lb", 106440);
+					}
+				</script>
+			</binding>
+		</button>
+	</group-->
+
+</PropertyList>

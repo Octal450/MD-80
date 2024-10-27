@@ -543,13 +543,35 @@
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
+
+	<model>
+		<name>tankctrl</name>
+		<path>Aircraft/MD-80/Models/Instruments/TANKCTRL/tankctrlpanel.xml</path>
+		<offsets>
+			<x-m>2.18914</x-m>
+			<y-m>-0.16</y-m>
+			<z-m>1.03447</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+
+	<model>
+		<name>tankctrlpower</name>
+		<path>Aircraft/MD-80/Models/Instruments/TANKCTRL/tankctrlpower.xml</path>
+		<offsets>
+			<x-m> 2.27158</x-m>
+			<y-m>-0.331993</y-m>
+			<z-m> 0.685</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
 	
 	<model>
 		<name>assumedtemp</name>
 		<path>Aircraft/MD-80/Models/Instruments/assumedtemp.xml</path>
 		<offsets>
 			<x-m>2.195</x-m>
-			<y-m>-0.15</y-m>
+			<y-m>-0.01</y-m>
 			<z-m>1.029</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>

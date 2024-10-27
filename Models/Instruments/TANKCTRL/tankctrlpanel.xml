@@ -1,0 +1,333 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	
+	<path>firetankctrl.ac</path>
+
+	<!-- tank volume display -->
+	<animation>
+		<type>material</type>
+		<object-name>tank-volume-glass</object-name>
+		<condition>
+			<property>sim/model/firetank/droppower</property>
+		</condition>
+		<emission>
+			<factor-prop>sim/model/firetank/bright</factor-prop>
+			<red>   1 </red>
+			<green> 1 </green>
+			<blue>  1 </blue>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>salvodropcover</object-name>
+		<property>controls/firetank/salvodrop/cover</property>
+		<factor>55</factor>
+		<center>
+			<x-m>0.003172</x-m>
+			<y-m>0.060276</y-m>
+			<z-m>0.014555</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>salvodropcover</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/firetank/salvodrop/cover</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>salvodropswitch</object-name>
+		<property>controls/firetank/salvodrop/switch</property>
+		<factor>45</factor>
+		<center>
+			<x-m>0.002423</x-m>
+			<y-m>0.060212</y-m>
+			<z-m>-0.013575</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>salvodropswitch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/firetank/salvodrop/switch</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>salvoPressLowOn</object-name>
+		<condition>
+			<or>
+				<property>sim/model/firetank/notready</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<object-name>salvoPressLowOn</object-name>
+		<type>material</type>
+		<condition>
+			<or>
+				<property>sim/model/firetank/notready</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+		<emission>
+			<factor-prop>sim/model/firetank/bright</factor-prop>
+			<red>   1 </red>
+			<green> 1 </green>
+			<blue>  1 </blue>
+		</emission>
+	</animation>
+	<model>
+		<name>salvopresslowon-procedural</name>
+		<path>Aircraft/MD-80/Models/Effects/Firetank/procedural_light_indicator_red.xml</path>
+		<offsets>
+			<x-m> 0.007636</x-m>
+			<y-m> 0.03424</y-m>
+			<z-m>0.005428</z-m>
+		</offsets>
+		<condition>
+			<or>
+				<property>sim/model/firetank/notready</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+	</model>
+
+	<animation>
+		<type>select</type>
+		<object-name>systemPressLowOn</object-name>
+		<condition>
+			<or>
+				<property>sim/model/firetank/notready</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<object-name>systemPressLowOn</object-name>
+		<type>material</type>
+		<condition>
+			<or>
+				<property>sim/model/firetank/notready</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+		<emission>
+			<factor-prop>sim/model/firetank/bright</factor-prop>
+			<red>   1 </red>
+			<green> 1 </green>
+			<blue>  1 </blue>
+		</emission>
+	</animation>
+	<model>
+		<name>systempresslowon-procedural</name>
+		<path>Aircraft/MD-80/Models/Effects/Firetank/procedural_light_indicator_red.xml</path>
+		<offsets>
+			<x-m> 0.007587</x-m>
+			<y-m> 0.007498</y-m>
+			<z-m> 0.005112</z-m>
+		</offsets>
+		<condition>
+			<or>
+				<property>sim/model/firetank/notready</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+	</model>
+
+	<animation>
+		<type>select</type>
+		<object-name>spaceOpenOn</object-name>
+		<condition>
+			<or>
+				<property>sim/model/firetank/spaceopen</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<object-name>spaceOpenOn</object-name>
+		<type>material</type>
+		<condition>
+			<or>
+				<property>sim/model/firetank/spaceopen</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+		<emission>
+			<factor-prop>sim/model/firetank/bright</factor-prop>
+			<red>   1 </red>
+			<green> 1 </green>
+			<blue>  1 </blue>
+		</emission>
+	</animation>
+	<model>
+		<name>spaeoppenon-procedural</name>
+		<path>Aircraft/MD-80/Models/Effects/Firetank/procedural_light_indicator_blue.xml</path>
+		<offsets>
+			<x-m> 0.007424</x-m>
+			<y-m>-0.021187</y-m>
+			<z-m>-0.026651</z-m>
+		</offsets>
+		<condition>
+			<or>
+				<property>sim/model/firetank/spaceopen</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+	</model>
+
+	<animation>
+		<type>select</type>
+		<object-name>ventDoorOpenOn</object-name>
+		<condition>
+			<or>
+				<property>sim/model/firetank/ready</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<object-name>ventDoorOpenOn</object-name>
+		<type>material</type>
+		<condition>
+			<or>
+				<property>sim/model/firetank/ready</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+		<emission>
+			<factor-prop>sim/model/firetank/bright</factor-prop>
+			<red>   1 </red>
+			<green> 1 </green>
+			<blue>  1 </blue>
+		</emission>
+	</animation>
+	<model>
+		<name>ventdooropenon-procedural</name>
+		<path>Aircraft/MD-80/Models/Effects/Firetank/procedural_light_indicator_red.xml</path>
+		<offsets>
+			<x-m> 0.007649</x-m>
+			<y-m> 0.006873</y-m>
+			<z-m>-0.026916</z-m>
+		</offsets>
+		<condition>
+			<or>
+				<property>sim/model/firetank/ready</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+	</model>
+
+	<animation>
+		<type>select</type>
+		<object-name>fluidDetOn</object-name>
+		<condition>
+			<or>
+				<property>sim/model/firetank/fluiddetection</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<object-name>fluidDetOn</object-name>
+		<type>material</type>
+		<condition>
+			<or>
+				<property>sim/model/firetank/fluiddetection</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+		<emission>
+			<factor-prop>sim/model/firetank/bright</factor-prop>
+			<red>   1 </red>
+			<green> 1 </green>
+			<blue>  1 </blue>
+		</emission>
+	</animation>
+	<model>
+		<name>fluiddeton-procedural</name>
+		<path>Aircraft/MD-80/Models/Effects/Firetank/procedural_light_indicator_red.xml</path>
+		<offsets>
+			<x-m> 0.007603</x-m>
+			<y-m> 0.034657</y-m>
+			<z-m>-0.027228</z-m>
+		</offsets>
+		<condition>
+			<or>
+				<property>sim/model/firetank/fluiddetection</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+	</model>
+
+	<animation>
+		<type>select</type>
+		<object-name>faultOn</object-name>
+		<condition>
+			<property>sim/model/firetank/lamptest</property>
+		</condition>
+	</animation>
+	<animation>
+		<object-name>faultOn</object-name>
+		<type>material</type>
+		<condition>
+			<property>sim/model/firetank/lamptest</property>
+		</condition>
+		<emission>
+			<factor-prop>sim/model/firetank/bright</factor-prop>
+			<red>   1 </red>
+			<green> 1 </green>
+			<blue>  1 </blue>
+		</emission>
+	</animation>
+	<model>
+		<name>faulton-procedural</name>
+		<path>Aircraft/MD-80/Models/Effects/Firetank/procedural_light_indicator_red.xml</path>
+		<offsets>
+			<x-m> 0.007357</x-m>
+			<y-m>-0.019895</y-m>
+			<z-m> 0.005206</z-m>
+		</offsets>
+		<condition>
+			<property>sim/model/firetank/lamptest</property>
+		</condition>
+	</model>
+
+</PropertyList>

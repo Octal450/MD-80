@@ -1,0 +1,333 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
+<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+
+<PropertyList>
+	
+	<path>firetankctrlpower.ac</path>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>brightswitch</object-name>
+		<property>controls/firetank/bright/switch</property>
+		<factor>45</factor>
+		<center>
+			<x-m> 0.003711</x-m>
+			<y-m>-0.013919</y-m>
+			<z-m> 0.021367</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+        <type>slider</type>
+        <object-name>lamptestbutton</object-name>
+        <property>controls/firetank/test/button</property>
+        <repeatable>false</repeatable>
+        <factor>0.001</factor>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+        <action>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    setprop("controls/firetank/test/button", 1);
+                </script>
+            </binding>
+        </action>
+        <release>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    setprop("controls/firetank/test/button", 0);
+                    libraries.Sound.btn1();
+                </script>
+            </binding>
+        </release>
+    </animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>brightswitch</object-name>
+		<object-name>fastenerring.002</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/firetank/bright/switch</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
+			</binding>
+		</action>
+	</animation>
+
+	<!-- Drop Power Logic -->
+	<animation>
+		<type>rotate</type>
+		<object-name>droppowercover</object-name>
+		<property>controls/firetank/droppower/cover</property>
+		<factor>55</factor>
+		<center>
+			<x-m> 0.002847</x-m>
+			<y-m>-0.052246</y-m>
+			<z-m>-0.01583</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>droppowercover</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/firetank/droppower/cover</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>droppowerswitch</object-name>
+		<property>controls/firetank/droppower/switch</property>
+		<factor>45</factor>
+		<center>
+			<x-m> 0.00263</x-m>
+			<y-m>-0.052838</y-m>
+			<z-m>-0.031149</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>droppowerswitch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/firetank/droppower/switch</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>dropPowerOn</object-name>
+		<condition>
+			<or>
+				<property>sim/model/firetank/droppower</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<object-name>dropPowerOn</object-name>
+		<type>material</type>
+		<condition>
+			<or>
+				<property>sim/model/firetank/droppower</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+		<emission>
+			<factor-prop>sim/model/firetank/bright</factor-prop>
+			<red>   1 </red>
+			<green> 1 </green>
+			<blue>  1 </blue>
+		</emission>
+	</animation>
+	<model>
+		<name>droppoweron-procedural</name>
+		<path>Aircraft/MD-80/Models/Effects/Firetank/procedural_light_indicator_blue.xml</path>
+		<offsets>
+			<x-m> 0.007728</x-m>
+			<y-m>-0.052611</y-m>
+			<z-m>-0.005187</z-m>
+		</offsets>
+		<condition>
+			<or>
+				<property>sim/model/firetank/droppower</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+	</model>
+
+	<!-- Drop Arm Logic -->
+	<animation>
+		<type>rotate</type>
+		<object-name>droparmcover</object-name>
+		<property>controls/firetank/droparm/cover</property>
+		<factor>55</factor>
+		<center>
+			<x-m> 0.002847</x-m>
+			<y-m>-0.02615</y-m>
+			<z-m>-0.01583</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>droparmcover</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/firetank/droparm/cover</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>rotate</type>
+		<object-name>droparmswitch</object-name>
+		<property>controls/firetank/droparm/switch</property>
+		<factor>45</factor>
+		<center>
+			<x-m> 0.002407</x-m>
+			<y-m>-0.025863</y-m>
+			<z-m>-0.03066</z-m>
+		</center>
+		<axis>
+			<x>1</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>droparmswitch</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/firetank/droparm/switch</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
+			</binding>
+		</action>
+	</animation>
+
+	<animation>
+		<type>select</type>
+		<object-name>dropArmOn</object-name>
+		<condition>
+			<or>
+				<property>/sim/model/firetank/ready</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<object-name>dropArmOn</object-name>
+		<type>material</type>
+		<condition>
+			<or>
+				<property>/sim/model/firetank/ready</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+		<emission>
+			<factor-prop>sim/model/firetank/bright</factor-prop>
+			<red>   1 </red>
+			<green> 1 </green>
+			<blue>  1 </blue>
+		</emission>
+	</animation>
+	<model>
+		<name>droparmron-procedural</name>
+		<path>Aircraft/MD-80/Models/Effects/Firetank/procedural_light_indicator_red.xml</path>
+		<offsets>
+			<x-m> 0.007602</x-m>
+			<y-m>-0.026892</y-m>
+			<z-m>-0.005653</z-m>
+		</offsets>
+		<condition>
+			<or>
+				<property>/sim/model/firetank/ready</property>
+				<property>sim/model/firetank/lamptest</property>
+			</or>
+		</condition>
+	</model>
+
+	<!-- Distribution Knob -->
+	<animation>
+		<type>knob</type>
+		<object-name>distributiondial</object-name>
+		<property>controls/firetank/distribution/dial</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>360</dep></entry>
+			<entry><ind>21</ind><dep>30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m> 0.006293</x-m>
+			<y-m> 0.040865</y-m>
+			<z-m>-0.004275</z-m>
+		</center>
+		<axis>
+			<x> 1 </x>
+			<y> 0 </y>
+			<z> 0 </z>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/firetank/distribution/dial</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>21</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
+			</binding>
+		</action>
+	</animation>
+
+</PropertyList>

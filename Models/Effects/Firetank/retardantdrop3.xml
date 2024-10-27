@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <particlesystem>
+    <name>waterdrop</name>
+    <type>normal</type>
+    <texture>water.png</texture>
+    
+    <emissive>false</emissive>
+    <lighting>false</lighting>
+    
+    <condition>
+		<and>
+			<property>sim/model/firetank/retardantdropparticlectrl</property>
+			<equals>
+				<property>sim/model/firetank/bladder-three</property>
+				<value>1</value>
+			</equals>
+		</and>
+    </condition>
+    
+    <attach>world</attach>
+    <align>billboard</align>
+    
+    <placer>  
+      <type>segments</type>
+      <vertex>
+        <x-m> -2.28 </x-m>
+        <y-m>  0.00 </y-m>
+        <z-m>  0.00 </z-m>
+      </vertex>
+      <vertex>
+        <x-m>  0.00 </x-m>
+        <y-m>  0.00 </y-m>
+        <z-m>  0.00 </z-m>
+      </vertex>
+      <vertex>
+        <x-m>  2.28 </x-m>
+        <y-m>  0.00 </y-m>
+        <z-m>  0.00 </z-m>
+      </vertex>
+    </placer>
+    
+    <shooter>
+      <theta-min-deg>177</theta-min-deg>
+      <theta-max-deg>183</theta-max-deg>
+      <phi-min-deg> -2</phi-min-deg>
+      <phi-max-deg> 2</phi-max-deg>
+      <speed-mps>
+        <value>15</value>
+        <spread>7</spread>
+      </speed-mps>
+      <rotation-speed>
+        <x-min-deg-sec>-15 </x-min-deg-sec>
+        <y-min-deg-sec> 15 </y-min-deg-sec>
+        <z-min-deg-sec>-15 </z-min-deg-sec>
+        <x-max-deg-sec> 15 </x-max-deg-sec>
+        <y-max-deg-sec>-15 </y-max-deg-sec>
+        <z-max-deg-sec> 15 </z-max-deg-sec>
+      </rotation-speed>
+    </shooter>
+    
+    <counter>
+      <particles-per-sec>
+        <property>sim/model/firetank/droprate</property>
+        <spread>100</spread>
+      </particles-per-sec>
+    </counter>
+    
+	<particle>
+		<start>
+			<color>
+				<red>
+					<property>sim/model/firetank/effects/particles/redcombined</property>
+				</red>
+				<green>
+					<property>sim/model/firetank/effects/particles/greencombined</property>
+				</green>
+				<blue>
+					<property>sim/model/firetank/effects/particles/bluecombined</property>
+				</blue>
+				<alpha>
+					<value>.1</value>
+				</alpha>
+			</color>
+			<size><value> 7.0 </value></size>
+		</start>
+		<end>
+			<color>
+				<red>
+					<property>sim/model/firetank/effects/particles/redcombined</property>
+				</red>
+				<green>
+					<property>sim/model/firetank/effects/particles/greencombined</property>
+				</green>
+				<blue>
+					<property>sim/model/firetank/effects/particles/bluecombined</property>
+				</blue>
+				<alpha>
+					<value>.01</value>
+				</alpha>
+			</color>
+			<size><value> .5 </value></size>
+		</end>
+
+		<life-sec>
+			<value> 5</value>
+			<spread>3</spread>
+		</life-sec>
+
+		<mass-kg> 0.000001</mass-kg>
+		<radius-m>0.0001</radius-m>
+
+	</particle>
+    
+    <program>
+      <fluid>  water</fluid>
+      <gravity>true </gravity>
+      <wind>   true </wind>
+    </program>
+    
+  </particlesystem>
+  
+</PropertyList>

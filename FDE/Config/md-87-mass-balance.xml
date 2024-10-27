@@ -53,5 +53,12 @@
 			<z>-0.284</z>
 		</location>
 	</pointmass>
-
+	<pointmass name="Retardant Tank">
+		<weight unit="LBS">0</weight>
+		<location name="POINTMASS" unit="M">
+			<x> 23.575</x>
+			<y>  0.0  </y>
+			<z> -0.3  </z>
+		</location>
+	</pointmass>
 </mass_balance>

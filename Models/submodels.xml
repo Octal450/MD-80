@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+	<!-- 
+		<trigger>sim/model/firetank/retardantdropped</trigger>
+		<trigger>/sim/model/firetank/waterdropped</trigger>
+		
+	-->
+
+	<!-- Fire retardant marker for water drop -->
+	<submodel>
+		<name>waterdrop-marker-retardant</name>
+		<model>Models/Geometry/null.ac</model>
+		<trigger>sim/model/firetank/retardantdropped</trigger>
+		<speed>0</speed>
+		<repeat>true</repeat>
+		<delay>0.01</delay>
+		<count>10000</count>
+		<x-offset>0.0</x-offset>
+		<y-offset>0.0</y-offset>
+		<z-offset>-1.0</z-offset>
+		<wind>true</wind>
+		<eda>35</eda>
+		<cd>0.75</cd>
+		<weight>1133.0</weight>
+		<impact>true</impact>
+		<impact-reports>sim/ai/aircraft/impact/retardant</impact-reports>
+	</submodel>
+
+	<!-- Foam or water marker for water drop -->
+	<submodel>
+		<name>waterdrop-marker-foam</name>
+		<model>Models/Geometry/null.ac</model>
+		<trigger>/sim/model/firetank/waterdropped</trigger>
+		<speed>0</speed>
+		<repeat>true</repeat>
+		<delay>0.01</delay>
+		<count>10000</count>
+		<x-offset>0.0</x-offset>
+		<y-offset>0.0</y-offset>
+		<z-offset>-1.0</z-offset>
+		<wind>true</wind>
+		<eda>35</eda>
+		<cd>0.75</cd>
+		<weight>1133.0</weight>
+		<impact>true</impact>
+		<impact-reports>sim/ai/aircraft/impact/foam</impact-reports>
+	</submodel>
+
+</PropertyList>
