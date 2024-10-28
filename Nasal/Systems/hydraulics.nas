@@ -22,6 +22,9 @@ var HYDRAULICS = {
 		rPump: props.globals.getNode("/controls/hydraulics/r-pump"),
 		trans: props.globals.getNode("/controls/hydraulics/trans"),
 	},
+	Covers: {
+		trans: props.globals.getNode("/controls/hydraulics/covers/trans"),
+	},
 	Failures: {
 		auxPump: props.globals.getNode("/systems/failures/hydraulics/aux-pump"),
 		lPump: props.globals.getNode("/systems/failures/hydraulics/l-pump"),
@@ -39,6 +42,7 @@ var HYDRAULICS = {
 		me.Controls.lPump.setValue(0);
 		me.Controls.rPump.setValue(0);
 		me.Controls.trans.setBoolValue(0);
+		me.Covers.trans.setBoolValue(0);
 	},
 	resetFailures: func() {
 		me.Failures.auxPump.setBoolValue(0);
