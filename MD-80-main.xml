@@ -514,7 +514,9 @@
 		</cockpit>
 		<dfgs n="0">
 			<art type="bool">1</art>
-			<art-cover type="bool">0</art-cover>
+			<covers n="0">
+				<art type="bool">0</art>
+			</covers>
 		</dfgs>
 		<electrical n="0">
 			<ac-tie type="bool">1</ac-tie>
@@ -598,6 +600,9 @@
 		</gear>
 		<hydraulics n="0">
 			<aux-pump type="int">0</aux-pump>
+			<covers n="0">
+				<trans type="bool">0</trans>
+			</covers>
 			<gear-gravity-ext type="bool">0</gear-gravity-ext>
 			<l-pump type="int">0</l-pump>
 			<r-pump type="int">0</r-pump>

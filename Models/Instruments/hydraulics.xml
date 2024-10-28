@@ -18,6 +18,51 @@
 	</animation>
 	
 	<animation>
+		<type>knob</type>
+		<object-name>TransCover</object-name>
+		<property>controls/cockpit/hyd-trans-cover</property>
+		<drag-direction>vertical</drag-direction>
+		<drag-scale-px>15</drag-scale-px>
+		<factor>-100</factor>
+		<center>
+			<x-m>0.00853</x-m>
+			<y-m>0</y-m>
+			<z-m>0.01284</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<increase>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/hydraulics/covers/trans</property>
+				<value>1</value>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<condition>
+					<property>controls/hydraulics/trans</property>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/hydraulics/trans</property>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/hydraulics/covers/trans</property>
+				<value>0</value>
+			</binding>
+		</decrease>
+	</animation>
+	
+	<animation>
 		<type>rotate</type>
 		<object-name>transHydSwitch</object-name>
 		<property>/controls/cockpit/hyd-trans</property>
@@ -91,6 +136,10 @@
 				<value>1</value>
 				<value>2</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -102,6 +151,10 @@
 				<value>2</value>
 				<value>1</value>
 				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -139,6 +192,10 @@
 				<value>1</value>
 				<value>2</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 		<action>
 			<button>1</button>
@@ -150,6 +207,10 @@
 				<value>2</value>
 				<value>1</value>
 				<value>0</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>

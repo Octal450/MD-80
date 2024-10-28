@@ -79,7 +79,7 @@ var ENGINES = {
 		throttle: [props.globals.getNode("/controls/engines/engine[0]/throttle"), props.globals.getNode("/controls/engines/engine[1]/throttle")],
 		throttleTemp: [0, 0],
 	},
-	Cover: {
+	Covers: {
 		startL: props.globals.getNode("/controls/engines/covers/start-l"),
 		startR: props.globals.getNode("/controls/engines/covers/start-r"),
 	},
@@ -94,8 +94,8 @@ var ENGINES = {
 		me.Controls.manEprSet[1].setBoolValue(0);
 		me.Controls.start[0].setBoolValue(0);
 		me.Controls.start[1].setBoolValue(0);
-		me.Cover.startL.setBoolValue(0);
-		me.Cover.startR.setBoolValue(0);
+		me.Covers.startL.setBoolValue(0);
+		me.Covers.startR.setBoolValue(0);
 		systems.ENGINES.oilQtyInput[0].setValue(math.round((rand() * 4) + 14 , 0.1)); # Random between 14 and 18
 		systems.ENGINES.oilQtyInput[1].setValue(math.round((rand() * 4) + 14 , 0.1)); # Random between 14 and 18
 	},
