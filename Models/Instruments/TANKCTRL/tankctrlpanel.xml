@@ -260,7 +260,7 @@
 		<object-name>fluidDetOn</object-name>
 		<condition>
 			<or>
-				<property>sim/model/firetank/fluiddetection</property>
+				<property>sim/model/firetank/fluiddetected</property>
 				<property>sim/model/firetank/lamptest</property>
 			</or>
 		</condition>
@@ -270,7 +270,7 @@
 		<type>material</type>
 		<condition>
 			<or>
-				<property>sim/model/firetank/fluiddetection</property>
+				<property>sim/model/firetank/fluiddetected</property>
 				<property>sim/model/firetank/lamptest</property>
 			</or>
 		</condition>
@@ -291,7 +291,7 @@
 		</offsets>
 		<condition>
 			<or>
-				<property>sim/model/firetank/fluiddetection</property>
+				<property>sim/model/firetank/fluiddetected</property>
 				<property>sim/model/firetank/lamptest</property>
 			</or>
 		</condition>

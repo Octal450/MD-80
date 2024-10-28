@@ -301,7 +301,10 @@
 		<object-name>distributiondial</object-name>
 		<property>controls/firetank/distribution/dial</property>
 		<interpolation>
-			<entry><ind>0</ind><dep>360</dep></entry>
+			<entry><ind> 0</ind><dep>360</dep></entry>
+			<entry><ind> 3</ind><dep>302</dep></entry>
+			<entry><ind> 8</ind><dep>230</dep></entry>
+			<entry><ind>14</ind><dep>150</dep></entry>
 			<entry><ind>21</ind><dep>30</dep></entry>
 		</interpolation>
 		<center>

@@ -34,10 +34,6 @@
 				<spaceopen type="bool">false</spaceopen>
 				<waterdropped type="bool">false</waterdropped>
 				<retardantdropped type="bool">false</retardantdropped>
-				<!-- tank is 0 = safe / 1, 2, 3 = tank / 4 = all -->
-				<tank type="int">4</tank>
-				<!-- quantity is 1 = 25% 2 = 50% 3 = 75% 4 = salvo -->
-				<quantity type="int">4</quantity>
 				<bladder-one type="int">0</bladder-one>
 				<bladder-two type="int">0</bladder-two>
 				<bladder-three type="int">0</bladder-three>
@@ -276,21 +272,12 @@
 
 	<input>
 		<keyboard>
-			<!--key n="107">
-				<name>k</name>
-				<desc>Close Tank Doors</desc>
-				<binding>
-					<command>property-toggle</command>
-					<property>sim/model/firetank/opencannonvalve</property>
-				</binding>
-			</key-->
-
 			<key n="75">
 				<name>K</name>
 				<desc>Open Tank Doors</desc>
 				<binding>
 					<command>property-toggle</command>
-					<property>controls/salvodrop/switch</property>
+					<property>controls/firetank/salvodrop/switch</property>
 				</binding>
 			</key>
 		</keyboard>

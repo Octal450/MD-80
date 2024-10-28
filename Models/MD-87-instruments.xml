@@ -547,6 +547,9 @@
 	<model>
 		<name>tankctrl</name>
 		<path>Aircraft/MD-80/Models/Instruments/TANKCTRL/tankctrlpanel.xml</path>
+		<condition>
+			<property>sim/model/firetank/enabled</property>
+		</condition>
 		<offsets>
 			<x-m>2.18914</x-m>
 			<y-m>-0.16</y-m>
@@ -558,6 +561,9 @@
 	<model>
 		<name>tankctrlpower</name>
 		<path>Aircraft/MD-80/Models/Instruments/TANKCTRL/tankctrlpower.xml</path>
+		<condition>
+			<property>sim/model/firetank/enabled</property>
+		</condition>
 		<offsets>
 			<x-m> 2.27158</x-m>
 			<y-m>-0.331993</y-m>

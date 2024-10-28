@@ -11,13 +11,7 @@
     <lighting>false</lighting>
     
     <condition>
-		<and>
-			<property>sim/model/firetank/retardantdropparticlectrl</property>
-			<equals>
-				<property>sim/model/firetank/bladder-one</property>
-				<value>1</value>
-			</equals>
-		</and>
+		<property>sim/model/firetank/retardantdropparticlectrl</property>
     </condition>
     
     <attach>world</attach>

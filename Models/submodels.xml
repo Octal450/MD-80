@@ -17,8 +17,8 @@
 		<repeat>true</repeat>
 		<delay>0.01</delay>
 		<count>10000</count>
-		<x-offset>0.0</x-offset>
-		<y-offset>0.0</y-offset>
+		<x-offset>10.0</x-offset>
+		<y-offset>5.0</y-offset>
 		<z-offset>-1.0</z-offset>
 		<wind>true</wind>
 		<eda>35</eda>
@@ -37,8 +37,8 @@
 		<repeat>true</repeat>
 		<delay>0.01</delay>
 		<count>10000</count>
-		<x-offset>0.0</x-offset>
-		<y-offset>0.0</y-offset>
+		<x-offset>10.0</x-offset>
+		<y-offset>5.0</y-offset>
 		<z-offset>-1.0</z-offset>
 		<wind>true</wind>
 		<eda>35</eda>
