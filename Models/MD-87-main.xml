@@ -109,7 +109,7 @@
 
 	 <!-- Tyre Smoke -->
 	 <model>
-	  <path>Aircraft/MD-88/Models/Effects/tyre-smoke-nose.xml</path>
+	  <path>Aircraft/MD-80/Models/Effects/tyre-smoke-nose.xml</path>
 	  <name>tyre-smoke-n</name>
 	  <offsets>
 	   <x-m>2.40</x-m>
