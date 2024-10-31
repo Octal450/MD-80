@@ -1593,14 +1593,14 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/dfgs/art-cover</property>
+				<property>controls/dfgs/covers/art</property>
 				<value>0</value>
 			</binding>
 		</increase>
 		<decrease>
 			<binding>
 				<command>property-assign</command>
-				<property>controls/dfgs/art-cover</property>
+				<property>controls/dfgs/covers/art</property>
 				<value>1</value>
 			</binding>
 		</decrease>

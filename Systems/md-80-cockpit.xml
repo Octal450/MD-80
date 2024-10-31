@@ -16,7 +16,7 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/art-cover">
-			<input>/controls/dfgs/art-cover</input>
+			<input>/controls/dfgs/covers/art</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -259,6 +259,11 @@
 		
 		<lag_filter name="/controls/cockpit/hyd-trans">
 			<input>/controls/hydraulics/trans</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/hyd-trans-cover">
+			<input>/controls/hydraulics/covers/trans</input>
 			<c1>20</c1>
 		</lag_filter>
 		
