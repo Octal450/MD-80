@@ -3,7 +3,7 @@ MATERIAL "glow" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 16  trans 0
 OBJECT world
 kids 4
 OBJECT poly
-name "Bezel_35"
+name "Bezel"
 loc 0.000360244 0 0
 data 12
 Cylinder.027
