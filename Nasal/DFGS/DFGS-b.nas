@@ -121,10 +121,10 @@ var UpdateFma = {
 		} else if (me.latText == "LAND") {
 			Fma.rollA.setValue("AUT");
 			Fma.rollB.setValue("LND");
-		} else if (me.latText == "ALGN") {
+		} else if (me.latText == "ALIGN") {
 			Fma.rollA.setValue("ALN");
 			Fma.rollB.setValue("");
-		} else if (me.latText == "RLOU") {
+		} else if (me.latText == "ROLLOUT") {
 			Fma.rollA.setValue("ROL");
 			Fma.rollB.setValue("OUT");
 		} else if (me.latText == "T/O") {
