@@ -37,9 +37,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.25000003"
-     inkscape:cx="2851.1623"
-     inkscape:cy="-78.931385"
+     inkscape:zoom="0.35355343"
+     inkscape:cx="1042.1561"
+     inkscape:cy="1972.1999"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -771,6 +771,18 @@
            cy="626.80634"
            cx="121.99167"
            id="circle5219"
+           style="opacity:1;fill:#464646;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <circle
+           style="opacity:1;fill:#464646;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="circle5458"
+           cx="-922.3941"
+           cy="-1163.3531"
+           r="22.5" />
+        <circle
+           r="22.5"
+           cy="-1163.3531"
+           cx="-1139.3879"
+           id="circle5460"
            style="opacity:1;fill:#464646;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       </g>
       <g
@@ -1792,6 +1804,24 @@
            id="circle5374"
            cx="200.51233"
            cy="621.80627"
+           r="15.750072" />
+      </g>
+      <g
+         id="g5468"
+         transform="matrix(0.9,0,0,0.9,889.51939,-1754.8135)"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90">
+        <circle
+           r="22.5"
+           cy="620.23523"
+           cx="121.99167"
+           id="circle5470"
+           style="opacity:1;fill:#666666;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <circle
+           style="opacity:1;fill:#464646;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="circle5472"
+           cx="121.99167"
+           cy="620.23523"
            r="15.750072" />
       </g>
     </g>
