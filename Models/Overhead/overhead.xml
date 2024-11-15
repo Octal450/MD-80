@@ -8,6 +8,8 @@
 	
 	<effect>
 		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>BackgroundAuxTanks</object-name>
+		<object-name>BackgroundIrs</object-name>
 		<object-name>Labels</object-name>
 		<object-name>LabelsAuxTanks</object-name>
 		<object-name>LabelsEfis</object-name>
