@@ -4,7 +4,7 @@
 var CONFIG = {
 	minFgfs: split(".", getprop("/sim/minimum-fg-version")),
 	minFgfsString: getprop("/sim/minimum-fg-version"),
-	minOptionsRevision: 222, # Minimum revision of supported options
+	minOptionsRevision: 536, # Minimum revision of supported options
 	noUpdateCheck: 0, # Disable ACCONFIG Update Checks
 };
 
@@ -67,8 +67,8 @@ var SYSTEM = {
 				} else if (!me.Error.active.getBoolValue()) {
 					if (OPTIONS.savedRevision.getValue() < me.revisionTemp) {
 						fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-updated"}));
-					} else if (!OPTIONS.welcomeSkip.getBoolValue()) {
-						fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-welcome"}));
+					} else if (OPTIONS.openOnLaunch.getBoolValue()) {
+						fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-main"}));
 					}
 					
 					# Only do on successful init
@@ -78,8 +78,8 @@ var SYSTEM = {
 				}
 			} else { # No Update Checks
 				if (!me.Error.active.getBoolValue()) {
-					if (!OPTIONS.welcomeSkip.getBoolValue()) {
-						fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-welcome"}));
+					if (OPTIONS.openOnLaunch.getBoolValue()) {
+						fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-main"}));
 					}
 					
 					# Only do on successful init
@@ -109,8 +109,8 @@ var SYSTEM = {
 	showError: func() {
 		libraries.systemsLoop.stop();
 		systems.DUController.showError();
+		fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-main"}));
 		fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-updated"}));
-		fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-welcome"}));
 		fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-error"}));
 		# Kill menu items
 		setprop("/sim/menubar/default/menu[101]/enabled", 0);
@@ -212,10 +212,10 @@ var RENDERING = {
 };
 
 var OPTIONS = {
+	openOnLaunch: props.globals.initNode("/systems/acconfig/options/open-on-launch", 1, "BOOL"),
 	noRenderingWarn: props.globals.initNode("/systems/acconfig/options/no-rendering-warn", 0, "BOOL"),
 	savedRevision: props.globals.initNode("/systems/acconfig/options/saved-revision", 0, "INT"),
 	tempRevision: props.globals.initNode("/systems/acconfig/temp/saved-revision", 0, "INT"),
-	welcomeSkip: props.globals.initNode("/systems/acconfig/options/welcome-skip", 0, "BOOL"),
 	read: func() {
 		io.read_properties(getprop("/sim/fg-home") ~ "/Export/MD-80-options.xml", "/systems/acconfig/temp");
 		
