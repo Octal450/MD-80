@@ -12,7 +12,7 @@
 		
 		<text>
 			<halign>left</halign>
-			<label>Aircraft Config Center</label>
+			<label>Aircraft Configuration Center</label>
 		</text>
 		
 		<empty><stretch>1</stretch></empty>
@@ -42,7 +42,7 @@
 	</group>
 	
 	<hrule/>
-		
+	
 	<group>
 		<layout>hbox</layout>
 
@@ -63,7 +63,7 @@
 				</button>
 				<button>
 					<halign>center</halign>
-					<legend>Aircraft Help</legend>
+					<legend>Help and Shortcuts</legend>
 					<pref-width>140</pref-width>
 					<binding>
 						<command>nasal</command>
@@ -81,15 +81,6 @@
 				</button>
 				<button>
 					<halign>center</halign>
-					<legend>DU Framerate</legend>
-					<pref-width>140</pref-width>
-					<binding>
-						<command>dialog-show</command>
-						<dialog-name>acconfig-du-framerate</dialog-name>
-					</binding>
-				</button>
-				<button>
-					<halign>center</halign>
 					<legend>System Failures</legend>
 					<pref-width>140</pref-width>
 					<enable>
@@ -98,6 +89,15 @@
 					<binding>
 						<command>dialog-show</command>
 						<dialog-name>acconfig-failures</dialog-name>
+					</binding>
+				</button>
+				<button>
+					<halign>center</halign>
+					<legend>DU Framerate</legend>
+					<pref-width>140</pref-width>
+					<binding>
+						<command>dialog-show</command>
+						<dialog-name>acconfig-du-framerate</dialog-name>
 					</binding>
 				</button>
 			</group>
@@ -232,7 +232,7 @@
 			<layout>vbox</layout>
 			
 			<checkbox>
-				<label>Enable Wheel Chocks</label>
+				<label>Wheel Chocks</label>
 				<halign>left</halign>
 				<enable>
 					<and>
@@ -254,9 +254,8 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Enable External Power Box</label>
+				<label>External Power Box</label>
 				<halign>left</halign>
-				<property>/controls/electrical/ground-cart</property>
 				<enable>
 					<and>
 						<or>
@@ -275,9 +274,15 @@
 						</less-than>
 					</and>
 				</enable>
+				<property>/controls/electrical/ground-cart</property>
 				<binding>
 					<command>property-assign</command>
 					<property>/controls/electrical/ext-pwr</property>
+					<value>0</value>
+				</binding>
+				<binding>
+					<command>property-assign</command>
+					<property>/controls/electrical/extg-pwr</property>
 					<value>0</value>
 				</binding>
 				<binding>
@@ -287,7 +292,7 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Enable External Air</label>
+				<label>External Air</label>
 				<halign>left</halign>
 				<enable>
 					<and>
