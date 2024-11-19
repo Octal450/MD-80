@@ -1636,14 +1636,14 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<condition>
-					<property>controls/dfgs/art-cover</property>
+					<property>controls/dfgs/covers/art</property>
 				</condition>
 				<command>property-toggle</command>
 				<property>controls/dfgs/art</property>
 			</binding>
 			<binding>
 				<condition>
-					<property>controls/dfgs/art-cover</property>
+					<property>controls/dfgs/covers/art</property>
 				</condition>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
