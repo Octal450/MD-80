@@ -27,10 +27,6 @@ var DUController = {
 		canvas_pfd.pfd2.page.hide();
 		me.showNd1.setBoolValue(0); # Temporary
 		me.showNd2.setBoolValue(0); # Temporary
-		
-		# Now show the error
-		canvas_pfd.pfd1Error.page.show();
-		canvas_pfd.pfd2Error.page.show();
 	},
 	loop: func() {
 		me.flightDirector = pts.Systems.Acconfig.Options.flightDirector.getValue();
