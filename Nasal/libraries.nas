@@ -443,7 +443,7 @@ setlistener("/controls/switches/seatbelt-sign-status", func() {
 	if (pts.Sim.Sound.seatbeltSign.getBoolValue()) {
 		return;
 	}
-	if (systems.ELECTRICAL.Generic.efis.getValue() >= 25) {
+	if (systems.ELECTRICAL.Outputs.efis.getValue() >= 25) {
 		pts.Sim.Sound.noSmokingSignInhibit.setBoolValue(1); # Prevent no smoking sound from playing at same time
 		pts.Sim.Sound.seatbeltSign.setBoolValue(1);
 		settimer(func() {
@@ -457,7 +457,7 @@ setlistener("/controls/switches/no-smoking-sign-status", func() {
 	if (pts.Sim.Sound.noSmokingSign.getBoolValue()) {
 		return;
 	}
-	if (systems.ELECTRICAL.Generic.efis.getValue() >= 25 and !pts.Sim.Sound.noSmokingSignInhibit.getBoolValue()) {
+	if (systems.ELECTRICAL.Outputs.efis.getValue() >= 25 and !pts.Sim.Sound.noSmokingSignInhibit.getBoolValue()) {
 		pts.Sim.Sound.noSmokingSign.setBoolValue(1);
 		settimer(func() {
 			pts.Sim.Sound.noSmokingSign.setBoolValue(0);

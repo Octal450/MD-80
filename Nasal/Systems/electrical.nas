@@ -24,7 +24,7 @@ var ELECTRICAL = {
 		instAcL: props.globals.getNode("/systems/electrical/bus/inst-ac-l"),
 		instAcR: props.globals.getNode("/systems/electrical/bus/inst-ac-r"),
 	},
-	Generic: {
+	Outputs: {
 		efis: props.globals.initNode("/systems/electrical/outputs/efis", 0, "DOUBLE"),
 		fgcp: props.globals.initNode("/systems/electrical/outputs/fgcp", 0, "DOUBLE"),
 		fma: [props.globals.initNode("/systems/electrical/outputs/fma[0]", 0, "DOUBLE"), props.globals.initNode("/systems/electrical/outputs/fma[1]", 0, "DOUBLE")],

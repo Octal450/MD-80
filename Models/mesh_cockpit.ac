@@ -16,7 +16,7 @@ MATERIAL "ac3dmat1.001" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 64  tr
 MATERIAL "DefaultWhite.011" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 20.8842  trans 0
 MATERIAL "Material.014" rgb 1 1 1  amb 1 1 1  emis 0.8 0.8 0.8  spec 0 0 0  shi 20.8842  trans 0
 OBJECT world
-kids 77
+kids 76
 OBJECT poly
 name "ABSArm"
 loc 3.46007 1.39097 -0.166643
@@ -93094,12 +93094,6 @@ refs 7
 0 0 0
 422 0 0
 431 0 0
-kids 0
-OBJECT poly
-name "YokeL.000"
-data 12
-Cylinder.003
-crease 40.000000
 kids 0
 OBJECT poly
 name "YokeL.001"

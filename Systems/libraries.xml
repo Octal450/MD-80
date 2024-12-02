@@ -68,29 +68,13 @@
 	</filter>
 	
 	<predict-simple>
-		<name>Gear AGL Altitude</name>
+		<name>Gear AGL Altitude Predictor</name>
 		<debug>false</debug>
 		<input>/position/gear-agl-ft</input>
 		<output>/position/gear-agl-ft-2-sec</output>
 		<seconds>2.0</seconds>
 		<filter-gain>0.0</filter-gain>
 	</predict-simple>
-	
-	<filter>
-		<name>Minimums Plus 50</name>
-		<update-interval-secs>0.1</update-interval-secs>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression>
-				<sum>
-					<property>/controls/switches/minimums</property>
-					<value>50</value>
-				</sum>
-			</expression>
-		</input>
-		<output>/systems/misc/minimums-plus-50</output>
-	</filter>
 	
 	<filter>
 		<name>Minimums Horn</name>
@@ -109,22 +93,6 @@
 		</input>
 		<output>/systems/misc/minimums-horn-pitch</output>
 		<filter-time>0.08</filter-time>
-	</filter>
-	
-	<filter>
-		<name>Minimums Minus 50</name>
-		<update-interval-secs>0.1</update-interval-secs>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<input>
-			<expression>
-				<difference>
-					<property>/controls/switches/minimums</property>
-					<value>50</value>
-				</difference>
-			</expression>
-		</input>
-		<output>/systems/misc/minimums-minus-50</output>
 	</filter>
 	
 	<!-- Because overwriting from JSBSim doesn't work -->

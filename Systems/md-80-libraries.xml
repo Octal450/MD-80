@@ -136,36 +136,6 @@
 				</floor>
 			</function>
 		</fcs_function>
-		
-		<fcs_function name="/systems/misc/minimums-latch-input">
-			<function>
-				<sum>
-					<property>/controls/switches/minimums</property>
-					<value>50.5</value>
-				</sum>
-			</function>
-		</fcs_function>
-		
-		<switch name="/systems/misc/minimums-latch">
-			<default value="/systems/misc/minimums-latch"/>
-			<test value="0">
-				position/wow eq 1
-			</test>
-			<test value="1">
-				position/gear-agl-ft ge /systems/misc/minimums-latch-input
-			</test>
-		</switch>
-		
-		<switch name="/systems/misc/minimums-latch-sound">
-			<default value="/systems/misc/minimums-latch-sound"/>
-			<test logic="OR" value="0">
-				position/wow eq 1
-				position/gear-agl-ft lt /controls/switches/minimums
-			</test>
-			<test value="1">
-				position/gear-agl-ft ge /systems/misc/minimums-latch-input
-			</test>
-		</switch>
 	
 	</channel>
 

@@ -95,12 +95,12 @@ var ApPanel = {
 		}
 	},
 	spdPush: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			dfgs.ITAF.spdPush();
 		}
 	},
 	spdAdjust: func(d) {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			dfgs.ITAF.spdAdjustCheck();
 			if (dfgs.Input.ktsMachFgcp.getBoolValue()) {
 				if (abs(d) > 1) d = d / 2;
@@ -125,7 +125,7 @@ var ApPanel = {
 		}
 	},
 	spdSel: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			me.vertTemp = dfgs.Output.vert.getValue();
 			dfgs.Input.ktsMach.setBoolValue(0);
 			dfgs.Athr.setMode(0); # Thrust
@@ -136,7 +136,7 @@ var ApPanel = {
 		}
 	},
 	machSel: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			if (dfgs.Velocities.indicatedMach.getValue() >= 0.4995) {
 				me.vertTemp = dfgs.Output.vert.getValue();
 				dfgs.Input.ktsMach.setBoolValue(1);
@@ -149,22 +149,22 @@ var ApPanel = {
 		}
 	},
 	eprLim: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			dfgs.Athr.setMode(2); # EPR Limit
 		}
 	},
 	hdgPush: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			dfgs.Input.lat.setValue(3);
 		}
 	},
 	hdgPull: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			dfgs.Input.lat.setValue(0);
 		}
 	},
 	hdgAdjust: func(d) {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			me.hdgTemp = dfgs.Input.hdg.getValue() + d;
 			if (me.hdgTemp < 0.5) {
 				dfgs.Input.hdg.setValue(me.hdgTemp + 360);
@@ -176,23 +176,23 @@ var ApPanel = {
 		}
 	},
 	nav: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			dfgs.Input.lat.setValue(1);
 		}
 	},
 	vorLoc: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			dfgs.Input.lat.setValue(2);
 		}
 	},
 	ils: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			dfgs.ITAF.updateAutoLand(0);
 			dfgs.Input.vert.setValue(2);
 		}
 	},
 	autoLand: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			if (dfgs.Output.ap1.getBoolValue() or dfgs.Output.ap2.getBoolValue()) {
 				dfgs.ITAF.updateAutoLand(1);
 				dfgs.Input.vert.setValue(2);
@@ -200,7 +200,7 @@ var ApPanel = {
 		}
 	},
 	vsAdjust: func(d) { # Called the pitch wheel this so that one binding works on many planes
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			me.vertTemp = dfgs.Output.vert.getValue();
 			if (me.vertTemp == 1) {
 				me.vsTemp = dfgs.Input.vs.getValue() + (d * 100);
@@ -251,14 +251,14 @@ var ApPanel = {
 		}
 	},
 	altPush: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			dfgs.Input.altArmed.setBoolValue(0);
 			systems.WARNINGS.altitudeAlertCaptured.setValue(0); # Reset out of captured state
 			if (systems.WARNINGS.altitudeAlert.getValue() == 2) systems.WARNINGS.altitudeAlert.setValue(0); # Cancel altitude alert deviation alarm
 		}
 	},
 	altPull: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			me.vertTemp = dfgs.Output.vert.getValue();
 			if (me.vertTemp != 2 and me.vertTemp != 6) {
 				dfgs.Input.altArmed.setBoolValue(1);
@@ -266,7 +266,7 @@ var ApPanel = {
 		}
 	},
 	altAdjust: func(d) {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			dfgs.Input.altArmed.setBoolValue(0);
 			systems.WARNINGS.altitudeAlertCaptured.setValue(0); # Reset out of captured state
 			if (systems.WARNINGS.altitudeAlert.getValue() == 2) systems.WARNINGS.altitudeAlert.setValue(0); # Cancel altitude alert deviation alarm
@@ -297,12 +297,12 @@ var ApPanel = {
 		}
 	},
 	vertSpd: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			dfgs.Input.vert.setValue(1);
 		}
 	},
 	iasMach: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			if (dfgs.Output.vert.getValue() == 4) {
 				if (dfgs.Velocities.indicatedMach.getValue() >= 0.4995) {
 					dfgs.Input.ktsMachFlch.setBoolValue(!dfgs.Input.ktsMachFlch.getBoolValue());
@@ -320,18 +320,18 @@ var ApPanel = {
 		}
 	},
 	altHold: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			dfgs.Input.vert.setValue(0);
 		}
 	},
 	turb: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			dfgs.Input.lat.setValue(6);
 			dfgs.Input.vert.setValue(8);
 		}
 	},
 	toga: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			dfgs.Input.toga.setValue(1);
 		}
 	},

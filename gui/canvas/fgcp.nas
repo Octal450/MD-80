@@ -254,7 +254,7 @@ var fgcpCanvas = {
 		me._dialogUpdate.start();
 	},
 	_update: func() {
-		if (systems.ELECTRICAL.Generic.fgcp.getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			if (pts.Controls.Switches.annunTest.getBoolValue()) {
 				me["Hdg_7seg"].setText("888");
 				me["Spd_7seg"].setText(".888");

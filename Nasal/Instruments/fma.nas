@@ -48,14 +48,14 @@ var canvasBase = {
 		if (Value.blink < 3) Value.blink = Value.blink + 1;
 		else Value.blink = 0;
 		
-		if (systems.ELECTRICAL.Generic.fma[0].getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fma[0].getValue() >= 24) {
 			fmaL.update();
 			fmaL.page.show();
 		} else {
 			fmaL.page.hide();
 		}
 		
-		if (systems.ELECTRICAL.Generic.fma[1].getValue() >= 24) {
+		if (systems.ELECTRICAL.Outputs.fma[1].getValue() >= 24) {
 			fmaR.update();
 			fmaR.page.show();
 		} else {
