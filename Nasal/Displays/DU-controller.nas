@@ -5,7 +5,7 @@
 var DUController = {
 	errorActive: 0,
 	flightDirector: "Single Cue",
-	PwrSource: {
+	PowerSource: {
 		acRadioR: 0,
 		emerAc: 0,
 	},
@@ -33,11 +33,11 @@ var DUController = {
 		
 		if (pts.Systems.Acconfig.Options.panel.getValue() == "EFIS") {
 			if (!me.errorActive) {
-				me.PwrSource.acRadioR = systems.ELECTRICAL.Bus.acRadioR.getValue();
-				me.PwrSource.emerAc = systems.ELECTRICAL.Bus.emerAc.getValue();
+				me.PowerSource.acRadioR = systems.ELECTRICAL.Bus.acRadioR.getValue();
+				me.PowerSource.emerAc = systems.ELECTRICAL.Bus.emerAc.getValue();
 				
 				# Emer AC
-				if (me.PwrSource.emerAc >= 112 and pts.Instrumentation.Du.pfdDimmer[0].getValue() > 0.01) {
+				if (me.PowerSource.emerAc >= 112 and pts.Instrumentation.Du.pfdDimmer[0].getValue() > 0.01) {
 					if (!me.updatePfd1) {
 						me.updatePfd1 = 1;
 						canvas_pfd.pfd1.update();
@@ -50,7 +50,7 @@ var DUController = {
 					}
 				}
 				
-				if (me.PwrSource.emerAc >= 112 and pts.Instrumentation.Du.ndDimmer[0].getValue() > 0.01) {
+				if (me.PowerSource.emerAc >= 112 and pts.Instrumentation.Du.ndDimmer[0].getValue() > 0.01) {
 					if (!me.updateNd1) {
 						me.updateNd1 = 1;
 						me.showNd1.setBoolValue(1); # Temporary
@@ -63,7 +63,7 @@ var DUController = {
 				}
 				
 				# AC Radio R
-				if (me.PwrSource.acRadioR >= 112 and pts.Instrumentation.Du.pfdDimmer[1].getValue() > 0.01) {
+				if (me.PowerSource.acRadioR >= 112 and pts.Instrumentation.Du.pfdDimmer[1].getValue() > 0.01) {
 					if (!me.updatePfd2) {
 						me.updatePfd2 = 1;
 						canvas_pfd.pfd2.update();
@@ -76,7 +76,7 @@ var DUController = {
 					}
 				}
 				
-				if (me.PwrSource.acRadioR >= 112 and pts.Instrumentation.Du.ndDimmer[1].getValue() > 0.01) {
+				if (me.PowerSource.acRadioR >= 112 and pts.Instrumentation.Du.ndDimmer[1].getValue() > 0.01) {
 					if (!me.updateNd2) {
 						me.updateNd2 = 1;
 						me.showNd2.setBoolValue(1); # Temporary
