@@ -1052,6 +1052,14 @@
 					<script>systems.doFullThrust();</script>
 				</binding>
 			</key>
+			<key n="80">
+				<name>P</name>
+				<desc>Open performance dialog</desc>
+				<binding>
+					<command>dialog-show</command>
+					<dialog-name>performance</dialog-name>
+				</binding>
+			</key>
 			<key n="88">
 				<name>X</name>
 				<desc>Increase field of view</desc>

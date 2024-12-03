@@ -82,6 +82,10 @@
 		<name>CTRL + G</name>
 		<desc>Takeoff/Go Around Button</desc>
 	</key>
+	<key>
+		<name>SHIFT + P</name>
+		<desc>Open Performance Applet</desc>
+	</key>
 	
 <!-- Must ignore indenting/formatting -->
 <text>Available documentation can be viewed in the "Documentation" menu.

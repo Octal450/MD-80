@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
+
+<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
  
 <PropertyList>
+	
 	<fx>
 		
 		<sb>
@@ -1647,4 +1650,5 @@
 		</caws>
 	
 	</fx>
+
 </PropertyList>
