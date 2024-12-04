@@ -1377,7 +1377,15 @@
 			<output>/systems/electrical/outputs/comm[0]</output>
 			<output>/systems/electrical/outputs/nav[0]</output>
 		</switch>
-		
+
+		<switch name="/systems/electrical/generic/firetank">
+			<default value="0"/>
+			<test value="28">
+				/systems/electrical/bus/ac-l ge 112
+			</test>
+			<output>/systems/electrical/outputs/firetank</output>
+		</switch>
+
 		<!-- Output to Generics to keep FG things working, temporary, until we know what gets power by what bus -->
 		<switch name="/systems/electrical/generic/pwr">
 			<description>This makes the FG stuff work because we killed the generic electrical</description>

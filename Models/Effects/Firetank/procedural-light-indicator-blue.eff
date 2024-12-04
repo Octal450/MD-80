@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PropertyList>
+
+    <name>procedural-light-indicator-blue</name>
+    <inherits-from>Effects/procedural-light</inherits-from>
+
+    <parameters>
+        <light_color_base_r type="float">0.200</light_color_base_r>
+        <light_color_base_g type="float">0.200</light_color_base_g>
+        <light_color_base_b type="float">0.700</light_color_base_b>
+        <light_color_center_r type="float">0.3</light_color_center_r>
+        <light_color_center_g type="float">0.3</light_color_center_g>
+        <light_color_center_b type="float">0.7</light_color_center_b>
+
+        <is_directional type="bool">false</is_directional>
+        <is_strobe type="bool">false</is_strobe>
+    </parameters>
+
+</PropertyList>
