@@ -117,6 +117,21 @@
 				<roll-offset-deg archive="y">0</roll-offset-deg>
 			</config>
 		</view>
+		<view n="105">
+			<name>MCDU View</name>
+			<type>lookfrom</type>
+			<internal type="bool" archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0</x-offset-m>
+				<y-offset-m archive="y">1.1</y-offset-m>
+				<z-offset-m archive="y">-17.28</z-offset-m>
+				<default-field-of-view-deg type="double">76</default-field-of-view-deg>
+				<heading-offset-deg archive="y">0</heading-offset-deg>
+				<pitch-offset-deg archive="y">-75</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
+			</config>
+		</view>
     </sim>
 	
 	<fdm n="0">

@@ -31,6 +31,10 @@
 		<desc>Show Glareshield View</desc>
 	</key>
 	<key>
+		<name>7</name>
+		<desc>Show MCDU View</desc>
+	</key>
+	<key>
 		<name>F1</name>
 		<desc>Disengage/Decrease Reverse Thrust</desc>
 	</key>

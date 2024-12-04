@@ -50,10 +50,6 @@ var BRAKES = {
 	},
 };
 
-setlistener("/controls/abs/armed", func {
-	libraries.Sound.switch1();
-}, 0, 0);
-
 # Engine Control
 var ENGINES = {
 	atsCmdRawPid: props.globals.initNode("/systems/engines/ats-cmd-raw-pid", 0, "DOUBLE"),
