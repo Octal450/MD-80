@@ -1,4 +1,4 @@
-# McDonnell Douglas MD-80 Fuel System
+# McDonnell Douglas MD-80 Fuel
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
 var FUEL = {

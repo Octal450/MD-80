@@ -1,4 +1,4 @@
-# McDonnell Douglas MD-80 Hydraulic System
+# McDonnell Douglas MD-80 Hydraulics
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
 var HYDRAULICS = {

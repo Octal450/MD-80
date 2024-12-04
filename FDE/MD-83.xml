@@ -25,7 +25,7 @@
 	<system file="md-80-fcs"/>
 	<system file="md-80-spoiler"/>
 	<system file="md-80-ignition"/>
-	<system file="md-80-219-engine-tri"/>
+	<system file="md-80-219-engine-thrlim"/>
 	<system file="md-80-apu"/>
 	<system file="md-80-misc"/>
 	<system file="md-80-performance"/>

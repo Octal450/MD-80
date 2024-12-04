@@ -1,4 +1,4 @@
-# McDonnell Douglas MD-80 Electrical System
+# McDonnell Douglas MD-80 Electrical
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
 var ELECTRICAL = {
