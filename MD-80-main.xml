@@ -163,10 +163,10 @@
 				<menu n="104">
 					<label>Documentation</label>
 					<item>
-						<label>Autoflight and DFGS</label>
+						<label>Auto Flight and DFGS</label>
 						<binding>
 							<command>open-browser</command>
-							<path>Aircraft/MD-80/Docs/Autoflight_and_DFGS.pdf</path>
+							<path>Aircraft/MD-80/Docs/Auto_Flight_and_DFGS.pdf</path>
 						</binding>
 					</item>
 					<item>
