@@ -40,7 +40,7 @@
 				position/wow eq 1
 			</test>
 			<test value="1">
-				position/gear-agl-ft ge /systems/misc/minimums-plus-50
+				/position/gear-agl-ft ge /systems/misc/minimums-plus-50
 			</test>
 		</switch>
 		
@@ -48,10 +48,10 @@
 			<default value="/systems/misc/minimums-latch-sound"/>
 			<test logic="OR" value="0">
 				position/wow eq 1
-				position/gear-agl-ft lt /controls/switches/minimums
+				/position/gear-agl-ft lt /controls/switches/minimums
 			</test>
 			<test value="1">
-				position/gear-agl-ft ge /systems/misc/minimums-plus-50
+				/position/gear-agl-ft ge /systems/misc/minimums-plus-50
 			</test>
 		</switch>
 	
