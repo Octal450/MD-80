@@ -812,12 +812,12 @@
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 			<test logic="AND" value="2.5">
-				/systems/hydraulics/sys-l-psi ge 950
-				/systems/hydraulics/sys-r-psi ge 950
+				/systems/hydraulics/sys-l-psi ge 2200
+				/systems/hydraulics/sys-r-psi ge 2200
 			</test>
 			<test logic="OR" value="1.25">
-				/systems/hydraulics/sys-l-psi ge 950
-				/systems/hydraulics/sys-r-psi ge 950
+				/systems/hydraulics/sys-l-psi ge 2200
+				/systems/hydraulics/sys-r-psi ge 2200
 			</test>
 		</switch>
 		
@@ -903,7 +903,7 @@
 				/systems/failures/gear/nose-actuator eq 1
 			</test>
 			<test value="0.2222222"> <!-- About 4.5 sec -->
-				/systems/hydraulics/sys-r-psi ge 950
+				/systems/hydraulics/sys-r-psi ge 2200
 			</test>
 			<test logic="AND" value="0.0166667"> <!-- About 60 sec -->
 				/controls/hydraulics/gear-gravity-ext eq 1
@@ -921,7 +921,7 @@
 				/systems/failures/gear/nose-actuator eq 1
 			</test>
 			<test value="0.4"> <!-- About 2.5 sec -->
-				/systems/hydraulics/sys-r-psi ge 950
+				/systems/hydraulics/sys-r-psi ge 2200
 			</test>
 		</switch>
 		
@@ -946,7 +946,7 @@
 				/systems/failures/gear/left-actuator eq 1
 			</test>
 			<test value="0.0769231"> <!-- About 13 sec -->
-				/systems/hydraulics/sys-r-psi ge 950
+				/systems/hydraulics/sys-r-psi ge 2200
 			</test>
 			<test logic="AND" value="0.0222222"> <!-- About 45 sec -->
 				/controls/hydraulics/gear-gravity-ext eq 1
@@ -964,7 +964,7 @@
 				/systems/failures/gear/left-actuator eq 1
 			</test>
 			<test value="0.1111111"> <!-- About 9 sec -->
-				/systems/hydraulics/sys-r-psi ge 950
+				/systems/hydraulics/sys-r-psi ge 2200
 			</test>
 		</switch>
 		
@@ -989,7 +989,7 @@
 				/systems/failures/gear/right-actuator eq 1
 			</test>
 			<test value="0.0769231"> <!-- About 13 sec -->
-				/systems/hydraulics/sys-r-psi ge 950
+				/systems/hydraulics/sys-r-psi ge 2200
 			</test>
 			<test logic="AND" value="0.0222222"> <!-- About 45 sec -->
 				/controls/hydraulics/gear-gravity-ext eq 1
@@ -1007,7 +1007,7 @@
 				/systems/failures/gear/right-actuator eq 1
 			</test>
 			<test value="0.1111111"> <!-- About 9 sec -->
-				/systems/hydraulics/sys-r-psi ge 950
+				/systems/hydraulics/sys-r-psi ge 2200
 			</test>
 		</switch>
 		
@@ -1208,7 +1208,7 @@
 				/sim/model/autopush/connected eq 1
 			</test>
 			<test value="-82">
-				/systems/hydraulics/sys-l-psi ge 950
+				/systems/hydraulics/sys-l-psi ge 2200
 			</test>
 		</switch>
 		
@@ -1218,7 +1218,7 @@
 				/sim/model/autopush/connected eq 1
 			</test>
 			<test value="82">
-				/systems/hydraulics/sys-r-psi ge 950
+				/systems/hydraulics/sys-r-psi ge 2200
 			</test>
 		</switch>
 		
@@ -1248,8 +1248,8 @@
 				/sim/model/autopush/connected eq 1
 			</test>
 			<test logic="OR" value="35">
-				/systems/hydraulics/sys-l-psi ge 950
-				/systems/hydraulics/sys-r-psi ge 950
+				/systems/hydraulics/sys-l-psi ge 2200
+				/systems/hydraulics/sys-r-psi ge 2200
 			</test>
 		</switch>
 		
