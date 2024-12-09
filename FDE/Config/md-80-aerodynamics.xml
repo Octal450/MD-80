@@ -243,7 +243,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<toradians><property>/systems/fcs/stabilizer/final-deg</property></toradians>
-				<value>0.0014278</value>
+				<value>-0.19827278</value>
 			</product>
 		</function>
 		

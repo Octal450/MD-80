@@ -39,7 +39,7 @@
 				<location unit="M"> <!-- Fudged for accuracy -->
 					<x>31.2498</x>
 					<y>-1.4</y>
-					<z>0.0014</z>
+					<z>-0.11143</z>
 				</location>
 				<orient unit="DEG">
 					<roll>0</roll>
@@ -55,7 +55,7 @@
 				<location unit="M"> <!-- Fudged for accuracy -->
 					<x>31.2498</x>
 					<y>1.4</y>
-					<z>0.0014</z>
+					<z>-0.11143</z>
 				</location>
 				<orient unit="DEG">
 					<roll>0</roll>
@@ -125,7 +125,7 @@
 			<location unit="M">
 				<x>24.20826</x>
 				<y>0</y>
-				<z>0.0014</z>
+				<z>-0.19827</z>
 			</location>
 			<capacity unit="LBS">10</capacity>
 			<contents unit="LBS">0</contents>
@@ -136,7 +136,7 @@
 			<location unit="M">
 				<x>24.20826</x>
 				<y>0</y>
-				<z>0.0014</z>
+				<z>-0.19827</z>
 			</location>
 			<capacity unit="LBS">10</capacity>
 			<contents unit="LBS">0</contents>
@@ -147,7 +147,7 @@
 			<location unit="M">
 				<x>24.20826</x>
 				<y>0</y>
-				<z>0.0014</z>
+				<z>-0.19827</z>
 			</location>
 			<capacity unit="LBS">5</capacity>
 			<contents unit="LBS">0</contents>

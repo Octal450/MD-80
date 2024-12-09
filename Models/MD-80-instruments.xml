@@ -1045,22 +1045,11 @@
 	
 	<!-- Pedestal -->
 	<model>
-		<name>HT9100-L</name>
-		<path>Aircraft/MD-80/Models/Instruments/HT9100/HT9100-L.xml</path>
+		<name>HT9100</name>
+		<path>Aircraft/MD-80/Models/Instruments/HT9100/HT9100.xml</path>
 		<offsets>
 			<x-m>2.34269</x-m>
 			<y-m>-0.16505</y-m>
-			<z-m>0.72777</z-m>
-			<pitch-deg>-75</pitch-deg>
-		</offsets>
-	</model>
-	
-	<model>
-		<name>HT9100-R</name>
-		<path>Aircraft/MD-80/Models/Instruments/HT9100/HT9100-R.xml</path>
-		<offsets>
-			<x-m>2.34269</x-m>
-			<y-m>0.16505</y-m>
 			<z-m>0.72777</z-m>
 			<pitch-deg>-75</pitch-deg>
 		</offsets>
