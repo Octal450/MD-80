@@ -3,7 +3,7 @@
 <!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
 
 <PropertyList include="MD-80-main.xml">
-	
+	<variant-of>MD-81</variant-of>
     <sim>
 		<aero>FDE/MD-82</aero>
 		<description>McDonnell Douglas MD-82 (JT8D-217A)</description>

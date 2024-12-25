@@ -3,7 +3,7 @@
 <!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
 
 <PropertyList include="MD-80-main.xml">
-	
+	<primary-set type="bool">true</primary-set>
     <sim>
 		<aero>FDE/MD-81</aero>
 		<description>McDonnell Douglas MD-81 (JT8D-209)</description>
