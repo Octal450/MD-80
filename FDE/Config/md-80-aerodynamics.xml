@@ -415,7 +415,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<abs><toradians><property>/systems/fcs/aileron-l/surface-final-deg</property></toradians></abs>
-				<value>0.0029271086286386</value>
+				<value>0.0029271</value>
 			</product>
 		</function>
 		
@@ -425,7 +425,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<abs><toradians><property>/systems/fcs/aileron-r/surface-final-deg</property></toradians></abs>
-				<value>0.0029271086286386</value>
+				<value>0.0029271</value>
 			</product>
 		</function>
 		
@@ -435,7 +435,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<toradians><property>/systems/fcs/spoiler-left-deg</property></toradians>
-				<value>0.0200716020249513</value>
+				<value>0.0200716</value>
 			</product>
 		</function>
 		
@@ -445,7 +445,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<toradians><property>/systems/fcs/spoiler-right-deg</property></toradians>
-				<value>0.0200716020249513</value>
+				<value>0.0200716</value>
 			</product>
 		</function>
 	
@@ -621,25 +621,25 @@
 				<table>
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<tableData>
-						-9.4468  0.1328
-						-6.3284  0.0919
-						-5.4416  0.0771
-						-4.3131  0.0609
-						-3.0234  0.0419
-						-2.0214  0.0251
-						-0.6629  0.0092
-						 0.4655 -0.0063
-						 1.6628 -0.0197
-						 2.9406 -0.0319
-						 4.0685 -0.0396
-						 5.2651 -0.0437
-						 6.3583 -0.0489
-						 7.3937 -0.0503
-						 8.5212 -0.0515
-						 9.8677 -0.0596
-						11.3179 -0.0712
-						20.1549 -0.1209
-						45.4566  0.0108
+						-9.4468  0.1195
+						-6.3284  0.0827
+						-5.4416  0.0694
+						-4.3131  0.0548
+						-3.0234  0.0377
+						-2.0214  0.0226
+						-0.6629  0.0083
+						 0.4655 -0.0057
+						 1.6628 -0.0177
+						 2.9406 -0.0287
+						 4.0685 -0.0356
+						 5.2651 -0.0393
+						 6.3583 -0.0440
+						 7.3937 -0.0453
+						 8.5212 -0.0464
+						 9.8677 -0.0536
+						11.3179 -0.0641
+						20.1549 -0.1088
+						45.4566  0.0097
 					</tableData>
 				</table>
 			</product>
@@ -665,7 +665,7 @@
 				<property>metrics/cbarw-ft</property>
 				<property>aero/ci2vel</property>
 				<property>aero/alphadot-rad_sec</property>
-				<value>-11.2539</value>
+				<value>-10.2489</value>
 			</product>
 		</function>
 		
@@ -720,7 +720,7 @@
 				<property>aero/arm-factor</property> <!-- MD-87 -->
 				<property>aero/function/kCmdstab</property>
 				<toradians><property>/systems/fcs/stabilizer/final-deg</property></toradians>
-				<value>-2.732</value>
+				<value>-2.7305</value>
 			</product>
 		</function>
 		
@@ -785,7 +785,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
 				<toradians><property>aero/function/kCndr</property></toradians>
-				<value>0.04273</value>
+				<value>0.04313</value>
 			</product>
 		</function>
 	
