@@ -46,33 +46,65 @@
 					<enabled type="bool">false</enabled>
 				</menu>
 				<menu n="101">
-					<label>System</label>
+					<label>Aircraft</label>
 					<item>
-						<label>Aircraft Config Center</label>
+						<label>Configuration Center</label>
 						<binding>
 							<command>dialog-show</command>
 							<dialog-name>acconfig-main</dialog-name>
 						</binding>
 					</item>
 					<item>
-						<label>Aircraft Help</label>
+						<label>Select Livery</label>
+						<binding>
+							<command>nasal</command>
+							<script>aircraft.livery.dialog.toggle();</script>
+						</binding>
+					</item>
+					<item>
+						<label>Help and Shortcuts</label>
 						<binding>
 							<command>nasal</command>
 							<script>gui.showHelpDialog("/sim/help");</script>
 						</binding>
 					</item>
-				</menu>
-				<menu n="102">
-					<label>FMS</label>
 					<item>
-						<label>Route Manager</label>
+						<label>Checklists</label>
 						<binding>
 							<command>dialog-show</command>
-							<dialog-name>route-manager</dialog-name>
+							<dialog-name>checklist</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>System Failures</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>acconfig-failures</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>Flight Control Monitor</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>acconfig-fctl</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>Performance Applet</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>performance</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>Pushback</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>autopush</dialog-name>
 						</binding>
 					</item>
 				</menu>
-				<menu n="103">
+				<menu n="102">
 					<label>2D Panels</label>
 					<item>
 						<label>DUs:</label>
@@ -104,51 +136,37 @@
 						</binding>
 					</item>
 				</menu>
-				<menu n="104">
-					<label>Utilities</label>
+				<menu n="103">
+					<label>Navigation</label>
 					<item>
-						<label>Select Livery</label>
+						<label>Route Manager</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>route-manager</dialog-name>
+						</binding>
+					</item>
+					<item>
+						<label>Previous Waypoint</label>
 						<binding>
 							<command>nasal</command>
-							<script>aircraft.livery.dialog.toggle();</script>
+							<script>setprop("/autopilot/route-manager/input", "@previous")</script>
 						</binding>
 					</item>
 					<item>
-						<label>Pushback</label>
+						<label>Next Waypoint</label>
 						<binding>
-							<command>dialog-show</command>
-							<dialog-name>autopush</dialog-name>
-						</binding>
-					</item>
-					<item>
-						<label>System Failures</label>
-						<binding>
-							<command>dialog-show</command>
-							<dialog-name>acconfig-failures</dialog-name>
-						</binding>
-					</item>
-					<item>
-						<label>Performance Applet</label>
-						<binding>
-							<command>dialog-show</command>
-							<dialog-name>performance</dialog-name>
-						</binding>
-					</item>
-					<item>
-						<label>Flight Control Monitor</label>
-						<binding>
-							<command>dialog-show</command>
-							<dialog-name>acconfig-fctl</dialog-name>
+							<command>nasal</command>
+							<script>setprop("/autopilot/route-manager/input", "@next")</script>
 						</binding>
 					</item>
 				</menu>
-				<menu n="105">
+				<menu n="104">
 					<label>Documentation</label>
 					<item>
-						<label>Autoflight and DFGS</label>
+						<label>Auto Flight and DFGS</label>
 						<binding>
 							<command>open-browser</command>
-							<path>Aircraft/MD-80/Docs/Autoflight_and_DFGS.pdf</path>
+							<path>Aircraft/MD-80/Docs/Auto_Flight_and_DFGS.pdf</path>
 						</binding>
 					</item>
 					<item>
@@ -375,6 +393,21 @@
 			</config>
 		</view>
 		<view n="105">
+			<name>MCDU View</name>
+			<type>lookfrom</type>
+			<internal type="bool" archive="y">true</internal>
+			<config>
+				<from-model type="bool">true</from-model>
+				<x-offset-m archive="y">0</x-offset-m>
+				<y-offset-m archive="y">1.1</y-offset-m>
+				<z-offset-m archive="y">-20.18</z-offset-m>
+				<default-field-of-view-deg type="double">76</default-field-of-view-deg>
+				<heading-offset-deg archive="y">0</heading-offset-deg>
+				<pitch-offset-deg archive="y">-75</pitch-offset-deg>
+				<roll-offset-deg archive="y">0</roll-offset-deg>
+			</config>
+		</view>
+		<view n="106">
 			<name>Left Front View</name>
 			<type>lookfrom</type>
 			<internal type="bool" archive="y">false</internal>
@@ -389,7 +422,7 @@
 				<roll-offset-deg archive="y">0</roll-offset-deg>
 			</config>
 		</view>
-		<view n="106">
+		<view n="107">
 			<name>Right Front View</name>
 			<type>lookfrom</type>
 			<internal type="bool" archive="y">false</internal>
@@ -404,7 +437,7 @@
 				<roll-offset-deg archive="y">0</roll-offset-deg>
 			</config>
 		</view>
-		<view n="107">
+		<view n="108">
 			<name>Left Mid View</name>
 			<type>lookfrom</type>
 			<internal type="bool" archive="y">false</internal>
@@ -419,7 +452,7 @@
 				<roll-offset-deg archive="y">0</roll-offset-deg>
 			</config>
 		</view>
-		<view n="108">
+		<view n="109">
 			<name>Right Mid View</name>
 			<type>lookfrom</type>
 			<internal type="bool" archive="y">false</internal>
@@ -434,7 +467,7 @@
 				<roll-offset-deg archive="y">0</roll-offset-deg>
 			</config>
 		</view>
-		<view n="109">
+		<view n="110">
 			<name>Left Aft View</name>
 			<type>lookfrom</type>
 			<internal type="bool" archive="y">false</internal>
@@ -449,7 +482,7 @@
 				<roll-offset-deg archive="y">0</roll-offset-deg>
 			</config>
 		</view>
-		<view n="110">
+		<view n="111">
 			<name>Right Aft View</name>
 			<type>lookfrom</type>
 			<internal type="bool" archive="y">false</internal>
@@ -942,14 +975,14 @@
 			</key>
 			<key n="55">
 				<name>7</name>
-				<desc>Elevator Trim Down</desc>
-				<!--binding>
+				<desc>MCDU View/Elevator Trim Down</desc>
+				<binding>
 					<condition>
 						<not><property>/systems/acconfig/options/keyboard-mode</property></not>
 					</condition>
 					<command>nasal</command>
 					<script>libraries.setView(7);</script>
-				</binding-->
+				</binding>
 				<binding>
 					<condition>
 						<property>/systems/acconfig/options/keyboard-mode</property>
@@ -1032,6 +1065,14 @@
 				<binding>
 					<command>nasal</command>
 					<script>systems.doFullThrust();</script>
+				</binding>
+			</key>
+			<key n="80">
+				<name>P</name>
+				<desc>Open performance dialog</desc>
+				<binding>
+					<command>dialog-show</command>
+					<dialog-name>performance</dialog-name>
 				</binding>
 			</key>
 			<key n="88">
@@ -1653,11 +1694,19 @@
 			<file>Aircraft/MD-80/Nasal/acconfig.nas</file>
 		</acconfig>
 		<systems>
+			<file>Aircraft/MD-80/Nasal/Systems/apu.nas</file>
+			<file>Aircraft/MD-80/Nasal/Systems/brakes.nas</file>
 			<file>Aircraft/MD-80/Nasal/Systems/electrical.nas</file>
+			<file>Aircraft/MD-80/Nasal/Systems/engines.nas</file>
+			<file>Aircraft/MD-80/Nasal/Systems/fcs.nas</file>
 			<file>Aircraft/MD-80/Nasal/Systems/fuel.nas</file>
+			<file>Aircraft/MD-80/Nasal/Systems/gear.nas</file>
 			<file>Aircraft/MD-80/Nasal/Systems/hydraulics.nas</file>
+			<file>Aircraft/MD-80/Nasal/Systems/ignition.nas</file>
+			<file>Aircraft/MD-80/Nasal/Systems/irs-ahrs.nas</file>
 			<file>Aircraft/MD-80/Nasal/Systems/pneumatics.nas</file>
-			<file>Aircraft/MD-80/Nasal/Systems/misc.nas</file>
+			<file>Aircraft/MD-80/Nasal/Systems/thrlim.nas</file>
+			<file>Aircraft/MD-80/Nasal/Systems/warnings.nas</file>
 			<file>Aircraft/MD-80/Nasal/Displays/DU-controller.nas</file>
 		</systems>
 		<dfgs>

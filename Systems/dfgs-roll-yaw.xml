@@ -12,8 +12,8 @@
 			<expression>
 				<table>
 					<property>/velocities/airspeed-kt</property>
-					<entry><ind>140</ind><dep>1.3</dep></entry>
-					<entry><ind>360</ind><dep>2.5</dep></entry>
+					<entry><ind>140</ind><dep>1.6</dep></entry>
+					<entry><ind>360</ind><dep>2.6</dep></entry>
 				</table>
 			</expression>
 		</gain>
@@ -61,8 +61,8 @@
 			<expression>
 				<table>
 					<property>/velocities/airspeed-kt</property>
-					<entry><ind>140</ind><dep>1.7</dep></entry>
-					<entry><ind>360</ind><dep>2.8</dep></entry>
+					<entry><ind>140</ind><dep>1.6</dep></entry>
+					<entry><ind>360</ind><dep>2.6</dep></entry>
 				</table>
 			</expression>
 		</gain>
@@ -87,17 +87,91 @@
 		<max>/it-autoflight/internal/bank-limit</max>
 	</filter>
 	
+	<logic>
+		<input>
+			<and>
+				<property>/it-autoflight/output/ap-on</property>
+				<equals>
+					<property>/it-autoflight/output/lat</property>
+					<value>4</value>
+				</equals>
+				<equals>
+					<property>/gear/gear[1]/wow</property>
+					<value>0</value>
+				</equals>
+				<equals>
+					<property>/gear/gear[2]/wow</property>
+					<value>0</value>
+				</equals>
+			</and>
+		</input>
+		<output>/it-autoflight/internal/align-roll-mode</output>
+	</logic>
+	
+	<pid-controller>
+		<name>IT-CONTROLLER: Align Roll</name>
+		<type>gain</type>
+		<enable>
+			<condition>
+				<equals>
+					<property>/it-autoflight/internal/align-roll-mode</property>
+					<value>1</value>
+				</equals>
+			</condition>
+		</enable>
+		<input>/it-autoflight/internal/nav-heading-error-deg</input>
+		<reference>0</reference>
+		<output>/it-autoflight/internal/target-roll-deg</output>
+		<config>
+			<Kp>
+				<expression>
+					<table>
+						<property>/velocities/airspeed-kt</property>
+						<entry><ind>140</ind><dep>-1.6</dep></entry>
+						<entry><ind>360</ind><dep>-2.6</dep></entry>
+					</table>
+				</expression>
+			</Kp>
+			<Ti>5.0</Ti>
+			<Td>0.001</Td>
+			<u_min>
+				<expression>
+					<table>
+						<property>/position/gear-agl-ft</property>
+						<entry><ind>50</ind><dep>-10</dep></entry>
+						<entry><ind> 5</ind><dep>  0</dep></entry>
+					</table>
+				</expression>
+			</u_min>
+			<u_max>
+				<expression>
+					<table>
+						<property>/position/gear-agl-ft</property>
+						<entry><ind>50</ind><dep>10</dep></entry>
+						<entry><ind> 5</ind><dep> 0</dep></entry>
+					</table>
+				</expression>
+			</u_max>
+		</config>
+	</pid-controller>
+	
 	<filter>
-		<name>IT-CONTROLLER: Align/Rollout/Takeoff/Wings Level</name>
+		<name>IT-CONTROLLER: Rollout/Takeoff/Wings Level</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<enable>
 			<condition>
 				<or>
-					<equals>
-						<property>/it-autoflight/output/lat</property>
-						<value>4</value>
-					</equals>
+					<and>
+						<equals>
+							<property>/it-autoflight/output/lat</property>
+							<value>4</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/internal/align-roll-mode</property>
+							<value>0</value>
+						</equals>
+					</and>
 					<and>
 						<equals>
 							<property>/it-autoflight/output/lat</property>
@@ -218,8 +292,8 @@
 				<expression>
 					<table>
 						<property>/velocities/airspeed-kt</property>
-						<entry><ind>140</ind><dep>0.09</dep></entry>
-						<entry><ind>360</ind><dep>0.03</dep></entry>
+						<entry><ind>140</ind><dep>0.14</dep></entry>
+						<entry><ind>360</ind><dep>0.05</dep></entry>
 					</table>
 				</expression>
 			</Kp>
@@ -234,11 +308,6 @@
 		<name>System Command: Aileron Ground</name>
 		<type>gain</type>
 		<gain>-0.1</gain>
-		<enable>
-			<condition>
-				<property>/it-autoflight/output/ap-on</property>
-			</condition>
-		</enable>
 		<input>/orientation/roll-deg</input>
 		<reference>0</reference>
 		<output>/it-autoflight/internal/aileron-rollout</output>
@@ -287,8 +356,117 @@
 	</filter>
 	
 	<!-- Yaw Axis -->
-	<pi-simple-controller>
-		<name>IT-CONTROLLER: Yaw VOR/LOC</name>
+	<filter>
+		<name>IT-CONTROLLER: Align/Rollout Yaw Rate Target</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<or>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>0</value>
+					</equals>
+				</or>
+			</condition>
+			<expression>
+				<sum>
+					<product>
+						<table>
+							<property>/position/gear-agl-ft</property>
+							<entry><ind>150</ind><dep>1</dep></entry>
+							<entry><ind> 60</ind><dep>0</dep></entry>
+						</table>
+						<property>/it-autoflight/internal/nav-heading-error-deg</property>
+					</product>
+					<product>
+						<table>
+							<property>/position/gear-agl-ft</property>
+							<entry><ind>150</ind><dep>0</dep></entry>
+							<entry><ind> 60</ind><dep>1</dep></entry>
+						</table>
+						<property>/it-autoflight/internal/nav-course-heading-error-deg</property>
+					</product>
+				</sum>
+			</expression>
+		</input>
+		<input>
+			<expression>
+				<sum>
+					<property>/it-autoflight/internal/nav-course-heading-error-deg</property>
+					<product>
+						<property>/it-autoflight/internal/nav-deflection-norm</property>
+						<value>15</value>
+					</product>
+				</sum>
+			</expression>
+		</input>
+		<output>/it-autoflight/internal/yaw-rate</output>
+		<min>
+			<condition>
+				<and>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+			<value>-5</value>
+		</min>
+		<min>-2</min>
+		<max>
+			<condition>
+				<and>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>0</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>0</value>
+					</equals>
+				</and>
+			</condition>
+			<value>5</value>
+		</max>
+		<max>2</max>
+	</filter>
+	
+	<filter>
+		<name>IT-CONTROLLER: Align/Rollout Yaw Inactive Centering</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<enable>
+			<condition>
+				<not>
+					<and>
+						<property>/it-autoflight/output/ap-on</property>
+						<equals>
+							<property>/it-autoflight/output/lat</property>
+							<value>4</value>
+						</equals>
+						<greater-than-equals>
+							<property>/velocities/groundspeed-kt</property>
+							<value>1</value>
+						</greater-than-equals>
+					</and>
+				</not>
+			</condition>
+		</enable>
+		<input>0</input>
+		<output>/it-autoflight/internal/rudder-cmd</output>
+	</filter>
+	
+	<pid-controller>
+		<name>IT-CONTROLLER: Align/Rollout Yaw</name>
 		<enable>
 			<condition>
 				<and>
@@ -297,34 +475,39 @@
 						<property>/it-autoflight/output/lat</property>
 						<value>4</value>
 					</equals>
+					<greater-than-equals>
+						<property>/velocities/groundspeed-kt</property>
+						<value>1</value>
+					</greater-than-equals>
 				</and>
 			</condition>
 		</enable>
-		<input>/it-autoflight/internal/nav-heading-error-deg</input>
-		<reference>0</reference>
+		<input>/orientation/yaw-rate-degps</input>
+		<reference>/it-autoflight/internal/yaw-rate</reference>
 		<output>/it-autoflight/internal/rudder-cmd</output>
 		<config>
 			<Kp>
-				<condition>
-					<and>
-						<equals>
-							<property>/gear/gear[1]/wow</property>
-							<value>0</value>
-						</equals>
-						<equals>
-							<property>/gear/gear[2]/wow</property>
-							<value>0</value>
-						</equals>
-					</and>
-				</condition>
-				<value>-0.05</value>
+				<expression>
+					<product>
+						<table>
+							<property>/velocities/airspeed-kt</property>
+							<entry><ind>140</ind><dep>0.27</dep></entry>
+							<entry><ind>200</ind><dep>0.21</dep></entry>
+						</table>
+						<table>
+							<property>/gear/gear[0]/wow</property>
+							<entry><ind>0</ind><dep>1.0</dep></entry>
+							<entry><ind>1</ind><dep>0.8</dep></entry>
+						</table>
+					</product>
+				</expression>
 			</Kp>
-			<Kp>-0.02</Kp>
-			<Ki>0</Ki>
+			<Ti>1.5</Ti>
+			<Td>0.001</Td>
+			<u_min>-1.0</u_min>
+			<u_max>1.0</u_max>
 		</config>
-		<min>-0.15</min>
-		<max>0.15</max>
-	</pi-simple-controller>
+	</pid-controller>
 	
 	<filter>
 		<name>System Command: Rudder</name>

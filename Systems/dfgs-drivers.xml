@@ -364,7 +364,7 @@
 		<input>
 			<condition>
 				<equals>
-					<property>/it-autoflight/mode/vert</property>
+					<property>/it-autoflight/text/vert</property>
 					<value>T/O CLB</value>
 				</equals>
 			</condition>
@@ -381,7 +381,7 @@
 		<input>
 			<condition>
 				<equals>
-					<property>/it-autoflight/mode/vert</property>
+					<property>/it-autoflight/text/vert</property>
 					<value>G/A CLB</value>
 				</equals>
 			</condition>
@@ -768,7 +768,24 @@
 	</filter>
 	
 	<filter>
-		<name>Nav1 Course Error Deg</name>
+		<name>Nav Deflection</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<equals>
+					<property>/it-autoflight/input/active-ap</property>
+					<value>2</value>
+				</equals>
+			</condition>
+			<property>/instrumentation/nav[1]/heading-needle-deflection-norm</property>
+		</input>
+		<input>/instrumentation/nav[0]/heading-needle-deflection-norm</input>
+		<output>/it-autoflight/internal/nav-deflection-norm</output>
+	</filter>
+	
+	<filter>
+		<name>Nav1 Course Track Error Deg</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
@@ -786,7 +803,7 @@
 	</filter>
 	
 	<filter>
-		<name>Nav2 Course Error Deg</name>
+		<name>Nav2 Course Track Error Deg</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
@@ -797,6 +814,37 @@
 			</offset>
 		</input>
 		<output>/it-autoflight/internal/nav2-course-track-error-deg</output>
+		<period>
+			<min>-180</min>
+			<max>180</max>
+		</period>
+	</filter>
+	
+	<filter>
+		<name>Nav Course Heading Error Deg</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<equals>
+					<property>/it-autoflight/input/active-ap</property>
+					<value>2</value>
+				</equals>
+			</condition>
+			<property>/instrumentation/nav[1]/radials/selected-deg</property>
+			<offset>
+				<property>/orientation/heading-magnetic-deg</property>
+				<scale>-1.0</scale>
+			</offset>
+		</input>
+		<input>
+			<property>/instrumentation/nav[0]/radials/selected-deg</property>
+			<offset>
+				<property>/orientation/heading-magnetic-deg</property>
+				<scale>-1.0</scale>
+			</offset>
+		</input>
+		<output>/it-autoflight/internal/nav-course-heading-error-deg</output>
 		<period>
 			<min>-180</min>
 			<max>180</max>
@@ -1160,7 +1208,7 @@
 		<input>
 			<condition>
 				<equals>
-					<property>/it-autoflight/mode/vert</property>
+					<property>/it-autoflight/text/vert</property>
 					<value>T/O CLB</value>
 				</equals>
 			</condition>
@@ -1196,7 +1244,7 @@
 		<input>
 			<condition>
 				<equals>
-					<property>/it-autoflight/mode/vert</property>
+					<property>/it-autoflight/text/vert</property>
 					<value>T/O CLB</value>
 				</equals>
 			</condition>
@@ -1205,7 +1253,7 @@
 		<input>
 			<condition>
 				<equals>
-					<property>/it-autoflight/mode/vert</property>
+					<property>/it-autoflight/text/vert</property>
 					<value>G/A CLB</value>
 				</equals>
 			</condition>

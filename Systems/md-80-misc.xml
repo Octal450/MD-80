@@ -5,6 +5,58 @@
 
 <system name="MD-80: Misc"> <!-- Everything here is after all systems -->
 	
+	<channel name="Misc Logic Fast" execrate="2">
+		
+		<fcs_function name="/systems/misc/minimums-minus-50">
+			<function>
+				<difference>
+					<property>/controls/switches/minimums</property>
+					<value>50</value>
+				</difference>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/misc/minimums-plus-50">
+			<function>
+				<sum>
+					<property>/controls/switches/minimums</property>
+					<value>50</value>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/misc/minimums-plus-100">
+			<function>
+				<sum>
+					<property>/controls/switches/minimums</property>
+					<value>100</value>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/misc/minimums-latch">
+			<default value="/systems/misc/minimums-latch"/>
+			<test value="0">
+				position/wow eq 1
+			</test>
+			<test value="1">
+				/position/gear-agl-ft ge /systems/misc/minimums-plus-50
+			</test>
+		</switch>
+		
+		<switch name="/systems/misc/minimums-latch-sound">
+			<default value="/systems/misc/minimums-latch-sound"/>
+			<test logic="OR" value="0">
+				position/wow eq 1
+				/position/gear-agl-ft lt /controls/switches/minimums
+			</test>
+			<test value="1">
+				/position/gear-agl-ft ge /systems/misc/minimums-plus-50
+			</test>
+		</switch>
+	
+	</channel>
+	
 	<channel name="Misc Logic" execrate="8">
 		
 		<actuator name="/controls/switches/annun-test-5sec">

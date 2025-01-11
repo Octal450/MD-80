@@ -4,7 +4,7 @@
 
 <PropertyList>
 	
-	<title>McDonnell Douglas MD-80 Help</title>
+	<title>Help and Shortcuts</title>
 	
 	<key>
 		<name>1</name>
@@ -29,6 +29,10 @@
 	<key>
 		<name>6</name>
 		<desc>Show Glareshield View</desc>
+	</key>
+	<key>
+		<name>7</name>
+		<desc>Show MCDU View</desc>
 	</key>
 	<key>
 		<name>F1</name>
@@ -82,18 +86,23 @@
 		<name>CTRL + G</name>
 		<desc>Takeoff/Go Around Button</desc>
 	</key>
+	<key>
+		<name>SHIFT + P</name>
+		<desc>Open Performance Applet</desc>
+	</key>
 	
 <!-- Must ignore indenting/formatting -->
 <text>Available documentation can be viewed in the "Documentation" menu.
 
 2D versions of certain cockpit panels are included to make certain tasks easier. These can be opened from the "2D Panels" menu.
 
-Aircraft Config Center:
-Can be used to load panel states and set ground equipment, as well as configure simulation and aircraft options.
+Aircraft Configuration Center:
+Used to load panel states and set ground equipment, as well as configure simulation and aircraft options.
 
 Simulation:
 * IRS Aligns Instantly: Skips the ~10 minute alignment process of the IRS (if equipped).
-* Keyboard Mode: Maps flight controls to number pad and number rows instead of view shortucts.
+* Keyboard Mode: Maps flight controls to number pad and number rows instead of view shortcuts.
+* Open When FlightGear Starts: Opens the Aircraft Configuration Center automatically when FlightGear starts.
 * Separate Tiller Axis: Separates the tiller from the rudder and maps it to /controls/gear/steering.
 
 Aircraft:

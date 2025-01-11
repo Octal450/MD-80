@@ -16,7 +16,7 @@
 	<location name="CG" unit="M">
 		<x>24.20826</x> <!-- 34.3% MAC -->
 		<y>0</y>
-		<z>0.0014</z>
+		<z>-0.19827</z>
 	</location>
 	
 	<!-- All below positions fudged for CG accuracy -->
@@ -25,7 +25,7 @@
 		<location name="POINTMASS" unit="M">
 			<x>17.5</x>
 			<y>0</y>
-			<z>0.984</z>
+			<z>0.931</z>
 		</location>
 	</pointmass>
 	<pointmass name="Aft Cabin">
@@ -33,7 +33,7 @@
 		<location name="POINTMASS" unit="M">
 			<x>25.4</x>
 			<y>0</y>
-			<z>0.984</z>
+			<z>0.931</z>
 		</location>
 	</pointmass>
 	
@@ -42,7 +42,7 @@
 		<location name="POINTMASS" unit="M">
 			<x>18.4</x>
 			<y>0</y>
-			<z>-0.284</z>
+			<z>-0.517</z>
 		</location>
 	</pointmass>
 	<pointmass name="Aft Cargo">
@@ -50,7 +50,7 @@
 		<location name="POINTMASS" unit="M">
 			<x>25.8</x>
 			<y>0</y>
-			<z>-0.284</z>
+			<z>-0.517</z>
 		</location>
 	</pointmass>
 

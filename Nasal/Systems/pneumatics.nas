@@ -1,4 +1,4 @@
-# McDonnell Douglas MD-80 Pneumatic System
+# McDonnell Douglas MD-80 Pneumatics
 # Copyright (c) 2024 Josh Davidson (Octal450)
 
 var PNEUMATICS = {

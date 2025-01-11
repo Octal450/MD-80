@@ -8,37 +8,6 @@
 			<or>
 				<equals>
 					<property>/sim/current-view/view-number</property>
-					<value>13</value>
-				</equals>
-				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>14</value>
-				</equals>
-				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>15</value>
-				</equals>
-				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>16</value>
-				</equals>
-				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>17</value>
-				</equals>
-				<equals>
-					<property>/sim/current-view/view-number</property>
-					<value>18</value>
-				</equals>
-			</or>
-		</input>
-		<output>/sim/sound/wingview-old</output>
-	</logic>
-	<logic>
-		<input>
-			<or>
-				<equals>
-					<property>/sim/current-view/view-number</property>
 					<value>14</value>
 				</equals>
 				<equals>
@@ -60,6 +29,37 @@
 				<equals>
 					<property>/sim/current-view/view-number</property>
 					<value>19</value>
+				</equals>
+			</or>
+		</input>
+		<output>/sim/sound/wingview-old</output>
+	</logic>
+	<logic>
+		<input>
+			<or>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>15</value>
+				</equals>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>16</value>
+				</equals>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>17</value>
+				</equals>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>18</value>
+				</equals>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>19</value>
+				</equals>
+				<equals>
+					<property>/sim/current-view/view-number</property>
+					<value>20</value>
 				</equals>
 			</or>
 		</input>

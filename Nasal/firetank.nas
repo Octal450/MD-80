@@ -112,5 +112,5 @@ var FIRETANK = {
 		}
 	},
 };
-FIRETANK.init();
 
+FIRETANK.init(); # This needs fixing

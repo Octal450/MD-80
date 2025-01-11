@@ -1,94 +1,94 @@
 <?xml version="1.0"?>
 
 <PropertyList>
-
+	
 	<logic>
 		<input>
 			<and>
-				<property>systems/electrical/outputs/firetank</property>
-				<property>controls/firetank/salvodrop/switch</property>
-				<property>controls/firetank/droppower/switch</property>
-				<property>controls/firetank/droparm/switch</property>
+				<property>/systems/electrical/outputs/firetank</property>
+				<property>/controls/firetank/salvodrop/switch</property>
+				<property>/controls/firetank/droppower/switch</property>
+				<property>/controls/firetank/droparm/switch</property>
 			</and>
 		</input>
 		<output>/sim/model/firetank/opentankdoors</output>
 	</logic>
-
+	
 	<logic>
 		<input>
 			<and>
-				<property>systems/electrical/outputs/firetank</property>
-				<property>controls/firetank/droppower/switch</property>
-				<property>controls/firetank/test/button</property>
+				<property>/systems/electrical/outputs/firetank</property>
+				<property>/controls/firetank/droppower/switch</property>
+				<property>/controls/firetank/test/button</property>
 			</and>
 		</input>
 		<output>/sim/model/firetank/lamptest</output>
 	</logic>
-
+	
 	<logic>
 		<input>
 			<and>
-				<property>systems/electrical/outputs/firetank</property>
-				<property>controls/firetank/droppower/switch</property>
+				<property>/systems/electrical/outputs/firetank</property>
+				<property>/controls/firetank/droppower/switch</property>
 			</and>
 		</input>
 		<output>/sim/model/firetank/droppower</output>
 	</logic>
-
+	
 	<filter>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
 			<condition>
-				<property>controls/firetank/bright/switch</property>
+				<property>/controls/firetank/bright/switch</property>
 			</condition>
 			<value>1.5</value>
 		</input>
 		<input>
 			<condition>
 				<not>
-					<property>controls/firetank/bright/switch</property>
+					<property>/controls/firetank/bright/switch</property>
 				</not>		
 			</condition>
-			<value>.5</value>
+			<value>0.5</value>
 		</input>
 		<input>0</input>
 		<output>/sim/model/firetank/bright</output>
 	</filter>
-
+	
 	<logic>
 		<input>
 			<and>
-				<property>systems/electrical/outputs/firetank</property>
-				<property>controls/firetank/droppower/switch</property>
-				<property>controls/firetank/droparm/switch</property>
+				<property>/systems/electrical/outputs/firetank</property>
+				<property>/controls/firetank/droppower/switch</property>
+				<property>/controls/firetank/droparm/switch</property>
 			</and>
 		</input>
 		<output>/sim/model/firetank/ready</output>
 	</logic>
-
+	
 	<logic>
 		<input>
 			<and>
-				<property>systems/electrical/outputs/firetank</property>
-				<property>controls/firetank/droppower/switch</property>
+				<property>/systems/electrical/outputs/firetank</property>
+				<property>/controls/firetank/droppower/switch</property>
 				<not>
-					<property>controls/firetank/droparm/switch</property>
+					<property>/controls/firetank/droparm/switch</property>
 				</not>
 			</and>
 		</input>
 		<output>/sim/model/firetank/notready</output>
 	</logic>
-
+	
 	<logic>
 		<input>
 			<and>
-				<property>systems/electrical/outputs/firetank</property>
-				<property>controls/firetank/droppower/switch</property>
+				<property>/systems/electrical/outputs/firetank</property>
+				<property>/controls/firetank/droppower/switch</property>
 				<or>
 					<and>
 						<less-than>
-							<property>fdm/jsbsim/inertia/pointmass-weight-lbs[4]</property>
+							<property>/fdm/jsbsim/inertia/pointmass-weight-lbs[4]</property>
 							<value>35471</value>
 						</less-than>
 						<not>
@@ -97,10 +97,10 @@
 					</and>
 					<and>
 						<less-than>
-							<property>fdm/jsbsim/inertia/pointmass-weight-lbs[4]</property>
+							<property>/fdm/jsbsim/inertia/pointmass-weight-lbs[4]</property>
 							<value>33351</value>
 						</less-than>
-						<property>sim/model/firetank/foam</property>
+						<property>/sim/model/firetank/foam</property>
 					</and>
 				</or>
 			</and>
@@ -111,18 +111,18 @@
 	<logic>
 		<input>
 			<and>
-				<property>systems/electrical/outputs/firetank</property>
-				<property>controls/firetank/droppower/switch</property>
-				<greater-than>
-					<property>fdm/jsbsim/inertia/pointmass-weight-lbs[4]</property>
+				<property>/systems/electrical/outputs/firetank</property>
+				<property>/controls/firetank/droppower/switch</property>
+				<greater-than-equals>
+					<property>/fdm/jsbsim/inertia/pointmass-weight-lbs[4]</property>
 					<value>80</value>
-				</greater-than>
+				</greater-than-equals>
 			</and>
 		</input>
 		<output>/sim/model/firetank/fluiddetected</output>
 	</logic>
-
-	<!-- wildfire submodel triggers for foam/water or retardant graphics -->
+	
+	<!-- Wildfire submodel triggers for foam/water or retardant graphics -->
 	<logic>
 		<input>
 			<and>
@@ -132,13 +132,12 @@
 		</input>
 		<output>/sim/model/firetank/waterdropped</output>
 	</logic>
+	
 	<logic>
 		<input>
 			<and>
 				<property>/sim/model/firetank/retardantdropparticlectrl</property>
-				<not>
-					<property>/sim/model/firetank/foam</property>	
-				</not>
+				<not><property>/sim/model/firetank/foam</property></not>
 			</and>
 		</input>
 		<output>/sim/model/firetank/retardantdropped</output>

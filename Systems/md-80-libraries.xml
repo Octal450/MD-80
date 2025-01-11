@@ -24,7 +24,7 @@
 			</test>
 		</switch>
 		
-		<fcs_function name="position/gear-agl-ft-raw">
+		<fcs_function name="position/gear-agl">
 			<function>
 				<difference>
 					<property>/position/altitude-agl-ft</property>
@@ -32,18 +32,12 @@
 				</difference>
 			</function>
 		</fcs_function>
-		
-		<lag_filter name="position/gear-agl-ft">
-			<input>position/gear-agl-ft-raw</input>
+
+		<lag_filter name="position/gear-agl-lag">
+			<input>position/gear-agl</input>
 			<c1>20</c1>
 			<output>/position/gear-agl-ft</output> <!-- So flight recorder can override it -->
 		</lag_filter>
-		
-		<pure_gain name="position/gear-agl-m">
-			<input>position/gear-agl-ft</input>
-			<gain>0.3048</gain>
-			<output>/position/gear-agl-m</output> <!-- So flight recorder can override it -->
-		</pure_gain>
 		
 		<summer name="inertia/zfw-lbs">
 			<input>inertia/weight-lbs</input>
@@ -147,36 +141,6 @@
 				</floor>
 			</function>
 		</fcs_function>
-		
-		<fcs_function name="/systems/misc/minimums-latch-input">
-			<function>
-				<sum>
-					<property>/controls/switches/minimums</property>
-					<value>50.5</value>
-				</sum>
-			</function>
-		</fcs_function>
-		
-		<switch name="/systems/misc/minimums-latch">
-			<default value="/systems/misc/minimums-latch"/>
-			<test value="0">
-				position/wow eq 1
-			</test>
-			<test value="1">
-				position/gear-agl-ft ge /systems/misc/minimums-latch-input
-			</test>
-		</switch>
-		
-		<switch name="/systems/misc/minimums-latch-sound">
-			<default value="/systems/misc/minimums-latch-sound"/>
-			<test logic="OR" value="0">
-				position/wow eq 1
-				position/gear-agl-ft lt /controls/switches/minimums
-			</test>
-			<test value="1">
-				position/gear-agl-ft ge /systems/misc/minimums-latch-input
-			</test>
-		</switch>
 	
 	</channel>
 

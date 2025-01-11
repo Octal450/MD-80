@@ -8,7 +8,47 @@
 		<aero>FDE/MD-87</aero>
 		<description>McDonnell Douglas MD-87 (JT8D-217C)</description> <!-- Note: -217C is a -219 operated as a -217A -->
 		<flight-model>jsb</flight-model>
+		<menubar n="0">
+			<default n="0">
+				<menu n="104">
+					<item n="5">
+						<label>Fire Tank System</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>firetank</dialog-name>
+						</binding>
+					</item>
+				</menu>
+			</default>
+		</menubar>
 		<model n="0">
+			<firetank n="0">
+				<foam type="bool">0</foam>
+				<opentankdoors type="bool">0</opentankdoors>
+				<ready type="bool">0</ready>
+				<notready type="bool">1</notready>
+				<droppower type="bool">0</droppower>
+				<droparm type="bool">0</droparm>
+				<bladder-one type="int">0</bladder-one>
+				<bladder-three type="int">0</bladder-three>
+				<bladder-two type="int">0</bladder-two>
+				<bright type="bool">0</bright>
+				<effects n="0">
+					<particles n="0">
+						<droprate type="int">400</droprate> <!-- For particles only -->
+						<enabled type="bool">1</enabled>
+						<redcombined type="float">0</redcombined>
+						<greencombined type="float">0</greencombined>
+						<bluecombined type="float">0</bluecombined>
+					</particles>
+				</effects>
+				<enabled type="bool">0</enabled>
+				<fluiddetected type="bool">0</fluiddetected>
+				<lamptest type="bool">0</lamptest>
+				<retardantdropped type="bool">0</retardantdropped>
+				<spaceopen type="bool">0</spaceopen>
+				<waterdropped type="bool">0</waterdropped>
+			</firetank>
 			<livery>
 				<file type="string">White</file>
 			</livery>
@@ -19,55 +59,7 @@
 				<texture type="string">n2-217a.png</texture>
 			</n2-tach>
 			<path>Aircraft/MD-80/Models/MD-87.xml</path>
-
-			<firetank>
-				<enabled type="bool">false</enabled>
-				<foam type="bool">false</foam>
-				<opentankdoors type="bool">false</opentankdoors>
-				<lamptest type="bool"></lamptest>
-				<ready type="bool">false</ready>
-				<notready type="bool">true</notready>
-				<droppower type="bool">false</droppower>
-				<droparm type="bool">false</droparm>
-				<bright type="bool">false</bright>
-				<fluiddetected type="bool">false</fluiddetected>
-				<spaceopen type="bool">false</spaceopen>
-				<waterdropped type="bool">false</waterdropped>
-				<retardantdropped type="bool">false</retardantdropped>
-				<bladder-one type="int">0</bladder-one>
-				<bladder-two type="int">0</bladder-two>
-				<bladder-three type="int">0</bladder-three>
-				<effects>
-					<particles>
-						<droprate type="int">400</droprate><!-- for particles only -->
-						<enabled type="bool">true</enabled>
-						<redcombined type="float">0</redcombined>
-						<greencombined type="float">0</greencombined>
-						<bluecombined type="float">0</bluecombined>
-					</particles>
-				</effects>
-			</firetank>
 		</model>
-
-		<submodels>
-			<serviceable type="bool">true</serviceable>
-			<path>Aircraft/MD-80/Models/submodels.xml</path>
-		</submodels>
-
-		<menubar>
-			<default>
-			<menu n="104">
-				<item n="5">
-					<label>Fire Tank System</label>
-					<binding>
-						<command>dialog-show</command>
-						<dialog-name>firetank</dialog-name>
-					</binding>
-				</item>
-			</menu>
-			</default>
-		</menubar>
-
 		<previews>
 			<preview>
 				<type>exterior</type>
@@ -76,6 +68,15 @@
 			</preview>
 		</previews>
 		<primary-set>true</primary-set>
+		<submodels n="0">
+			<serviceable type="bool">true</serviceable>
+			<path>Aircraft/MD-80/Models/submodels.xml</path>
+		</submodels>
+		<systems n="0">
+			<autopilot n="7">
+				<path>Aircraft/MD-80/Systems/firetank.xml</path>
+			</autopilot>
+		</systems>
 		<!-- Overwrite -main views with correct positions -->
 		<view n="0">
 			<name>Captain View</name>
@@ -180,49 +181,43 @@
 				<roll-offset-deg archive="y">0</roll-offset-deg>
 			</config>
 		</view>
-
-		<systems n="0">
-			<autopilot n="7">
-				<path>Aircraft/MD-80/Systems/firetank-system.xml</path>
-			</autopilot>
-		</systems>
     </sim>
 	
-	<controls>
-		<firetank>
-			<salvodrop>
-				<cover type="bool">false</cover>
-			</salvodrop>
-			<salvodrop>
-				<switch type="bool">false</switch>
-			</salvodrop>
-			<droppower>
-				<cover type="bool">false</cover>
-			</droppower>
-			<droppower>
-				<switch type="bool">false</switch>
-			</droppower>
-			<droparm>
-				<cover type="bool">false</cover>
-			</droparm>
-			<droparm>
-				<switch type="bool">false</switch>
-			</droparm>
-			<bright>
-				<switch type="bool">false</switch>
+	<controls n="0">
+		<firetank n="0">
+			<bright n="0">
+				<switch type="bool">0</switch>
 			</bright>
-			<test>
-				<button type="bool">false</button>
-			</test>
-			<distribution>
+			<distribution n="0">
 				<dial type="int">0</dial>
 			</distribution>
+			<droppower n="0">
+				<cover type="bool">0</cover>
+			</droppower>
+			<droppower n="1">
+				<switch type="bool">0</switch>
+			</droppower>
+			<droparm n="0">
+				<cover type="bool">0</cover>
+			</droparm>
+			<droparm n="1">
+				<switch type="bool">0</switch>
+			</droparm>
+			<salvodrop n="0">
+				<cover type="bool">0</cover>
+			</salvodrop>
+			<salvodrop n="1">
+				<switch type="bool">0</switch>
+			</salvodrop>
+			<test n="0">
+				<button type="bool">0</button>
+			</test>
 		</firetank>
 	</controls>
-
-	<systems>
-		<electrical>
-			<outputs>
+	
+	<systems n="0">
+		<electrical n="0">
+			<outputs n="0">
 				<firetank type="float">0</firetank>
 			</outputs>
 		</electrical>
@@ -247,7 +242,7 @@
 	<options n="0">
 		<aux-tanks type="bool">0</aux-tanks>
 		<eng type="string">217C</eng>
-		<fms type="string">CMA-900/PMS</fms>
+		<fms type="string">HT9100/PMS</fms>
 		<panel-mod type="bool">1</panel-mod>
 	</options>
 	
@@ -280,11 +275,10 @@
 			<name>Retardant Tank</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[4]"/>
 			<min-lb type="double">0</min-lb>
-			<!-- 6764.85 lb each blader -->
-			<max-lb type="double">35480</max-lb>
+			<max-lb type="double">35480</max-lb> <!-- 6764.85 lb each blader -->
 		</weight>
 	</payload>
-
+	
 	<input>
 		<keyboard>
 			<key n="75">
@@ -292,7 +286,7 @@
 				<desc>Open Tank Doors</desc>
 				<binding>
 					<command>property-toggle</command>
-					<property>controls/firetank/salvodrop/switch</property>
+					<property>/controls/firetank/salvodrop/switch</property>
 				</binding>
 			</key>
 		</keyboard>
@@ -302,9 +296,9 @@
 		<setup>
 			<script>aircraft.livery.init("Aircraft/MD-80/Models/Liveries/MD-87");</script>
 		</setup>
-		<MD87>
-			<file>Aircraft/MD-80/Nasal/tankoperations.nas</file>
-		</MD87>
+		<firetank>
+			<file>Aircraft/MD-80/Nasal/firetank.nas</file>
+		</firetank>
     </nasal>
 
 </PropertyList>

@@ -20,44 +20,6 @@
 		</axis>
 	</animation>
 	
-	<!-- Don't remove or else weird darkness happens -->
-	<animation>
-		<type>material</type>
-		<object-name>AirVents</object-name>
-		<object-name>FDFloorCarpet</object-name>
-		<object-name>FDFloorMetal</object-name>
-		<object-name>FDFlorrMetal2</object-name>
-		<object-name>FlightDeck</object-name>
-		<object-name>FlightDeckBulkhead</object-name>
-		<object-name>FlightDeckDoor</object-name>
-		<object-name>ForwardPedCasing</object-name>
-		<object-name>GlareShield</object-name>
-		<object-name>Moulding</object-name>
-		<object-name>Moulding.001</object-name>
-		<object-name>PanelMainC</object-name>
-		<object-name>PanelMainC3A</object-name>
-		<object-name>PanelMainC3E</object-name>
-		<object-name>PanelMainD</object-name>
-		<object-name>PanelMainL</object-name>
-		<object-name>PanelMainR</object-name>
-		<object-name>PedalCover</object-name>
-		<object-name>PedestalABS</object-name>
-		<object-name>PedestalBase</object-name>
-		<object-name>PedestalBase_0</object-name>
-		<object-name>PedestalBase_1</object-name>
-		<object-name>PedestalDrum</object-name>
-		<object-name>PedestalDrumFace</object-name>
-		<object-name>SeatCP</object-name>
-		<object-name>SeatCushionsCP</object-name>
-		<object-name>SeatCushionsP</object-name>
-		<object-name>SeatP</object-name>
-		<emission>
-			<red>0</red>
-			<green>0</green>
-			<blue>0</blue>
-		</emission>
-	</animation>
-	
 	<!-- AI hole select -->
 	<animation>
 		<type>select</type>
@@ -1026,7 +988,7 @@
 	<animation>
 		<type>pick</type>
 		<object-name>ABSArm</object-name>
-		<action> <!-- Switch sound done in master-system.nas -->
+		<action>
 			<button>0</button>
 			<button>1</button>
 			<button>3</button>
@@ -1048,6 +1010,10 @@
 					<value>0</value>
 				</binding>
 			</mod-up>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -1636,14 +1602,14 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<condition>
-					<property>controls/dfgs/art-cover</property>
+					<property>controls/dfgs/covers/art</property>
 				</condition>
 				<command>property-toggle</command>
 				<property>controls/dfgs/art</property>
 			</binding>
 			<binding>
 				<condition>
-					<property>controls/dfgs/art-cover</property>
+					<property>controls/dfgs/covers/art</property>
 				</condition>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>

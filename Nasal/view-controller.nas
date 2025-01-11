@@ -12,8 +12,8 @@ var incStep = 5;
 var shakeFlag = 0;
 var useNewViews = (fgfsVersion[0] == 2020 and fgfsVersion[1] >= 4) or fgfsVersion[0] > 2020;
 var viewNumberRaw = 0;
-var views = [0, 9, 10, 11, 12, 13];
-var viewsOld = [0, 8, 9, 10, 11, 12];
+var views = [0, 9, 10, 11, 12, 13, 14];
+var viewsOld = [0, 8, 9, 10, 11, 12, 13];
 
 props.globals.initNode("/sim/use-new-views", useNewViews, "BOOL");
 

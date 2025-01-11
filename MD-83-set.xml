@@ -56,7 +56,7 @@
 	<options n="0">
 		<aux-tanks type="bool">1</aux-tanks>
 		<eng type="string">219</eng>
-		<fms type="string">CMA-900/PMS</fms>
+		<fms type="string">HT9100/PMS</fms>
 		<panel-mod type="bool">0</panel-mod>
 	</options>
 	

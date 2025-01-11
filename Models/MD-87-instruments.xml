@@ -177,7 +177,7 @@
 			</not-equals>
 		</condition>
 		<offsets>
-			<x-m>2.248</x-m>
+			<x-m>2.249</x-m>
 			<y-m>-0.514</y-m>
 			<z-m>0.747</z-m>
 			<pitch-deg>-12</pitch-deg>
@@ -785,7 +785,7 @@
 			</not-equals>
 		</condition>
 		<offsets>
-			<x-m>2.248</x-m>
+			<x-m>2.249</x-m>
 			<y-m>0.513</y-m>
 			<z-m>0.747</z-m>
 			<pitch-deg>-12</pitch-deg>
@@ -1029,6 +1029,17 @@
 	</model>
 	
 	<!-- Pedestal -->
+	<model>
+		<name>HT9100</name>
+		<path>Aircraft/MD-80/Models/Instruments/HT9100/HT9100.xml</path>
+		<offsets>
+			<x-m>2.34269</x-m>
+			<y-m>-0.16505</y-m>
+			<z-m>0.72777</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+	</model>
+	
 	<model>
 		<name>comm1</name>
 		<path>Aircraft/MD-80/Models/Instruments/comm1.xml</path>

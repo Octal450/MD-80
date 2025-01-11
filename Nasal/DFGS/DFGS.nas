@@ -203,8 +203,8 @@ var Output = {
 };
 
 var Text = {
-	lat: props.globals.initNode("/it-autoflight/mode/lat", "HDG", "STRING"),
-	vert: props.globals.initNode("/it-autoflight/mode/vert", "V/S", "STRING"),
+	lat: props.globals.initNode("/it-autoflight/text/lat", "HDG", "STRING"),
+	vert: props.globals.initNode("/it-autoflight/text/vert", "V/S", "STRING"),
 	vertTemp: "V/S",
 };
 
@@ -436,7 +436,7 @@ var ITAF = {
 			} else if (Output.vertTemp == 6) {
 				if (Gear.wow1Temp and Gear.wow2Temp) {
 					if (Text.vert.getValue() != "ROLLOUT") {
-						me.updateLatText("RLOU");
+						me.updateLatText("ROLLOUT");
 						me.updateVertText("ROLLOUT");
 					} else {
 						if (Main.nlgWowTimer5.getValue() == 1 and (Output.ap1Temp == 1 or Output.ap2Temp == 1)) { # Trip off after 5 seconds
@@ -826,7 +826,7 @@ var ITAF = {
 			me.updateLocArm(0);
 			me.updateGsArm(0, 1); # Don't disarm autoland
 			Output.lat.setValue(4);
-			me.updateLatText("ALGN");
+			me.updateLatText("ALIGN");
 		} else if (n == 5) { # T/O or G/A, text is set by TOGA selector
 			me.updateLnavArm(0);
 			me.updateLocArm(0);
