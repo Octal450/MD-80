@@ -46,7 +46,7 @@
 		</table>
 	</function>
 	
-	<function name="aero/function/kCmalpha"> <!-- Deel Stall -->
+	<function name="aero/function/kCmalpha"> <!-- Deep Stall -->
 		<description>Alpha pitch factor due to wing shadow</description>
 		<table>
 			<independentVar lookup="row">aero/alpha-deg</independentVar>
@@ -58,7 +58,7 @@
 		</table>
 	</function>
 	
-	<function name="aero/function/kCmde"> <!-- Deel Stall -->
+	<function name="aero/function/kCmde"> <!-- Deep Stall -->
 		<description>Elevator pitch factor due to wing shadow</description>
 		<table>
 			<independentVar lookup="row">aero/alpha-deg</independentVar>
@@ -70,7 +70,7 @@
 		</table>
 	</function>
 	
-	<function name="aero/function/kCmdstab"> <!-- Deel Stall -->
+	<function name="aero/function/kCmdstab"> <!-- Deep Stall -->
 		<description>Stabilizer pitch factor due to wing shadow</description>
 		<table>
 			<independentVar lookup="row">aero/alpha-deg</independentVar>
