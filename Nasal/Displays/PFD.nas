@@ -160,7 +160,7 @@ var canvasBase = {
 			me["AI_single_cue"].hide();
 			me["FS_scale"].setTranslation(0, 0);
 			me["GS_group"].setTranslation(0, 0);
-			Value.Ai.risingRunwayMultiplier = 1.24;
+			Value.Ai.risingRunwayMultiplier = 1.032375;
 			Value.Ai.risingRunwayOffset = 0;
 		} else {
 			me["AI_dual_cue"].hide();
@@ -168,7 +168,7 @@ var canvasBase = {
 			me["AI_single_cue"].show();
 			me["FS_scale"].setTranslation(619.7825, 0);
 			me["GS_group"].setTranslation(-619.7825, 0);
-			Value.Ai.risingRunwayMultiplier = 1.2;
+			Value.Ai.risingRunwayMultiplier = 0.972045;
 			Value.Ai.risingRunwayOffset = 12.066; # Align it properly
 		}
 		
@@ -297,8 +297,13 @@ var canvasBase = {
 			me["NAV_scale"].show();
 		} else if (Value.Nav.isIls[n]) {
 			if (Value.Nav.inRange[n] and Value.Nav.signalQuality[n] > 0.99) {
-				me["AI_rising_runway"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[n] * 156, (math.clamp(Value.Ra.agl, 0, 200) * Value.Ai.risingRunwayMultiplier) + Value.Ai.risingRunwayOffset);
-				me["AI_rising_runway"].show();
+				if (Value.Ra.agl <= 2500) {
+					me["AI_rising_runway"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[n] * 156, (math.clamp(Value.Ra.agl, 0, 200) * Value.Ai.risingRunwayMultiplier) + Value.Ai.risingRunwayOffset);
+					me["AI_rising_runway"].show();
+				} else {
+					me["AI_rising_runway"].hide();
+				}
+				
 				me["LOC_pointer"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[n] * 156, 0);
 				me["LOC_pointer"].show();
 				me["LOC_no"].hide();
