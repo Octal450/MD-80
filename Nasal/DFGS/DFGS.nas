@@ -364,7 +364,7 @@ var ITAF = {
 			Fma.startBlink(3);
 		}
 		
-		# Takeoff Lateral Reversion
+		# Takeoff/Go Around Lateral Reversion
 		if (Output.latTemp == 5 and Output.vertTemp != 7 and Output.vertTemp != 8) {
 			me.setLatMode(3);
 			Fma.startBlink(2);
