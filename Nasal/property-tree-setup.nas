@@ -216,7 +216,7 @@ var Systems = {
 				ndFps: props.globals.getNode("/systems/acconfig/options/du/nd-fps"),
 				pfdFps: props.globals.getNode("/systems/acconfig/options/du/pfd-fps"),
 			},
-			irsEquipped: props.globals.getNode("/systems/acconfig/options/irs-equipped"),
+			irs: props.globals.getNode("/systems/acconfig/options/irs"),
 			panel: props.globals.getNode("/systems/acconfig/options/panel"),
 		},
 	},

@@ -67,7 +67,7 @@
 		<object-name>IrsLights</object-name>
 		<object-name>LabelsIrs</object-name>
 		<condition>
-			<property>systems/acconfig/options/irs-equipped</property>
+			<property>systems/acconfig/options/irs</property>
 		</condition>
 	</animation>
 	

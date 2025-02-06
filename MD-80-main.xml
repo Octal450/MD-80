@@ -1549,7 +1549,7 @@
 				</du>
 				<flight-director type="string">Single Cue</flight-director>
 				<irs-aligns-instantly type="bool">0</irs-aligns-instantly>
-				<irs-equipped type="bool">0</irs-equipped>
+				<irs type="bool">0</irs>
 				<keyboard-mode type="bool">0</keyboard-mode>
 				<panel type="string">Analog</panel>
 				<separate-tiller-axis type="bool">0</separate-tiller-axis>

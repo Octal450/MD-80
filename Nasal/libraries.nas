@@ -84,8 +84,8 @@ var slowLoop = maketimer(1, func() {
 	
 	# Panel forcer - makes sure an invalid panel configuration is never used
 	if (pts.Systems.Acconfig.Options.panel.getValue() == "Analog") {
-		if (pts.Systems.Acconfig.Options.irsEquipped.getBoolValue()) {
-			pts.Systems.Acconfig.Options.irsEquipped.setBoolValue(0);
+		if (pts.Systems.Acconfig.Options.irs.getBoolValue()) {
+			pts.Systems.Acconfig.Options.irs.setBoolValue(0);
 		}
 	}
 });

@@ -335,7 +335,7 @@
 			
 			<checkbox>
 				<enable>
-					<property>systems/acconfig/options/irs-equipped</property>
+					<property>systems/acconfig/options/irs</property>
 				</enable>
 				<label>IRS Aligns Instantly</label>
 				<halign>left</halign>
@@ -476,7 +476,7 @@
 				</enable>
 				<label>IRS Equipped</label>
 				<halign>left</halign>
-				<property>/systems/acconfig/options/irs-equipped</property>
+				<property>/systems/acconfig/options/irs</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -535,7 +535,7 @@
 							<value>Analog</value>
 						</equals>
 						<command>property-assign</command>
-						<property>/systems/acconfig/options/irs-equipped</property>
+						<property>/systems/acconfig/options/irs</property>
 						<value>0</value>
 					</binding>
 					<binding>
