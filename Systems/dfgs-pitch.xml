@@ -84,6 +84,10 @@
 						<property>/it-autoflight/output/vert</property>
 						<value>7</value>
 					</equals>
+					<equals>
+						<property>/it-autoflight/output/vert</property>
+						<value>8</value>
+					</equals>
 				</or>
 			</and>
 		</input>
@@ -177,10 +181,16 @@
 		</min>
 		<min>
 			<condition>
-				<equals>
-					<property>/it-autoflight/output/vert</property>
-					<value>7</value>
-				</equals>
+				<or>
+					<equals>
+						<property>/it-autoflight/output/vert</property>
+						<value>7</value>
+					</equals>
+					<equals>
+						<property>/it-autoflight/output/vert</property>
+						<value>8</value>
+					</equals>
+				</or>
 			</condition>
 			<value>120</value>
 		</min>
@@ -268,6 +278,10 @@
 						<property>/it-autoflight/output/vert</property>
 						<value>7</value>
 					</equals>
+					<equals>
+						<property>/it-autoflight/output/vert</property>
+						<value>8</value>
+					</equals>
 				</or>
 			</condition>
 			<property>/it-autoflight/internal/target-fpm-flch</property>
@@ -285,7 +299,7 @@
 			<condition>
 				<equals>
 					<property>/it-autoflight/output/vert</property>
-					<value>8</value>
+					<value>10</value>
 				</equals>
 			</condition>
 			<property>/it-autoflight/internal/vert-speed-fpm</property>
@@ -307,7 +321,7 @@
 				</equals>
 				<not-equals>
 					<property>/it-autoflight/output/vert</property>
-					<value>8</value>
+					<value>10</value>
 				</not-equals>
 			</and>
 		</input>
@@ -440,7 +454,7 @@
 						</equals>
 						<not-equals>
 							<property>/it-autoflight/output/vert</property>
-							<value>8</value>
+							<value>10</value>
 						</not-equals>
 					</and>
 				</not>
@@ -453,7 +467,7 @@
 	</filter>
 	
 	<filter>
-		<name>IT-CONTROLLER: Pitch Turbulance</name>
+		<name>IT-CONTROLLER: Pitch</name>
 		<type>noise-spike</type>
 		<input>
 			<condition>
@@ -461,7 +475,7 @@
 					<property>/it-autoflight/output/apfd-on</property>
 					<equals>
 						<property>/it-autoflight/output/vert</property>
-						<value>8</value>
+						<value>10</value>
 					</equals>
 				</and>
 			</condition>
@@ -475,7 +489,7 @@
 					<property>/it-autoflight/output/apfd-on</property>
 					<equals>
 						<property>/it-autoflight/output/vert</property>
-						<value>8</value>
+						<value>10</value>
 					</equals>
 				</and>
 			</condition>
@@ -493,7 +507,7 @@
 			<condition>
 				<equals>
 					<property>/it-autoflight/output/vert</property>
-					<value>8</value>
+					<value>10</value>
 				</equals>
 			</condition>
 			<property>/it-autoflight/internal/target-pitch-hold</property>

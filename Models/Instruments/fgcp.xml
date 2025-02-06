@@ -1422,7 +1422,7 @@
 				</not-equals>
 				<not-equals>
 					<property>it-autoflight/output/vert</property>
-					<value>8</value>
+					<value>10</value>
 				</not-equals>
 			</and>
 		</condition>
@@ -1435,7 +1435,7 @@
 		<condition>
 			<equals>
 				<property>it-autoflight/output/vert</property>
-				<value>8</value>
+				<value>10</value>
 			</equals>
 		</condition>
 	</animation>

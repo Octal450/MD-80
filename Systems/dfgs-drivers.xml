@@ -364,8 +364,8 @@
 		<input>
 			<condition>
 				<equals>
-					<property>/it-autoflight/text/vert</property>
-					<value>T/O CLB</value>
+					<property>/it-autoflight/output/vert</property>
+					<value>7</value>
 				</equals>
 			</condition>
 			<expression>
@@ -1168,7 +1168,7 @@
 			<condition>
 				<equals>
 					<property>/it-autoflight/output/vert</property>
-					<value>8</value>
+					<value>10</value>
 				</equals>
 			</condition>
 			<expression>
@@ -1208,8 +1208,8 @@
 		<input>
 			<condition>
 				<equals>
-					<property>/it-autoflight/text/vert</property>
-					<value>T/O CLB</value>
+					<property>/it-autoflight/output/vert</property>
+					<value>7</value>
 				</equals>
 			</condition>
 			<expression>
@@ -1244,8 +1244,8 @@
 		<input>
 			<condition>
 				<equals>
-					<property>/it-autoflight/text/vert</property>
-					<value>T/O CLB</value>
+					<property>/it-autoflight/output/vert</property>
+					<value>7</value>
 				</equals>
 			</condition>
 			<property>/systems/dfgs/speeds/v2-target</property>
