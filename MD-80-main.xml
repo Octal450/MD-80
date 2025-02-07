@@ -1548,10 +1548,11 @@
 					<pfd-fps type="double">20</pfd-fps>
 				</du>
 				<flight-director type="string">Single Cue</flight-director>
-				<irs-aligns-instantly type="bool">0</irs-aligns-instantly>
 				<irs type="bool">0</irs>
+				<irs-aligns-instantly type="bool">0</irs-aligns-instantly>
 				<keyboard-mode type="bool">0</keyboard-mode>
 				<panel type="string">Analog</panel>
+				<rising-runway type="bool">1</rising-runway>
 				<separate-tiller-axis type="bool">0</separate-tiller-axis>
 			</options>
 		</acconfig>

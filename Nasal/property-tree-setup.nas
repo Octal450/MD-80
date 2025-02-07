@@ -218,6 +218,7 @@ var Systems = {
 			},
 			irs: props.globals.getNode("/systems/acconfig/options/irs"),
 			panel: props.globals.getNode("/systems/acconfig/options/panel"),
+			risingRunway: props.globals.getNode("/systems/acconfig/options/rising-runway"),
 		},
 	},
 	Misc: {

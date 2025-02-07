@@ -110,6 +110,7 @@ Aircraft:
 * Auto Arm Altitude: Equips the aircraft with the optional feature to automatically arm altitude.
 * Combined Standby: Equips the aircraft with the combined standby instead of split instruments.
 * IRS Equipped: Equips the aircraft with the IRS instead of AHRS (EFIS panel only).
+* Rising Runway Equipped: Equips the PFD with the rising runway indication (EFIS panel only).
 
 Panel Configuration:
 * Instrumentation: Selects between Analog and EFIS instrument layouts. 

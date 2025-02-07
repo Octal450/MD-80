@@ -487,6 +487,26 @@
 				<live>true</live>
 			</checkbox>
 			
+			<checkbox>
+				<enable>
+					<not-equals>
+						<property>/systems/acconfig/options/panel</property>
+						<value>Analog</value>
+					</not-equals>
+				</enable>
+				<label>Rising Runway Equipped</label>
+				<halign>left</halign>
+				<property>/systems/acconfig/options/rising-runway</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>acconfig.OPTIONS.write();</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
 			<group>
 				<layout>hbox</layout>
 				

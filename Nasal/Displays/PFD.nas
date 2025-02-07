@@ -297,7 +297,7 @@ var canvasBase = {
 			me["NAV_scale"].show();
 		} else if (Value.Nav.isIls[n]) {
 			if (Value.Nav.inRange[n] and Value.Nav.signalQuality[n] > 0.99) {
-				if (Value.Ra.agl <= 2500) {
+				if (Value.Ra.agl <= 2500 and pts.Systems.Acconfig.Options.risingRunway.getBoolValue()) {
 					me["AI_rising_runway"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[n] * 156, (math.clamp(Value.Ra.agl, 0, 200) * Value.Ai.risingRunwayMultiplier) + Value.Ai.risingRunwayOffset);
 					me["AI_rising_runway"].show();
 				} else {
