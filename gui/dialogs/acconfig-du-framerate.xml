@@ -155,6 +155,7 @@
 			<binding>
 				<command>nasal</command>
 				<script>
+					acconfig.OPTIONS.write();
 					canvas_pfd.rateApply();
 					#canvas_nd.rateApply();
 				</script>
