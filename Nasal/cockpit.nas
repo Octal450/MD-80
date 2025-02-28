@@ -1,5 +1,5 @@
 # McDonnell Douglas MD-80 Cockpit Controls
-# Copyright (c) 2024 Josh Davidson (Octal450)
+# Copyright (c) 2025 Josh Davidson (Octal450)
 
 var furt = 0;
 
