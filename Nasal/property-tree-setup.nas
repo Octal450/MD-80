@@ -175,7 +175,6 @@ var Sim = {
 		zOffsetMinM: props.globals.getNode("/sim/current-view/z-offset-min-m", 1),
 	},
 	Rendering: {
-		compositeViewerEnabled: props.globals.getNode("/sim/rendering/composite-viewer-enabled", 1),
 		Headshake: {
 			enabled: props.globals.getNode("/sim/rendering/headshake/enabled"),
 		},

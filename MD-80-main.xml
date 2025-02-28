@@ -179,7 +179,7 @@
 				</menu>
 			</default>
 		</menubar>
-		<minimum-fg-version>2020.3.14</minimum-fg-version>
+		<minimum-fg-version>2024.1.1</minimum-fg-version>
 		<model n="0">
 			<autopush>
 				<available type="int">1</available>
@@ -1744,9 +1744,6 @@
 			<file>Aircraft/MD-80/gui/canvas/common.nas</file>
 			<file>Aircraft/MD-80/gui/canvas/fgcp.nas</file>
 		</panel2d>
-		<lightmanager>
-			<file>Aircraft/MD-80/Nasal/light-manager.nas</file>
-		</lightmanager>
 	</nasal>
 
 </PropertyList>
