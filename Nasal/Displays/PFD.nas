@@ -42,7 +42,7 @@ var Value = {
 var canvasBase = {
 	init: func(canvasGroup, file) {
 		var font_mapper = func(family, weight) {
-			return "DULarge.ttf";
+			return "MD80DU.ttf";
 		};
 		
 		canvas.parsesvg(canvasGroup, file, {"font-mapper": font_mapper});
