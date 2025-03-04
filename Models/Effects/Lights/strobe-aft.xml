@@ -13,7 +13,7 @@
 	</animation>
 	
 	<effect>
-		<inherits-from>Aircraft/MD-90/Models/Effects/Lights/strobe-aft</inherits-from>
+		<inherits-from>Aircraft/MD-80/Models/Effects/Lights/strobe-aft</inherits-from>
 		<object-name>strobeals</object-name>
 	</effect>
 	
