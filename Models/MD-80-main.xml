@@ -61,12 +61,12 @@
 		<type>spot</type>
 		<dim-factor><property>systems/exterior-lights/left-landing-light</property></dim-factor>
 		<position>
-			<x-m>27.67</x-m>
-			<y-m>-16.0</y-m>
+			<x-m>28.1196</x-m>
+			<y-m>-16.1664</y-m>
 			<z-m>-0.23</z-m>
 		</position>
 		<direction>
-			<x>-1.0</x>
+			<x>-1</x>
 			<y>0</y>
 			<z>-0.05</z>
 		</direction>
@@ -74,7 +74,7 @@
 			<r>0.25</r>
 			<g>0.25</g>
 			<b>0.25</b>
-			<a>1</a>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>1.0</r>
@@ -93,9 +93,9 @@
 			<l>0.01</l>
 			<q>0.0</q>
 		</attenuation>
-		<spot-exponent>100.0</spot-exponent>
-		<spot-cutoff>25.0</spot-cutoff>
-		<range-m>2500.0</range-m>
+		<spot-exponent>75</spot-exponent>
+		<spot-cutoff>25</spot-cutoff>
+		<range-m>2500</range-m>
 	</light>
 	
 	<model>
@@ -108,25 +108,35 @@
 		</offsets>
 	</model>
 	
+	<model>
+		<name>Nose Taxi Light</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/taxilight.xml</path>
+		<offsets>
+			<x-m>2.46026</x-m>
+			<y-m>-0.13963</y-m>
+			<z-m>-1.32</z-m>
+		</offsets>
+	</model>
+	
 	<light>
 		<name>Nose Landing Light Compositor</name>
 		<type>spot</type>
 		<dim-factor><property>systems/exterior-lights/nose-landing-light</property></dim-factor>
 		<position>
 			<x-m>2.46026</x-m>
-			<y-m>0.13963</y-m>
+			<y-m>0</y-m>
 			<z-m>-1.32</z-m>
 		</position>
 		<direction>
-			<x>-1.0</x>
+			<x>-1</x>
 			<y>0</y>
 			<z>-0.05</z>
 		</direction>
 		<ambient>
-			<r>0.25</r>
-			<g>0.25</g>
-			<b>0.25</b>
-			<a>1</a>
+			<r>0.3</r>
+			<g>0.3</g>
+			<b>0.3</b>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>1.0</r>
@@ -145,61 +155,9 @@
 			<l>0.0018</l>
 			<q>0.000012</q>
 		</attenuation>
-		<spot-exponent>100.0</spot-exponent>
-		<spot-cutoff>35.0</spot-cutoff>
-		<range-m>2000.0</range-m>
-	</light>
-	
-	<model>
-		<name>Nose Taxi Light</name>
-		<path>Aircraft/MD-80/Models/Effects/Lights/taxilight.xml</path>
-		<offsets>
-			<x-m>2.46026</x-m>
-			<y-m>-0.13963</y-m>
-			<z-m>-1.32</z-m>
-		</offsets>
-	</model>
-	
-	<light>
-		<name>Nose Taxi Light Compositor</name>
-		<dim-factor><property>systems/exterior-lights/nose-taxi-light</property></dim-factor>
-		<type>spot</type>
-		<position>
-			<x-m>2.46026</x-m>
-			<y-m>-0.13963</y-m>
-			<z-m>-1.32</z-m>
-		</position>
-		<direction>
-			<x>-1.0</x>
-			<y>0</y>
-			<z>-0.05</z>
-		</direction>
-		<ambient>
-			<r>0.25</r>
-			<g>0.25</g>
-			<b>0.25</b>
-			<a>1</a>
-		</ambient>
-		<diffuse>
-			<r>1.0</r>
-			<g>1.0</g>
-			<b>1.0</b>
-			<a>1.0</a>
-		</diffuse>
-		<specular>
-			<r>1.0</r>
-			<g>1.0</g>
-			<b>1.0</b>
-			<a>1.0</a>
-		</specular>
-		<attenuation>
-			<c>1.0</c>
-			<l>0.00225</l>
-			<q>0.00001875</q>
-		</attenuation>
-		<spot-exponent>100.0</spot-exponent>
-		<spot-cutoff>35.0</spot-cutoff>
-		<range-m>2000.0</range-m>
+		<spot-exponent>75</spot-exponent>
+		<spot-cutoff>35</spot-cutoff>
+		<range-m>2500</range-m>
 	</light>
 	
 	<model>
@@ -217,12 +175,12 @@
 		<type>spot</type>
 		<dim-factor><property>systems/exterior-lights/right-landing-light</property></dim-factor>
 		<position>
-			<x-m>27.67</x-m>
-			<y-m>16.0</y-m>
+			<x-m>28.1196</x-m>
+			<y-m>16.1664</y-m>
 			<z-m>-0.23</z-m>
 		</position>
 		<direction>
-			<x>-1.0</x>
+			<x>-1</x>
 			<y>0</y>
 			<z>-0.05</z>
 		</direction>
@@ -230,7 +188,7 @@
 			<r>0.25</r>
 			<g>0.25</g>
 			<b>0.25</b>
-			<a>1</a>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>1.0</r>
@@ -249,9 +207,9 @@
 			<l>0.01</l>
 			<q>0.0</q>
 		</attenuation>
-		<spot-exponent>100.0</spot-exponent>
-		<spot-cutoff>25.0</spot-cutoff>
-		<range-m>2500.0</range-m>
+		<spot-exponent>75</spot-exponent>
+		<spot-cutoff>25</spot-cutoff>
+		<range-m>2500</range-m>
 	</light>
 	
 	<model>
@@ -284,7 +242,7 @@
 			<z-m>0.384018</z-m>
 		</position>
 		<direction>
-			<x>1.0</x>
+			<x>1</x>
 			<y>-0.667</y>
 			<z>0.100</z>
 		</direction>
@@ -292,7 +250,7 @@
 			<r>0.35</r>
 			<g>0.35</g>
 			<b>0.35</b>
-			<a>1</a>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>1.0</r>
@@ -326,7 +284,7 @@
 			<z-m>0.384018</z-m>
 		</position>
 		<direction>
-			<x>1.0</x>
+			<x>1</x>
 			<y>0.667</y>
 			<z>0.100</z>
 		</direction>
@@ -334,7 +292,7 @@
 			<r>0.35</r>
 			<g>0.35</g>
 			<b>0.35</b>
-			<a>1</a>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>1.0</r>
@@ -388,7 +346,7 @@
 			<z-m>0.382021</z-m>
 		</position>
 		<direction>
-			<x>1.0</x>
+			<x>1</x>
 			<y>-0.5</y>
 			<z>0.10</z>
 		</direction>
@@ -396,7 +354,7 @@
 			<r>0.95</r>
 			<g>0.95</g>
 			<b>0.95</b>
-			<a>1</a>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>1.0</r>
@@ -430,7 +388,7 @@
 			<z-m>0.382021</z-m>
 		</position>
 		<direction>
-			<x>1.0</x>
+			<x>1</x>
 			<y>0.5</y>
 			<z>0.10</z>
 		</direction>
@@ -438,7 +396,7 @@
 			<r>0.95</r>
 			<g>0.95</g>
 			<b>0.95</b>
-			<a>1</a>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>1.0</r>
@@ -492,7 +450,7 @@
 			<z-m>-0.292114</z-m>
 		</position>
 		<direction>
-			<x>-1.0</x>
+			<x>-1</x>
 			<y>-0.75</y>
 			<z>-0.05</z>
 		</direction>
@@ -500,7 +458,7 @@
 			<r>0.25</r>
 			<g>0.25</g>
 			<b>0.25</b>
-			<a>1</a>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>1.0</r>
@@ -534,7 +492,7 @@
 			<z-m>-0.292114</z-m>
 		</position>
 		<direction>
-			<x>-1.0</x>
+			<x>-1</x>
 			<y>0.75</y>
 			<z>-0.05</z>
 		</direction>
@@ -542,7 +500,7 @@
 			<r>0.25</r>
 			<g>0.25</g>
 			<b>0.25</b>
-			<a>1</a>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>1.0</r>
@@ -597,21 +555,21 @@
 		</position>
 		<ambient>
 			<r>0.78</r>
-			<g>0.00</g>
-			<b>0.00</b>
-			<a>1</a>
+			<g>0.0</g>
+			<b>0.0</b>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>0.78</r>
-			<g>0.00</g>
-			<b>0.00</b>
-			<a>1</a>
+			<g>0.0</g>
+			<b>0.0</b>
+			<a>1.0</a>
 		</diffuse>
 		<specular>
 			<r>0.98</r>
-			<g>0.00</g>
-			<b>0.00</b>
-			<a>1</a>
+			<g>0.0</g>
+			<b>0.0</b>
+			<a>1.0</a>
 		</specular>
 		<attenuation>
 			<c>1.0</c>
@@ -632,21 +590,21 @@
 		</position>
 		<ambient>
 			<r>0.78</r>
-			<g>0.00</g>
-			<b>0.00</b>
-			<a>1</a>
+			<g>0.0</g>
+			<b>0.0</b>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>0.78</r>
-			<g>0.00</g>
-			<b>0.00</b>
-			<a>1</a>
+			<g>0.0</g>
+			<b>0.0</b>
+			<a>1.0</a>
 		</diffuse>
 		<specular>
 			<r>0.98</r>
-			<g>0.00</g>
-			<b>0.00</b>
-			<a>1</a>
+			<g>0.0</g>
+			<b>0.0</b>
+			<a>1.0</a>
 		</specular>
 		<attenuation>
 			<c>1.0</c>
@@ -676,27 +634,27 @@
 			<z-m>-0.066558</z-m>
 		</position>
 		<direction>
-			<x>-1.0</x>
-			<y>-1.0</y>
+			<x>-1</x>
+			<y>-1</y>
 			<z>-0.25</z>
 		</direction>
 		<ambient>
 			<r>0.20</r>
-			<g>0.00</g>
-			<b>0.00</b>
-			<a>1</a>
+			<g>0.0</g>
+			<b>0.0</b>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>0.78</r>
-			<g>0.00</g>
-			<b>0.00</b>
-			<a>1</a>
+			<g>0.0</g>
+			<b>0.0</b>
+			<a>1.0</a>
 		</diffuse>
 		<specular>
 			<r>0.98</r>
-			<g>0.00</g>
-			<b>0.00</b>
-			<a>1</a>
+			<g>0.0</g>
+			<b>0.0</b>
+			<a>1.0</a>
 		</specular>
 	    <attenuation>
 			<c>1.0</c>
@@ -710,7 +668,7 @@
 	
 	<model>
 		<name>Left Strobe Light Fwd</name>
-		<path>Aircraft/MD-80/Models/Effects/Lights/strobe.xml</path>
+		<path>Aircraft/MD-80/Models/Effects/Lights/strobe-left.xml</path>
 		<offsets>
 			<x-m>27.47</x-m>
 			<y-m>-16.02</y-m>
@@ -728,27 +686,27 @@
 			<z-m>-0.066558</z-m>
 		</position>
 		<direction>
-			<x>-1.0</x>
-			<y>-1.0</y>
+			<x>-1</x>
+			<y>-1</y>
 			<z>-0.25</z>
 		</direction>
 		<ambient>
 			<r>0.5</r>
-			<g>0.00</g>
-			<b>0.00</b>
-			<a>1</a>
+			<g>0.0</g>
+			<b>0.0</b>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>0.78</r>
 			<g>0.78</g>
 			<b>0.78</b>
-			<a>1</a>
+			<a>1.0</a>
 		</diffuse>
 		<specular>
 			<r>0.98</r>
 			<g>0.98</g>
 			<b>0.98</b>
-			<a>1</a>
+			<a>1.0</a>
 		</specular>
 	    <attenuation>
 			<c>1.0</c>
@@ -780,27 +738,27 @@
 			<z-m>-0.066558</z-m>
 		</position>
 		<direction>
-			<x>-1.0</x>
-			<y>1.0</y>
+			<x>-1</x>
+			<y>1</y>
 			<z>-0.25</z>
 		</direction>
 		<ambient>
-			<r>0.00</r>
+			<r>0.0</r>
 			<g>0.20</g>
-			<b>0.00</b>
-			<a>1</a>
+			<b>0.0</b>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
-			<r>0.00</r>
+			<r>0.0</r>
 			<g>0.78</g>
-			<b>0.00</b>
-			<a>1</a>
+			<b>0.0</b>
+			<a>1.0</a>
 		</diffuse>
 		<specular>
-			<r>0.00</r>
+			<r>0.0</r>
 			<g>0.98</g>
-			<b>0.00</b>
-			<a>1</a>
+			<b>0.0</b>
+			<a>1.0</a>
 		</specular>
 	    <attenuation>
 			<c>1.0</c>
@@ -814,7 +772,7 @@
 	
 	<model>
 		<name>Right Strobe Light Fwd</name>
-		<path>Aircraft/MD-80/Models/Effects/Lights/strobe.xml</path>
+		<path>Aircraft/MD-80/Models/Effects/Lights/strobe-right.xml</path>
 		<offsets>
 			<x-m>27.47</x-m>
 			<y-m>16.02</y-m>
@@ -832,27 +790,27 @@
 			<z-m>-0.066558</z-m>
 		</position>
 		<direction>
-			<x>-1.0</x>
-			<y>1.0</y>
+			<x>-1</x>
+			<y>1</y>
 			<z>-0.25</z>
 		</direction>
 		<ambient>
 			<r>0.5</r>
-			<g>0.00</g>
-			<b>0.00</b>
-			<a>1</a>
+			<g>0.0</g>
+			<b>0.0</b>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>0.78</r>
 			<g>0.78</g>
 			<b>0.78</b>
-			<a>1</a>
+			<a>1.0</a>
 		</diffuse>
 		<specular>
 			<r>0.98</r>
 			<g>0.98</g>
 			<b>0.98</b>
-			<a>1</a>
+			<a>1.0</a>
 		</specular>
 	    <attenuation>
 			<c>1.0</c>
@@ -868,7 +826,7 @@
 		<name>Left Position Light Aft</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/rearnav.xml</path>
 		<offsets>
-			<x-m>29.0</x-m>
+			<x-m>29</x-m>
 			<y-m>-16.3553</y-m>
 			<z-m>-0.044478</z-m>
 		</offsets>
@@ -879,12 +837,12 @@
 		<type>spot</type>
 		<dim-factor><property>systems/exterior-lights/position-light</property></dim-factor>
 		<position>
-			<x-m>29.0</x-m>
+			<x-m>29</x-m>
 			<y-m>-16.3553</y-m>
 			<z-m>-0.044478</z-m>
 		</position>
 		<direction>
-			<x>1.0</x>
+			<x>1</x>
 			<y>-0.0</y>
 			<z>-0.25</z>
 		</direction>
@@ -892,7 +850,7 @@
 			<r>0.25</r>
 			<g>0.25</g>
 			<b>0.25</b>
-			<a>1</a>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>1.0</r>
@@ -920,7 +878,7 @@
 		<name>Left Strobe Light Aft</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/strobe-aft.xml</path>
 		<offsets>
-			<x-m>29.0</x-m>
+			<x-m>29</x-m>
 			<y-m>-16.3553</y-m>
 			<z-m>-0.044478</z-m>
 		</offsets>
@@ -931,32 +889,32 @@
 		<type>spot</type>
 		<dim-factor><property>/sim/model/lights/strobe/state</property></dim-factor>
 		<position>
-			<x-m>29.0</x-m>
+			<x-m>29</x-m>
 			<y-m>-16.3553</y-m>
 			<z-m>-0.044478</z-m>
 		</position>
 		<direction>
-			<x>1.0</x>
+			<x>1</x>
 			<y>0.0</y>
 			<z>-0.25</z>
 		</direction>
 		<ambient>
 			<r>0.5</r>
-			<g>0.00</g>
-			<b>0.00</b>
-			<a>1</a>
+			<g>0.0</g>
+			<b>0.0</b>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>0.78</r>
 			<g>0.78</g>
 			<b>0.78</b>
-			<a>1</a>
+			<a>1.0</a>
 		</diffuse>
 		<specular>
 			<r>0.98</r>
 			<g>0.98</g>
 			<b>0.98</b>
-			<a>1</a>
+			<a>1.0</a>
 		</specular>
 	    <attenuation>
 			<c>1.0</c>
@@ -972,7 +930,7 @@
 		<name>Right Position Light Aft</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/rearnav.xml</path>
 		<offsets>
-			<x-m>29.0</x-m>
+			<x-m>29</x-m>
 			<y-m>16.3553</y-m>
 			<z-m>-0.044478</z-m>
 		</offsets>
@@ -983,12 +941,12 @@
 		<type>spot</type>
 		<dim-factor><property>systems/exterior-lights/position-light</property></dim-factor>
 		<position>
-			<x-m>29.0</x-m>
+			<x-m>29</x-m>
 			<y-m>16.3553</y-m>
 			<z-m>-0.044478</z-m>
 		</position>
 		<direction>
-			<x>1.0</x>
+			<x>1</x>
 			<y>-0.0</y>
 			<z>-0.25</z>
 		</direction>
@@ -996,7 +954,7 @@
 			<r>0.25</r>
 			<g>0.25</g>
 			<b>0.25</b>
-			<a>1</a>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>1.0</r>
@@ -1024,7 +982,7 @@
 		<name>Right Strobe Light Aft</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/strobe-aft.xml</path>
 		<offsets>
-			<x-m>29.0</x-m>
+			<x-m>29</x-m>
 			<y-m>16.3553</y-m>
 			<z-m>-0.044478</z-m>
 		</offsets>
@@ -1035,32 +993,32 @@
 		<type>spot</type>
 		<dim-factor><property>/sim/model/lights/strobe/state</property></dim-factor>
 		<position>
-			<x-m>29.0</x-m>
+			<x-m>29</x-m>
 			<y-m>16.3553</y-m>
 			<z-m>-0.044478</z-m>
 		</position>
 		<direction>
-			<x>1.0</x>
+			<x>1</x>
 			<y>0.0</y>
 			<z>-0.25</z>
 		</direction>
 		<ambient>
 			<r>0.5</r>
-			<g>0.00</g>
-			<b>0.00</b>
-			<a>1</a>
+			<g>0.0</g>
+			<b>0.0</b>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
 			<r>0.78</r>
 			<g>0.78</g>
 			<b>0.78</b>
-			<a>1</a>
+			<a>1.0</a>
 		</diffuse>
 		<specular>
 			<r>0.98</r>
 			<g>0.98</g>
 			<b>0.98</b>
-			<a>1</a>
+			<a>1.0</a>
 		</specular>
 	    <attenuation>
 			<c>1.0</c>
@@ -1076,7 +1034,7 @@
 		<name>Left Logo Light Aft</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/rearlogoL.xml</path>
 		<offsets>
-			<x-m>29.0</x-m>
+			<x-m>29</x-m>
 			<y-m>-16.2553</y-m>
 			<z-m>-0.044478</z-m>
 		</offsets>
@@ -1086,7 +1044,7 @@
 		<name>Right Logo Light Aft</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/rearlogoR.xml</path>
 		<offsets>
-			<x-m>29.0</x-m>
+			<x-m>29</x-m>
 			<y-m>16.2553</y-m>
 			<z-m>-0.044478</z-m>
 		</offsets>
@@ -1097,32 +1055,32 @@
 		<type>spot</type>
 		<dim-factor><property>systems/exterior-lights/logo-lights</property></dim-factor>
 		<position>
-			<x-m>29.0</x-m>
+			<x-m>29</x-m>
 			<y-m>-16.2553</y-m>
 			<z-m>-0.044478</z-m>
 		</position>
 		<direction>
-			<x>0.60</x>
+			<x>0.6</x>
 			<y>0.866</y>
 			<z>0.175</z>
 		</direction>
 		<ambient>
-			<r>1.00</r>
-			<g>1.00</g>
-			<b>1.00</b>
-			<a>1</a>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
-			<r>1.00</r>
-			<g>1.00</g>
-			<b>1.00</b>
-			<a>1</a>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
 		</diffuse>
 		<specular>
 			<r>0.98</r>
 			<g>0.98</g>
 			<b>0.98</b>
-			<a>1</a>
+			<a>1.0</a>
 		</specular>
 	    <attenuation>
 			<c>1.0</c>
@@ -1139,32 +1097,32 @@
 		<type>spot</type>
 		<dim-factor><property>systems/exterior-lights/logo-lights</property></dim-factor>
 		<position>
-			<x-m>29.0</x-m>
+			<x-m>29</x-m>
 			<y-m>16.2553</y-m>
 			<z-m>-0.044478</z-m>
 		</position>
 		<direction>
-			<x>0.60</x>
+			<x>0.6</x>
 			<y>-0.866</y>
 			<z>0.175</z>
 		</direction>
 		<ambient>
-			<r>1.00</r>
-			<g>1.00</g>
-			<b>1.00</b>
-			<a>1</a>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
 		</ambient>
 		<diffuse>
-			<r>1.00</r>
-			<g>1.00</g>
-			<b>1.00</b>
-			<a>1</a>
+			<r>1.0</r>
+			<g>1.0</g>
+			<b>1.0</b>
+			<a>1.0</a>
 		</diffuse>
 		<specular>
 			<r>0.98</r>
 			<g>0.98</g>
 			<b>0.98</b>
-			<a>1</a>
+			<a>1.0</a>
 		</specular>
 	    <attenuation>
 			<c>1.0</c>
@@ -1244,7 +1202,7 @@
 		<object-name>SlatStrutsL</object-name>
 		<property>sim/multiplay/generic/float[6]</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.00</dep></entry>
+			<entry><ind>0.0</ind><dep>0.0</dep></entry>
 			<entry><ind>0.5</ind><dep>0.28</dep></entry>
 			<entry><ind>1.0</ind><dep>0.56</dep></entry>
 		</interpolation>
@@ -1287,7 +1245,7 @@
 		<object-name>SlatStrutsR</object-name>
 		<property>sim/multiplay/generic/float[6]</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>0.00</dep></entry>
+			<entry><ind>0.0</ind><dep>0.0</dep></entry>
 			<entry><ind>0.5</ind><dep>0.28</dep></entry>
 			<entry><ind>1.0</ind><dep>0.56</dep></entry>
 		</interpolation>

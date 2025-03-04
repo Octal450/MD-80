@@ -13,7 +13,7 @@
 	</animation>
 	
 	<effect>
-		<inherits-from>Aircraft/A320-family/Models/lights/ALS/rearlogoR</inherits-from>
+		<inherits-from>Aircraft/MD-80/Models/Effects/Lights/rearlogoR</inherits-from>
 		<object-name>tailnavlightals</object-name>
 	</effect>
 	
