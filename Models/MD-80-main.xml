@@ -99,21 +99,21 @@
 	</light>
 	
 	<model>
-		<name>Nose Landing Light</name>
+		<name>Nose Landing Light 1</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/landinglightN.xml</path>
 		<offsets>
 			<x-m>2.46026</x-m>
-			<y-m>0.13963</y-m>
+			<y-m>-0.13963</y-m>
 			<z-m>-1.32</z-m>
 		</offsets>
 	</model>
 	
 	<model>
-		<name>Nose Taxi Light</name>
-		<path>Aircraft/MD-80/Models/Effects/Lights/taxilight.xml</path>
+		<name>Nose Landing Light 2</name>
+		<path>Aircraft/MD-80/Models/Effects/Lights/landinglightN.xml</path>
 		<offsets>
 			<x-m>2.46026</x-m>
-			<y-m>-0.13963</y-m>
+			<y-m>0.13963</y-m>
 			<z-m>-1.32</z-m>
 		</offsets>
 	</model>
