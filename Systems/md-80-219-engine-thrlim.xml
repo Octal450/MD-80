@@ -15,6 +15,50 @@
 	
 	<channel name="Thrust Limits">
 		
+		<!-- Begin EPR temperature compensation -->
+		<fcs_function name="/systems/engines/limit/n1-epr-temp-factor-table"> <!-- This table sets the EPR vs N1 factor since the rated-thrust-n1 property is set by EPR -->
+			<function>
+				<table>
+					<independentVar lookup="row">/position/altitude-ft</independentVar>
+					<independentVar lookup="column">propulsion/tat-c</independentVar>
+					<tableData>
+						      -61   -31   -1     29    59
+						-2000  77.9  82.3  86.4  90.5  94.6
+						    0  80.3  84.9  89.1  93.3  97.5
+						10000  85.7  88.5  93.0  94.2  98.6
+						45000  85.4  85.7  90.1  94.5  98.9
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/engines/limit/n1-epr-temp-factor-ref">
+			<function>
+				<table>
+					<independentVar lookup="row">/position/altitude-ft</independentVar>
+					<tableData> <!-- @ 29C -->
+						-2000  90.5
+						    0  93.3
+						10000  94.2
+						45000  94.5
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/engines/limit/n1-epr-temp-factor">
+			<function>
+				<max>
+					<quotient>
+						<property>/systems/engines/limit/n1-epr-temp-factor-ref</property>
+						<property>/systems/engines/limit/n1-epr-temp-factor-table</property>
+					</quotient>
+					<value>0.000001</value> <!-- Prevent divide by 0 further on - shouldn't happen as this should be around 1 -->
+				</max>
+			</function>
+		</fcs_function>
+		<!-- End EPR temperature compensation -->
+		
 		<fcs_function name="/systems/engines/limit/rated-thrust-epr"> <!-- From FCOM + Extrapolation, rated 29C - hence table stops -->
 			<function>
 				<table>
@@ -58,19 +102,22 @@
 		
 		<fcs_function name="/systems/engines/limit/rated-thrust-n1"> <!-- Opposite of EPR Calc -->
 			<function>
-				<pow>
-					<table>
-						<independentVar lookup="row">/systems/engines/limit/rated-thrust-ref</independentVar>
-						<tableData>
-							0.03     81455.7
-							1.00  10571289.8
-						</tableData>
-					</table>
-					<quotient>
-						<value>1</value>
-						<value>3.5</value>
-					</quotient>
-				</pow>
+				<quotient>
+					<pow>
+						<table>
+							<independentVar lookup="row">/systems/engines/limit/rated-thrust-ref</independentVar>
+							<tableData>
+								0.03     81455.7
+								1.00  10571289.8
+							</tableData>
+						</table>
+						<quotient>
+							<value>1</value>
+							<value>3.5</value>
+						</quotient>
+					</pow>
+ 					<property>/systems/engines/limit/n1-epr-temp-factor</property>
+ 				</quotient>
 			</function>
 		</fcs_function>
 		
@@ -504,19 +551,22 @@
 		
 		<fcs_function name="/systems/engines/limit/active-norm-input"> <!-- Opposite of EPR Calc -->
 			<function>
-				<pow>
-					<table>
-						<independentVar lookup="row">/systems/engines/limit/active-norm-ref</independentVar>
-						<tableData>
-							0.03     81455.7
-							1.00  10571289.8
-						</tableData>
-					</table>
-					<quotient>
-						<value>1</value>
-						<value>3.5</value>
-					</quotient>
-				</pow>
+				<quotient>
+					<pow>
+						<table>
+							<independentVar lookup="row">/systems/engines/limit/active-norm-ref</independentVar>
+							<tableData>
+								0.03     81455.7
+								1.00  10571289.8
+							</tableData>
+						</table>
+						<quotient>
+							<value>1</value>
+							<value>3.5</value>
+						</quotient>
+					</pow>
+ 					<property>/systems/engines/limit/n1-epr-temp-factor</property>
+ 				</quotient>
 			</function>
 		</fcs_function>
 		
@@ -584,19 +634,22 @@
 		
 		<fcs_function name="/systems/engines/limit/highest-norm-input"> <!-- Opposite of EPR Calc -->
 			<function>
-				<pow>
-					<table>
-						<independentVar lookup="row">/systems/engines/limit/highest-norm-ref</independentVar>
-						<tableData>
-							0.03     81455.7
-							1.00  10571289.8
-						</tableData>
-					</table>
-					<quotient>
-						<value>1</value>
-						<value>3.5</value>
-					</quotient>
-				</pow>
+				<quotient>
+					<pow>
+						<table>
+							<independentVar lookup="row">/systems/engines/limit/highest-norm-ref</independentVar>
+							<tableData>
+								0.03     81455.7
+								1.00  10571289.8
+							</tableData>
+						</table>
+						<quotient>
+							<value>1</value>
+							<value>3.5</value>
+						</quotient>
+					</pow>
+ 					<property>/systems/engines/limit/n1-epr-temp-factor</property>
+ 				</quotient>
 			</function>
 		</fcs_function>
 		
@@ -701,19 +754,22 @@
 		
 		<fcs_function name="/systems/engines/limit/idle-norm-input"> <!-- Opposite of EPR Calc -->
 			<function>
-				<pow>
-					<table>
-						<independentVar lookup="row">/systems/engines/limit/idle-norm-ref</independentVar>
-						<tableData>
-							0.03     81455.7
-							1.00  10571289.8
-						</tableData>
-					</table>
-					<quotient>
-						<value>1</value>
-						<value>3.5</value>
-					</quotient>
-				</pow>
+				<quotient>
+					<pow>
+						<table>
+							<independentVar lookup="row">/systems/engines/limit/idle-norm-ref</independentVar>
+							<tableData>
+								0.03     81455.7
+								1.00  10571289.8
+							</tableData>
+						</table>
+						<quotient>
+							<value>1</value>
+							<value>3.5</value>
+						</quotient>
+					</pow>
+ 					<property>/systems/engines/limit/n1-epr-temp-factor</property>
+ 				</quotient>
 			</function>
 		</fcs_function>
 		
@@ -889,19 +945,22 @@
 		
 		<fcs_function name="/systems/engines/art/max-norm-input"> <!-- Opposite of EPR Calc -->
 			<function>
-				<pow>
-					<table>
-						<independentVar lookup="row">/systems/engines/art/max-norm-ref</independentVar>
-						<tableData>
-							0.03     81455.7
-							1.00  10571289.8
-						</tableData>
-					</table>
-					<quotient>
-						<value>1</value>
-						<value>3.5</value>
-					</quotient>
-				</pow>
+				<quotient>
+					<pow>
+						<table>
+							<independentVar lookup="row">/systems/engines/art/max-norm-ref</independentVar>
+							<tableData>
+								0.03     81455.7
+								1.00  10571289.8
+							</tableData>
+						</table>
+						<quotient>
+							<value>1</value>
+							<value>3.5</value>
+						</quotient>
+					</pow>
+ 					<property>/systems/engines/limit/n1-epr-temp-factor</property>
+ 				</quotient>
 			</function>
 		</fcs_function>
 		
@@ -945,19 +1004,22 @@
 		
 		<fcs_function name="/systems/engines/art/normal-norm-input"> <!-- Opposite of EPR Calc -->
 			<function>
-				<pow>
-					<table>
-						<independentVar lookup="row">/systems/engines/art/normal-norm-ref</independentVar>
-						<tableData>
-							0.03     81455.7
-							1.00  10571289.8
-						</tableData>
-					</table>
-					<quotient>
-						<value>1</value>
-						<value>3.5</value>
-					</quotient>
-				</pow>
+				<quotient>
+					<pow>
+						<table>
+							<independentVar lookup="row">/systems/engines/art/normal-norm-ref</independentVar>
+							<tableData>
+								0.03     81455.7
+								1.00  10571289.8
+							</tableData>
+						</table>
+						<quotient>
+							<value>1</value>
+							<value>3.5</value>
+						</quotient>
+					</pow>
+ 					<property>/systems/engines/limit/n1-epr-temp-factor</property>
+ 				</quotient>
 			</function>
 		</fcs_function>
 		
@@ -1087,19 +1149,22 @@
 		
 		<fcs_function name="/systems/engines/limit/man-1-norm-input"> <!-- Opposite of EPR Calc -->
 			<function>
-				<pow>
-					<table>
-						<independentVar lookup="row">/systems/engines/limit/man-1-norm-ref</independentVar>
-						<tableData>
-							0.03     81455.7
-							1.00  10571289.8
-						</tableData>
-					</table>
-					<quotient>
-						<value>1</value>
-						<value>3.5</value>
-					</quotient>
-				</pow>
+				<quotient>
+					<pow>
+						<table>
+							<independentVar lookup="row">/systems/engines/limit/man-1-norm-ref</independentVar>
+							<tableData>
+								0.03     81455.7
+								1.00  10571289.8
+							</tableData>
+						</table>
+						<quotient>
+							<value>1</value>
+							<value>3.5</value>
+						</quotient>
+					</pow>
+ 					<property>/systems/engines/limit/n1-epr-temp-factor</property>
+ 				</quotient>
 			</function>
 		</fcs_function>
 		
@@ -1197,19 +1262,22 @@
 		
 		<fcs_function name="/systems/engines/limit/man-2-norm-input"> <!-- Opposite of EPR Calc -->
 			<function>
-				<pow>
-					<table>
-						<independentVar lookup="row">/systems/engines/limit/man-2-norm-ref</independentVar>
-						<tableData>
-							0.03     81455.7
-							1.00  10571289.8
-						</tableData>
-					</table>
-					<quotient>
-						<value>1</value>
-						<value>3.5</value>
-					</quotient>
-				</pow>
+				<quotient>
+					<pow>
+						<table>
+							<independentVar lookup="row">/systems/engines/limit/man-2-norm-ref</independentVar>
+							<tableData>
+								0.03     81455.7
+								1.00  10571289.8
+							</tableData>
+						</table>
+						<quotient>
+							<value>1</value>
+							<value>3.5</value>
+						</quotient>
+					</pow>
+ 					<property>/systems/engines/limit/n1-epr-temp-factor</property>
+ 				</quotient>
 			</function>
 		</fcs_function>
 		
@@ -1320,7 +1388,10 @@
 		<fcs_function name="/systems/engines/epr-actual-1-ref">
 			<function>
 				<pow>
-					<property>/systems/engines/n1-actual-1</property>
+ 					<product>
+ 						<property>/systems/engines/n1-actual-1</property>
+ 						<property>/systems/engines/limit/n1-epr-temp-factor</property>
+ 					</product>
 					<value>3.5</value>
 				</pow>
 			</function>
@@ -1362,7 +1433,10 @@
 		<fcs_function name="/systems/engines/epr-actual-2-ref">
 			<function>
 				<pow>
-					<property>/systems/engines/n1-actual-2</property>
+ 					<product>
+ 						<property>/systems/engines/n1-actual-2</property>
+ 						<property>/systems/engines/limit/n1-epr-temp-factor</property>
+ 					</product>
 					<value>3.5</value>
 				</pow>
 			</function>

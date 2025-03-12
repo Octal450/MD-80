@@ -16,7 +16,7 @@
 	<channel name="Thrust Limits">
 		
 		<!-- Begin EPR temperature compensation -->
-		<fcs_function name="/systems/engines/limit/n1-epr-temp-factor-table">
+		<fcs_function name="/systems/engines/limit/n1-epr-temp-factor-table"> <!-- This table sets the EPR vs N1 factor since the rated-thrust-n1 property is set by EPR -->
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
@@ -26,7 +26,7 @@
 						-2000  76.6  80.9  84.9  88.9  92.9
 						    0  79.0  83.4  87.6  91.6  95.7
 						10000  84.2  87.0  91.3  92.5  96.8
-						43000  83.9  84.2  88.5  92.8  97.1
+						45000  83.9  84.2  88.5  92.8  97.1
 					</tableData>
 				</table>
 			</function>
@@ -36,7 +36,7 @@
 			<function>
 				<table>
 					<independentVar lookup="row">/position/altitude-ft</independentVar>
-					<tableData> <!-- Rated N1 @ 29C -->
+					<tableData> <!-- @ 29C -->
 						-2000  88.9
 						    0  91.6
 						10000  92.5
