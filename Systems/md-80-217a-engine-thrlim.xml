@@ -691,21 +691,24 @@
 						<value>0</value>
 					</eq>
 					<pow>
-						<table>
-							<independentVar lookup="row">velocities/mach</independentVar>
-							<independentVar lookup="column">/systems/fcs/flaps/input</independentVar> <!-- Take advantage of table interpolation, values same -->
-							<independentVar lookup="table">/position/altitude-ft</independentVar>
-							<tableData breakPoint="0">
-								      0     1
-								0.21  30.7  30.7
-								0.70  42.7  42.7
-							</tableData>
-							<tableData breakPoint="40000">
-								      0     1
-								0.55  48.4  48.4
-								0.90  56.8  56.8
-							</tableData>
-						</table>
+						<product>
+							<table>
+								<independentVar lookup="row">velocities/mach</independentVar>
+								<independentVar lookup="column">/systems/fcs/flaps/input</independentVar> <!-- Take advantage of table interpolation, values same -->
+								<independentVar lookup="table">/position/altitude-ft</independentVar>
+								<tableData breakPoint="0">
+									      0     1
+									0.21  30.7  30.7
+									0.70  42.7  42.7
+								</tableData>
+								<tableData breakPoint="40000">
+									      0     1
+									0.55  48.4  48.4
+									0.90  56.8  56.8
+								</tableData>
+							</table>
+							<property>/systems/engines/limit/n1-epr-temp-factor</property>
+						</product>
 						<value>3.5</value>
 					</pow>
 					<value>0</value>
