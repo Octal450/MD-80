@@ -39,7 +39,7 @@
 				<location unit="M"> <!-- Fudged for accuracy -->
 					<x>33.7569</x>
 					<y>-1.4</y>
-					<z>-0.11143</z>
+					<z>-0.15426</z>
 				</location>
 				<orient unit="DEG">
 					<roll>0</roll>
@@ -55,7 +55,7 @@
 				<location unit="M"> <!-- Fudged for accuracy -->
 					<x>33.7569</x>
 					<y>1.4</y>
-					<z>-0.11143</z>
+					<z>-0.15426</z>
 				</location>
 				<orient unit="DEG">
 					<roll>0</roll>

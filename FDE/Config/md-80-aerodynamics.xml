@@ -720,7 +720,7 @@
 				<property>aero/arm-factor</property> <!-- MD-87 -->
 				<property>aero/function/kCmdstab</property>
 				<toradians><property>/systems/fcs/stabilizer/final-deg</property></toradians>
-				<value>-2.7305</value>
+				<value>-2.7206</value>
 			</product>
 		</function>
 		
