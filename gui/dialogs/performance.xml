@@ -8,6 +8,9 @@
 	<name>performance</name>
 	<layout>vbox</layout>
 	
+	<x>0</x>
+	<y>0</y>
+	
 	<nasal>
 		<open>
 			setprop("/sim/gui/dialogs/performance/cg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/cg-percent-mac"), 0.1)) ~ "% MAC");
