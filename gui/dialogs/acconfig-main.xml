@@ -282,7 +282,7 @@
 				</binding>
 				<binding>
 					<command>property-assign</command>
-					<property>/controls/electrical/extg-pwr</property>
+					<property>/controls/electrical/ext-gndsvc</property>
 					<value>0</value>
 				</binding>
 				<binding>
