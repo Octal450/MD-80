@@ -29,7 +29,7 @@ var systemsInit = func() {
 	systems.IGNITION.init();
 	systems.IRS.init();
 	systems.PNEUMATICS.init();
-	dfgs.ITAF.init(0);
+	dfgs.ITAF.init();
 	systems.THRLIM.init();
 	instruments.EFIS.init();
 	
