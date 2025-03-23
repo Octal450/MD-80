@@ -225,8 +225,8 @@
 				<float n="4" alias="/engines/engine[1]/reverser-pos-norm"/>
 				<float n="5" alias="/gear/gear[0]/steering-norm"/>
 				<float n="6" alias="/fdm/jsbsim/fcs/slat-pos-norm"/>
-				<float n="7" alias="/controls/lighting/land-ext-l"/>
-				<float n="8" alias="/controls/lighting/land-ext-r"/>
+				<float n="7" alias="/systems/exterior-lights/left-landing-light-ext"/>
+				<float n="8" alias="/systems/exterior-lights/right-landing-light-ext"/>
 				<float n="9" alias="/systems/fcs/spoiler-l1/final-deg"/>
 				<float n="10" alias="/systems/fcs/spoiler-l2/final-deg"/>
 				<float n="11" alias="/systems/fcs/spoiler-l3/final-deg"/>
