@@ -1195,7 +1195,7 @@
 		</axis>
 	</animation>
 	
-	<!--  Yokes -->
+	<!-- Yokes -->
 	<animation>
 		<type>rotate</type>
 		<object-name>YokeColL</object-name>
