@@ -538,7 +538,7 @@
 			<test value="/systems/engines/limit/cruise">
 				/systems/engines/limit/active-mode-int eq 4
 			</test>
-			<test value="2.04">
+			<test value="1.94">
 				/systems/engines/limit/active-mode-int eq 6
 			</test>
 		</switch>
