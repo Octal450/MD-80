@@ -136,13 +136,13 @@ var Instrumentation = {
 	},
 };
 
+var Options = {
+	fms: props.globals.getNode("/options/fms"),
+};
+
 var Orientation = {
 	pitchDeg: props.globals.getNode("/orientation/pitch-deg"),
 	rollDeg: props.globals.getNode("/orientation/roll-deg"),
-};
-
-var Options = {
-	fms: props.globals.getNode("/options/fms"),
 };
 
 var Position = {
