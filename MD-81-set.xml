@@ -51,6 +51,7 @@
 		<eng type="string">209</eng>
 		<fms type="string">HT9100/PMS</fms>
 		<panel-mod type="bool">0</panel-mod>
+		<type type="string">MD-81</type>
 	</options>
 	
 	<payload n="0">

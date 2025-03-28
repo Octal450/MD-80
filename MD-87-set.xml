@@ -155,6 +155,7 @@
 		<eng type="string">217C</eng>
 		<fms type="string">HT9100/PMS</fms>
 		<panel-mod type="bool">1</panel-mod>
+		<type type="string">MD-87</type>
 	</options>
 	
 	<payload n="0">
