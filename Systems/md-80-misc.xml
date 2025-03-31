@@ -374,12 +374,12 @@
 			<test logic="AND" value="1">
 				/systems/caws/logic/overspeed eq 0
 				fcs/slat-pos-deg ge 11
-				/instrumentation/airspeed-indicator/indicated-speed-kt gt /systems/dfgs/speeds/flap-15-slat-full-max-kts
+				/instrumentation/airspeed-indicator/indicated-speed-kt gt /systems/dfgs/speeds/flap-15-20-slat-full-max-kts
 			</test>
 			<test logic="AND" value="1">
 				/systems/caws/logic/overspeed eq 0
 				fcs/slat-pos-deg ge 1
-				/instrumentation/airspeed-indicator/indicated-speed-kt gt /systems/dfgs/speeds/flap-11-slat-mid-max-kts
+				/instrumentation/airspeed-indicator/indicated-speed-kt gt /systems/dfgs/speeds/flap-0-13-slat-mid-max-kts
 			</test>
 		</switch>
 		
