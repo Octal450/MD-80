@@ -554,22 +554,6 @@
 	
 	<channel name="CAWS Sound Controller" execrate="8">
 		
-		<fcs_function name="/systems/caws/random">
-			<function>
-				<urandom/>
-			</function>
-		</fcs_function>
-		
-		<switch name="/systems/caws/logic/stall-random">
-			<default value="/systems/caws/random"/>
-			<test value="-1">
-				/controls/switches/stall-test eq -1
-			</test>
-			<test value="1">
-				/controls/switches/stall-test eq 1
-			</test>
-		</switch>
-		
 		<!-- Autopilot Horn -->
 		<switch name="/systems/caws/apoff/trigger">
 			<default value="/systems/caws/apoff/trigger"/>
@@ -724,6 +708,12 @@
 		</actuator>
 		
 		<!-- Stall Horns -->
+		<actuator name="/systems/caws/stall-1/logic-actuator"> <!-- Horn 1 is on a slight delay for some reason -->
+			<input>/systems/caws/logic/stall</input>
+			<rate_limit sense="incr">3</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+		</actuator>
+		
 		<switch name="/systems/caws/stall-1/trigger">
 			<default value="/systems/caws/stall-1/trigger"/>
 			<test logic="OR" value="0">
@@ -732,14 +722,7 @@
 			</test>
 			<test logic="AND" value="1">
 				/systems/caws/stall-1/out eq 0
-				/systems/caws/logic/stall eq 1
-				/controls/switches/stall-test ne 0
-			</test>
-			<test logic="AND" value="1">
-				/systems/caws/stall-1/out eq 0
-				/systems/caws/logic/stall eq 1
-				/systems/caws/stall-2/out eq 0
-				/systems/caws/logic/stall-random ge 0
+				/systems/caws/stall-1/logic-actuator eq 1
 			</test>
 		</switch>
 		
@@ -759,13 +742,6 @@
 			<test logic="AND" value="1">
 				/systems/caws/stall-2/out eq 0
 				/systems/caws/logic/stall eq 1
-				/controls/switches/stall-test ne 0
-			</test>
-			<test logic="AND" value="1">
-				/systems/caws/stall-2/out eq 0
-				/systems/caws/logic/stall eq 1
-				/systems/caws/stall-1/out eq 0
-				/systems/caws/logic/stall-random lt 0
 			</test>
 		</switch>
 		
