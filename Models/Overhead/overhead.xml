@@ -18,6 +18,10 @@
 	
 	<animation>
 		<type>material</type>
+		<object-name>AirPressLNeedle</object-name>
+		<object-name>AirPressRNeedle</object-name>
+		<object-name>AirValveLNeedle</object-name>
+		<object-name>AirValveRNeedle</object-name>
 		<object-name>ApuEgtNeedle</object-name>
 		<object-name>ApuRpmNeedle</object-name>
 		<object-name>ApuRpmNeedle2</object-name>
@@ -1228,7 +1232,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>PneuPressNeedle</object-name>
-		<property>instrumentation/pneu/psi</property>
+		<property>instrumentation/pneu-press/psi</property>
 		<interpolation>
 			<entry><ind>  0</ind><dep>    0</dep></entry>
 			<entry><ind>110</ind><dep>346.5</dep></entry>
@@ -2917,6 +2921,46 @@
 	</animation>
 	
 	<!-- Air Panel -->
+	<animation>
+		<type>rotate</type>
+		<object-name>AirPressLNeedle</object-name>
+		<property>instrumentation/air-press-l/psi</property>
+		<interpolation>
+			<entry><ind> 0</ind><dep>    0</dep></entry>
+			<entry><ind>55</ind><dep>346.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.09112</y-m>
+			<z-m>-0.2256</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AirPressRNeedle</object-name>
+		<property>instrumentation/air-press-r/psi</property>
+		<interpolation>
+			<entry><ind> 0</ind><dep>    0</dep></entry>
+			<entry><ind>55</ind><dep>346.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.12628</y-m>
+			<z-m>-0.2256</z-m>
+		</center>
+	</animation>
+	
 	<animation>
 		<type>knob</type>
 		<object-name>CkptTemp</object-name>

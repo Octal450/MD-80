@@ -17,7 +17,7 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="overhead.svg"
-   inkscape:export-filename="D:\Aircraft\MD-80\Models\Overhead\overhead.png"
+   inkscape:export-filename="D:\Aircraft\MD-80\Models\Overhead\overhead-labels.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -37,9 +37,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.25000003"
-     inkscape:cx="1433.4718"
-     inkscape:cy="2706.5996"
+     inkscape:zoom="0.70710687"
+     inkscape:cx="1804.6432"
+     inkscape:cy="1115.1598"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -214,13 +214,10 @@
          d="m 79,75.2602 1176.485,0 0,316.69 -837.985,0 0,-71.442 154.345,0 -2e-5,-154.70533 -187.17996,-0.69096 2e-5,123.89629 -25.37204,0 c -32.28745,0 -53.10143,20.48429 -55.293,55.293 l -3,47.649 -222,0 z"
          style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <path
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         sodipodi:nodetypes="cccssccc"
-         inkscape:connector-curvature="0"
-         id="rect7723"
-         d="m 1265.485,-262.9008 971.3749,0 0,171.513 -154.2319,0 c -68.1298,0 -110.1072,48.548785 -114.231,114.231 l -6.2011,98.769 -696.7109,0 z"
-         style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 1265.4844 2780.7363 L 1265.4844 3165.25 L 1962.1953 3165.25 L 1968.3965 3066.4805 C 1972.5203 3000.7983 2014.4991 2952.25 2082.6289 2952.25 L 2236.8594 2952.25 L 2236.8594 2780.7363 L 1265.4844 2780.7363 z M 1364.127 2854.9395 L 1782.625 2854.9395 C 1810.3099 2854.9394 1832.752 2877.3835 1832.752 2905.0684 C 1832.752 2932.7532 1810.3099 2955.1953 1782.625 2955.1953 L 1364.127 2955.1953 C 1336.4422 2955.1953 1313.998 2932.7532 1313.998 2905.0684 C 1313.998 2877.3836 1336.4422 2854.9395 1364.127 2854.9395 z "
+         transform="translate(0,-3043.6378)"
+         id="rect7723" />
       <path
          sodipodi:nodetypes="ccccc"
          inkscape:connector-curvature="0"
@@ -5146,13 +5143,13 @@
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          x="1363.6976"
-         y="-193.6597"
+         y="-193.6599"
          id="text4707"
          sodipodi:linespacing="125%"
          transform="scale(0.99999751,1.0000025)"><tspan
            sodipodi:role="line"
            x="1363.6976"
-           y="-193.6597"
+           y="-193.6599"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:100%;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff"
            id="tspan4710">L VALVE</tspan></text>
       <text
@@ -5162,26 +5159,26 @@
          sodipodi:linespacing="125%"
          id="text4712"
          y="-193.6597"
-         x="1501.5332"
+         x="1506.1461"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
            id="tspan4714"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:100%;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff"
            y="-193.6597"
-           x="1501.5332"
+           x="1506.1461"
            sodipodi:role="line">L</tspan></text>
       <text
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         x="1649.4603"
+         x="1639.7029"
          y="-193.6597"
          id="text4716"
          sodipodi:linespacing="125%"
          transform="scale(0.99999751,1.0000025)"><tspan
            sodipodi:role="line"
-           x="1649.4603"
+           x="1639.7029"
            y="-193.6597"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:100%;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff"
            id="tspan4718">R</tspan></text>
@@ -5288,18 +5285,18 @@
          transform="scale(0.99999751,1.0000025)"
          sodipodi:linespacing="125%"
          id="text4751"
-         y="-68.538696"
+         y="-68.538727"
          x="1364.7583"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
            id="tspan4753"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:100%;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff"
-           y="-68.538696"
+           y="-68.538727"
            x="1364.7583"
            sodipodi:role="line">CKPT TEMP</tspan><tspan
            id="tspan4755"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:100%;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff"
-           y="-48.538696"
+           y="-48.538731"
            x="1364.7583"
            sodipodi:role="line">AUTO</tspan></text>
       <text

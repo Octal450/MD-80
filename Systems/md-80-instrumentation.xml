@@ -2758,9 +2758,9 @@
 	
 	</channel>
 	
-	<channel name="Pneumatic Pressure Gauge" execrate="4">
+	<channel name="Pneumatic System Gauges" execrate="4">
 		
-		<switch name="/instrumentation/pneu/power-avail">
+		<switch name="/instrumentation/air-press-l/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
 				/systems/electrical/bus/emer-ac ge 112
@@ -2768,15 +2768,55 @@
 			</test>
 		</switch>
 		
-		<switch name="/instrumentation/pneu/psi-input">
-			<default value="/instrumentation/pneu/psi-input"/>
-			<test value="/systems/pneumatics/x-bleed/psi">
-				/instrumentation/pneu/power-avail eq 1
+		<switch name="/instrumentation/air-press-l/psi-input">
+			<default value="/instrumentation/air-press-l/psi-input"/>
+			<test value="/systems/pneumatics/bleed-l-psi">
+				/instrumentation/air-press-l/power-avail eq 1
 			</test>
 		</switch>
 		
-		<lag_filter name="/instrumentation/pneu/psi">
-			<input>/instrumentation/pneu/psi-input</input>
+		<lag_filter name="/instrumentation/air-press-l/psi">
+			<input>/instrumentation/air-press-l/psi-input</input>
+			<c1>15</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/air-press-r/power-avail">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/emer-ac ge 112
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/air-press-r/psi-input">
+			<default value="/instrumentation/air-press-r/psi-input"/>
+			<test value="/systems/pneumatics/bleed-r-psi">
+				/instrumentation/air-press-r/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/air-press-r/psi">
+			<input>/instrumentation/air-press-r/psi-input</input>
+			<c1>15</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/pneu-press/power-avail">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/emer-ac ge 112
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/pneu-press/psi-input">
+			<default value="/instrumentation/pneu-press/psi-input"/>
+			<test value="/systems/pneumatics/x-bleed/psi">
+				/instrumentation/pneu-press/power-avail eq 1
+			</test>
+		</switch>
+		
+		<lag_filter name="/instrumentation/pneu-press/psi">
+			<input>/instrumentation/pneu-press/psi-input</input>
 			<c1>15</c1>
 		</lag_filter>
 	
