@@ -693,6 +693,11 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/overhead/thunderstorm">
+			<input>/controls/lighting/thunderstorm</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/overhead/yaw-damper">
 			<input>/controls/fcs/yaw-damper</input>
 			<c1>20</c1>
@@ -717,6 +722,10 @@
 		
 		<switch name="/systems/lighting/capt-digital">
 			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/ac-l ge 112
+				/controls/lighting/thunderstorm eq 1
+			</test>
 			<test value="/controls/lighting/capt-digital">
 				/systems/electrical/bus/ac-l ge 112
 			</test>
@@ -738,6 +747,10 @@
 		
 		<switch name="/systems/lighting/fgcp-digital">
 			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/ac-r ge 112
+				/controls/lighting/thunderstorm eq 1
+			</test>
 			<test value="/controls/lighting/fgcp-digital">
 				/systems/electrical/bus/ac-r ge 112
 			</test>
@@ -752,6 +765,10 @@
 		
 		<switch name="/systems/lighting/fo-digital">
 			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/ac-r ge 112
+				/controls/lighting/thunderstorm eq 1
+			</test>
 			<test value="/controls/lighting/fo-digital">
 				/systems/electrical/bus/ac-r ge 112
 			</test>
@@ -773,6 +790,10 @@
 		
 		<switch name="/systems/lighting/pedestal-digital">
 			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/ac-l ge 112
+				/controls/lighting/thunderstorm eq 1
+			</test>
 			<test value="/controls/lighting/pedestal-digital">
 				/systems/electrical/bus/ac-l ge 112
 			</test>

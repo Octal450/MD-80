@@ -20,6 +20,7 @@ var variousReset = func() {
 	pts.Controls.Lighting.pedestalDigitalKnb.setValue(1);
 	pts.Controls.Lighting.positionStrobeLight.setValue(0);
 	pts.Controls.Lighting.taxiLight.setBoolValue(0);
+	pts.Controls.Lighting.thunderstorm.setBoolValue(0);
 	pts.Controls.Lighting.wingLights.setValue(0);
 	pts.Controls.Switches.gpws.setValue(0);
 	pts.Controls.Switches.gpwsCover.setBoolValue(0);
