@@ -608,7 +608,7 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/overhead/no-smok">
+		<lag_filter name="/controls/cockpit/overhead/no-smoke">
 			<input>/controls/switches/no-smoking-sign</input>
 			<c1>20</c1>
 		</lag_filter>

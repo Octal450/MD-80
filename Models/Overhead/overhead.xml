@@ -2173,7 +2173,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>NoSmok</object-name>
-		<property>controls/cockpit/overhead/no-smok</property>
+		<property>controls/cockpit/overhead/no-smoke</property>
 		<interpolation>
 			<entry><ind>-1</ind><dep>-30</dep></entry>
 			<entry><ind> 1</ind><dep> 30</dep></entry>
