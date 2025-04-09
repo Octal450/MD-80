@@ -318,7 +318,7 @@ var PANEL = {
 		systems.IRS.Controls.knob[1].setValue(1);
 		pts.Controls.Lighting.beacon.setBoolValue(1);
 		pts.Controls.Lighting.positionStrobeLight.setValue(0.5);
-		pts.Controls.Switches.seatbeltSign.setBoolValue(1);
+		pts.Controls.Switches.seatbeltSign.setValue(1);
 		
 		systems.IGNITION.fastStop(0);
 		systems.IGNITION.fastStop(1);
@@ -369,7 +369,7 @@ var PANEL = {
 		systems.IRS.Controls.knob[1].setValue(1);
 		pts.Controls.Lighting.beacon.setBoolValue(1);
 		pts.Controls.Lighting.positionStrobeLight.setValue(0.5);
-		pts.Controls.Switches.seatbeltSign.setBoolValue(1);
+		pts.Controls.Switches.seatbeltSign.setValue(1);
 		systems.FUEL.Controls.pumpAftL.setBoolValue(1);
 		systems.FUEL.Controls.pumpAftR.setBoolValue(1);
 		systems.FUEL.Controls.pumpFwdL.setBoolValue(1);
