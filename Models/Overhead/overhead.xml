@@ -26,10 +26,6 @@
 		<object-name>ApuRpmNeedle</object-name>
 		<object-name>ApuRpmNeedle2</object-name>
 		<object-name>Face</object-name>
-		<object-name>Labels</object-name>
-		<object-name>LabelsAuxTanks</object-name>
-		<object-name>LabelsEfis</object-name>
-		<object-name>LabelsIrs</object-name>
 		<object-name>IntegrityAcDcVoltFreq</object-name>
 		<object-name>IntegrityCadc</object-name>
 		<object-name>IntegrityEfisSel</object-name>
@@ -42,6 +38,10 @@
 		<object-name>IntegrityPanel</object-name>
 		<object-name>IntegrityVertGyro</object-name>
 		<object-name>IntegrityWiper</object-name>
+		<object-name>Labels</object-name>
+		<object-name>LabelsAuxTanks</object-name>
+		<object-name>LabelsEfis</object-name>
+		<object-name>LabelsIrs</object-name>
 		<object-name>PneuPressNeedle</object-name>
 		<emission>
 			<red>1.0</red>
