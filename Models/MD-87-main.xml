@@ -1056,7 +1056,7 @@
 	<light>
 		<name>Left Logo Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>systems/exterior-lights/logo-lights</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/logo-lightss</property></dim-factor>
 		<position>
 			<x-m>29</x-m>
 			<y-m>-16.2553</y-m>
@@ -1098,7 +1098,7 @@
 	<light>
 		<name>Right Logo Light Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>systems/exterior-lights/logo-lights</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/logo-lightss</property></dim-factor>
 		<position>
 			<x-m>29</x-m>
 			<y-m>16.2553</y-m>

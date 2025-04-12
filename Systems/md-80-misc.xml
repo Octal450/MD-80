@@ -238,10 +238,10 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/exterior-lights/logo-lights">
+		<switch name="/systems/exterior-lights/logo-lightss">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/controls/lighting/logo-lights eq 1
+				/controls/lighting/logo-lightss eq 1
 				/systems/electrical/bus/ac-gndsvc ge 112
 			</test>
 		</switch>
