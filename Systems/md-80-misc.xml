@@ -216,7 +216,7 @@
 		<switch name="/systems/exterior-lights/position-light">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/controls/lighting/position-strobe-light ge 0.5
+				/controls/lighting/position-strobe-lights ge 0.5
 				/systems/electrical/bus/emer-ac ge 112
 			</test>
 		</switch>
@@ -224,7 +224,7 @@
 		<switch name="/systems/exterior-lights/strobe-light">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/controls/lighting/position-strobe-light eq 1
+				/controls/lighting/position-strobe-lights eq 1
 				/gear/gear[0]/wow ne 1
 				/systems/electrical/bus/emer-ac ge 112
 			</test>

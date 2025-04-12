@@ -2721,7 +2721,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SwNavLts</object-name>
-		<property>controls/cockpit/fgcp/position-strobe-light</property>
+		<property>controls/cockpit/fgcp/position-strobe-lights</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -2746,7 +2746,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/lighting/position-strobe-light</property>
+				<property>/controls/lighting/position-strobe-lights</property>
 				<value>0</value>
 				<value>0.5</value>
 				<value>1</value>
@@ -2762,7 +2762,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/lighting/position-strobe-light</property>
+				<property>/controls/lighting/position-strobe-lights</property>
 				<value>1</value>
 				<value>0.5</value>
 				<value>0</value>

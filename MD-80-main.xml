@@ -240,14 +240,6 @@
 				<float n="19" alias="/systems/fcs/elevator-r/control-tab-final-deg"/>
 				<float n="20" alias="/systems/fcs/elevator-r/geared-tab-final-deg"/>
 				<float n="21" alias="/systems/fcs/elevator-r/anti-float-tab-final-deg"/>
-				<int n="0" alias="/sim/model/lights/strobe/state"/>
-				<int n="1" alias="/sim/model/lights/beacon/state"/>
-				<int n="2" alias="/controls/lighting/landing-light-n"/>
-				<int n="3" alias="/sim/model/lights/logo-lights"/>
-				<int n="4" alias="/controls/lighting/landing-light-l"/>
-				<int n="5" alias="/controls/lighting/landing-light-r"/>
-				<int n="6" alias="/sim/model/lights/nav-lights"/>
-				<int n="7" alias="/controls/lighting/wing-lights"/>
 			</generic>
 			<visibility-range-nm type="int">130</visibility-range-nm>
 		</multiplay>
@@ -670,7 +662,7 @@
 			<overhead-panel type="double">0</overhead-panel>
 			<pedestal-digital type="double">1</pedestal-digital>
 			<pedestal-panel type="double">0</pedestal-panel>
-			<position-strobe-light type="double">0</position-strobe-light>
+			<position-strobe-lights type="double">0</position-strobe-lights>
 			<taxi-light type="bool">0</taxi-light>
 			<thunderstorm type="bool">0</thunderstorm>
 			<wing-lights type="double">0</wing-lights>

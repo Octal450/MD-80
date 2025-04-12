@@ -206,8 +206,8 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/fgcp/position-strobe-light">
-			<input>/controls/lighting/position-strobe-light</input>
+		<lag_filter name="/controls/cockpit/fgcp/position-strobe-lights">
+			<input>/controls/lighting/position-strobe-lights</input>
 			<c1>20</c1>
 		</lag_filter>
 		
