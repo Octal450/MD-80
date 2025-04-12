@@ -347,7 +347,7 @@ setlistener("/controls/flight/auto-coordination", func() {
 
 # Aircraft Lighting
 var beacon = aircraft.light.new("/sim/model/lights/beacon", [0.15, 1.35], "/systems/exterior-lights/beacon");
-var strobe = aircraft.light.new("/sim/model/lights/strobe", [0.2, 1], "/systems/exterior-lights/strobe-light");
+var strobe = aircraft.light.new("/sim/model/lights/strobe", [0.2, 1], "/systems/exterior-lights/strobe-lights");
 
 # Shaking Logic
 var SHAKE = {

@@ -630,7 +630,7 @@
 	<light>
 		<name>Left Position Light Fwd Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>systems/exterior-lights/position-light</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/position-lights</property></dim-factor>
 		<position>
 			<x-m>27.47</x-m>
 			<y-m>-16.02</y-m>
@@ -734,7 +734,7 @@
 	<light>
 		<name>Right Position Light Fwd Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>systems/exterior-lights/position-light</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/position-lights</property></dim-factor>
 		<position>
 			<x-m>27.47</x-m>
 			<y-m>16.02</y-m>
@@ -838,7 +838,7 @@
 	<light>
 		<name>Left Position Light Aft Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>systems/exterior-lights/position-light</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/position-lights</property></dim-factor>
 		<position>
 			<x-m>29</x-m>
 			<y-m>-16.3553</y-m>
@@ -942,7 +942,7 @@
 	<light>
 		<name>Right Position Light Aft Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>systems/exterior-lights/position-light</property></dim-factor>
+		<dim-factor><property>systems/exterior-lights/position-lights</property></dim-factor>
 		<position>
 			<x-m>29</x-m>
 			<y-m>16.3553</y-m>

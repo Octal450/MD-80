@@ -213,7 +213,7 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/exterior-lights/position-light">
+		<switch name="/systems/exterior-lights/position-lights">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/controls/lighting/position-strobe-lights ge 0.5
@@ -221,7 +221,7 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/exterior-lights/strobe-light">
+		<switch name="/systems/exterior-lights/strobe-lights">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/controls/lighting/position-strobe-lights eq 1
