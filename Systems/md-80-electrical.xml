@@ -401,8 +401,9 @@
 		
 		<switch name="/systems/electrical/sources/apu/gcr-relay">
 			<default value="0"/>
-			<test value="1">
+			<test logic="AND" value="1">
 				/systems/failures/electrical/apu ne 1
+				/controls/electrical/gen-apu eq 1
 			</test>
 		</switch>
 		

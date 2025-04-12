@@ -573,10 +573,10 @@
 		<object-name>ApuPwrAvail2On</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>systems/apu/n1-actual</property>
-					<value>94.9</value>
-				</greater-than>
+				<equals>
+					<property>systems/electrical/sources/apu/gcr-relay</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
