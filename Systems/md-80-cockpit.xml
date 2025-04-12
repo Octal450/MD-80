@@ -584,7 +584,7 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/logo-lt">
-			<input>/controls/lighting/logo-lightss</input>
+			<input>/controls/lighting/logo-lights</input>
 			<c1>20</c1>
 		</lag_filter>
 		

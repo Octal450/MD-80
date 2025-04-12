@@ -25,7 +25,7 @@ var Controls = {
 		landingLightL: props.globals.getNode("/controls/lighting/landing-light-l"),
 		landingLightN: props.globals.getNode("/controls/lighting/landing-light-n"),
 		landingLightR: props.globals.getNode("/controls/lighting/landing-light-r"),
-		logoLights: props.globals.getNode("/controls/lighting/logo-lightss"),
+		logoLights: props.globals.getNode("/controls/lighting/logo-lights"),
 		pedestalDigitalKnb: props.globals.getNode("/controls/lighting/pedestal-digital"),
 		positionStrobeLight: props.globals.getNode("/controls/lighting/position-strobe-lights"),
 		taxiLight: props.globals.getNode("/controls/lighting/taxi-light"),

@@ -2951,7 +2951,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/lighting/logo-lightss</property>
+				<property>controls/lighting/logo-lights</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
