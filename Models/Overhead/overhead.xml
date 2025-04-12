@@ -100,7 +100,7 @@
 		<object-name>IrsLights</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>systems/electrical/bus/dc-bat</property>
+				<property>systems/electrical/bus/dc-trans</property>
 				<value>24</value>
 			</greater-than-equals>
 		</condition>
