@@ -457,6 +457,11 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/overhead/auto-pack-shutdown">
+			<input>/controls/pneumatics/auto-pack-shutdown</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/overhead/aux-trans-aft-a">
 			<input>/controls/fuel/aux-trans-aft-a</input>
 			<c1>20</c1>
@@ -650,6 +655,11 @@
 		
 		<lag_filter name="/controls/cockpit/overhead/radio-rack">
 			<input>/controls/pneumatics/radio-rack</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/ram-air">
+			<input>/controls/pneumatics/ram-air</input>
 			<c1>20</c1>
 		</lag_filter>
 		

@@ -404,6 +404,7 @@
 			<test logic="AND" value="1">
 				/systems/failures/electrical/apu ne 1
 				/controls/electrical/gen-apu eq 1
+				/engines/engine[2]/n2-actual ge 96
 			</test>
 		</switch>
 		

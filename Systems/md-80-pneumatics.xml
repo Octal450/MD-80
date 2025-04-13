@@ -263,6 +263,28 @@
 			<rate_limit sense="decr">1.4</rate_limit>
 		</actuator>
 		
+		<!-- Auto Pack Shutdown -->
+		<switch name="/systems/pneumatics/auto-pack-shutdown">
+			<default value="0"/>
+			<test value="0">
+				/controls/pneumatics/auto-pack-shutdown eq 0
+			</test>
+			<test logic="OR" value="1">
+				<test logic="AND">
+					position/wow eq 0
+					/systems/engines/engine-out eq 1
+				</test>
+				<test logic="AND">
+					/engines/engine[0]/state eq 3
+					/engines/engine[1]/state ne 3
+				</test>
+				<test logic="AND">
+					/engines/engine[0]/state ne 3
+					/engines/engine[1]/state eq 3
+				</test>
+			</test>
+		</switch>
+		
 		<!-- Pack L -->
 		<fcs_function name="/systems/pneumatics/pack-l-delta-psi">
 			<function>
@@ -272,6 +294,10 @@
 							<property>/controls/pneumatics/supply-l</property>
 							<value>0</value>
 						</gt>
+						<eq>
+							<property>/systems/pneumatics/auto-pack-shutdown</property>
+							<value>0</value>
+						</eq>
 						<nq>
 							<property>/systems/failures/pneumatics/pack-l</property>
 							<value>1</value>
@@ -340,6 +366,10 @@
 							<property>/controls/pneumatics/supply-r</property>
 							<value>0</value>
 						</gt>
+						<eq>
+							<property>/systems/pneumatics/auto-pack-shutdown</property>
+							<value>0</value>
+						</eq>
 						<nq>
 							<property>/systems/failures/pneumatics/pack-r</property>
 							<value>1</value>

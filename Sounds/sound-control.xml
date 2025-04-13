@@ -118,16 +118,14 @@
 						<property>/systems/electrical/outputs/efis</property>
 						<value>24</value>
 					</greater-than-equals>
-					<or>
-						<equals>
-							<property>/gear/gear[0]/wow</property>
-							<value>1</value>
-						</equals>
-						<equals>
-							<property>/controls/pneumatics/radio-rack</property>
-							<value>1</value>
-						</equals>
-					</or>
+					<equals>
+						<property>/gear/gear[0]/wow</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/controls/pneumatics/radio-rack</property>
+						<value>1</value>
+					</equals>
 				</and>
 			</condition>
 			<value>2</value>

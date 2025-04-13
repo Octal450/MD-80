@@ -668,12 +668,14 @@
 			<wing-lights type="double">0</wing-lights>
 		</lighting>
 		<pneumatics n="0">
+			<auto-pack-shutdown type="bool">1</auto-pack-shutdown>
 			<bleed-apu type="int">0</bleed-apu>
 			<cabin-temp type="double">0.45</cabin-temp>
 			<cockpit-temp type="double">0.45</cockpit-temp>
 			<ground-air type="bool">0</ground-air>
 			<instrument-flow type="bool">0</instrument-flow>
-			<radio-rack type="bool">0</radio-rack>
+			<radio-rack type="bool">1</radio-rack>
+			<ram-air type="bool">0</ram-air>
 			<supply-l type="int">0</supply-l>
 			<supply-r type="int">0</supply-r>
 			<temp-sel type="bool">0</temp-sel>

@@ -2966,7 +2966,7 @@
 		<object-name>AirPressLNeedle</object-name>
 		<property>instrumentation/air-press-l/psi</property>
 		<interpolation>
-			<entry><ind> 0</ind><dep>    0</dep></entry>
+			<entry><ind> 0</ind><dep>  0.0</dep></entry>
 			<entry><ind>55</ind><dep>346.5</dep></entry>
 		</interpolation>
 		<axis>
@@ -2986,7 +2986,7 @@
 		<object-name>AirPressRNeedle</object-name>
 		<property>instrumentation/air-press-r/psi</property>
 		<interpolation>
-			<entry><ind> 0</ind><dep>    0</dep></entry>
+			<entry><ind> 0</ind><dep>  0.0</dep></entry>
 			<entry><ind>55</ind><dep>346.5</dep></entry>
 		</interpolation>
 		<axis>
@@ -3241,6 +3241,84 @@
 			<binding>
 				<command>property-toggle</command>
 				<property>controls/pneumatics/radio-rack</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AirCondShutoff</object-name>
+		<property>controls/cockpit/overhead/auto-pack-shutdown</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.00095</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.33371</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>AirCondShutoff</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/pneumatics/auto-pack-shutdown</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>RamAir</object-name>
+		<property>controls/cockpit/overhead/ram-air</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.00095</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.36659</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>RamAir</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/pneumatics/ram-air</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
