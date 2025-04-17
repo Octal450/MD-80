@@ -1608,16 +1608,9 @@
 				<table>
 					<independentVar lookup="row">/engines/engine[0]/n2</independentVar>
 					<independentVar lookup="column">atmosphere/density-altitude</independentVar>
-					<independentVar lookup="table">/controls/engines/engine[0]/cutoff</independentVar>
-					<tableData breakPoint="0">
+					<tableData>
 						        0   50000
-						 15.0   0   0
-						 54.2  44  46
-						102.5  52  54
-					</tableData>
-					<tableData breakPoint="1">
-						        0   50000
-						 30.0   0   0
+						 12.0   0   0
 						 54.2  44  46
 						102.5  52  54
 					</tableData>
@@ -1635,16 +1628,9 @@
 				<table>
 					<independentVar lookup="row">/engines/engine[1]/n2</independentVar>
 					<independentVar lookup="column">atmosphere/density-altitude</independentVar>
-					<independentVar lookup="table">/controls/engines/engine[1]/cutoff</independentVar>
-					<tableData breakPoint="0">
+					<tableData>
 						        0   50000
-						 15.0   0   0
-						 54.2  44  46
-						102.5  52  54
-					</tableData>
-					<tableData breakPoint="1">
-						        0   50000
-						 30.0   0   0
+						 12.0   0   0
 						 54.2  44  46
 						102.5  52  54
 					</tableData>
