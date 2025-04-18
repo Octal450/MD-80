@@ -190,9 +190,9 @@
 	</channel>
 	
 	<!--
-	The MD-80s Ailerons are connected together mechanically, and thus always move together
-	They cannot ever move seperately. Thus the tab positions are averaged for each aileron
-	That makes the most sense, and allows a reasonably good simulation of jamming one side
+	The MD-80's Ailerons are connected together mechanically, and thus always move together.
+	They cannot ever move seperately. Thus the tab positions are averaged for each aileron.
+	That makes the most sense, and allows a reasonably good simulation of jamming one side.
 	-->
 	<channel name="Aileron Common">
 		
