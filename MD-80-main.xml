@@ -1491,12 +1491,12 @@
 	<rotors n="0"> <!-- Used as a hack to bring properties over MP without using up floats -->
 		<main n="0">
 			<blade n="0">
-				<flap-deg alias="/systems/fcs/aileron-l/surface-final-deg"/>
-				<position-deg alias="/systems/fcs/elevator-l/surface-final-deg"/>
+				<flap-deg alias="/systems/fcs/aileron-l/final-deg"/>
+				<position-deg alias="/systems/fcs/elevator-l/final-deg"/>
 			</blade>
 			<blade n="1">
-				<flap-deg alias="/systems/fcs/aileron-r/surface-final-deg"/>
-				<position-deg alias="/systems/fcs/elevator-r/surface-final-deg"/>
+				<flap-deg alias="/systems/fcs/aileron-r/final-deg"/>
+				<position-deg alias="/systems/fcs/elevator-r/final-deg"/>
 			</blade>
 			<blade n="2">
 				<flap-deg alias="/systems/fcs/aileron-l/trim-tab-final-deg"/>
@@ -1509,7 +1509,7 @@
 		</main>
 		<tail n="0">
 			<blade n="0">
-				<position-deg alias="/systems/fcs/rudder/surface-final-deg"/>
+				<position-deg alias="/systems/fcs/rudder/final-deg"/>
 			</blade>
 			<blade n="1">
 				<position-deg alias="/systems/fcs/rudder/control-tab-final-deg"/>
