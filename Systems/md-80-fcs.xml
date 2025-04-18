@@ -222,7 +222,7 @@
 		
 	</channel>
 	
-	<channel name="Aileron">
+	<channel name="Ailerons">
 		
 		<fcs_function name="/systems/fcs/aileron-l/surface-cmd-deg">
 			<function>
