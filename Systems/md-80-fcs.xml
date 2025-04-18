@@ -194,7 +194,7 @@
 	They cannot ever move seperately. Thus the tab positions are averaged for each aileron.
 	That makes the most sense, and allows a reasonably good simulation of jamming one side.
 	-->
-	<channel name="Aileron Common">
+	<channel name="Ailerons">
 		
 		<pure_gain name="/systems/fcs/aileron-l/control-tab-cmd-deg">
 			<input>/systems/fcs/aileron-yoke</input>
@@ -219,10 +219,6 @@
 			<gain>20</gain>
 			<output>/systems/fcs/aileron-r/trim-tab-final-deg</output>
 		</pure_gain>
-		
-	</channel>
-	
-	<channel name="Ailerons">
 		
 		<fcs_function name="/systems/fcs/aileron-l/surface-cmd-deg">
 			<function>
