@@ -688,14 +688,14 @@
 		
 		<switch name="/systems/fcs/rudder/rate">
 			<default value="/systems/fcs/rudder-rate"/> <!-- For aerodynamically flown -->
-			<test logic="AND" value="75">
+			<test value="75">
 				/systems/fcs/rudder/pwr-active eq 1
 			</test>
 		</switch>
 		
 		<switch name="/systems/fcs/rudder/lag">
 			<default value="/systems/fcs/aero-lag"/> <!-- For aerodynamically flown -->
-			<test logic="AND" value="25.5">
+			<test value="25.5">
 				/systems/fcs/rudder/pwr-active eq 1
 			</test>
 		</switch>
