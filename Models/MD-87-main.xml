@@ -53,7 +53,7 @@
 		<name>Left Landing Light</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/landinglightL.xml</path>
 		<offsets>
-			<x-m>28.1196</x-m>
+			<x-m>28.0196</x-m>
 			<y-m>-16.1664</y-m>
 			<z-m>-0.23</z-m>
 		</offsets>
@@ -69,8 +69,8 @@
 			<z-m>-0.23</z-m>
 		</position>
 		<direction>
-			<x>-1</x>
-			<y>0</y>
+			<x>-1.0</x>
+			<y>0.0</y>
 			<z>-0.05</z>
 		</direction>
 		<ambient>
@@ -131,8 +131,8 @@
 			<z-m>-1.32</z-m>
 		</position>
 		<direction>
-			<x>-1</x>
-			<y>0</y>
+			<x>-1.0</x>
+			<y>0.0</y>
 			<z>-0.05</z>
 		</direction>
 		<ambient>
@@ -167,7 +167,7 @@
 		<name>Right Landing Light</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/landinglightR.xml</path>
 		<offsets>
-			<x-m>28.1196</x-m>
+			<x-m>28.0196</x-m>
 			<y-m>16.1664</y-m>
 			<z-m>-0.23</z-m>
 		</offsets>
@@ -183,8 +183,8 @@
 			<z-m>-0.23</z-m>
 		</position>
 		<direction>
-			<x>-1</x>
-			<y>0</y>
+			<x>-1.0</x>
+			<y>0.0</y>
 			<z>-0.05</z>
 		</direction>
 		<ambient>
@@ -245,9 +245,9 @@
 			<z-m>0.384018</z-m>
 		</position>
 		<direction>
-			<x>1</x>
+			<x>1.0</x>
 			<y>-0.667</y>
-			<z>0.100</z>
+			<z>0.1</z>
 		</direction>
 		<ambient>
 			<r>0.35</r>
@@ -269,12 +269,12 @@
 		</specular>
 	    <attenuation>
 			<c>1.0</c>
-			<l>0.09</l>
-			<q>0.032</q>
+			<l>0.06</l>
+			<q>0.02</q>
 		</attenuation>
-		<spot-exponent>40</spot-exponent>
-		<spot-cutoff>20</spot-cutoff>
-		<range-m>50</range-m>
+		<spot-exponent>25</spot-exponent>
+		<spot-cutoff>75</spot-cutoff>
+		<range-m>25</range-m>
 	</light>
 	
 	<light>
@@ -287,9 +287,9 @@
 			<z-m>0.384018</z-m>
 		</position>
 		<direction>
-			<x>1</x>
+			<x>1.0</x>
 			<y>0.667</y>
-			<z>0.100</z>
+			<z>0.1</z>
 		</direction>
 		<ambient>
 			<r>0.35</r>
@@ -311,19 +311,19 @@
 		</specular>
 	    <attenuation>
 			<c>1.0</c>
-			<l>0.09</l>
-			<q>0.032</q>
+			<l>0.06</l>
+			<q>0.02</q>
 		</attenuation>
-		<spot-exponent>40</spot-exponent>
-		<spot-cutoff>20</spot-cutoff>
-		<range-m>50</range-m>
+		<spot-exponent>25</spot-exponent>
+		<spot-cutoff>75</spot-cutoff>
+		<range-m>25</range-m>
 	</light>
 	
 	<model>
 		<name>Left Nacelle Light</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/winglightL.xml</path>
 		<offsets>
-			<x-m>29.7552</x-m>
+			<x-m>27.2551</x-m>
 			<y-m>-1.68808</y-m>
 			<z-m>0.382021</z-m>
 		</offsets>
@@ -333,7 +333,7 @@
 		<name>Right Nacelle Light</name>
 		<path>Aircraft/MD-80/Models/Effects/Lights/winglightR.xml</path>
 		<offsets>
-			<x-m>29.7552</x-m>
+			<x-m>27.2551</x-m>
 			<y-m>1.68808</y-m>
 			<z-m>0.382021</z-m>
 		</offsets>
@@ -344,14 +344,14 @@
 		<type>spot</type>
 		<dim-factor><property>systems/exterior-lights/left-wing-light</property></dim-factor>
 		<position>
-			<x-m>29.7552</x-m>
+			<x-m>27.2551</x-m>
 			<y-m>-1.68808</y-m>
 			<z-m>0.382021</z-m>
 		</position>
 		<direction>
-			<x>1</x>
-			<y>-0.5</y>
-			<z>0.10</z>
+			<x>1.0</x>
+			<y>-0.6</y>
+			<z>0.15</z>
 		</direction>
 		<ambient>
 			<r>0.95</r>
@@ -373,12 +373,12 @@
 		</specular>
 	    <attenuation>
 			<c>1.0</c>
-			<l>1.5</l>
-			<q>3.0</q>
+			<l>0.2</l>
+			<q>0.1</q>
 		</attenuation>
 		<spot-exponent>100</spot-exponent>
-		<spot-cutoff>20</spot-cutoff>
-		<range-m>5.0</range-m>
+		<spot-cutoff>25</spot-cutoff>
+		<range-m>5</range-m>
 	</light>
 	
 	<light>
@@ -386,14 +386,14 @@
 		<type>spot</type>
 		<dim-factor><property>systems/exterior-lights/right-wing-light</property></dim-factor>
 		<position>
-			<x-m>29.7552</x-m>
+			<x-m>27.2551</x-m>
 			<y-m>1.68808</y-m>
 			<z-m>0.382021</z-m>
 		</position>
 		<direction>
-			<x>1</x>
-			<y>0.5</y>
-			<z>0.10</z>
+			<x>1.0</x>
+			<y>0.6</y>
+			<z>0.15</z>
 		</direction>
 		<ambient>
 			<r>0.95</r>
@@ -415,12 +415,12 @@
 		</specular>
 	    <attenuation>
 			<c>1.0</c>
-			<l>1.5</l>
-			<q>3.0</q>
+			<l>0.2</l>
+			<q>0.1</q>
 		</attenuation>
 		<spot-exponent>100</spot-exponent>
-		<spot-cutoff>20</spot-cutoff>
-		<range-m>5.0</range-m>
+		<spot-cutoff>25</spot-cutoff>
+		<range-m>5</range-m>
 	</light>
 	
 	<model>
@@ -453,7 +453,7 @@
 			<z-m>-0.292114</z-m>
 		</position>
 		<direction>
-			<x>-1</x>
+			<x>-1.0</x>
 			<y>-0.75</y>
 			<z>-0.05</z>
 		</direction>
@@ -475,14 +475,14 @@
 			<b>1.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
-			<c>1.0</c>
-			<l>0.06</l>
-			<q>0.01</q>
+		<attenuation>
+			<c>0.2</c>
+			<l>0.02</l>
+			<q>0.0</q>
 		</attenuation>
-		<spot-exponent>30</spot-exponent>
+		<spot-exponent>50</spot-exponent>
 		<spot-cutoff>25</spot-cutoff>
-		<range-m>75</range-m>
+		<range-m>100</range-m>
 	</light>
 	
 	<light>
@@ -495,7 +495,7 @@
 			<z-m>-0.292114</z-m>
 		</position>
 		<direction>
-			<x>-1</x>
+			<x>-1.0</x>
 			<y>0.75</y>
 			<z>-0.05</z>
 		</direction>
@@ -517,14 +517,14 @@
 			<b>1.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
-			<c>1.0</c>
-			<l>0.06</l>
-			<q>0.01</q>
+		<attenuation>
+			<c>0.2</c>
+			<l>0.02</l>
+			<q>0.0</q>
 		</attenuation>
-		<spot-exponent>30</spot-exponent>
+		<spot-exponent>50</spot-exponent>
 		<spot-cutoff>25</spot-cutoff>
-		<range-m>75</range-m>
+		<range-m>100</range-m>
 	</light>
 	
 	<model>
@@ -637,8 +637,8 @@
 			<z-m>-0.066558</z-m>
 		</position>
 		<direction>
-			<x>-1</x>
-			<y>-1</y>
+			<x>-1.0</x>
+			<y>-1.0</y>
 			<z>-0.25</z>
 		</direction>
 		<ambient>
@@ -689,8 +689,8 @@
 			<z-m>-0.066558</z-m>
 		</position>
 		<direction>
-			<x>-1</x>
-			<y>-1</y>
+			<x>-1.0</x>
+			<y>-1.0</y>
 			<z>-0.25</z>
 		</direction>
 		<ambient>
@@ -741,8 +741,8 @@
 			<z-m>-0.066558</z-m>
 		</position>
 		<direction>
-			<x>-1</x>
-			<y>1</y>
+			<x>-1.0</x>
+			<y>1.0</y>
 			<z>-0.25</z>
 		</direction>
 		<ambient>
@@ -793,8 +793,8 @@
 			<z-m>-0.066558</z-m>
 		</position>
 		<direction>
-			<x>-1</x>
-			<y>1</y>
+			<x>-1.0</x>
+			<y>1.0</y>
 			<z>-0.25</z>
 		</direction>
 		<ambient>
@@ -845,8 +845,8 @@
 			<z-m>-0.044478</z-m>
 		</position>
 		<direction>
-			<x>1</x>
-			<y>-0.0</y>
+			<x>1.0</x>
+			<y>0.0</y>
 			<z>-0.25</z>
 		</direction>
 		<ambient>
@@ -897,7 +897,7 @@
 			<z-m>-0.044478</z-m>
 		</position>
 		<direction>
-			<x>1</x>
+			<x>1.0</x>
 			<y>0.0</y>
 			<z>-0.25</z>
 		</direction>
@@ -949,8 +949,8 @@
 			<z-m>-0.044478</z-m>
 		</position>
 		<direction>
-			<x>1</x>
-			<y>-0.0</y>
+			<x>1.0</x>
+			<y>0.0</y>
 			<z>-0.25</z>
 		</direction>
 		<ambient>
@@ -1001,7 +1001,7 @@
 			<z-m>-0.044478</z-m>
 		</position>
 		<direction>
-			<x>1</x>
+			<x>1.0</x>
 			<y>0.0</y>
 			<z>-0.25</z>
 		</direction>
@@ -1063,9 +1063,9 @@
 			<z-m>-0.044478</z-m>
 		</position>
 		<direction>
-			<x>0.6</x>
-			<y>0.866</y>
-			<z>0.175</z>
+			<x>0.48</x>
+			<y>0.9</y>
+			<z>0.2</z>
 		</direction>
 		<ambient>
 			<r>1.0</r>
@@ -1086,13 +1086,13 @@
 			<a>1.0</a>
 		</specular>
 	    <attenuation>
-			<c>1.0</c>
-			<l>0.09</l>
-			<q>0.03</q>
+			<c>0.8</c>
+			<l>0.06</l>
+			<q>0.02</q>
 		</attenuation>
-		<spot-exponent>400</spot-exponent>
-		<spot-cutoff>4.5</spot-cutoff>
-		<range-m>100</range-m>
+		<spot-exponent>500</spot-exponent>
+		<spot-cutoff>7.5</spot-cutoff>
+		<range-m>20</range-m>
 	</light>
 	
 	<light>
@@ -1105,9 +1105,9 @@
 			<z-m>-0.044478</z-m>
 		</position>
 		<direction>
-			<x>0.6</x>
-			<y>-0.866</y>
-			<z>0.175</z>
+			<x>0.48</x>
+			<y>-0.9</y>
+			<z>0.2</z>
 		</direction>
 		<ambient>
 			<r>1.0</r>
@@ -1128,13 +1128,13 @@
 			<a>1.0</a>
 		</specular>
 	    <attenuation>
-			<c>1.0</c>
-			<l>0.09</l>
-			<q>0.03</q>
+			<c>0.8</c>
+			<l>0.06</l>
+			<q>0.02</q>
 		</attenuation>
-		<spot-exponent>400</spot-exponent>
-		<spot-cutoff>4.5</spot-cutoff>
-		<range-m>100</range-m>
+		<spot-exponent>500</spot-exponent>
+		<spot-cutoff>7.5</spot-cutoff>
+		<range-m>20</range-m>
 	</light>
 	
 	<animation>

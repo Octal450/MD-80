@@ -197,7 +197,7 @@
 			<c1>7.5</c1>
 		</lag_filter>
 		
-		<switch name="/systems/exterior-lights/ground-flood-light-l">
+		<switch name="/systems/exterior-lights/ground-flood-light-l-cmd">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/controls/lighting/ground-flood-light-l eq 1
@@ -205,13 +205,23 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/exterior-lights/ground-flood-light-r">
+		<lag_filter name="/systems/exterior-lights/ground-flood-light-l">
+			<input>/systems/exterior-lights/ground-flood-light-l-cmd</input>
+			<c1>7.5</c1>
+		</lag_filter>
+		
+		<switch name="/systems/exterior-lights/ground-flood-light-r-cmd">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/controls/lighting/ground-flood-light-r eq 1
 				/systems/electrical/bus/ac-r ge 112
 			</test>
 		</switch>
+		
+		<lag_filter name="/systems/exterior-lights/ground-flood-light-r">
+			<input>/systems/exterior-lights/ground-flood-light-r-cmd</input>
+			<c1>7.5</c1>
+		</lag_filter>
 		
 		<switch name="/systems/exterior-lights/position-lights">
 			<default value="0"/>
@@ -238,13 +248,18 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/exterior-lights/logo-lights">
+		<switch name="/systems/exterior-lights/logo-lights-cmd">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/controls/lighting/logo-lights eq 1
 				/systems/electrical/bus/ac-gndsvc ge 112
 			</test>
 		</switch>
+		
+		<lag_filter name="/systems/exterior-lights/logo-lights">
+			<input>/systems/exterior-lights/logo-lights-cmd</input>
+			<c1>7.5</c1>
+		</lag_filter>
 		
 		<switch name="/systems/exterior-lights/left-wing-light-cmd">
 			<default value="0"/>
