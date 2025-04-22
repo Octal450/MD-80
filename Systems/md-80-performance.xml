@@ -762,6 +762,45 @@
 				</table>
 			</function>
 		</fcs_function>
+		
+		<!-- Opt/Max Flight Levels -->
+		<fcs_function name="/systems/performance/opt-fl">
+			<function>
+				<table>
+					<independentVar lookup="row">inertia/weight-lbs</independentVar>
+					<tableData>
+						100000  370
+						115000  360
+						122500  350
+						130000  340
+						135000  330
+						140000  320
+						147500  310
+						155000  300
+						160000  290
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/performance/max-fl">
+			<function>
+				<table>
+					<independentVar lookup="row">inertia/weight-lbs</independentVar>
+					<tableData>
+						113600  370
+						119200  360
+						125000  350
+						131100  340
+						137400  330
+						143900  320
+						150700  310
+						157800  300
+						160000  295
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
 	
 	</channel>
 
