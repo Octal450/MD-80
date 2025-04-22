@@ -611,8 +611,8 @@
 		</specular>
 		<attenuation>
 			<c>1.0</c>
-			<l>0.90</l>
-			<q>3.00</q>
+			<l>0.9</l>
+			<q>3.0</q>
 		</attenuation>
 		<range-m>5</range-m>
 	</light>
