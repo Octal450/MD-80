@@ -741,19 +741,29 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/lighting/capt-panel">
+		<switch name="/systems/lighting/capt-panel-cmd">
 			<default value="0"/>
 			<test value="/controls/lighting/capt-panel">
 				/systems/electrical/bus/ac-l ge 112
 			</test>
 		</switch>
 		
-		<switch name="/systems/lighting/center-panel">
+		<lag_filter name="/systems/lighting/capt-panel">
+			<input>/systems/lighting/capt-panel-cmd</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<switch name="/systems/lighting/center-panel-cmd">
 			<default value="0"/>
 			<test value="/controls/lighting/center-panel">
 				/systems/electrical/bus/ac-l ge 112
 			</test>
 		</switch>
+		
+		<lag_filter name="/systems/lighting/center-panel">
+			<input>/systems/lighting/center-panel-cmd</input>
+			<c1>20</c1>
+		</lag_filter>
 		
 		<switch name="/systems/lighting/fgcp-digital">
 			<default value="0"/>
@@ -766,12 +776,17 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/lighting/fgcp-panel">
+		<switch name="/systems/lighting/fgcp-panel-cmd">
 			<default value="0"/>
 			<test value="/controls/lighting/fgcp-panel">
 				/systems/electrical/bus/ac-r ge 112
 			</test>
 		</switch>
+		
+		<lag_filter name="/systems/lighting/fgcp-panel">
+			<input>/systems/lighting/fgcp-panel-cmd</input>
+			<c1>20</c1>
+		</lag_filter>
 		
 		<switch name="/systems/lighting/fo-digital">
 			<default value="0"/>
@@ -784,19 +799,29 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/lighting/fo-panel">
+		<switch name="/systems/lighting/fo-panel-cmd">
 			<default value="0"/>
 			<test value="/controls/lighting/fo-panel">
 				/systems/electrical/bus/ac-r ge 112
 			</test>
 		</switch>
 		
-		<switch name="/systems/lighting/overhead-panel">
+		<lag_filter name="/systems/lighting/fo-panel">
+			<input>/systems/lighting/fo-panel-cmd</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<switch name="/systems/lighting/overhead-panel-cmd">
 			<default value="0"/>
 			<test value="/controls/lighting/overhead-panel">
 				/systems/electrical/bus/ac-l ge 112
 			</test>
 		</switch>
+		
+		<lag_filter name="/systems/lighting/overhead-panel">
+			<input>/systems/lighting/overhead-panel-cmd</input>
+			<c1>20</c1>
+		</lag_filter>
 		
 		<switch name="/systems/lighting/pedestal-digital">
 			<default value="0"/>
@@ -809,12 +834,17 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/lighting/pedestal-panel">
+		<switch name="/systems/lighting/pedestal-panel-cmd">
 			<default value="0"/>
 			<test value="/controls/lighting/pedestal-panel">
 				/systems/electrical/bus/ac-l ge 112
 			</test>
 		</switch>
+		
+		<lag_filter name="/systems/lighting/pedestal-panel">
+			<input>/systems/lighting/pedestal-panel-cmd</input>
+			<c1>20</c1>
+		</lag_filter>
 	
 	</channel>
 	
