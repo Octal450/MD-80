@@ -547,7 +547,7 @@
 	<light>
 		<name>Top Beacon Compositor</name>
 		<type>point</type>
-		<dim-factor><property>/sim/model/lights/beacon/state</property></dim-factor>
+		<dim-factor><property>sim/model/lights/beacon/state</property></dim-factor>
 		<position>
 			<x-m>22.606</x-m>
 			<y-m>0.36098</y-m>
@@ -582,7 +582,7 @@
 	<light>
 		<name>Bottom Beacon Compositor</name>
 		<type>point</type>
-		<dim-factor><property>/sim/model/lights/beacon/state</property></dim-factor>
+		<dim-factor><property>sim/model/lights/beacon/state</property></dim-factor>
 		<position>
 			<x-m>25.1826</x-m>
 			<y-m>0.44698</y-m>
@@ -679,7 +679,7 @@
 	<light>
 		<name>Left Strobe Light Fwd Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/sim/model/lights/strobe/state</property></dim-factor>
+		<dim-factor><property>sim/model/lights/strobe/state</property></dim-factor>
 		<position>
 			<x-m>27.47</x-m>
 			<y-m>-16.02</y-m>
@@ -783,7 +783,7 @@
 	<light>
 		<name>Right Strobe Light Fwd Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/sim/model/lights/strobe/state</property></dim-factor>
+		<dim-factor><property>sim/model/lights/strobe/state</property></dim-factor>
 		<position>
 			<x-m>27.47</x-m>
 			<y-m>16.02</y-m>
@@ -887,7 +887,7 @@
 	<light>
 		<name>Left Strobe Light Aft Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/sim/model/lights/strobe/state</property></dim-factor>
+		<dim-factor><property>sim/model/lights/strobe/state</property></dim-factor>
 		<position>
 			<x-m>29</x-m>
 			<y-m>-16.3553</y-m>
@@ -991,7 +991,7 @@
 	<light>
 		<name>Right Strobe Light Aft Compositor</name>
 		<type>spot</type>
-		<dim-factor><property>/sim/model/lights/strobe/state</property></dim-factor>
+		<dim-factor><property>sim/model/lights/strobe/state</property></dim-factor>
 		<position>
 			<x-m>29</x-m>
 			<y-m>16.3553</y-m>
