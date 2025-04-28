@@ -1627,6 +1627,11 @@
 				<dc-tie type="bool">0</dc-tie>
 				<gen-l type="bool">0</gen-l>
 				<gen-r type="bool">0</gen-r>
+				<si type="bool">0</si>
+				<tr-l1 type="bool">0</tr-l1>
+				<tr-l2 type="bool">0</tr-l2>
+				<tr-r1 type="bool">0</tr-r1>
+				<tr-r2 type="bool">0</tr-r2>
 			</electrical>
 			<fcs n="0">
 				<elevator-pwr type="bool">0</elevator-pwr>

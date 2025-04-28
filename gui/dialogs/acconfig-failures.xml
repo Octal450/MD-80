@@ -127,24 +127,10 @@
 				<live>true</live>
 			</checkbox>
 			
-			<group>
-				<layout>hbox</layout>
-
-				<hrule>
-					<stretch>true</stretch>
-				</hrule>
-				<text>
-					<label>Pneumatics</label>
-				</text>
-				<hrule>
-					<stretch>true</stretch>
-				</hrule>
-			</group>
-			
 			<checkbox>
-				<label>Bleed APU</label>
+				<label>Static Inverter</label>
 				<halign>left</halign>
-				<property>/systems/failures/pneumatics/bleed-apu</property>
+				<property>/systems/failures/electrical/si</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -152,9 +138,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Bleed Eng L</label>
+				<label>Transformer Rectifier L1</label>
 				<halign>left</halign>
-				<property>/systems/failures/pneumatics/bleed-l</property>
+				<property>/systems/failures/electrical/tr-l1</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -162,9 +148,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Bleed Eng R</label>
+				<label>Transformer Rectifier L2</label>
 				<halign>left</halign>
-				<property>/systems/failures/pneumatics/bleed-r</property>
+				<property>/systems/failures/electrical/tr-l2</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -172,9 +158,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Pack L</label>
+				<label>Transformer Rectifier R1</label>
 				<halign>left</halign>
-				<property>/systems/failures/pneumatics/pack-l</property>
+				<property>/systems/failures/electrical/tr-r1</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -182,9 +168,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Pack R</label>
+				<label>Transformer Rectifier R2</label>
 				<halign>left</halign>
-				<property>/systems/failures/pneumatics/pack-r</property>
+				<property>/systems/failures/electrical/tr-r2</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -279,101 +265,6 @@
 					<stretch>true</stretch>
 				</hrule>
 				<text>
-					<label>Landing Gear</label>
-				</text>
-				<hrule>
-					<stretch>true</stretch>
-				</hrule>
-			</group>
-			
-			<checkbox>
-				<label>Nose Gear Actuator</label>
-				<halign>left</halign>
-				<property>/systems/failures/gear/nose-actuator</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Left Gear Actuator</label>
-				<halign>left</halign>
-				<property>/systems/failures/gear/left-actuator</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Right Gear Actuator</label>
-				<halign>left</halign>
-				<property>/systems/failures/gear/right-actuator</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-		
-		</group>
-		
-		<vrule/>
-		
-		<group>
-			<layout>vbox</layout>
-			
-			<group>
-				<layout>hbox</layout>
-
-				<hrule>
-					<stretch>true</stretch>
-				</hrule>
-				<text>
-					<label>Flight Controls</label>
-				</text>
-				<hrule>
-					<stretch>true</stretch>
-				</hrule>
-			</group>
-			
-			<checkbox>
-				<label>Elevator Power</label>
-				<halign>left</halign>
-				<property>/systems/failures/fcs/elevator-pwr</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Rudder Power</label>
-				<halign>left</halign>
-				<property>/systems/failures/fcs/rudder-pwr</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Yaw Damper</label>
-				<halign>left</halign>
-				<property>/systems/failures/fcs/yaw-damper</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<group>
-				<layout>hbox</layout>
-
-				<hrule>
-					<stretch>true</stretch>
-				</hrule>
-				<text>
 					<label>Fuel</label>
 				</text>
 				<hrule>
@@ -441,6 +332,165 @@
 				<enable>
 					<property>options/aux-tanks</property>
 				</enable>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+		
+		</group>
+		
+		<vrule/>
+		
+		<group>
+			<layout>vbox</layout>
+			
+			<group>
+				<layout>hbox</layout>
+
+				<hrule>
+					<stretch>true</stretch>
+				</hrule>
+				<text>
+					<label>Pneumatics</label>
+				</text>
+				<hrule>
+					<stretch>true</stretch>
+				</hrule>
+			</group>
+			
+			<checkbox>
+				<label>Bleed APU</label>
+				<halign>left</halign>
+				<property>/systems/failures/pneumatics/bleed-apu</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Bleed Eng L</label>
+				<halign>left</halign>
+				<property>/systems/failures/pneumatics/bleed-l</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Bleed Eng R</label>
+				<halign>left</halign>
+				<property>/systems/failures/pneumatics/bleed-r</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Pack L</label>
+				<halign>left</halign>
+				<property>/systems/failures/pneumatics/pack-l</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Pack R</label>
+				<halign>left</halign>
+				<property>/systems/failures/pneumatics/pack-r</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<group>
+				<layout>hbox</layout>
+
+				<hrule>
+					<stretch>true</stretch>
+				</hrule>
+				<text>
+					<label>Flight Controls</label>
+				</text>
+				<hrule>
+					<stretch>true</stretch>
+				</hrule>
+			</group>
+			
+			<checkbox>
+				<label>Elevator Power</label>
+				<halign>left</halign>
+				<property>/systems/failures/fcs/elevator-pwr</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Rudder Power</label>
+				<halign>left</halign>
+				<property>/systems/failures/fcs/rudder-pwr</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Yaw Damper</label>
+				<halign>left</halign>
+				<property>/systems/failures/fcs/yaw-damper</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<group>
+				<layout>hbox</layout>
+
+				<hrule>
+					<stretch>true</stretch>
+				</hrule>
+				<text>
+					<label>Landing Gear</label>
+				</text>
+				<hrule>
+					<stretch>true</stretch>
+				</hrule>
+			</group>
+			
+			<checkbox>
+				<label>Nose Gear Actuator</label>
+				<halign>left</halign>
+				<property>/systems/failures/gear/nose-actuator</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Left Gear Actuator</label>
+				<halign>left</halign>
+				<property>/systems/failures/gear/left-actuator</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Right Gear Actuator</label>
+				<halign>left</halign>
+				<property>/systems/failures/gear/right-actuator</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>

@@ -909,10 +909,12 @@
 			<input>/systems/electrical/relay/ac-l-tr-l1/output</input>
 			<table> <!-- AC to DC converter -->
 				<independentVar lookup="row">/systems/electrical/relay/ac-l-tr-l1/output</independentVar>
+				<independentVar lookup="column">/systems/failures/electrical/tr-l1</independentVar>
 				<tableData>
-					112  0.21428571429
-					115  0.24347826087
-					118  0.24576271186
+					     0              1
+					112  0.21428571429  0
+					115  0.24347826087  0
+					118  0.24576271186  0
 				</tableData>
 			</table>
 		</scheduled_gain>
@@ -933,10 +935,12 @@
 			<input>/systems/electrical/relay/ac-l-tr-l2/output</input>
 			<table> <!-- AC to DC converter -->
 				<independentVar lookup="row">/systems/electrical/relay/ac-l-tr-l2/output</independentVar>
+				<independentVar lookup="column">/systems/failures/electrical/tr-l2</independentVar>
 				<tableData>
-					112  0.21428571429
-					115  0.24347826087
-					118  0.24576271186
+					     0              1
+					112  0.21428571429  0
+					115  0.24347826087  0
+					118  0.24576271186  0
 				</tableData>
 			</table>
 		</scheduled_gain>
@@ -957,10 +961,12 @@
 			<input>/systems/electrical/relay/ac-r-tr-r1/output</input>
 			<table> <!-- AC to DC converter -->
 				<independentVar lookup="row">/systems/electrical/relay/ac-r-tr-r1/output</independentVar>
+				<independentVar lookup="column">/systems/failures/electrical/tr-r1</independentVar>
 				<tableData>
-					112  0.21428571429
-					115  0.24347826087
-					118  0.24576271186
+					     0              1
+					112  0.21428571429  0
+					115  0.24347826087  0
+					118  0.24576271186  0
 				</tableData>
 			</table>
 		</scheduled_gain>
@@ -981,10 +987,12 @@
 			<input>/systems/electrical/relay/ac-gndsvc-tr-r2/output</input>
 			<table> <!-- AC to DC converter -->
 				<independentVar lookup="row">/systems/electrical/relay/ac-gndsvc-tr-r2/output</independentVar>
+				<independentVar lookup="column">/systems/failures/electrical/tr-r2</independentVar>
 				<tableData>
-					112  0.21428571429
-					115  0.24347826087
-					118  0.24576271186
+					     0              1
+					112  0.21428571429  0
+					115  0.24347826087  0
+					118  0.24576271186  0
 				</tableData>
 			</table>
 		</scheduled_gain>
@@ -1189,19 +1197,28 @@
 		</scheduled_gain>
 		
 		<!-- Static Inverter -->
-		<fcs_function name="/systems/electrical/sources/si-1/output-volt">
+		<fcs_function name="/systems/electrical/sources/si/output-volt">
 			<function>
-				<table> <!-- DC to AC converter -->
-					<independentVar lookup="row">/systems/electrical/bus/dc-bat</independentVar>
-					<independentVar lookup="column">/controls/electrical/emer-pwr</independentVar>
-					<tableData>
-						    0    1
-						 0  0    0
-						24  0  112
-						28  0  115
-						29  0  118
-					</tableData>
-				</table>
+				<product>
+					<table> <!-- DC to AC converter -->
+						<independentVar lookup="row">/systems/electrical/bus/dc-bat</independentVar>
+						<independentVar lookup="column">/controls/electrical/emer-pwr</independentVar>
+						<tableData>
+							    0    1
+							 0  0    0
+							24  0  112
+							28  0  115
+							29  0  118
+						</tableData>
+					</table>
+					<table>
+						<independentVar lookup="row">/systems/failures/electrical/si</independentVar>
+						<tableData>
+							0  1
+							1  0
+						</tableData>
+					</table>
+				</product>
 			</function>
 		</fcs_function>
 		
@@ -1239,7 +1256,7 @@
 			<test value="/systems/electrical/relay/ac-src-emer-ac/output">
 				/systems/electrical/relay/ac-inv-src-emer-ac/contact-final eq 0
 			</test>
-			<test value="/systems/electrical/sources/si-1/output-volt">
+			<test value="/systems/electrical/sources/si/output-volt">
 				/systems/electrical/relay/ac-inv-src-emer-ac/contact-final eq 1
 			</test>
 		</switch>
