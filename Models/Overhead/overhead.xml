@@ -2591,6 +2591,9 @@
 				<value>1</value>
 			</binding>
 			<binding>
+				<condition>
+					<property>controls/switches/gpws-cover</property>
+				</condition>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
 			</binding>
@@ -2619,6 +2622,9 @@
 				<value>-1</value>
 			</binding>
 			<binding>
+				<condition>
+					<property>controls/switches/gpws-cover</property>
+				</condition>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
 			</binding>
