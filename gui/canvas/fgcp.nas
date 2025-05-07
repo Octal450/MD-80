@@ -24,8 +24,8 @@ var fgcpCanvas = {
 	},
 	getKeys: func() {
 		return ["Ap", "ApDisc", "ApSel", "AltHold", "AltKnob", "AltMinus", "AltPlus", "Alt_7seg", "Alt_thousand_7seg", "AtsDisc", "AutoLand", "AutoThrot", "Bank10", "Bank15", "Bank20", "Bank25", "Bank30", "BankLimit", "Display", "EprLim", "Fd1", "Fd2",
-		"FmsOvrd", "HdgKnob", "HdgMinus", "HdgPlus", "Hdg_7seg", "IasMach", "Ils", "MachSel", "Nav", "PerfVnav", "PerfVnavText", "PitchMode_16seg", "PitchKnob", "PitchMinus", "PitchPlus", "Pitch_7seg", "SpdKnob", "SpdMinus", "SpdPlus", "SpdSel", "Spd_7seg",
-		"Toga", "Turb", "VertSpd", "VorLoc"];
+		"FmsOvrd", "FmsOvrdText", "HdgKnob", "HdgMinus", "HdgPlus", "Hdg_7seg", "IasMach", "Ils", "MachSel", "Nav", "PerfVnav", "PerfVnavText", "PitchMode_16seg", "PitchKnob", "PitchMinus", "PitchPlus", "Pitch_7seg", "SpdKnob", "SpdMinus", "SpdPlus", "SpdSel",
+		"Spd_7seg", "Toga", "Turb", "VertSpd", "VorLoc"];
 	},
 	close: func() {
 		me._dialogUpdate.stop();
@@ -51,8 +51,8 @@ var fgcpCanvas = {
 			else if (find("_16seg", me._key) != -1) me[me._key].setFont("Std16SegCustom.ttf");
 		}
 		
-		if (pts.Options.fms.getValue() != "Honeywell") {
-			me["FmsOvrd"].hide();
+		if (pts.Systems.Acconfig.Options.nav.getValue() != 1) {
+			me["FmsOvrdText"].hide();
 			me["PerfVnavText"].setText("PERF");
 		}
 		
@@ -254,6 +254,14 @@ var fgcpCanvas = {
 		me._dialogUpdate.start();
 	},
 	_update: func() {
+		if (pts.Systems.Acconfig.Options.nav.getValue() != 1) {
+			me["FmsOvrdText"].hide();
+			me["PerfVnavText"].setText("PERF");
+		} else {
+			me["FmsOvrdText"].show();
+			me["PerfVnavText"].setText("VNAV");
+		}
+		
 		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			if (pts.Controls.Switches.annunTest.getBoolValue()) {
 				me["Hdg_7seg"].setText("888");

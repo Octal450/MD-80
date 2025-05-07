@@ -7,6 +7,22 @@
 	<name>acconfig-main</name>
 	<layout>vbox</layout>
 	
+	<nasal>
+		<open>
+			pts.Sim.Gui.Dialogs.AcconfigMain.ht9100.setBoolValue(!pts.Systems.Acconfig.Options.nav.getBoolValue());
+			pts.Sim.Gui.Dialogs.AcconfigMain.afms.setBoolValue(pts.Systems.Acconfig.Options.nav.getBoolValue());
+			
+			var loop = maketimer(0.1, func() {
+				pts.Sim.Gui.Dialogs.AcconfigMain.ht9100.setBoolValue(!pts.Systems.Acconfig.Options.nav.getBoolValue());
+				pts.Sim.Gui.Dialogs.AcconfigMain.afms.setBoolValue(pts.Systems.Acconfig.Options.nav.getBoolValue());
+			});
+			loop.start();
+		</open>
+		<close>
+			loop.stop();
+		</close>
+	</nasal>
+	
 	<group>
 		<layout>hbox</layout>
 		
@@ -335,7 +351,7 @@
 			
 			<checkbox>
 				<enable>
-					<property>systems/acconfig/options/irs</property>
+					<property>systems/acconfig/options/nav</property>
 				</enable>
 				<label>IRS Aligns Instantly</label>
 				<halign>left</halign>
@@ -438,10 +454,7 @@
 				<enable>
 					<and>
 						<not><property>/options/panel-mod</property></not>
-						<not-equals>
-							<property>/systems/acconfig/options/panel</property>
-							<value>EFIS + EDP</value>
-						</not-equals>
+						<not><property>/systems/acconfig/options/edp-sdp</property></not>
 					</and>
 				</enable>
 				<label>Combined Standby</label>
@@ -459,40 +472,7 @@
 			
 			<checkbox>
 				<enable>
-					<and>
-						<equals>
-							<property>/position/wow</property>
-							<value>1</value>
-						</equals>
-						<less-than>
-							<property>/velocities/groundspeed-kt</property>
-							<value>2</value>
-						</less-than>
-						<not-equals>
-							<property>/systems/acconfig/options/panel</property>
-							<value>Analog</value>
-						</not-equals>
-					</and>
-				</enable>
-				<label>IRS Equipped</label>
-				<halign>left</halign>
-				<property>/systems/acconfig/options/irs</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>acconfig.OPTIONS.write();</script>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<enable>
-					<not-equals>
-						<property>/systems/acconfig/options/panel</property>
-						<value>Analog</value>
-					</not-equals>
+					<property>/systems/acconfig/options/efis</property>
 				</enable>
 				<label>Rising Runway Equipped</label>
 				<halign>left</halign>
@@ -514,104 +494,109 @@
 					<stretch>true</stretch>
 				</hrule>
 				<text>
-					<label>Panel Configuration</label>
+					<label>Panel (See Aircraft Help)</label>
 				</text>
 				<hrule>
 					<stretch>true</stretch>
 				</hrule>
 			</group>
 			
-			<group>
-				<layout>hbox</layout>
-				
-				<text>
-					<label>Instrumentation:</label>
-				</text>
-				
-				<combo>
-					<enable>
-						<and>
-							<equals>
-								<property>/position/wow</property>
-								<value>1</value>
-							</equals>
-							<less-than>
-								<property>/velocities/groundspeed-kt</property>
-								<value>2</value>
-							</less-than>
-						</and>
-					</enable>
-					<halign>right</halign>
-					<pref-width>125</pref-width>
-					<property>/systems/acconfig/options/panel</property>
-					<value>Analog</value>
-					<value>EFIS</value>
-					<binding>
-						<command>dialog-apply</command>
-					</binding>
-					<binding>
-						<equals>
-							<property>/systems/acconfig/options/panel</property>
-							<value>Analog</value>
-						</equals>
-						<command>property-assign</command>
-						<property>/systems/acconfig/options/irs</property>
-						<value>0</value>
-					</binding>
-					<binding>
-						<command>nasal</command>
-						<script>acconfig.OPTIONS.write();</script>
-					</binding>
-					<live>true</live>
-				</combo>
-			</group>
+			<checkbox>
+				<enable>
+					<property>/systems/acconfig/options/efis</property>
+				</enable>
+				<label>Dual Cue Flight Director</label>
+				<halign>left</halign>
+				<property>/systems/acconfig/options/dual-cue-fd</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>acconfig.OPTIONS.write();</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<enable>
+					<!--property>/systems/acconfig/options/efis</property-->
+					<property>/systems/acconfig/unused</property>
+				</enable>
+				<label>EDP &amp; SDP Equipped</label>
+				<halign>left</halign>
+				<property>/systems/acconfig/options/edp-sdp</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>acconfig.OPTIONS.write();</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>EFIS Equipped</label>
+				<halign>left</halign>
+				<property>/systems/acconfig/options/efis</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+						libraries.setPanelConfig();
+						acconfig.OPTIONS.write();
+					</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
 			
 			<group>
 				<layout>hbox</layout>
 				
-				<text>
-					<label>Flight Director:</label>
-				</text>
+				<radio>
+					<label>HT9100/AHRS</label>
+					<halign>left</halign>
+					<property>/sim/gui/dialogs/acconfig-main/ht9100</property>
+					<binding>
+						<command>dialog-apply</command>
+					</binding>
+					<binding>
+						<command>nasal</command>
+						<script>
+							pts.Systems.Acconfig.Options.nav.setBoolValue(0);
+							pts.Sim.Gui.Dialogs.AcconfigMain.ht9100.setBoolValue(1);
+							pts.Sim.Gui.Dialogs.AcconfigMain.afms.setBoolValue(0);
+							acconfig.OPTIONS.write();
+						</script>
+					</binding>
+					<live>true</live>
+				</radio>
 				
-				<group>
-					<layout>table</layout>
-					
-					<text>
-						<visible>
-							<equals>
-								<property>/systems/acconfig/options/panel</property>
-								<value>Analog</value>
-							</equals>
-						</visible>
-						<row>0</row>
-						<col>0</col>
-						<halign>center</halign>
-						<label>Collins Single Cue</label>
-					</text>
-					<combo>
-						<visible>
-							<not-equals>
-								<property>/systems/acconfig/options/panel</property>
-								<value>Analog</value>
-							</not-equals>
-						</visible>
-						<row>0</row>
-						<col>0</col>
-						<halign>right</halign>
-						<pref-width>125</pref-width>
-						<property>/systems/acconfig/options/flight-director</property>
-						<value>Single Cue</value>
-						<value>Dual Cue</value>
-						<binding>
-							<command>dialog-apply</command>
-						</binding>
-						<binding>
-							<command>nasal</command>
-							<script>acconfig.OPTIONS.write();</script>
-						</binding>
-						<live>true</live>
-					</combo>
-				</group>
+				<radio>
+					<enable>
+						<!--property>/systems/acconfig/options/efis</property-->
+						<property>/systems/acconfig/unused</property>
+					</enable>
+					<label>AFMS/IRS</label>
+					<halign>left</halign>
+					<property>/sim/gui/dialogs/acconfig-main/afms</property>
+					<binding>
+						<command>dialog-apply</command>
+					</binding>
+					<binding>
+						<command>nasal</command>
+						<script>
+							pts.Systems.Acconfig.Options.nav.setBoolValue(1);
+							pts.Sim.Gui.Dialogs.AcconfigMain.ht9100.setBoolValue(0);
+							pts.Sim.Gui.Dialogs.AcconfigMain.afms.setBoolValue(1);
+							acconfig.OPTIONS.write();
+						</script>
+					</binding>
+					<live>true</live>
+				</radio>
 			</group>
 		</group>
 	</group>

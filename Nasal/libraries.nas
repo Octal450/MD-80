@@ -83,12 +83,18 @@ var slowLoop = maketimer(1, func() {
 	}
 	
 	# Panel forcer - makes sure an invalid panel configuration is never used
-	if (pts.Systems.Acconfig.Options.panel.getValue() == "Analog") {
-		if (pts.Systems.Acconfig.Options.irs.getBoolValue()) {
-			pts.Systems.Acconfig.Options.irs.setBoolValue(0);
-		}
-	}
+	setPanelConfig();
 });
+
+var setPanelConfig = func() {
+	if (!pts.Systems.Acconfig.Options.efis.getBoolValue()) {
+		pts.Systems.Acconfig.Options.dualCueFd.setBoolValue(0);
+		pts.Systems.Acconfig.Options.edpSdp.setBoolValue(0);
+		pts.Systems.Acconfig.Options.nav.setBoolValue(0);
+		pts.Sim.Gui.Dialogs.AcconfigMain.ht9100.setBoolValue(1);
+		pts.Sim.Gui.Dialogs.AcconfigMain.afms.setBoolValue(0);
+	}
+}
 
 # Custom controls.nas overrides
 controls.autopilotDisconnect = func() {

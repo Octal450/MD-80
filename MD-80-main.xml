@@ -1531,6 +1531,7 @@
 		<acconfig n="0">
 			<autoconfig-running type="bool">0</autoconfig-running>
 			<options n="0">
+				<afms type="bool">0</afms>
 				<armed-alt-as-fl type="bool">0</armed-alt-as-fl>
 				<auto-arm-alt type="bool">0</auto-arm-alt>
 				<autopush n="0">
@@ -1542,11 +1543,13 @@
 					<nd-fps type="double">20</nd-fps>
 					<pfd-fps type="double">20</pfd-fps>
 				</du>
+				<dual-cue-fd type="bool">0</dual-cue-fd>
+				<edp-sdp type="bool">0</edp-sdp>
+				<efis type="bool">0</efis>
 				<flight-director type="string">Single Cue</flight-director>
-				<irs type="bool">0</irs>
 				<irs-aligns-instantly type="bool">0</irs-aligns-instantly>
 				<keyboard-mode type="bool">0</keyboard-mode>
-				<panel type="string">Analog</panel>
+				<nav type="int">0</nav>
 				<rising-runway type="bool">1</rising-runway>
 				<separate-tiller-axis type="bool">0</separate-tiller-axis>
 			</options>

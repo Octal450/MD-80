@@ -10,6 +10,7 @@ var Value = {
 	Ai: {
 		alpha: 0,
 		center: nil,
+		dualCueFd: 0,
 		fd: [0, 0],
 		pitch: 0,
 		risingRunwayMultiplier: 0,
@@ -103,6 +104,7 @@ var canvasBase = {
 		}
 	},
 	updateBase: func(n) {
+		Value.Ai.dualCueFd = pts.Systems.Acconfig.Options.dualCueFd.getBoolValue();
 		if (n == 0) Value.Ai.fd[0] = dfgs.Output.fd1.getBoolValue();
 		if (n == 1) Value.Ai.fd[1] = dfgs.Output.fd2.getBoolValue();
 		Value.Misc.lat = dfgs.Output.lat.getValue();
@@ -111,7 +113,7 @@ var canvasBase = {
 		# IRS
 		if (systems.PLATFORM.Unit.attAvail[n].getBoolValue()) {
 			if (Value.Ai.fd[n]) {
-				if (systems.DUController.flightDirector == "Dual Cue") {
+				if (Value.Ai.dualCueFd) {
 					me["FD_v"].hide();
 					
 					me["FD_pitch"].setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
@@ -154,7 +156,7 @@ var canvasBase = {
 		}
 		
 		# AI
-		if (systems.DUController.flightDirector == "Dual Cue") {
+		if (Value.Ai.dualCueFd) {
 			me["AI_dual_cue"].show();
 			me["AI_scale_dc"].show();
 			me["AI_single_cue"].hide();
@@ -195,7 +197,7 @@ var canvasBase = {
 				me["AI_PLI_single_cue"].setColor(1, 1, 1);
 			}
 			
-			if (systems.DUController.flightDirector == "Dual Cue") {
+			if (Value.Ai.dualCueFd) {
 				me["AI_PLI_dual_cue"].show();
 				me["AI_PLI_single_cue"].hide();
 			} else {

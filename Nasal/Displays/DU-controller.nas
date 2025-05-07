@@ -4,7 +4,6 @@
 
 var DUController = {
 	errorActive: 0,
-	flightDirector: "Single Cue",
 	PowerSource: {
 		acRadioR: 0,
 		emerAc: 0,
@@ -29,9 +28,7 @@ var DUController = {
 		me.showNd2.setBoolValue(0); # Temporary
 	},
 	loop: func() {
-		me.flightDirector = pts.Systems.Acconfig.Options.flightDirector.getValue();
-		
-		if (pts.Systems.Acconfig.Options.panel.getValue() == "EFIS") {
+		if (pts.Systems.Acconfig.Options.efis.getBoolValue()) {
 			if (!me.errorActive) {
 				me.PowerSource.acRadioR = systems.ELECTRICAL.Bus.acRadioR.getValue();
 				me.PowerSource.emerAc = systems.ELECTRICAL.Bus.emerAc.getValue();

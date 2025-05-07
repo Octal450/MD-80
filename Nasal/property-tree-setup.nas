@@ -137,10 +137,6 @@ var Instrumentation = {
 	},
 };
 
-var Options = {
-	fms: props.globals.getNode("/options/fms"),
-};
-
 var Orientation = {
 	pitchDeg: props.globals.getNode("/orientation/pitch-deg"),
 	rollDeg: props.globals.getNode("/orientation/roll-deg"),
@@ -174,6 +170,14 @@ var Sim = {
 		zOffsetM: props.globals.getNode("/sim/current-view/z-offset-m", 1),
 		zOffsetMaxM: props.globals.getNode("/sim/current-view/z-offset-max-m", 1),
 		zOffsetMinM: props.globals.getNode("/sim/current-view/z-offset-min-m", 1),
+	},
+	Gui: {
+		Dialogs: {
+			AcconfigMain: {
+				afms: props.globals.initNode("/sim/gui/dialogs/acconfig-main/afms", 0, "BOOL"),
+				ht9100: props.globals.initNode("/sim/gui/dialogs/acconfig-main/ht9100", 0, "BOOL"),
+			},
+		},
 	},
 	Rendering: {
 		Headshake: {
@@ -209,15 +213,17 @@ var Sim = {
 var Systems = {
 	Acconfig: {
 		Options: {
+			afms: props.globals.getNode("/systems/acconfig/options/afms"),
 			armedAltAsFl: props.globals.getNode("/systems/acconfig/options/armed-alt-as-fl"),
 			autoArmAlt: props.globals.getNode("/systems/acconfig/options/auto-arm-alt"),
-			flightDirector: props.globals.getNode("/systems/acconfig/options/flight-director"),
 			Du: {
 				ndFps: props.globals.getNode("/systems/acconfig/options/du/nd-fps"),
 				pfdFps: props.globals.getNode("/systems/acconfig/options/du/pfd-fps"),
 			},
-			irs: props.globals.getNode("/systems/acconfig/options/irs"),
-			panel: props.globals.getNode("/systems/acconfig/options/panel"),
+			dualCueFd: props.globals.getNode("/systems/acconfig/options/dual-cue-fd"),
+			edpSdp: props.globals.getNode("/systems/acconfig/options/edp-sdp"),
+			efis: props.globals.getNode("/systems/acconfig/options/efis"),
+			nav: props.globals.getNode("/systems/acconfig/options/nav"),
 			risingRunway: props.globals.getNode("/systems/acconfig/options/rising-runway"),
 		},
 	},

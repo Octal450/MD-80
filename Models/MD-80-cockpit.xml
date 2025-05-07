@@ -25,20 +25,14 @@
 		<type>select</type>
 		<object-name>PanelMainC3A</object-name>
 		<condition>
-			<not-equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>EFIS + EDP</value>
-			</not-equals>
+			<not><property>systems/acconfig/options/edp-sdp</property></not>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>PanelMainC3E</object-name>
 		<condition>
-			<equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>EFIS + EDP</value>
-			</equals>
+			<property>systems/acconfig/options/edp-sdp</property>
 		</condition>
 	</animation>
 	

@@ -119,8 +119,8 @@
 		<object-name>Perf.Text</object-name>
 		<condition>
 			<not-equals>
-				<property>options/fms</property>
-				<value>Honeywell</value>
+				<property>systems/acconfig/options/nav</property>
+				<value>1</value>
 			</not-equals>
 		</condition>
 	</animation>
@@ -130,8 +130,8 @@
 		<object-name>Vnav.Text</object-name>
 		<condition>
 			<equals>
-				<property>options/fms</property>
-				<value>Honeywell</value>
+				<property>systems/acconfig/options/nav</property>
+				<value>1</value>
 			</equals>
 		</condition>
 	</animation>

@@ -57,10 +57,7 @@
 		<object-name>EfisSel</object-name>
 		<object-name>LabelsEfis</object-name>
 		<condition>
-			<not-equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</not-equals>
+			<property>systems/acconfig/options/efis</property>
 		</condition>
 	</animation>
 	
@@ -72,7 +69,7 @@
 		<object-name>IrsLights</object-name>
 		<object-name>LabelsIrs</object-name>
 		<condition>
-			<property>systems/acconfig/options/irs</property>
+			<property>systems/acconfig/options/nav</property>
 		</condition>
 	</animation>
 	
