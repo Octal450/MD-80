@@ -108,10 +108,10 @@ Simulation:
 Aircraft:
 * Armed Altitude as Flight Levels: Equips the aircraft with the optional feature to show flight level on the FMA.
 * Auto Arm Altitude: Equips the aircraft with the optional feature to automatically arm altitude.
-* Combined Standby: Equips the aircraft with the combined standby instead of split instruments.
 * Rising Runway Equipped: Equips the PFD with the rising runway indication (EFIS panel only).
 
 Panel Configuration:
+* Combined Standby: Equips the aircraft with the combined standby instead of split instruments (MD-81/82/83 only).
 * Dual Cue Flight Director: Equips the PFD with the dual cue (cross bars) flight director (requires EFIS).
 * EDP &amp; SDP Equipped: Equips the aircraft with the Engine Display Panel and System Display Panel (requires EFIS).
 * EFIS Equipped: Equips the aircraft with the EADI and EHSI electronic flight instruments.
