@@ -675,9 +675,11 @@
 			<function>
 				<table>
 					<independentVar lookup="row">velocities/mach</independentVar>
+					<independentVar lookup="column">fcs/slat-pos-deg</independentVar>
 					<tableData>
-						0.2  15.3
-						0.9   8.1
+						     0     20
+						0.2  12.7  14.8
+						0.9   8.5  10.7
 					</tableData>
 				</table>
 			</function>
