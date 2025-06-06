@@ -1172,6 +1172,45 @@
 	
 	<channel name="Engine Control">
 		
+		<!-- Approach Idle Logic -->
+		<switch name="/systems/engines/nlg-wow-cmd">
+			<default value="0"/>
+			<test value="1">
+				gear/unit[0]/WOW eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/engines/nlg-wow-pos">
+			<input>/systems/engines/nlg-wow-cmd</input>
+			<rate_limit sense="incr">0.2</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/engines/nlg-pos-cmd">
+			<default value="0"/>
+			<test value="1">
+				gear/unit[0]/pos-norm eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/engines/nlg-pos">
+			<input>/systems/engines/nlg-pos-cmd</input>
+			<rate_limit sense="incr">0.2</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/engines/approach-idle">
+			<default value="/systems/engines/approach-idle"/>
+			<test logic="OR" value="0">
+				/systems/acconfig/autoconfig-running eq 1
+				/systems/engines/nlg-pos ne 1
+				/systems/engines/nlg-wow-pos eq 1
+			</test>
+			<test value="1">
+				/systems/engines/nlg-pos eq 1
+			</test>
+		</switch>
+		
 		<!-- Engine 1 -->
 		<fcs_function name="/systems/engines/limit/man-1-norm-ref"> <!-- Opposite of EPR Calc -->
 			<function>
@@ -1274,9 +1313,8 @@
 			<test value="/systems/engines/reverse-1/throttle-rev">
 				/systems/engines/reverse-1/engage eq 1
 			</test>
-			<test logic="AND" value="/systems/engines/control-1/throttle-pos-appr">
-				position/wow eq 0
-				/systems/gear/cmd eq 1
+			<test value="/systems/engines/control-1/throttle-pos-appr">
+				/systems/engines/approach-idle eq 1
 			</test>
 		</switch>
 		
@@ -1388,9 +1426,8 @@
 			<test value="/systems/engines/reverse-2/throttle-rev">
 				/systems/engines/reverse-2/engage eq 1
 			</test>
-			<test logic="AND" value="/systems/engines/control-2/throttle-pos-appr">
-				position/wow eq 0
-				/systems/gear/cmd eq 1
+			<test value="/systems/engines/control-2/throttle-pos-appr">
+				/systems/engines/approach-idle eq 1
 			</test>
 		</switch>
 		
