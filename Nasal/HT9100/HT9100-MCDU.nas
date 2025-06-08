@@ -14,13 +14,14 @@ var MCDU = {
 		m.message = std.Vector.new();
 		
 		m.PageList = {
-			data: DataIndex.new(n),
+			dataIndex: DataIndex.new(n),
 			fallback: Fallback.new(n),
 			ident: Ident.new(n),
+			menu: Menu.new(n),
 			posRef: PosRef.new(n),
 		};
 		
-		m.page = m.PageList.fallback;
+		m.page = m.PageList.ident;
 		m.powerSource = ps;
 		m.scratchpad = "";
 		m.scratchpadDecimal = nil;
@@ -216,7 +217,6 @@ var MCDU = {
 		}
 		
 		me.page = me.PageList[p]; # Set page
-		
 		me.page.setup();
 		
 		# Update everything now to make sure it all transitions at once

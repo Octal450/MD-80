@@ -201,7 +201,7 @@ var PosRef = {
 		
 		m.fromPage = "";
 		m.group = "fmc";
-		m.name = "posInit";
+		m.name = "posRef";
 		m.nextPage = "none";
 		m.prevPage = "none";
 		m.scratchpad = "";

@@ -958,7 +958,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu_ht9100.unit[0].pageKey("data");</script>
+				<script>mcdu_ht9100.unit[0].pageKey("dataIndex");</script>
 			</binding>
 			<binding>
 				<command>nasal</command>
