@@ -142,6 +142,9 @@ var Orientation = {
 	rollDeg: props.globals.getNode("/orientation/roll-deg"),
 };
 
+var Options = {
+	type: props.globals.getNode("/options/type"),
+};
 var Position = {
 	gearAglFt: props.globals.getNode("/position/gear-agl-ft"),
 	wow: props.globals.getNode("/position/wow"),
@@ -217,6 +220,7 @@ var Systems = {
 			armedAltAsFl: props.globals.getNode("/systems/acconfig/options/armed-alt-as-fl"),
 			autoArmAlt: props.globals.getNode("/systems/acconfig/options/auto-arm-alt"),
 			Du: {
+				mcduFps: props.globals.getNode("/systems/acconfig/options/du/mcdu-fps"),
 				ndFps: props.globals.getNode("/systems/acconfig/options/du/nd-fps"),
 				pfdFps: props.globals.getNode("/systems/acconfig/options/du/pfd-fps"),
 			},

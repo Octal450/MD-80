@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
+
+<PropertyList>
+
+	<name>ht9100</name>
+	<layout>table</layout>
+	
+	<x>0</x>
+	<y>0</y>
+	
+	<nasal>
+		<open>
+			if (getprop("/instrumentation/ht9100/exec-light")) {
+				setprop("/sim/gui/dialogs/ht9100/exec-text", " |");
+			} else {
+				setprop("/sim/gui/dialogs/ht9100/exec-text", "");
+			}
+			
+			var loop = maketimer(0.1, func() {
+				if (getprop("/instrumentation/ht9100/exec-light")) {
+					setprop("/sim/gui/dialogs/ht9100/exec-text", " |");
+				} else {
+					setprop("/sim/gui/dialogs/ht9100/exec-text", "");
+				}
+			});
+			loop.start();
+		</open>
+		<close>
+			loop.stop();
+		</close>
+	</nasal>
+	
+	<group>
+		<row>0</row>
+		<col>0</col>
+		<layout>hbox</layout>
+		
+		<text>
+			<halign>left</halign>
+			<label>HT9100 MCDU</label>
+		</text>
+		
+		<button>
+			<halign>right</halign>
+			<pref-width>20</pref-width>
+			<pref-height>20</pref-height>
+			<legend>X</legend>
+			<key>Esc</key>
+			<binding>
+				<command>dialog-close</command>
+			</binding>
+		</button>
+	</group>
+	
+	<hrule>
+		<row>1</row>
+		<col>0</col>
+	</hrule>
+	
+	<group>
+		<row>2</row>
+		<col>0</col>
+		<layout>hbox</layout>
+		
+		<text>
+			<pref-width>5</pref-width>
+			<label></label>
+		</text>
+		
+		<button>
+			<legend>RTE</legend>
+			<pref-height>25</pref-height>
+			<pref-width>41</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu_ht9100.unit[0].pageKey("rte");</script>
+			</binding>
+		</button>
+		
+		<button>
+			<legend>LEGS</legend>
+			<pref-height>25</pref-height>
+			<pref-width>41</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu_ht9100.unit[0].pageKey("legs");</script>
+			</binding>
+		</button>
+		
+		<button>
+			<legend>DE/AR</legend>
+			<pref-height>25</pref-height>
+			<pref-width>41</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu_ht9100.unit[0].pageKey("depArr");</script>
+			</binding>
+		</button>
+		
+		<button>
+			<legend>HOLD</legend>
+			<pref-height>25</pref-height>
+			<pref-width>41</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu_ht9100.unit[0].pageKey("hold");</script>
+			</binding>
+		</button>
+		
+		<button>
+			<legend>PROG</legend>
+			<pref-height>25</pref-height>
+			<pref-width>41</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu_ht9100.unit[0].pageKey("prog");</script>
+			</binding>
+		</button>
+		
+		<button>
+			<legend></legend>
+			<pref-height>25</pref-height>
+			<pref-width>41</pref-width>
+		</button>
+		
+		<button>
+			<legend></legend>
+			<pref-height>25</pref-height>
+			<pref-width>41</pref-width>
+		</button>
+		
+		<text>
+			<pref-width>5</pref-width>
+			<label></label>
+		</text>
+	</group>
+	
+	<group>
+		<row>3</row>
+		<col>0</col>
+		<layout>hbox</layout>
+		
+		<group>
+			<layout>vbox</layout>
+			
+			<text>
+				<label></label>
+			</text>
+			
+			<button>
+				<legend>&gt;</legend>
+				<pref-height>21</pref-height>
+				<pref-width>30</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].softKey("l1");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<legend>&gt;</legend>
+				<pref-height>21</pref-height>
+				<pref-width>30</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].softKey("l2");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<legend>&gt;</legend>
+				<pref-height>21</pref-height>
+				<pref-width>30</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].softKey("l3");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<legend>&gt;</legend>
+				<pref-height>21</pref-height>
+				<pref-width>30</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].softKey("l4");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<legend>&gt;</legend>
+				<pref-height>21</pref-height>
+				<pref-width>30</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].softKey("l5");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<legend>&gt;</legend>
+				<pref-height>21</pref-height>
+				<pref-width>30</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].softKey("l6");</script>
+				</binding>
+			</button>
+			
+			<text>
+				<label></label>
+			</text>
+		</group>
+		
+		<canvas>
+			<name>mcdu</name>
+			<valign>fill</valign>
+			<halign>fill</halign>
+			<stretch>false</stretch>
+			<pref-width>251</pref-width>
+			<pref-height>212</pref-height>
+			<nasal>
+				<load>
+					<![CDATA[
+						var mcdu_canvas_dlg = canvas.get(cmdarg());
+						var root = mcdu_canvas_dlg.createGroup();
+						root.setScale(0.307, 0.248);
+						mcdu_canvas_dlg.setColorBackground(0, 0, 0, 1.0);
+						root.createChild("image").set("src", "canvas://by-index/texture[5]");
+					]]>
+				</load>
+				<unload>
+					<![CDATA[
+						mcdu_canvas_dlg.del();
+						mcdu_canvas_dlg = nil;
+						root = nil;
+					]]>
+				</unload>
+			</nasal>
+		</canvas>
+		
+		<group>
+			<layout>vbox</layout>
+			
+			<text>
+				<label></label>
+			</text>
+			
+			<button>
+				<legend>&lt;</legend>
+				<pref-height>21</pref-height>
+				<pref-width>30</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].softKey("r1");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<legend>&lt;</legend>
+				<pref-height>21</pref-height>
+				<pref-width>30</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].softKey("r2");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<legend>&lt;</legend>
+				<pref-height>21</pref-height>
+				<pref-width>30</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].softKey("r3");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<legend>&lt;</legend>
+				<pref-height>21</pref-height>
+				<pref-width>30</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].softKey("r4");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<legend>&lt;</legend>
+				<pref-height>21</pref-height>
+				<pref-width>30</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].softKey("r5");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<legend>&lt;</legend>
+				<pref-height>21</pref-height>
+				<pref-width>30</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].softKey("r6");</script>
+				</binding>
+			</button>
+			
+			<text>
+				<label></label>
+			</text>
+		</group>
+	</group>
+	
+	<group>
+		<row>4</row>
+		<col>0</col>
+		<layout>hbox</layout>
+		
+		<button>
+			<legend>CLR</legend>
+			<pref-height>25</pref-height>
+			<pref-width>41</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu_ht9100.unit[0].alphaNumKey("CLR");</script>
+			</binding>
+		</button>
+		
+		<button>
+			<legend>/</legend>
+			<pref-height>25</pref-height>
+			<pref-width>41</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu_ht9100.unit[0].alphaNumKey("/");</script>
+			</binding>
+		</button>
+		
+		<button>
+			<legend>PREV</legend>
+			<pref-height>25</pref-height>
+			<pref-width>41</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu_ht9100.unit[0].prevPageKey();</script>
+			</binding>
+		</button>
+		
+		<button>
+			<legend>NEXT</legend>
+			<pref-height>25</pref-height>
+			<pref-width>41</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu_ht9100.unit[0].nextPageKey();</script>
+			</binding>
+		</button>
+		
+		<button>
+			<legend>MENU</legend>
+			<pref-height>25</pref-height>
+			<pref-width>41</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu_ht9100.unit[0].pageKey("menu");</script>
+			</binding>
+		</button>
+		
+		<button>
+			<legend>DATA</legend>
+			<pref-height>25</pref-height>
+			<pref-width>41</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu_ht9100.unit[0].pageKey("data");</script>
+			</binding>
+		</button>
+		
+		<text>
+			<format>%s</format>
+			<live>true</live>
+			<property>/sim/gui/dialogs/ht9100/exec-text</property>
+		</text>
+		
+		<button>
+			<legend>EXEC</legend>
+			<pref-height>25</pref-height>
+			<pref-width>41</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>mcdu_ht9100.unit[0].execKey();</script>
+			</binding>
+		</button>
+	</group>
+	
+	<group>
+		<row>5</row>
+		<col>0</col>
+		<layout>hbox</layout>
+		
+		<group>
+			<layout>table</layout>
+			
+			<button>
+				<row>0</row>
+				<col>0</col>
+				<legend>1</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("1");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>1</row>
+				<col>0</col>
+				<legend>4</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("4");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>2</row>
+				<col>0</col>
+				<legend>7</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("7");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>3</row>
+				<col>0</col>
+				<legend>.</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey(".");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>0</row>
+				<col>1</col>
+				<legend>2</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("2");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>1</row>
+				<col>1</col>
+				<legend>5</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("5");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>2</row>
+				<col>1</col>
+				<legend>8</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("8");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>3</row>
+				<col>1</col>
+				<legend>0</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("0");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>0</row>
+				<col>2</col>
+				<legend>3</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("3");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>1</row>
+				<col>2</col>
+				<legend>6</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("6");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>2</row>
+				<col>2</col>
+				<legend>9</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("9");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>3</row>
+				<col>2</col>
+				<legend>+/-</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("+/-");</script>
+				</binding>
+			</button>
+		</group>
+		
+		<text>
+			<label></label>
+		</text>
+		
+		<group>
+			<layout>table</layout>
+			
+			<button>
+				<row>0</row>
+				<col>0</col>
+				<legend>A</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("A");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>1</row>
+				<col>0</col>
+				<legend>H</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("H");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>2</row>
+				<col>0</col>
+				<legend>O</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("O");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>3</row>
+				<col>0</col>
+				<legend>V</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("V");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>0</row>
+				<col>1</col>
+				<legend>B</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("B");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>1</row>
+				<col>1</col>
+				<legend>I</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("I");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>2</row>
+				<col>1</col>
+				<legend>P</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("P");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>3</row>
+				<col>1</col>
+				<legend>W</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("W");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>0</row>
+				<col>2</col>
+				<legend>C</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("C");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>1</row>
+				<col>2</col>
+				<legend>J</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("J");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>2</row>
+				<col>2</col>
+				<legend>Q</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("Q");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>3</row>
+				<col>2</col>
+				<legend>X</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("X");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>0</row>
+				<col>3</col>
+				<legend>D</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("D");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>1</row>
+				<col>3</col>
+				<legend>K</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("K");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>2</row>
+				<col>3</col>
+				<legend>R</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("R");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>3</row>
+				<col>3</col>
+				<legend>Y</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("Y");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>0</row>
+				<col>4</col>
+				<legend>E</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("E");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>1</row>
+				<col>4</col>
+				<legend>L</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("L");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>2</row>
+				<col>4</col>
+				<legend>S</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("S");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>3</row>
+				<col>4</col>
+				<legend>Z</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("Z");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>0</row>
+				<col>5</col>
+				<legend>F</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("F");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>1</row>
+				<col>5</col>
+				<legend>M</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("M");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>2</row>
+				<col>5</col>
+				<legend>T</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("T");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>3</row>
+				<col>5</col>
+				<legend>SP</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey(" ");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>0</row>
+				<col>6</col>
+				<legend>G</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("G");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>1</row>
+				<col>6</col>
+				<legend>N</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("N");</script>
+				</binding>
+			</button>
+			
+			<button>
+				<row>2</row>
+				<col>6</col>
+				<legend>U</legend>
+				<pref-height>25</pref-height>
+				<pref-width>25</pref-width>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].alphaNumKey("U");</script>
+				</binding>
+			</button>
+		</group>
+	</group>
+
+</PropertyList>

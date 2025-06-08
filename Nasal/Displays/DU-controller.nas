@@ -4,12 +4,14 @@
 
 var DUController = {
 	errorActive: 0,
+	ht9100On: props.globals.initNode("/instrumentation/ht9100/mcdu1-on", 0, "BOOL"),
 	PowerSource: {
 		acRadioR: 0,
 		emerAc: 0,
 	},
 	showNd1: props.globals.initNode("/instrumentation/nd/show-nd1", 0, "BOOL"),
 	showNd2: props.globals.initNode("/instrumentation/nd/show-nd2", 0, "BOOL"),
+	updateHt9100: 0,
 	updateNd1: 0,
 	updateNd2: 0,
 	updatePfd1: 0,
@@ -26,6 +28,8 @@ var DUController = {
 		canvas_pfd.pfd2.page.hide();
 		me.showNd1.setBoolValue(0); # Temporary
 		me.showNd2.setBoolValue(0); # Temporary
+		canvas_ht9100.mcdu1.page.hide();
+		me.ht9100On.setBoolValue(0);
 	},
 	loop: func() {
 		if (pts.Systems.Acconfig.Options.efis.getBoolValue()) {
@@ -90,6 +94,29 @@ var DUController = {
 			me.updatePfd2 = 0;
 			me.updateNd1 = 0;
 			me.updateNd2 = 0;
+			me.showNd1.setBoolValue(0); # Temporary
+			me.showNd2.setBoolValue(0); # Temporary
+		}
+		
+		# HT9100
+		if (pts.Systems.Acconfig.Options.nav.getValue() == 0 and !me.errorActive) {
+			if (!me.errorActive) {
+				if (mcdu_ht9100.unit[0].powerSource.getValue() >= 24) {
+					if (!me.updateHt9100) {
+						me.updateHt9100 = 1;
+						canvas_ht9100.mcdu1.update();
+						canvas_ht9100.mcdu1.page.show();
+					}
+				} else {
+					if (me.updateHt9100) {
+						me.updateHt9100 = 0;
+						canvas_ht9100.mcdu1.page.hide();
+					}
+				}
+			}
+		} else {
+			me.updateHt9100 = 0;
+			canvas_ht9100.mcdu1.page.hide();
 		}
 	},
 };

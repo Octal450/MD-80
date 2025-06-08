@@ -57,7 +57,7 @@
 		<aux-tanks type="bool">1</aux-tanks>
 		<eng type="string">219</eng>
 		<panel-mod type="bool">0</panel-mod>
-		<type type="string">MD-83</type>
+		<type type="string">DC-9-83</type>
 	</options>
 	
 	<payload n="0">

@@ -135,6 +135,13 @@
 							<script>panel2d.fgcpDialog.open();</script>
 						</binding>
 					</item>
+					<item>
+						<label>HT9100 MCDU</label>
+						<binding>
+							<command>nasal</command>
+							<script>canvas_ht9100.showMcdu1();</script>
+						</binding>
+					</item>
 				</menu>
 				<menu n="103">
 					<label>Navigation</label>
@@ -1540,6 +1547,7 @@
 				</autopush>
 				<combined-standby type="bool">0</combined-standby>
 				<du n="0">
+					<mcdu-fps type="double">10</mcdu-fps>
 					<nd-fps type="double">20</nd-fps>
 					<pfd-fps type="double">20</pfd-fps>
 				</du>
@@ -1718,6 +1726,12 @@
 			<file>Aircraft/MD-80/Nasal/DFGS/DFGS.nas</file>
 			<file>Aircraft/MD-80/Nasal/DFGS/DFGS-b.nas</file>
 		</dfgs>
+		<mcdu_ht9100>
+			<file>Aircraft/MD-80/Nasal/HT9100/HT9100-MCDU.nas</file>
+			<file>Aircraft/MD-80/Nasal/HT9100/fallback.nas</file>
+			<file>Aircraft/MD-80/Nasal/HT9100/initref-info.nas</file>
+			<file>Aircraft/MD-80/Nasal/HT9100/menus.nas</file>
+		</mcdu_ht9100>
 		<cockpit>
 			<file>Aircraft/MD-80/Nasal/cockpit.nas</file>
 		</cockpit>
@@ -1727,6 +1741,9 @@
 		<canvas_fma>
 			<file>Aircraft/MD-80/Nasal/Instruments/fma.nas</file>
 		</canvas_fma>
+		<canvas_ht9100>
+			<file>Aircraft/MD-80/Nasal/Displays/HT9100.nas</file>
+		</canvas_ht9100>
 		<instruments>
 			<file>Aircraft/MD-80/Nasal/Instruments/efis.nas</file>
 			<file>Aircraft/MD-80/Nasal/Instruments/radios.nas</file>

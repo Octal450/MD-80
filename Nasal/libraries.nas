@@ -33,6 +33,13 @@ var systemsInit = func() {
 	systems.THRLIM.init();
 	instruments.EFIS.init();
 	
+	# Object orientated modules
+	if (initDone) { # Anytime after sim init
+		mcdu_ht9100.BASE.reset();
+	} else { # Sim init
+		mcdu_ht9100.BASE.setup();
+	}
+	
 	# Other switches
 	cockpit.variousReset();
 }
@@ -43,6 +50,7 @@ var fdmInit = setlistener("/sim/signals/fdm-initialized", func() {
 	systemsLoop.start();
 	slowLoop.start();
 	canvas_pfd.setup();
+	canvas_ht9100.setup();
 	canvas_fma.setup();
 	acconfig.SYSTEM.finalInit();
 	settimer(func() { # Ensure it recomputes
@@ -53,6 +61,9 @@ var fdmInit = setlistener("/sim/signals/fdm-initialized", func() {
 });
 
 var systemsLoop = maketimer(0.1, func() {
+	if (pts.Systems.Acconfig.Options.nav.getValue() == 0) {
+		mcdu_ht9100.BASE.loop();
+	}
 	systems.DUController.loop();
 	systems.THRLIM.loop();
 	SHAKE.loop();
