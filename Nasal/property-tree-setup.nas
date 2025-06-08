@@ -147,6 +147,7 @@ var Options = {
 };
 var Position = {
 	gearAglFt: props.globals.getNode("/position/gear-agl-ft"),
+	node: props.globals.getNode("/position"),
 	wow: props.globals.getNode("/position/wow"),
 	wowTemp: 0,
 };
@@ -205,6 +206,11 @@ var Sim = {
 	Time: {
 		deltaRealtimeSec: props.globals.getNode("/sim/time/delta-realtime-sec"),
 		elapsedSec: props.globals.getNode("/sim/time/elapsed-sec"),
+		Utc: {
+			hour: props.globals.getNode("/sim/time/utc/hour"),
+			minute: props.globals.getNode("/sim/time/utc/minute"),
+			second: props.globals.getNode("/sim/time/utc/second"),
+		},
 	},
 	View: {
 		Config: {

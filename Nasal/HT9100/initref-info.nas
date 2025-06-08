@@ -34,7 +34,7 @@ var Ident = {
 			C6L: "",
 			C6: "",
 			
-			LColor: ["white", "white", "white", "white", "white", "cyan"],
+			LColor: ["white", "white", "white", "white", "white", "white"],
 			LFont: [FONT.large, FONT.large, FONT.small, FONT.large, FONT.large, FONT.large],
 			L1L: " MODEL",
 			L1: pts.Options.type.getValue(),
@@ -115,7 +115,110 @@ var Ident = {
 	},
 	softKey: func(k) {
 		if (k == "r6") {
-			mcdu_ht9100.unit[me.id].setPage("posInit");
+			mcdu_ht9100.unit[me.id].setPage("posRef");
+		}
+	},
+};
+
+
+var PosRef = {
+	new: func(n) {
+		var m = {parents: [PosRef]};
+		
+		m.id = n;
+		
+		m.Display = {
+			CColor: ["white", "white", "white", "white", "white", "white"],
+			CFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
+			CLTranslate: [0, 0, 0, 0, -8, 0],
+			CTranslate: [0, 0, 0, 0, 0, 0],
+			C1L: "",
+			C1: "",
+			C2L: "",
+			C2: "",
+			C3L: "",
+			C3: "",
+			C4L: "",
+			C4: "",
+			C5L: "INTEGRITY PREDICTION",
+			C5: "",
+			C6L: "",
+			C6: "",
+			
+			LColor: ["white", "white", "white", "white", "white", "white"],
+			LFont: [FONT.large, FONT.large, FONT.small, FONT.large, FONT.large, FONT.large],
+			L1L: " POS (GPS)",
+			L1: "",
+			L2L: " UTC (GPS)",
+			L2: "",
+			L3L: " RNP/ACTUAL",
+			L3: "1.00/0.05",
+			L4L: "",
+			L4: "<DR",
+			L5L: "",
+			L5: "<ACT RTE",
+			L6L: "------------------------",
+			L6: "",
+			
+			LBColor: ["white", "white", "white", "white", "white", "white"],
+			LBFont: [FONT.large, FONT.small, FONT.large, FONT.large, FONT.large, FONT.large],
+			L1B: "",
+			L2B: "      Z",
+			L3B: "",
+			L4B: "",
+			L5B: "",
+			L6B: "",
+			
+			pageNum: "",
+			
+			RColor: ["white", "white", "white", "white", "white", "cyan"],
+			RFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
+			R1L: "",
+			R1: "",
+			R2L: "GS",
+			R2: "",
+			R3L: "SV USED",
+			R3: "7",
+			R4L: "",
+			R4: "",
+			R5L: "",
+			R5: "DEST RAIM>",
+			R6L: "",
+			R6: "ROUTE>",
+			
+			RBColor: ["white", "white", "white", "white", "white", "white"],
+			RBFont: [FONT.large, FONT.small, FONT.large, FONT.large, FONT.large, FONT.large],
+			R1B: "",
+			R2B: "KT",
+			R3B: "",
+			R4B: "",
+			R5B: "",
+			R6B: "",
+			
+			title: "POS REF",
+			titleTranslate: 0,
+		};
+		
+		m.fromPage = "";
+		m.group = "fmc";
+		m.name = "posInit";
+		m.nextPage = "none";
+		m.prevPage = "none";
+		m.scratchpad = "";
+		m.scratchpadState = 0;
+		
+		return m;
+	},
+	setup: func() {
+	},
+	loop: func() {
+		me.Display.L1 = FORMAT.Position.formatNode(pts.Position.node);
+		me.Display.L2 = sprintf("%02d%02d.%d", pts.Sim.Time.Utc.hour.getValue(), pts.Sim.Time.Utc.minute.getValue(), math.floor(pts.Sim.Time.Utc.second.getValue() / 10));
+		me.Display.R2 = sprintf("%d", math.round(pts.Velocities.groundspeedKt.getValue())) ~ "  ";
+	},
+	softKey: func(k) {
+		if (k == "r6") {
+			mcdu_ht9100.unit[me.id].setPage("rte");
 		}
 	},
 };

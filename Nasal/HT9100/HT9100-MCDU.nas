@@ -14,9 +14,10 @@ var MCDU = {
 		m.message = std.Vector.new();
 		
 		m.PageList = {
+			data: DataIndex.new(n),
 			fallback: Fallback.new(n),
 			ident: Ident.new(n),
-			data: DataIndex.new(n),
+			posRef: PosRef.new(n),
 		};
 		
 		m.page = m.PageList.fallback;
@@ -317,6 +318,7 @@ var BASE = {
 	loop: func() {
 		unit[0].loop();
 	},
+	# Only one unit is simulated currently, so the for loops aren't needed
 	reset: func() {
 		#for (var i = 0; i < 2; i = i + 1) {
 		#	unit[i].reset();

@@ -91,7 +91,9 @@ var DataIndex = {
 	loop: func() {
 	},
 	softKey: func(k) {
-		if (k == "l6") {
+		if (k == "l2") {
+			mcdu_ht9100.unit[me.id].setPage("posRef");
+		} else if (k == "l6") {
 			mcdu_ht9100.unit[me.id].setPage("ident");
 		}
 	},

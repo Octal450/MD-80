@@ -13,17 +13,12 @@ var Color = {
 
 var Value = {
 	annunTest: 0,
-	CColor: [["", "", "", "", "", ""]],
 	CFont: [["", "", "", "", "", ""]],
 	CTranslate: [[0, 0, 0, 0, 0, 0]],
 	CLTranslate: [[0, 0, 0, 0, 0, 0]],
-	LColor: [["", "", "", "", "", ""]],
 	LFont: [["", "", "", "", "", ""]],
-	LBColor: [["", "", "", "", "", ""]],
 	LBFont: [["", "", "", "", "", ""]],
-	RColor: [["", "", "", "", "", ""]],
 	RFont: [["", "", "", "", "", ""]],
-	RBColor: [["", "", "", "", "", ""]],
 	RBFont: [["", "", "", "", "", ""]],
 	title: [""],
 	titleTranslate: [0],
@@ -171,131 +166,41 @@ var canvasBase = {
 		me.updateFontSize(n);
 		me.updateTranslation(n);
 	},
-	updateColor: func(n) {
-		if (Value.CColor[n][0] != mcdu_ht9100.unit[n].page.Display.CColor[0]) {
-			Value.CColor[n][0] = mcdu_ht9100.unit[n].page.Display.CColor[0];
-			me["C1"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[0]]);
-		}
-		if (Value.CColor[n][1] != mcdu_ht9100.unit[n].page.Display.CColor[1]) {
-			Value.CColor[n][1] = mcdu_ht9100.unit[n].page.Display.CColor[1];
-			me["C2"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[1]]);
-		}
-		if (Value.CColor[n][2] != mcdu_ht9100.unit[n].page.Display.CColor[2]) {
-			Value.CColor[n][2] = mcdu_ht9100.unit[n].page.Display.CColor[2];
-			me["C3"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[2]]);
-		}
-		if (Value.CColor[n][3] != mcdu_ht9100.unit[n].page.Display.CColor[3]) {
-			Value.CColor[n][3] = mcdu_ht9100.unit[n].page.Display.CColor[3];
-			me["C4"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[3]]);
-		}
-		if (Value.CColor[n][4] != mcdu_ht9100.unit[n].page.Display.CColor[4]) {
-			Value.CColor[n][4] = mcdu_ht9100.unit[n].page.Display.CColor[4];
-			me["C5"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[4]]);
-		}
-		if (Value.CColor[n][5] != mcdu_ht9100.unit[n].page.Display.CColor[5]) {
-			Value.CColor[n][5] = mcdu_ht9100.unit[n].page.Display.CColor[5];
-			me["C6"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[5]]);
-		}
+	updateColor: func(n) { # Value caching done by hack-canvas.nas
+		me["C1"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[0]]);
+		me["C2"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[1]]);
+		me["C3"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[2]]);
+		me["C4"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[3]]);
+		me["C5"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[4]]);
+		me["C6"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[5]]);
 		
-		if (Value.LColor[n][0] != mcdu_ht9100.unit[n].page.Display.LColor[0]) {
-			Value.LColor[n][0] = mcdu_ht9100.unit[n].page.Display.LColor[0];
-			me["L1"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[0]]);
-		}
-		if (Value.LColor[n][1] != mcdu_ht9100.unit[n].page.Display.LColor[1]) {
-			Value.LColor[n][1] = mcdu_ht9100.unit[n].page.Display.LColor[1];
-			me["L2"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[1]]);
-		}
-		if (Value.LColor[n][2] != mcdu_ht9100.unit[n].page.Display.LColor[2]) {
-			Value.LColor[n][2] = mcdu_ht9100.unit[n].page.Display.LColor[2];
-			me["L3"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[2]]);
-		}
-		if (Value.LColor[n][3] != mcdu_ht9100.unit[n].page.Display.LColor[3]) {
-			Value.LColor[n][3] = mcdu_ht9100.unit[n].page.Display.LColor[3];
-			me["L4"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[3]]);
-		}
-		if (Value.LColor[n][4] != mcdu_ht9100.unit[n].page.Display.LColor[4]) {
-			Value.LColor[n][4] = mcdu_ht9100.unit[n].page.Display.LColor[4];
-			me["L5"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[4]]);
-		}
-		if (Value.LColor[n][5] != mcdu_ht9100.unit[n].page.Display.LColor[5]) {
-			Value.LColor[n][5] = mcdu_ht9100.unit[n].page.Display.LColor[5];
-			me["L6"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[5]]);
-		}
+		me["L1"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[0]]);
+		me["L2"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[1]]);
+		me["L3"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[2]]);
+		me["L4"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[3]]);
+		me["L5"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[4]]);
+		me["L6"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[5]]);
 		
-		if (Value.LBColor[n][0] != mcdu_ht9100.unit[n].page.Display.LBColor[0]) {
-			Value.LBColor[n][0] = mcdu_ht9100.unit[n].page.Display.LBColor[0];
-			me["L1_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[0]]);
-		}
-		if (Value.LBColor[n][1] != mcdu_ht9100.unit[n].page.Display.LBColor[1]) {
-			Value.LBColor[n][1] = mcdu_ht9100.unit[n].page.Display.LBColor[1];
-			me["L2_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[1]]);
-		}
-		if (Value.LBColor[n][2] != mcdu_ht9100.unit[n].page.Display.LBColor[2]) {
-			Value.LBColor[n][2] = mcdu_ht9100.unit[n].page.Display.LBColor[2];
-			me["L3_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[2]]);
-		}
-		if (Value.LBColor[n][3] != mcdu_ht9100.unit[n].page.Display.LBColor[3]) {
-			Value.LBColor[n][3] = mcdu_ht9100.unit[n].page.Display.LBColor[3];
-			me["L4_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[3]]);
-		}
-		if (Value.LBColor[n][4] != mcdu_ht9100.unit[n].page.Display.LBColor[4]) {
-			Value.LBColor[n][4] = mcdu_ht9100.unit[n].page.Display.LBColor[4];
-			me["L5_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[4]]);
-		}
-		if (Value.LBColor[n][5] != mcdu_ht9100.unit[n].page.Display.LBColor[5]) {
-			Value.LBColor[n][5] = mcdu_ht9100.unit[n].page.Display.LBColor[5];
-			me["L6_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[5]]);
-		}
+		me["L1_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[0]]);
+		me["L2_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[1]]);
+		me["L3_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[2]]);
+		me["L4_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[3]]);
+		me["L5_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[4]]);
+		me["L6_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[5]]);
 		
-		if (Value.RColor[n][0] != mcdu_ht9100.unit[n].page.Display.RColor[0]) {
-			Value.RColor[n][0] = mcdu_ht9100.unit[n].page.Display.RColor[0];
-			me["R1"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[0]]);
-		}
-		if (Value.RColor[n][1] != mcdu_ht9100.unit[n].page.Display.RColor[1]) {
-			Value.RColor[n][1] = mcdu_ht9100.unit[n].page.Display.RColor[1];
-			me["R2"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[1]]);
-		}
-		if (Value.RColor[n][2] != mcdu_ht9100.unit[n].page.Display.RColor[2]) {
-			Value.RColor[n][2] = mcdu_ht9100.unit[n].page.Display.RColor[2];
-			me["R3"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[2]]);
-		}
-		if (Value.RColor[n][3] != mcdu_ht9100.unit[n].page.Display.RColor[3]) {
-			Value.RColor[n][3] = mcdu_ht9100.unit[n].page.Display.RColor[3];
-			me["R4"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[3]]);
-		}
-		if (Value.RColor[n][4] != mcdu_ht9100.unit[n].page.Display.RColor[4]) {
-			Value.RColor[n][4] = mcdu_ht9100.unit[n].page.Display.RColor[4];
-			me["R5"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[4]]);
-		}
-		if (Value.RColor[n][5] != mcdu_ht9100.unit[n].page.Display.RColor[5]) {
-			Value.RColor[n][5] = mcdu_ht9100.unit[n].page.Display.RColor[5];
-			me["R6"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[5]]);
-		}
+		me["R1"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[0]]);
+		me["R2"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[1]]);
+		me["R3"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[2]]);
+		me["R4"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[3]]);
+		me["R5"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[4]]);
+		me["R6"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[5]]);
 		
-		if (Value.RBColor[n][0] != mcdu_ht9100.unit[n].page.Display.RBColor[0]) {
-			Value.RBColor[n][0] = mcdu_ht9100.unit[n].page.Display.RBColor[0];
-			me["R1_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[0]]);
-		}
-		if (Value.RBColor[n][1] != mcdu_ht9100.unit[n].page.Display.RBColor[1]) {
-			Value.RBColor[n][1] = mcdu_ht9100.unit[n].page.Display.RBColor[1];
-			me["R2_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[1]]);
-		}
-		if (Value.RBColor[n][2] != mcdu_ht9100.unit[n].page.Display.RBColor[2]) {
-			Value.RBColor[n][2] = mcdu_ht9100.unit[n].page.Display.RBColor[2];
-			me["R3_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[2]]);
-		}
-		if (Value.RBColor[n][3] != mcdu_ht9100.unit[n].page.Display.RBColor[3]) {
-			Value.RBColor[n][3] = mcdu_ht9100.unit[n].page.Display.RBColor[3];
-			me["R4_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[3]]);
-		}
-		if (Value.RBColor[n][4] != mcdu_ht9100.unit[n].page.Display.RBColor[4]) {
-			Value.RBColor[n][4] = mcdu_ht9100.unit[n].page.Display.RBColor[4];
-			me["R5_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[4]]);
-		}
-		if (Value.RBColor[n][5] != mcdu_ht9100.unit[n].page.Display.RBColor[5]) {
-			Value.RBColor[n][5] = mcdu_ht9100.unit[n].page.Display.RBColor[5];
-			me["R6_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[5]]);
-		}
+		me["R1_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[0]]);
+		me["R2_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[1]]);
+		me["R3_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[2]]);
+		me["R4_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[3]]);
+		me["R5_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[4]]);
+		me["R6_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[5]]);
 	},
 	updateFontSize: func(n) {
 		if (Value.CFont[n][0] != mcdu_ht9100.unit[n].page.Display.CFont[0]) {
