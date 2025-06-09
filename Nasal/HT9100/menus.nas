@@ -8,7 +8,7 @@ var Menu = {
 		m.id = n;
 		
 		m.Display = {
-			CColor: ["white", "white", "white", "white", "white", "white"],
+			CColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			CFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			CLTranslate: [0, 0, 0, 0, 0, 0],
 			CTranslate: [0, 0, 0, 0, 0, 0],
@@ -25,7 +25,7 @@ var Menu = {
 			C6L: "",
 			C6: "",
 			
-			LColor: ["white", "white", "white", "white", "white", "white"],
+			LColor: [COLOR.white, COLOR.green, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			LFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			L1L: "",
 			L1: "",
@@ -40,7 +40,7 @@ var Menu = {
 			L6L: "",
 			L6: "",
 			
-			LBColor: ["white", "white", "white", "white", "white", "white"],
+			LBColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			LBFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			L1B: "",
 			L2B: "",
@@ -51,7 +51,7 @@ var Menu = {
 			
 			pageNum: "",
 			
-			RColor: ["white", "white", "white", "white", "white", "white"],
+			RColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			RFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			R1L: "",
 			R1: "",
@@ -66,7 +66,7 @@ var Menu = {
 			R6L: "",
 			R6: "",
 			
-			RBColor: ["white", "white", "white", "white", "white", "white"],
+			RBColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			RBFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			R1B: "",
 			R2B: "",
@@ -108,7 +108,7 @@ var DataIndex = {
 		m.id = n;
 		
 		m.Display = {
-			CColor: ["white", "white", "white", "white", "white", "white"],
+			CColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			CFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			CLTranslate: [-7, 0, 0, 0, 0, 0],
 			CTranslate: [0, 0, 0, 0, 0, 0],
@@ -125,7 +125,7 @@ var DataIndex = {
 			C6L: "",
 			C6: "",
 			
-			LColor: ["white", "white", "white", "white", "white", "white"],
+			LColor: [COLOR.green, COLOR.green, COLOR.white, COLOR.white, COLOR.white, COLOR.green],
 			LFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			L1L: "",
 			L1: "<TRANSMIT",
@@ -140,7 +140,7 @@ var DataIndex = {
 			L6L: "",
 			L6: "<IDENT",
 			
-			LBColor: ["white", "white", "white", "white", "white", "white"],
+			LBColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			LBFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			L1B: "",
 			L2B: "",
@@ -151,7 +151,7 @@ var DataIndex = {
 			
 			pageNum: "",
 			
-			RColor: ["white", "white", "white", "white", "white", "white"],
+			RColor: [COLOR.green, COLOR.green, COLOR.green, COLOR.green, COLOR.white, COLOR.green],
 			RFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			R1L: "",
 			R1: "RECEIVE>",
@@ -166,7 +166,7 @@ var DataIndex = {
 			R6L: "",
 			R6: "MAINTENANCE>",
 			
-			RBColor: ["white", "white", "white", "white", "white", "white"],
+			RBColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			RBFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			R1B: "",
 			R2B: "",

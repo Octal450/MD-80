@@ -339,6 +339,14 @@ var BASE = {
 	},
 };
 
+var COLOR = {
+	amber: [0.9412, 0.4627, 0],
+	cyan: [0.3412, 0.7882, 0.9922],
+	green: [0, 1, 0],
+	magenta: [0.9608, 0, 0.7765],
+	white: [1, 1, 1],
+};
+
 var FONT = { # Matches Boeing font, letter separation in Canvas: 40.559
 	large: "BoeingMCDULarge.ttf",
 	small: "BoeingMCDUSmall.ttf",

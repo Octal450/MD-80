@@ -4,13 +4,6 @@
 var mcdu1 = nil;
 var mcdu1Display = nil;
 
-var Color = {
-	cyan: [0.3412, 0.7882, 0.9922],
-	green: [0, 1, 0],
-	magenta: [0.9608, 0, 0.7765],
-	white: [1, 1, 1],
-};
-
 var Value = {
 	annunTest: 0,
 	CFont: [["", "", "", "", "", ""]],
@@ -167,40 +160,40 @@ var canvasBase = {
 		me.updateTranslation(n);
 	},
 	updateColor: func(n) { # Value caching done by hack-canvas.nas
-		me["C1"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[0]]);
-		me["C2"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[1]]);
-		me["C3"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[2]]);
-		me["C4"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[3]]);
-		me["C5"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[4]]);
-		me["C6"].setColor(Color[mcdu_ht9100.unit[n].page.Display.CColor[5]]);
+		me["C1"].setColor(mcdu_ht9100.unit[n].page.Display.CColor[0]);
+		me["C2"].setColor(mcdu_ht9100.unit[n].page.Display.CColor[1]);
+		me["C3"].setColor(mcdu_ht9100.unit[n].page.Display.CColor[2]);
+		me["C4"].setColor(mcdu_ht9100.unit[n].page.Display.CColor[3]);
+		me["C5"].setColor(mcdu_ht9100.unit[n].page.Display.CColor[4]);
+		me["C6"].setColor(mcdu_ht9100.unit[n].page.Display.CColor[5]);
 		
-		me["L1"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[0]]);
-		me["L2"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[1]]);
-		me["L3"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[2]]);
-		me["L4"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[3]]);
-		me["L5"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[4]]);
-		me["L6"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LColor[5]]);
+		me["L1"].setColor(mcdu_ht9100.unit[n].page.Display.LColor[0]);
+		me["L2"].setColor(mcdu_ht9100.unit[n].page.Display.LColor[1]);
+		me["L3"].setColor(mcdu_ht9100.unit[n].page.Display.LColor[2]);
+		me["L4"].setColor(mcdu_ht9100.unit[n].page.Display.LColor[3]);
+		me["L5"].setColor(mcdu_ht9100.unit[n].page.Display.LColor[4]);
+		me["L6"].setColor(mcdu_ht9100.unit[n].page.Display.LColor[5]);
 		
-		me["L1_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[0]]);
-		me["L2_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[1]]);
-		me["L3_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[2]]);
-		me["L4_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[3]]);
-		me["L5_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[4]]);
-		me["L6_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.LBColor[5]]);
+		me["L1_B"].setColor(mcdu_ht9100.unit[n].page.Display.LBColor[0]);
+		me["L2_B"].setColor(mcdu_ht9100.unit[n].page.Display.LBColor[1]);
+		me["L3_B"].setColor(mcdu_ht9100.unit[n].page.Display.LBColor[2]);
+		me["L4_B"].setColor(mcdu_ht9100.unit[n].page.Display.LBColor[3]);
+		me["L5_B"].setColor(mcdu_ht9100.unit[n].page.Display.LBColor[4]);
+		me["L6_B"].setColor(mcdu_ht9100.unit[n].page.Display.LBColor[5]);
 		
-		me["R1"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[0]]);
-		me["R2"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[1]]);
-		me["R3"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[2]]);
-		me["R4"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[3]]);
-		me["R5"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[4]]);
-		me["R6"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RColor[5]]);
+		me["R1"].setColor(mcdu_ht9100.unit[n].page.Display.RColor[0]);
+		me["R2"].setColor(mcdu_ht9100.unit[n].page.Display.RColor[1]);
+		me["R3"].setColor(mcdu_ht9100.unit[n].page.Display.RColor[2]);
+		me["R4"].setColor(mcdu_ht9100.unit[n].page.Display.RColor[3]);
+		me["R5"].setColor(mcdu_ht9100.unit[n].page.Display.RColor[4]);
+		me["R6"].setColor(mcdu_ht9100.unit[n].page.Display.RColor[5]);
 		
-		me["R1_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[0]]);
-		me["R2_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[1]]);
-		me["R3_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[2]]);
-		me["R4_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[3]]);
-		me["R5_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[4]]);
-		me["R6_B"].setColor(Color[mcdu_ht9100.unit[n].page.Display.RBColor[5]]);
+		me["R1_B"].setColor(mcdu_ht9100.unit[n].page.Display.RBColor[0]);
+		me["R2_B"].setColor(mcdu_ht9100.unit[n].page.Display.RBColor[1]);
+		me["R3_B"].setColor(mcdu_ht9100.unit[n].page.Display.RBColor[2]);
+		me["R4_B"].setColor(mcdu_ht9100.unit[n].page.Display.RBColor[3]);
+		me["R5_B"].setColor(mcdu_ht9100.unit[n].page.Display.RBColor[4]);
+		me["R6_B"].setColor(mcdu_ht9100.unit[n].page.Display.RBColor[5]);
 	},
 	updateFontSize: func(n) {
 		if (Value.CFont[n][0] != mcdu_ht9100.unit[n].page.Display.CFont[0]) {

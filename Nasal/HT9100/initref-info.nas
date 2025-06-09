@@ -17,7 +17,7 @@ var Ident = {
 		m.id = n;
 		
 		m.Display = {
-			CColor: ["white", "white", "white", "white", "white", "white"],
+			CColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			CFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			CLTranslate: [0, 0, 0, 0, 0, 0],
 			CTranslate: [0, 0, 0, 0, 0, 0],
@@ -34,7 +34,7 @@ var Ident = {
 			C6L: "",
 			C6: "",
 			
-			LColor: ["white", "white", "white", "white", "white", "white"],
+			LColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			LFont: [FONT.large, FONT.large, FONT.small, FONT.large, FONT.large, FONT.large],
 			L1L: " MODEL",
 			L1: pts.Options.type.getValue(),
@@ -49,7 +49,7 @@ var Ident = {
 			L6L: "------------------------",
 			L6: "",
 			
-			LBColor: ["white", "white", "white", "white", "white", "white"],
+			LBColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			LBFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			L1B: "",
 			L2B: "",
@@ -60,7 +60,7 @@ var Ident = {
 			
 			pageNum: "",
 			
-			RColor: ["white", "white", "white", "white", "white", "cyan"],
+			RColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.green],
 			RFont: [FONT.large, FONT.large, FONT.small, FONT.large, FONT.large, FONT.large],
 			R1L: "ENGINES",
 			R1: me.Common.eng,
@@ -75,7 +75,7 @@ var Ident = {
 			R6L: "",
 			R6: "POS REF>",
 			
-			RBColor: ["white", "white", "white", "white", "white", "white"],
+			RBColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			RBFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			R1B: "",
 			R2B: "",
@@ -128,7 +128,7 @@ var PosRef = {
 		m.id = n;
 		
 		m.Display = {
-			CColor: ["white", "white", "white", "white", "white", "white"],
+			CColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			CFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			CLTranslate: [0, 0, 0, 0, -8, 0],
 			CTranslate: [0, 0, 0, 0, 0, 0],
@@ -145,7 +145,7 @@ var PosRef = {
 			C6L: "",
 			C6: "",
 			
-			LColor: ["white", "white", "white", "white", "white", "white"],
+			LColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			LFont: [FONT.large, FONT.large, FONT.small, FONT.large, FONT.large, FONT.large],
 			L1L: " POS (GPS)",
 			L1: "",
@@ -160,7 +160,7 @@ var PosRef = {
 			L6L: "------------------------",
 			L6: "",
 			
-			LBColor: ["white", "white", "white", "white", "white", "white"],
+			LBColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			LBFont: [FONT.large, FONT.small, FONT.large, FONT.large, FONT.large, FONT.large],
 			L1B: "",
 			L2B: "      Z",
@@ -171,7 +171,7 @@ var PosRef = {
 			
 			pageNum: "",
 			
-			RColor: ["white", "white", "white", "white", "white", "cyan"],
+			RColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.green],
 			RFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			R1L: "",
 			R1: "",
@@ -186,7 +186,7 @@ var PosRef = {
 			R6L: "",
 			R6: "ROUTE>",
 			
-			RBColor: ["white", "white", "white", "white", "white", "white"],
+			RBColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			RBFont: [FONT.large, FONT.small, FONT.large, FONT.large, FONT.large, FONT.large],
 			R1B: "",
 			R2B: "KT",
