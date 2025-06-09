@@ -115,7 +115,7 @@ var Ident = {
 	},
 	softKey: func(k) {
 		if (k == "r6") {
-			mcdu_ht9100.unit[me.id].setPage("posRef");
+			unit[me.id].setPage("posRef");
 		}
 	},
 };
@@ -145,7 +145,7 @@ var PosRef = {
 			C6L: "",
 			C6: "",
 			
-			LColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
+			LColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.green, COLOR.green, COLOR.white],
 			LFont: [FONT.large, FONT.large, FONT.small, FONT.large, FONT.large, FONT.large],
 			L1L: " POS (GPS)",
 			L1: "",
@@ -171,7 +171,7 @@ var PosRef = {
 			
 			pageNum: "",
 			
-			RColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.green],
+			RColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.green, COLOR.green],
 			RFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			R1L: "",
 			R1: "",
@@ -218,7 +218,7 @@ var PosRef = {
 	},
 	softKey: func(k) {
 		if (k == "r6") {
-			mcdu_ht9100.unit[me.id].setPage("rte");
+			unit[me.id].setPage("rte");
 		}
 	},
 };

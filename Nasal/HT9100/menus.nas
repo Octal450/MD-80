@@ -25,12 +25,12 @@ var Menu = {
 			C6L: "",
 			C6: "",
 			
-			LColor: [COLOR.white, COLOR.green, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
+			LColor: [COLOR.green, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			LFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			L1L: "",
-			L1: "",
+			L1: "<HT9100",
 			L2L: "",
-			L2: "<HT9100",
+			L2: "",
 			L3L: "",
 			L3: "",
 			L4L: "",
@@ -91,11 +91,11 @@ var Menu = {
 	loop: func() {
 	},
 	softKey: func(k) {
-		if (k == "l2") {
-			if (mcdu_ht9100.unit[me.id].lastFmcPage == "none") {
-				mcdu_ht9100.unit[me.id].setPage("ident");
+		if (k == "l1") {
+			if (unit[me.id].lastFmcPage == "none") {
+				unit[me.id].setPage("ident");
 			} else {
-				mcdu_ht9100.unit[me.id].setPage(mcdu_ht9100.unit[me.id].lastFmcPage);
+				unit[me.id].setPage(unit[me.id].lastFmcPage);
 			}
 		}
 	},
@@ -192,9 +192,9 @@ var DataIndex = {
 	},
 	softKey: func(k) {
 		if (k == "l2") {
-			mcdu_ht9100.unit[me.id].setPage("posRef");
+			unit[me.id].setPage("posRef");
 		} else if (k == "l6") {
-			mcdu_ht9100.unit[me.id].setPage("ident");
+			unit[me.id].setPage("ident");
 		}
 	},
 };
