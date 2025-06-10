@@ -19,6 +19,7 @@ var MCDU = {
 			ident: Ident.new(n),
 			menu: Menu.new(n),
 			posRef: PosRef.new(n),
+			rte: Rte.new(n),
 		};
 		
 		m.page = m.PageList.ident;
