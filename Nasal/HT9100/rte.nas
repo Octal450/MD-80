@@ -11,7 +11,7 @@ var Rte = {
 			CColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			CFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			CLTranslate: [0, 0, 0, 0, 0, 0],
-			CTranslate: [1, 0, 0, 0, 0, 0],
+			CTranslate: [0, 0, 0, 0, 0, 0],
 			C1L: "",
 			C1: "",
 			C2L: "",
