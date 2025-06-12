@@ -1730,6 +1730,7 @@
 			<file>Aircraft/MD-80/Nasal/HT9100/HT9100-MCDU.nas</file>
 			<file>Aircraft/MD-80/Nasal/HT9100/fallback.nas</file>
 			<file>Aircraft/MD-80/Nasal/HT9100/initref-info.nas</file>
+			<file>Aircraft/MD-80/Nasal/HT9100/initref-perf.nas</file>
 			<file>Aircraft/MD-80/Nasal/HT9100/menus.nas</file>
 			<file>Aircraft/MD-80/Nasal/HT9100/rte.nas</file>
 		</mcdu_ht9100>

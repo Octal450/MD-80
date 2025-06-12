@@ -64,7 +64,7 @@ var Rte = {
 			R5L: "",
 			R5: "",
 			R6L: "",
-			R6: "ACTIVATE>",
+			R6: "",
 			
 			RBColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			RBFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
@@ -105,9 +105,21 @@ var Rte = {
 		#} else {
 		#	me.Display.R2 = "----------";
 		#}
+		
+		#if (fms_ht9100.EditFlightData.activateNeeded) {
+		#	me.Display.R6 = "ACTIVATE>"
+		#} else {
+			me.Display.R6 = "PERF INIT>"
+		#}
 	},
 	softKey: func(k) {
 		me.scratchpad = unit[me.id].scratchpad;
 		me.scratchpadState = unit[me.id].scratchpadState();
+		
+		if (k == "r6") {
+			if (me.Display.R6 != "ACTIVATE>") {
+				unit[me.id].setPage("perfInit");
+			}
+		}
 	},
 };
