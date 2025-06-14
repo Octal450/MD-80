@@ -106,10 +106,10 @@ var Rte = {
 		#	me.Display.R2 = "----------";
 		#}
 		
-		#if (fms_ht9100.EditFlightData.activateNeeded) {
-		#	me.Display.R6 = "ACTIVATE>"
+		#if () {
+		#	me.Display.R6 = "ACTIVATE>";
 		#} else {
-			me.Display.R6 = "PERF INIT>"
+			me.Display.R6 = "PERF INIT>";
 		#}
 	},
 	softKey: func(k) {
