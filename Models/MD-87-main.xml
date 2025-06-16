@@ -2774,5 +2774,25 @@
 			<object-name>AxisWingLightR</object-name>
 		</axis>
 	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>WiperModelL</object-name>
+		<property>systems/cockpit/wipers/wiper-l-out</property>
+		<factor>68</factor>
+		<axis>
+			<object-name>AxisWiperL</object-name>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>WiperModelR</object-name>
+		<property>systems/cockpit/wipers/wiper-r-out</property>
+		<factor>-68</factor>
+		<axis>
+			<object-name>AxisWiperR</object-name>
+		</axis>
+	</animation>
 
 </PropertyList>

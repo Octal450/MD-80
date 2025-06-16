@@ -708,23 +708,15 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/overhead/wipers">
+			<input>/controls/switches/wipers</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/overhead/yaw-damper">
 			<input>/controls/fcs/yaw-damper</input>
 			<c1>20</c1>
 		</lag_filter>
-	
-	</channel>
-	
-	<channel name="Lights" execrate="8">
-			
-		<switch name="/systems/abs/lights/disarm">
-			<default value="0"/>
-			<test logic="AND" value="1">
-				/controls/gear/lever ge 2
-				/systems/abs/knob-input ne 0
-				/systems/abs/armed-input eq 0
-			</test>
-		</switch>
 	
 	</channel>
 	
@@ -845,6 +837,91 @@
 			<input>/systems/lighting/pedestal-panel-cmd</input>
 			<c1>20</c1>
 		</lag_filter>
+	
+	</channel>
+	
+	<channel name="Windshield Wipers" execrate="2">
+		
+		<switch name="/systems/cockpit/wipers/wipers-sw"> <!-- Switch release -->
+			<default value="/controls/switches/wipers"/>
+			<test logic="AND" value="0">
+				/controls/cockpit/overhead/wipers-held eq 0
+				/systems/cockpit/wipers/wiper-l-out eq 0
+				/systems/cockpit/wipers/wiper-r-out eq 0
+				/controls/switches/wipers eq -1
+			</test>
+			<output>/controls/switches/wipers</output>
+		</switch>
+		
+		<!-- Wiper L -->
+		<switch name="/systems/cockpit/wipers/wiper-l-cmd">
+			<default value="/systems/cockpit/wipers/wiper-l-cmd"/>
+			<test logic="OR" value="0">
+				/systems/acconfig/autoconfig-running eq 1
+				/systems/electrical/bus/dc-l lt 24
+				/systems/cockpit/wipers/wiper-l-out eq 1
+				/controls/switches/wipers eq -1
+			</test>
+			<test logic="AND" value="1">
+				/controls/switches/wipers gt 0
+				/systems/cockpit/wipers/wiper-l-out eq 0
+			</test>
+		</switch>
+		
+		<switch name="/systems/cockpit/wipers/wiper-l-rate">
+			<default value="1"/>
+			<test value="10">
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<test logic="OR" value="0">
+				/systems/electrical/bus/dc-l lt 24
+				/controls/switches/wipers eq 0
+			</test>
+			<test value="2">
+				/controls/switches/wipers eq 2
+			</test>
+		</switch>
+		
+		<actuator name="/systems/cockpit/wipers/wiper-l">
+			<input>/systems/cockpit/wipers/wiper-l-cmd</input>
+			<rate_limit>/systems/cockpit/wipers/wiper-l-rate</rate_limit>
+			<output>/systems/cockpit/wipers/wiper-l-out</output>
+		</actuator>
+		
+		<!-- Wiper R -->
+		<switch name="/systems/cockpit/wipers/wiper-r-cmd">
+			<default value="/systems/cockpit/wipers/wiper-r-cmd"/>
+			<test logic="OR" value="0">
+				/systems/acconfig/autoconfig-running eq 1
+				/systems/electrical/bus/dc-r lt 24
+				/systems/cockpit/wipers/wiper-r-out eq 1
+				/controls/switches/wipers eq -1
+			</test>
+			<test logic="AND" value="1">
+				/controls/switches/wipers gt 0
+				/systems/cockpit/wipers/wiper-r-out eq 0
+			</test>
+		</switch>
+		
+		<switch name="/systems/cockpit/wipers/wiper-r-rate">
+			<default value="1"/>
+			<test value="10">
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+			<test logic="OR" value="0">
+				/systems/electrical/bus/dc-l lt 24
+				/controls/switches/wipers eq 0
+			</test>
+			<test value="2">
+				/controls/switches/wipers eq 2
+			</test>
+		</switch>
+		
+		<actuator name="/systems/cockpit/wipers/wiper-r">
+			<input>/systems/cockpit/wipers/wiper-r-cmd</input>
+			<rate_limit>/systems/cockpit/wipers/wiper-r-rate</rate_limit>
+			<output>/systems/cockpit/wipers/wiper-r-out</output>
+		</actuator>
 	
 	</channel>
 	

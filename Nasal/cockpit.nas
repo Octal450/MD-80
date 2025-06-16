@@ -29,6 +29,7 @@ var variousReset = func() {
 	pts.Controls.Switches.noSmokingSign.setValue(1); # Smoking is bad!
 	pts.Controls.Switches.seatbeltSign.setValue(0);
 	pts.Controls.Switches.stallTest.setValue(0);
+	pts.Controls.Switches.wipers.setValue(0);
 	pts.Instrumentation.Du.ndDimmer[0].setValue(1);
 	pts.Instrumentation.Du.ndDimmer[1].setValue(1);
 	pts.Instrumentation.Du.pfdDimmer[0].setValue(1);

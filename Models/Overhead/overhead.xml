@@ -3326,6 +3326,50 @@
 	
 	<!-- Rain Panel -->
 	<animation>
+		<type>knob</type>
+		<object-name>Wiper</object-name>
+		<property>controls/cockpit/overhead/wipers</property>
+		<drag-scale-px>15</drag-scale-px>
+		<factor>45</factor>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.14367</y-m>
+			<z-m>-0.41448</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/switches/wipers</property>
+				<factor>1</factor>
+				<min>-1</min>
+				<max>2</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/overhead/wipers-held</property>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.knb1();</script>
+			</binding>
+		</action>
+		<release>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/overhead/wipers-held</property>
+				<value>0</value>
+			</binding>
+		</release>
+	</animation>
+	
+	<animation>
 		<type>pick</type>
 		<object-name>AnnunTest</object-name>
 		<action>

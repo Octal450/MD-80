@@ -1109,5 +1109,18 @@
 		</switch>
 	
 	</channel>
+	
+	<channel name="Lights" execrate="8">
+			
+		<switch name="/systems/abs/lights/disarm">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/gear/lever ge 2
+				/systems/abs/knob-input ne 0
+				/systems/abs/armed-input eq 0
+			</test>
+		</switch>
+	
+	</channel>
 
 </system>

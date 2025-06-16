@@ -42,6 +42,7 @@ var Controls = {
 		noSmokingSign: props.globals.getNode("/controls/switches/no-smoking-sign"),
 		seatbeltSign: props.globals.getNode("/controls/switches/seatbelt-sign"),
 		stallTest: props.globals.getNode("/controls/switches/stall-test"),
+		wipers: props.globals.getNode("/controls/switches/wipers"),
 	},
 };
 
