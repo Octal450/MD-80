@@ -109,7 +109,7 @@
 							<tableData>
 								0.03     81455.7
 								1.00  10571289.8
-								1.25  13214112.3
+								1.50  15856934.7
 							</tableData>
 						</table>
 						<quotient>
@@ -579,7 +579,7 @@
 							<tableData>
 								0.03     81455.7
 								1.00  10571289.8
-								1.25  13214112.3
+								1.50  15856934.7
 							</tableData>
 						</table>
 						<quotient>
@@ -663,7 +663,7 @@
 							<tableData>
 								0.03     81455.7
 								1.00  10571289.8
-								1.25  13214112.3
+								1.50  15856934.7
 							</tableData>
 						</table>
 						<quotient>
@@ -737,7 +737,7 @@
 							<tableData>
 								   81455.7  0.03
 								10571289.8  1.00
-								13214112.3  1.25
+								15856934.7  1.50
 							</tableData>
 						</table>
 						<property>/systems/engines/epr/c1</property>
@@ -788,7 +788,7 @@
 							<tableData>
 								0.03     81455.7
 								1.00  10571289.8
-								1.25  13214112.3
+								1.50  15856934.7
 							</tableData>
 						</table>
 						<quotient>
@@ -980,7 +980,7 @@
 							<tableData>
 								0.03     81455.7
 								1.00  10571289.8
-								1.25  13214112.3
+								1.50  15856934.7
 							</tableData>
 						</table>
 						<quotient>
@@ -1040,7 +1040,7 @@
 							<tableData>
 								0.03     81455.7
 								1.00  10571289.8
-								1.25  13214112.3
+								1.50  15856934.7
 							</tableData>
 						</table>
 						<quotient>
@@ -1225,7 +1225,7 @@
 							<tableData>
 								0.03     81455.7
 								1.00  10571289.8
-								1.25  13214112.3
+								1.50  15856934.7
 							</tableData>
 						</table>
 						<quotient>
@@ -1338,7 +1338,7 @@
 							<tableData>
 								0.03     81455.7
 								1.00  10571289.8
-								1.25  13214112.3
+								1.50  15856934.7
 							</tableData>
 						</table>
 						<quotient>
@@ -1475,7 +1475,7 @@
 							<tableData>
 								   81455.7  0.03
 								10571289.8  1.00
-								13214112.3  1.25
+								15856934.7  1.50
 							</tableData>
 						</table>
 						<property>/systems/engines/epr/c1</property>
@@ -1521,7 +1521,7 @@
 							<tableData>
 								   81455.7  0.03
 								10571289.8  1.00
-								13214112.3  1.25
+								15856934.7  1.50
 							</tableData>
 						</table>
 						<property>/systems/engines/epr/c1</property>
