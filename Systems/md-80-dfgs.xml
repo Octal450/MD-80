@@ -432,7 +432,7 @@
 		
 		<switch name="/systems/dfgs/speeds/flap-0-13-slat-mid-max-kts">
 			<default value="280"/>
-			<test logic="AND" value="/systems/dfgs/speeds/flap-0-13-slat-mid-max-kts">
+			<test logic="AND" value="/systems/dfgs/speeds/flap-slat-max-mach-kts">
 				/systems/dfgs/speeds/flap-slat-max-mach-kts lt 280
 				position/wow eq 0
 				/sim/time/elapsed-sec gt 0
@@ -441,7 +441,7 @@
 		
 		<switch name="/systems/dfgs/speeds/flap-15-20-slat-full-max-kts">
 			<default value="240"/>
-			<test logic="AND" value="/systems/dfgs/speeds/flap-15-20-slat-full-max-kts">
+			<test logic="AND" value="/systems/dfgs/speeds/flap-slat-max-mach-kts">
 				/systems/dfgs/speeds/flap-slat-max-mach-kts lt 240
 				position/wow eq 0
 				/sim/time/elapsed-sec gt 0
@@ -450,7 +450,7 @@
 		
 		<switch name="/systems/dfgs/speeds/flap-21-25-max-kts">
 			<default value="220"/>
-			<test logic="AND" value="/systems/dfgs/speeds/flap-21-25-max-kts">
+			<test logic="AND" value="/systems/dfgs/speeds/flap-slat-max-mach-kts">
 				/systems/dfgs/speeds/flap-slat-max-mach-kts lt 220
 				position/wow eq 0
 				/sim/time/elapsed-sec gt 0
@@ -459,7 +459,7 @@
 		
 		<switch name="/systems/dfgs/speeds/flap-26-30-max-kts">
 			<default value="205"/>
-			<test logic="AND" value="/systems/dfgs/speeds/flap-26-30-max-kts">
+			<test logic="AND" value="/systems/dfgs/speeds/flap-slat-max-mach-kts">
 				/systems/dfgs/speeds/flap-slat-max-mach-kts lt 205
 				position/wow eq 0
 				/sim/time/elapsed-sec gt 0
@@ -468,7 +468,7 @@
 		
 		<switch name="/systems/dfgs/speeds/flap-31-40-max-kts">
 			<default value="200"/>
-			<test logic="AND" value="/systems/dfgs/speeds/flap-31-40-max-kts">
+			<test logic="AND" value="/systems/dfgs/speeds/flap-slat-max-mach-kts">
 				/systems/dfgs/speeds/flap-slat-max-mach-kts lt 200
 				position/wow eq 0
 				/sim/time/elapsed-sec gt 0
