@@ -237,16 +237,16 @@ var fgcpCanvas = {
 		});
 		me["AltMinus"].addEventListener("click", func(e) {
 			if (e.shiftKey) {
-				cockpit.ApPanel.altAdjust(-10);
-			} else {
 				cockpit.ApPanel.altAdjust(-1);
+			} else {
+				cockpit.ApPanel.altAdjust(-10);
 			}
 		});
 		me["AltPlus"].addEventListener("click", func(e) {
 			if (e.shiftKey) {
-				cockpit.ApPanel.altAdjust(10);
-			} else {
 				cockpit.ApPanel.altAdjust(1);
+			} else {
+				cockpit.ApPanel.altAdjust(10);
 			}
 		});
 		
