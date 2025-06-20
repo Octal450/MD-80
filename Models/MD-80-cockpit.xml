@@ -616,7 +616,7 @@
 				</condition>
 				<command>property-adjust</command>
 				<property>controls/flight/elevator-trim</property>
-				<step>0.001</step>
+				<step>0.0015</step>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -654,7 +654,7 @@
 				</condition>
 				<command>property-adjust</command>
 				<property>controls/flight/elevator-trim</property>
-				<step>-0.001</step>
+				<step>-0.0015</step>
 			</binding>
 			<binding>
 				<command>nasal</command>
