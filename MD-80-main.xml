@@ -1638,6 +1638,9 @@
 				<engage type="bool">0</engage>
 				<position-cmd-out type="bool">0</position-cmd-out>
 			</reverse-2>
+			<throttle-compare-max type="double">0</throttle-compare-max>
+			<throttle-lever-feedback n="0" type="double">0</throttle-lever-feedback>
+			<throttle-lever-feedback n="1" type="double">0</throttle-lever-feedback>
 		</engines>
 		<failures n="0">
 			<electrical n="0">
