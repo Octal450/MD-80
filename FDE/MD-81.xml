@@ -23,7 +23,7 @@
 	<system file="md-80-pneumatics"/>
 	<system file="md-80-dfgs"/>
 	<system file="md-80-fcs"/>
-	<system file="md-80-spoiler"/>
+	<system file="md-80-spoilers"/>
 	<system file="md-80-ignition"/>
 	<system file="md-80-209-engine-thrlim"/>
 	<system file="md-80-apu"/>
