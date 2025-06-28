@@ -7,8 +7,6 @@
 	
 	<property value="0">/systems/dfgs/flaps-cmd-feedback</property>
 	<property value="340">/systems/dfgs/speeds/vmo</property>
-	<property value="0">/systems/engines/throttle-lever-feedback[0]</property>
-	<property value="0">/systems/engines/throttle-lever-feedback[1]</property>
 	<property value="0">/systems/abs/disarm</property>
 	
 	<!-- Default gains for tuning -->
