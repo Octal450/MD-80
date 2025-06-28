@@ -43,7 +43,7 @@ var PNEUMATICS = {
 		me.Controls.cabinTemp.setValue(0.45);
 		me.Controls.cockpitTemp.setValue(0.45);
 		me.Controls.groundAir.setBoolValue(0);
-		me.Controls.instrumentFlow.setValue(0);
+		me.Controls.instrumentFlow.setBoolValue(0);
 		me.Controls.radioRack.setBoolValue(1);
 		me.Controls.ramAir.setBoolValue(0);
 		me.Controls.supplyL.setValue(0);
