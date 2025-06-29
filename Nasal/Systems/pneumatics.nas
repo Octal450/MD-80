@@ -49,8 +49,8 @@ var PNEUMATICS = {
 		me.Controls.supplyL.setValue(0);
 		me.Controls.supplyR.setValue(0);
 		me.Controls.tempSel.setBoolValue(0);
-		me.Controls.xBleedL.setValue(0);
-		me.Controls.xBleedR.setValue(0);
+		me.Controls.xBleedL.setBoolValue(0);
+		me.Controls.xBleedR.setBoolValue(0);
 	},
 	resetFailures: func() {
 		me.Failures.bleedApu.setBoolValue(0);

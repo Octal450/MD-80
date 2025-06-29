@@ -381,9 +381,8 @@ var PANEL = {
 		systems.IGNITION.Controls.ign.setValue(1);
 		systems.PNEUMATICS.Controls.supplyL.setValue(2);
 		systems.PNEUMATICS.Controls.supplyR.setValue(2);
-		systems.PNEUMATICS.Controls.xBleedL.setValue(1);
-		systems.PNEUMATICS.Controls.xBleedL.setValue(1);
-		systems.PNEUMATICS.Controls.xBleedR.setValue(1);
+		systems.PNEUMATICS.Controls.xBleedL.setBoolValue(1);
+		systems.PNEUMATICS.Controls.xBleedR.setBoolValue(1);
 		systems.THRLIM.setMode(0); # T/O
 		systems.APU.stopRpm();
 		
@@ -411,8 +410,8 @@ var PANEL = {
 				systems.IGNITION.Controls.ign.setValue(0);
 				systems.IRS.Controls.knob[0].setValue(2);
 				systems.IRS.Controls.knob[1].setValue(2);
-				systems.PNEUMATICS.Controls.xBleedL.setValue(0);
-				systems.PNEUMATICS.Controls.xBleedR.setValue(0);
+				systems.PNEUMATICS.Controls.xBleedL.setBoolValue(0);
+				systems.PNEUMATICS.Controls.xBleedR.setBoolValue(0);
 				# XPDR TA/RA
 				dfgs.Input.fd1.setBoolValue(1);
 				dfgs.Input.fd2.setBoolValue(1);
