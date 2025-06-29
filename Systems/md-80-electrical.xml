@@ -369,8 +369,9 @@
 			<table> <!-- 115v 8000rpm at 98.6% -->
 				<independentVar lookup="row">/engines/engine[2]/n1-actual</independentVar>
 				<tableData> <!-- 112v avail at 95% -->
-					95.0  82.02
-					98.6  81.14
+					 95.0  82.02
+					 98.6  81.14
+					100.0  80.00
 				</tableData>
 			</table>
 		</scheduled_gain>
