@@ -341,8 +341,8 @@ var PANEL = {
 				systems.IRS.Controls.knob[0].setValue(2);
 				systems.IRS.Controls.knob[1].setValue(2);
 				systems.PNEUMATICS.Controls.bleedApu.setValue(1);
-				systems.PNEUMATICS.Controls.xBleedL.setValue(1);
-				systems.PNEUMATICS.Controls.xBleedR.setValue(1);
+				systems.PNEUMATICS.Controls.xBleedL.setBoolValue(1);
+				systems.PNEUMATICS.Controls.xBleedR.setBoolValue(1);
 				dfgs.Input.fd1.setBoolValue(1);
 				dfgs.Input.fd2.setBoolValue(1);
 				
