@@ -338,3 +338,15 @@ var ApPanel = {
 		}
 	},
 };
+
+# Overhead GPWS
+var gpwsOvrd = 0;
+setlistener("/controls/switches/gpws-ovrd", func() {
+	gpwsOvrd = pts.Controls.Switches.gpwsOvrd.getValue();
+	
+	if (gpwsOvrd == 1) pts.Instrumentation.MkViii.Inputs.Discretes.selfTest.setBoolValue(1);
+	else pts.Instrumentation.MkViii.Inputs.Discretes.selfTest.setBoolValue(0);
+	
+	if (gpwsOvrd == -1) pts.Instrumentation.MkViii.Inputs.Discretes.momentaryFlapOverride.setBoolValue(1);
+	else pts.Instrumentation.MkViii.Inputs.Discretes.momentaryFlapOverride.setBoolValue(0);
+}, 0, 0);
