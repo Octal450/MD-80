@@ -7,7 +7,9 @@ var furt = 0;
 var variousReset = func() {
 	dfgs.Main.art.setBoolValue(1);
 	dfgs.Main.artCover.setBoolValue(0);
+	pts.Controls.Flight.aileronTrim.setValue(0);
 	pts.Controls.Flight.dialAFlap.setValue(0);
+	pts.Controls.Flight.rudderTrim.setValue(0);
 	pts.Controls.Lighting.beacon.setBoolValue(0);
 	pts.Controls.Lighting.captDigital.setValue(1);
 	pts.Controls.Lighting.emerLt.setValue(0);

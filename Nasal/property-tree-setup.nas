@@ -7,11 +7,13 @@
 var Controls = {
 	Flight: {
 		aileronDrivesTiller: props.globals.getNode("/controls/flight/aileron-drives-tiller"),
+		aileronTrim: props.globals.getNode("/controls/flight/aileron-trim"),
 		autoCoordination: props.globals.getNode("/controls/flight/auto-coordination", 1),
 		dialAFlap: props.globals.getNode("/controls/flight/dial-a-flap"),
 		elevatorTrim: props.globals.getNode("/controls/flight/elevator-trim"),
 		flaps: props.globals.getNode("/controls/flight/flaps"),
 		flapsTemp: 0,
+		rudderTrim: props.globals.getNode("/controls/flight/rudder-trim"),
 		speedbrake: props.globals.getNode("/controls/flight/speedbrake"),
 		speedbrakeArm: props.globals.getNode("/controls/flight/speedbrake-arm"),
 		speedbrakeTemp: 0,
