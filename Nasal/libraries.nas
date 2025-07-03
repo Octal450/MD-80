@@ -30,6 +30,7 @@ var systemsInit = func() {
 	systems.IRS.init();
 	systems.PNEUMATICS.init();
 	dfgs.ITAF.init();
+	fms_ht9100.CORE.init();
 	systems.THRLIM.init();
 	instruments.EFIS.init();
 	
@@ -62,8 +63,10 @@ var fdmInit = setlistener("/sim/signals/fdm-initialized", func() {
 
 var systemsLoop = maketimer(0.1, func() {
 	if (pts.Systems.Acconfig.Options.nav.getValue() == 0) {
+		fms_ht9100.CORE.loop();
 		mcdu_ht9100.BASE.loop();
 	}
+	
 	systems.DUController.loop();
 	systems.THRLIM.loop();
 	SHAKE.loop();
@@ -104,6 +107,7 @@ var setPanelConfig = func() {
 		pts.Systems.Acconfig.Options.nav.setBoolValue(0);
 		pts.Sim.Gui.Dialogs.AcconfigMain.ht9100.setBoolValue(1);
 		pts.Sim.Gui.Dialogs.AcconfigMain.afms.setBoolValue(0);
+		fms_ht9100.CORE.init();
 	}
 }
 

@@ -345,6 +345,9 @@ var PANEL = {
 				systems.PNEUMATICS.Controls.xBleedR.setBoolValue(1);
 				dfgs.Input.fd1.setBoolValue(1);
 				dfgs.Input.fd2.setBoolValue(1);
+				if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
+					fms.EditFlightData.setAcconfigData();
+				}
 				
 				settimer(func() { # Give things a moment to settle
 					fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
@@ -415,6 +418,9 @@ var PANEL = {
 				# XPDR TA/RA
 				dfgs.Input.fd1.setBoolValue(1);
 				dfgs.Input.fd2.setBoolValue(1);
+				if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
+					fms.EditFlightData.setAcconfigData();
+				}
 				
 				if (t == 1) {
 					pts.Controls.Lighting.positionStrobeLight.setValue(1);

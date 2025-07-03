@@ -557,6 +557,18 @@
 				<layout>hbox</layout>
 				
 				<radio>
+					<enable>
+						<and>
+							<equals>
+								<property>/position/wow</property>
+								<value>1</value>
+							</equals>
+							<less-than>
+								<property>/velocities/groundspeed-kt</property>
+								<value>2</value>
+							</less-than>
+						</and>
+					</enable>
 					<label>HT9100/AHRS</label>
 					<halign>left</halign>
 					<property>/sim/gui/dialogs/acconfig-main/ht9100</property>
@@ -569,6 +581,7 @@
 							pts.Systems.Acconfig.Options.nav.setBoolValue(0);
 							pts.Sim.Gui.Dialogs.AcconfigMain.ht9100.setBoolValue(1);
 							pts.Sim.Gui.Dialogs.AcconfigMain.afms.setBoolValue(0);
+							fms_ht9100.CORE.init();
 							acconfig.OPTIONS.write();
 						</script>
 					</binding>
@@ -577,8 +590,18 @@
 				
 				<radio>
 					<enable>
-						<!--property>/systems/acconfig/options/efis</property-->
-						<property>/systems/acconfig/unused</property>
+						<and>
+							<equals>
+								<property>/position/wow</property>
+								<value>1</value>
+							</equals>
+							<less-than>
+								<property>/velocities/groundspeed-kt</property>
+								<value>2</value>
+							</less-than>
+							<!--property>/systems/acconfig/options/efis</property-->
+							<property>/systems/acconfig/unused</property>
+						</and>
 					</enable>
 					<label>AFMS/IRS</label>
 					<halign>left</halign>
@@ -592,6 +615,7 @@
 							pts.Systems.Acconfig.Options.nav.setBoolValue(1);
 							pts.Sim.Gui.Dialogs.AcconfigMain.ht9100.setBoolValue(0);
 							pts.Sim.Gui.Dialogs.AcconfigMain.afms.setBoolValue(1);
+							fms.CORE.init();
 							acconfig.OPTIONS.write();
 						</script>
 					</binding>

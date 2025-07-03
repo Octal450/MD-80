@@ -89,22 +89,26 @@ var Rte = {
 	setup: func() {
 	},
 	loop: func() {
-		#if (fms.flightData.airportFrom != "") {
-		#	me.Display.L1 = fms.flightData.airportFrom;
-		#} else {
-		#	me.Display.L1 = "____";
-		#}
-		#if (fms.flightData.airportTo != "") {
-		#	me.Display.R1 = fms.flightData.airportTo;
-		#} else {
-		#	me.Display.R1 = "____";
-		#}
-		#
-		#if (fms.flightData.flightNumber != "") {
-		#	me.Display.R2 = fms.flightData.flightNumber;
-		#} else {
-		#	me.Display.R2 = "----------";
-		#}
+		if (fms_ht9100.flightData.airportFrom != "") {
+			me.Display.L1 = fms_ht9100.flightData.airportFrom;
+			me.Display.LColor[0] = COLOR.white;
+		} else {
+			me.Display.L1 = "____";
+			me.Display.LColor[0] = COLOR.amber;
+		}
+		if (fms_ht9100.flightData.airportTo != "") {
+			me.Display.R1 = fms_ht9100.flightData.airportTo;
+			me.Display.RColor[0] = COLOR.white;
+		} else {
+			me.Display.R1 = "____";
+			me.Display.RColor[0] = COLOR.amber;
+		}
+		
+		if (fms_ht9100.flightData.flightNumber != "") {
+			me.Display.R2 = fms_ht9100.flightData.flightNumber;
+		} else {
+			me.Display.R2 = "----------";
+		}
 		
 		#if () {
 		#	me.Display.R6 = "ACTIVATE>";
@@ -116,7 +120,49 @@ var Rte = {
 		me.scratchpad = unit[me.id].scratchpad;
 		me.scratchpadState = unit[me.id].scratchpadState();
 		
-		if (k == "r6") {
+		if (k == "l1") {
+			if (me.scratchpadState == 2) {
+				if (unit[me.id].stringLengthInRange(3, 4, me.scratchpad)) {
+					if (size(findAirportsByICAO(me.scratchpad)) == 1) {
+						fms_ht9100.EditFlightData.insertFrom(me.scratchpad);
+						unit[me.id].scratchpadClear();
+					} else {
+						unit[me.id].setMessage("NOT IN DATA BASE");
+					}
+				} else {
+					unit[me.id].setMessage("INVALID ENTRY");
+				}
+			} else if (me.scratchpadState == 0) {
+				unit[me.id].setMessage("INVALID DELETE");
+			}
+		} else if (k == "r1") {
+			if (me.scratchpadState == 2) {
+				if (unit[me.id].stringLengthInRange(3, 4, me.scratchpad)) {
+					if (size(findAirportsByICAO(me.scratchpad)) == 1) {
+						fms_ht9100.EditFlightData.insertTo(me.scratchpad);
+						unit[me.id].scratchpadClear();
+					} else {
+						unit[me.id].setMessage("NOT IN DATA BASE");
+					}
+				} else {
+					unit[me.id].setMessage("INVALID ENTRY");
+				}
+			} else if (me.scratchpadState == 0) {
+				unit[me.id].setMessage("INVALID DELETE");
+			}
+		} else if (k == "r2") {
+			if (me.scratchpadState == 0) {
+				fms_ht9100.flightData.flightNumber = "";
+				unit[me.id].scratchpadClear();
+			} else if (me.scratchpadState == 2) {
+				if (unit[me.id].stringLengthInRange(1, 10)) {
+					fms_ht9100.flightData.flightNumber = me.scratchpad;
+					unit[me.id].scratchpadClear();
+				} else {
+					unit[me.id].setMessage("INVALID ENTRY");
+				}
+			}
+		} else if (k == "r6") {
 			if (me.Display.R6 != "ACTIVATE>") {
 				unit[me.id].setPage("perfInit");
 			}

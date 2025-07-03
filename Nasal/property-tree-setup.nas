@@ -54,6 +54,10 @@ var Fdm = {
 			alphaDegDamped: props.globals.getNode("/fdm/jsbsim/aero/alpha-deg-damped"),
 			alphaDegDampedPli: props.globals.getNode("/fdm/jsbsim/aero/alpha-deg-damped-pli"),
 		},
+		Inertia: {
+			weightLbs: props.globals.getNode("/fdm/jsbsim/inertia/weight-lbs"),
+			zfwLbs: props.globals.getNode("/fdm/jsbsim/inertia/zfw-lbs"),
+		},
 		Propulsion: {
 			Engine: {
 				n1: [props.globals.getNode("/fdm/jsbsim/propulsion/engine[0]/n1"), props.globals.getNode("/fdm/jsbsim/propulsion/engine[1]/n1"), props.globals.getNode("/fdm/jsbsim/propulsion/engine[2]/n1")],
