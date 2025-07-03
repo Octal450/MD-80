@@ -350,8 +350,8 @@ var COLOR = {
 };
 
 var FONT = { # Matches Boeing font, letter separation in Canvas: 40.559
-	large: "BoeingMCDULarge.ttf",
-	small: "BoeingMCDUSmall.ttf",
+	large: "BoeingMCDULargeSerif.ttf",
+	small: "BoeingMCDUSmallSerif.ttf",
 };
 
 var FORMAT = {
