@@ -23,7 +23,7 @@ var CORE = {
 	init: func(t = 0) {
 		EditFlightData.reset();
 		if (t == 1) {
-			mcdu.BASE.reset(); # Last
+			mcdu_ht9100.BASE.reset(); # Last
 		}
 	},
 	loop: func() {
