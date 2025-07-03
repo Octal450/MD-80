@@ -177,6 +177,13 @@
 						</binding>
 					</item>
 					<item>
+						<label>HT9100 FMS and MCDU</label>
+						<binding>
+							<command>open-browser</command>
+							<path>Aircraft/MD-80/Docs/HT9100_FMS_and_MCDU.pdf</path>
+						</binding>
+					</item>
+					<item>
 						<label>Thrust Limits and TRI</label>
 						<binding>
 							<command>open-browser</command>

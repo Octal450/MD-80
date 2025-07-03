@@ -130,7 +130,7 @@ var PerfInit = {
 					unit[me.id].setMessage("INVALID ENTRY");
 				}
 			} else if (me.scratchpadState == 0) {
-				unit[me.id].setMessage("INVALID DELETE");
+				unit[me.id].setMessage("INVALID CLEAR");
 			}
 		} else if (k == "r1") {
 			if (me.scratchpadState == 2) {
@@ -156,7 +156,7 @@ var PerfInit = {
 					unit[me.id].setMessage("INVALID ENTRY");
 				}
 			} else if (me.scratchpadState == 0) {
-				unit[me.id].setMessage("INVALID DELETE");
+				unit[me.id].setMessage("INVALID CLEAR");
 			}
 		}
 	},
