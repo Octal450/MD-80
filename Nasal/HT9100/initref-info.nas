@@ -8,8 +8,9 @@ var Ident = {
 		databaseCode: "MD19801001",
 		databaseCode2: "MD19801002",
 		databaseSelected: 1,
-		eng: "JT8D-" ~ props.globals.getNode("/options/eng").getValue(),
+		engines: props.globals.getNode("/systems/ht9100/options/engines"),
 		swVer: "HT9100-007B",
+		type: props.globals.getNode("/systems/ht9100/options/type"),
 	},
 	new: func(n) {
 		var m = {parents: [Ident]};
@@ -37,7 +38,7 @@ var Ident = {
 			LColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			LFont: [FONT.large, FONT.large, FONT.small, FONT.large, FONT.large, FONT.large],
 			L1L: " MODEL",
-			L1: pts.Options.type.getValue(),
+			L1: me.Common.type.getValue(),
 			L2L: " NAV DATA",
 			L2: "",
 			L3L: "",
@@ -63,7 +64,7 @@ var Ident = {
 			RColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.green],
 			RFont: [FONT.large, FONT.large, FONT.small, FONT.large, FONT.large, FONT.large],
 			R1L: "ENGINES",
-			R1: me.Common.eng,
+			R1: me.Common.engines.getValue(),
 			R2L: "ACTIVE",
 			R2: "",
 			R3L: "",

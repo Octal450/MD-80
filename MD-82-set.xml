@@ -50,7 +50,6 @@
 		<aux-tanks type="bool">0</aux-tanks>
 		<eng type="string">217A</eng>
 		<panel-mod type="bool">0</panel-mod>
-		<type type="string">DC-9-82</type>
 	</options>
 	
 	<payload n="0">
@@ -79,6 +78,15 @@
 			<max-lb type="double">9619</max-lb>
 		</weight>
 	</payload>
+	
+	<systems n="0">
+		<ht9100 n="0">
+			<options n="0">
+				<engines type="string">JT8D-217A</engines>
+				<type type="string">DC-9-82</type>
+			</options>
+		</ht9100>
+	</systems>
 	
 	<nasal n="0">
 		<setup>
