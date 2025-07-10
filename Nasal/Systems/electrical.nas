@@ -31,10 +31,10 @@ var ELECTRICAL = {
 	},
 	Source: {
 		Apu: {
-			hertz: props.globals.getNode("/systems/electrical/sources/apu/output-hertz"),
+			outputHertz: props.globals.getNode("/systems/electrical/sources/apu/output-hertz"),
+			outputVolt: props.globals.getNode("/systems/electrical/sources/apu/output-volt"),
 			pmgHertz: props.globals.getNode("/systems/electrical/sources/apu/pmg-hertz"),
 			pmgVolt: props.globals.getNode("/systems/electrical/sources/apu/pmg-volt"),
-			volt: props.globals.getNode("/systems/electrical/sources/apu/output-volt"),
 		},
 		Bat1: {
 			amp: props.globals.getNode("/systems/electrical/sources/bat-1/amp"),
