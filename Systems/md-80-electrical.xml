@@ -1077,7 +1077,7 @@
 			<gain>1.0</gain>
 		</pure_gain>
 		
-		<!-- AC Ground Service Bus DC R Bus Relay -->
+		<!-- TR R2 DC Bus Relay -->
 		<switch name="/systems/electrical/relay/tr-r2-dc/contact-pos">
 			<default value="0"/>
 			<test value="1">
@@ -1197,13 +1197,22 @@
 			</table>
 		</scheduled_gain>
 		
+		<!-- Emergency Power Arm Logic -->
+		<switch name="/systems/electrical/relay/emer-pwr/contact-pos">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/electrical/emer-pwr eq 1
+				/systems/electrical/bus/dc-bat ge 24
+			</test>
+		</switch>
+		
 		<!-- Static Inverter -->
 		<fcs_function name="/systems/electrical/sources/si/output-volt">
 			<function>
 				<product>
 					<table> <!-- DC to AC converter -->
 						<independentVar lookup="row">/systems/electrical/bus/dc-bat</independentVar>
-						<independentVar lookup="column">/controls/electrical/emer-pwr</independentVar>
+						<independentVar lookup="column">/systems/electrical/relay/emer-pwr/contact-pos</independentVar>
 						<tableData>
 							    0    1
 							 0  0    0
@@ -1248,7 +1257,7 @@
 		</switch>
 		
 		<actuator name="/systems/electrical/relay/ac-inv-src-emer-ac/contact-final">
-			<input>/controls/electrical/emer-pwr</input>
+			<input>/systems/electrical/relay/emer-pwr/contact-pos</input>
 			<rate_limit>4.8</rate_limit>
 		</actuator>
 		
@@ -1289,7 +1298,7 @@
 		<switch name="/systems/electrical/relay/dc-bat-src-emer-dc/contact-pos">
 			<default value="0"/>
 			<test value="1">
-				/controls/electrical/emer-pwr eq 1
+				/systems/electrical/relay/emer-pwr/contact-pos eq 1
 			</test>
 		</switch>
 		
@@ -1310,7 +1319,7 @@
 		<switch name="/systems/electrical/sources/bat-charger-powered">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/controls/electrical/emer-pwr ne 1
+				/systems/electrical/relay/emer-pwr/contact-pos ne 1
 				/systems/electrical/bus/ac-gndsvc ge 112
 			</test>
 		</switch>
@@ -1423,7 +1432,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/dc-bat ge 24
-				/controls/electrical/emer-pwr eq 1
+				/systems/electrical/relay/emer-pwr/contact-pos eq 1
 			</test>
 		</switch>
 	
