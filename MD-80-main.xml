@@ -173,21 +173,21 @@
 						<label>Auto Flight and DFGS</label>
 						<binding>
 							<command>open-browser</command>
-							<path>Aircraft/MD-80/Docs/Auto_Flight_and_DFGS.pdf</path>
+							<path>https://github.com/Octal450/FlightGear-Aircraft-Documentation/blob/master/MD-80/Auto_Flight_and_DFGS.pdf</path>
 						</binding>
 					</item>
 					<item>
 						<label>HT9100 FMS and MCDU</label>
 						<binding>
 							<command>open-browser</command>
-							<path>Aircraft/MD-80/Docs/HT9100_FMS_and_MCDU.pdf</path>
+							<path>https://github.com/Octal450/FlightGear-Aircraft-Documentation/blob/master/HT9100/HT9100_FMS_and_MCDU.pdf</path>
 						</binding>
 					</item>
 					<item>
 						<label>Thrust Limits and TRI</label>
 						<binding>
 							<command>open-browser</command>
-							<path>Aircraft/MD-80/Docs/Thrust_Limits_and_TRI.pdf</path>
+							<path>https://github.com/Octal450/FlightGear-Aircraft-Documentation/blob/master/MD-80/Thrust_Limits_and_TRI.pdf</path>
 						</binding>
 					</item>
 				</menu>
