@@ -15,3 +15,5 @@ For frequently asked questions about this project, please refer to our [FAQ page
 For frequently asked questions in regard to FlightGear itself, please refer to the [FlightGear FAQ page](https://wiki.flightgear.org/Frequently_asked_questions).
 
 Documentation for this aircraft can be found [here](https://github.com/Octal450/FlightGear-Aircraft-Documentation/tree/master/MD-80).
+
+Documentation for the HT9100 FMS and MCDU can be found [here](https://github.com/Octal450/FlightGear-Aircraft-Documentation/tree/master/HT9100).
