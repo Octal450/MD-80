@@ -1327,7 +1327,6 @@
 		<switch name="/systems/electrical/relay/dc-bat-trans/contact-pos">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/systems/electrical/relay/emer-pwr/contact-pos eq 1
 				/systems/electrical/relay/gndsvc-src-ac-gndsvc/contact-pos eq 0
 				/systems/electrical/bus/dc-l lt 24
 				/systems/electrical/bus/dc-r lt 24
