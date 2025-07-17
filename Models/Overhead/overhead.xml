@@ -526,6 +526,21 @@
 	
 	<!-- Electrical Panel Lower -->
 	<animation>
+		<type>select</type>
+		<object-name>ApuLBusLightOff</object-name>
+		<condition>
+			<not><property>systems/electrical/lights/apu-bus-l</property></not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ApuLBusLightOn</object-name>
+		<condition>
+			<property>systems/electrical/lights/apu-bus-l</property>
+		</condition>
+	</animation>
+	
+	<animation>
 		<type>rotate</type>
 		<object-name>ApuLBus</object-name>
 		<property>controls/cockpit/overhead/apu-pwr-l</property>
@@ -622,6 +637,36 @@
 	</animation>
 	
 	<animation>
+		<type>select</type>
+		<object-name>ApuRBusLightOff</object-name>
+		<condition>
+			<not><property>systems/electrical/lights/apu-bus-r</property></not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ApuRBusLightOn</object-name>
+		<condition>
+			<property>systems/electrical/lights/apu-bus-r</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ExtLBusLightOff</object-name>
+		<condition>
+			<not><property>systems/electrical/lights/ext-bus-l</property></not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ExtLBusLightOn</object-name>
+		<condition>
+			<property>systems/electrical/lights/ext-bus-l</property>
+		</condition>
+	</animation>
+	
+	<animation>
 		<type>rotate</type>
 		<object-name>ExtPwrLBus</object-name>
 		<property>controls/cockpit/overhead/ext-pwr-l</property>
@@ -712,6 +757,21 @@
 				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ExtRBusLightOff</object-name>
+		<condition>
+			<not><property>systems/electrical/lights/ext-bus-r</property></not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ExtRBusLightOn</object-name>
+		<condition>
+			<property>systems/electrical/lights/ext-bus-r</property>
+		</condition>
 	</animation>
 	
 	<animation>

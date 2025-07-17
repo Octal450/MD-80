@@ -1428,13 +1428,57 @@
 	
 	</channel>
 	
-	<channel name="Overhead Lights" execrate="8">
+	<channel name="Overhead Lights">
 		
 		<switch name="/systems/electrical/lights/emer-pwr-on">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/dc-bat ge 24
 				/systems/electrical/relay/emer-pwr/contact-pos eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/lights/apu-bus-l">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/dc-bat ge 24
+				<test logic="OR">
+					/systems/electrical/relay/apu-ac-gen-l/contact-final eq 1
+					/controls/switches/annun-test eq 1
+				</test>
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/lights/apu-bus-r">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/dc-bat ge 24
+				<test logic="OR">
+					/systems/electrical/relay/apu-ac-gen-r/contact-final eq 1
+					/controls/switches/annun-test eq 1
+				</test>
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/lights/ext-bus-l">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/dc-bat ge 24
+				<test logic="OR">
+					/systems/electrical/relay/ext-ac-gen-l/contact-final eq 1
+					/controls/switches/annun-test eq 1
+				</test>
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/lights/ext-bus-r">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/dc-bat ge 24
+				<test logic="OR">
+					/systems/electrical/relay/ext-ac-gen-r/contact-final eq 1
+					/controls/switches/annun-test eq 1
+				</test>
 			</test>
 		</switch>
 	
