@@ -720,7 +720,7 @@
 	
 	</channel>
 	
-	<channel name="Cockpit Lighting" execrate="8">
+	<channel name="Cockpit Lighting" execrate="2">
 		
 		<switch name="/systems/lighting/capt-digital">
 			<default value="0"/>
