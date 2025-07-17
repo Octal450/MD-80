@@ -576,7 +576,7 @@
 					<table>
 						<property>/velocities/airspeed-kt</property>
 						<entry><ind>140</ind><dep>-0.12</dep></entry>
-						<entry><ind>360</ind><dep>-0.06</dep></entry>
+						<entry><ind>360</ind><dep>-0.08</dep></entry>
 					</table>
 				</expression>
 			</Kp>
