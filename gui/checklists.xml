@@ -71,8 +71,8 @@
 				<value>CHECKED</value>
 			</item>
 			<item>
-				<name>AIR CONDITIONING</name>
-				<value>AUTO, AUTO, OFF</value>
+				<name>AIR CONDITIONING SUPPLY</name>
+				<value>OFF</value>
 			</item>
 			<item>
 				<name>PRESSURIZATION</name>
@@ -192,7 +192,7 @@
 			</item>
 			<item>
 				<name>AIR CONDITIONING SUPPLY</name>
-				<value>AUTO (HP BLEED OFF)</value>
+				<value>AUTO</value>
 			</item>
 			<item>
 				<name>ANTI-ICE</name>
