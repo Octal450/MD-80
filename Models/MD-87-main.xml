@@ -671,7 +671,7 @@
 	
 	<model>
 		<name>Left Strobe Light Fwd</name>
-		<path>Aircraft/MD-80/Models/Effects/Lights/strobe.xml</path>
+		<path>Aircraft/MD-80/Models/Effects/Lights/strobe-left.xml</path>
 		<offsets>
 			<x-m>27.47</x-m>
 			<y-m>-16.02</y-m>
@@ -775,7 +775,7 @@
 	
 	<model>
 		<name>Right Strobe Light Fwd</name>
-		<path>Aircraft/MD-80/Models/Effects/Lights/strobe.xml</path>
+		<path>Aircraft/MD-80/Models/Effects/Lights/strobe-right.xml</path>
 		<offsets>
 			<x-m>27.47</x-m>
 			<y-m>16.02</y-m>

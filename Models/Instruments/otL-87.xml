@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	
+	<path>ot.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Face</object-name>
+		<object-name>Needle</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>0.6</green>
+			<blue>0.3</blue>
+			<factor-prop>systems/lighting/center-panel</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>Needle</object-name>
+		<property>instrumentation/ot[0]/ot</property>
+		<interpolation>
+			<entry><ind> 20</ind><dep>-224.25</dep></entry>
+			<entry><ind>170</ind><dep>  34.50</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+</PropertyList>

@@ -533,7 +533,7 @@
 	
 	<model>
 		<name>otL</name>
-		<path>Aircraft/MD-80/Models/Instruments/otL.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/otL-87.xml</path>
 		<offsets>
 			<x-m>2.221</x-m>
 			<y-m>0.119</y-m>
@@ -543,7 +543,7 @@
 	</model>
 	<model>
 		<name>otR</name>
-		<path>Aircraft/MD-80/Models/Instruments/otR.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/otR-87.xml</path>
 		<offsets>
 			<x-m>2.221</x-m>
 			<y-m>0.179</y-m>
