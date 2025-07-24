@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- McDonnell Douglas MD-80 Misc -->
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <system name="MD-80: Misc"> <!-- Everything here is after all systems -->
 	
@@ -71,7 +71,7 @@
 				/controls/switches/seatbelt-sign eq 1
 			</test>
 			<test logic="AND" value="1">
-				/controls/switches/seatbelt-sign eq 0.5
+				/controls/switches/seatbelt-sign eq -1
 				<test logic="OR">
 					/systems/fcs/flaps/input ne 0
 					/systems/gear/cmd eq 1
@@ -85,7 +85,7 @@
 				/controls/switches/no-smoking-sign eq 1
 			</test>
 			<test logic="AND" value="1">
-				/controls/switches/no-smoking-sign eq 0.5
+				/controls/switches/no-smoking-sign eq -1
 				/systems/gear/cmd eq 1
 			</test>
 		</switch>
@@ -197,7 +197,7 @@
 			<c1>7.5</c1>
 		</lag_filter>
 		
-		<switch name="/systems/exterior-lights/ground-flood-light-l">
+		<switch name="/systems/exterior-lights/ground-flood-light-l-cmd">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/controls/lighting/ground-flood-light-l eq 1
@@ -205,7 +205,12 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/exterior-lights/ground-flood-light-r">
+		<lag_filter name="/systems/exterior-lights/ground-flood-light-l">
+			<input>/systems/exterior-lights/ground-flood-light-l-cmd</input>
+			<c1>7.5</c1>
+		</lag_filter>
+		
+		<switch name="/systems/exterior-lights/ground-flood-light-r-cmd">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/controls/lighting/ground-flood-light-r eq 1
@@ -213,18 +218,23 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/exterior-lights/position-light">
+		<lag_filter name="/systems/exterior-lights/ground-flood-light-r">
+			<input>/systems/exterior-lights/ground-flood-light-r-cmd</input>
+			<c1>7.5</c1>
+		</lag_filter>
+		
+		<switch name="/systems/exterior-lights/position-lights">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/controls/lighting/position-strobe-light ge 0.5
+				/controls/lighting/position-strobe-lights ge 0.5
 				/systems/electrical/bus/emer-ac ge 112
 			</test>
 		</switch>
 		
-		<switch name="/systems/exterior-lights/strobe-light">
+		<switch name="/systems/exterior-lights/strobe-lights">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/controls/lighting/position-strobe-light eq 1
+				/controls/lighting/position-strobe-lights eq 1
 				/gear/gear[0]/wow ne 1
 				/systems/electrical/bus/emer-ac ge 112
 			</test>
@@ -238,13 +248,18 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/exterior-lights/logo-lights">
+		<switch name="/systems/exterior-lights/logo-lights-cmd">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/controls/lighting/logo-lights eq 1
 				/systems/electrical/bus/ac-gndsvc ge 112
 			</test>
 		</switch>
+		
+		<lag_filter name="/systems/exterior-lights/logo-lights">
+			<input>/systems/exterior-lights/logo-lights-cmd</input>
+			<c1>7.5</c1>
+		</lag_filter>
 		
 		<switch name="/systems/exterior-lights/left-wing-light-cmd">
 			<default value="0"/>
@@ -374,12 +389,12 @@
 			<test logic="AND" value="1">
 				/systems/caws/logic/overspeed eq 0
 				fcs/slat-pos-deg ge 11
-				/instrumentation/airspeed-indicator/indicated-speed-kt gt /systems/dfgs/speeds/flap-15-slat-full-max-kts
+				/instrumentation/airspeed-indicator/indicated-speed-kt gt /systems/dfgs/speeds/flap-15-20-slat-full-max-kts
 			</test>
 			<test logic="AND" value="1">
 				/systems/caws/logic/overspeed eq 0
 				fcs/slat-pos-deg ge 1
-				/instrumentation/airspeed-indicator/indicated-speed-kt gt /systems/dfgs/speeds/flap-11-slat-mid-max-kts
+				/instrumentation/airspeed-indicator/indicated-speed-kt gt /systems/dfgs/speeds/flap-0-13-slat-mid-max-kts
 			</test>
 		</switch>
 		
@@ -554,22 +569,6 @@
 	
 	<channel name="CAWS Sound Controller" execrate="8">
 		
-		<fcs_function name="/systems/caws/random">
-			<function>
-				<urandom/>
-			</function>
-		</fcs_function>
-		
-		<switch name="/systems/caws/logic/stall-random">
-			<default value="/systems/caws/random"/>
-			<test value="-1">
-				/controls/switches/stall-test eq -1
-			</test>
-			<test value="1">
-				/controls/switches/stall-test eq 1
-			</test>
-		</switch>
-		
 		<!-- Autopilot Horn -->
 		<switch name="/systems/caws/apoff/trigger">
 			<default value="/systems/caws/apoff/trigger"/>
@@ -724,6 +723,12 @@
 		</actuator>
 		
 		<!-- Stall Horns -->
+		<actuator name="/systems/caws/stall-1/logic-actuator"> <!-- Horn 1 is on a slight delay for some reason -->
+			<input>/systems/caws/logic/stall</input>
+			<rate_limit sense="incr">3</rate_limit>
+			<rate_limit sense="decr">100</rate_limit>
+		</actuator>
+		
 		<switch name="/systems/caws/stall-1/trigger">
 			<default value="/systems/caws/stall-1/trigger"/>
 			<test logic="OR" value="0">
@@ -732,14 +737,7 @@
 			</test>
 			<test logic="AND" value="1">
 				/systems/caws/stall-1/out eq 0
-				/systems/caws/logic/stall eq 1
-				/controls/switches/stall-test ne 0
-			</test>
-			<test logic="AND" value="1">
-				/systems/caws/stall-1/out eq 0
-				/systems/caws/logic/stall eq 1
-				/systems/caws/stall-2/out eq 0
-				/systems/caws/logic/stall-random ge 0
+				/systems/caws/stall-1/logic-actuator eq 1
 			</test>
 		</switch>
 		
@@ -759,13 +757,6 @@
 			<test logic="AND" value="1">
 				/systems/caws/stall-2/out eq 0
 				/systems/caws/logic/stall eq 1
-				/controls/switches/stall-test ne 0
-			</test>
-			<test logic="AND" value="1">
-				/systems/caws/stall-2/out eq 0
-				/systems/caws/logic/stall eq 1
-				/systems/caws/stall-1/out eq 0
-				/systems/caws/logic/stall-random lt 0
 			</test>
 		</switch>
 		

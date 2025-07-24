@@ -1,6 +1,6 @@
 # McDonnell Douglas MD-80 DFGS
 # Based off IT Autoflight System Controller V4.1.X
-# Copyright (c) 2024 Josh Davidson (Octal450)
+# Copyright (c) 2025 Josh Davidson (Octal450)
 # This file DOES NOT integrate with Property Tree Setup
 # That way, we can update it from IT Autoflight Core easily
 
@@ -61,8 +61,8 @@ var Orientation = {
 };
 
 var Position = {
-	gearAglFtTemp: 0,
 	gearAglFt: props.globals.getNode("/position/gear-agl-ft", 1),
+	gearAglFtTemp: 0,
 	indicatedAltitudeFt: props.globals.getNode("/instrumentation/altimeter/indicated-altitude-ft", 1),
 	indicatedAltitudeFtTemp: 0,
 };
@@ -359,13 +359,13 @@ var ITAF = {
 		}
 		
 		# Turbulance Mode Reversion
-		if (Output.latTemp != 6 and Output.vertTemp == 8) {
+		if (Output.latTemp != 6 and Output.vertTemp == 10) {
 			me.setVertMode(1);
 			Fma.startBlink(3);
 		}
 		
-		# Takeoff Lateral Reversion
-		if (Output.latTemp == 5 and Output.vertTemp != 7) {
+		# Takeoff/Go Around Lateral Reversion
+		if (Output.latTemp == 5 and Output.vertTemp != 7 and Output.vertTemp != 8) {
 			me.setLatMode(3);
 			Fma.startBlink(2);
 		}
@@ -470,7 +470,7 @@ var ITAF = {
 		}
 		
 		# Go Around Arm
-		if (Main.nlgWowTimer20.getValue() < 1 and Output.vertTemp != 7 and Position.gearAglFtTemp < 1500 and Misc.flapDeg.getValue() >= 25.9) {
+		if (Main.nlgWowTimer20.getValue() < 1 and Output.vertTemp != 7 and Output.vertTemp != 8 and Position.gearAglFtTemp < 1500 and Misc.flapDeg.getValue() >= 25.9) {
 			if ((Output.ap1Temp or Output.ap2Temp) and !Gear.wow0Temp) {
 				if (Internal.goAround != 3) {
 					Internal.goAround = 3;
@@ -898,20 +898,29 @@ var ITAF = {
 			me.updateGsArm(0, 1); # Don't disarm autoland
 			Output.vert.setValue(6);
 			me.updateVertText("FLARE");
-		} else if (n == 7) { # T/O CLB or G/A CLB, text is set by TOGA selector
+		} else if (n == 7) { # T/O CLB
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
 			me.updateGsArm(0);
 			Output.vert.setValue(7);
+			me.updateVertText("T/O CLB");
 			Athr.setMode(2); # EPR Lim
 			Input.ktsMachFlch.setBoolValue(0);
-		} else if (n == 8) { # PITCH
+		} else if (n == 8) { # G/A CLB
+			Internal.flchActive = 0;
+			Internal.altCaptureActive = 0;
+			me.updateGsArm(0);
+			Output.vert.setValue(8);
+			me.updateVertText("G/A CLB");
+			Athr.setMode(2); # EPR Lim
+			Input.ktsMachFlch.setBoolValue(0);
+		} else if (n == 10) { # PITCH
 			Input.altArmed.setBoolValue(0);
 			Internal.flchActive = 0;
 			Internal.altCaptureActive = 0;
 			me.updateGsArm(0);
 			me.syncPitch();
-			Output.vert.setValue(8);
+			Output.vert.setValue(10);
 			me.updateVertText("PITCH");
 			Athr.setMode(0); # Thrust
 			me.athrMaster(0);
@@ -1068,12 +1077,11 @@ var ITAF = {
 	takeoffGoAround: func() {
 		Output.vertTemp = Output.vert.getValue();
 		Misc.flapDegTemp = Misc.flapDeg.getValue();
-		if (Main.nlgWowTimer20.getValue() < 1 and Output.vertTemp != 7 and Position.gearAglFt.getValue() < 1500 and Misc.flapDegTemp >= 25.9) {
+		if (Main.nlgWowTimer20.getValue() < 1 and Output.vertTemp != 8 and Position.gearAglFt.getValue() < 1500 and Misc.flapDegTemp >= 25.9) {
 			systems.THRLIM.setMode(1); # G/A
 			me.setLatMode(5);
 			me.updateLatText("G/A");
-			me.setVertMode(7); # Must be before kicking AP off
-			me.updateVertText("G/A CLB");
+			me.setVertMode(8); # Must be before kicking AP off
 			if (Gear.wow1.getBoolValue() or Gear.wow2.getBoolValue()) {
 				me.ap1Master(0);
 				me.ap2Master(0);
@@ -1086,7 +1094,6 @@ var ITAF = {
 				me.updateLatText("T/O");
 			}
 			me.setVertMode(7);
-			me.updateVertText("T/O CLB");
 		}
 	},
 	syncKts: func() { # Unused
@@ -1226,7 +1233,8 @@ setlistener("/it-autoflight/input/kts-mach", func() {
 }, 0, 0);
 
 setlistener("/it-autoflight/input/kts-mach-flch", func() {
-	if (Output.vert.getValue() == 7) { # Mach is not allowed in Mode 7, and don't sync
+	Output.vertTemp = Output.vert.getValue();
+	if (Output.vertTemp == 7 or Output.vertTemp == 8) { # Mach is not allowed in mode 7/8, and don't sync
 		if (Input.ktsMachFlch.getBoolValue()) {
 			Input.ktsMachFlch.setBoolValue(0);
 		}

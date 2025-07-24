@@ -1,8 +1,8 @@
 # McDonnell Douglas MD-80 Main Libraries
-# Copyright (c) 2024 Josh Davidson (Octal450)
+# Copyright (c) 2025 Josh Davidson (Octal450)
 
 print("------------------------------------------------");
-print("Copyright (c) 2019-2024 Josh Davidson (Octal450)");
+print("Copyright (c) 2019-2025 Josh Davidson (Octal450)");
 print("------------------------------------------------");
 
 setprop("/sim/menubar/default/menu[2]/item[0]/enabled", 0);
@@ -15,6 +15,7 @@ setprop("/sim/menubar/default/menu[5]/item[11]/enabled", 0);
 setprop("/sim/menubar/default/menu[5]/item[12]/enabled", 0);
 setprop("/sim/multiplay/visibility-range-nm", 130);
 
+var firetankEquipped = 0;
 var initDone = 0;
 var systemsInit = func() {
 	# Standard modules
@@ -29,9 +30,21 @@ var systemsInit = func() {
 	systems.IGNITION.init();
 	systems.IRS.init();
 	systems.PNEUMATICS.init();
-	dfgs.ITAF.init(0);
+	dfgs.ITAF.init();
+	fms_ht9100.CORE.init();
 	systems.THRLIM.init();
 	instruments.EFIS.init();
+	
+	if (firetankEquipped) {
+		firetank.FIRETANK.init();
+	}
+	
+	# Object orientated modules
+	if (initDone) { # Anytime after sim init
+		mcdu_ht9100.BASE.reset();
+	} else { # Sim init
+		mcdu_ht9100.BASE.setup();
+	}
 	
 	# Other switches
 	cockpit.variousReset();
@@ -43,6 +56,7 @@ var fdmInit = setlistener("/sim/signals/fdm-initialized", func() {
 	systemsLoop.start();
 	slowLoop.start();
 	canvas_pfd.setup();
+	canvas_ht9100.setup();
 	canvas_fma.setup();
 	acconfig.SYSTEM.finalInit();
 	settimer(func() { # Ensure it recomputes
@@ -53,6 +67,11 @@ var fdmInit = setlistener("/sim/signals/fdm-initialized", func() {
 });
 
 var systemsLoop = maketimer(0.1, func() {
+	if (pts.Systems.Acconfig.Options.nav.getValue() == 0) {
+		fms_ht9100.CORE.loop();
+		mcdu_ht9100.BASE.loop();
+	}
+	
 	systems.DUController.loop();
 	systems.THRLIM.loop();
 	SHAKE.loop();
@@ -83,28 +102,19 @@ var slowLoop = maketimer(1, func() {
 	}
 	
 	# Panel forcer - makes sure an invalid panel configuration is never used
-	if (pts.Systems.Acconfig.Options.panel.getValue() == "Analog") {
-		if (pts.Systems.Acconfig.Options.irsEquipped.getBoolValue()) {
-			pts.Systems.Acconfig.Options.irsEquipped.setBoolValue(0);
-		}
-	}
+	setPanelConfig();
 });
 
-# Backwards compatibility, removed soon
-var ApPanel = {
-	apDisc: func() {
-		cockpit.ApPanel.apDisc();
-		gui.popupTip("libraries.ApPanel is deprecated. Please switch to cockpit.ApPanel.");
-	},
-	atDisc: func() {
-		cockpit.ApPanel.atDisc();
-		gui.popupTip("libraries.ApPanel is deprecated. Please switch to cockpit.ApPanel.");
-	},
-	toga: func() {
-		cockpit.ApPanel.toga();
-		gui.popupTip("libraries.ApPanel is deprecated. Please switch to cockpit.ApPanel.");
-	},
-};
+var setPanelConfig = func() {
+	if (!pts.Systems.Acconfig.Options.efis.getBoolValue()) {
+		pts.Systems.Acconfig.Options.dualCueFd.setBoolValue(0);
+		pts.Systems.Acconfig.Options.edpSdp.setBoolValue(0);
+		pts.Systems.Acconfig.Options.nav.setBoolValue(0);
+		pts.Sim.Gui.Dialogs.AcconfigMain.ht9100.setBoolValue(1);
+		pts.Sim.Gui.Dialogs.AcconfigMain.afms.setBoolValue(0);
+		fms_ht9100.CORE.init();
+	}
+}
 
 # Custom controls.nas overrides
 controls.autopilotDisconnect = func() {
@@ -347,7 +357,7 @@ setlistener("/controls/flight/auto-coordination", func() {
 
 # Aircraft Lighting
 var beacon = aircraft.light.new("/sim/model/lights/beacon", [0.15, 1.35], "/systems/exterior-lights/beacon");
-var strobe = aircraft.light.new("/sim/model/lights/strobe", [0.2, 1], "/systems/exterior-lights/strobe-light");
+var strobe = aircraft.light.new("/sim/model/lights/strobe", [0.2, 1], "/systems/exterior-lights/strobe-lights");
 
 # Shaking Logic
 var SHAKE = {

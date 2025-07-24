@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <PropertyList>
 	
@@ -17,6 +17,7 @@
 	
 	<animation>
 		<type>material</type>
+		<object-name>FiretankModel</object-name>
 		<object-name>Fuselage</object-name>
 		<object-name>LGNDoorAftL</object-name>
 		<object-name>LGNDoorAftR</object-name>

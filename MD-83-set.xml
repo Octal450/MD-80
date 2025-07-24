@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
 
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <PropertyList include="MD-80-main.xml">
 	
@@ -56,7 +56,6 @@
 	<options n="0">
 		<aux-tanks type="bool">1</aux-tanks>
 		<eng type="string">219</eng>
-		<fms type="string">HT9100/PMS</fms>
 		<panel-mod type="bool">0</panel-mod>
 	</options>
 	
@@ -86,6 +85,15 @@
 			<max-lb type="double">9619</max-lb>
 		</weight>
 	</payload>
+	
+	<systems n="0">
+		<ht9100 n="0">
+			<options n="0">
+				<engines type="string">JT8D-219</engines>
+				<type type="string">DC-9-83</type>
+			</options>
+		</ht9100>
+	</systems>
 	
 	<nasal n="0">
 		<setup>

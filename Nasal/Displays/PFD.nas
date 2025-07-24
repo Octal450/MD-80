@@ -1,5 +1,5 @@
 # McDonnell Douglas MD-80 PFD
-# Copyright (c) 2024 Josh Davidson (Octal450)
+# Copyright (c) 2025 Josh Davidson (Octal450)
 
 var pfd1 = nil;
 var pfd1Display = nil;
@@ -10,6 +10,7 @@ var Value = {
 	Ai: {
 		alpha: 0,
 		center: nil,
+		dualCueFd: 0,
 		fd: [0, 0],
 		pitch: 0,
 		risingRunwayMultiplier: 0,
@@ -42,7 +43,7 @@ var Value = {
 var canvasBase = {
 	init: func(canvasGroup, file) {
 		var font_mapper = func(family, weight) {
-			return "DULarge.ttf";
+			return "MD80DU.ttf";
 		};
 		
 		canvas.parsesvg(canvasGroup, file, {"font-mapper": font_mapper});
@@ -103,6 +104,7 @@ var canvasBase = {
 		}
 	},
 	updateBase: func(n) {
+		Value.Ai.dualCueFd = pts.Systems.Acconfig.Options.dualCueFd.getBoolValue();
 		if (n == 0) Value.Ai.fd[0] = dfgs.Output.fd1.getBoolValue();
 		if (n == 1) Value.Ai.fd[1] = dfgs.Output.fd2.getBoolValue();
 		Value.Misc.lat = dfgs.Output.lat.getValue();
@@ -111,7 +113,7 @@ var canvasBase = {
 		# IRS
 		if (systems.PLATFORM.Unit.attAvail[n].getBoolValue()) {
 			if (Value.Ai.fd[n]) {
-				if (systems.DUController.flightDirector == "Dual Cue") {
+				if (Value.Ai.dualCueFd) {
 					me["FD_v"].hide();
 					
 					me["FD_pitch"].setTranslation(0, dfgs.Fd.pitchBar.getValue() * -12.345);
@@ -154,13 +156,13 @@ var canvasBase = {
 		}
 		
 		# AI
-		if (systems.DUController.flightDirector == "Dual Cue") {
+		if (Value.Ai.dualCueFd) {
 			me["AI_dual_cue"].show();
 			me["AI_scale_dc"].show();
 			me["AI_single_cue"].hide();
 			me["FS_scale"].setTranslation(0, 0);
 			me["GS_group"].setTranslation(0, 0);
-			Value.Ai.risingRunwayMultiplier = 1.24;
+			Value.Ai.risingRunwayMultiplier = 1.032375;
 			Value.Ai.risingRunwayOffset = 0;
 		} else {
 			me["AI_dual_cue"].hide();
@@ -168,7 +170,7 @@ var canvasBase = {
 			me["AI_single_cue"].show();
 			me["FS_scale"].setTranslation(619.7825, 0);
 			me["GS_group"].setTranslation(-619.7825, 0);
-			Value.Ai.risingRunwayMultiplier = 1.2;
+			Value.Ai.risingRunwayMultiplier = 0.972045;
 			Value.Ai.risingRunwayOffset = 12.066; # Align it properly
 		}
 		
@@ -195,7 +197,7 @@ var canvasBase = {
 				me["AI_PLI_single_cue"].setColor(1, 1, 1);
 			}
 			
-			if (systems.DUController.flightDirector == "Dual Cue") {
+			if (Value.Ai.dualCueFd) {
 				me["AI_PLI_dual_cue"].show();
 				me["AI_PLI_single_cue"].hide();
 			} else {
@@ -297,8 +299,13 @@ var canvasBase = {
 			me["NAV_scale"].show();
 		} else if (Value.Nav.isIls[n]) {
 			if (Value.Nav.inRange[n] and Value.Nav.signalQuality[n] > 0.99) {
-				me["AI_rising_runway"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[n] * 156, (math.clamp(Value.Ra.agl, 0, 200) * Value.Ai.risingRunwayMultiplier) + Value.Ai.risingRunwayOffset);
-				me["AI_rising_runway"].show();
+				if (Value.Ra.agl <= 2500 and pts.Systems.Acconfig.Options.risingRunway.getBoolValue()) {
+					me["AI_rising_runway"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[n] * 156, (math.clamp(Value.Ra.agl, 0, 200) * Value.Ai.risingRunwayMultiplier) + Value.Ai.risingRunwayOffset);
+					me["AI_rising_runway"].show();
+				} else {
+					me["AI_rising_runway"].hide();
+				}
+				
 				me["LOC_pointer"].setTranslation(Value.Nav.headingNeedleDeflectionNorm[n] * 156, 0);
 				me["LOC_pointer"].show();
 				me["LOC_no"].hide();

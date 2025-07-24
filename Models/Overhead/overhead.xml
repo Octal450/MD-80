@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <PropertyList>
 	
@@ -10,6 +10,7 @@
 		<inherits-from>Effects/model-transparent</inherits-from>
 		<object-name>BackgroundAuxTanks</object-name>
 		<object-name>BackgroundIrs</object-name>
+		<object-name>IrsLights</object-name>
 		<object-name>Labels</object-name>
 		<object-name>LabelsAuxTanks</object-name>
 		<object-name>LabelsEfis</object-name>
@@ -18,14 +19,14 @@
 	
 	<animation>
 		<type>material</type>
+		<object-name>AirPressLNeedle</object-name>
+		<object-name>AirPressRNeedle</object-name>
+		<object-name>AirValveLNeedle</object-name>
+		<object-name>AirValveRNeedle</object-name>
 		<object-name>ApuEgtNeedle</object-name>
 		<object-name>ApuRpmNeedle</object-name>
 		<object-name>ApuRpmNeedle2</object-name>
 		<object-name>Face</object-name>
-		<object-name>Labels</object-name>
-		<object-name>LabelsAuxTanks</object-name>
-		<object-name>LabelsEfis</object-name>
-		<object-name>LabelsIrs</object-name>
 		<object-name>IntegrityAcDcVoltFreq</object-name>
 		<object-name>IntegrityCadc</object-name>
 		<object-name>IntegrityEfisSel</object-name>
@@ -38,6 +39,10 @@
 		<object-name>IntegrityPanel</object-name>
 		<object-name>IntegrityVertGyro</object-name>
 		<object-name>IntegrityWiper</object-name>
+		<object-name>Labels</object-name>
+		<object-name>LabelsAuxTanks</object-name>
+		<object-name>LabelsEfis</object-name>
+		<object-name>LabelsIrs</object-name>
 		<object-name>PneuPressNeedle</object-name>
 		<emission>
 			<red>1.0</red>
@@ -52,10 +57,7 @@
 		<object-name>EfisSel</object-name>
 		<object-name>LabelsEfis</object-name>
 		<condition>
-			<not-equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</not-equals>
+			<property>systems/acconfig/options/efis</property>
 		</condition>
 	</animation>
 	
@@ -67,7 +69,7 @@
 		<object-name>IrsLights</object-name>
 		<object-name>LabelsIrs</object-name>
 		<condition>
-			<property>systems/acconfig/options/irs-equipped</property>
+			<property>systems/acconfig/options/nav</property>
 		</condition>
 	</animation>
 	
@@ -95,7 +97,7 @@
 		<object-name>IrsLights</object-name>
 		<condition>
 			<greater-than-equals>
-				<property>systems/electrical/bus/dc-bat</property>
+				<property>systems/electrical/bus/dc-trans</property>
 				<value>24</value>
 			</greater-than-equals>
 		</condition>
@@ -524,6 +526,21 @@
 	
 	<!-- Electrical Panel Lower -->
 	<animation>
+		<type>select</type>
+		<object-name>ApuLBusLightOff</object-name>
+		<condition>
+			<not><property>systems/electrical/lights/apu-bus-l</property></not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ApuLBusLightOn</object-name>
+		<condition>
+			<property>systems/electrical/lights/apu-bus-l</property>
+		</condition>
+	</animation>
+	
+	<animation>
 		<type>rotate</type>
 		<object-name>ApuLBus</object-name>
 		<property>controls/cockpit/overhead/apu-pwr-l</property>
@@ -568,10 +585,10 @@
 		<object-name>ApuPwrAvail2On</object-name>
 		<condition>
 			<or>
-				<greater-than>
-					<property>systems/apu/n1-actual</property>
-					<value>94.9</value>
-				</greater-than>
+				<equals>
+					<property>systems/electrical/sources/apu/gcr-relay</property>
+					<value>1</value>
+				</equals>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
@@ -617,6 +634,36 @@
 				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ApuRBusLightOff</object-name>
+		<condition>
+			<not><property>systems/electrical/lights/apu-bus-r</property></not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ApuRBusLightOn</object-name>
+		<condition>
+			<property>systems/electrical/lights/apu-bus-r</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ExtLBusLightOff</object-name>
+		<condition>
+			<not><property>systems/electrical/lights/ext-bus-l</property></not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ExtLBusLightOn</object-name>
+		<condition>
+			<property>systems/electrical/lights/ext-bus-l</property>
+		</condition>
 	</animation>
 	
 	<animation>
@@ -710,6 +757,21 @@
 				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ExtRBusLightOff</object-name>
+		<condition>
+			<not><property>systems/electrical/lights/ext-bus-r</property></not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ExtRBusLightOn</object-name>
+		<condition>
+			<property>systems/electrical/lights/ext-bus-r</property>
+		</condition>
 	</animation>
 	
 	<animation>
@@ -1228,7 +1290,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>PneuPressNeedle</object-name>
-		<property>instrumentation/pneu/psi</property>
+		<property>instrumentation/pneu-press/psi</property>
 		<interpolation>
 			<entry><ind>  0</ind><dep>    0</dep></entry>
 			<entry><ind>110</ind><dep>346.5</dep></entry>
@@ -2168,7 +2230,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>NoSmok</object-name>
-		<property>controls/cockpit/overhead/no-smok</property>
+		<property>controls/cockpit/overhead/no-smoke</property>
 		<interpolation>
 			<entry><ind>-1</ind><dep>-30</dep></entry>
 			<entry><ind> 1</ind><dep> 30</dep></entry>
@@ -2621,6 +2683,45 @@
 	</animation>
 	
 	<animation>
+		<type>rotate</type>
+		<object-name>ThndrstrmLt</object-name>
+		<property>controls/cockpit/overhead/thunderstorm</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.00095</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.10607</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>ThndrstrmLt</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/lighting/thunderstorm</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
 		<type>knob</type>
 		<object-name>OvhdPanel</object-name>
 		<property>controls/cockpit/overhead/overhead-panel</property>
@@ -2918,6 +3019,46 @@
 	
 	<!-- Air Panel -->
 	<animation>
+		<type>rotate</type>
+		<object-name>AirPressLNeedle</object-name>
+		<property>instrumentation/air-press-l/psi</property>
+		<interpolation>
+			<entry><ind> 0</ind><dep>  0.0</dep></entry>
+			<entry><ind>55</ind><dep>346.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.09112</y-m>
+			<z-m>-0.2256</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AirPressRNeedle</object-name>
+		<property>instrumentation/air-press-r/psi</property>
+		<interpolation>
+			<entry><ind> 0</ind><dep>  0.0</dep></entry>
+			<entry><ind>55</ind><dep>346.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.12628</y-m>
+			<z-m>-0.2256</z-m>
+		</center>
+	</animation>
+	
+	<animation>
 		<type>knob</type>
 		<object-name>CkptTemp</object-name>
 		<property>controls/cockpit/overhead/cockpit-temp</property>
@@ -3165,7 +3306,129 @@
 		</action>
 	</animation>
 	
+	<animation>
+		<type>rotate</type>
+		<object-name>AirCondShutoff</object-name>
+		<property>controls/cockpit/overhead/auto-pack-shutdown</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.00095</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.33371</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>AirCondShutoff</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/pneumatics/auto-pack-shutdown</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>RamAir</object-name>
+		<property>controls/cockpit/overhead/ram-air</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.00095</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.36659</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>RamAir</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/pneumatics/ram-air</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+	</animation>
+	
 	<!-- Rain Panel -->
+	<animation>
+		<type>knob</type>
+		<object-name>Wiper</object-name>
+		<property>controls/cockpit/overhead/wipers</property>
+		<drag-scale-px>15</drag-scale-px>
+		<factor>45</factor>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.14367</y-m>
+			<z-m>-0.41448</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/switches/wipers</property>
+				<factor>1</factor>
+				<min>-1</min>
+				<max>2</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/overhead/wipers-held</property>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.knb1();</script>
+			</binding>
+		</action>
+		<release>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/overhead/wipers-held</property>
+				<value>0</value>
+			</binding>
+		</release>
+	</animation>
+	
 	<animation>
 		<type>pick</type>
 		<object-name>AnnunTest</object-name>

@@ -1,5 +1,5 @@
 # McDonnell Douglas MD-80 Pneumatics
-# Copyright (c) 2024 Josh Davidson (Octal450)
+# Copyright (c) 2025 Josh Davidson (Octal450)
 
 var PNEUMATICS = {
 	Flow: {
@@ -15,12 +15,14 @@ var PNEUMATICS = {
 		ground: props.globals.getNode("/systems/pneumatics/ground-psi"),
 	},
 	Controls: {
+		autoPackShutdown: props.globals.getNode("/controls/pneumatics/auto-pack-shutdown"),
 		bleedApu: props.globals.getNode("/controls/pneumatics/bleed-apu"),
 		cabinTemp: props.globals.getNode("/controls/pneumatics/cabin-temp"),
 		cockpitTemp: props.globals.getNode("/controls/pneumatics/cockpit-temp"),
 		groundAir: props.globals.getNode("/controls/pneumatics/ground-air"), # No switch in cockpit
 		instrumentFlow: props.globals.getNode("/controls/pneumatics/instrument-flow"),
 		radioRack: props.globals.getNode("/controls/pneumatics/radio-rack"),
+		ramAir: props.globals.getNode("/controls/pneumatics/ram-air"),
 		supplyL: props.globals.getNode("/controls/pneumatics/supply-l"),
 		supplyR: props.globals.getNode("/controls/pneumatics/supply-r"),
 		tempSel: props.globals.getNode("/controls/pneumatics/temp-sel"),
@@ -36,17 +38,19 @@ var PNEUMATICS = {
 	},
 	init: func() {
 		me.resetFailures();
+		me.Controls.autoPackShutdown.setBoolValue(1);
 		me.Controls.bleedApu.setValue(0);
 		me.Controls.cabinTemp.setValue(0.45);
 		me.Controls.cockpitTemp.setValue(0.45);
 		me.Controls.groundAir.setBoolValue(0);
-		me.Controls.instrumentFlow.setValue(0);
-		me.Controls.radioRack.setBoolValue(0);
+		me.Controls.instrumentFlow.setBoolValue(0);
+		me.Controls.radioRack.setBoolValue(1);
+		me.Controls.ramAir.setBoolValue(0);
 		me.Controls.supplyL.setValue(0);
 		me.Controls.supplyR.setValue(0);
 		me.Controls.tempSel.setBoolValue(0);
-		me.Controls.xBleedL.setValue(0);
-		me.Controls.xBleedR.setValue(0);
+		me.Controls.xBleedL.setBoolValue(0);
+		me.Controls.xBleedR.setBoolValue(0);
 	},
 	resetFailures: func() {
 		me.Failures.bleedApu.setBoolValue(0);

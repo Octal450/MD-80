@@ -1,5 +1,5 @@
 # McDonnell Douglas MD-80 Cockpit Controls
-# Copyright (c) 2024 Josh Davidson (Octal450)
+# Copyright (c) 2025 Josh Davidson (Octal450)
 
 var furt = 0;
 
@@ -7,7 +7,9 @@ var furt = 0;
 var variousReset = func() {
 	dfgs.Main.art.setBoolValue(1);
 	dfgs.Main.artCover.setBoolValue(0);
+	pts.Controls.Flight.aileronTrim.setValue(0);
 	pts.Controls.Flight.dialAFlap.setValue(0);
+	pts.Controls.Flight.rudderTrim.setValue(0);
 	pts.Controls.Lighting.beacon.setBoolValue(0);
 	pts.Controls.Lighting.captDigital.setValue(1);
 	pts.Controls.Lighting.emerLt.setValue(0);
@@ -20,6 +22,7 @@ var variousReset = func() {
 	pts.Controls.Lighting.pedestalDigitalKnb.setValue(1);
 	pts.Controls.Lighting.positionStrobeLight.setValue(0);
 	pts.Controls.Lighting.taxiLight.setBoolValue(0);
+	pts.Controls.Lighting.thunderstorm.setBoolValue(0);
 	pts.Controls.Lighting.wingLights.setValue(0);
 	pts.Controls.Switches.gpws.setValue(0);
 	pts.Controls.Switches.gpwsCover.setBoolValue(0);
@@ -28,6 +31,7 @@ var variousReset = func() {
 	pts.Controls.Switches.noSmokingSign.setValue(1); # Smoking is bad!
 	pts.Controls.Switches.seatbeltSign.setValue(0);
 	pts.Controls.Switches.stallTest.setValue(0);
+	pts.Controls.Switches.wipers.setValue(0);
 	pts.Instrumentation.Du.ndDimmer[0].setValue(1);
 	pts.Instrumentation.Du.ndDimmer[1].setValue(1);
 	pts.Instrumentation.Du.pfdDimmer[0].setValue(1);
@@ -232,7 +236,7 @@ var ApPanel = {
 						dfgs.Input.ktsFlch.setValue(me.ktsFlchTemp);
 					}
 				}
-			} else if (me.vertTemp == 8) {
+			} else if (me.vertTemp == 10) {
 				if (abs(d) == 10) {
 					me.pitchTemp = dfgs.Input.pitch.getValue() + (d * 0.5);
 				} else {
@@ -327,7 +331,7 @@ var ApPanel = {
 	turb: func() {
 		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			dfgs.Input.lat.setValue(6);
-			dfgs.Input.vert.setValue(8);
+			dfgs.Input.vert.setValue(10);
 		}
 	},
 	toga: func() {
@@ -336,3 +340,15 @@ var ApPanel = {
 		}
 	},
 };
+
+# Overhead GPWS
+var gpwsOvrd = 0;
+setlistener("/controls/switches/gpws-ovrd", func() {
+	gpwsOvrd = pts.Controls.Switches.gpwsOvrd.getValue();
+	
+	if (gpwsOvrd == 1) pts.Instrumentation.MkViii.Inputs.Discretes.selfTest.setBoolValue(1);
+	else pts.Instrumentation.MkViii.Inputs.Discretes.selfTest.setBoolValue(0);
+	
+	if (gpwsOvrd == -1) pts.Instrumentation.MkViii.Inputs.Discretes.momentaryFlapOverride.setBoolValue(1);
+	else pts.Instrumentation.MkViii.Inputs.Discretes.momentaryFlapOverride.setBoolValue(0);
+}, 0, 0);

@@ -21,10 +21,10 @@
     <pointing_z type="float">0.0</pointing_z>
     <is_directional type="bool">true</is_directional>
     <is_strobe type="bool">false</is_strobe>
-    <inner_angle type="float">0.3</inner_angle>
-    <outer_angle type="float">0.99</outer_angle>
-    <zero_angle type="float">1</zero_angle>
-    <outer_gain type="float">1.1</outer_gain>
+    <inner_angle type="float">0.5</inner_angle>
+    <outer_angle type="float">0.766</outer_angle>
+    <zero_angle type="float">0.939</zero_angle>
+    <outer_gain type="float">0.9</outer_gain>
     <visibility><use>/environment/ground-visibility-m</use></visibility>
     <avisibility><use>/environment/visibility-m</use></avisibility>
     <lthickness><use>/environment/ground-haze-thickness-m</use></lthickness>

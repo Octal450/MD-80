@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <PropertyList>
 
@@ -27,6 +27,7 @@
 					acconfig.OPTIONS.write();
 					canvas_pfd.rateApply();
 					#canvas_nd.rateApply();
+					canvas_ht9100.rateApply();
 				</script>
 			</binding>
 			<binding>
@@ -42,7 +43,7 @@
 		
 		<text>
 			<halign>left</halign>
-			<label>Here you can adjust the framerate of the Display Units.</label>
+			<label>Adjusts the framerate of the Display Units.</label>
 		</text>
 		
 		<group>
@@ -112,6 +113,37 @@
 				<property>/systems/acconfig/options/du/nd-fps</property>
 				<live>1</live>
 			</text-->
+			
+			<text>
+				<row>2</row>
+				<col>0</col>
+				<halign>left</halign>
+				<label>MCDU:</label>
+			</text>
+			
+			<slider>
+				<row>2</row>
+				<col>1</col>
+				<pref-width>250</pref-width>
+				<property>/systems/acconfig/options/du/mcdu-fps</property>
+				<min>5</min>
+				<max>10</max>
+				<step>5</step>
+				<live>true</live>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+			</slider>
+			
+			<text>
+				<row>2</row>
+				<col>2</col>
+				<halign>left</halign>
+				<border>1</border>
+				<label>999</label>
+				<property>/systems/acconfig/options/du/mcdu-fps</property>
+				<live>1</live>
+			</text>
 		</group>
 	</group>
 	
@@ -130,6 +162,7 @@
 					acconfig.OPTIONS.write();
 					canvas_pfd.rateApply();
 					#canvas_nd.rateApply();
+					canvas_ht9100.rateApply();
 				</script>
 			</binding>
 		</button>
@@ -142,9 +175,11 @@
 				<script>
 					pts.Systems.Acconfig.Options.Du.ndFps.setValue(20);
 					pts.Systems.Acconfig.Options.Du.pfdFps.setValue(20);
+					pts.Systems.Acconfig.Options.Du.mcduFps.setValue(10);
 					acconfig.OPTIONS.write();
 					canvas_pfd.rateApply();
 					#canvas_nd.rateApply();
+					canvas_ht9100.rateApply();
 				</script>
 			</binding>
 		</button>
@@ -155,8 +190,10 @@
 			<binding>
 				<command>nasal</command>
 				<script>
+					acconfig.OPTIONS.write();
 					canvas_pfd.rateApply();
 					#canvas_nd.rateApply();
+					canvas_ht9100.rateApply();
 				</script>
 			</binding>
 			<binding>

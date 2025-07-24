@@ -1,10 +1,10 @@
 # Aircraft Configuration Center V2
-# Copyright (c) 2024 Josh Davidson (Octal450)
+# Copyright (c) 2025 Josh Davidson (Octal450)
 
 var CONFIG = {
 	minFgfs: split(".", getprop("/sim/minimum-fg-version")),
 	minFgfsString: getprop("/sim/minimum-fg-version"),
-	minOptionsRevision: 536, # Minimum revision of supported options
+	minOptionsRevision: 594, # Minimum revision of supported options
 	noUpdateCheck: 0, # Disable ACCONFIG Update Checks
 };
 
@@ -20,6 +20,7 @@ var SYSTEM = {
 	revision: props.globals.initNode("/systems/acconfig/revision", 0, "INT"),
 	revisionTemp: 0,
 	spinner: "\\",
+	spinnerProp: props.globals.initNode("/systems/acconfig/spinner-prop", "\\", "STRING"),
 	simInit: func() {
 		print("System: Initializing " ~ getprop("/sim/aircraft"));
 		PANEL.stop = 1;
@@ -128,7 +129,7 @@ var SYSTEM = {
 		} else if (me.spinner == "-") {
 			me.spinner = "\\";
 		}
-		props.globals.getNode("/systems/acconfig/spinner-prop").setValue(me.spinner);
+		me.spinnerProp.setValue(me.spinner);
 	},
 	versionCheck: func() {
 		if (SYSTEM.fgfs[0] > CONFIG.minFgfs[0]) {
@@ -154,14 +155,12 @@ var SYSTEM = {
 var RENDERING = {
 	als: props.globals.getNode("/sim/rendering/shaders/skydome"),
 	alsMode: props.globals.getNode("/sim/gui/dialogs/advanced/mode/als-mode", 1),
-	customSettings: props.globals.getNode("/sim/rendering/shaders/custom-settings"),
 	landmass: props.globals.getNode("/sim/rendering/shaders/landmass"),
 	landmassSet: 0,
 	lowSpecMode: props.globals.getNode("/sim/gui/dialogs/advanced/mode/low-spec-mode", 1),
 	model: props.globals.getNode("/sim/rendering/shaders/model"),
 	modelEffects: props.globals.getNode("/sim/gui/dialogs/advanced/model-effects", 1),
 	modelSet: 0,
-	rembrandt: props.globals.getNode("/sim/rendering/rembrandt/enabled", 1),
 	check: func() {
 		if (OPTIONS.noRenderingWarn.getBoolValue()) {
 			return;
@@ -170,41 +169,27 @@ var RENDERING = {
 		me.landmassSet = me.landmass.getValue() >= 4;
 		me.modelSet = me.model.getValue() >= 3;
 		
-		if ((SYSTEM.fgfs[0] == 2020 and SYSTEM.fgfs[1] >= 4) or SYSTEM.fgfs[0] > 2020) {
-			if (!me.rembrandt.getBoolValue() and (!me.als.getBoolValue() or !me.landmassSet or !me.modelSet)) {
-				fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-rendering"}));
-			}
-		} else {
-			if (!me.rembrandt.getBoolValue() and (!me.als.getBoolValue() or !me.customSettings.getBoolValue() or !me.landmassSet or !me.modelSet)) {
-				fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-rendering"}));
-			}
+		if (!me.als.getBoolValue() or !me.landmassSet or !me.modelSet) {
+			fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-rendering"}));
 		}
 	},
 	fixAll: func() {
 		# Don't override higher settings
 		if (me.landmass.getValue() < 4) {
 			me.landmass.setValue(4);
-			if ((SYSTEM.fgfs[0] == 2020 and SYSTEM.fgfs[1] >= 4) or SYSTEM.fgfs[0] > 2020) {
-				me.modelEffects.setValue("Medium");
-			}
+			me.modelEffects.setValue("Medium");
 		}
 		if (me.model.getValue() < 3) {
 			me.model.setValue(3);
-			if ((SYSTEM.fgfs[0] == 2020 and SYSTEM.fgfs[1] >= 4) or SYSTEM.fgfs[0] > 2020) {
-				me.modelEffects.setValue("Enabled");
-			}
+			me.modelEffects.setValue("Enabled");
 		}
 		
 		me.fixCore();
 	},
 	fixCore: func() {
 		me.als.setBoolValue(1); # ALS on
-		if ((SYSTEM.fgfs[0] == 2020 and SYSTEM.fgfs[1] >= 4) or SYSTEM.fgfs[0] > 2020) {
-			me.alsMode.setBoolValue(1);
-			me.lowSpecMode.setBoolValue(0);
-		} else {
-			me.customSettings.setBoolValue(1);
-		}
+		me.alsMode.setBoolValue(1);
+		me.lowSpecMode.setBoolValue(0);
 		
 		print("System: Rendering Settings updated!");
 		gui.popupTip("System: Rendering settings updated!");
@@ -333,7 +318,7 @@ var PANEL = {
 		systems.IRS.Controls.knob[1].setValue(1);
 		pts.Controls.Lighting.beacon.setBoolValue(1);
 		pts.Controls.Lighting.positionStrobeLight.setValue(0.5);
-		pts.Controls.Switches.seatbeltSign.setBoolValue(1);
+		pts.Controls.Switches.seatbeltSign.setValue(1);
 		
 		systems.IGNITION.fastStop(0);
 		systems.IGNITION.fastStop(1);
@@ -356,10 +341,13 @@ var PANEL = {
 				systems.IRS.Controls.knob[0].setValue(2);
 				systems.IRS.Controls.knob[1].setValue(2);
 				systems.PNEUMATICS.Controls.bleedApu.setValue(1);
-				systems.PNEUMATICS.Controls.xBleedL.setValue(1);
-				systems.PNEUMATICS.Controls.xBleedR.setValue(1);
+				systems.PNEUMATICS.Controls.xBleedL.setBoolValue(1);
+				systems.PNEUMATICS.Controls.xBleedR.setBoolValue(1);
 				dfgs.Input.fd1.setBoolValue(1);
 				dfgs.Input.fd2.setBoolValue(1);
+				if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
+					fms.EditFlightData.setAcconfigData();
+				}
 				
 				settimer(func() { # Give things a moment to settle
 					fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
@@ -384,7 +372,7 @@ var PANEL = {
 		systems.IRS.Controls.knob[1].setValue(1);
 		pts.Controls.Lighting.beacon.setBoolValue(1);
 		pts.Controls.Lighting.positionStrobeLight.setValue(0.5);
-		pts.Controls.Switches.seatbeltSign.setBoolValue(1);
+		pts.Controls.Switches.seatbeltSign.setValue(1);
 		systems.FUEL.Controls.pumpAftL.setBoolValue(1);
 		systems.FUEL.Controls.pumpAftR.setBoolValue(1);
 		systems.FUEL.Controls.pumpFwdL.setBoolValue(1);
@@ -396,9 +384,8 @@ var PANEL = {
 		systems.IGNITION.Controls.ign.setValue(1);
 		systems.PNEUMATICS.Controls.supplyL.setValue(2);
 		systems.PNEUMATICS.Controls.supplyR.setValue(2);
-		systems.PNEUMATICS.Controls.xBleedL.setValue(1);
-		systems.PNEUMATICS.Controls.xBleedL.setValue(1);
-		systems.PNEUMATICS.Controls.xBleedR.setValue(1);
+		systems.PNEUMATICS.Controls.xBleedL.setBoolValue(1);
+		systems.PNEUMATICS.Controls.xBleedR.setBoolValue(1);
 		systems.THRLIM.setMode(0); # T/O
 		systems.APU.stopRpm();
 		
@@ -426,11 +413,14 @@ var PANEL = {
 				systems.IGNITION.Controls.ign.setValue(0);
 				systems.IRS.Controls.knob[0].setValue(2);
 				systems.IRS.Controls.knob[1].setValue(2);
-				systems.PNEUMATICS.Controls.xBleedL.setValue(0);
-				systems.PNEUMATICS.Controls.xBleedR.setValue(0);
+				systems.PNEUMATICS.Controls.xBleedL.setBoolValue(0);
+				systems.PNEUMATICS.Controls.xBleedR.setBoolValue(0);
 				# XPDR TA/RA
 				dfgs.Input.fd1.setBoolValue(1);
 				dfgs.Input.fd2.setBoolValue(1);
+				if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
+					fms.EditFlightData.setAcconfigData();
+				}
 				
 				if (t == 1) {
 					pts.Controls.Lighting.positionStrobeLight.setValue(1);
@@ -448,7 +438,6 @@ var PANEL = {
 						if (t == 1) {
 							systems.BRAKES.Controls.abs.setValue(-1); # T/O
 							systems.BRAKES.Controls.arm.setBoolValue(1);
-							dfgs.Input.bankLimitSw.setValue(1); # 15
 							dfgs.Input.toga.setValue(1);
 						}
 					}

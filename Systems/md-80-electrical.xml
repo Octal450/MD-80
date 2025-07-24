@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- McDonnell Douglas MD-80 Electrical -->
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <system name="MD-80: Electrical">
 	
@@ -369,8 +369,9 @@
 			<table> <!-- 115v 8000rpm at 98.6% -->
 				<independentVar lookup="row">/engines/engine[2]/n1-actual</independentVar>
 				<tableData> <!-- 112v avail at 95% -->
-					95.0  82.02
-					98.6  81.14
+					 95.0  82.02
+					 98.6  81.14
+					100.0  80.00
 				</tableData>
 			</table>
 		</scheduled_gain>
@@ -401,8 +402,10 @@
 		
 		<switch name="/systems/electrical/sources/apu/gcr-relay">
 			<default value="0"/>
-			<test value="1">
+			<test logic="AND" value="1">
 				/systems/failures/electrical/apu ne 1
+				/controls/electrical/gen-apu eq 1
+				/engines/engine[2]/n2-actual ge 96
 			</test>
 		</switch>
 		
@@ -907,10 +910,12 @@
 			<input>/systems/electrical/relay/ac-l-tr-l1/output</input>
 			<table> <!-- AC to DC converter -->
 				<independentVar lookup="row">/systems/electrical/relay/ac-l-tr-l1/output</independentVar>
+				<independentVar lookup="column">/systems/failures/electrical/tr-l1</independentVar>
 				<tableData>
-					112  0.21428571429
-					115  0.24347826087
-					118  0.24576271186
+					     0              1
+					112  0.21428571429  0
+					115  0.24347826087  0
+					118  0.24576271186  0
 				</tableData>
 			</table>
 		</scheduled_gain>
@@ -931,10 +936,12 @@
 			<input>/systems/electrical/relay/ac-l-tr-l2/output</input>
 			<table> <!-- AC to DC converter -->
 				<independentVar lookup="row">/systems/electrical/relay/ac-l-tr-l2/output</independentVar>
+				<independentVar lookup="column">/systems/failures/electrical/tr-l2</independentVar>
 				<tableData>
-					112  0.21428571429
-					115  0.24347826087
-					118  0.24576271186
+					     0              1
+					112  0.21428571429  0
+					115  0.24347826087  0
+					118  0.24576271186  0
 				</tableData>
 			</table>
 		</scheduled_gain>
@@ -955,10 +962,12 @@
 			<input>/systems/electrical/relay/ac-r-tr-r1/output</input>
 			<table> <!-- AC to DC converter -->
 				<independentVar lookup="row">/systems/electrical/relay/ac-r-tr-r1/output</independentVar>
+				<independentVar lookup="column">/systems/failures/electrical/tr-r1</independentVar>
 				<tableData>
-					112  0.21428571429
-					115  0.24347826087
-					118  0.24576271186
+					     0              1
+					112  0.21428571429  0
+					115  0.24347826087  0
+					118  0.24576271186  0
 				</tableData>
 			</table>
 		</scheduled_gain>
@@ -979,10 +988,12 @@
 			<input>/systems/electrical/relay/ac-gndsvc-tr-r2/output</input>
 			<table> <!-- AC to DC converter -->
 				<independentVar lookup="row">/systems/electrical/relay/ac-gndsvc-tr-r2/output</independentVar>
+				<independentVar lookup="column">/systems/failures/electrical/tr-r2</independentVar>
 				<tableData>
-					112  0.21428571429
-					115  0.24347826087
-					118  0.24576271186
+					     0              1
+					112  0.21428571429  0
+					115  0.24347826087  0
+					118  0.24576271186  0
 				</tableData>
 			</table>
 		</scheduled_gain>
@@ -1066,7 +1077,7 @@
 			<gain>1.0</gain>
 		</pure_gain>
 		
-		<!-- AC Ground Service Bus DC R Bus Relay -->
+		<!-- TR R2 DC Bus Relay -->
 		<switch name="/systems/electrical/relay/tr-r2-dc/contact-pos">
 			<default value="0"/>
 			<test value="1">
@@ -1186,20 +1197,38 @@
 			</table>
 		</scheduled_gain>
 		
+		<!-- Emergency Power Arm Logic -->
+		<switch name="/systems/electrical/relay/emer-pwr/contact-pos">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/electrical/emer-pwr eq 1
+				/systems/electrical/bus/dc-bat ge 24
+			</test>
+		</switch>
+		
 		<!-- Static Inverter -->
-		<fcs_function name="/systems/electrical/sources/si-1/output-volt">
+		<fcs_function name="/systems/electrical/sources/si/output-volt">
 			<function>
-				<table> <!-- DC to AC converter -->
-					<independentVar lookup="row">/systems/electrical/bus/dc-bat</independentVar>
-					<independentVar lookup="column">/controls/electrical/emer-pwr</independentVar>
-					<tableData>
-						    0    1
-						 0  0    0
-						24  0  112
-						28  0  115
-						29  0  118
-					</tableData>
-				</table>
+				<product>
+					<table> <!-- DC to AC converter -->
+						<independentVar lookup="row">/systems/electrical/bus/dc-bat</independentVar>
+						<independentVar lookup="column">/systems/electrical/relay/emer-pwr/contact-pos</independentVar>
+						<tableData>
+							    0    1
+							 0  0    0
+							24  0  112
+							28  0  115
+							29  0  118
+						</tableData>
+					</table>
+					<table>
+						<independentVar lookup="row">/systems/failures/electrical/si</independentVar>
+						<tableData>
+							0  1
+							1  0
+						</tableData>
+					</table>
+				</product>
 			</function>
 		</fcs_function>
 		
@@ -1228,7 +1257,7 @@
 		</switch>
 		
 		<actuator name="/systems/electrical/relay/ac-inv-src-emer-ac/contact-final">
-			<input>/controls/electrical/emer-pwr</input>
+			<input>/systems/electrical/relay/emer-pwr/contact-pos</input>
 			<rate_limit>4.8</rate_limit>
 		</actuator>
 		
@@ -1237,7 +1266,7 @@
 			<test value="/systems/electrical/relay/ac-src-emer-ac/output">
 				/systems/electrical/relay/ac-inv-src-emer-ac/contact-final eq 0
 			</test>
-			<test value="/systems/electrical/sources/si-1/output-volt">
+			<test value="/systems/electrical/sources/si/output-volt">
 				/systems/electrical/relay/ac-inv-src-emer-ac/contact-final eq 1
 			</test>
 		</switch>
@@ -1269,7 +1298,7 @@
 		<switch name="/systems/electrical/relay/dc-bat-src-emer-dc/contact-pos">
 			<default value="0"/>
 			<test value="1">
-				/controls/electrical/emer-pwr eq 1
+				/systems/electrical/relay/emer-pwr/contact-pos eq 1
 			</test>
 		</switch>
 		
@@ -1290,7 +1319,7 @@
 		<switch name="/systems/electrical/sources/bat-charger-powered">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/controls/electrical/emer-pwr ne 1
+				/systems/electrical/relay/emer-pwr/contact-pos ne 1
 				/systems/electrical/bus/ac-gndsvc ge 112
 			</test>
 		</switch>
@@ -1301,6 +1330,7 @@
 				/systems/electrical/relay/gndsvc-src-ac-gndsvc/contact-pos eq 0
 				/systems/electrical/bus/dc-l lt 24
 				/systems/electrical/bus/dc-r lt 24
+				/systems/electrical/bus/dc-bat ge 24
 			</test>
 		</switch>
 		
@@ -1323,6 +1353,14 @@
 		</fcs_function>
 		
 		<!-- Power Instrumentation -->
+		<switch name="/systems/electrical/generic/ac-l">
+			<default value="0"/>
+			<test value="115">
+				/systems/electrical/bus/ac-l ge 112
+			</test>
+			<output>/systems/electrical/outputs/firetank</output>
+		</switch>
+		
 		<switch name="/systems/electrical/generic/ac-radio-l">
 			<default value="0"/>
 			<test value="28">
@@ -1377,15 +1415,7 @@
 			<output>/systems/electrical/outputs/comm[0]</output>
 			<output>/systems/electrical/outputs/nav[0]</output>
 		</switch>
-
-		<switch name="/systems/electrical/generic/firetank">
-			<default value="0"/>
-			<test value="28">
-				/systems/electrical/bus/ac-l ge 112
-			</test>
-			<output>/systems/electrical/outputs/firetank</output>
-		</switch>
-
+		
 		<!-- Output to Generics to keep FG things working, temporary, until we know what gets power by what bus -->
 		<switch name="/systems/electrical/generic/pwr">
 			<description>This makes the FG stuff work because we killed the generic electrical</description>
@@ -1405,13 +1435,57 @@
 	
 	</channel>
 	
-	<channel name="Overhead Lights" execrate="8">
+	<channel name="Overhead Lights">
 		
 		<switch name="/systems/electrical/lights/emer-pwr-on">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/dc-bat ge 24
-				/controls/electrical/emer-pwr eq 1
+				/systems/electrical/relay/emer-pwr/contact-pos eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/lights/apu-bus-l">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/dc-bat ge 24
+				<test logic="OR">
+					/systems/electrical/relay/apu-ac-gen-l/contact-final eq 1
+					/controls/switches/annun-test eq 1
+				</test>
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/lights/apu-bus-r">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/dc-bat ge 24
+				<test logic="OR">
+					/systems/electrical/relay/apu-ac-gen-r/contact-final eq 1
+					/controls/switches/annun-test eq 1
+				</test>
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/lights/ext-bus-l">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/dc-bat ge 24
+				<test logic="OR">
+					/systems/electrical/relay/ext-ac-gen-l/contact-final eq 1
+					/controls/switches/annun-test eq 1
+				</test>
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/lights/ext-bus-r">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/dc-bat ge 24
+				<test logic="OR">
+					/systems/electrical/relay/ext-ac-gen-r/contact-final eq 1
+					/controls/switches/annun-test eq 1
+				</test>
 			</test>
 		</switch>
 	

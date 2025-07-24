@@ -1,5 +1,5 @@
 # McDonnell Douglas MD-80 FGCP Dialog
-# Copyright (c) 2024 Josh Davidson (Octal450)
+# Copyright (c) 2025 Josh Davidson (Octal450)
 
 var fgcpCanvas = {
 	new: func() {
@@ -24,8 +24,8 @@ var fgcpCanvas = {
 	},
 	getKeys: func() {
 		return ["Ap", "ApDisc", "ApSel", "AltHold", "AltKnob", "AltMinus", "AltPlus", "Alt_7seg", "Alt_thousand_7seg", "AtsDisc", "AutoLand", "AutoThrot", "Bank10", "Bank15", "Bank20", "Bank25", "Bank30", "BankLimit", "Display", "EprLim", "Fd1", "Fd2",
-		"FmsOvrd", "HdgKnob", "HdgMinus", "HdgPlus", "Hdg_7seg", "IasMach", "Ils", "MachSel", "Nav", "PerfVnav", "PerfVnavText", "PitchMode_16seg", "PitchKnob", "PitchMinus", "PitchPlus", "Pitch_7seg", "SpdKnob", "SpdMinus", "SpdPlus", "SpdSel", "Spd_7seg",
-		"Toga", "Turb", "VertSpd", "VorLoc"];
+		"FmsOvrd", "FmsOvrdText", "HdgKnob", "HdgMinus", "HdgPlus", "Hdg_7seg", "IasMach", "Ils", "MachSel", "Nav", "PerfVnav", "PerfVnavText", "PitchMode_16seg", "PitchKnob", "PitchMinus", "PitchPlus", "Pitch_7seg", "SpdKnob", "SpdMinus", "SpdPlus", "SpdSel",
+		"Spd_7seg", "Toga", "Turb", "VertSpd", "VorLoc"];
 	},
 	close: func() {
 		me._dialogUpdate.stop();
@@ -33,7 +33,7 @@ var fgcpCanvas = {
 		me._dialog = nil;
 	},
 	open: func() {
-		if (me._dialog != nil and singleInstance) return; # Prevent more than one open
+		if (me._dialog != nil) return; # Prevent more than one open
 		
 		me._dialog = canvas.Window.new([735, 125], "dialog", nil, 0);
 		me._dialog.set("title", me._title);
@@ -51,8 +51,8 @@ var fgcpCanvas = {
 			else if (find("_16seg", me._key) != -1) me[me._key].setFont("Std16SegCustom.ttf");
 		}
 		
-		if (pts.Options.fms.getValue() != "Honeywell") {
-			me["FmsOvrd"].hide();
+		if (pts.Systems.Acconfig.Options.nav.getValue() != 1) {
+			me["FmsOvrdText"].hide();
 			me["PerfVnavText"].setText("PERF");
 		}
 		
@@ -237,16 +237,16 @@ var fgcpCanvas = {
 		});
 		me["AltMinus"].addEventListener("click", func(e) {
 			if (e.shiftKey) {
-				cockpit.ApPanel.altAdjust(-10);
-			} else {
 				cockpit.ApPanel.altAdjust(-1);
+			} else {
+				cockpit.ApPanel.altAdjust(-10);
 			}
 		});
 		me["AltPlus"].addEventListener("click", func(e) {
 			if (e.shiftKey) {
-				cockpit.ApPanel.altAdjust(10);
-			} else {
 				cockpit.ApPanel.altAdjust(1);
+			} else {
+				cockpit.ApPanel.altAdjust(10);
 			}
 		});
 		
@@ -254,6 +254,14 @@ var fgcpCanvas = {
 		me._dialogUpdate.start();
 	},
 	_update: func() {
+		if (pts.Systems.Acconfig.Options.nav.getValue() != 1) {
+			me["FmsOvrdText"].hide();
+			me["PerfVnavText"].setText("PERF");
+		} else {
+			me["FmsOvrdText"].show();
+			me["PerfVnavText"].setText("VNAV");
+		}
+		
 		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			if (pts.Controls.Switches.annunTest.getBoolValue()) {
 				me["Hdg_7seg"].setText("888");
@@ -281,7 +289,7 @@ var fgcpCanvas = {
 						me["PitchMode_16seg"].setText("S");
 						me["Pitch_7seg"].setText(sprintf("%03d", dfgs.Input.ktsFlch.getValue()));
 					}
-				} else if (me._vert == 8) {
+				} else if (me._vert == 10) {
 					me._pitch = dfgs.Input.pitch.getValue();
 					me._pitchD = math.round(abs(me._pitch), 0.1);
 					

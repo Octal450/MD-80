@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
 
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <PropertyList include="MD-80-main.xml">
 	
@@ -8,47 +8,7 @@
 		<aero>FDE/MD-87</aero>
 		<description>McDonnell Douglas MD-87 (JT8D-217C)</description> <!-- Note: -217C is a -219 operated as a -217A -->
 		<flight-model>jsb</flight-model>
-		<menubar n="0">
-			<default n="0">
-				<menu n="104">
-					<item n="5">
-						<label>Fire Tank System</label>
-						<binding>
-							<command>dialog-show</command>
-							<dialog-name>firetank</dialog-name>
-						</binding>
-					</item>
-				</menu>
-			</default>
-		</menubar>
 		<model n="0">
-			<firetank n="0">
-				<foam type="bool">0</foam>
-				<opentankdoors type="bool">0</opentankdoors>
-				<ready type="bool">0</ready>
-				<notready type="bool">1</notready>
-				<droppower type="bool">0</droppower>
-				<droparm type="bool">0</droparm>
-				<bladder-one type="int">0</bladder-one>
-				<bladder-three type="int">0</bladder-three>
-				<bladder-two type="int">0</bladder-two>
-				<bright type="bool">0</bright>
-				<effects n="0">
-					<particles n="0">
-						<droprate type="int">400</droprate> <!-- For particles only -->
-						<enabled type="bool">1</enabled>
-						<redcombined type="float">0</redcombined>
-						<greencombined type="float">0</greencombined>
-						<bluecombined type="float">0</bluecombined>
-					</particles>
-				</effects>
-				<enabled type="bool">0</enabled>
-				<fluiddetected type="bool">0</fluiddetected>
-				<lamptest type="bool">0</lamptest>
-				<retardantdropped type="bool">0</retardantdropped>
-				<spaceopen type="bool">0</spaceopen>
-				<waterdropped type="bool">0</waterdropped>
-			</firetank>
 			<livery>
 				<file type="string">White</file>
 			</livery>
@@ -193,20 +153,14 @@
 			</distribution>
 			<droppower n="0">
 				<cover type="bool">0</cover>
-			</droppower>
-			<droppower n="1">
 				<switch type="bool">0</switch>
 			</droppower>
 			<droparm n="0">
 				<cover type="bool">0</cover>
-			</droparm>
-			<droparm n="1">
 				<switch type="bool">0</switch>
 			</droparm>
 			<salvodrop n="0">
 				<cover type="bool">0</cover>
-			</salvodrop>
-			<salvodrop n="1">
 				<switch type="bool">0</switch>
 			</salvodrop>
 			<test n="0">
@@ -215,14 +169,6 @@
 		</firetank>
 	</controls>
 	
-	<systems n="0">
-		<electrical n="0">
-			<outputs n="0">
-				<firetank type="float">0</firetank>
-			</outputs>
-		</electrical>
-	</systems>	
-	
 	<fdm n="0">
 		<jsbsim n="0">
 			<aero n="0"> <!-- MD-87 stab modifications -->
@@ -230,6 +176,30 @@
 			</aero>
 		</jsbsim>
 	</fdm>
+	
+	<input n="0">
+		<keyboard n="0">
+			<key n="75">
+				<name>K</name>
+				<desc>Toggle Firetank Drop</desc>
+				<binding>
+					<condition>
+						<not><property>/controls/firetank/salvodrop/cover</property></not>
+					</condition>
+					<command>property-assign</command>
+					<property>/controls/firetank/salvodrop/switch</property>
+					<value>0</value>
+				</binding>
+				<binding>
+					<condition>
+						<property>/controls/firetank/salvodrop/cover</property>
+					</condition>
+					<command>property-toggle</command>
+					<property>/controls/firetank/salvodrop/switch</property>
+				</binding>
+			</key>
+		</keyboard>
+	</input>
 	
 	<limits>
 		<mass-and-balance> <!-- Data source: TCDS -->
@@ -242,7 +212,6 @@
 	<options n="0">
 		<aux-tanks type="bool">0</aux-tanks>
 		<eng type="string">217C</eng>
-		<fms type="string">HT9100/PMS</fms>
 		<panel-mod type="bool">1</panel-mod>
 	</options>
 	
@@ -279,18 +248,41 @@
 		</weight>
 	</payload>
 	
-	<input>
-		<keyboard>
-			<key n="75">
-				<name>K</name>
-				<desc>Open Tank Doors</desc>
-				<binding>
-					<command>property-toggle</command>
-					<property>/controls/firetank/salvodrop/switch</property>
-				</binding>
-			</key>
-		</keyboard>
-	</input>
+	<systems n="0">
+		<firetank n="0">
+			<bladder-one type="int">0</bladder-one>
+			<bladder-three type="int">0</bladder-three>
+			<bladder-two type="int">0</bladder-two>
+			<bright type="bool">0</bright>
+			<droparm type="bool">0</droparm>
+			<droppower type="bool">0</droppower>
+			<effects n="0">
+				<particles n="0">
+					<bluecombined type="float">0</bluecombined>
+					<droprate type="int">400</droprate> <!-- For particles only -->
+					<enabled type="bool">1</enabled>
+					<greencombined type="float">0</greencombined>
+					<redcombined type="float">0</redcombined>
+				</particles>
+			</effects>
+			<fluiddetected type="bool">0</fluiddetected>
+			<foam type="bool">0</foam>
+			<lamptest type="bool">0</lamptest>
+			<loaded type="bool">1</loaded>
+			<notready type="bool">1</notready>
+			<ready type="bool">0</ready>
+			<retardantdropped type="bool">0</retardantdropped>
+			<retardantdropparticlectrl type="bool">0</retardantdropparticlectrl>
+			<spaceopen type="bool">0</spaceopen>
+			<waterdropped type="bool">0</waterdropped>
+		</firetank>
+		<ht9100 n="0">
+			<options n="0">
+				<engines type="string">JT8D-217C</engines>
+				<type type="string">DC-9-87</type>
+			</options>
+		</ht9100>
+	</systems>
 	
 	<nasal n="0">
 		<setup>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- McDonnell Douglas MD-80 Flight Recorder -->
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <PropertyList>
 	<replay-config type="int">0</replay-config>
@@ -79,7 +79,7 @@
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/systems/fcs/aileron-l/surface-final-deg</property>
+				<property>/systems/fcs/aileron-l/final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
@@ -91,7 +91,7 @@
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/systems/fcs/aileron-r/surface-final-deg</property>
+				<property>/systems/fcs/aileron-r/final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
@@ -99,7 +99,7 @@
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/systems/fcs/elevator-l/surface-final-deg</property>
+				<property>/systems/fcs/elevator-l/final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
@@ -111,7 +111,7 @@
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/systems/fcs/elevator-r/surface-final-deg</property>
+				<property>/systems/fcs/elevator-r/final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>
@@ -123,7 +123,7 @@
 			</signal>
 			<signal>
 				<type>float</type>
-				<property>/systems/fcs/rudder/surface-final-deg</property>
+				<property>/systems/fcs/rudder/final-deg</property>
 			</signal>
 			<signal>
 				<type>float</type>

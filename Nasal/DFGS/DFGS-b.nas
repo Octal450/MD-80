@@ -1,5 +1,5 @@
 # McDonnell Douglas MD-80 DFGS
-# Copyright (c) 2024 Josh Davidson (Octal450)
+# Copyright (c) 2025 Josh Davidson (Octal450)
 
 var Main = {
 	art: props.globals.getNode("/controls/dfgs/art"),
@@ -319,7 +319,8 @@ var Athr = {
 	loop: func() {
 		me.triMode = systems.THRLIM.Limit.activeModeInt.getValue();
 		Output.thrModeTemp = Output.thrMode.getValue();
-		me.retard = Output.athr.getBoolValue() and Output.vert.getValue() != 7 and pts.Position.gearAglFt.getValue() <= 50 and Misc.flapDeg.getValue() >= 27.9 and me.triMode != 0 and me.triMode != 5;
+		Output.vertTemp = Output.vert.getValue();
+		me.retard = Output.athr.getBoolValue() and Output.vertTemp != 7 and Output.vertTemp != 8 and pts.Position.gearAglFt.getValue() <= 50 and Misc.flapDeg.getValue() >= 27.9 and me.triMode != 0 and me.triMode != 5;
 		
 		if (Output.thrModeTemp == 0) { # Update it as the UpdateFma only does it once
 			me.modeZeroCheck();
@@ -385,17 +386,18 @@ var Athr = {
 	},
 	setMode: func(n) { # 0 Thrust, 1 Retard, 2 EPR Limit, 3 Clamp
 		me.triMode = systems.THRLIM.Limit.activeModeInt.getValue();
+		Output.vertTemp = Output.vert.getValue();
 		
 		if (me.triMode == 0 or me.triMode == 5) {
 			me.toCheck();
-		} else if (!me.retard or dfgs.Output.vert.getValue() == 7) {
+		} else if (!me.retard or Output.vertTemp == 7 or Output.vertTemp == 8) {
 			Fma.stopBlink(0);
 			Output.thrMode.setValue(n);
 		}
 		UpdateFma.thr();
 	},
 	toCheck: func() {
-		if (Text.vert.getValue() == "T/O CLB") {
+		if (Output.vert.getValue() == 7) {
 			if (pts.Instrumentation.AirspeedIndicator.indicatedSpeedKt.getValue() < 60 and pts.Position.wow.getBoolValue()) {
 				if (Output.thrMode.getValue() != 2) {
 					Fma.stopBlink(0);

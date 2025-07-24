@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
 
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <PropertyList>
 	
@@ -135,6 +135,13 @@
 							<script>panel2d.fgcpDialog.open();</script>
 						</binding>
 					</item>
+					<item>
+						<label>HT9100 MCDU</label>
+						<binding>
+							<command>nasal</command>
+							<script>canvas_ht9100.showMcdu1();</script>
+						</binding>
+					</item>
 				</menu>
 				<menu n="103">
 					<label>Navigation</label>
@@ -166,20 +173,27 @@
 						<label>Auto Flight and DFGS</label>
 						<binding>
 							<command>open-browser</command>
-							<path>Aircraft/MD-80/Docs/Auto_Flight_and_DFGS.pdf</path>
+							<path>https://github.com/Octal450/FlightGear-Aircraft-Documentation/blob/master/MD-80/Auto_Flight_and_DFGS.pdf</path>
+						</binding>
+					</item>
+					<item>
+						<label>HT9100 FMS and MCDU</label>
+						<binding>
+							<command>open-browser</command>
+							<path>https://github.com/Octal450/FlightGear-Aircraft-Documentation/blob/master/HT9100/HT9100_FMS_and_MCDU.pdf</path>
 						</binding>
 					</item>
 					<item>
 						<label>Thrust Limits and TRI</label>
 						<binding>
 							<command>open-browser</command>
-							<path>Aircraft/MD-80/Docs/Thrust_Limits_and_TRI.pdf</path>
+							<path>https://github.com/Octal450/FlightGear-Aircraft-Documentation/blob/master/MD-80/Thrust_Limits_and_TRI.pdf</path>
 						</binding>
 					</item>
 				</menu>
 			</default>
 		</menubar>
-		<minimum-fg-version>2020.3.14</minimum-fg-version>
+		<minimum-fg-version>2024.1.1</minimum-fg-version>
 		<model n="0">
 			<autopush>
 				<available type="int">1</available>
@@ -213,6 +227,7 @@
 				<yaw alias="/systems/fcs/tiller/actuator"/>
 				<yaw-mult type="float">1.0</yaw-mult>
 			</autopush>
+			<fallback-model-index type="int">219</fallback-model-index>
 		</model>
 		<multiplay n="0">
 			<generic n="0">
@@ -224,8 +239,8 @@
 				<float n="4" alias="/engines/engine[1]/reverser-pos-norm"/>
 				<float n="5" alias="/gear/gear[0]/steering-norm"/>
 				<float n="6" alias="/fdm/jsbsim/fcs/slat-pos-norm"/>
-				<float n="7" alias="/controls/lighting/land-ext-l"/>
-				<float n="8" alias="/controls/lighting/land-ext-r"/>
+				<float n="7" alias="/systems/exterior-lights/left-landing-light-ext"/>
+				<float n="8" alias="/systems/exterior-lights/right-landing-light-ext"/>
 				<float n="9" alias="/systems/fcs/spoiler-l1/final-deg"/>
 				<float n="10" alias="/systems/fcs/spoiler-l2/final-deg"/>
 				<float n="11" alias="/systems/fcs/spoiler-l3/final-deg"/>
@@ -239,14 +254,6 @@
 				<float n="19" alias="/systems/fcs/elevator-r/control-tab-final-deg"/>
 				<float n="20" alias="/systems/fcs/elevator-r/geared-tab-final-deg"/>
 				<float n="21" alias="/systems/fcs/elevator-r/anti-float-tab-final-deg"/>
-				<int n="0" alias="/sim/model/lights/strobe/state"/>
-				<int n="1" alias="/sim/model/lights/beacon/state"/>
-				<int n="2" alias="/controls/lighting/landing-light-n"/>
-				<int n="3" alias="/sim/model/lights/logo-lights"/>
-				<int n="4" alias="/controls/lighting/landing-light-l"/>
-				<int n="5" alias="/controls/lighting/landing-light-r"/>
-				<int n="6" alias="/sim/model/lights/nav-lights"/>
-				<int n="7" alias="/controls/lighting/wing-lights"/>
 			</generic>
 			<visibility-range-nm type="int">130</visibility-range-nm>
 		</multiplay>
@@ -333,7 +340,7 @@
 			</config>
 		</view>
 		<view n="101"> 
-			<name>Overhead Panel</name>
+			<name>Overhead Panel View</name>
 			<type>lookfrom</type>
 			<internal type="bool" archive="y">true</internal>
 			<config>
@@ -544,6 +551,9 @@
 			<flaps-lever-translate-cmd type="double">0</flaps-lever-translate-cmd>
 			<mins-rotate n="0" type="int">49984</mins-rotate> <!-- So the symbol is upright -->
 			<mins-rotate n="1" type="int">49984</mins-rotate> <!-- So the symbol is upright -->
+			<overhead n="0">
+				<wipers-held type="bool">0</wipers-held>
+			</overhead>
 		</cockpit>
 		<dfgs n="0">
 			<art type="bool">1</art>
@@ -669,17 +679,20 @@
 			<overhead-panel type="double">0</overhead-panel>
 			<pedestal-digital type="double">1</pedestal-digital>
 			<pedestal-panel type="double">0</pedestal-panel>
-			<position-strobe-light type="double">0</position-strobe-light>
+			<position-strobe-lights type="double">0</position-strobe-lights>
 			<taxi-light type="bool">0</taxi-light>
+			<thunderstorm type="bool">0</thunderstorm>
 			<wing-lights type="double">0</wing-lights>
 		</lighting>
 		<pneumatics n="0">
+			<auto-pack-shutdown type="bool">1</auto-pack-shutdown>
 			<bleed-apu type="int">0</bleed-apu>
 			<cabin-temp type="double">0.45</cabin-temp>
 			<cockpit-temp type="double">0.45</cockpit-temp>
 			<ground-air type="bool">0</ground-air>
 			<instrument-flow type="bool">0</instrument-flow>
-			<radio-rack type="bool">0</radio-rack>
+			<radio-rack type="bool">1</radio-rack>
+			<ram-air type="bool">0</ram-air>
 			<supply-l type="int">0</supply-l>
 			<supply-r type="int">0</supply-r>
 			<temp-sel type="bool">0</temp-sel>
@@ -697,6 +710,7 @@
 			<seatbelt-sign type="int">0</seatbelt-sign>
 			<seatbelt-sign-status type="bool">0</seatbelt-sign-status>
 			<stall-test type="int">0</stall-test>
+			<wipers type="int">0</wipers>
 		</switches>
 	</controls>
 	
@@ -793,7 +807,7 @@
 					<command>nasal</command>
 					<script>
 						setprop("/controls/cockpit/at-disc-1", 1);
-						setprop("/controls/cockpit/at-disc-3", 1);
+						setprop("/controls/cockpit/at-disc-2", 1);
 						cockpit.ApPanel.atDisc();
 					</script>
 				</binding>
@@ -802,7 +816,7 @@
 						<command>nasal</command>
 						<script>
 							setprop("/controls/cockpit/at-disc-1", 0);
-							setprop("/controls/cockpit/at-disc-3", 0);
+							setprop("/controls/cockpit/at-disc-2", 0);
 						</script>
 					</binding>
 				</mod-up>
@@ -1495,12 +1509,12 @@
 	<rotors n="0"> <!-- Used as a hack to bring properties over MP without using up floats -->
 		<main n="0">
 			<blade n="0">
-				<flap-deg alias="/systems/fcs/aileron-l/surface-final-deg"/>
-				<position-deg alias="/systems/fcs/elevator-l/surface-final-deg"/>
+				<flap-deg alias="/systems/fcs/aileron-l/final-deg"/>
+				<position-deg alias="/systems/fcs/elevator-l/final-deg"/>
 			</blade>
 			<blade n="1">
-				<flap-deg alias="/systems/fcs/aileron-r/surface-final-deg"/>
-				<position-deg alias="/systems/fcs/elevator-r/surface-final-deg"/>
+				<flap-deg alias="/systems/fcs/aileron-r/final-deg"/>
+				<position-deg alias="/systems/fcs/elevator-r/final-deg"/>
 			</blade>
 			<blade n="2">
 				<flap-deg alias="/systems/fcs/aileron-l/trim-tab-final-deg"/>
@@ -1513,7 +1527,7 @@
 		</main>
 		<tail n="0">
 			<blade n="0">
-				<position-deg alias="/systems/fcs/rudder/surface-final-deg"/>
+				<position-deg alias="/systems/fcs/rudder/final-deg"/>
 			</blade>
 			<blade n="1">
 				<position-deg alias="/systems/fcs/rudder/control-tab-final-deg"/>
@@ -1543,14 +1557,20 @@
 				</autopush>
 				<combined-standby type="bool">0</combined-standby>
 				<du n="0">
+					<mcdu-fps type="double">10</mcdu-fps>
 					<nd-fps type="double">20</nd-fps>
 					<pfd-fps type="double">20</pfd-fps>
 				</du>
+				<dual-cue-fd type="bool">0</dual-cue-fd>
+				<edp-sdp type="bool">0</edp-sdp>
+				<efis type="bool">0</efis>
+				<firetank type="bool">0</firetank>
+				<firetank-water type="bool">0</firetank-water>
 				<flight-director type="string">Single Cue</flight-director>
 				<irs-aligns-instantly type="bool">0</irs-aligns-instantly>
-				<irs-equipped type="bool">0</irs-equipped>
 				<keyboard-mode type="bool">0</keyboard-mode>
-				<panel type="string">Analog</panel>
+				<nav type="int">0</nav>
+				<rising-runway type="bool">1</rising-runway>
 				<separate-tiller-axis type="bool">0</separate-tiller-axis>
 			</options>
 		</acconfig>
@@ -1587,6 +1607,12 @@
 				<out type="double">0</out>
 			</stall-2>
 		</caws>
+		<cockpit n="0">
+			<wipers n="0">
+				<wiper-l-out type="double">0</wiper-l-out>
+				<wiper-r-out type="double">0</wiper-r-out>
+			</wipers>
+		</cockpit>
 		<dfgs n="0">
 			<afs n="0">
 				<pitch-cmd type="double">0</pitch-cmd>
@@ -1621,6 +1647,9 @@
 				<engage type="bool">0</engage>
 				<position-cmd-out type="bool">0</position-cmd-out>
 			</reverse-2>
+			<throttle-compare-max type="double">0</throttle-compare-max>
+			<throttle-lever-feedback n="0" type="double">0</throttle-lever-feedback>
+			<throttle-lever-feedback n="1" type="double">0</throttle-lever-feedback>
 		</engines>
 		<failures n="0">
 			<electrical n="0">
@@ -1630,6 +1659,11 @@
 				<dc-tie type="bool">0</dc-tie>
 				<gen-l type="bool">0</gen-l>
 				<gen-r type="bool">0</gen-r>
+				<si type="bool">0</si>
+				<tr-l1 type="bool">0</tr-l1>
+				<tr-l2 type="bool">0</tr-l2>
+				<tr-r1 type="bool">0</tr-r1>
+				<tr-r2 type="bool">0</tr-r2>
 			</electrical>
 			<fcs n="0">
 				<elevator-pwr type="bool">0</elevator-pwr>
@@ -1713,6 +1747,18 @@
 			<file>Aircraft/MD-80/Nasal/DFGS/DFGS.nas</file>
 			<file>Aircraft/MD-80/Nasal/DFGS/DFGS-b.nas</file>
 		</dfgs>
+		<fms_ht9100>
+			<file>Aircraft/MD-80/Nasal/HT9100/HT9100-FlightData.nas</file>
+			<file>Aircraft/MD-80/Nasal/HT9100/HT9100-FMS.nas</file>
+		</fms_ht9100>
+		<mcdu_ht9100>
+			<file>Aircraft/MD-80/Nasal/HT9100/HT9100-MCDU.nas</file>
+			<file>Aircraft/MD-80/Nasal/HT9100/fallback.nas</file>
+			<file>Aircraft/MD-80/Nasal/HT9100/initref-info.nas</file>
+			<file>Aircraft/MD-80/Nasal/HT9100/initref-perf.nas</file>
+			<file>Aircraft/MD-80/Nasal/HT9100/menus.nas</file>
+			<file>Aircraft/MD-80/Nasal/HT9100/rte.nas</file>
+		</mcdu_ht9100>
 		<cockpit>
 			<file>Aircraft/MD-80/Nasal/cockpit.nas</file>
 		</cockpit>
@@ -1722,6 +1768,9 @@
 		<canvas_fma>
 			<file>Aircraft/MD-80/Nasal/Instruments/fma.nas</file>
 		</canvas_fma>
+		<canvas_ht9100>
+			<file>Aircraft/MD-80/Nasal/Displays/HT9100.nas</file>
+		</canvas_ht9100>
 		<instruments>
 			<file>Aircraft/MD-80/Nasal/Instruments/efis.nas</file>
 			<file>Aircraft/MD-80/Nasal/Instruments/radios.nas</file>
@@ -1742,9 +1791,6 @@
 			<file>Aircraft/MD-80/gui/canvas/common.nas</file>
 			<file>Aircraft/MD-80/gui/canvas/fgcp.nas</file>
 		</panel2d>
-		<lightmanager>
-			<file>Aircraft/MD-80/Nasal/light-manager.nas</file>
-		</lightmanager>
 	</nasal>
 
 </PropertyList>

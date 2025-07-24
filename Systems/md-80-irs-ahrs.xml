@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- McDonnell Douglas MD-80 IRS and AHRS -->
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <system name="MD-80: IRS and AHRS">
 	
@@ -15,7 +15,7 @@
 		<switch name="/systems/iru-common/align-time">
 			<default value="1"/> <!-- 450 seconds -->
 			<test value="10000"> <!-- Instant -->
-				/systems/acconfig/options/irs-equipped eq 0
+				/systems/acconfig/options/nav eq 0
 			</test>
 			<test logic="OR" value="900"> <!-- 0.5 seconds -->
 				/systems/acconfig/options/irs-aligns-instantly eq 1
@@ -26,7 +26,7 @@
 		<switch name="/systems/iru-common/bite-check-time">
 			<default value="1"/> <!-- 15 seconds -->
 			<test value="10000"> <!-- Instant -->
-				/systems/acconfig/options/irs-equipped eq 0
+				/systems/acconfig/options/nav eq 0
 			</test>
 			<test logic="OR" value="15"> <!-- 1 second -->
 				/systems/acconfig/options/irs-aligns-instantly eq 1
@@ -300,7 +300,7 @@
 		<switch name="/systems/ahrs-common/align-time">
 			<default value="1"/> <!-- 45 seconds -->
 			<test value="10000"> <!-- Instant -->
-				/systems/acconfig/options/irs-equipped eq 1
+				/systems/acconfig/options/nav eq 1
 			</test>
 			<test value="90"> <!-- 0.5 seconds -->
 				/systems/acconfig/autoconfig-running eq 1
@@ -482,42 +482,42 @@
 		<switch name="/systems/platform[0]/aligned">
 			<default value="/systems/ahrs[0]/aligned"/>
 			<test logic="AND" value="/systems/iru[0]/aligned">
-				/systems/acconfig/options/irs-equipped eq 1
+				/systems/acconfig/options/nav eq 1
 			</test>
 		</switch>
 		
 		<switch name="/systems/platform[0]/aligning">
 			<default value="/systems/ahrs[0]/aligning"/>
 			<test logic="AND" value="/systems/iru[0]/aligning">
-				/systems/acconfig/options/irs-equipped eq 1
+				/systems/acconfig/options/nav eq 1
 			</test>
 		</switch>
 		
 		<switch name="/systems/platform[0]/att-avail">
 			<default value="/systems/ahrs[0]/aligned"/>
 			<test logic="AND" value="/systems/iru[0]/att-avail">
-				/systems/acconfig/options/irs-equipped eq 1
+				/systems/acconfig/options/nav eq 1
 			</test>
 		</switch>
 		
 		<switch name="/systems/platform[1]/aligned">
 			<default value="/systems/ahrs[1]/aligned"/>
 			<test logic="AND" value="/systems/iru[1]/aligned">
-				/systems/acconfig/options/irs-equipped eq 1
+				/systems/acconfig/options/nav eq 1
 			</test>
 		</switch>
 		
 		<switch name="/systems/platform[1]/aligning">
 			<default value="/systems/ahrs[1]/aligning"/>
 			<test logic="AND" value="/systems/iru[1]/aligning">
-				/systems/acconfig/options/irs-equipped eq 1
+				/systems/acconfig/options/nav eq 1
 			</test>
 		</switch>
 		
 		<switch name="/systems/platform[1]/att-avail">
 			<default value="/systems/ahrs[1]/aligned"/>
 			<test logic="AND" value="/systems/iru[1]/att-avail">
-				/systems/acconfig/options/irs-equipped eq 1
+				/systems/acconfig/options/nav eq 1
 			</test>
 		</switch>
 	

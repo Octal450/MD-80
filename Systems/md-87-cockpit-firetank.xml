@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-87 Cockpit Firetank -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
+
+<system name="MD-87: Cockpit Firetank">
+	
+	<channel name="Animations">
+		
+		<lag_filter name="/controls/cockpit/filetanker/bright">
+			<input>/controls/firetank/bright/switch</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/filetanker/distribution-dial">
+			<input>/controls/firetank/distribution/dial</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/filetanker/droparm">
+			<input>/controls/firetank/droparm/switch</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/filetanker/droparm">
+			<input>/controls/firetank/droparm/switch</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/filetanker/droparm-cover">
+			<input>/controls/firetank/droparm/cover</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/filetanker/droppower">
+			<input>/controls/firetank/droppower/switch</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/filetanker/droppower-cover">
+			<input>/controls/firetank/droppower/cover</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/filetanker/salvodrop">
+			<input>/controls/firetank/salvodrop/switch</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/filetanker/salvodrop-cover">
+			<input>/controls/firetank/salvodrop/cover</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<fcs_function name="/systems/firetank/tank-lbs">
+			<function>
+				<ifthen>
+					<eq>
+						<property>/systems/firetank/lamptest</property>
+						<value>1</value>
+					</eq>
+					<value>88888</value>
+					<product>
+						<floor>
+							<sum>
+								<quotient>
+									<property>inertia/pointmass-weight-lbs[4]</property>
+									<value>25</value>
+								</quotient>
+								<value>0.5</value>
+							</sum>
+						</floor>
+						<value>25</value>
+					</product>
+				</ifthen>
+			</function>
+		</fcs_function>
+	
+	</channel>
+
+</system>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <PropertyList>
 	
@@ -20,8 +20,8 @@
 							<entry><ind>0.15</ind><dep>1.0</dep></entry>
 						</table>
 					</product>
-					<entry><ind>    0</ind><dep>1.34</dep></entry>
-					<entry><ind>45000</ind><dep>1.86</dep></entry>
+					<entry><ind>    0</ind><dep>1.2832</dep></entry>
+					<entry><ind>45000</ind><dep>1.2948</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -44,8 +44,8 @@
 								<entry><ind>0.15</ind><dep>1.0</dep></entry>
 							</table>
 						</product>
-						<entry><ind>    0</ind><dep>0.992</dep></entry>
-						<entry><ind>45000</ind><dep>0.804</dep></entry>
+						<entry><ind>    0</ind><dep>0.9922</dep></entry>
+						<entry><ind>45000</ind><dep>0.8148</dep></entry>
 					</table>
 					<table>
 						<property>/fdm/jsbsim/velocities/mach</property>
@@ -93,6 +93,22 @@
 		</input>
 		<output>/systems/misc/minimums-horn-pitch</output>
 		<filter-time>0.08</filter-time>
+	</filter>
+	
+	<filter>
+		<name>Engine 1 Cutoff</name>
+		<type>gain</type>
+		<enable>
+			<condition>
+				<or>
+					<not><property>/systems/firetank/loaded</property></not>
+					<not><property>/systems/acconfig/options/firetank</property></not>
+				</or>
+			</condition>
+		</enable>
+		<gain>1.0</gain>
+		<input>0</input>
+		<output>/fdm/jsbsim/inertia/pointmass-weight-lbs[4]</output>
 	</filter>
 	
 	<!-- Because overwriting from JSBSim doesn't work -->

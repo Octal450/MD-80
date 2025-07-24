@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <PropertyList>
 	
@@ -293,7 +293,7 @@
 					<table>
 						<property>/velocities/airspeed-kt</property>
 						<entry><ind>140</ind><dep>0.14</dep></entry>
-						<entry><ind>360</ind><dep>0.05</dep></entry>
+						<entry><ind>360</ind><dep>0.07</dep></entry>
 					</table>
 				</expression>
 			</Kp>

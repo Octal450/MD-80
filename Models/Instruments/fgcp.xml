@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <PropertyList>
 	
@@ -119,8 +119,8 @@
 		<object-name>Perf.Text</object-name>
 		<condition>
 			<not-equals>
-				<property>options/fms</property>
-				<value>Honeywell</value>
+				<property>systems/acconfig/options/nav</property>
+				<value>1</value>
 			</not-equals>
 		</condition>
 	</animation>
@@ -130,8 +130,8 @@
 		<object-name>Vnav.Text</object-name>
 		<condition>
 			<equals>
-				<property>options/fms</property>
-				<value>Honeywell</value>
+				<property>systems/acconfig/options/nav</property>
+				<value>1</value>
 			</equals>
 		</condition>
 	</animation>
@@ -1422,7 +1422,7 @@
 				</not-equals>
 				<not-equals>
 					<property>it-autoflight/output/vert</property>
-					<value>8</value>
+					<value>10</value>
 				</not-equals>
 			</and>
 		</condition>
@@ -1435,7 +1435,7 @@
 		<condition>
 			<equals>
 				<property>it-autoflight/output/vert</property>
-				<value>8</value>
+				<value>10</value>
 			</equals>
 		</condition>
 	</animation>
@@ -2721,7 +2721,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SwNavLts</object-name>
-		<property>controls/cockpit/fgcp/position-strobe-light</property>
+		<property>controls/cockpit/fgcp/position-strobe-lights</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -2746,7 +2746,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/lighting/position-strobe-light</property>
+				<property>/controls/lighting/position-strobe-lights</property>
 				<value>0</value>
 				<value>0.5</value>
 				<value>1</value>
@@ -2762,7 +2762,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/lighting/position-strobe-light</property>
+				<property>/controls/lighting/position-strobe-lights</property>
 				<value>1</value>
 				<value>0.5</value>
 				<value>0</value>

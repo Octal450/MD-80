@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <fdm_config name="MD-83" version="2.0" release="BETA">
 	
@@ -23,7 +23,7 @@
 	<system file="md-80-pneumatics"/>
 	<system file="md-80-dfgs"/>
 	<system file="md-80-fcs"/>
-	<system file="md-80-spoiler"/>
+	<system file="md-80-spoilers"/>
 	<system file="md-80-ignition"/>
 	<system file="md-80-219-engine-thrlim"/>
 	<system file="md-80-apu"/>
@@ -39,7 +39,7 @@
 				<location unit="M"> <!-- Fudged for accuracy -->
 					<x>33.7569</x>
 					<y>-1.4</y>
-					<z>-0.11143</z>
+					<z>-0.15426</z>
 				</location>
 				<orient unit="DEG">
 					<roll>0</roll>
@@ -55,7 +55,7 @@
 				<location unit="M"> <!-- Fudged for accuracy -->
 					<x>33.7569</x>
 					<y>1.4</y>
-					<z>-0.11143</z>
+					<z>-0.15426</z>
 				</location>
 				<orient unit="DEG">
 					<roll>0</roll>

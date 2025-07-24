@@ -11,7 +11,7 @@
     <lighting>false</lighting>
     
     <condition>
-		<property>sim/model/firetank/retardantdropparticlectrl</property>
+		<property>systems/firetank/retardantdropparticlectrl</property>
     </condition>
     
     <attach>world</attach>
@@ -57,7 +57,7 @@
     
     <counter>
       <particles-per-sec>
-        <property>sim/model/firetank/effects/particles/droprate</property>
+        <property>systems/firetank/effects/particles/droprate</property>
         <spread>100</spread>
       </particles-per-sec>
     </counter>
@@ -66,13 +66,13 @@
 		<start>
 			<color>
 				<red>
-					<property>sim/model/firetank/effects/particles/redcombined</property>
+					<property>systems/firetank/effects/particles/redcombined</property>
 				</red>
 				<green>
-					<property>sim/model/firetank/effects/particles/greencombined</property>
+					<property>systems/firetank/effects/particles/greencombined</property>
 				</green>
 				<blue>
-					<property>sim/model/firetank/effects/particles/bluecombined</property>
+					<property>systems/firetank/effects/particles/bluecombined</property>
 				</blue>
 				<alpha>
 					<value>.1</value>
@@ -83,13 +83,13 @@
 		<end>
 			<color>
 				<red>
-					<property>sim/model/firetank/effects/particles/redcombined</property>
+					<property>systems/firetank/effects/particles/redcombined</property>
 				</red>
 				<green>
-					<property>sim/model/firetank/effects/particles/greencombined</property>
+					<property>systems/firetank/effects/particles/greencombined</property>
 				</green>
 				<blue>
-					<property>sim/model/firetank/effects/particles/bluecombined</property>
+					<property>systems/firetank/effects/particles/bluecombined</property>
 				</blue>
 				<alpha>
 					<value>.01</value>

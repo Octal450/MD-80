@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- McDonnell Douglas MD-80 Libraries -->
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <system name="MD-80: Libraries">
 	
@@ -86,6 +86,10 @@
 							<property>inertia/pointmass-weight-lbs[3]</property>
 							<property>inertia/pointmass-location-X-inches[3]</property>
 						</product>
+						<product> <!-- Retardant tank -->
+							<property>inertia/pointmass-weight-lbs[4]</property>
+							<property>inertia/pointmass-location-X-inches[4]</property>
+						</product>
 					</sum>
 					<sum>
 						<property>inertia/empty-weight-lbs</property>
@@ -93,6 +97,7 @@
 						<property>inertia/pointmass-weight-lbs[1]</property>
 						<property>inertia/pointmass-weight-lbs[2]</property>
 						<property>inertia/pointmass-weight-lbs[3]</property>
+						<property>inertia/pointmass-weight-lbs[4]</property> <!-- Retardant tank -->
 					</sum>
 				</quotient>
 			</function>

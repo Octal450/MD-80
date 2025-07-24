@@ -1,5 +1,5 @@
 # McDonnell Douglas MD-80 Electrical
-# Copyright (c) 2024 Josh Davidson (Octal450)
+# Copyright (c) 2025 Josh Davidson (Octal450)
 
 var ELECTRICAL = {
 	Bus: {
@@ -31,10 +31,10 @@ var ELECTRICAL = {
 	},
 	Source: {
 		Apu: {
-			hertz: props.globals.getNode("/systems/electrical/sources/apu/output-hertz"),
+			outputHertz: props.globals.getNode("/systems/electrical/sources/apu/output-hertz"),
+			outputVolt: props.globals.getNode("/systems/electrical/sources/apu/output-volt"),
 			pmgHertz: props.globals.getNode("/systems/electrical/sources/apu/pmg-hertz"),
 			pmgVolt: props.globals.getNode("/systems/electrical/sources/apu/pmg-volt"),
-			volt: props.globals.getNode("/systems/electrical/sources/apu/output-volt"),
 		},
 		Bat1: {
 			amp: props.globals.getNode("/systems/electrical/sources/bat-1/amp"),
@@ -63,8 +63,8 @@ var ELECTRICAL = {
 			pmgHertz: props.globals.getNode("/systems/electrical/sources/idg-r/pmg-hertz"),
 			pmgVolt: props.globals.getNode("/systems/electrical/sources/idg-r/pmg-volt"),
 		},
-		Si1: {
-			volt: props.globals.getNode("/systems/electrical/sources/si-1/output-volt"),
+		Si: {
+			volt: props.globals.getNode("/systems/electrical/sources/si/output-volt"),
 		},
 		TrL1: {
 			amp: props.globals.getNode("/systems/electrical/sources/tr-l1/output-amp"),
@@ -109,6 +109,11 @@ var ELECTRICAL = {
 		dcTie: props.globals.getNode("/systems/failures/electrical/dc-tie"),
 		genL: props.globals.getNode("/systems/failures/electrical/gen-l"),
 		genR: props.globals.getNode("/systems/failures/electrical/gen-r"),
+		si: props.globals.getNode("/systems/failures/electrical/si"),
+		trL1: props.globals.getNode("/systems/failures/electrical/tr-l1"),
+		trL2: props.globals.getNode("/systems/failures/electrical/tr-l2"),
+		trR1: props.globals.getNode("/systems/failures/electrical/tr-r1"),
+		trR2: props.globals.getNode("/systems/failures/electrical/tr-r2"),
 	},
 	init: func() {
 		me.resetFailures();
@@ -141,5 +146,10 @@ var ELECTRICAL = {
 		me.Failures.dcTie.setBoolValue(0);
 		me.Failures.genL.setBoolValue(0);
 		me.Failures.genR.setBoolValue(0);
+		me.Failures.si.setBoolValue(0);
+		me.Failures.trL1.setBoolValue(0);
+		me.Failures.trL2.setBoolValue(0);
+		me.Failures.trR1.setBoolValue(0);
+		me.Failures.trR2.setBoolValue(0);
 	},
 };

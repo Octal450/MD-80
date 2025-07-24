@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <PropertyList>
 	
@@ -282,7 +282,22 @@
 		</enable>
 		<input>0</input>
 		<output>/systems/engines/ats-cmd-raw</output>
-		<max-rate-of-change>0.05</max-rate-of-change> <!-- RETARD mode is very slow apparently -->
+		<max-rate-of-change>
+			<condition>
+				<or>
+					<equals>
+						<property>/gear/gear[1]/wow</property>
+						<value>1</value>
+					</equals>
+					<equals>
+						<property>/gear/gear[2]/wow</property>
+						<value>1</value>
+					</equals>
+				</or>
+			</condition>
+			<value>0.3</value>
+		</max-rate-of-change>
+		<max-rate-of-change>0.05</max-rate-of-change>
 	</filter>
 	
 	<filter>
@@ -401,6 +416,15 @@
 			<Ti>0.8</Ti>
 			<Td>0.0</Td>
 			<u_min>
+				<condition>
+					<equals>
+						<property>/it-autoflight/output/thr-mode</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<value>0</value>
+			</u_min>
+			<u_min>
 				<expression>
 					<max>
 						<difference>
@@ -455,6 +479,15 @@
 			<Kp>0.4</Kp>
 			<Ti>0.8</Ti>
 			<Td>0.0</Td>
+			<u_min>
+				<condition>
+					<equals>
+						<property>/it-autoflight/output/thr-mode</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<value>0</value>
+			</u_min>
 			<u_min>
 				<expression>
 					<max>
@@ -539,7 +572,7 @@
 					</not-equals>
 				</and>
 			</condition>
-			<value>0.2</value>
+			<value>0.3</value>
 		</max-rate-of-change>
 		<max-rate-of-change>100</max-rate-of-change>
 	</filter>
@@ -601,7 +634,7 @@
 					</not-equals>
 				</and>
 			</condition>
-			<value>0.2</value>
+			<value>0.3</value>
 		</max-rate-of-change>
 		<max-rate-of-change>100</max-rate-of-change>
 	</filter>

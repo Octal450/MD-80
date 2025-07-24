@@ -1,14 +1,12 @@
 <?xml version="1.0"?>
 
 <!-- McDonnell Douglas MD-80 DFGS -->
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <system name="MD-80: DFGS">
 	
 	<property value="0">/systems/dfgs/flaps-cmd-feedback</property>
 	<property value="340">/systems/dfgs/speeds/vmo</property>
-	<property value="0">/systems/engines/throttle-lever-feedback[0]</property>
-	<property value="0">/systems/engines/throttle-lever-feedback[1]</property>
 	<property value="0">/systems/abs/disarm</property>
 	
 	<!-- Default gains for tuning -->
@@ -430,7 +428,7 @@
 			</function>
 		</fcs_function>
 		
-		<switch name="/systems/dfgs/speeds/flap-11-slat-mid-max-kts">
+		<switch name="/systems/dfgs/speeds/flap-0-13-slat-mid-max-kts">
 			<default value="280"/>
 			<test logic="AND" value="/systems/dfgs/speeds/flap-slat-max-mach-kts">
 				/systems/dfgs/speeds/flap-slat-max-mach-kts lt 280
@@ -439,7 +437,7 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/dfgs/speeds/flap-15-slat-full-max-kts">
+		<switch name="/systems/dfgs/speeds/flap-15-20-slat-full-max-kts">
 			<default value="240"/>
 			<test logic="AND" value="/systems/dfgs/speeds/flap-slat-max-mach-kts">
 				/systems/dfgs/speeds/flap-slat-max-mach-kts lt 240
@@ -448,10 +446,28 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/dfgs/speeds/flap-28-40-max-kts">
-			<default value="185"/>
+		<switch name="/systems/dfgs/speeds/flap-21-25-max-kts">
+			<default value="220"/>
 			<test logic="AND" value="/systems/dfgs/speeds/flap-slat-max-mach-kts">
-				/systems/dfgs/speeds/flap-slat-max-mach-kts lt 185
+				/systems/dfgs/speeds/flap-slat-max-mach-kts lt 220
+				position/wow eq 0
+				/sim/time/elapsed-sec gt 0
+			</test>
+		</switch>
+		
+		<switch name="/systems/dfgs/speeds/flap-26-30-max-kts">
+			<default value="205"/>
+			<test logic="AND" value="/systems/dfgs/speeds/flap-slat-max-mach-kts">
+				/systems/dfgs/speeds/flap-slat-max-mach-kts lt 205
+				position/wow eq 0
+				/sim/time/elapsed-sec gt 0
+			</test>
+		</switch>
+		
+		<switch name="/systems/dfgs/speeds/flap-31-40-max-kts">
+			<default value="200"/>
+			<test logic="AND" value="/systems/dfgs/speeds/flap-slat-max-mach-kts">
+				/systems/dfgs/speeds/flap-slat-max-mach-kts lt 200
 				position/wow eq 0
 				/sim/time/elapsed-sec gt 0
 			</test>
@@ -459,14 +475,20 @@
 		
 		<switch name="/systems/dfgs/speeds/vmax">
 			<default value="/systems/dfgs/speeds/vmo-mmo"/>
-			<test value="/systems/dfgs/speeds/flap-28-40-max-kts">
-				fcs/flap-pos-deg ge 16
+			<test value="/systems/dfgs/speeds/flap-31-40-max-kts">
+				fcs/flap-pos-deg ge 30.5
 			</test>
-			<test logic="OR" value="/systems/dfgs/speeds/flap-15-slat-full-max-kts">
-				fcs/flap-pos-deg ge 12
+			<test value="/systems/dfgs/speeds/flap-26-30-max-kts">
+				fcs/flap-pos-deg ge 25.5
+			</test>
+			<test value="/systems/dfgs/speeds/flap-21-25-max-kts">
+				fcs/flap-pos-deg ge 20.5
+			</test>
+			<test logic="OR" value="/systems/dfgs/speeds/flap-15-20-slat-full-max-kts">
+				fcs/flap-pos-deg ge 14
 				fcs/slat-pos-deg ge 11
 			</test>
-			<test logic="OR" value="/systems/dfgs/speeds/flap-11-slat-mid-max-kts">
+			<test logic="OR" value="/systems/dfgs/speeds/flap-0-13-slat-mid-max-kts">
 				fcs/flap-pos-deg ge 1
 				fcs/slat-pos-deg ge 1
 			</test>
@@ -478,12 +500,14 @@
 		
 		<switch name="/systems/dfgs/speeds/vmax-type"> <!-- Used by FMA -->
 			<default value="0"/> <!-- Vmo -->
-			<test value="3"> <!-- Flap Limit -->
-				/systems/dfgs/speeds/vmax eq /systems/dfgs/speeds/flap-28-40-max-kts
+			<test logic="OR" value="3"> <!-- Flap Limit -->
+				/systems/dfgs/speeds/vmax eq /systems/dfgs/speeds/flap-21-25-max-kts
+				/systems/dfgs/speeds/vmax eq /systems/dfgs/speeds/flap-26-30-max-kts
+				/systems/dfgs/speeds/vmax eq /systems/dfgs/speeds/flap-31-40-max-kts
 			</test>
 			<test logic="OR" value="2"> <!-- Slat Limit -->
-				/systems/dfgs/speeds/vmax eq /systems/dfgs/speeds/flap-11-slat-mid-max-kts
-				/systems/dfgs/speeds/vmax eq /systems/dfgs/speeds/flap-15-slat-full-max-kts
+				/systems/dfgs/speeds/vmax eq /systems/dfgs/speeds/flap-0-13-slat-mid-max-kts
+				/systems/dfgs/speeds/vmax eq /systems/dfgs/speeds/flap-15-20-slat-full-max-kts
 			</test>
 			<test logic="AND" value="1"> <!-- Mmo -->
 				/systems/dfgs/speeds/vmax eq /systems/dfgs/speeds/vmo-mmo
@@ -649,9 +673,11 @@
 			<function>
 				<table>
 					<independentVar lookup="row">velocities/mach</independentVar>
+					<independentVar lookup="column">fcs/slat-pos-deg</independentVar>
 					<tableData>
-						0.2  15.3
-						0.9   8.1
+						     0     20
+						0.2  12.7  14.8
+						0.9   8.5  10.7
 					</tableData>
 				</table>
 			</function>
@@ -667,7 +693,7 @@
 			<test logic="AND" value="1">
 				aero/alpha-deg-damped ge /systems/dfgs/stall-appr-alpha-deg
 				position/wow eq 0
-				/instrumentation/airspeed-indicator/indicated-speed-kt le /systems/dfgs/speeds/flap-15-slat-full-max-kts
+				/instrumentation/airspeed-indicator/indicated-speed-kt le /systems/dfgs/speeds/flap-15-20-slat-full-max-kts
 				/systems/dfgs/flaps-cmd-feedback ge 1
 				/systems/dfgs/flaps-cmd-feedback lt 14
 			</test>
@@ -1077,6 +1103,19 @@
 			<default value="0"/>
 			<test value="/systems/abs/brake-cmd">
 				/systems/abs/active-final eq 1
+			</test>
+		</switch>
+	
+	</channel>
+	
+	<channel name="Lights" execrate="8">
+			
+		<switch name="/systems/abs/lights/disarm">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/gear/lever ge 2
+				/systems/abs/knob-input ne 0
+				/systems/abs/armed-input eq 0
 			</test>
 		</switch>
 	

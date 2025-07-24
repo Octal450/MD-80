@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 <!-- Source: USA Jet MD-80 Checklists -->
 
 <PropertyList>
@@ -71,8 +71,8 @@
 				<value>CHECKED</value>
 			</item>
 			<item>
-				<name>AIR CONDITIONING</name>
-				<value>AUTO, AUTO, OFF</value>
+				<name>AIR CONDITIONING SUPPLY</name>
+				<value>OFF</value>
 			</item>
 			<item>
 				<name>PRESSURIZATION</name>
@@ -166,7 +166,7 @@
 			</item>
 			<item>
 				<name>IGNITION</name>
-				<value>SYS A/B</value>
+				<value>GRD START &amp; CONTIN</value>
 			</item>
 			<item>
 				<name>PNEU PRESSURE</name>
@@ -192,7 +192,7 @@
 			</item>
 			<item>
 				<name>AIR CONDITIONING SUPPLY</name>
-				<value>AUTO (HP BLEED OFF)</value>
+				<value>AUTO</value>
 			</item>
 			<item>
 				<name>ANTI-ICE</name>
@@ -207,23 +207,19 @@
 				<value>CHECKED</value>
 			</item>
 			<item>
-				<name>DFGS/FMA</name>
-				<value>SET, TAK OFF, TAK OFF</value>
-			</item>
-			<item>
 				<name>TO DATA, TRP/TRI, ART</name>
 				<value>CONFIRMED &amp; SET</value>
 			</item>
 			<item>
-				<name>HYDRAULIC PRESSURE &amp; PUMPS</name>
-				<value>CHECKED, HI/ON</value>
+				<name>HYDRAULIC &amp; PUMPS</name>
+				<value>HI &amp; TRANS ON</value>
 			</item>
 			<item>
 				<name>PNEU X-FEED VALVES</name>
 				<value>CLOSED</value>
 			</item>
 			<item>
-				<name>SEAT/SEATBELT/WINDOW</name>
+				<name>SEAT, SEATBELTS, &amp; WINDOW</name>
 				<value>SECURE</value>
 			</item>
 		</page>
@@ -249,12 +245,12 @@
 				<value>T.O. &amp; ARMED</value>
 			</item>
 			<item>
-				<name>RWY/FIX/ALT</name>
-				<value>SET, ARMED</value>
+				<name>DFGS/FMA</name>
+				<value>SET, TAK OFF, TAK OFF</value>
 			</item>
 			<item>
-				<name>BANK LIMIT</name>
-				<value>15 DEG</value>
+				<name>RWY/FIX/ALT</name>
+				<value>SET, ARMED</value>
 			</item>
 			<item>
 				<name>IGNITION</name>
@@ -320,7 +316,7 @@
 			</item>
 			<item>
 				<name>HYDRAULIC PUMPS</name>
-				<value>OFF &amp; LOW</value>
+				<value>LOW &amp; TRANS OFF</value>
 			</item>
 			<item>
 				<name>AT TRANSITION ALTITUDE</name>
@@ -357,7 +353,7 @@
 			</item>
 			<item>
 				<name>HYDRAULIC PUMPS</name>
-				<value>ON &amp; HI</value>
+				<value>HI &amp; TRANS ON</value>
 			</item>
 			<item>
 				<name>AIRSPEED BUGS</name>
@@ -493,7 +489,7 @@
 			</item>
 			<item>
 				<name>HYDRAULIC PUMPS</name>
-				<value>OFF &amp; HI</value>
+				<value>OFF</value>
 			</item>
 			<item>
 				<name>TRANSPONDER</name>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <PropertyList> <!-- MD-87 Instrument Configuration -->
 	
@@ -45,10 +45,7 @@
 		<name>L_efis</name>
 		<path>Aircraft/MD-80/Models/Instruments/EFIS/efis1.xml</path>
 		<condition>
-			<not-equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</not-equals>
+			<property>systems/acconfig/options/efis</property>
 		</condition>
 		<offsets>
 			<x-m>2.579</x-m>
@@ -64,10 +61,7 @@
 		<name>clock</name>
 		<path>Aircraft/MD-80/Models/Instruments/clock1.xml</path>
 		<condition>
-			<not-equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</not-equals>
+			<property>systems/acconfig/options/efis</property>
 		</condition>
 		<offsets>
 			<x-m>2.248</x-m>
@@ -81,10 +75,7 @@
 		<name>clock_A</name>
 		<path>Aircraft/MD-80/Models/Instruments/clock1.xml</path>
 		<condition>
-			<equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</equals>
+			<not><property>systems/acconfig/options/efis</property></not>
 		</condition>
 		<offsets>
 			<x-m>2.226</x-m>
@@ -120,10 +111,7 @@
 		<name>hsibuttons</name>
 		<path>Aircraft/MD-80/Models/Instruments/hsi-buttons1.xml</path>
 		<condition>
-			<equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</equals>
+			<not><property>systems/acconfig/options/efis</property></not>
 		</condition>
 		<offsets>
 			<x-m>2.251</x-m>
@@ -137,10 +125,7 @@
 		<name>pfd</name>
 		<path>Aircraft/MD-80/Models/Instruments/PFD/PFD1.xml</path>
 		<condition>
-			<not-equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</not-equals>
+			<property>systems/acconfig/options/efis</property>
 		</condition>
 		<offsets>
 			<x-m>2.225</x-m>
@@ -154,10 +139,7 @@
 		<name>ai</name>
 		<path>Aircraft/MD-80/Models/Instruments/AI/ai1.xml</path>
 		<condition>
-			<equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</equals>
+			<not><property>systems/acconfig/options/efis</property></not>
 		</condition>
 		<offsets>
 			<x-m>2.225</x-m>
@@ -171,10 +153,7 @@
 		<name>nd</name>
 		<path>Aircraft/MD-80/Models/Instruments/ND/ND_L.xml</path>
 		<condition>
-			<not-equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</not-equals>
+			<property>systems/acconfig/options/efis</property>
 		</condition>
 		<offsets>
 			<x-m>2.249</x-m>
@@ -188,10 +167,7 @@
 		<name>hsi1</name>
 		<path>Aircraft/MD-80/Models/Instruments/HSI/hsi1.xml</path>
 		<condition>
-			<equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</equals>
+			<not><property>systems/acconfig/options/efis</property></not>
 		</condition>
 		<offsets>
 			<x-m>2.254</x-m>
@@ -205,10 +181,7 @@
 		<name>alt</name>
 		<path>Aircraft/MD-80/Models/Instruments/altimeter1.xml</path>
 		<condition>
-			<not-equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</not-equals>
+			<property>systems/acconfig/options/efis</property>
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
@@ -222,10 +195,7 @@
 		<name>alt_A</name>
 		<path>Aircraft/MD-80/Models/Instruments/altimeter1.xml</path>
 		<condition>
-			<equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</equals>
+			<not><property>systems/acconfig/options/efis</property></not>
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
@@ -239,10 +209,7 @@
 		<name>efisdim</name>
 		<path>Aircraft/MD-80/Models/Instruments/efis_dimmer_1.xml</path>
 		<condition>
-			<not-equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</not-equals>
+			<property>systems/acconfig/options/efis</property>
 		</condition>
 		<offsets>
 			<x-m>2.23</x-m>
@@ -256,10 +223,7 @@
 		<name>ra</name>
 		<path>Aircraft/MD-80/Models/Instruments/AGL/agl1.xml</path>
 		<condition>
-			<equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</equals>
+			<not><property>systems/acconfig/options/efis</property></not>
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
@@ -283,12 +247,6 @@
 	<model>
 		<name>stbycombo</name>
 		<path>Aircraft/MD-80/Models/Instruments/stbycombo.xml</path>
-		<condition>
-			<not-equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>EFIS + EDP</value>
-			</not-equals>
-		</condition>
 		<offsets>
 			<x-m>2.248</x-m>
 			<y-m>-0.295</y-m>
@@ -326,10 +284,7 @@
 		<name>marker_beacons</name>
 		<path>Aircraft/MD-80/Models/Instruments/marker_beacons.xml</path>
 		<condition>
-			<equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</equals>
+			<not><property>systems/acconfig/options/efis</property></not>
 		</condition>
 		<offsets>
 			<x-m>2.227</x-m>
@@ -543,12 +498,12 @@
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
-
+	
 	<model>
-		<name>tankctrl</name>
-		<path>Aircraft/MD-80/Models/Instruments/TANKCTRL/tankctrlpanel.xml</path>
+		<name>firetankctrl</name>
+		<path>Aircraft/MD-80/Models/Instruments/Firetank/firetankctrl.xml</path>
 		<condition>
-			<property>sim/model/firetank/enabled</property>
+			<property>systems/acconfig/options/firetank</property>
 		</condition>
 		<offsets>
 			<x-m>2.18914</x-m>
@@ -557,17 +512,17 @@
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
-
+	
 	<model>
-		<name>tankctrlpower</name>
-		<path>Aircraft/MD-80/Models/Instruments/TANKCTRL/tankctrlpower.xml</path>
+		<name>firetankctrl2</name>
+		<path>Aircraft/MD-80/Models/Instruments/Firetank/firetankctrl2.xml</path>
 		<condition>
-			<property>sim/model/firetank/enabled</property>
+			<property>systems/acconfig/options/firetank</property>
 		</condition>
 		<offsets>
-			<x-m> 2.27158</x-m>
-			<y-m>-0.331993</y-m>
-			<z-m> 0.685</z-m>
+			<x-m>2.265</x-m>
+			<y-m>-0.357</y-m>
+			<z-m>0.685</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
@@ -606,7 +561,7 @@
 	
 	<model>
 		<name>otL</name>
-		<path>Aircraft/MD-80/Models/Instruments/otL.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/otL-87.xml</path>
 		<offsets>
 			<x-m>2.221</x-m>
 			<y-m>0.119</y-m>
@@ -616,7 +571,7 @@
 	</model>
 	<model>
 		<name>otR</name>
-		<path>Aircraft/MD-80/Models/Instruments/otR.xml</path>
+		<path>Aircraft/MD-80/Models/Instruments/otR-87.xml</path>
 		<offsets>
 			<x-m>2.221</x-m>
 			<y-m>0.179</y-m>
@@ -726,10 +681,7 @@
 		<name>R_efis</name>
 		<path>Aircraft/MD-80/Models/Instruments/EFIS/efis2.xml</path>
 		<condition>
-			<not-equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</not-equals>
+			<property>systems/acconfig/options/efis</property>
 		</condition>
 		<offsets>
 			<x-m>2.579</x-m>
@@ -745,10 +697,7 @@
 		<name>pfd2</name>
 		<path>Aircraft/MD-80/Models/Instruments/PFD/PFD2.xml</path>
 		<condition>
-			<not-equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</not-equals>
+			<property>systems/acconfig/options/efis</property>
 		</condition>
 		<offsets>
 			<x-m>2.225</x-m>
@@ -762,10 +711,7 @@
 		<name>ai2</name>
 		<path>Aircraft/MD-80/Models/Instruments/AI/ai2.xml</path>
 		<condition>
-			<equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</equals>
+			<not><property>systems/acconfig/options/efis</property></not>
 		</condition>
 		<offsets>
 			<x-m>2.225</x-m>
@@ -779,10 +725,7 @@
 		<name>nd2</name>
 		<path>Aircraft/MD-80/Models/Instruments/ND/ND_R.xml</path>
 		<condition>
-			<not-equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</not-equals>
+			<property>systems/acconfig/options/efis</property>
 		</condition>
 		<offsets>
 			<x-m>2.249</x-m>
@@ -796,10 +739,7 @@
 		<name>hsi2</name>
 		<path>Aircraft/MD-80/Models/Instruments/HSI/hsi2.xml</path>
 		<condition>
-			<equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</equals>
+			<not><property>systems/acconfig/options/efis</property></not>
 		</condition>
 		<offsets>
 			<x-m>2.254</x-m>
@@ -835,10 +775,7 @@
 		<name>alt_R</name>
 		<path>Aircraft/MD-80/Models/Instruments/altimeter2.xml</path>
 		<condition>
-			<not-equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</not-equals>
+			<property>systems/acconfig/options/efis</property>
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
@@ -852,10 +789,7 @@
 		<name>alt_R_A</name>
 		<path>Aircraft/MD-80/Models/Instruments/altimeter2.xml</path>
 		<condition>
-			<equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</equals>
+			<not><property>systems/acconfig/options/efis</property></not>
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
@@ -869,10 +803,7 @@
 		<name>efisdim_R</name>
 		<path>Aircraft/MD-80/Models/Instruments/efis_dimmer_2.xml</path>
 		<condition>
-			<not-equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</not-equals>
+			<property>systems/acconfig/options/efis</property>
 		</condition>
 		<offsets>
 			<x-m>2.23</x-m>
@@ -886,10 +817,7 @@
 		<name>ra_R</name>
 		<path>Aircraft/MD-80/Models/Instruments/AGL/agl2.xml</path>
 		<condition>
-			<equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</equals>
+			<not><property>systems/acconfig/options/efis</property></not>
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
@@ -903,10 +831,7 @@
 		<name>clock_R</name>
 		<path>Aircraft/MD-80/Models/Instruments/clock2.xml</path>
 		<condition>
-			<not-equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</not-equals>
+			<property>systems/acconfig/options/efis</property>
 		</condition>
 		<offsets>
 			<x-m>2.248</x-m>
@@ -920,10 +845,7 @@
 		<name>clock_R_A</name>
 		<path>Aircraft/MD-80/Models/Instruments/clock2.xml</path>
 		<condition>
-			<equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</equals>
+			<not><property>systems/acconfig/options/efis</property></not>
 		</condition>
 		<offsets>
 			<x-m>2.229</x-m>
@@ -948,10 +870,7 @@
 		<name>hsibuttons_R</name>
 		<path>Aircraft/MD-80/Models/Instruments/hsi-buttons2.xml</path>
 		<condition>
-			<equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>Analog</value>
-			</equals>
+			<not><property>systems/acconfig/options/efis</property></not>
 		</condition>
 		<offsets>
 			<x-m>2.251</x-m>
@@ -1032,6 +951,9 @@
 	<model>
 		<name>HT9100</name>
 		<path>Aircraft/MD-80/Models/Instruments/HT9100/HT9100.xml</path>
+		<condition>
+			<not><property>systems/acconfig/options/nav</property></not>
+		</condition>
 		<offsets>
 			<x-m>2.34269</x-m>
 			<y-m>-0.16505</y-m>

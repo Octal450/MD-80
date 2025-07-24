@@ -1,5 +1,5 @@
 # McDonnell Douglas MD-80 Property Tree Setup
-# Copyright (c) 2024 Josh Davidson (Octal450)
+# Copyright (c) 2025 Josh Davidson (Octal450)
 # Nodes organized like property tree, except when lots of identical (example: Gear wow), where vectors are used to make it easier
 # Anything that says Temp is set by another file to avoid multiple getValue calls
 # Usage Example: pts.Class.SubClass.node.getValue()
@@ -7,11 +7,13 @@
 var Controls = {
 	Flight: {
 		aileronDrivesTiller: props.globals.getNode("/controls/flight/aileron-drives-tiller"),
+		aileronTrim: props.globals.getNode("/controls/flight/aileron-trim"),
 		autoCoordination: props.globals.getNode("/controls/flight/auto-coordination", 1),
 		dialAFlap: props.globals.getNode("/controls/flight/dial-a-flap"),
 		elevatorTrim: props.globals.getNode("/controls/flight/elevator-trim"),
 		flaps: props.globals.getNode("/controls/flight/flaps"),
 		flapsTemp: 0,
+		rudderTrim: props.globals.getNode("/controls/flight/rudder-trim"),
 		speedbrake: props.globals.getNode("/controls/flight/speedbrake"),
 		speedbrakeArm: props.globals.getNode("/controls/flight/speedbrake-arm"),
 		speedbrakeTemp: 0,
@@ -27,8 +29,9 @@ var Controls = {
 		landingLightR: props.globals.getNode("/controls/lighting/landing-light-r"),
 		logoLights: props.globals.getNode("/controls/lighting/logo-lights"),
 		pedestalDigitalKnb: props.globals.getNode("/controls/lighting/pedestal-digital"),
-		positionStrobeLight: props.globals.getNode("/controls/lighting/position-strobe-light"),
+		positionStrobeLight: props.globals.getNode("/controls/lighting/position-strobe-lights"),
 		taxiLight: props.globals.getNode("/controls/lighting/taxi-light"),
+		thunderstorm: props.globals.getNode("/controls/lighting/thunderstorm"),
 		wingLights: props.globals.getNode("/controls/lighting/wing-lights"),
 	},
 	Switches: {
@@ -41,6 +44,7 @@ var Controls = {
 		noSmokingSign: props.globals.getNode("/controls/switches/no-smoking-sign"),
 		seatbeltSign: props.globals.getNode("/controls/switches/seatbelt-sign"),
 		stallTest: props.globals.getNode("/controls/switches/stall-test"),
+		wipers: props.globals.getNode("/controls/switches/wipers"),
 	},
 };
 
@@ -49,6 +53,10 @@ var Fdm = {
 		Aero: {
 			alphaDegDamped: props.globals.getNode("/fdm/jsbsim/aero/alpha-deg-damped"),
 			alphaDegDampedPli: props.globals.getNode("/fdm/jsbsim/aero/alpha-deg-damped-pli"),
+		},
+		Inertia: {
+			weightLbs: props.globals.getNode("/fdm/jsbsim/inertia/weight-lbs"),
+			zfwLbs: props.globals.getNode("/fdm/jsbsim/inertia/zfw-lbs"),
 		},
 		Propulsion: {
 			Engine: {
@@ -141,12 +149,9 @@ var Orientation = {
 	rollDeg: props.globals.getNode("/orientation/roll-deg"),
 };
 
-var Options = {
-	fms: props.globals.getNode("/options/fms"),
-};
-
 var Position = {
 	gearAglFt: props.globals.getNode("/position/gear-agl-ft"),
+	node: props.globals.getNode("/position"),
 	wow: props.globals.getNode("/position/wow"),
 	wowTemp: 0,
 };
@@ -174,8 +179,15 @@ var Sim = {
 		zOffsetMaxM: props.globals.getNode("/sim/current-view/z-offset-max-m", 1),
 		zOffsetMinM: props.globals.getNode("/sim/current-view/z-offset-min-m", 1),
 	},
+	Gui: {
+		Dialogs: {
+			AcconfigMain: {
+				afms: props.globals.initNode("/sim/gui/dialogs/acconfig-main/afms", 0, "BOOL"),
+				ht9100: props.globals.initNode("/sim/gui/dialogs/acconfig-main/ht9100", 0, "BOOL"),
+			},
+		},
+	},
 	Rendering: {
-		compositeViewerEnabled: props.globals.getNode("/sim/rendering/composite-viewer-enabled", 1),
 		Headshake: {
 			enabled: props.globals.getNode("/sim/rendering/headshake/enabled"),
 		},
@@ -198,6 +210,11 @@ var Sim = {
 	Time: {
 		deltaRealtimeSec: props.globals.getNode("/sim/time/delta-realtime-sec"),
 		elapsedSec: props.globals.getNode("/sim/time/elapsed-sec"),
+		Utc: {
+			hour: props.globals.getNode("/sim/time/utc/hour"),
+			minute: props.globals.getNode("/sim/time/utc/minute"),
+			second: props.globals.getNode("/sim/time/utc/second"),
+		},
 	},
 	View: {
 		Config: {
@@ -209,15 +226,21 @@ var Sim = {
 var Systems = {
 	Acconfig: {
 		Options: {
+			afms: props.globals.getNode("/systems/acconfig/options/afms"),
 			armedAltAsFl: props.globals.getNode("/systems/acconfig/options/armed-alt-as-fl"),
 			autoArmAlt: props.globals.getNode("/systems/acconfig/options/auto-arm-alt"),
-			flightDirector: props.globals.getNode("/systems/acconfig/options/flight-director"),
 			Du: {
+				mcduFps: props.globals.getNode("/systems/acconfig/options/du/mcdu-fps"),
 				ndFps: props.globals.getNode("/systems/acconfig/options/du/nd-fps"),
 				pfdFps: props.globals.getNode("/systems/acconfig/options/du/pfd-fps"),
 			},
-			irsEquipped: props.globals.getNode("/systems/acconfig/options/irs-equipped"),
-			panel: props.globals.getNode("/systems/acconfig/options/panel"),
+			dualCueFd: props.globals.getNode("/systems/acconfig/options/dual-cue-fd"),
+			edpSdp: props.globals.getNode("/systems/acconfig/options/edp-sdp"),
+			efis: props.globals.getNode("/systems/acconfig/options/efis"),
+			firetank: props.globals.getNode("/systems/acconfig/options/firetank"),
+			firetankWater: props.globals.getNode("/systems/acconfig/options/firetank-water"),
+			nav: props.globals.getNode("/systems/acconfig/options/nav"),
+			risingRunway: props.globals.getNode("/systems/acconfig/options/rising-runway"),
 		},
 	},
 	Misc: {

@@ -3,8 +3,8 @@
 <PropertyList>
 	
 	<!-- 
-		<trigger>sim/model/firetank/retardantdropped</trigger>
-		<trigger>/sim/model/firetank/waterdropped</trigger>
+		<trigger>systems/firetank/retardantdropped</trigger>
+		<trigger>/systems/firetank/waterdropped</trigger>
 		
 	-->
 	
@@ -12,7 +12,7 @@
 	<submodel>
 		<name>waterdrop-marker-retardant</name>
 		<model>Models/Geometry/null.ac</model>
-		<trigger>/sim/model/firetank/retardantdropped</trigger>
+		<trigger>/systems/firetank/retardantdropped</trigger>
 		<speed>0</speed>
 		<repeat>true</repeat>
 		<delay>0.01</delay>
@@ -32,7 +32,7 @@
 	<submodel>
 		<name>waterdrop-marker-foam</name>
 		<model>Models/Geometry/null.ac</model>
-		<trigger>/sim/model/firetank/waterdropped</trigger>
+		<trigger>/systems/firetank/waterdropped</trigger>
 		<speed>0</speed>
 		<repeat>true</repeat>
 		<delay>0.01</delay>

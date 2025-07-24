@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
  
 <PropertyList>
 	
@@ -1171,7 +1171,7 @@
 				</and>
 			</condition>
 		</caws>
-	    <caws>
+	    <!--caws>
 			<name>400</name>
 			<path>Aircraft/MD-80/Sounds/CAWS/400.wav</path>
 			<type>avionics</type>
@@ -1260,7 +1260,7 @@
 					</greater-than-equals>
 				</and>
 			</condition>
-		</caws>
+		</caws-->
 	    <caws>
 			<name>100</name>
 			<path>Aircraft/MD-80/Sounds/CAWS/100.wav</path>

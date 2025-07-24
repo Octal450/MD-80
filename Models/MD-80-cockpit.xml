@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <PropertyList>
 	
@@ -25,20 +25,14 @@
 		<type>select</type>
 		<object-name>PanelMainC3A</object-name>
 		<condition>
-			<not-equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>EFIS + EDP</value>
-			</not-equals>
+			<not><property>systems/acconfig/options/edp-sdp</property></not>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>PanelMainC3E</object-name>
 		<condition>
-			<equals>
-				<property>systems/acconfig/options/panel</property>
-				<value>EFIS + EDP</value>
-			</equals>
+			<property>systems/acconfig/options/edp-sdp</property>
 		</condition>
 	</animation>
 	
@@ -419,7 +413,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>FlapLever</object-name>
-		<property>/controls/cockpit/flaps-lever-rotate</property>
+		<property>controls/cockpit/flaps-lever-rotate</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
 			<entry><ind>1</ind><dep>22</dep></entry>
@@ -443,7 +437,7 @@
 	<animation>
 		<type>translate</type>
 		<object-name>FlapLever</object-name>
-		<property>/controls/cockpit/flaps-lever-translate</property>
+		<property>controls/cockpit/flaps-lever-translate</property>
 		<factor>0.01</factor>
 		<axis>
 			<x1-m>2.56535</x1-m>
@@ -467,7 +461,7 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>/controls/cockpit/flaps-lever-translate-cmd</property>
+				<property>controls/cockpit/flaps-lever-translate-cmd</property>
 				<value>1</value>
 			</binding>
 		</increase>
@@ -478,14 +472,14 @@
 			</binding>
 			<binding>
 				<command>property-assign</command>
-				<property>/controls/cockpit/flaps-lever-translate-cmd</property>
+				<property>controls/cockpit/flaps-lever-translate-cmd</property>
 				<value>1</value>
 			</binding>
 		</decrease>
 		<release>
 			<binding>
 				<command>property-assign</command>
-				<property>/controls/cockpit/flaps-lever-translate-cmd</property>
+				<property>controls/cockpit/flaps-lever-translate-cmd</property>
 				<value>0</value>
 			</binding>
 		</release>
@@ -622,7 +616,18 @@
 				</condition>
 				<command>property-adjust</command>
 				<property>controls/flight/elevator-trim</property>
-				<step>0.001</step>
+				<step>0.0015</step>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					if (dfgs.Output.ap1.getBoolValue()) {
+						dfgs.ITAF.ap1Master(0);
+					}
+					if (dfgs.Output.ap2.getBoolValue()) {
+						dfgs.ITAF.ap2Master(0);
+					}
+				</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -649,7 +654,18 @@
 				</condition>
 				<command>property-adjust</command>
 				<property>controls/flight/elevator-trim</property>
-				<step>-0.001</step>
+				<step>-0.0015</step>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					if (dfgs.Output.ap1.getBoolValue()) {
+						dfgs.ITAF.ap1Master(0);
+					}
+					if (dfgs.Output.ap2.getBoolValue()) {
+						dfgs.ITAF.ap2Master(0);
+					}
+				</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -685,6 +701,17 @@
 				<step>-0.001</step>
 			</binding>
 			<binding>
+				<command>nasal</command>
+				<script>
+					if (dfgs.Output.ap1.getBoolValue()) {
+						dfgs.ITAF.ap1Master(0);
+					}
+					if (dfgs.Output.ap2.getBoolValue()) {
+						dfgs.ITAF.ap2Master(0);
+					}
+				</script>
+			</binding>
+			<binding>
 				<command>property-assign</command>
 				<property>controls/flight/elevator-trim-lever</property>
 				<value>-1</value>
@@ -710,6 +737,17 @@
 				<command>property-adjust</command>
 				<property>controls/flight/elevator-trim</property>
 				<step>0.001</step>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					if (dfgs.Output.ap1.getBoolValue()) {
+						dfgs.ITAF.ap1Master(0);
+					}
+					if (dfgs.Output.ap2.getBoolValue()) {
+						dfgs.ITAF.ap2Master(0);
+					}
+				</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1151,7 +1189,7 @@
 		</axis>
 	</animation>
 	
-	<!--  Yokes -->
+	<!-- Yokes -->
 	<animation>
 		<type>rotate</type>
 		<object-name>YokeColL</object-name>

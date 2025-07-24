@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- McDonnell Douglas MD-80 FCS -->
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <system name="MD-80: FCS">
 	
@@ -15,7 +15,7 @@
 						  7  0.0
 						 40  1.0
 						 90  1.0
-						450  0.7
+						400  0.6
 					</tableData>
 				</table>
 			</function>
@@ -27,7 +27,7 @@
 					<independentVar lookup="row">aero/qbar-psf</independentVar>
 					<tableData>
 						 90  10
-						450  17
+						400  17
 					</tableData>
 				</table>
 			</function>
@@ -190,11 +190,11 @@
 	</channel>
 	
 	<!--
-	The MD-80s Ailerons are connected together mechanically, and thus always move together
-	They cannot ever move seperately. Thus the tab positions are averaged for each aileron
-	That makes the most sense, and allows a reasonably good simulation of jamming one side
+	The MD-80's Ailerons are connected together mechanically, and thus always move together.
+	They cannot ever move seperately. Thus the tab positions are averaged for each aileron.
+	That makes the most sense, and allows a reasonably good simulation of jamming one side.
 	-->
-	<channel name="Aileron Common">
+	<channel name="Ailerons">
 		
 		<pure_gain name="/systems/fcs/aileron-l/control-tab-cmd-deg">
 			<input>/systems/fcs/aileron-yoke</input>
@@ -220,11 +220,7 @@
 			<output>/systems/fcs/aileron-r/trim-tab-final-deg</output>
 		</pure_gain>
 		
-	</channel>
-	
-	<channel name="Aileron">
-		
-		<fcs_function name="/systems/fcs/aileron-l/surface-cmd-deg">
+		<fcs_function name="/systems/fcs/aileron-l/cmd-deg">
 			<function>
 				<product>
 					<sum>
@@ -255,17 +251,17 @@
 			</clipto>
 		</fcs_function>
 		
-		<actuator name="/systems/fcs/aileron-l/surface-final-actuator">
-			<input>/systems/fcs/aileron-l/surface-cmd-deg</input>
+		<actuator name="/systems/fcs/aileron-l/final-actuator">
+			<input>/systems/fcs/aileron-l/cmd-deg</input>
 			<rate_limit>/systems/fcs/surface-rate</rate_limit>
 			<lag>/systems/fcs/aero-lag</lag>
-			<output>/systems/fcs/aileron-l/surface-final-deg</output>
+			<output>/systems/fcs/aileron-l/final-deg</output>
 		</actuator>
 		
-		<pure_gain name="/systems/fcs/aileron-r/surface-final-actuator"> <!-- Because both ailerons are linked -->
-			<input>/systems/fcs/aileron-l/surface-final-actuator</input>
+		<pure_gain name="/systems/fcs/aileron-r/final-actuator"> <!-- Because both ailerons are linked -->
+			<input>/systems/fcs/aileron-l/final-actuator</input>
 			<gain>-1.0</gain>
-			<output>/systems/fcs/aileron-r/surface-final-deg</output>
+			<output>/systems/fcs/aileron-r/final-deg</output>
 		</pure_gain>
 	
 	</channel>
@@ -373,7 +369,7 @@
 			<output>/systems/fcs/elevator-l/anti-up-slow-out</output>
 		</actuator>
 		
-		<fcs_function name="/systems/fcs/elevator-l/surface-cmd-deg">
+		<fcs_function name="/systems/fcs/elevator-l/cmd-deg">
 			<function>
 				<ifthen>
 					<eq>
@@ -403,20 +399,20 @@
 			</clipto>
 		</fcs_function>
 		
-		<actuator name="/systems/fcs/elevator-l/surface-final-actuator">
-			<input>/systems/fcs/elevator-l/surface-cmd-deg</input>
+		<actuator name="/systems/fcs/elevator-l/final-actuator">
+			<input>/systems/fcs/elevator-l/cmd-deg</input>
 			<rate_limit sense="incr">/systems/fcs/elevator-l/rate-incr</rate_limit>
 			<rate_limit sense="decr">/systems/fcs/surface-rate</rate_limit> <!-- Power only works downward! -->
 		</actuator>
 		
-		<lag_filter name="/systems/fcs/elevator-l/surface-final-lag">
-			<input>/systems/fcs/elevator-l/surface-final-actuator</input>
+		<lag_filter name="/systems/fcs/elevator-l/final-lag">
+			<input>/systems/fcs/elevator-l/final-actuator</input>
 			<c1>/systems/fcs/elevator-l/lag</c1>
-			<output>/systems/fcs/elevator-l/surface-final-deg</output>
+			<output>/systems/fcs/elevator-l/final-deg</output>
 		</lag_filter>
 		
 		<pure_gain name="/systems/fcs/elevator-l/geared-tab-final-gain">
-			<input>-/systems/fcs/elevator-l/surface-final-lag</input>
+			<input>-/systems/fcs/elevator-l/final-lag</input>
 			<gain>1.0</gain>
 			<output>/systems/fcs/elevator-l/geared-tab-final-deg</output>
 		</pure_gain>
@@ -486,7 +482,7 @@
 			<output>/systems/fcs/elevator-r/anti-up-slow-out</output>
 		</actuator>
 		
-		<fcs_function name="/systems/fcs/elevator-r/surface-cmd-deg">
+		<fcs_function name="/systems/fcs/elevator-r/cmd-deg">
 			<function>
 				<ifthen>
 					<eq>
@@ -516,20 +512,20 @@
 			</clipto>
 		</fcs_function>
 		
-		<actuator name="/systems/fcs/elevator-r/surface-final-actuator">
-			<input>/systems/fcs/elevator-r/surface-cmd-deg</input>
+		<actuator name="/systems/fcs/elevator-r/final-actuator">
+			<input>/systems/fcs/elevator-r/cmd-deg</input>
 			<rate_limit sense="incr">/systems/fcs/elevator-r/rate-incr</rate_limit>
 			<rate_limit sense="decr">/systems/fcs/surface-rate</rate_limit> <!-- Power only works downward! -->
 		</actuator>
 		
-		<lag_filter name="/systems/fcs/elevator-r/surface-final-lag">
-			<input>/systems/fcs/elevator-r/surface-final-actuator</input>
+		<lag_filter name="/systems/fcs/elevator-r/final-lag">
+			<input>/systems/fcs/elevator-r/final-actuator</input>
 			<c1>/systems/fcs/elevator-r/lag</c1>
-			<output>/systems/fcs/elevator-r/surface-final-deg</output>
+			<output>/systems/fcs/elevator-r/final-deg</output>
 		</lag_filter>
 		
 		<pure_gain name="/systems/fcs/elevator-r/geared-tab-final-gain">
-			<input>-/systems/fcs/elevator-r/surface-final-lag</input>
+			<input>-/systems/fcs/elevator-r/final-lag</input>
 			<gain>1.0</gain>
 			<output>/systems/fcs/elevator-r/geared-tab-final-deg</output>
 		</pure_gain>
@@ -616,7 +612,7 @@
 			<output>/systems/fcs/rudder/control-tab-final-deg</output>
 		</fcs_function>
 		
-		<fcs_function name="/systems/fcs/rudder/surface-max-clamp">
+		<fcs_function name="/systems/fcs/rudder/max-clamp">
 			<function>
 				<table>
 					<independentVar lookup="row">velocities/vc-kts</independentVar>
@@ -628,13 +624,13 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/systems/fcs/rudder/control-tab-final-deg">
+		<fcs_function name="/systems/fcs/rudder/cmd-control-tab">
 			<function>
 				<description>Authority loss due to reverser airflow, using generic value of 30 deg max in the table for flexibility</description>
 				<sum>
 					<table> <!-- Left deflection -->
 						<independentVar lookup="row">/engines/engine[0]/epr-actual</independentVar>
-						<independentVar lookup="column">/systems/fcs/rudder/control-tab-cmd-deg</independentVar>
+						<independentVar lookup="column">/systems/fcs/rudder/control-tab-final-deg</independentVar>
 						<independentVar lookup="table">/engines/engine[0]/reverser-pos-norm</independentVar>
 						<tableData breakPoint="0.01"> <!-- 100% -->
 							    -30  0
@@ -649,7 +645,7 @@
 					</table>
 					<table> <!-- Right deflection -->
 						<independentVar lookup="row">/engines/engine[1]/epr-actual</independentVar>
-						<independentVar lookup="column">/systems/fcs/rudder/control-tab-cmd-deg</independentVar>
+						<independentVar lookup="column">/systems/fcs/rudder/control-tab-final-deg</independentVar>
 						<independentVar lookup="table">/engines/engine[1]/reverser-pos-norm</independentVar>
 						<tableData breakPoint="0.01"> <!-- 100% -->
 							     0  30
@@ -666,7 +662,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/systems/fcs/rudder/surface-cmd-deg">
+		<fcs_function name="/systems/fcs/rudder/cmd-deg">
 			<function>
 				<ifthen>
 					<eq>
@@ -678,41 +674,41 @@
 						<value>22</value>
 					</product>
 					<product> <!-- Aerodynamic Mode -->
-						<property>/systems/fcs/rudder/control-tab-final-deg</property>
+						<property>/systems/fcs/rudder/cmd-control-tab</property>
 						<value>-1</value>
 						<property>/systems/fcs/authority</property>
 					</product>
 				</ifthen>
 			</function>
 			<clipto>
-				<min>-/systems/fcs/rudder/surface-max-clamp</min>
-				<max>/systems/fcs/rudder/surface-max-clamp</max>
+				<min>-/systems/fcs/rudder/max-clamp</min>
+				<max>/systems/fcs/rudder/max-clamp</max>
 			</clipto>
 		</fcs_function>
 		
 		<switch name="/systems/fcs/rudder/rate">
 			<default value="/systems/fcs/rudder-rate"/> <!-- For aerodynamically flown -->
-			<test logic="AND" value="75">
+			<test value="75">
 				/systems/fcs/rudder/pwr-active eq 1
 			</test>
 		</switch>
 		
 		<switch name="/systems/fcs/rudder/lag">
 			<default value="/systems/fcs/aero-lag"/> <!-- For aerodynamically flown -->
-			<test logic="AND" value="25.5">
+			<test value="25.5">
 				/systems/fcs/rudder/pwr-active eq 1
 			</test>
 		</switch>
 		
-		<actuator name="/systems/fcs/rudder/surface-final-actuator">
-			<input>/systems/fcs/rudder/surface-cmd-deg</input>
+		<actuator name="/systems/fcs/rudder/final-actuator">
+			<input>/systems/fcs/rudder/cmd-deg</input>
 			<rate_limit>/systems/fcs/rudder/rate</rate_limit>
 		</actuator>
 		
-		<lag_filter name="/systems/fcs/rudder/surface-final-lag">
-			<input>/systems/fcs/rudder/surface-final-actuator</input>
+		<lag_filter name="/systems/fcs/rudder/final-lag">
+			<input>/systems/fcs/rudder/final-actuator</input>
 			<c1>/systems/fcs/rudder/lag</c1>
-			<output>/systems/fcs/rudder/surface-final-deg</output>
+			<output>/systems/fcs/rudder/final-deg</output>
 		</lag_filter>
 	
 	</channel>
@@ -1137,20 +1133,11 @@
 			</test>
 		</switch>
 		
-		<summer name="/systems/fcs/tiller/rudder-cmd-input">
-			<input>/systems/fcs/tiller/rudder-cmd-switch</input>
-			<input>/systems/fcs/rudder/trim</input> <!-- 10 of 17 -->
-			<clipto>
-				<min>-1.0</min>
-				<max>1.0</max>
-			</clipto>
-		</summer>
-		
 		<fcs_function name="/systems/fcs/tiller/rudder-cmd-deg"> <!-- Combines rudder and tiller into just rudder -->
 			<function>
 				<table>
 					<independentVar lookup="row">zero</independentVar> <!-- Take advantage of the table lookup to interpolate -->
-					<independentVar lookup="column">/systems/fcs/tiller/rudder-cmd-input</independentVar>
+					<independentVar lookup="column">/systems/fcs/tiller/rudder-cmd-switch</independentVar>
 					<independentVar lookup="table">/velocities/groundspeed-kt</independentVar>
 					<tableData breakPoint="0.5">
 						  -1.00 -0.01  0.01  1.00
@@ -1189,7 +1176,7 @@
 						</tableData>
 					</table>
 					<product>
-						<property>/systems/fcs/tiller/rudder-cmd-input</property>
+						<property>/systems/fcs/tiller/rudder-cmd-switch</property>
 						<table>
 							<independentVar lookup="row">/velocities/groundspeed-kt</independentVar>
 							<tableData>
@@ -1256,6 +1243,7 @@
 		<actuator name="/systems/fcs/tiller/actuator">
 			<input>/systems/fcs/tiller/cmd-deg</input>
 			<rate_limit>/systems/fcs/tiller/rate</rate_limit>
+			<lag>24.5</lag>
 			<output>fcs/steer-pos-deg[0]</output>
 		</actuator>
 		

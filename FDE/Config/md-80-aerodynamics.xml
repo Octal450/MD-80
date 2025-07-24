@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- McDonnell Douglas MD-80 Aerodynamics -->
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <aerodynamics>
 	
@@ -46,7 +46,7 @@
 		</table>
 	</function>
 	
-	<function name="aero/function/kCmalpha"> <!-- Deel Stall -->
+	<function name="aero/function/kCmalpha"> <!-- Deep Stall -->
 		<description>Alpha pitch factor due to wing shadow</description>
 		<table>
 			<independentVar lookup="row">aero/alpha-deg</independentVar>
@@ -58,7 +58,7 @@
 		</table>
 	</function>
 	
-	<function name="aero/function/kCmde"> <!-- Deel Stall -->
+	<function name="aero/function/kCmde"> <!-- Deep Stall -->
 		<description>Elevator pitch factor due to wing shadow</description>
 		<table>
 			<independentVar lookup="row">aero/alpha-deg</independentVar>
@@ -70,7 +70,7 @@
 		</table>
 	</function>
 	
-	<function name="aero/function/kCmdstab"> <!-- Deel Stall -->
+	<function name="aero/function/kCmdstab"> <!-- Deep Stall -->
 		<description>Stabilizer pitch factor due to wing shadow</description>
 		<table>
 			<independentVar lookup="row">aero/alpha-deg</independentVar>
@@ -87,7 +87,7 @@
 		<sum>
 			<table> <!-- Left deflection -->
 				<independentVar lookup="row">/engines/engine[0]/epr-actual</independentVar>
-				<independentVar lookup="column">/systems/fcs/rudder/surface-final-deg</independentVar>
+				<independentVar lookup="column">/systems/fcs/rudder/final-deg</independentVar>
 				<independentVar lookup="table">/engines/engine[0]/reverser-pos-norm</independentVar>
 				<tableData breakPoint="0.01"> <!-- 100% -->
 					    -30    0
@@ -104,7 +104,7 @@
 			</table>
 			<table> <!-- Right deflection -->
 				<independentVar lookup="row">/engines/engine[1]/epr-actual</independentVar>
-				<independentVar lookup="column">/systems/fcs/rudder/surface-final-deg</independentVar>
+				<independentVar lookup="column">/systems/fcs/rudder/final-deg</independentVar>
 				<independentVar lookup="table">/engines/engine[1]/reverser-pos-norm</independentVar>
 				<tableData breakPoint="0.01"> <!-- 100% -->
 					     0    30
@@ -133,7 +133,8 @@
 				<table>
 					<independentVar lookup="row">aero/alpha-deg</independentVar>
 					<independentVar lookup="column">velocities/mach</independentVar>
-					<tableData>
+					<independentVar lookup="table">fcs/slat-pos-norm</independentVar>
+					<tableData breakPoint="0">
 						         0.2     0.9
 						-9.8475 -0.5652 -0.5935
 						-2.0912  0.0625  0.0656
@@ -146,14 +147,36 @@
 						10.7094  1.0843  0.6617
 						11.6170  1.1538  0.5827
 						12.6496  1.2184  0.5949
-						13.7292  1.2911  0.6074
-						14.7930  1.3444  0.5648
-						15.6981  1.1882  0.5285
-						16.6352  1.1064  0.4910
-						17.5725  1.0311  0.4535
-						18.6045  1.0447  0.4121
-						19.6052  1.0479  0.3720
-						30.1264  0.6376 -0.0494
+						13.7292  1.0622  0.6074
+						14.7930  0.9804  0.5648
+						15.6981  0.9051  0.5285
+						16.6352  0.9187  0.4910
+						17.5725  0.9219  0.4535
+						18.6045  0.8842  0.4121
+						19.6052  0.8459  0.3720
+						30.1264  0.4196 -0.0494
+					</tableData>
+					<tableData breakPoint="1">
+						         0.2     0.9
+						-9.8475 -0.5652 -0.5935
+						-2.0912  0.0625  0.0656
+						-0.0098  0.2386  0.2505
+						 2.2280  0.4260  0.4473
+						 4.2779  0.5779  0.6068
+						 6.4218  0.7540  0.7917
+						 8.4561  0.9163  0.9621
+						 9.2699  0.9842  1.0303
+						10.7094  1.0843  1.1507
+						11.6170  1.1538  0.9945
+						12.6496  1.2184  0.9127
+						13.7292  1.2911  0.8374
+						14.7930  1.3444  0.8510
+						15.6981  1.1882  0.8542
+						16.6352  1.1064  0.8180
+						17.5725  1.0311  0.7818
+						18.6045  1.0447  0.7441
+						19.6052  1.0479  0.7058
+						30.1264  0.6376  0.2795
 					</tableData>
 				</table>
 			</product>
@@ -173,7 +196,7 @@
 		<function name="aero/coefficient/CLadot">
 			<description>Lift due to alpha rate</description>
 			<product>
-				<property>aero/qbar-psf</property>
+				<property>aero/qbarUW-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>aero/alphadot-rad_sec</property>
 				<property>aero/ci2vel</property>
@@ -222,7 +245,7 @@
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
-				<toradians><property>/systems/fcs/elevator-l/surface-final-deg</property></toradians>
+				<toradians><property>/systems/fcs/elevator-l/final-deg</property></toradians>
 				<value>0.0116548</value>
 			</product>
 		</function>
@@ -232,7 +255,7 @@
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
-				<toradians><property>/systems/fcs/elevator-r/surface-final-deg</property></toradians>
+				<toradians><property>/systems/fcs/elevator-r/final-deg</property></toradians>
 				<value>0.0116548</value>
 			</product>
 		</function>
@@ -384,7 +407,7 @@
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
-				<abs><toradians><property>/systems/fcs/elevator-l/surface-final-deg</property></toradians></abs>
+				<abs><toradians><property>/systems/fcs/elevator-l/final-deg</property></toradians></abs>
 				<value>0.002625</value>
 			</product>
 		</function>
@@ -394,7 +417,7 @@
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
-				<abs><toradians><property>/systems/fcs/elevator-r/surface-final-deg</property></toradians></abs>
+				<abs><toradians><property>/systems/fcs/elevator-r/final-deg</property></toradians></abs>
 				<value>0.002625</value>
 			</product>
 		</function>
@@ -414,7 +437,7 @@
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
-				<abs><toradians><property>/systems/fcs/aileron-l/surface-final-deg</property></toradians></abs>
+				<abs><toradians><property>/systems/fcs/aileron-l/final-deg</property></toradians></abs>
 				<value>0.0029271</value>
 			</product>
 		</function>
@@ -424,7 +447,7 @@
 			<product>
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
-				<abs><toradians><property>/systems/fcs/aileron-r/surface-final-deg</property></toradians></abs>
+				<abs><toradians><property>/systems/fcs/aileron-r/final-deg</property></toradians></abs>
 				<value>0.0029271</value>
 			</product>
 		</function>
@@ -558,7 +581,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
-				<toradians><property>/systems/fcs/aileron-l/surface-final-deg</property></toradians>
+				<toradians><property>/systems/fcs/aileron-l/final-deg</property></toradians>
 				<value>0.026</value>
 			</product>
 		</function>
@@ -569,7 +592,7 @@
 				<property>aero/qbar-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/bw-ft</property>
-				<toradians><property>/systems/fcs/aileron-r/surface-final-deg</property></toradians>
+				<toradians><property>/systems/fcs/aileron-r/final-deg</property></toradians>
 				<value>-0.026</value>
 			</product>
 		</function>
@@ -660,7 +683,7 @@
 		<function name="aero/coefficient/Cmadot">
 			<description>Pitch moment due to alpha rate</description>
 			<product>
-				<property>aero/qbar-psf</property>
+				<property>aero/qbarUW-psf</property>
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<property>aero/ci2vel</property>
@@ -694,7 +717,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<property>aero/function/kCmde</property>
-				<toradians><property>/systems/fcs/elevator-l/surface-final-deg</property></toradians>
+				<toradians><property>/systems/fcs/elevator-l/final-deg</property></toradians>
 				<value>-0.215796</value>
 			</product>
 		</function>
@@ -706,7 +729,7 @@
 				<property>metrics/Sw-sqft</property>
 				<property>metrics/cbarw-ft</property>
 				<property>aero/function/kCmde</property>
-				<toradians><property>/systems/fcs/elevator-r/surface-final-deg</property></toradians>
+				<toradians><property>/systems/fcs/elevator-r/final-deg</property></toradians>
 				<value>-0.215796</value>
 			</product>
 		</function>
@@ -720,7 +743,7 @@
 				<property>aero/arm-factor</property> <!-- MD-87 -->
 				<property>aero/function/kCmdstab</property>
 				<toradians><property>/systems/fcs/stabilizer/final-deg</property></toradians>
-				<value>-2.7305</value>
+				<value>-2.7206</value>
 			</product>
 		</function>
 		

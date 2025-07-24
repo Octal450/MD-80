@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- McDonnell Douglas MD-80 JSBSim -->
-<!-- Copyright (c) 2024 Josh Davidson (Octal450) -->
+<!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
 <mass_balance>
 	
@@ -51,6 +51,15 @@
 			<x>25.8</x>
 			<y>0</y>
 			<z>-0.517</z>
+		</location>
+	</pointmass>
+	
+	<pointmass name="Nothing"> <!-- Various code expects 5 pointmasses -->
+		<weight unit="LBS">0</weight>
+		<location name="POINTMASS" unit="M">
+			<x>0</x>
+			<y>0</y>
+			<z>0</z>
 		</location>
 	</pointmass>
 
