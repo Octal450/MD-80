@@ -26,6 +26,10 @@
 		<object-name>ApuEgtNeedle</object-name>
 		<object-name>ApuRpmNeedle</object-name>
 		<object-name>ApuRpmNeedle2</object-name>
+		<object-name>DcLoadLNeedleL</object-name>
+		<object-name>DcLoadLNeedleR</object-name>
+		<object-name>DcLoadRNeedleL</object-name>
+		<object-name>DcLoadRNeedleR</object-name>
 		<object-name>Face</object-name>
 		<object-name>IntegrityAcDcVoltFreq</object-name>
 		<object-name>IntegrityCadc</object-name>
@@ -854,6 +858,46 @@
 	
 	<animation>
 		<type>rotate</type>
+		<object-name>DcLoadLNeedleL</object-name>
+		<property>systems/electrical/unused/zero</property> <!-- Will be changed when I add load calc -->
+		<interpolation>
+			<entry><ind>0.0</ind><dep> 58</dep></entry>
+			<entry><ind>1.5</ind><dep>-60</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.26424</y-m>
+			<z-m>-0.25364</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>DcLoadLNeedleR</object-name>
+		<property>systems/electrical/unused/zero</property> <!-- Will be changed when I add load calc -->
+		<interpolation>
+			<entry><ind>0.0</ind><dep>-58</dep></entry>
+			<entry><ind>1.5</ind><dep> 60</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.23544</y-m>
+			<z-m>-0.25364</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
 		<object-name>DcBusXTie</object-name>
 		<property>controls/cockpit/overhead/dc-tie</property>
 		<interpolation>
@@ -889,6 +933,46 @@
 				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>DcLoadRNeedleL</object-name>
+		<property>systems/electrical/unused/zero</property> <!-- Will be changed when I add load calc -->
+		<interpolation>
+			<entry><ind>0.0</ind><dep> 58</dep></entry>
+			<entry><ind>1.5</ind><dep>-60</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.14129</y-m>
+			<z-m>-0.25364</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>DcLoadRNeedleR</object-name>
+		<property>systems/electrical/unused/zero</property> <!-- Will be changed when I add load calc -->
+		<interpolation>
+			<entry><ind>0.0</ind><dep>-58</dep></entry>
+			<entry><ind>1.5</ind><dep> 60</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.11249</y-m>
+			<z-m>-0.25364</z-m>
+		</center>
 	</animation>
 	
 	<!-- APU RPM and EGT -->

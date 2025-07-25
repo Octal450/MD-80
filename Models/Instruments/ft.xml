@@ -22,12 +22,13 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>NeedleL</object-name>
-		<property>environment/temperature-degc</property> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+		<property>environment/temperature-degc</property> <!-- Will be changed when I add the anti-ice system -->
 		<interpolation>
-			<entry><ind>-60</ind><dep> 57.5</dep></entry>
-			<entry><ind>  0</ind><dep>  5.0</dep></entry>
-			<entry><ind> 40</ind><dep>-30.0</dep></entry>
-			<entry><ind> 80</ind><dep>-60.0</dep></entry>
+			<entry><ind>-60</ind><dep> 58</dep></entry>
+			<entry><ind>-40</ind><dep> 40</dep></entry>
+			<entry><ind>  0</ind><dep>  5</dep></entry>
+			<entry><ind> 40</ind><dep>-30</dep></entry>
+			<entry><ind> 80</ind><dep>-60</dep></entry>
 		</interpolation>
 		<axis>
 			<x>-1</x>
@@ -44,12 +45,13 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>NeedleR</object-name>
-		<property>environment/temperature-degc</property> <!-- Will be changed when I add the fuel system, and anti-ice system -->
+		<property>environment/temperature-degc</property> <!-- Will be changed when I add the anti-ice system -->
 		<interpolation>
-			<entry><ind>-60</ind><dep>-57.5</dep></entry>
-			<entry><ind>  0</ind><dep> -5.0</dep></entry>
-			<entry><ind> 40</ind><dep> 30.0</dep></entry>
-			<entry><ind> 80</ind><dep> 60.0</dep></entry>
+			<entry><ind>-60</ind><dep>-58</dep></entry>
+			<entry><ind>-40</ind><dep>-40</dep></entry>
+			<entry><ind>  0</ind><dep> -5</dep></entry>
+			<entry><ind> 40</ind><dep> 30</dep></entry>
+			<entry><ind> 80</ind><dep> 60</dep></entry>
 		</interpolation>
 		<axis>
 			<x>-1</x>
