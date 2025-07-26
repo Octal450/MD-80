@@ -14,6 +14,12 @@
 			<rudders>
 				<texture>Liveries/MD-87/JKK_vstab_engines.png</texture>
 			</rudders>
+			<hstab>
+				<texture>Liveries/MD-87/White_hstab_gear.png</texture>
+			</hstab>
+			<wing>
+				<texture>Liveries/MD-87/White_wing.png</texture>
+			</wing>
 		</model>
 	</sim>
 

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+	<sim>
+		<model>
+			<livery>
+				<name>Erickson Aero Tanker</name>
+				<texture>Liveries/MD-87/Erickson_fuselage.png</texture>
+			</livery>
+			<fairings>
+				<texture>Liveries/MD-87/Erickson_fuselage_fairing.png</texture>
+			</fairings>
+			<rudders>
+				<texture>Liveries/MD-87/Erickson_vstab_engines.png</texture>
+			</rudders>
+			<hstab>
+				<texture>Liveries/MD-87/Erickson_hstab_gear.png</texture>
+			</hstab>
+			<wing>
+				<texture>Liveries/MD-87/Erickson_wing.png</texture>
+			</wing>
+		</model>
+	</sim>
+
+</PropertyList>

@@ -3,7 +3,7 @@
 <!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
 <!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
-<PropertyList> <!--  This file is separate for the MD-87 due to the amount of differences -->
+<PropertyList> <!--	 This file is separate for the MD-87 due to the amount of differences -->
 	
 	<path>mesh_airframe_87.ac</path>
 	
@@ -35,10 +35,10 @@
 		</offsets>
 	</model>
 	
-    <effect>
+	<effect>
 		<inherits-from>Models/Effects/Exterior/exterior-glass-reflection</inherits-from>
 		<object-name>WindowsCockpit</object-name>
-    </effect>
+	</effect>
 	
 	<!-- Sub-Model Imports -->
 	<model>
@@ -80,7 +80,7 @@
 			<property>systems/acconfig/options/firetank</property>
 		</condition>
 		<offsets>
-			<x-m>11.6</x-m>
+			<x-m>18.4</x-m>
 			<y-m>0</y-m>
 			<z-m>-5.77</z-m>
 		</offsets>
@@ -91,7 +91,7 @@
 			<property>systems/acconfig/options/firetank</property>
 		</condition>
 		<offsets>
-			<x-m>18.4</x-m>
+			<x-m>19.4</x-m>
 			<y-m>0</y-m>
 			<z-m>-5.77</z-m>
 		</offsets>
@@ -102,7 +102,7 @@
 			<property>systems/acconfig/options/firetank</property>
 		</condition>
 		<offsets>
-			<x-m>24.9</x-m>
+			<x-m>20.4</x-m>
 			<y-m>0</y-m>
 			<z-m>-5.77</z-m>
 		</offsets>
@@ -316,7 +316,7 @@
 			<b>1.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.06</l>
 			<q>0.02</q>
@@ -358,7 +358,7 @@
 			<b>1.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.06</l>
 			<q>0.02</q>
@@ -420,7 +420,7 @@
 			<b>1.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.2</l>
 			<q>0.1</q>
@@ -462,7 +462,7 @@
 			<b>1.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.2</l>
 			<q>0.1</q>
@@ -708,7 +708,7 @@
 			<b>0.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.09</l>
 			<q>0.032</q>
@@ -760,7 +760,7 @@
 			<b>0.98</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.09</l>
 			<q>0.032</q>
@@ -812,7 +812,7 @@
 			<b>0.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.09</l>
 			<q>0.032</q>
@@ -864,7 +864,7 @@
 			<b>0.98</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.09</l>
 			<q>0.032</q>
@@ -916,7 +916,7 @@
 			<b>1.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.09</l>
 			<q>0.032</q>
@@ -968,7 +968,7 @@
 			<b>0.98</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.09</l>
 			<q>0.032</q>
@@ -1020,7 +1020,7 @@
 			<b>1.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.09</l>
 			<q>0.032</q>
@@ -1072,7 +1072,7 @@
 			<b>0.98</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.09</l>
 			<q>0.032</q>
@@ -1134,7 +1134,7 @@
 			<b>0.98</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>0.8</c>
 			<l>0.06</l>
 			<q>0.02</q>
@@ -1176,7 +1176,7 @@
 			<b>0.98</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>0.8</c>
 			<l>0.06</l>
 			<q>0.02</q>
@@ -1491,7 +1491,7 @@
 		<object-name>AilTabControlL</object-name>
 		<object-name>AilTabTrimL</object-name>
 		<property>rotors/main/blade[0]/flap-deg</property>
-		<factor>1</factor>   
+		<factor>1</factor>	 
 		<axis>
 			<x1-m>27.573</x1-m>
 			<y1-m>-13.612</y1-m>
@@ -1519,7 +1519,7 @@
 		<type>rotate</type>
 		<object-name>AilTabTrimL</object-name>
 		<property>rotors/main/blade[2]/flap-deg</property>
-		<factor>1</factor>  
+		<factor>1</factor>	
 		<axis>
 			<x1-m>27.731</x1-m>
 			<y1-m>-12.69</y1-m>
@@ -1564,7 +1564,7 @@
 		<type>rotate</type>
 		<object-name>AilTabTrimR</object-name>
 		<property>rotors/main/blade[3]/flap-deg</property>
-		<factor>1</factor>  
+		<factor>1</factor>	
 		<axis>
 			<x1-m>27.543</x1-m>
 			<y1-m>11.855</y1-m>
@@ -1709,7 +1709,7 @@
 		<type>rotate</type>
 		<object-name>ElTabControlL</object-name>
 		<property>sim/multiplay/generic/float[16]</property>
-		<factor>1</factor>   
+		<factor>1</factor>	 
 		<axis>
 			<x1-m>41.348</x1-m>
 			<y1-m>-2.319</y1-m>
@@ -1769,7 +1769,7 @@
 		<type>rotate</type>
 		<object-name>ElTabControlR</object-name>
 		<property>sim/multiplay/generic/float[19]</property>
-		<factor>1</factor>  
+		<factor>1</factor>	
 		<axis>
 			<x1-m>40.736</x1-m>
 			<y1-m>0.533</y1-m>
@@ -1909,7 +1909,7 @@
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
 			<entry><ind>0.1</ind><dep>100</dep></entry>
-			<entry><ind>1.0</ind><dep>  0</dep></entry>
+			<entry><ind>1.0</ind><dep>	0</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>5.469</x-m>
@@ -2161,7 +2161,7 @@
 		<property>gear/gear[1]/position-norm</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep>-160</dep></entry>
-			<entry><ind>1.0</ind><dep>   0</dep></entry>
+			<entry><ind>1.0</ind><dep>	 0</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>24.244</x-m>
@@ -2195,7 +2195,7 @@
 		<object-name>LGDoorOutL</object-name>
 		<property>gear/gear[1]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>  0</dep></entry>
+			<entry><ind>0.0</ind><dep>	0</dep></entry>
 			<entry><ind>1.0</ind><dep>127</dep></entry>
 		</interpolation>
 		<axis>
@@ -2356,7 +2356,7 @@
 		<property>gear/gear[2]/position-norm</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep>-160</dep></entry>
-			<entry><ind>1.0</ind><dep>   0</dep></entry>
+			<entry><ind>1.0</ind><dep>	 0</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>24.244</x-m>
@@ -2390,7 +2390,7 @@
 		<object-name>LGDoorOutR</object-name>
 		<property>gear/gear[2]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>  0</dep></entry>
+			<entry><ind>0.0</ind><dep>	0</dep></entry>
 			<entry><ind>1.0</ind><dep>127</dep></entry>
 		</interpolation>
 		<axis>
