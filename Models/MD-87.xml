@@ -47,7 +47,30 @@
 		<texture-prop>texture</texture-prop>
 		<texture>txt_vstab_engines.png</texture>
 	</animation>
-	
+	<animation>
+		<type>material</type>
+		<object-name>ElevatorL</object-name>
+		<object-name>ElevatorR</object-name>
+		<object-name>Stabilizer</object-name>
+		<object-name>ElTabControlL</object-name>
+		<object-name>ElTabControlR</object-name>
+		<object-name>ElTabGearedL</object-name>
+		<object-name>ElTabGearedR</object-name>
+		<object-name>ElTabAntifloatL</object-name>
+		<object-name>ElTabAntifloatR</object-name>
+		<property-base>sim/model/hstab</property-base>
+		<texture-prop>texture</texture-prop>
+		<texture>txt_hstab_gear.png</texture>
+	</animation>
+	<animation>
+		<type>material</type>
+		<object-name>Wing</object-name>
+		<object-name>SlatsL</object-name>
+		<object-name>SlatsR</object-name>
+		<property-base>sim/model/wing</property-base>
+		<texture-prop>texture</texture-prop>
+		<texture>txt_wing.png</texture>
+	</animation>
 	<model>
 		<name>Instruments</name>
 		<path>Aircraft/MD-80/Models/MD-87-instruments.xml</path>
