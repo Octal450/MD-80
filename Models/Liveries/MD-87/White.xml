@@ -15,10 +15,10 @@
 				<texture>Liveries/MD-87/White_vstab_engines.png</texture>
 			</rudders>
 			<hstab>
-				<texture>Liveries/MD-87/White_hstab_gear.png</texture>
+				<texture>txt_hstab_gear.png</texture>
 			</hstab>
 			<wing>
-				<texture>Liveries/MD-87/White_wing.png</texture>
+				<texture>txt_wing.png</texture>
 			</wing>
 		</model>
 	</sim>

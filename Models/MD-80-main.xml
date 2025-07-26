@@ -35,10 +35,10 @@
 		</offsets>
 	</model>
 	
-    <effect>
+	<effect>
 		<inherits-from>Models/Effects/Exterior/exterior-glass-reflection</inherits-from>
 		<object-name>WindowsCockpit</object-name>
-    </effect>
+	</effect>
 	
 	<!-- Sub-Model Imports -->
 	<model>
@@ -264,7 +264,7 @@
 			<b>1.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.06</l>
 			<q>0.02</q>
@@ -306,7 +306,7 @@
 			<b>1.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.06</l>
 			<q>0.02</q>
@@ -368,7 +368,7 @@
 			<b>1.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.2</l>
 			<q>0.1</q>
@@ -410,7 +410,7 @@
 			<b>1.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.2</l>
 			<q>0.1</q>
@@ -656,7 +656,7 @@
 			<b>0.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.09</l>
 			<q>0.032</q>
@@ -708,7 +708,7 @@
 			<b>0.98</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.09</l>
 			<q>0.032</q>
@@ -760,7 +760,7 @@
 			<b>0.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.09</l>
 			<q>0.032</q>
@@ -812,7 +812,7 @@
 			<b>0.98</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.09</l>
 			<q>0.032</q>
@@ -864,7 +864,7 @@
 			<b>1.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.09</l>
 			<q>0.032</q>
@@ -916,7 +916,7 @@
 			<b>0.98</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.09</l>
 			<q>0.032</q>
@@ -968,7 +968,7 @@
 			<b>1.0</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.09</l>
 			<q>0.032</q>
@@ -1020,7 +1020,7 @@
 			<b>0.98</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>1.0</c>
 			<l>0.09</l>
 			<q>0.032</q>
@@ -1082,7 +1082,7 @@
 			<b>0.98</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>0.8</c>
 			<l>0.06</l>
 			<q>0.02</q>
@@ -1124,7 +1124,7 @@
 			<b>0.98</b>
 			<a>1.0</a>
 		</specular>
-	    <attenuation>
+		<attenuation>
 			<c>0.8</c>
 			<l>0.06</l>
 			<q>0.02</q>
@@ -1657,7 +1657,7 @@
 		<type>rotate</type>
 		<object-name>ElTabControlL</object-name>
 		<property>sim/multiplay/generic/float[16]</property>
-		<factor>1</factor>   
+		<factor>1</factor>
 		<axis>
 			<x1-m>43.848</x1-m>
 			<y1-m>-2.319</y1-m>
@@ -1717,7 +1717,7 @@
 		<type>rotate</type>
 		<object-name>ElTabControlR</object-name>
 		<property>sim/multiplay/generic/float[19]</property>
-		<factor>1</factor>  
+		<factor>1</factor>
 		<axis>
 			<x1-m>43.236</x1-m>
 			<y1-m>0.533</y1-m>

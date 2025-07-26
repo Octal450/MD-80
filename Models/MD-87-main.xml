@@ -3,7 +3,7 @@
 <!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
 <!-- Copyright (c) 2025 Josh Davidson (Octal450) -->
 
-<PropertyList> <!--	 This file is separate for the MD-87 due to the amount of differences -->
+<PropertyList> <!-- This file is separate for the MD-87 due to the amount of differences -->
 	
 	<path>mesh_airframe_87.ac</path>
 	
@@ -1709,7 +1709,7 @@
 		<type>rotate</type>
 		<object-name>ElTabControlL</object-name>
 		<property>sim/multiplay/generic/float[16]</property>
-		<factor>1</factor>	 
+		<factor>1</factor>
 		<axis>
 			<x1-m>41.348</x1-m>
 			<y1-m>-2.319</y1-m>
@@ -1769,7 +1769,7 @@
 		<type>rotate</type>
 		<object-name>ElTabControlR</object-name>
 		<property>sim/multiplay/generic/float[19]</property>
-		<factor>1</factor>	
+		<factor>1</factor>
 		<axis>
 			<x1-m>40.736</x1-m>
 			<y1-m>0.533</y1-m>
@@ -1909,7 +1909,7 @@
 		<property>gear/gear[0]/position-norm</property>
 		<interpolation>
 			<entry><ind>0.1</ind><dep>100</dep></entry>
-			<entry><ind>1.0</ind><dep>	0</dep></entry>
+			<entry><ind>1.0</ind><dep>  0</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>5.469</x-m>
@@ -2161,7 +2161,7 @@
 		<property>gear/gear[1]/position-norm</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep>-160</dep></entry>
-			<entry><ind>1.0</ind><dep>	 0</dep></entry>
+			<entry><ind>1.0</ind><dep>   0</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>24.244</x-m>
@@ -2195,7 +2195,7 @@
 		<object-name>LGDoorOutL</object-name>
 		<property>gear/gear[1]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>	0</dep></entry>
+			<entry><ind>0.0</ind><dep>  0</dep></entry>
 			<entry><ind>1.0</ind><dep>127</dep></entry>
 		</interpolation>
 		<axis>
@@ -2356,7 +2356,7 @@
 		<property>gear/gear[2]/position-norm</property>
 		<interpolation>
 			<entry><ind>0.0</ind><dep>-160</dep></entry>
-			<entry><ind>1.0</ind><dep>	 0</dep></entry>
+			<entry><ind>1.0</ind><dep>   0</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>24.244</x-m>
@@ -2390,7 +2390,7 @@
 		<object-name>LGDoorOutR</object-name>
 		<property>gear/gear[2]/position-norm</property>
 		<interpolation>
-			<entry><ind>0.0</ind><dep>	0</dep></entry>
+			<entry><ind>0.0</ind><dep>  0</dep></entry>
 			<entry><ind>1.0</ind><dep>127</dep></entry>
 		</interpolation>
 		<axis>
