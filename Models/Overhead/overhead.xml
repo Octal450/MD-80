@@ -19,6 +19,10 @@
 	
 	<animation>
 		<type>material</type>
+		<object-name>AcLoadApuNeedle</object-name>
+		<object-name>AcLoadLNeedle</object-name>
+		<object-name>AcLoadRNeedle</object-name>
+		<object-name>AcLoadRNeedle</object-name>
 		<object-name>AirPressLNeedle</object-name>
 		<object-name>AirPressRNeedle</object-name>
 		<object-name>AirValveLNeedle</object-name>
@@ -526,6 +530,75 @@
 				</binding>
 			</mod-up>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AcLoadLNeedle</object-name>
+		<property>systems/electrical/unused/zero</property> <!-- Will be changed when I add load calc -->
+		<interpolation>
+			<entry><ind>0.00</ind><dep>-40.8</dep></entry>
+			<entry><ind>0.25</ind><dep>-32.8</dep></entry>
+			<entry><ind>0.50</ind><dep>-18.8</dep></entry>
+			<entry><ind>1.00</ind><dep> 15.1</dep></entry>
+			<entry><ind>1.50</ind><dep> 48.0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.24984</y-m>
+			<z-m>-0.11577</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AcLoadApuNeedle</object-name>
+		<property>systems/electrical/unused/zero</property> <!-- Will be changed when I add load calc -->
+		<interpolation>
+			<entry><ind>0.00</ind><dep>-40.8</dep></entry>
+			<entry><ind>0.25</ind><dep>-32.8</dep></entry>
+			<entry><ind>0.50</ind><dep>-18.8</dep></entry>
+			<entry><ind>1.00</ind><dep> 15.1</dep></entry>
+			<entry><ind>1.50</ind><dep> 48.0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.18837</y-m>
+			<z-m>-0.11577</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AcLoadRNeedle</object-name>
+		<property>systems/electrical/unused/zero</property> <!-- Will be changed when I add load calc -->
+		<interpolation>
+			<entry><ind>0.00</ind><dep>-40.8</dep></entry>
+			<entry><ind>0.25</ind><dep>-32.8</dep></entry>
+			<entry><ind>0.50</ind><dep>-18.8</dep></entry>
+			<entry><ind>1.00</ind><dep> 15.1</dep></entry>
+			<entry><ind>1.50</ind><dep> 48.0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.12689</y-m>
+			<z-m>-0.11577</z-m>
+		</center>
 	</animation>
 	
 	<!-- Electrical Panel Lower -->
