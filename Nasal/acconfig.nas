@@ -109,7 +109,6 @@ var SYSTEM = {
 	},
 	showError: func() {
 		libraries.systemsLoop.stop();
-		systems.DUController.showError();
 		fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-main"}));
 		fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-updated"}));
 		fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-error"}));
