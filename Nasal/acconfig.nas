@@ -344,16 +344,19 @@ var PANEL = {
 				systems.PNEUMATICS.Controls.xBleedR.setBoolValue(1);
 				dfgs.Input.fd1.setBoolValue(1);
 				dfgs.Input.fd2.setBoolValue(1);
-				if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
-					fms.EditFlightData.setAcconfigData();
-				}
 				
 				settimer(func() { # Give things a moment to settle
-					fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
-					spinningT.stop();
-					fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-psloaded"}));
-					SYSTEM.autoConfigRunning.setBoolValue(0);
-					me.stop = 1;
+					if (!me.stop) {
+						if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
+							fms.EditFlightData.setAcconfigData();
+						}
+						
+						fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
+						spinningT.stop();
+						fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-psloaded"}));
+						SYSTEM.autoConfigRunning.setBoolValue(0);
+						me.stop = 1;
+					}
 				}, 1);
 			}
 		});
@@ -417,9 +420,6 @@ var PANEL = {
 				# XPDR TA/RA
 				dfgs.Input.fd1.setBoolValue(1);
 				dfgs.Input.fd2.setBoolValue(1);
-				if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
-					fms.EditFlightData.setAcconfigData();
-				}
 				
 				if (t == 1) {
 					pts.Controls.Lighting.positionStrobeLight.setValue(1);
@@ -444,6 +444,10 @@ var PANEL = {
 				
 				settimer(func() { # Give things a moment to settle
 					if (!me.stop) {
+						if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
+							fms.EditFlightData.setAcconfigData();
+						}
+						
 						fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
 						spinningT.stop();
 						fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-psloaded"}));
