@@ -241,7 +241,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/systems/engines/limit/go-around-ref"> <!-- From FCOM -->
+		<fcs_function name="/systems/engines/limit/go-around-table"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">propulsion/tat-c</independentVar>
@@ -267,7 +267,7 @@
 					<floor>
 						<sum>
 							<product>
-								<property>/systems/engines/limit/go-around-ref</property>
+								<property>/systems/engines/limit/go-around-table</property>
 								<value>1000</value>
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
@@ -278,7 +278,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/systems/engines/limit/takeoff-ref"> <!-- From FCOM -->
+		<fcs_function name="/systems/engines/limit/takeoff-table"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">propulsion/tat-c</independentVar>
@@ -308,7 +308,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/systems/engines/limit/takeoff-max-ref"> <!-- From FCOM -->
+		<fcs_function name="/systems/engines/limit/takeoff-max-table"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">propulsion/tat-c</independentVar>
@@ -338,7 +338,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/systems/engines/limit/takeoff-flex-ref"> <!-- From FCOM -->
+		<fcs_function name="/systems/engines/limit/takeoff-flex-table"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">/systems/engines/limit/flex-temp</independentVar>
@@ -362,12 +362,12 @@
 			</function>
 		</fcs_function>
 		
-		<switch name="/systems/engines/limit/takeoff-final-ref">
-			<default value="/systems/engines/limit/takeoff-ref"/>
-			<test value="/systems/engines/limit/takeoff-flex-ref">
+		<switch name="/systems/engines/limit/takeoff-final-table">
+			<default value="/systems/engines/limit/takeoff-table"/>
+			<test value="/systems/engines/limit/takeoff-flex-table">
 				/systems/engines/limit/active-mode-int eq 5
 			</test>
-			<test logic="OR" value="/systems/engines/limit/takeoff-max-ref">
+			<test logic="OR" value="/systems/engines/limit/takeoff-max-table">
 				/controls/dfgs/art ne 1
 				/systems/engines/art/active eq 1
 			</test>
@@ -379,7 +379,7 @@
 					<floor>
 						<sum>
 							<product>
-								<property>/systems/engines/limit/takeoff-final-ref</property>
+								<property>/systems/engines/limit/takeoff-final-table</property>
 								<value>1000</value>
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
@@ -390,7 +390,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/systems/engines/limit/mct-ref"> <!-- From FCOM -->
+		<fcs_function name="/systems/engines/limit/mct-table"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">propulsion/tat-c</independentVar>
@@ -418,7 +418,7 @@
 					<floor>
 						<sum>
 							<product>
-								<property>/systems/engines/limit/mct-ref</property>
+								<property>/systems/engines/limit/mct-table</property>
 								<value>1000</value>
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
@@ -429,7 +429,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/systems/engines/limit/climb-ref"> <!-- From FCOM -->
+		<fcs_function name="/systems/engines/limit/climb-table"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">propulsion/tat-c</independentVar>
@@ -455,7 +455,7 @@
 					<floor>
 						<sum>
 							<product>
-								<property>/systems/engines/limit/climb-ref</property>
+								<property>/systems/engines/limit/climb-table</property>
 								<value>1000</value>
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
@@ -466,7 +466,7 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/systems/engines/limit/cruise-ref"> <!-- From FCOM -->
+		<fcs_function name="/systems/engines/limit/cruise-table"> <!-- From FCOM -->
 			<function>
 				<table>
 					<independentVar lookup="row">propulsion/tat-c</independentVar>
@@ -491,7 +491,7 @@
 					<floor>
 						<sum>
 							<product>
-								<property>/systems/engines/limit/cruise-ref</property>
+								<property>/systems/engines/limit/cruise-table</property>
 								<value>1000</value>
 							</product>
 							<value>0.5</value> <!-- Make it round correctly -->
@@ -510,7 +510,7 @@
 		
 		<switch name="/systems/engines/limit/active">
 			<default value="2"/>
-			<test logic="AND" value="/systems/engines/limit/takeoff-ref">
+			<test logic="AND" value="/systems/engines/limit/takeoff">
 				/systems/engines/limit/active-mode-int eq -1
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
@@ -953,7 +953,7 @@
 							<floor>
 								<sum>
 									<product>
-										<property>/systems/engines/limit/takeoff-max-ref</property>
+										<property>/systems/engines/limit/takeoff-max-table</property>
 										<value>1000</value>
 									</product>
 									<value>0.5</value> <!-- Make it round correctly -->
@@ -1013,7 +1013,7 @@
 							<floor>
 								<sum>
 									<product>
-										<property>/systems/engines/limit/takeoff-ref</property>
+										<property>/systems/engines/limit/takeoff-table</property>
 										<value>1000</value>
 									</product>
 									<value>0.5</value> <!-- Make it round correctly -->
