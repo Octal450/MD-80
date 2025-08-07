@@ -345,12 +345,14 @@ var PANEL = {
 				dfgs.Input.fd1.setBoolValue(1);
 				dfgs.Input.fd2.setBoolValue(1);
 				
+				settimer(func() {
+					if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
+						fms.EditFlightData.setAcconfigData();
+					}
+				}, 0.25);
+				
 				settimer(func() { # Give things a moment to settle
 					if (!me.stop) {
-						if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
-							fms.EditFlightData.setAcconfigData();
-						}
-						
 						fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
 						spinningT.stop();
 						fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-psloaded"}));
@@ -421,6 +423,12 @@ var PANEL = {
 				dfgs.Input.fd1.setBoolValue(1);
 				dfgs.Input.fd2.setBoolValue(1);
 				
+				settimer(func() {
+					if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
+						fms.EditFlightData.setAcconfigData();
+					}
+				}, 0.25);
+				
 				if (t == 1) {
 					pts.Controls.Lighting.positionStrobeLight.setValue(1);
 					pts.Controls.Lighting.landingLightL.setValue(1);
@@ -444,10 +452,6 @@ var PANEL = {
 				
 				settimer(func() { # Give things a moment to settle
 					if (!me.stop) {
-						if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
-							fms.EditFlightData.setAcconfigData();
-						}
-						
 						fgcommand("dialog-close", props.Node.new({"dialog-name": "acconfig-psload"}));
 						spinningT.stop();
 						fgcommand("dialog-show", props.Node.new({"dialog-name": "acconfig-psloaded"}));
