@@ -70,95 +70,111 @@ var canvasBase = {
 		if (n == 0) Value.fdOn = dfgs.Output.fd1.getBoolValue();
 		if (n == 1) Value.fdOn = dfgs.Output.fd2.getBoolValue();
 		
-		# Thrust
-		if (Value.atsOn or Value.activeModeInt == 5 or Value.annunTest) { # For showing flex digit
-			Value.line2[0] = Modes.line2[0].getValue();
-			
-			if (Value.blinkActive[0] and Value.blink < 2) {
-				me["ThrLine1"].setText("");
-				me["ThrLine2"].setText("");
-			} else {
-				me["ThrLine1"].setText(Modes.line1[0].getValue());
-				
-				if (Value.line2[0] == "FLX") {
-					me["ThrLine2"].setText(sprintf("%02d", systems.THRLIM.Limit.flexTemp.getValue()));
-				} else {
-					me["ThrLine2"].setText(Value.line2[0]);
-				}
-			}
-			
-			if (!Value.atsOn and Value.activeModeInt == 5) { # For showing flex digit
-				me["ThrLine1"].hide();
-			} else {
-				me["ThrLine1"].show();
-			}
+		if (dfgs.Main.bit.getBoolValue()) {
+			me["ThrLine1"].setText("PWR");
+			me["ThrLine2"].setText("");
+			me["ArmLine1"].setText("UP");
+			me["ArmLine2"].setText("");
+			me["RollLine1"].setText("TST");
+			me["RollLine2"].setText("");
+			me["PitchLine1"].setText("BOX" ~ (n + 1));
+			me["PitchLine2"].setText("");
 			
 			me["Thr"].show();
-		} else {
-			me["Thr"].hide();
-		}
-		
-		if (Value.apOn or Value.fdOn) {
-			# Arm
-			Value.line2[1] = Modes.line2[1].getValue();
-			
-			if (Value.blinkActive[1] and Value.blink < 2) {
-				me["ArmLine1"].setText("");
-				me["ArmLine2"].setText("");
-			} else {
-				me["ArmLine1"].setText(Modes.line1[1].getValue());
-				
-				if (Value.line2[1] == "ALT" and pts.Systems.Acconfig.Options.armedAltAsFl.getBoolValue()) { # For ARM window Altitude as Flight Level
-					Value.altStr = sprintf("%d", math.round(dfgs.Input.alt.getValue() / 100));
-					if (int(Value.altStr) < 10) {
-						Value.altStr = "==" ~ Value.altStr;
-					} else if (int(Value.altStr) < 100) {
-						Value.altStr = "=" ~ Value.altStr;
-					}
-					
-					me["ArmLine2"].setText(Value.altStr);
-				} else {
-					me["ArmLine2"].setText(Value.line2[1]);
-				}
-			}
-			
-			# Roll
-			Value.line2[2] = Modes.line2[2].getValue();
-			
-			if (Value.blinkActive[2] and Value.blink < 2) {
-				me["RollLine1"].setText("");
-				me["RollLine2"].setText("");
-			} else {
-				me["RollLine1"].setText(Modes.line1[2].getValue());
-				me["RollLine2"].setText(Modes.line2[2].getValue());
-			}
-			
-			# Pitch
-			Value.line2[3] = Modes.line2[3].getValue();
-			
-			if (Value.blinkActive[3] and Value.blink < 2) {
-				me["PitchLine1"].setText("");
-				me["PitchLine2"].setText("");
-			} else {
-				if (dfgs.Fma.spdLow and Value.blink < 2) {
-					me["PitchLine1"].setText("SPD");
-					me["PitchLine2"].setText("LOW");
-				} else if (dfgs.Output.vert.getValue() == 1 and abs(dfgs.Input.vs.getValue()) < 50) {
-					me["PitchLine1"].setText("ALT");
-					me["PitchLine2"].setText("HLD");
-				} else {
-					me["PitchLine1"].setText(Modes.line1[3].getValue());
-					me["PitchLine2"].setText(Modes.line2[3].getValue());
-				}
-			}
-			
 			me["Arm"].show();
 			me["Roll"].show();
 			me["Pitch"].show();
 		} else {
-			me["Arm"].hide();
-			me["Roll"].hide();
-			me["Pitch"].hide();
+			# Thrust
+			if (Value.atsOn or Value.activeModeInt == 5 or Value.annunTest) { # For showing flex digit
+				Value.line2[0] = Modes.line2[0].getValue();
+				
+				if (Value.blinkActive[0] and Value.blink < 2) {
+					me["ThrLine1"].setText("");
+					me["ThrLine2"].setText("");
+				} else {
+					me["ThrLine1"].setText(Modes.line1[0].getValue());
+					
+					if (Value.line2[0] == "FLX") {
+						me["ThrLine2"].setText(sprintf("%02d", systems.THRLIM.Limit.flexTemp.getValue()));
+					} else {
+						me["ThrLine2"].setText(Value.line2[0]);
+					}
+				}
+				
+				if (!Value.atsOn and Value.activeModeInt == 5) { # For showing flex digit
+					me["ThrLine1"].hide();
+				} else {
+					me["ThrLine1"].show();
+				}
+				
+				me["Thr"].show();
+			} else {
+				me["Thr"].hide();
+			}
+			
+			if (Value.apOn or Value.fdOn) {
+				# Arm
+				Value.line2[1] = Modes.line2[1].getValue();
+				
+				if (Value.blinkActive[1] and Value.blink < 2) {
+					me["ArmLine1"].setText("");
+					me["ArmLine2"].setText("");
+				} else {
+					me["ArmLine1"].setText(Modes.line1[1].getValue());
+					
+					if (Value.line2[1] == "ALT" and pts.Systems.Acconfig.Options.armedAltAsFl.getBoolValue()) { # For ARM window Altitude as Flight Level
+						Value.altStr = sprintf("%d", math.round(dfgs.Input.alt.getValue() / 100));
+						if (int(Value.altStr) < 10) {
+							Value.altStr = "==" ~ Value.altStr;
+						} else if (int(Value.altStr) < 100) {
+							Value.altStr = "=" ~ Value.altStr;
+						}
+						
+						me["ArmLine2"].setText(Value.altStr);
+					} else {
+						me["ArmLine2"].setText(Value.line2[1]);
+					}
+				}
+				
+				# Roll
+				Value.line2[2] = Modes.line2[2].getValue();
+				
+				if (Value.blinkActive[2] and Value.blink < 2) {
+					me["RollLine1"].setText("");
+					me["RollLine2"].setText("");
+				} else {
+					me["RollLine1"].setText(Modes.line1[2].getValue());
+					me["RollLine2"].setText(Modes.line2[2].getValue());
+				}
+				
+				# Pitch
+				Value.line2[3] = Modes.line2[3].getValue();
+				
+				if (Value.blinkActive[3] and Value.blink < 2) {
+					me["PitchLine1"].setText("");
+					me["PitchLine2"].setText("");
+				} else {
+					if (dfgs.Fma.spdLow and Value.blink < 2) {
+						me["PitchLine1"].setText("SPD");
+						me["PitchLine2"].setText("LOW");
+					} else if (dfgs.Output.vert.getValue() == 1 and abs(dfgs.Input.vs.getValue()) < 50) {
+						me["PitchLine1"].setText("ALT");
+						me["PitchLine2"].setText("HLD");
+					} else {
+						me["PitchLine1"].setText(Modes.line1[3].getValue());
+						me["PitchLine2"].setText(Modes.line2[3].getValue());
+					}
+				}
+				
+				me["Arm"].show();
+				me["Roll"].show();
+				me["Pitch"].show();
+			} else {
+				me["Arm"].hide();
+				me["Roll"].hide();
+				me["Pitch"].hide();
+			}
 		}
 	},
 };

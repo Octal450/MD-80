@@ -213,6 +213,80 @@
 				</sum>
 			</function>
 		</fcs_function>
+		
+		<fcs_function name="/systems/dfgs/nlg-timer-120/wow-timer-cmd">
+			<function>
+				<sum> <!-- Inverter, so that it is 1 at sim start -->
+					<product>
+						<property>gear/unit[0]/WOW</property>
+						<value>-1</value>
+					</product>
+					<value>1</value>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<actuator name="/systems/dfgs/nlg-timer-120/wow-timer-pos">
+			<input>/systems/dfgs/nlg-timer-120/wow-timer-cmd</input>
+			<rate_limit sense="incr">1000</rate_limit>
+			<rate_limit sense="decr">0.008333</rate_limit> <!-- 120 seconds -->
+		</actuator>
+		
+		<fcs_function name="/systems/dfgs/nlg-timer-120/wow-timer">
+			<function>
+				<sum> <!-- Inverter, so that it is 1 at sim start -->
+					<product>
+						<property>/systems/dfgs/nlg-timer-120/wow-timer-pos</property>
+						<value>-1</value>
+					</product>
+					<value>1</value>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<!-- Power Up Built In Test -->
+		<actuator name="/systems/dfgs/bit/power-timer">
+			<input>/systems/dfgs/power-avail</input>
+			<rate_limit sense="incr">100000</rate_limit>
+			<rate_limit sense="decr">0.5</rate_limit> <!-- 2 seconds -->
+		</actuator>
+		
+		<switch name="/systems/dfgs/bit/cmd">
+			<default value="/systems/dfgs/bit/cmd"/>
+			<test logic="OR" value="0">
+				/systems/dfgs/bit/power-timer eq 0
+				position/wow eq 0
+				/systems/dfgs/afs/enabled eq 1
+				/it-autoflight/output/athr eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/dfgs/nlg-timer-120/wow-timer eq 1
+				/engines/engine[0]/epr-actual lt 1.1
+				/engines/engine[1]/epr-actual lt 1.1
+				/instrumentation/airspeed-indicator/indicated-speed-kt lt 60
+			</test>
+		</switch>
+		
+		<switch name="/systems/dfgs/bit/incr">
+			<default value="0.125"/> <!-- 8 seconds -->
+			<test value="0.5"> <!-- 2 seconds -->
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/dfgs/bit/timer">
+			<input>/systems/dfgs/bit/cmd</input>
+			<rate_limit sense="incr">/systems/dfgs/bit/incr</rate_limit>
+			<rate_limit sense="decr">1000</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/dfgs/bit/active">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/dfgs/bit/timer gt 0
+				/systems/dfgs/bit/timer lt 1
+			</test>
+		</switch>
 	
 	</channel>
 	
