@@ -1766,7 +1766,7 @@
 	
 	</channel>
 	
-	<channel name="EPR Gauges" execrate="4">
+	<channel name="EPR Gauges" execrate="2">
 		
 		<!-- EPR Gauge 1 -->
 		<switch name="/instrumentation/epr[0]/power-avail">
@@ -1988,7 +1988,7 @@
 	
 	</channel>
 	
-	<channel name="N1/N2 Gauges" execrate="4"> <!-- They are power by the engine when he rotates -->
+	<channel name="N1/N2 Gauges" execrate="2"> <!-- They are power by the engine when he rotates -->
 		
 		<!-- N1/N2 Gauge 1 -->
 		<lag_filter name="/instrumentation/n[0]/n1">
@@ -2020,7 +2020,7 @@
 	
 	</channel>
 	
-	<channel name="EGT Gauges" execrate="4">
+	<channel name="EGT Gauges" execrate="2">
 		
 		<!-- EGT Gauge 1 -->
 		<switch name="/instrumentation/egt[0]/power-avail">
@@ -2087,7 +2087,7 @@
 	
 	</channel>
 	
-	<channel name="FF Gauges" execrate="4"> <!-- TODO: Fuel used should continue where left off when regained power? -->
+	<channel name="FF Gauges" execrate="2"> <!-- TODO: Fuel used should continue where left off when regained power? -->
 		
 		<!-- FF Gauge 1 -->
 		<switch name="/instrumentation/ff[0]/power-avail">
@@ -2183,7 +2183,7 @@
 	
 	</channel>
 	
-	<channel name="Oil Pressure Gauges" execrate="4">
+	<channel name="Oil Pressure Gauges" execrate="2">
 		
 		<!-- Oil Pressure Gauge 1 -->
 		<switch name="/instrumentation/op[0]/power-avail">
@@ -2229,7 +2229,7 @@
 	
 	</channel>
 	
-	<channel name="Oil Temperature Gauges" execrate="4">
+	<channel name="Oil Temperature Gauges" execrate="2">
 		
 		<!-- Oil Temperature Gauge 1 -->
 		<switch name="/instrumentation/ot[0]/power-avail">
@@ -2275,7 +2275,7 @@
 	
 	</channel>
 	
-	<channel name="Oil Quantity Gauges" execrate="4">
+	<channel name="Oil Quantity Gauges" execrate="2">
 		
 		<!-- Oil Quantity Gauge 1 -->
 		<switch name="/instrumentation/oq[0]/power-avail">
@@ -2321,7 +2321,7 @@
 	
 	</channel>
 	
-	<channel name="Flap and Slat Gauge" execrate="4">
+	<channel name="Flap and Slat Gauge" execrate="2">
 		
 		<switch name="/instrumentation/flap-slat/power-avail-l">
 			<default value="0"/>
@@ -2389,7 +2389,7 @@
 	
 	</channel>
 	
-	<channel name="Hydraulic Gauges" execrate="4">
+	<channel name="Hydraulic Gauges" execrate="2">
 		
 		<!-- Left Hydraulic Pressure Gauge -->
 		<switch name="/instrumentation/hyd-press/power-avail-l">
@@ -2477,7 +2477,7 @@
 	
 	</channel>
 	
-	<channel name="TRI and Assumed Temp" execrate="4">
+	<channel name="TRI and Assumed Temp" execrate="2">
 		
 		<!-- TRI -->
 		<switch name="/instrumentation/tri/rat-cmd">
@@ -2712,7 +2712,7 @@
 	
 	</channel>
 	
-	<channel name="Radios" execrate="4">
+	<channel name="Radios" execrate="2">
 		
 		<!-- COMM -->
 		<pure_gain name="/instrumentation/comm[0]/frequencies/selected-mhz-fmt-x100">
@@ -2758,7 +2758,7 @@
 	
 	</channel>
 	
-	<channel name="Pneumatic System Gauges" execrate="4">
+	<channel name="Pneumatic System Gauges" execrate="2">
 		
 		<switch name="/instrumentation/air-press-l/power-avail">
 			<default value="0"/>
