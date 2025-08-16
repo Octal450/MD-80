@@ -1284,7 +1284,7 @@
 			<major-rotate type="int">50000</major-rotate>
 			<minor-rotate type="int">50000</minor-rotate>
 			<serviceable type="bool">true</serviceable>
-			<volume type="double">0</volume>
+			<volume type="double">0.1</volume>
 		</comm>
 		<comm n="1">
 			<frequencies n="0">
