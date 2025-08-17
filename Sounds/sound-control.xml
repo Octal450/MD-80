@@ -1017,5 +1017,28 @@
 			<property>/sim/sound/enginep/MDB_CMB_1</property>
 		</output>
 	</filter>
+	
+	<filter>
+		<type>noise-spike</type>
+		<input>
+			<expression>
+				<min>
+					<sum>
+						<product>
+							<property>/systems/pneumatics/pack-l-flow</property>
+							<value>0.06</value>
+						</product>
+						<product>
+							<property>/systems/pneumatics/pack-r-flow</property>
+							<value>0.06</value>
+						</product>
+					</sum>
+					<value>0.85</value>
+				</min>
+			</expression> 
+		</input>
+		<output>/sim/sound/packs</output>
+		<max-rate-of-change>0.5</max-rate-of-change>
+	</filter>
 
 </PropertyList>

@@ -212,7 +212,7 @@
 		
 		<!-- AVIONICS -->
 		
-		<!--MDAMB>
+		<MDAMB>
 			<name>MD PACKS</name>
 			<mode>looped</mode>
 			<path>Aircraft/MD-80/Sounds/Cockpit/packs.wav</path>
@@ -222,7 +222,7 @@
 			<volume>
 				<property>/sim/sound/packs</property>
 			</volume>
-		</MDAMB-->
+		</MDAMB>
 		
 		<MDAMB>
 			<name>MD AVONICS FAN</name>
