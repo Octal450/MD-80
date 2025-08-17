@@ -448,6 +448,16 @@ setlistener("/systems/fcs/flaps/input", func() {
 	}, 0.4);
 }, 0, 0);
 
+setlistener("/controls/flight/speedbrake-arm", func() {
+	if (pts.Sim.Sound.speedbrakeArmClick.getBoolValue()) {
+		return;
+	}
+	pts.Sim.Sound.speedbrakeArmClick.setBoolValue(1);
+	settimer(func() {
+		pts.Sim.Sound.speedbrakeArmClick.setBoolValue(0);
+	}, 0.4);
+}, 0, 0);
+
 setlistener("/controls/switches/seatbelt-sign-status", func() {
 	if (pts.Sim.Sound.seatbeltSign.getBoolValue()) {
 		return;

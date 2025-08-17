@@ -172,11 +172,20 @@
 		</misc>
 		
 		<switch>
-			<name>Flaps Lever</name>
+			<name>Flaps CLick</name>
 			<mode>once</mode>
 			<path>Aircraft/MD-80/Sounds/SASA/flaps-click.wav</path>
 			<condition>
 				<property>/sim/sound/flaps-click</property>
+			</condition>
+		</switch>
+		
+		<switch>
+			<name>Speedbrake Arm Click</name>
+			<mode>once</mode>
+			<path>Aircraft/MD-80/Sounds/SASA/flaps-click.wav</path>
+			<condition>
+				<property>/sim/sound/speedbrake-arm-click</property>
 			</condition>
 		</switch>
 		

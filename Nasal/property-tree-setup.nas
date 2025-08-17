@@ -205,6 +205,7 @@ var Sim = {
 		noSmokingSign: props.globals.initNode("/sim/sound/no-smoking-sign", 0, "BOOL"),
 		noSmokingSignInhibit: props.globals.initNode("/sim/sound/no-smoking-sign-inhibit", 0, "BOOL"),
 		seatbeltSign: props.globals.initNode("/sim/sound/seatbelt-sign", 0, "BOOL"),
+		speedbrakeArmClick: props.globals.initNode("/sim/sound/speedbrake-arm-click", 0, "BOOL"),
 		switch1: props.globals.initNode("/sim/sound/switch1", 0, "BOOL"),
 	},
 	Time: {
