@@ -755,10 +755,10 @@
 		<object-name>Clear</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu_ht9100.unit[0].alphaNumKey("CLR");</script>
+				<script>mcdu_ht9100.unit[0].clearKey("down");</script>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -770,6 +770,10 @@
 				<value>1</value>
 			</binding>
 			<mod-up>
+				<binding>
+					<command>nasal</command>
+					<script>mcdu_ht9100.unit[0].clearKey("up");</script>
+				</binding>
 				<binding>
 					<command>property-assign</command>
 					<property>controls/cockpit/mcdu[0]/clear</property>
@@ -795,7 +799,7 @@
 		<object-name>Slash</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("/");</script>
@@ -1037,7 +1041,7 @@
 		<object-name>A</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("A");</script>
@@ -1077,7 +1081,7 @@
 		<object-name>B</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("B");</script>
@@ -1117,7 +1121,7 @@
 		<object-name>C</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("C");</script>
@@ -1157,7 +1161,7 @@
 		<object-name>D</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("D");</script>
@@ -1197,7 +1201,7 @@
 		<object-name>E</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("E");</script>
@@ -1237,7 +1241,7 @@
 		<object-name>F</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("F");</script>
@@ -1277,7 +1281,7 @@
 		<object-name>G</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("G");</script>
@@ -1317,7 +1321,7 @@
 		<object-name>H</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("H");</script>
@@ -1357,7 +1361,7 @@
 		<object-name>I</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("I");</script>
@@ -1397,7 +1401,7 @@
 		<object-name>J</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("J");</script>
@@ -1437,7 +1441,7 @@
 		<object-name>K</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("K");</script>
@@ -1477,7 +1481,7 @@
 		<object-name>L</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("L");</script>
@@ -1517,7 +1521,7 @@
 		<object-name>M</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("M");</script>
@@ -1557,7 +1561,7 @@
 		<object-name>N</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("N");</script>
@@ -1597,7 +1601,7 @@
 		<object-name>O</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("O");</script>
@@ -1637,7 +1641,7 @@
 		<object-name>P</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("P");</script>
@@ -1677,7 +1681,7 @@
 		<object-name>Q</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("Q");</script>
@@ -1717,7 +1721,7 @@
 		<object-name>R</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("R");</script>
@@ -1757,7 +1761,7 @@
 		<object-name>S</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("S");</script>
@@ -1797,7 +1801,7 @@
 		<object-name>T</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("T");</script>
@@ -1837,7 +1841,7 @@
 		<object-name>U</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("U");</script>
@@ -1877,7 +1881,7 @@
 		<object-name>V</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("V");</script>
@@ -1917,7 +1921,7 @@
 		<object-name>W</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("W");</script>
@@ -1957,7 +1961,7 @@
 		<object-name>X</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("X");</script>
@@ -1997,7 +2001,7 @@
 		<object-name>Y</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("Y");</script>
@@ -2037,7 +2041,7 @@
 		<object-name>Z</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("Z");</script>
@@ -2077,7 +2081,7 @@
 		<object-name>Space</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey(" ");</script>
@@ -2117,7 +2121,7 @@
 		<object-name>Clear</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("CLR");</script>
@@ -2157,7 +2161,7 @@
 		<object-name>1</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("1");</script>
@@ -2197,7 +2201,7 @@
 		<object-name>2</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("2");</script>
@@ -2237,7 +2241,7 @@
 		<object-name>3</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("3");</script>
@@ -2277,7 +2281,7 @@
 		<object-name>4</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("4");</script>
@@ -2317,7 +2321,7 @@
 		<object-name>5</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("5");</script>
@@ -2357,7 +2361,7 @@
 		<object-name>6</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("6");</script>
@@ -2397,7 +2401,7 @@
 		<object-name>7</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("7");</script>
@@ -2437,7 +2441,7 @@
 		<object-name>8</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("8");</script>
@@ -2477,7 +2481,7 @@
 		<object-name>9</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("9");</script>
@@ -2517,7 +2521,7 @@
 		<object-name>Point</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey(".");</script>
@@ -2557,7 +2561,7 @@
 		<object-name>0</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("0");</script>
@@ -2597,7 +2601,7 @@
 		<object-name>PlusMinus</object-name>
 		<action>
 			<button>0</button>
-			<repeatable>true</repeatable>
+			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
 				<script>mcdu_ht9100.unit[0].alphaNumKey("+/-");</script>

@@ -7,7 +7,13 @@ var MCDU = {
 	new: func(n, ps) {
 		var m = {parents: [MCDU]};
 		
+		m.clearTimer = {
+			active: 0,
+			time: -5,
+		};
+		
 		m.delete = 0;
+		m.elapsedSec = 0;
 		m.exec = 0;
 		m.id = n;
 		m.lastFmcPage = "none";
@@ -47,9 +53,19 @@ var MCDU = {
 		me.scratchpadSize = 0;
 	},
 	loop: func() {
+		me.elapsedSec = pts.Sim.Time.elapsedSec.getValue();
+		
 		if (me.powerSource.getValue() < 24) {
 			if (me.page != me.PageList.ident) {
 				me.page = me.PageList.ident;
+			}
+		}
+		
+		if (me.clearTimer.active) {
+			if (me.clearTimer.time < me.elapsedSec) {
+				me.clearTimer.active = 0;
+				me.clearTimer.time = -5;
+				me.alphaNumKey("LONGCLR");
 			}
 		}
 		
@@ -60,7 +76,11 @@ var MCDU = {
 			return;
 		}
 		
-		if (k == "CLR") {
+		if (k == "LONGCLR") { # Clear everything
+			me.clear = 0;
+			me.clearMessage(0);
+			me.scratchpad = "";
+		} else if (k == "CLR") {
 			if (me.message.size() > 0) { # Clear message
 				me.delete = 0;
 				me.clearMessage(0);
@@ -92,6 +112,16 @@ var MCDU = {
 			if (size(me.scratchpad) < 24) {
 				me.scratchpad = me.scratchpad ~ k;
 			}
+		}
+	},
+	clearKey: func(dir) {
+		if (dir == "up") {
+			me.clearTimer.active = 0;
+			me.clearTimer.time = -5;
+		} else if (dir == "down") {
+			me.clearTimer.active = 1;
+			me.clearTimer.time = pts.Sim.Time.elapsedSec.getValue() + 1.9;
+			me.alphaNumKey("CLR");
 		}
 	},
 	clearMessage: func(a) {
