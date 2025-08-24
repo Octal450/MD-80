@@ -172,7 +172,7 @@
 		</misc>
 		
 		<switch>
-			<name>Flaps CLick</name>
+			<name>Flaps Click</name>
 			<mode>once</mode>
 			<path>Aircraft/MD-80/Sounds/SASA/flaps-click.wav</path>
 			<condition>
@@ -189,7 +189,7 @@
 			</condition>
 		</switch>
 		
-		<switch>
+		<!--switch>
 			<name>Flaps Motor</name>
 			<mode>in-transit</mode>
 			<path>Aircraft/MD-80/Sounds/SASA/flaps-motor.wav</path>
@@ -198,7 +198,7 @@
 				<property>/sim/sound/internal-custom</property>
 				<factor>0.5</factor>
 			</volume>
-		</switch>
+		</switch-->
 		
 		<switch>
 			<name>Gear</name>
