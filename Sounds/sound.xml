@@ -737,9 +737,6 @@
 			</pitch>
 			<orientation>
 				<x>-1</x>
-				<inner-angle>40</inner-angle>
-				<outer-angle>180</outer-angle>
-				<outer-gain>0.7</outer-gain>
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
@@ -769,9 +766,6 @@
 			</pitch>
 			<orientation>
 				<x>-1</x>
-				<inner-angle>40</inner-angle>
-				<outer-angle>180</outer-angle>
-				<outer-gain>0.7</outer-gain>
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
@@ -800,9 +794,6 @@
 			</pitch>
 			<orientation>
 				<x>-1</x>
-				<inner-angle>25</inner-angle>
-				<outer-angle>99</outer-angle>
-				<outer-gain>0</outer-gain>
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
@@ -882,9 +873,6 @@
 			</pitch>
 			<orientation>
 				<x>-1</x>
-				<inner-angle>40</inner-angle>
-				<outer-angle>180</outer-angle>
-				<outer-gain>0.7</outer-gain>
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
@@ -914,9 +902,6 @@
 			</pitch>
 			<orientation>
 				<x>-1</x>
-				<inner-angle>40</inner-angle>
-				<outer-angle>180</outer-angle>
-				<outer-gain>0.7</outer-gain>
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
@@ -945,9 +930,6 @@
 			</pitch>
 			<orientation>
 				<x>-1</x>
-				<inner-angle>25</inner-angle>
-				<outer-angle>99</outer-angle>
-				<outer-gain>0</outer-gain>
 			</orientation>
 			<reference-dist>100</reference-dist>
 			<position>
