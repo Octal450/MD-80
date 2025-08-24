@@ -173,96 +173,41 @@
 	<!-- Wind -->
 	<filter>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
+			<condition>
+				<property>/sim/sound/internal-custom</property>
+			</condition>
 			<expression>
-				<product>
-					<table>
-						<property>/sim/current-view/z-offset-m</property>
-						<entry><ind>-5</ind> <dep>0</dep></entry>
-						<entry><ind>-6</ind> <dep>1</dep></entry>
-					</table>
-					<property>/sim/sound/internal-custom</property>
-				</product>
-			</expression>
+				<table>
+					<property>/velocities/airspeed-kt</property>
+					<entry><ind>100</ind><dep>0.0</dep></entry>
+					<entry><ind>198</ind><dep>0.1</dep></entry>
+					<entry><ind>250</ind><dep>0.5</dep></entry>
+				</table>
+			</expression> 
 		</input>
-		<output>/sim/sound/ambience/wind-f-z</output>
+		<input>0</input>
+		<output>/sim/sound/wind-v</output>
 	</filter>
 	
 	<filter>
 		<type>gain</type>
-		<gain>1</gain>
+		<gain>1.0</gain>
 		<input>
+			<condition>
+				<property>/sim/sound/internal-custom</property>
+			</condition>
 			<expression>
-				<product>
-					<table>
-						<property>/velocities/groundspeed-kt</property>
-						<entry><ind> 30</ind> <dep>0.0</dep></entry>
-						<entry><ind>200</ind> <dep>0.7</dep></entry>
-						<entry><ind>350</ind> <dep>2.0</dep></entry>
-						<entry><ind>500</ind> <dep>5.0</dep></entry>
-					</table>
-					<property>/sim/sound/internal-custom</property>
-				</product>
-			</expression>
+				<table>
+					<property>/velocities/airspeed-kt</property>
+					<entry><ind>150</ind><dep>0.5</dep></entry>
+					<entry><ind>250</ind><dep>1.0</dep></entry>
+				</table>
+			</expression> 
 		</input>
-		<output>/sim/sound/ambience/wind-f-s</output>
-	</filter>
-	
-	<filter>
-		<type>gain</type>
-		<gain>1</gain>
-		<input>
-			<expression>
-				<product>
-					<table>
-						<property>/sim/current-view/z-offset-m</property>
-						<entry><ind>-15</ind><dep>0</dep></entry>
-						<entry><ind>-12</ind><dep>1</dep></entry>
-					</table>
-					<property>/sim/sound/internal-custom</property>
-				</product>
-			</expression>
-		</input>
-		<output>/sim/sound/ambience/wind-b-z</output>
-	</filter>
-	
-	<filter>
-		<type>gain</type>
-		<gain>1</gain>
-		<input>
-			<expression>
-				<product>
-					<table>
-						<property>/velocities/groundspeed-kt</property>
-						<entry><ind> 20</ind><dep>0.0</dep></entry>
-						<entry><ind>200</ind><dep>0.2</dep></entry>
-						<entry><ind>350</ind><dep>0.4</dep></entry>
-						<entry><ind>500</ind><dep>0.5</dep></entry>
-					</table>
-					<property>/sim/sound/internal-custom</property>
-				</product>
-			</expression>
-		</input>
-		<output>/sim/sound/ambience/wind-b-s</output>
-	</filter>
-	
-	<filter>
-		<type>gain</type>
-		<gain>1</gain>
-		<input>
-			<expression>
-				<product>
-					<table>
-						<property>/sim/current-view/z-offset-m</property>
-						<entry><ind> 3</ind><dep>0.1</dep></entry>
-						<entry><ind>30</ind><dep>1.0</dep></entry>
-					</table>
-					<property>/sim/sound/internal-custom</property>
-				</product>
-			</expression>
-		</input>
-		<output>/sim/sound/misc/buzz-z</output>
+		<input>0</input>
+		<output>/sim/sound/wind-p</output>
 	</filter>
 	
 	<!-- Engines -->

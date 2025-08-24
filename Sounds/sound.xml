@@ -195,7 +195,7 @@
 			<path>Aircraft/MD-80/Sounds/SASA/flaps-motor.wav</path>
 			<property>/fdm/jsbsim/fcs/flap-pos-deg</property>
 			<volume>
-				<property>/sim/sound/ambience/wind-b-z</property>
+				<property>/sim/sound/internal-custom</property>
 				<factor>0.5</factor>
 			</volume>
 		</switch>
@@ -255,57 +255,28 @@
 			</volume>
 		</MDAMB>
 		
-		<!-- CABIN NOISE -->
-		
-		<MDAMB>
-			<name>MD NOISE</name>
-			<path>Aircraft/MD-80/Sounds/SASA/cabin-fans.wav</path>
-			<mode>looped</mode>
-			<property>/sim/sound/internal-custom</property>
-			<volume>
-				<property>/sim/sound/ambience/wind-b-z</property>
-				<factor>0.15</factor>
-			</volume>
-		</MDAMB>
-		
-		<MDAMB>
-			<name>MD PASSENGERS</name>
-			<path>Aircraft/MD-80/Sounds/SASA/passenger-voices.wav</path>
-			<mode>looped</mode>
-			<property>/sim/sound/internal-custom</property>
-			<volume>
-				<property>/sim/sound/ambience/wind-b-z</property>
-				<factor>0.02</factor>
-			</volume>
-		</MDAMB>
-		
 		<!-- WIND -->
 		
 		<MDAMB>
 			<name>MD WIND C</name>
 			<path>Aircraft/MD-80/Sounds/SASA/wind-cockpit.wav</path>
 			<mode>looped</mode>
-			<property>/sim/sound/internal-custom</property>
+			<condition>
+				<property>/sim/sound/internal-custom</property>
+			</condition>
 			<volume>
-				<property>/sim/sound/ambience/wind-f-z</property>
+				<property>/sim/sound/wind</property>
 			</volume>
-			<volume>
-				<property>/sim/sound/ambience/wind-f-s</property>
-			</volume>
+			<pitch>
+				<property>/sim/sound/wind-p</property>
+			</pitch>
 		</MDAMB>
 		
-		<MDAMB>
+		<!--MDAMB>
 			<name>MD WIND B</name>
 			<path>Aircraft/MD-80/Sounds/SASA/wind-cabin.wav</path>
 			<mode>looped</mode>
-			<property>/sim/sound/internal-custom</property>
-			<volume>
-				<property>/sim/sound/ambience/wind-b-z</property>
-			</volume>
-			<volume>
-				<property>/sim/sound/ambience/wind-b-s</property>
-			</volume>
-		</MDAMB>
+		</MDAMB-->
 		
 		<!-- ENGINE 1 IDLE -->
 		<MDB_WHN>
