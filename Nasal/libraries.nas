@@ -109,10 +109,12 @@ var setPanelConfig = func() {
 	if (!pts.Systems.Acconfig.Options.efis.getBoolValue()) {
 		pts.Systems.Acconfig.Options.dualCueFd.setBoolValue(0);
 		pts.Systems.Acconfig.Options.edpSdp.setBoolValue(0);
-		pts.Systems.Acconfig.Options.nav.setBoolValue(0);
 		pts.Sim.Gui.Dialogs.AcconfigMain.ht9100.setBoolValue(1);
 		pts.Sim.Gui.Dialogs.AcconfigMain.afms.setBoolValue(0);
-		fms_ht9100.CORE.init();
+		if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
+			pts.Systems.Acconfig.Options.nav.setValue(0);
+			fms_ht9100.CORE.init();
+		}
 	}
 }
 
