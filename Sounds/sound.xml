@@ -239,7 +239,7 @@
 			</pitch>
 		</MDAMB>
 		
-		<MDAMB>
+		<!--MDAMB>
 			<name>MD AVONICS</name>
 			<path>Aircraft/MD-80/Sounds/SASA/avionics-rattle.wav</path>
 			<mode>looped</mode>
@@ -253,7 +253,7 @@
 				<property>/sim/sound/internal-custom</property>
 				<factor>0.8</factor>
 			</volume>
-		</MDAMB>
+		</MDAMB-->
 		
 		<!-- WIND -->
 		
