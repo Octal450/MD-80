@@ -13,14 +13,6 @@
 	</filter>
 	
 	<filter>
-		<name>A/THR Mach Lag</name>
-		<type>exponential</type>
-		<input>/instrumentation/airspeed-indicator/indicated-mach</input>
-		<output>/it-autoflight/internal/athr-mach-input-lag</output>
-		<filter-time>0.04</filter-time>
-	</filter>
-	
-	<filter>
 		<name>A/THR Knots Input Gain</name>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -31,7 +23,7 @@
 				<max>
 					<property>/systems/dfgs/speeds/vmin</property>
 					<difference>
-						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						<property>/it-autoflight/internal/athr-kts-input-lag</property>
 						<value>25</value>
 					</difference>
 				</max>
@@ -42,7 +34,7 @@
 				<min>
 					<property>/systems/dfgs/speeds/vmax</property>
 					<sum>
-						<property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+						<property>/it-autoflight/internal/athr-kts-input-lag</property>
 						<value>25</value>
 					</sum>
 				</min>
@@ -87,6 +79,14 @@
 	</filter>
 	
 	<filter>
+		<name>A/THR Mach Lag</name>
+		<type>exponential</type>
+		<input>/instrumentation/airspeed-indicator/indicated-mach</input>
+		<output>/it-autoflight/internal/athr-mach-input-lag</output>
+		<filter-time>0.04</filter-time>
+	</filter>
+	
+	<filter>
 		<name>A/THR Mach Input Gain</name>
 		<type>gain</type>
 		<gain>1.0</gain>
@@ -97,7 +97,7 @@
 				<max>
 					<property>/systems/dfgs/speeds/vmin-mach</property>
 					<difference>
-						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+						<property>/it-autoflight/internal/athr-mach-input-lag</property>
 						<value>0.045</value>
 					</difference>
 				</max>
@@ -108,7 +108,7 @@
 				<min>
 					<property>/systems/dfgs/speeds/vmax-mach</property>
 					<sum>
-						<property>/instrumentation/airspeed-indicator/indicated-mach</property>
+						<property>/it-autoflight/internal/athr-mach-input-lag</property>
 						<value>0.045</value>
 					</sum>
 				</min>
