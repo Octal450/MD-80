@@ -24,6 +24,8 @@ var MCDU = {
 			fallback: Fallback.new(n),
 			ident: Ident.new(n),
 			menu: Menu.new(n),
+			nearestAirports: NearestAirports.new(n),
+			nearestIndex: NearestIndex.new(n),
 			perfInit: PerfInit.new(n),
 			posRef: PosRef.new(n),
 			rte: Rte.new(n),

@@ -195,6 +195,8 @@ var DataIndex = {
 			unit[me.id].setPage("posRef");
 		} else if (k == "l6") {
 			unit[me.id].setPage("ident");
+		} else if (k == "r3") {
+			unit[me.id].setPage("nearestIndex");
 		}
 	},
 };
