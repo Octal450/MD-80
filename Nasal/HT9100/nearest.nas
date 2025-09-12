@@ -121,7 +121,7 @@ var NearestAirports = {
 			C6L: "",
 			C6: "",
 			
-			LColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
+			LColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.green],
 			LFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			L1L: "",
 			L1: "",
@@ -134,7 +134,7 @@ var NearestAirports = {
 			L5L: "",
 			L5: "",
 			L6L: "",
-			L6: "",
+			L6: "<NEAREST INDEX",
 			
 			LBColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white],
 			LBFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
@@ -231,68 +231,43 @@ var NearestAirports = {
 			if (size(me.Value.airports) >= 1) {
 				me.Display.L1 = me.Value.airports[0].id;
 				me.Value.cdVector[0] = courseAndDistance(me.Value.airports[0]);
-				me.Display.C1 = sprintf("%03.0fg/%-4d", math.round(me.Value.cdVector[0][0] - me.Value.magVar), math.round(me.Value.cdVector[0][1]));
+				me.Display.C1 = sprintf("%03.0fg/%4.0fNM", math.round(me.Value.cdVector[0][0] - me.Value.magVar), math.round(me.Value.cdVector[0][1]));
 			}
 			
 			if (size(me.Value.airports) >= 2) {
 				me.Display.L2 = me.Value.airports[1].id;
 				me.Value.cdVector[1] = courseAndDistance(me.Value.airports[1]);
-				me.Display.C2 = sprintf("%03.0fg/%-4d", math.round(me.Value.cdVector[1][0] - me.Value.magVar), math.round(me.Value.cdVector[1][1]));
+				me.Display.C2 = sprintf("%03.0fg/%4.0fNM", math.round(me.Value.cdVector[1][0] - me.Value.magVar), math.round(me.Value.cdVector[1][1]));
 			}
 			
 			if (size(me.Value.airports) >= 3) {
 				me.Display.L3 = me.Value.airports[2].id;
 				me.Value.cdVector[2] = courseAndDistance(me.Value.airports[2]);
-				me.Display.C3 = sprintf("%03.0fg/%-4d", math.round(me.Value.cdVector[2][0] - me.Value.magVar), math.round(me.Value.cdVector[2][1]));
+				me.Display.C3 = sprintf("%03.0fg/%4.0fNM", math.round(me.Value.cdVector[2][0] - me.Value.magVar), math.round(me.Value.cdVector[2][1]));
 			}
 			
 			if (size(me.Value.airports) >= 4) {
 				me.Display.L4 = me.Value.airports[3].id;
 				me.Value.cdVector[3] = courseAndDistance(me.Value.airports[3]);
-				me.Display.C4 = sprintf("%-03.0fg/%-4d", math.round(me.Value.cdVector[3][0] - me.Value.magVar), math.round(me.Value.cdVector[3][1]));
+				me.Display.C4 = sprintf("%03.0fg/%4.0fNM", math.round(me.Value.cdVector[3][0] - me.Value.magVar), math.round(me.Value.cdVector[3][1]));
 			}
 			
 			if (size(me.Value.airports) >= 4) {
 				me.Display.L4 = me.Value.airports[3].id;
 				me.Value.cdVector[3] = courseAndDistance(me.Value.airports[3]);
-				me.Display.C4 = sprintf("%-03.0fg/%-4d", math.round(me.Value.cdVector[3][0] - me.Value.magVar), math.round(me.Value.cdVector[3][1]));
+				me.Display.C4 = sprintf("%03.0fg/%4.0fNM", math.round(me.Value.cdVector[3][0] - me.Value.magVar), math.round(me.Value.cdVector[3][1]));
 			}
 			
 			if (size(me.Value.airports) >= 5) {
 				me.Display.L5 = me.Value.airports[4].id;
 				me.Value.cdVector[4] = courseAndDistance(me.Value.airports[4]);
-				me.Display.C5 = sprintf("%-03.0fg/%-4d", math.round(me.Value.cdVector[4][0] - me.Value.magVar), math.round(me.Value.cdVector[4][1]));
+				me.Display.C5 = sprintf("%03.0fg/%4.0fNM", math.round(me.Value.cdVector[4][0] - me.Value.magVar), math.round(me.Value.cdVector[4][1]));
 			}
 		}
 	},
 	softKey: func(k) {
-		me.scratchpad = unit[me.id].scratchpad;
-		me.scratchpadState = unit[me.id].scratchpadState();
-		
-		if (k == "l5") {
-			if (me.scratchpadState == 2) {
-				if (unit[me.id].stringLengthInRange(3, 4)) {
-					if (size(findAirportsByICAO(me.scratchpad)) > 0) {
-						me.Value.customAirport = findAirportsByICAO(me.scratchpad)[0];
-						unit[me.id].scratchpadClear();
-					} else {
-						unit[me.id].setMessage("NOT IN DATA BASE");
-					}
-				} else {
-					unit[me.id].setMessage("FORMAT ERROR");
-				}
-			} else if (me.scratchpadState == 0) {
-				if (me.Value.customAirport != nil) {
-					me.Value.customAirport = nil;
-					unit[me.id].scratchpadClear();
-				} else {
-					unit[me.id].setMessage("NOT ALLOWED");
-				}
-			} else {
-				unit[me.id].setMessage("NOT ALLOWED");
-			}
-		} else {
-			unit[me.id].setMessage("NOT ALLOWED");
+		if (k == "l6") {
+			unit[me.id].setPage("nearestIndex");
 		}
 	},
 };
