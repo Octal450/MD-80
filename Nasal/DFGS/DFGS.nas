@@ -934,7 +934,11 @@ var ITAF = {
 		if (Output.latTemp == 0 or (Output.latTemp == 2 and !pts.Instrumentation.Nav.navLoc[Input.activeAp.getValue() - 1].getBoolValue())) {
 			Internal.bankLimit.setValue(Internal.bankLimitMax[Input.bankLimitSwTemp]);
 		} else if (Output.latTemp == 1) {
-			Internal.bankLimit.setValue(Internal.bankLimitAuto.getValue());
+			if (pts.Systems.Acconfig.Options.nav.getValue() == 0) {
+				Internal.bankLimit.setValue(math.min(Internal.bankLimitAuto.getValue(), 27));
+			} else {
+				Internal.bankLimit.setValue(math.min(Internal.bankLimitAuto.getValue(), 25));
+			}
 		} else {
 			Internal.bankLimit.setValue(30);
 		}
