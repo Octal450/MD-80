@@ -101,6 +101,7 @@ var ELECTRICAL = {
 		genL: props.globals.getNode("/controls/electrical/gen-l"),
 		genR: props.globals.getNode("/controls/electrical/gen-r"),
 		groundCart: props.globals.getNode("/controls/electrical/ground-cart"),
+		meters: props.globals.getNode("/controls/electrical/meters"),
 	},
 	Failures: {
 		acTie: props.globals.getNode("/systems/failures/electrical/ac-tie"),
@@ -134,6 +135,7 @@ var ELECTRICAL = {
 		me.Controls.genL.setValue(1);
 		me.Controls.genR.setValue(1);
 		me.Controls.groundCart.setBoolValue(0);
+		me.Controls.meters.setValue(2);
 		me.Source.Bat1.percent.setValue(99.9);
 		me.Source.Bat2.percent.setValue(99.9);
 	},

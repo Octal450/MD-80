@@ -2821,5 +2821,96 @@
 		</lag_filter>
 	
 	</channel>
+	
+	<channel name="Electrical Meters" execrate="2">
+		
+		<switch name="/instrumentation/elec-meters/ac-volt-input">
+			<default value="0"/>
+			<test value="/systems/electrical/sources/apu/output-volt">
+				/controls/electrical/meters eq 0
+			</test>
+			<test value="/systems/electrical/sources/ext/output-volt">
+				/controls/electrical/meters eq 1
+			</test>
+			<test value="/systems/electrical/sources/idg-l/output-volt">
+				/controls/electrical/meters eq 2
+			</test>
+			<test value="/systems/electrical/sources/idg-r/output-volt">
+				/controls/electrical/meters eq 3
+			</test>
+			<clipto>
+				<min>0</min>
+				<max>150</max>
+			</clipto>
+		</switch>
+		
+		<lag_filter name="/instrumentation/elec-meters/ac-volt">
+			<input>/instrumentation/elec-meters/ac-volt-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/elec-meters/ac-hertz-input">
+			<default value="0"/>
+			<test value="/systems/electrical/sources/apu/output-hertz">
+				/controls/electrical/meters eq 0
+			</test>
+			<test value="/systems/electrical/sources/ext/output-hertz">
+				/controls/electrical/meters eq 1
+			</test>
+			<test value="/systems/electrical/sources/idg-l/output-hertz">
+				/controls/electrical/meters eq 2
+			</test>
+			<test value="/systems/electrical/sources/idg-r/output-hertz">
+				/controls/electrical/meters eq 3
+			</test>
+			<clipto>
+				<min>369</min>
+				<max>431</max>
+			</clipto>
+		</switch>
+		
+		<lag_filter name="/instrumentation/elec-meters/ac-hertz">
+			<input>/instrumentation/elec-meters/ac-hertz-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<fcs_function name="/instrumentation/elec-meters/dc-bat-amp-converted"> <!-- Average amperage and cut in half as the scale is doubled for amperage -->
+			<function>
+				<product>
+					<avg>
+						<property>/systems/electrical/sources/bat-1/amp</property>
+						<property>/systems/electrical/sources/bat-2/amp</property>
+					</avg>
+					<value>0.5</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<switch name="/instrumentation/elec-meters/dc-volt-amp-input">
+			<default value="0"/>
+			<test value="/systems/electrical/bus/dc-l">
+				/controls/electrical/meters eq 2
+			</test>
+			<test value="/systems/electrical/bus/dc-r">
+				/controls/electrical/meters eq 3
+			</test>
+			<test value="/systems/electrical/bus/dc-bat-direct">
+				/controls/electrical/meters eq 4
+			</test>
+			<test value="/instrumentation/elec-meters/dc-bat-amp-converted">
+				/controls/electrical/meters eq 5
+			</test>
+			<clipto>
+				<min>-50</min>
+				<max> 50</max>
+			</clipto>
+		</switch>
+		
+		<lag_filter name="/instrumentation/elec-meters/dc-volt-amp">
+			<input>/instrumentation/elec-meters/dc-volt-amp-input</input>
+			<c1>10</c1>
+		</lag_filter>
+	
+	</channel>
 
 </system>

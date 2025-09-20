@@ -19,14 +19,15 @@
 	
 	<animation>
 		<type>material</type>
+		<object-name>AcFreqNeedle</object-name>
 		<object-name>AcLoadApuNeedle</object-name>
 		<object-name>AcLoadLNeedle</object-name>
-		<object-name>AcLoadRNeedle</object-name>
 		<object-name>AcLoadRNeedle</object-name>
 		<object-name>AirPressLNeedle</object-name>
 		<object-name>AirPressRNeedle</object-name>
 		<object-name>AirValveLNeedle</object-name>
 		<object-name>AirValveRNeedle</object-name>
+		<object-name>AcVoltNeedle</object-name>
 		<object-name>ApuEgtNeedle</object-name>
 		<object-name>ApuRpmNeedle</object-name>
 		<object-name>ApuRpmNeedle2</object-name>
@@ -34,10 +35,11 @@
 		<object-name>DcLoadLNeedleR</object-name>
 		<object-name>DcLoadRNeedleL</object-name>
 		<object-name>DcLoadRNeedleR</object-name>
+		<object-name>DcVoltAmpNeedle</object-name>
 		<object-name>Face</object-name>
-		<object-name>IntegrityAcDcVoltFreq</object-name>
 		<object-name>IntegrityCadc</object-name>
 		<object-name>IntegrityEfisSel</object-name>
+		<object-name>IntegrityElecMeters</object-name>
 		<object-name>IntegrityEngSync</object-name>
 		<object-name>IntegrityFdCmd</object-name>
 		<object-name>IntegrityFlood</object-name>
@@ -45,6 +47,7 @@
 		<object-name>IntegrityIrs2</object-name>
 		<object-name>IntegrityMeterSelHeat</object-name>
 		<object-name>IntegrityPanel</object-name>
+		<object-name>IntegrityTempSel</object-name>
 		<object-name>IntegrityVertGyro</object-name>
 		<object-name>IntegrityWiper</object-name>
 		<object-name>Labels</object-name>
@@ -598,6 +601,110 @@
 			<x-m>0</x-m>
 			<y-m>-0.12689</y-m>
 			<z-m>-0.11577</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>ElecMeters</object-name>
+		<property>controls/cockpit/overhead/elec-meters</property>
+		<drag-scale-px>15</drag-scale-px>
+		<interpolation>
+			<entry><ind>0</ind><dep>-120</dep></entry>
+			<entry><ind>5</ind><dep> 120</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.06442</y-m>
+			<z-m>-0.07022</z-m>
+		</center>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/electrical/meters</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>5</max>
+				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.knb1();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AcVoltNeedle</object-name>
+		<property>instrumentation/elec-meters/ac-volt</property>
+		<interpolation>
+			<entry><ind>  0</ind><dep>-40.8</dep></entry>
+			<entry><ind> 25</ind><dep>-35.3</dep></entry>
+			<entry><ind> 50</ind><dep>-18.6</dep></entry>
+			<entry><ind> 75</ind><dep> -1.9</dep></entry>
+			<entry><ind>100</ind><dep> 14.7</dep></entry>
+			<entry><ind>125</ind><dep> 31.4</dep></entry>
+			<entry><ind>150</ind><dep> 48.0</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.0682</y-m>
+			<z-m>-0.01142</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AcFreqNeedle</object-name>
+		<property>instrumentation/elec-meters/ac-hertz</property>
+		<interpolation>
+			<entry><ind>369</ind><dep>-40</dep></entry>
+			<entry><ind>380</ind><dep>-26</dep></entry>
+			<entry><ind>400</ind><dep>  0</dep></entry>
+			<entry><ind>420</ind><dep> 26</dep></entry>
+			<entry><ind>431</ind><dep> 40</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.00562</y-m>
+			<z-m>-0.01142</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>DcVoltAmpNeedle</object-name>
+		<property>instrumentation/elec-meters/dc-volt-amp</property>
+		<interpolation> <!-- Double input for amps -->
+			<entry><ind>-50</ind><dep>-40</dep></entry>
+			<entry><ind>  0</ind><dep>  0</dep></entry>
+			<entry><ind> 50</ind><dep> 40</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.00562</y-m>
+			<z-m>-0.07059</z-m>
 		</center>
 	</animation>
 	

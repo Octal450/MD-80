@@ -518,6 +518,11 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/overhead/elec-meters">
+			<input>/controls/electrical/meters</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/overhead/emer-lt">
 			<input>/controls/lighting/emer-lt</input>
 			<c1>20</c1>

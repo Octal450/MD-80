@@ -113,7 +113,7 @@
 		
 		<switch name="/systems/electrical/sources/bat-1/amp">
 			<default value="0"/>
-			<test logic="AND" value="2">
+			<test logic="AND" value="50">
 				/controls/electrical/battery eq 1
 				/systems/electrical/sources/bat-1/volt ge 10
 			</test>
@@ -212,6 +212,14 @@
 				</table>
 			</function>
 		</fcs_function>
+		
+		<switch name="/systems/electrical/sources/bat-2/amp">
+			<default value="0"/>
+			<test logic="AND" value="50">
+				/controls/electrical/battery eq 1
+				/systems/electrical/sources/bat-2/volt ge 10
+			</test>
+		</switch>
 		
 		<!-- IDG Engine 1 -->
 		<pure_gain name="/systems/electrical/sources/idg-l/drive-rpm-input">
