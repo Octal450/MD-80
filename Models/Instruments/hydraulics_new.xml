@@ -20,7 +20,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>transHydSwitch</object-name>
-		<property>/controls/cockpit/hyd-trans</property>
+		<property>controls/cockpit/hyd-trans</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -47,7 +47,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/hydraulics/trans</property>
+				<property>controls/hydraulics/trans</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
@@ -61,7 +61,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>auxHydSwitch</object-name>
-		<property>/controls/cockpit/hyd-aux-pump</property>
+		<property>controls/cockpit/hyd-aux-pump</property>
 		<interpolation>
 			<entry><ind>-1</ind><dep>-30</dep></entry>
 			<entry><ind> 1</ind><dep> 30</dep></entry>
@@ -86,7 +86,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/hydraulics/aux-pump</property>
+				<property>controls/hydraulics/aux-pump</property>
 				<value>-1</value>
 				<value>0</value>
 				<value>1</value>
@@ -102,7 +102,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/hydraulics/aux-pump</property>
+				<property>controls/hydraulics/aux-pump</property>
 				<value>1</value>
 				<value>0</value>
 				<value>-1</value>
@@ -117,7 +117,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>eng1HydSwitch</object-name>
-		<property>/controls/cockpit/hyd-l-pump</property>
+		<property>controls/cockpit/hyd-l-pump</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>2</ind><dep> 30</dep></entry>
@@ -142,7 +142,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/hydraulics/l-pump</property>
+				<property>controls/hydraulics/l-pump</property>
 				<value>0</value>
 				<value>1</value>
 				<value>2</value>
@@ -154,7 +154,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/hydraulics/l-pump</property>
+				<property>controls/hydraulics/l-pump</property>
 				<value>2</value>
 				<value>1</value>
 				<value>0</value>
@@ -165,7 +165,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>eng2HydSwitch</object-name>
-		<property>/controls/cockpit/hyd-r-pump</property>
+		<property>controls/cockpit/hyd-r-pump</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>2</ind><dep> 30</dep></entry>
@@ -190,7 +190,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/hydraulics/r-pump</property>
+				<property>controls/hydraulics/r-pump</property>
 				<value>0</value>
 				<value>1</value>
 				<value>2</value>
@@ -202,7 +202,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>/controls/hydraulics/r-pump</property>
+				<property>controls/hydraulics/r-pump</property>
 				<value>2</value>
 				<value>1</value>
 				<value>0</value>
