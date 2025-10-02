@@ -424,7 +424,7 @@
 			</expression>
 		</input>
 		<output>/it-autoflight/internal/flch-kts-error-cmd</output>
-		<min>-1.5</min>
+		<min>-1.0</min>
 		<max>1.5</max>
 	</filter>
 	
