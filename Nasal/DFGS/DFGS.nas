@@ -113,8 +113,8 @@ var Input = {
 	athrTemp: 0,
 	bankLimitSw: props.globals.initNode("/it-autoflight/input/bank-limit-sw", 4, "INT"), # 30
 	bankLimitSwTemp: 0,
-	fd1: props.globals.initNode("/it-autoflight/input/fd1", 0, "BOOL"),
-	fd2: props.globals.initNode("/it-autoflight/input/fd2", 0, "BOOL"),
+	fd1: props.globals.initNode("/it-autoflight/input/fd1", 1, "BOOL"),
+	fd2: props.globals.initNode("/it-autoflight/input/fd2", 1, "BOOL"),
 	hdg: props.globals.initNode("/it-autoflight/input/hdg", 0, "INT"),
 	hdgCalc: 0,
 	kts: props.globals.initNode("/it-autoflight/input/kts", 250, "INT"),
@@ -186,9 +186,9 @@ var Output = {
 	athr: props.globals.initNode("/it-autoflight/output/athr", 0, "BOOL"),
 	athrTemp: 0,
 	fastSlow: props.globals.initNode("/it-autoflight/output/fast-slow", 0, "DOUBLE"),
-	fd1: props.globals.initNode("/it-autoflight/output/fd1", 0, "BOOL"),
+	fd1: props.globals.initNode("/it-autoflight/output/fd1", 1, "BOOL"),
 	fd1Temp: 0,
-	fd2: props.globals.initNode("/it-autoflight/output/fd2", 0, "BOOL"),
+	fd2: props.globals.initNode("/it-autoflight/output/fd2", 1, "BOOL"),
 	fd2Temp: 0,
 	gsArm: props.globals.initNode("/it-autoflight/output/gs-arm", 0, "BOOL"),
 	hdgInHld: props.globals.initNode("/it-autoflight/output/hdg-in-hld", 1, "BOOL"),
@@ -245,8 +245,8 @@ var ITAF = {
 		me.updateAutoLand(0);
 		Input.athr.setBoolValue(0);
 		if (t != 1) {
-			Input.fd1.setBoolValue(0);
-			Input.fd2.setBoolValue(0);
+			Input.fd1.setBoolValue(1);
+			Input.fd2.setBoolValue(1);
 		}
 		Input.vs.setValue(0);
 		Input.vsAbs.setValue(0);
@@ -260,8 +260,8 @@ var ITAF = {
 		Output.ap2.setBoolValue(0);
 		Output.athr.setBoolValue(0);
 		if (t != 1) {
-			Output.fd1.setBoolValue(0);
-			Output.fd2.setBoolValue(0);
+			Output.fd1.setBoolValue(1);
+			Output.fd2.setBoolValue(1);
 		}
 		Output.hdgInHld.setBoolValue(1);
 		Output.lnavArm.setBoolValue(0);

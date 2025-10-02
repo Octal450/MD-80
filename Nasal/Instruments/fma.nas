@@ -17,8 +17,10 @@ var Value = {
 	annunTest: 0,
 	apOn: 0,
 	atsOn: 0,
+	bit: 0,
 	blink: 0,
 	blinkActive: [0, 0, 0, 0],
+	blinkBit: 0,
 	fdOn: 0,
 	line2: ["", "", "", ""],
 };
@@ -45,8 +47,18 @@ var canvasBase = {
 	},
 	update: func() {
 		# Blink Generator - We use this because the FMA updates only ever quarter second, so we need to ensure it is in sync
+		# Main
 		if (Value.blink < 3) Value.blink = Value.blink + 1;
 		else Value.blink = 0;
+		
+		# BIT
+		Value.bit = dfgs.Main.bit.getBoolValue();
+		if (Value.bit) {
+			if (Value.blinkBit < 15) Value.blinkBit = Value.blinkBit + 1;
+			else Value.blinkBit = 0;
+		} else {
+			Value.blinkBit = 0;
+		}
 		
 		if (systems.ELECTRICAL.Outputs.fma[0].getValue() >= 24) {
 			fmaL.update();
@@ -70,7 +82,7 @@ var canvasBase = {
 		if (n == 0) Value.fdOn = dfgs.Output.fd1.getBoolValue();
 		if (n == 1) Value.fdOn = dfgs.Output.fd2.getBoolValue();
 		
-		if (dfgs.Main.bit.getBoolValue()) {
+		if (Value.bit) {
 			me["ThrLine1"].setText("DFGC");
 			me["ThrLine2"].setText("PWR");
 			me["ArmLine1"].setText("973");
@@ -80,10 +92,17 @@ var canvasBase = {
 			me["PitchLine1"].setText("BOX" ~ (n + 1));
 			me["PitchLine2"].setText("");
 			
-			me["Thr"].show();
-			me["Arm"].show();
-			me["Roll"].show();
-			me["Pitch"].show();
+			if (Value.blinkBit < 8) {
+				me["Thr"].show();
+				me["Arm"].show();
+				me["Roll"].show();
+				me["Pitch"].show();
+			} else {
+				me["Thr"].hide();
+				me["Arm"].hide();
+				me["Roll"].hide();
+				me["Pitch"].hide();
+			}
 		} else {
 			# Thrust
 			if (Value.atsOn or Value.activeModeInt == 5 or Value.annunTest) { # For showing flex digit

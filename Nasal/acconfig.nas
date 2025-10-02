@@ -342,8 +342,6 @@ var PANEL = {
 				systems.PNEUMATICS.Controls.bleedApu.setValue(1);
 				systems.PNEUMATICS.Controls.xBleedL.setBoolValue(1);
 				systems.PNEUMATICS.Controls.xBleedR.setBoolValue(1);
-				dfgs.Input.fd1.setBoolValue(1);
-				dfgs.Input.fd2.setBoolValue(1);
 				
 				settimer(func() {
 					if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
@@ -420,8 +418,6 @@ var PANEL = {
 				systems.PNEUMATICS.Controls.xBleedL.setBoolValue(0);
 				systems.PNEUMATICS.Controls.xBleedR.setBoolValue(0);
 				# XPDR TA/RA
-				dfgs.Input.fd1.setBoolValue(1);
-				dfgs.Input.fd2.setBoolValue(1);
 				
 				settimer(func() {
 					if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
