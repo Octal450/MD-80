@@ -71,12 +71,12 @@ var canvasBase = {
 		if (n == 1) Value.fdOn = dfgs.Output.fd2.getBoolValue();
 		
 		if (dfgs.Main.bit.getBoolValue()) {
-			me["ThrLine1"].setText("PWR");
-			me["ThrLine2"].setText("");
-			me["ArmLine1"].setText("UP");
-			me["ArmLine2"].setText("");
-			me["RollLine1"].setText("TST");
-			me["RollLine2"].setText("");
+			me["ThrLine1"].setText("DFGC");
+			me["ThrLine2"].setText("PWR");
+			me["ArmLine1"].setText("973");
+			me["ArmLine2"].setText("UP");
+			me["RollLine1"].setText("");
+			me["RollLine2"].setText("TST");
 			me["PitchLine1"].setText("BOX" ~ (n + 1));
 			me["PitchLine2"].setText("");
 			
