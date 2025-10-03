@@ -200,7 +200,7 @@
 	</filter>
 	
 	<filter>
-		<name>Knots Flch Sync</name>
+		<name>Knots Speed By Pitch Sync</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<enable>
@@ -231,7 +231,7 @@
 	</filter>
 	
 	<filter>
-		<name>Mach Flch Sync</name>
+		<name>Mach Speed By Pitch Sync</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<enable>
@@ -374,7 +374,7 @@
 	</filter>
 	
 	<filter>
-		<name>Flch Knots Rate Command</name>
+		<name>Speed By Pitch Knots Rate Command</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
@@ -445,7 +445,7 @@
 	</filter>
 	
 	<filter>
-		<name>Flch Knots Rate Filter</name>
+		<name>Speed By Pitch Knots Rate Filter</name>
 		<type>noise-spike</type>
 		<feedback-if-disabled>true</feedback-if-disabled>
 		<initialize-to>output</initialize-to>
@@ -723,7 +723,7 @@
 	</filter>
 	
 	<filter>
-		<name>Mach Flch x1000</name>
+		<name>Mach Speed By Pitch x1000</name>
 		<type>gain</type>
 		<gain>1000</gain>
 		<input>/it-autoflight/input/mach-flch</input>
