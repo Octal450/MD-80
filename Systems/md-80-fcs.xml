@@ -412,8 +412,8 @@
 		</lag_filter>
 		
 		<pure_gain name="/systems/fcs/elevator-l/geared-tab-final-gain">
-			<input>-/systems/fcs/elevator-l/final-lag</input>
-			<gain>1.0</gain>
+			<input>/systems/fcs/elevator-l/final-lag</input>
+			<gain>-1.0</gain>
 			<output>/systems/fcs/elevator-l/geared-tab-final-deg</output>
 		</pure_gain>
 	
@@ -525,8 +525,8 @@
 		</lag_filter>
 		
 		<pure_gain name="/systems/fcs/elevator-r/geared-tab-final-gain">
-			<input>-/systems/fcs/elevator-r/final-lag</input>
-			<gain>1.0</gain>
+			<input>/systems/fcs/elevator-r/final-lag</input>
+			<gain>-1.0</gain>
 			<output>/systems/fcs/elevator-r/geared-tab-final-deg</output>
 		</pure_gain>
 	
