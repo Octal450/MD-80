@@ -16,13 +16,25 @@
 	
 	<channel name="Libraries">
 		
+		<switch name="/systems/dfgs/dfgs-1-power">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/dc-radio-l ge 24
+			</test>
+		</switch>
+		
+		<switch name="/systems/dfgs/dfgs-2-power">
+			<default value="0"/>
+			<test value="1">
+				/systems/electrical/bus/dc-radio-r ge 24
+			</test>
+		</switch>
+		
 		<switch name="/systems/dfgs/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
-				/systems/electrical/bus/ac-radio-l ge 112
-				/systems/electrical/bus/ac-radio-r ge 112
-				/systems/electrical/bus/dc-radio-l ge 24
-				/systems/electrical/bus/dc-radio-r ge 24
+				/systems/dfgs/dfgs-1-power eq 1
+				/systems/dfgs/dfgs-2-power eq 1
 			</test>
 		</switch>
 		
@@ -245,16 +257,16 @@
 		</fcs_function>
 		
 		<!-- Power Up Built In Test -->
-		<actuator name="/systems/dfgs/bit/power-timer">
-			<input>/systems/dfgs/power-avail</input>
+		<actuator name="/systems/dfgs/bit-1/power-timer">
+			<input>/systems/dfgs/dfgs-1-power</input>
 			<rate_limit sense="incr">100000</rate_limit>
 			<rate_limit sense="decr">0.5</rate_limit> <!-- 2 seconds -->
 		</actuator>
 		
-		<switch name="/systems/dfgs/bit/cmd">
-			<default value="/systems/dfgs/bit/cmd"/>
+		<switch name="/systems/dfgs/bit-1/cmd">
+			<default value="/systems/dfgs/bit-1/cmd"/>
 			<test logic="OR" value="0">
-				/systems/dfgs/bit/power-timer eq 0
+				/systems/dfgs/bit-1/power-timer eq 0
 				position/wow eq 0
 				/systems/dfgs/afs/enabled eq 1
 				/it-autoflight/output/athr eq 1
@@ -267,24 +279,67 @@
 			</test>
 		</switch>
 		
-		<switch name="/systems/dfgs/bit/incr">
+		<switch name="/systems/dfgs/bit-1/incr">
 			<default value="0.125"/> <!-- 8 seconds -->
 			<test value="0.5"> <!-- 2 seconds -->
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>
 		
-		<actuator name="/systems/dfgs/bit/timer">
-			<input>/systems/dfgs/bit/cmd</input>
-			<rate_limit sense="incr">/systems/dfgs/bit/incr</rate_limit>
+		<actuator name="/systems/dfgs/bit-1/timer">
+			<input>/systems/dfgs/bit-1/cmd</input>
+			<rate_limit sense="incr">/systems/dfgs/bit-1/incr</rate_limit>
 			<rate_limit sense="decr">1000</rate_limit>
 		</actuator>
 		
-		<switch name="/systems/dfgs/bit/active">
+		<switch name="/systems/dfgs/bit-1/active">
 			<default value="0"/>
 			<test logic="AND" value="1">
-				/systems/dfgs/bit/timer gt 0
-				/systems/dfgs/bit/timer lt 1
+				/systems/dfgs/bit-1/timer gt 0
+				/systems/dfgs/bit-1/timer lt 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/dfgs/bit-2/power-timer">
+			<input>/systems/dfgs/dfgs-2-power</input>
+			<rate_limit sense="incr">100000</rate_limit>
+			<rate_limit sense="decr">0.5</rate_limit> <!-- 2 seconds -->
+		</actuator>
+		
+		<switch name="/systems/dfgs/bit-2/cmd">
+			<default value="/systems/dfgs/bit-2/cmd"/>
+			<test logic="OR" value="0">
+				/systems/dfgs/bit-2/power-timer eq 0
+				position/wow eq 0
+				/systems/dfgs/afs/enabled eq 1
+				/it-autoflight/output/athr eq 1
+			</test>
+			<test logic="AND" value="1">
+				/systems/dfgs/nlg-timer-120/wow-timer eq 1
+				/engines/engine[0]/epr-actual lt 1.1
+				/engines/engine[1]/epr-actual lt 1.1
+				/instrumentation/airspeed-indicator/indicated-speed-kt lt 60
+			</test>
+		</switch>
+		
+		<switch name="/systems/dfgs/bit-2/incr">
+			<default value="0.125"/> <!-- 8 seconds -->
+			<test value="0.5"> <!-- 2 seconds -->
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/dfgs/bit-2/timer">
+			<input>/systems/dfgs/bit-2/cmd</input>
+			<rate_limit sense="incr">/systems/dfgs/bit-2/incr</rate_limit>
+			<rate_limit sense="decr">1000</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/dfgs/bit-2/active">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/dfgs/bit-2/timer gt 0
+				/systems/dfgs/bit-2/timer lt 1
 			</test>
 		</switch>
 	

@@ -77,10 +77,28 @@
 		<type>select</type>
 		<object-name>Digits.Fgcp</object-name>
 		<condition>
-			<not-equals>
-				<property>systems/dfgs/bit/active</property>
-				<value>1</value>
-			</not-equals>
+			<or>
+				<and>
+					<equals>
+						<property>/it-autoflight/input/active-ap</property>
+						<value>1</value>
+					</equals>
+					<not-equals>
+						<property>systems/dfgs/bit-1/active</property>
+						<value>1</value>
+					</not-equals>
+				</and>
+				<and>
+					<equals>
+						<property>/it-autoflight/input/active-ap</property>
+						<value>2</value>
+					</equals>
+					<not-equals>
+						<property>systems/dfgs/bit-2/active</property>
+						<value>1</value>
+					</not-equals>
+				</and>
+			</or>
 		</condition>
 	</animation>
 	<animation>

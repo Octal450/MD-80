@@ -9,8 +9,12 @@
 		<input>
 			<and>
 				<equals>
-					<property>/systems/dfgs/power-avail</property>
+					<property>/systems/dfgs/dfgs-1-power</property>
 					<value>1</value>
+				</equals>
+				<equals>
+					<property>/systems/dfgs/bit-1/active</property>
+					<value>0</value>
 				</equals>
 				<equals>
 					<property>/it-autoflight/input/active-ap</property>
@@ -33,8 +37,12 @@
 		<input>
 			<and>
 				<equals>
-					<property>/systems/dfgs/power-avail</property>
+					<property>/systems/dfgs/dfgs-2-power</property>
 					<value>1</value>
+				</equals>
+				<equals>
+					<property>/systems/dfgs/bit-2/active</property>
+					<value>0</value>
 				</equals>
 				<equals>
 					<property>/it-autoflight/input/active-ap</property>
@@ -56,10 +64,36 @@
 	<logic>
 		<input>
 			<and>
-				<equals>
-					<property>/systems/dfgs/power-avail</property>
-					<value>1</value>
-				</equals>
+				<or>
+					<and>
+						<equals>
+							<property>/systems/dfgs/dfgs-1-power</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/systems/dfgs/bit-1/active</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/input/active-ap</property>
+							<value>1</value>
+						</equals>
+					</and>
+					<and>
+						<equals>
+							<property>/systems/dfgs/dfgs-2-power</property>
+							<value>1</value>
+						</equals>
+						<equals>
+							<property>/systems/dfgs/bit-2/active</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>/it-autoflight/input/active-ap</property>
+							<value>2</value>
+						</equals>
+					</and>
+				</or>
 				<not-equals>
 					<property>systems/engines/limit/active-mode-int</property>
 					<value>-1</value>

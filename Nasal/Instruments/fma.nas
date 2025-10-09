@@ -17,10 +17,10 @@ var Value = {
 	annunTest: 0,
 	apOn: 0,
 	atsOn: 0,
-	bit: 0,
+	bit: [0, 0],
 	blink: 0,
 	blinkActive: [0, 0, 0, 0],
-	blinkBit: 0,
+	blinkBit: [0, 0],
 	fdOn: 0,
 	line2: ["", "", "", ""],
 };
@@ -52,12 +52,20 @@ var canvasBase = {
 		else Value.blink = 0;
 		
 		# BIT
-		Value.bit = dfgs.Main.bit.getBoolValue();
-		if (Value.bit) {
-			if (Value.blinkBit < 15) Value.blinkBit = Value.blinkBit + 1;
-			else Value.blinkBit = 0;
+		Value.bit[0] = dfgs.Main.bit1.getBoolValue();
+		if (Value.bit[0]) {
+			if (Value.blinkBit[0] < 15) Value.blinkBit[0] = Value.blinkBit[0] + 1;
+			else Value.blinkBit[0] = 0;
 		} else {
-			Value.blinkBit = 0;
+			Value.blinkBit[0] = 0;
+		}
+		
+		Value.bit[1] = dfgs.Main.bit2.getBoolValue();
+		if (Value.bit[1]) {
+			if (Value.blinkBit[1] < 15) Value.blinkBit[1] = Value.blinkBit[1] + 1;
+			else Value.blinkBit[1] = 0;
+		} else {
+			Value.blinkBit[1] = 0;
 		}
 		
 		if (systems.ELECTRICAL.Outputs.fma[0].getValue() >= 24) {
@@ -82,7 +90,7 @@ var canvasBase = {
 		if (n == 0) Value.fdOn = dfgs.Output.fd1.getBoolValue();
 		if (n == 1) Value.fdOn = dfgs.Output.fd2.getBoolValue();
 		
-		if (Value.bit) {
+		if (Value.bit[n]) {
 			me["ThrLine1"].setText("DFGC");
 			me["ThrLine2"].setText("PWR");
 			me["ArmLine1"].setText("973");
@@ -92,7 +100,7 @@ var canvasBase = {
 			me["PitchLine1"].setText("BOX" ~ (n + 1));
 			me["PitchLine2"].setText("");
 			
-			if (Value.blinkBit < 8) {
+			if (Value.blinkBit[n] < 8) {
 				me["Thr"].show();
 				me["Arm"].show();
 				me["Roll"].show();
