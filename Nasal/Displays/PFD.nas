@@ -19,6 +19,7 @@ var Value = {
 		stallAlphaDeg: 0,
 	},
 	Misc: {
+		dfgsBit: [0, 0],
 		lat: 0,
 	},
 	Nav: {
@@ -105,6 +106,8 @@ var canvasBase = {
 	},
 	updateBase: func(n) {
 		Value.Ai.dualCueFd = pts.Systems.Acconfig.Options.dualCueFd.getBoolValue();
+		if (n == 0) Value.Misc.dfgsBit[0] = dfgs.Main.bit1.getBoolValue();
+		if (n == 1) Value.Misc.dfgsBit[1] = dfgs.Main.bit2.getBoolValue();
 		if (n == 0) Value.Ai.fd[0] = dfgs.Output.fd1.getBoolValue();
 		if (n == 1) Value.Ai.fd[1] = dfgs.Output.fd2.getBoolValue();
 		Value.Misc.lat = dfgs.Output.lat.getValue();
@@ -112,7 +115,7 @@ var canvasBase = {
 		
 		# IRS
 		if (systems.PLATFORM.Unit.attAvail[n].getBoolValue()) {
-			if (Value.Ai.fd[n]) {
+			if (Value.Ai.fd[n] and !Value.Misc.dfgsBit[n]) {
 				if (Value.Ai.dualCueFd) {
 					me["FD_v"].hide();
 					
