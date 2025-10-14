@@ -6,7 +6,6 @@ var Main = {
 	artCover: props.globals.getNode("/controls/dfgs/covers/art"),
 	bit1: props.globals.getNode("/systems/dfgs/bit-1/active"),
 	bit2: props.globals.getNode("/systems/dfgs/bit-2/active"),
-	nlgWowTimer5: props.globals.getNode("/systems/dfgs/nlg-timer-5/wow-timer"),
 	nlgWowTimer20: props.globals.getNode("/systems/dfgs/nlg-timer-20/wow-timer"),
 	powerAvail: props.globals.getNode("/systems/dfgs/power-avail"),
 	powerAvailTemp: 0,

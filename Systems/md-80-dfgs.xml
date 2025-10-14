@@ -166,36 +166,6 @@
 			</test>
 		</switch>
 		
-		<fcs_function name="/systems/dfgs/nlg-timer-5/wow-timer-cmd">
-			<function>
-				<sum> <!-- Inverter, so that it is 1 at sim start -->
-					<product>
-						<property>gear/unit[0]/WOW</property>
-						<value>-1</value>
-					</product>
-					<value>1</value>
-				</sum>
-			</function>
-		</fcs_function>
-		
-		<actuator name="/systems/dfgs/nlg-timer-5/wow-timer-pos">
-			<input>/systems/dfgs/nlg-timer-5/wow-timer-cmd</input>
-			<rate_limit sense="incr">100000</rate_limit> <!-- Instant -->
-			<rate_limit sense="decr">0.2</rate_limit> <!-- 5 seconds -->
-		</actuator>
-		
-		<fcs_function name="/systems/dfgs/nlg-timer-5/wow-timer">
-			<function>
-				<sum> <!-- Inverter, so that it is 1 at sim start -->
-					<product>
-						<property>/systems/dfgs/nlg-timer-5/wow-timer-pos</property>
-						<value>-1</value>
-					</product>
-					<value>1</value>
-				</sum>
-			</function>
-		</fcs_function>
-		
 		<fcs_function name="/systems/dfgs/nlg-timer-20/wow-timer-cmd">
 			<function>
 				<sum> <!-- Inverter, so that it is 1 at sim start -->
