@@ -180,7 +180,7 @@
 		
 		<actuator name="/systems/dfgs/nlg-timer-5/wow-timer-pos">
 			<input>/systems/dfgs/nlg-timer-5/wow-timer-cmd</input>
-			<rate_limit sense="incr">1000</rate_limit>
+			<rate_limit sense="incr">100000</rate_limit> <!-- Instant -->
 			<rate_limit sense="decr">0.2</rate_limit> <!-- 5 seconds -->
 		</actuator>
 		
