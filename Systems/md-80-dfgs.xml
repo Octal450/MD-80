@@ -210,7 +210,7 @@
 		
 		<actuator name="/systems/dfgs/nlg-timer-20/wow-timer-pos">
 			<input>/systems/dfgs/nlg-timer-20/wow-timer-cmd</input>
-			<rate_limit sense="incr">1000</rate_limit>
+			<rate_limit sense="incr">100000</rate_limit> <!-- Instant -->
 			<rate_limit sense="decr">0.05</rate_limit> <!-- 20 seconds -->
 		</actuator>
 		
@@ -240,7 +240,7 @@
 		
 		<actuator name="/systems/dfgs/nlg-timer-120/wow-timer-pos">
 			<input>/systems/dfgs/nlg-timer-120/wow-timer-cmd</input>
-			<rate_limit sense="incr">1000</rate_limit>
+			<rate_limit sense="incr">100000</rate_limit> <!-- Instant -->
 			<rate_limit sense="decr">0.008333</rate_limit> <!-- 120 seconds -->
 		</actuator>
 		
@@ -259,7 +259,7 @@
 		<!-- Power Up Built In Test -->
 		<actuator name="/systems/dfgs/bit-1/power-timer">
 			<input>/systems/dfgs/dfgs-1-power</input>
-			<rate_limit sense="incr">100000</rate_limit>
+			<rate_limit sense="incr">100000</rate_limit> <!-- Instant -->
 			<rate_limit sense="decr">0.5</rate_limit> <!-- 2 seconds -->
 		</actuator>
 		
@@ -289,7 +289,7 @@
 		<actuator name="/systems/dfgs/bit-1/timer">
 			<input>/systems/dfgs/bit-1/cmd</input>
 			<rate_limit sense="incr">/systems/dfgs/bit-1/incr</rate_limit>
-			<rate_limit sense="decr">1000</rate_limit>
+			<rate_limit sense="decr">100000</rate_limit> <!-- Instant -->
 		</actuator>
 		
 		<switch name="/systems/dfgs/bit-1/active">
@@ -302,7 +302,7 @@
 		
 		<actuator name="/systems/dfgs/bit-2/power-timer">
 			<input>/systems/dfgs/dfgs-2-power</input>
-			<rate_limit sense="incr">100000</rate_limit>
+			<rate_limit sense="incr">100000</rate_limit> <!-- Instant -->
 			<rate_limit sense="decr">0.5</rate_limit> <!-- 2 seconds -->
 		</actuator>
 		
@@ -332,7 +332,7 @@
 		<actuator name="/systems/dfgs/bit-2/timer">
 			<input>/systems/dfgs/bit-2/cmd</input>
 			<rate_limit sense="incr">/systems/dfgs/bit-2/incr</rate_limit>
-			<rate_limit sense="decr">1000</rate_limit>
+			<rate_limit sense="decr">100000</rate_limit> <!-- Instant -->
 		</actuator>
 		
 		<switch name="/systems/dfgs/bit-2/active">
