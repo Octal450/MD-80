@@ -133,7 +133,7 @@
 		<actuator name="/systems/dfgs/atr/descend-timer">
 			<input>/systems/dfgs/atr/descend-switch</input>
 			<rate_limit sense="incr">0.2</rate_limit> <!-- 5 seconds -->
-			<rate_limit sense="decr">10000</rate_limit> <!-- Instant -->
+			<rate_limit sense="decr">100000</rate_limit> <!-- Instant -->
 		</actuator>
 		
 		<fcs_function name="/systems/dfgs/atr/go-around-buffer">
