@@ -5,7 +5,7 @@
 <PropertyList>
 	
 	<sim>
-		<author>Josh Davidson/Octal450 (Flight Dynamics, Systems, Instruments), Gary Neely/Buckaroo (3D, Textures, Instruments)</author>
+		<author>Josh Davidson/Octal450 (Flight Dynamics, Systems, Instruments), Gary Neely/Buckaroo (3D, Textures)</author>
 		<authors>
 			<author>
 				<name>Josh Davidson</name>
@@ -14,7 +14,7 @@
 			</author>
 			<author>
 				<name>Gary Neely</name>
-				<description>3D, Textures, Instruments</description>
+				<description>3D, Textures</description>
 				<nick>Buckaroo</nick>
 			</author>
 		</authors>
