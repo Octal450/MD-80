@@ -116,7 +116,10 @@ var canvasBase = {
 			if (Value.atsOn or Value.activeModeInt == 5 or Value.annunTest) { # For showing flex digit
 				Value.line2[0] = Modes.line2[0].getValue();
 				
-				if (Value.blinkActive[0] and Value.blink < 2) {
+				if (Value.annunTest) {
+					me["ThrLine1"].setText("####");
+					me["ThrLine2"].setText("####");
+				} else if (Value.blinkActive[0] and Value.blink < 2) {
 					me["ThrLine1"].setText("");
 					me["ThrLine2"].setText("");
 				} else {
@@ -144,7 +147,10 @@ var canvasBase = {
 				# Arm
 				Value.line2[1] = Modes.line2[1].getValue();
 				
-				if (Value.blinkActive[1] and Value.blink < 2) {
+				if (Value.annunTest) {
+					me["ArmLine1"].setText("###");
+					me["ArmLine2"].setText("###");
+				} else if (Value.blinkActive[1] and Value.blink < 2) {
 					me["ArmLine1"].setText("");
 					me["ArmLine2"].setText("");
 				} else {
@@ -167,7 +173,10 @@ var canvasBase = {
 				# Roll
 				Value.line2[2] = Modes.line2[2].getValue();
 				
-				if (Value.blinkActive[2] and Value.blink < 2) {
+				if (Value.annunTest) {
+					me["RollLine1"].setText("###");
+					me["RollLine2"].setText("###");
+				} else if (Value.blinkActive[2] and Value.blink < 2) {
 					me["RollLine1"].setText("");
 					me["RollLine2"].setText("");
 				} else {
@@ -178,7 +187,10 @@ var canvasBase = {
 				# Pitch
 				Value.line2[3] = Modes.line2[3].getValue();
 				
-				if (Value.blinkActive[3] and Value.blink < 2) {
+				if (Value.annunTest) {
+					me["PitchLine1"].setText("####");
+					me["PitchLine2"].setText("####");
+				} else if (Value.blinkActive[3] and Value.blink < 2) {
 					me["PitchLine1"].setText("");
 					me["PitchLine2"].setText("");
 				} else {
