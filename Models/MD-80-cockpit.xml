@@ -75,8 +75,7 @@
 	<animation>
 		<type>material</type>
 		<object-name>IntegrityABSSel</object-name>
-		<object-name>PedestalDrumText</object-name>
-		<object-name>PedestalABSText</object-name>
+		<object-name>PedestalText</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.6</green>
@@ -88,16 +87,14 @@
 	<effect>
 		<inherits-from>Effects/model-transparent</inherits-from>
 		<object-name>FuText</object-name>
-		<object-name>IntegrityABSSel</object-name>
-		<object-name>PedestalDrumText</object-name>
-		<object-name>PedestalABSText</object-name>
+		<object-name>PedestalText</object-name>
 		<object-name>SlatText</object-name>
 	</effect>
 	
 	<!-- Autopilot Disc -->
 	<animation>
 		<type>pick</type>
-		<object-name>apoff</object-name>
+		<object-name>APoffL</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -122,7 +119,7 @@
 	
 	<animation>
 		<type>translate</type>
-		<object-name>apoff</object-name>
+		<object-name>APoffL</object-name>
 		<property>controls/cockpit/ap-disc-1</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-0.001</dep></entry>
@@ -137,7 +134,7 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>apoff2</object-name>
+		<object-name>APoffR</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -162,7 +159,7 @@
 
 	<animation>
 		<type>translate</type>
-		<object-name>apoff2</object-name>
+		<object-name>APoffR</object-name>
 		<property>controls/cockpit/ap-disc-2</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-0.001</dep></entry>
@@ -508,8 +505,8 @@
 		<object-name>TogaL</object-name>
 		<property>controls/cockpit/throttle-lever[0]</property>
 		<interpolation>
-			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>55</dep></entry>
+			<entry><ind>0</ind><dep>-6</dep></entry>
+			<entry><ind>1</ind><dep>58</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>2.616</x-m>
@@ -533,7 +530,7 @@
 		<center>
 			<x-m>2.669</x-m>
 			<y-m>0</y-m>
-			<z-m>0.836</z-m>
+			<z-m>0.83573</z-m>
 		</center>
 		<axis>
 			<x>0</x>
@@ -565,8 +562,8 @@
 		<object-name>TogaR</object-name>
 		<property>controls/cockpit/throttle-lever[1]</property>
 		<interpolation>
-			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>55</dep></entry>
+			<entry><ind>0</ind><dep>-6</dep></entry>
+			<entry><ind>1</ind><dep>58</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>2.616</x-m>
@@ -590,7 +587,7 @@
 		<center>
 			<x-m>2.669</x-m>
 			<y-m>0</y-m>
-			<z-m>0.836</z-m>
+			<z-m>0.83573</z-m>
 		</center>
 		<axis>
 			<x>0</x>
@@ -602,8 +599,7 @@
 	<!-- Pitch Trim -->
     <animation>
         <type>pick</type>
-        <object-name>PitchTrim.dn</object-name>
-        <object-name>PitchTrim.dn.001</object-name>
+        <object-name>LongTrimHandleDn</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>true</repeatable>
@@ -684,8 +680,7 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>PitchTrim.up</object-name>
-        <object-name>PitchTrim.up.001</object-name>
+		<object-name>LongTrimHandleUp</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>true</repeatable>
@@ -766,9 +761,10 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>PitchTrim</object-name>
+		<object-name>LongTrimHandleDn</object-name>
+		<object-name>LongTrimHandleUp</object-name>
 		<property>controls/cockpit/elevator-trim-lever</property>
-		<factor>20</factor>  
+		<factor>19</factor>  
 		<center>
 			<x-m>2.616</x-m>
 			<y-m>0</y-m>
@@ -789,7 +785,7 @@
 		<drag-direction>vertical</drag-direction>
 		<drag-scale-px>30</drag-scale-px>
 		<interpolation>
-			<entry><ind>0</ind><dep>42</dep></entry>
+			<entry><ind>0</ind><dep>37</dep></entry>
 			<entry><ind>1</ind><dep> 0</dep></entry>
 		</interpolation>
 		<center>
@@ -821,7 +817,7 @@
 		<drag-direction>vertical</drag-direction>
 		<drag-scale-px>30</drag-scale-px>
 		<interpolation>
-			<entry><ind>0</ind><dep>42</dep></entry>
+			<entry><ind>0</ind><dep>37</dep></entry>
 			<entry><ind>1</ind><dep> 0</dep></entry>
 		</interpolation>
 		<center>
@@ -849,11 +845,11 @@
 	<!-- Fuel Crossfeed Lever -->
 	<animation>
 		<type>knob</type>
-		<object-name>XfeedLever</object-name>
+		<object-name>XFeedLever</object-name>
 		<property>controls/cockpit/x-feed-lever</property>
 		<drag-direction>vertical</drag-direction>
 		<drag-scale-px>30</drag-scale-px>
-		<factor>-45</factor>
+		<factor>-55</factor>
 		<center>
 			<x-m>2.608</x-m>
 			<y-m>0</y-m>
@@ -869,6 +865,37 @@
 				<command>property-adjust</command>
 				<property>controls/fuel/x-feed</property>
 				<factor>-1</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+
+	<!-- Rudder Power Lever -->
+	<animation>
+		<type>knob</type>
+		<object-name>RudderPowerLever</object-name>
+		<property>controls/cockpit/rudder-pwr</property>
+		<drag-direction>vertical</drag-direction>
+		<drag-scale-px>30</drag-scale-px>
+		<factor>53</factor>
+		<offset-deg>-53</offset-deg>
+		<center>
+			<x-m>2.608</x-m>
+			<y-m>0</y-m>
+			<z-m>0.630</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/fcs/rudder-pwr</property>
+				<factor>1</factor>
 				<min>0</min>
 				<max>1</max>
 				<wrap>false</wrap>
@@ -1060,15 +1087,12 @@
 		<object-name>ABSSel</object-name>
 		<property>controls/cockpit/abs-knob</property>
 		<drag-scale-px>15</drag-scale-px>
-		<interpolation>
-			<entry><ind>-1</ind><dep>120</dep></entry>
-			<entry><ind> 0</ind><dep> 75</dep></entry>
-			<entry><ind> 3</ind><dep>-75</dep></entry>
-		</interpolation>
+		<factor>-45</factor>
+		<offset-deg>67.5</offset-deg>
 		<center>
-			<x-m>3.05682</x-m>
+			<x-m>3.06425</x-m>
 			<y-m>0.12234</y-m>
-			<z-m>0.5519</z-m>
+			<z-m>0.54556</z-m>
 		</center>
 		<axis>
 			<x>0.259</x>
@@ -1194,7 +1218,7 @@
 		<type>rotate</type>
 		<object-name>YokeColL</object-name>
 		<object-name>YokeL</object-name>
-		<object-name>YokeL.001</object-name>
+		<object-name>YokeLClip</object-name>
 		<object-name>YokeTrimL</object-name>
 		<object-name>apoff</object-name>
 		<property>systems/fcs/elevator-yoke</property>
@@ -1234,7 +1258,7 @@
 		<type>rotate</type>
 		<object-name>YokeColR</object-name>
 		<object-name>YokeR</object-name>
-		<object-name>YokeR.001</object-name>
+		<object-name>YokeRClip</object-name>
 		<object-name>YokeTrimR</object-name>
 		<object-name>apoff2</object-name>
 		<property>systems/fcs/elevator-yoke</property>
@@ -1272,7 +1296,7 @@
 	
 	<animation>
 		<type>pick</type>
-		<object-name>GearHornCutout</object-name>
+		<object-name>GearHornCutoutBtn</object-name>
 		<action>
 			<button>0</button>
 			<repeatable>false</repeatable>
@@ -1298,16 +1322,16 @@
 	
 	<animation>
 		<type>translate</type>
-		<object-name>GearHornCutout</object-name>
+		<object-name>GearHornCutoutBtn</object-name>
 		<factor>0.002</factor>
 		<property>controls/warnings/gear-warning-inhibit-switch</property>
 		<axis>
-			<x1-m>2.70211</x1-m>
-			<y1-m>-0.03534</y1-m>
-			<z1-m>0.72424</z1-m>
-			<x2-m>2.69321</x2-m>
-			<y2-m>-0.03534</y2-m>
-			<z2-m>0.71469</z2-m>
+			<x1-m>2.70991</x1-m>
+			<y1-m>-0.03541</y1-m>
+			<z1-m>0.72371</z1-m>
+			<x2-m>2.70364</x2-m>
+			<y2-m>-0.03541</y2-m>
+			<z2-m>0.71698</z2-m>
 		</axis>
 	</animation>
 	

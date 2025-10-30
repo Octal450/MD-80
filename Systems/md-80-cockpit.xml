@@ -374,6 +374,11 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/rudder-pwr">
+			<input>/controls/fcs/rudder-pwr</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/spoilers-lever-rotate">
 			<input>/systems/fcs/spoilers/lever-cmd</input>
 			<c1>20</c1>

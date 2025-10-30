@@ -963,78 +963,12 @@
 	</model>
 	
 	<model>
-		<name>comm1</name>
-		<path>Aircraft/MD-80/Models/Instruments/comm1.xml</path>
-		<offsets>
-			<x-m>2.777</x-m>
-			<y-m>-0.074</y-m>
-			<z-m>0.658</z-m>
-			<pitch-deg>-75</pitch-deg>
-		</offsets>
-	</model>
-	
-	<model>
-		<name>comm2</name>
-		<path>Aircraft/MD-80/Models/Instruments/comm2.xml</path>
-		<offsets>
-			<x-m>2.777</x-m>
-			<y-m>0.074</y-m>
-			<z-m>0.658</z-m>
-			<pitch-deg>-75</pitch-deg>
-		</offsets>
-	</model>
-	
-	<!--model>
-		<name></name>
-		<path>Aircraft/MD-80/Models/Instruments/.xml</path>
-		<offsets>
-			<x-m>2.839</x-m>
-			<y-m>-0.074</y-m>
-			<z-m>0.641</z-m>
-			<pitch-deg>-75</pitch-deg>
-		</offsets>
-	</model>
-	
-	<model>
-		<name></name>
-		<path>Aircraft/MD-80/Models/Instruments/.xml</path>
-		<offsets>
-			<x-m>2.839</x-m>
-			<y-m>0.074</y-m>
-			<z-m>0.641</z-m>
-			<pitch-deg>-75</pitch-deg>
-		</offsets>
-	</model>
-	
-	<model>
-		<name></name>
-		<path>Aircraft/MD-80/Models/Instruments/.xml</path>
-		<offsets>
-			<x-m>2.901</x-m>
-			<y-m>-0.074</y-m>
-			<z-m>0.624</z-m>
-			<pitch-deg>-75</pitch-deg>
-		</offsets>
-	</model>
-	
-	<model>
-		<name></name>
-		<path>Aircraft/MD-80/Models/Instruments/.xml</path>
-			<offsets>
-			<x-m>2.901</x-m>
-			<y-m>0.074</y-m>
-			<z-m>0.624</z-m>
-			<pitch-deg>-75</pitch-deg>
-		</offsets>
-	</model-->
-	
-	<model>
 		<name>lighting_panel_P</name>
 		<path>Aircraft/MD-80/Models/Instruments/pedestal_lighting.xml</path>
 		<offsets>
-			<x-m>2.988</x-m>
-			<y-m>-0.074</y-m>
-			<z-m>0.600</z-m>
+			<x-m>2.98869</x-m>
+			<y-m>-0.07192</y-m>
+			<z-m>0.5993</z-m>
 			<pitch-deg>-75</pitch-deg>
 		</offsets>
 	</model>
