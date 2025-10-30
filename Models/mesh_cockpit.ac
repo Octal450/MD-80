@@ -8,7 +8,7 @@ name "ABSArm"
 loc 3.46007 1.39097 -0.166643
 data 18
 fcu_panel.mesh.018
-texture "Instruments/buttons.png"
+texture "buttons.png"
 crease 45.000000
 numvert 81
 -0.437016 -0.833056 0.0540329
