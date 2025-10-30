@@ -3765,7 +3765,7 @@ name "ARTSwitch"
 loc 1.15712 0.115991 -0.0821825
 data 18
 fcu_panel.mesh.018
-texture "Instruments/buttons.png"
+texture "buttons.png"
 crease 45.000000
 numvert 81
 -0.940659 0.0111853 0.0540329
@@ -8844,7 +8844,7 @@ name "FuelUsedReset2"
 loc 2.4228 0.431697 -0.0899475
 data 18
 fcu_panel.mesh.018
-texture "Instruments/buttons.png"
+texture "buttons.png"
 crease 45.000000
 numvert 81
 -0.925437 0.0143597 0.0557027
@@ -51942,7 +51942,7 @@ name "FuelUsedReset"
 loc 2.39204 0.576905 -0.184907
 data 18
 fcu_panel.mesh.018
-texture "Instruments/buttons.png"
+texture "buttons.png"
 crease 45.000000
 numvert 81
 -0.940659 0.0111853 0.0540329
