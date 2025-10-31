@@ -548,6 +548,7 @@
 			<default value="0"/>
 			<test logic="OR" value="/systems/fcs/stabilizer/rate-switch">
 				/systems/electrical/bus/emer-ac ge 112
+				/controls/fcs/stab-cutout eq 0
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 		</switch>

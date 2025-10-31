@@ -171,17 +171,17 @@
 		<object-name>FlapLever</object-name>
 		<property>controls/cockpit/flaps-lever-rotate</property>
 		<interpolation>
-			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>22</dep></entry>
-			<entry><ind>2</ind><dep>34</dep></entry>
-			<entry><ind>3</ind><dep>40</dep></entry>
-			<entry><ind>4</ind><dep>54</dep></entry>
-			<entry><ind>5</ind><dep>66</dep></entry>
+			<entry><ind>0</ind><dep> 0.0</dep></entry>
+			<entry><ind>1</ind><dep>21.5</dep></entry>
+			<entry><ind>2</ind><dep>30.5</dep></entry>
+			<entry><ind>3</ind><dep>35.5</dep></entry>
+			<entry><ind>4</ind><dep>47.5</dep></entry>
+			<entry><ind>5</ind><dep>54.0</dep></entry>
 		</interpolation>
 		<center>
-			<x-m>2.616</x-m>
+			<x-m>2.62</x-m>
 			<y-m>0</y-m>
-			<z-m>0.654</z-m>
+			<z-m>0.63</z-m>
 		</center>
 		<axis>
 			<x>0</x>
@@ -196,12 +196,12 @@
 		<property>controls/cockpit/flaps-lever-translate</property>
 		<factor>0.01</factor>
 		<axis>
-			<x1-m>2.56535</x1-m>
-			<y1-m>0</y1-m>
-			<z1-m>0.71202</z1-m>
-			<x2-m>2.53992</x2-m>
-			<y2-m>0</y2-m>
-			<z2-m>0.74234</z2-m>
+			<x1-m>2.58059</x1-m>
+			<y1-m>0.14529</y1-m>
+			<z1-m>0.72085</z1-m>
+			<x2-m>2.56513</x2-m>
+			<y2-m>0.14529</y2-m>
+			<z2-m>0.75728</z2-m>
 		</axis>
 	</animation>
 	
@@ -264,13 +264,13 @@
 		<object-name>TogaL</object-name>
 		<property>controls/cockpit/throttle-lever[0]</property>
 		<interpolation>
-			<entry><ind>0</ind><dep>-6</dep></entry>
-			<entry><ind>1</ind><dep>58</dep></entry>
+			<entry><ind>0</ind><dep>-5.3</dep></entry>
+			<entry><ind>1</ind><dep>47.5</dep></entry>
 		</interpolation>
 		<center>
-			<x-m>2.616</x-m>
+			<x-m>2.62</x-m>
 			<y-m>0</y-m>
-			<z-m>0.654</z-m>
+			<z-m>0.63</z-m>
 		</center>
 		<axis>
 			<x>0</x>
@@ -321,13 +321,13 @@
 		<object-name>TogaR</object-name>
 		<property>controls/cockpit/throttle-lever[1]</property>
 		<interpolation>
-			<entry><ind>0</ind><dep>-6</dep></entry>
-			<entry><ind>1</ind><dep>58</dep></entry>
+			<entry><ind>0</ind><dep>-5.3</dep></entry>
+			<entry><ind>1</ind><dep>47.5</dep></entry>
 		</interpolation>
 		<center>
-			<x-m>2.616</x-m>
+			<x-m>2.62</x-m>
 			<y-m>0</y-m>
-			<z-m>0.654</z-m>
+			<z-m>0.63</z-m>
 		</center>
 		<axis>
 			<x>0</x>
@@ -691,11 +691,11 @@
 		<object-name>LongTrimHandleDn</object-name>
 		<object-name>LongTrimHandleUp</object-name>
 		<property>controls/cockpit/elevator-trim-lever</property>
-		<factor>19</factor>  
+		<factor>15</factor>  
 		<center>
-			<x-m>2.616</x-m>
+			<x-m>2.62</x-m>
 			<y-m>0</y-m>
-			<z-m>0.654</z-m>
+			<z-m>0.63</z-m>
 		</center>
 		<axis>
 			<x>0.0</x>
@@ -870,14 +870,14 @@
 		<object-name>SpdBrakeLever</object-name>
 		<property>controls/cockpit/spoilers-lever-rotate</property>
 		<interpolation>
-			<entry><ind>0</ind><dep> 20</dep></entry>
-			<entry><ind>1</ind><dep>-13</dep></entry>
-			<entry><ind>4</ind><dep>-29</dep></entry>
+			<entry><ind>0</ind><dep>  0.5</dep></entry>
+			<entry><ind>1</ind><dep>-26.5</dep></entry>
+			<entry><ind>4</ind><dep>-40.5</dep></entry>
 		</interpolation>
 		<center>
-			<x-m>2.608</x-m>
+			<x-m>2.62</x-m>
 			<y-m>0</y-m>
-			<z-m>0.630</z-m>
+			<z-m>0.63</z-m>
 		</center>
 		<axis>
 			<x>0</x>
@@ -892,9 +892,12 @@
 		<property>controls/cockpit/spoilers-lever-translate</property>
 		<factor>0.02</factor>
 		<axis>
-			<x>0</x>
-			<y>0</y>
-			<z>1</z>
+			<x1-m>2.62148</x1-m>
+			<y1-m>-0.07183</y1-m>
+			<z1-m>0.71478</z1-m>
+			<x2-m>2.61124</x2-m>
+			<y2-m>-0.07183</y2-m>
+			<z2-m>0.75956</z2-m>
 		</axis>
 	</animation>
 	
@@ -1770,6 +1773,97 @@
 			<y2-m>0</y2-m>
 			<z2-m>0.58798</z2-m>
 		</axis>
+	</animation>
+	
+	<!-- Stabilizer Cutout -->
+	<animation>
+		<type>knob</type>
+		<object-name>StabCutoutCover</object-name>
+		<property>controls/cockpit/stab-cutout-cover</property>
+		<drag-direction>vertical</drag-direction>
+		<drag-scale-px>15</drag-scale-px>
+		<factor>-100</factor>
+		<center>
+			<x-m>3.02637</x-m>
+			<y-m>0</y-m>
+			<z-m>0.53409</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<increase>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/fcs/covers/stab-cutout</property>
+				<value>1</value>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<condition>
+					<property>controls/fcs/stab-cutout</property>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/fcs/stab-cutout</property>
+				<value>0</value>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/fcs/covers/stab-cutout</property>
+				<value>0</value>
+			</binding>
+		</decrease>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>StabCutout</object-name>
+		<property>controls/cockpit/stab-cutout</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 30</dep></entry>
+			<entry><ind>1</ind><dep>-30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>3.03472</x-m>
+			<y-m>0</y-m>
+			<z-m>0.51843</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>StabCutout</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<condition>
+					<property>controls/fcs/covers/stab-cutout</property>
+				</condition>
+				<command>property-toggle</command>
+				<property>controls/fcs/stab-cutout</property>
+			</binding>
+			<binding>
+				<condition>
+					<property>controls/fcs/covers/stab-cutout</property>
+				</condition>
+				<command>nasal</command>
+				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
 	</animation>
 
 </PropertyList>

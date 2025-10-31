@@ -399,6 +399,16 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/stab-cutout">
+			<input>/controls/fcs/stab-cutout</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/stab-cutout-cover">
+			<input>/controls/fcs/covers/stab-cutout</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/throttle-lever[0]">
 			<input>/systems/engines/control-1/throttle-pos</input>
 			<c1>20</c1>

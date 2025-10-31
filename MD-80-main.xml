@@ -607,8 +607,12 @@
 			<fu-reset type="bool">0</fu-reset>
 		</engines>
 		<fcs n="0">
+			<covers n="0">
+				<stab-cutout type="bool">0</stab-cutout>
+			</covers>
 			<mach-trim type="bool">1</mach-trim>
 			<rudder-pwr type="bool">1</rudder-pwr>
+			<stab-cutout type="bool">0</stab-cutout>
 			<yaw-damper type="int">1</yaw-damper>
 		</fcs>
 		<flight n="0">

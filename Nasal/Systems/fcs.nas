@@ -8,7 +8,11 @@ var FCS = {
 	Controls: {
 		machTrim: props.globals.getNode("/controls/fcs/mach-trim"),
 		rudderPwr: props.globals.getNode("/controls/fcs/rudder-pwr"),
+		stabCutout: props.globals.getNode("/controls/fcs/stab-cutout"),
 		yawDamper: props.globals.getNode("/controls/fcs/yaw-damper"),
+	},
+	Covers: {
+		stabCutout: props.globals.getNode("/controls/fcs/covers/stab-cutout"),
 	},
 	Failures: {
 		elevatorPwr: props.globals.getNode("/systems/failures/fcs/elevator-pwr"),
@@ -19,7 +23,9 @@ var FCS = {
 		me.resetFailures();
 		me.Controls.machTrim.setBoolValue(1);
 		me.Controls.rudderPwr.setBoolValue(1);
+		me.Controls.stabCutout.setBoolValue(0);
 		me.Controls.yawDamper.setValue(1);
+		me.Covers.stabCutout.setBoolValue(0);
 	},
 	resetFailures: func() {
 		me.Failures.elevatorPwr.setBoolValue(0);
