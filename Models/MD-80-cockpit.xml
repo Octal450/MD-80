@@ -93,249 +93,6 @@
 		<object-name>SlatText</object-name>
 	</effect>
 	
-	<!-- Autopilot Disc -->
-	<animation>
-		<type>pick</type>
-		<object-name>APoffL</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>cockpit.ApPanel.apDisc();</script>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/cockpit/ap-disc-1</property>
-				<value>1</value>
-			</binding>
-			<mod-up>
-				<binding>
-					<command>property-assign</command>
-					<property>controls/cockpit/ap-disc-1</property>
-					<value>0</value>
-				</binding>
-			</mod-up>
-		</action>
-	</animation>
-	
-	<animation>
-		<type>translate</type>
-		<object-name>APoffL</object-name>
-		<property>controls/cockpit/ap-disc-1</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>-0.001</dep></entry>
-			<entry><ind>1</ind><dep> 0.001</dep></entry>
-		</interpolation>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>pick</type>
-		<object-name>APoffR</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>cockpit.ApPanel.apDisc();</script>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/cockpit/ap-disc-2</property>
-				<value>1</value>
-			</binding>
-			<mod-up>
-				<binding>
-				<command>property-assign</command>
-					<property>controls/cockpit/ap-disc-2</property>
-					<value>0</value>
-				</binding>
-			</mod-up>
-		</action>
-	</animation>
-
-	<animation>
-		<type>translate</type>
-		<object-name>APoffR</object-name>
-		<property>controls/cockpit/ap-disc-2</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>-0.001</dep></entry>
-			<entry><ind>1</ind><dep> 0.001</dep></entry>
-		</interpolation>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<!-- ATS Disc -->
-	<animation>
-		<type>pick</type>
-		<object-name>AToffL</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>cockpit.ApPanel.atDisc();</script>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/cockpit/at-disc-1</property>
-				<value>1</value>
-			</binding>
-			<mod-up>
-				<binding>
-					<command>property-assign</command>
-					<property>controls/cockpit/at-disc-1</property>
-					<value>0</value>
-				</binding>
-			</mod-up>
-		</action>
-	</animation>
-
-	<animation>
-		<type>translate</type>
-		<object-name>AToffL</object-name>
-		<property>controls/cockpit/at-disc-1</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0.000</dep></entry>
-			<entry><ind>1</ind><dep>0.002</dep></entry>
-		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<type>pick</type>
-		<object-name>AToffR</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>cockpit.ApPanel.atDisc();</script>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/cockpit/at-disc-2</property>
-				<value>1</value>
-			</binding>
-			<mod-up>
-				<binding>
-					<command>property-assign</command>
-					<property>controls/cockpit/at-disc-2</property>
-					<value>0</value>
-				</binding>
-			</mod-up>
-		</action>
-	</animation>
-
-	<animation>
-		<type>translate</type>
-		<object-name>AToffR</object-name>
-		<property>controls/cockpit/at-disc-2</property>
-		<interpolation>
-			<entry><ind>0</ind><dep> 0.000</dep></entry>
-			<entry><ind>1</ind><dep>-0.002</dep></entry>
-		</interpolation>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<!-- TOGA buttons -->
-	<animation>
-		<type>pick</type>
-		<object-name>TogaL</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>cockpit.ApPanel.toga();</script>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/cockpit/toga-1</property>
-				<value>1</value>
-			</binding>
-			<mod-up>
-				<binding>
-					<command>property-assign</command>
-					<property>controls/cockpit/toga-1</property>
-					<value>0</value>
-				</binding>
-			</mod-up>
-		</action>
-	</animation>
-
-	<animation>
-		<type>translate</type>
-		<object-name>TogaL</object-name>
-		<property>controls/cockpit/toga-1</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0.000</dep></entry>
-			<entry><ind>1</ind><dep>0.002</dep></entry>
-		</interpolation>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
-	<animation>
-		<type>pick</type>
-		<object-name>TogaR</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>false</repeatable>
-			<binding>
-				<command>nasal</command>
-				<script>cockpit.ApPanel.toga();</script>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/cockpit/toga-2</property>
-				<value>1</value>
-			</binding>
-			<mod-up>
-				<binding>
-					<command>property-assign</command>
-					<property>controls/cockpit/toga-2</property>
-					<value>0</value>
-				</binding>
-			</mod-up>
-		</action>
-	</animation>
-
-	<animation>
-		<type>translate</type>
-		<object-name>TogaR</object-name>
-		<property>controls/cockpit/toga-2</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>0.000</dep></entry>
-			<entry><ind>1</ind><dep>0.002</dep></entry>
-		</interpolation>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-	</animation>
-	
 	<!-- Panel glows -->
 	<animation>
 		<type>material</type>
@@ -595,6 +352,174 @@
 			<x>0</x>
 			<y>1</y>
 			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- ATS Disc -->
+	<animation>
+		<type>pick</type>
+		<object-name>AToffL</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>cockpit.ApPanel.atDisc();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/at-disc-1</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/at-disc-1</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>AToffL</object-name>
+		<property>controls/cockpit/at-disc-1</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0.000</dep></entry>
+			<entry><ind>1</ind><dep>0.002</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+	<animation>
+		<type>pick</type>
+		<object-name>AToffR</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>cockpit.ApPanel.atDisc();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/at-disc-2</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/at-disc-2</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>AToffR</object-name>
+		<property>controls/cockpit/at-disc-2</property>
+		<interpolation>
+			<entry><ind>0</ind><dep> 0.000</dep></entry>
+			<entry><ind>1</ind><dep>-0.002</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- TOGA buttons -->
+	<animation>
+		<type>pick</type>
+		<object-name>TogaL</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>cockpit.ApPanel.toga();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/toga-1</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/toga-1</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>TogaL</object-name>
+		<property>controls/cockpit/toga-1</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0.000</dep></entry>
+			<entry><ind>1</ind><dep>0.002</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>2.68088</x1-m>
+			<y1-m>0.03041</y1-m>
+			<z1-m>0.7948</z1-m>
+			<x2-m>2.67407</x2-m>
+			<y2-m>0.03041</y2-m>
+			<z2-m>0.7948</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>TogaR</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>cockpit.ApPanel.toga();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/toga-2</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/toga-2</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>TogaR</object-name>
+		<property>controls/cockpit/toga-2</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0.000</dep></entry>
+			<entry><ind>1</ind><dep>0.002</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>2.68088</x1-m>
+			<y1-m>0.03041</y1-m>
+			<z1-m>0.7948</z1-m>
+			<x2-m>2.67407</x2-m>
+			<y2-m>0.03041</y2-m>
+			<z2-m>0.7948</z2-m>
 		</axis>
 	</animation>
 	
@@ -1222,7 +1147,7 @@
 		<object-name>YokeL</object-name>
 		<object-name>YokeLClip</object-name>
 		<object-name>YokeTrimL</object-name>
-		<object-name>apoff</object-name>
+		<object-name>APoffL</object-name>
 		<property>systems/fcs/elevator-yoke</property>
 		<factor>-12</factor>
 		<center>
@@ -1241,7 +1166,7 @@
 		<type>rotate</type>
 		<object-name>YokeL</object-name>
 		<object-name>YokeTrimL</object-name>
-		<object-name>apoff</object-name>
+		<object-name>APoffL</object-name>
 		<property>systems/fcs/aileron-yoke</property>
 		<factor>-90</factor>
 		<center>
@@ -1262,7 +1187,7 @@
 		<object-name>YokeR</object-name>
 		<object-name>YokeRClip</object-name>
 		<object-name>YokeTrimR</object-name>
-		<object-name>apoff2</object-name>
+		<object-name>APoffR</object-name>
 		<property>systems/fcs/elevator-yoke</property>
 		<factor>-12</factor>
 		<center>
@@ -1281,7 +1206,7 @@
 		<type>rotate</type>
 		<object-name>YokeR</object-name>
 		<object-name>YokeTrimR</object-name>
-		<object-name>apoff2</object-name>
+		<object-name>APoffR</object-name>
 		<property>systems/fcs/aileron-yoke</property>
 		<factor>-90</factor>
 		<center>
@@ -1296,6 +1221,88 @@
 		</axis>
 	</animation>
 	
+	<!-- Autopilot Disc -->
+	<animation>
+		<type>pick</type>
+		<object-name>APoffL</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>cockpit.ApPanel.apDisc();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/ap-disc-1</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/ap-disc-1</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>translate</type>
+		<object-name>APoffL</object-name>
+		<property>controls/cockpit/ap-disc-1</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-0.001</dep></entry>
+			<entry><ind>1</ind><dep> 0.001</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>APoffR</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>cockpit.ApPanel.apDisc();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/ap-disc-2</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+				<command>property-assign</command>
+					<property>controls/cockpit/ap-disc-2</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+
+	<animation>
+		<type>translate</type>
+		<object-name>APoffR</object-name>
+		<property>controls/cockpit/ap-disc-2</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-0.001</dep></entry>
+			<entry><ind>1</ind><dep> 0.001</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- Gear Horn Cutout -->
 	<animation>
 		<type>pick</type>
 		<object-name>GearHornCutoutBtn</object-name>
@@ -1337,6 +1344,7 @@
 		</axis>
 	</animation>
 	
+	<!-- Tiller and Parking Brake -->
 	<animation>
 		<type>rotate</type>
 		<object-name>SteeringHandle</object-name>

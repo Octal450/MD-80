@@ -966,7 +966,7 @@
 		<name>lighting_panel_P</name>
 		<path>Aircraft/MD-80/Models/Instruments/pedestal_lighting.xml</path>
 		<offsets>
-			<x-m>2.98869</x-m>
+			<x-m>2.9888</x-m>
 			<y-m>-0.07192</y-m>
 			<z-m>0.5993</z-m>
 			<pitch-deg>-75</pitch-deg>
