@@ -165,7 +165,7 @@
 		
 		<pure_gain name="/systems/fcs/rudder/trim">
 			<input>/controls/flight/rudder-trim</input>
-			<gain>0.58823529411764705882352941176471</gain> <!-- 10/17 degrees, guess -->
+			<gain>0.45454545454545454545454545454545</gain> <!-- 10 degrees, guess -->
 		</pure_gain>
 		
 		<summer name="/systems/fcs/rudder/pedal-sum">
