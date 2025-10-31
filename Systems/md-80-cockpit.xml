@@ -333,6 +333,11 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/aileron-trim">
+			<input>/controls/flight/aileron-trim</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<actuator name="/controls/cockpit/brake-lever">
 			<input>/controls/gear/brake-parking</input>
 			<rate_limit>2.5</rate_limit>
@@ -376,6 +381,11 @@
 		
 		<lag_filter name="/controls/cockpit/rudder-pwr">
 			<input>/controls/fcs/rudder-pwr</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/rudder-trim">
+			<input>/controls/flight/rudder-trim</input>
 			<c1>20</c1>
 		</lag_filter>
 		

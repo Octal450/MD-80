@@ -74,8 +74,10 @@
 	
 	<animation>
 		<type>material</type>
+		<object-name>AileronTrimIndLight</object-name>
 		<object-name>IntegrityABSSel</object-name>
 		<object-name>PedestalText</object-name>
+		<object-name>RudderTrimIndLight</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.6</green>
@@ -1677,6 +1679,89 @@
 				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
+	</animation>
+	
+	<!-- Aileron and Rudder Trim -->
+	<animation>
+		<type>knob</type>
+		<object-name>AileronTrim</object-name>
+		<property>controls/cockpit/aileron-trim</property>
+		<factor>1000</factor>
+		<axis>
+			<x1-m>3.17621</x1-m>
+			<y1-m>0</y1-m>
+			<z1-m>0.48627</z1-m>
+			<x2-m>3.16352</x2-m>
+			<y2-m>0</y2-m>
+			<z2-m>0.48516</z2-m>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/flight/aileron-trim</property>
+				<factor>0.02</factor>
+				<min>-1</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AileronTrimInd</object-name>
+		<object-name>AileronTrimIndLight</object-name>
+		<property>controls/cockpit/aileron-trim</property>
+		<factor>40.5</factor>
+		<axis>
+			<x1-m>3.17621</x1-m>
+			<y1-m>0</y1-m>
+			<z1-m>0.48627</z1-m>
+			<x2-m>3.16352</x2-m>
+			<y2-m>0</y2-m>
+			<z2-m>0.48516</z2-m>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>RudderTrim</object-name>
+		<property>controls/cockpit/rudder-trim</property>
+		<factor>1000</factor>
+		<axis>
+			<x1-m>3.08242</x1-m>
+			<y1-m>0</y1-m>
+			<z1-m>0.60028</z1-m>
+			<x2-m>3.07912</x2-m>
+			<y2-m>0</y2-m>
+			<z2-m>0.58798</z2-m>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/flight/rudder-trim</property>
+				<factor>0.02</factor>
+				<min>-1</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>RudderTrimInd</object-name>
+		<object-name>RudderTrimIndLight</object-name>
+		<property>controls/cockpit/rudder-trim</property>
+		<factor>33.2</factor>
+		<axis>
+			<x1-m>3.07162</x1-m>
+			<y1-m>0</y1-m>
+			<z1-m>0.60028</z1-m>
+			<x2-m>3.06932</x2-m>
+			<y2-m>0</y2-m>
+			<z2-m>0.58798</z2-m>
+		</axis>
 	</animation>
 
 </PropertyList>
