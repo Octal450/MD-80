@@ -234,11 +234,11 @@
 						<avg> <!-- Because both ailerons are linked -->
 							<product>
 								<property>/systems/fcs/aileron-l/trim-tab-cmd-deg</property>
-								<value>-0.5</value>
+								<value>-0.4</value>
 							</product>
 							<product>
 								<property>/systems/fcs/aileron-r/trim-tab-cmd-deg</property>
-								<value>0.5</value>
+								<value>0.4</value>
 							</product>
 						</avg>
 					</sum>
