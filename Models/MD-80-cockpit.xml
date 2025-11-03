@@ -155,7 +155,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>nasal</command>
-				<script>controls.gearDownSmart(1)</script>
+				<script>controls.gearDownSmart(1);</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -173,10 +173,10 @@
 		<interpolation>
 			<entry><ind>0</ind><dep> 0.0</dep></entry>
 			<entry><ind>1</ind><dep>21.5</dep></entry>
-			<entry><ind>2</ind><dep>30.5</dep></entry>
-			<entry><ind>3</ind><dep>35.5</dep></entry>
-			<entry><ind>4</ind><dep>47.5</dep></entry>
-			<entry><ind>5</ind><dep>54.0</dep></entry>
+			<entry><ind>3</ind><dep>30.5</dep></entry>
+			<entry><ind>5</ind><dep>35.5</dep></entry>
+			<entry><ind>7</ind><dep>47.5</dep></entry>
+			<entry><ind>8</ind><dep>54.0</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>2.62</x-m>
@@ -239,6 +239,62 @@
 				<value>0</value>
 			</binding>
 		</release>
+	</animation>
+		
+	<animation>
+		<type>knob</type>
+		<object-name>DialAFlapWheel</object-name>
+		<property>controls/cockpit/dial-a-flap</property>
+		<drag-direction>vertical</drag-direction>
+		<interpolation>
+			<entry><ind>-1</ind><dep>  0</dep></entry>
+			<entry><ind>20</ind><dep>340</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.67956</x-m>
+			<y-m>0</y-m>
+			<z-m>0.67284</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<increase>
+			<binding>
+				<command>nasal</command>
+				<script>systems.FCS.dialAFlap(-0.25);</script>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>nasal</command>
+				<script>systems.FCS.dialAFlap(0.25);</script>
+			</binding>
+		</decrease>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>DialAFlap</object-name>
+		<object-name>DialAFlapInd</object-name>
+		<property>controls/cockpit/dial-a-flap</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>-210.70</dep></entry>
+			<entry><ind> 0</ind><dep>-172.50</dep></entry>
+			<entry><ind> 1</ind><dep>-154.35</dep></entry>
+			<entry><ind>24</ind><dep> 131.60</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.6642</x-m>
+			<y-m>0</y-m>
+			<z-m>0.67746</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
 	</animation>
 	
 	<animation>

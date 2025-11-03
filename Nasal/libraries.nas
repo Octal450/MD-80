@@ -129,27 +129,40 @@ controls.reverserTogglePosition = func() {
 
 controls.flapsDown = func(step) {
 	pts.Controls.Flight.flapsTemp = pts.Controls.Flight.flaps.getValue();
+	systems.FCS.dialAFlapPosTemp = systems.FCS.dialAFlapPos.getValue();
 	if (step == 1) {
-		if (pts.Controls.Flight.flapsTemp < 0.2) {
-			pts.Controls.Flight.flaps.setValue(0.2);
+		if (pts.Controls.Flight.flapsTemp < 0.14) {
+			pts.Controls.Flight.flaps.setValue(0.14);
+		} else if (pts.Controls.Flight.flapsTemp < 0.25 and systems.FCS.dialAFlapPosTemp == 2) {
+			pts.Controls.Flight.flaps.setValue(0.25);
 		} else if (pts.Controls.Flight.flapsTemp < 0.36) {
 			pts.Controls.Flight.flaps.setValue(0.36);
-		} else if (pts.Controls.Flight.flapsTemp < 0.52) {
-			pts.Controls.Flight.flaps.setValue(0.52);
-		} else if (pts.Controls.Flight.flapsTemp < 0.68) {
-			pts.Controls.Flight.flaps.setValue(0.68);
-		} else if (pts.Controls.Flight.flapsTemp < 0.84) {
-			pts.Controls.Flight.flaps.setValue(0.84);
+		} else if (pts.Controls.Flight.flapsTemp < 0.47 and systems.FCS.dialAFlapPosTemp == 4) {
+			pts.Controls.Flight.flaps.setValue(0.47);
+		} else if (pts.Controls.Flight.flapsTemp < 0.58) {
+			pts.Controls.Flight.flaps.setValue(0.58);
+		} else if (pts.Controls.Flight.flapsTemp < 0.69 and systems.FCS.dialAFlapPosTemp == 6) {
+			pts.Controls.Flight.flaps.setValue(0.69);
+		} else if (pts.Controls.Flight.flapsTemp < 0.8) {
+			pts.Controls.Flight.flaps.setValue(0.8);
+		} else if (pts.Controls.Flight.flapsTemp < 0.91) {
+			pts.Controls.Flight.flaps.setValue(0.91);
 		}
 	} else if (step == -1) {
-		if (pts.Controls.Flight.flapsTemp > 0.68) {
-			pts.Controls.Flight.flaps.setValue(0.68);
-		} else if (pts.Controls.Flight.flapsTemp > 0.52) {
-			pts.Controls.Flight.flaps.setValue(0.52);
+		if (pts.Controls.Flight.flapsTemp > 0.8) {
+			pts.Controls.Flight.flaps.setValue(0.8);
+		} else if (pts.Controls.Flight.flapsTemp > 0.69 and systems.FCS.dialAFlapPosTemp == 6) {
+			pts.Controls.Flight.flaps.setValue(0.69);
+		} else if (pts.Controls.Flight.flapsTemp > 0.58) {
+			pts.Controls.Flight.flaps.setValue(0.58);
+		} else if (pts.Controls.Flight.flapsTemp > 0.47 and systems.FCS.dialAFlapPosTemp == 4) {
+			pts.Controls.Flight.flaps.setValue(0.47);
 		} else if (pts.Controls.Flight.flapsTemp > 0.36) {
 			pts.Controls.Flight.flaps.setValue(0.36);
-		} else if (pts.Controls.Flight.flapsTemp > 0.2) {
-			pts.Controls.Flight.flaps.setValue(0.2);
+		} else if (pts.Controls.Flight.flapsTemp > 0.25 and systems.FCS.dialAFlapPosTemp == 2) {
+			pts.Controls.Flight.flaps.setValue(0.25);
+		} else if (pts.Controls.Flight.flapsTemp > 0.14) {
+			pts.Controls.Flight.flaps.setValue(0.14);
 		} else if (pts.Controls.Flight.flapsTemp > 0) {
 			pts.Controls.Flight.flaps.setValue(0);
 		}

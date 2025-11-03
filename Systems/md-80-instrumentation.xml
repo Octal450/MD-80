@@ -2377,12 +2377,16 @@
 		
 		<switch name="/instrumentation/flap-slat/slat">
 			<default value="2"/> <!-- Disag -->
+			<test logic="AND" value="2"> <!-- Disag -->
+				/systems/fcs/flaps/cmd ge 12
+				/systems/fcs/flaps/cmd le 14
+			</test>
 			<test value="3"> <!-- Auto and Disag -->
 				/systems/dfgs/auto-slat-ext eq 1
 			</test>
 			<test logic="AND" value="4"> <!-- Land -->
 				fcs/slat-pos-deg ge 19.9
-				/systems/fcs/flaps/input gt 3
+				/systems/fcs/flaps/input ge 7
 			</test>
 			<test logic="AND" value="1"> <!-- Takeoff -->
 				fcs/slat-pos-deg ge 9.9

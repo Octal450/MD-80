@@ -2,7 +2,10 @@
 # Copyright (c) 2025 Josh Davidson (Octal450)
 
 var FCS = {
+	dialAFlapPos: props.globals.getNode("/systems/fcs/flaps/dial-a-flap-pos"),
+	dialAFlapPosTemp: 0,
 	flapsInput: props.globals.getNode("/systems/fcs/flaps/input"),
+	flapsInputTemp: 0,
 	mainGearAnd: props.globals.getNode("/systems/fcs/spoilers/main-gear-and"),
 	stabilizerRate: props.globals.getNode("/systems/fcs/stabilizer/rate-switch"),
 	Controls: {
@@ -31,5 +34,13 @@ var FCS = {
 		me.Failures.elevatorPwr.setBoolValue(0);
 		me.Failures.rudderPwr.setBoolValue(0);
 		me.Failures.yawDamper.setBoolValue(0);
-	}
+	},
+	dialAFlap: func(d) {
+		me.flapsInputTemp = me.flapsInput.getValue();
+		if (me.flapsInputTemp == 2 or me.flapsInputTemp == 4 or me.flapsInputTemp == 6) {
+			gui.popupTip("You need to move the flap lever out of the Dial-A-Flap position to adjust");
+		} else {
+			pts.Controls.Flight.dialAFlap.setValue(math.round(pts.Controls.Flight.dialAFlap.getValue() + d, 0.25));
+		}
+	},
 };

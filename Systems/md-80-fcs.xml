@@ -716,6 +716,63 @@
 	
 	<channel name="Flaps/Slats Control">
 		
+		<fcs_function name="/systems/fcs/flaps/dial-a-flap-cmd">
+			<function>
+				<floor>
+					<sum>
+						<property>/controls/flight/dial-a-flap</property>
+						<value>0.5</value> <!-- Make the integer rounded correctly -->
+					</sum>
+				</floor>
+			</function>
+			<clipto>
+				<min>-1</min> <!-- Stow -->
+				<max>24</max>
+			</clipto>
+		</fcs_function>
+		
+		<pure_gain name="/systems/fcs/flaps/dial-a-flap-z1">
+			<input>/systems/fcs/flaps/dial-a-flap-cmd</input>
+			<gain>1.0</gain>
+			<clipto>
+				<min>0</min>
+				<max>11</max>
+			</clipto>
+		</pure_gain>
+		
+		<pure_gain name="/systems/fcs/flaps/dial-a-flap-z2">
+			<input>/systems/fcs/flaps/dial-a-flap-cmd</input>
+			<gain>1.0</gain>
+			<clipto>
+				<min>11</min>
+				<max>15</max>
+			</clipto>
+		</pure_gain>
+		
+		<pure_gain name="/systems/fcs/flaps/dial-a-flap-z3">
+			<input>/systems/fcs/flaps/dial-a-flap-cmd</input>
+			<gain>1.0</gain>
+			<clipto>
+				<min>15</min>
+				<max>24</max>
+			</clipto>
+		</pure_gain>
+		
+		<switch name="/systems/fcs/flaps/dial-a-flap-pos">
+			<default value="0"/> <!-- Stow -->
+			<test value="6"> <!-- 16-24 -->
+				/systems/fcs/flaps/dial-a-flap-cmd ge 16
+			</test>
+			<test logic="AND" value="4"> <!-- 12-14, "DO NOT USE" range -->
+				/systems/fcs/flaps/dial-a-flap-cmd ge 12
+				/systems/fcs/flaps/dial-a-flap-cmd le 14
+			</test>
+			<test logic="AND" value="2"> <!-- 0-10 -->
+				/systems/fcs/flaps/dial-a-flap-cmd ge 0
+				/systems/fcs/flaps/dial-a-flap-cmd le 10
+			</test>
+		</switch>
+		
 		<fcs_function name="/systems/fcs/flaps/fixed"> <!-- Rounds to 4 figures to fix a potential problem -->
 			<function>
 				<quotient>
@@ -733,57 +790,66 @@
 			</function>
 		</fcs_function>
 		
-		<switch name="/systems/fcs/flaps/input">
+		<switch name="/systems/fcs/flaps/input"> <!-- When DAF not set, defaults to next fixed gate, see libraries.nas also -->
 			<default value="0"/> <!-- UP/RET -->
 			<test logic="AND" value="1"> <!-- UP/MID -->
-				/systems/fcs/flaps/fixed ge 0.20
+				/systems/fcs/flaps/fixed ge 0.14
+				/systems/fcs/flaps/fixed lt 0.25
+			</test>
+			<test logic="AND" value="2"> <!-- 0-10/MID -->
+				/systems/fcs/flaps/dial-a-flap-pos eq 2
+				/systems/fcs/flaps/fixed ge 0.25
 				/systems/fcs/flaps/fixed lt 0.36
 			</test>
-			<test logic="AND" value="2"> <!-- 11/MID -->
+			<test logic="AND" value="3"> <!-- 11/MID -->
 				/systems/fcs/flaps/fixed ge 0.36
-				/systems/fcs/flaps/fixed lt 0.52
+				/systems/fcs/flaps/fixed lt 0.47
 			</test>
-			<test logic="AND" value="3"> <!-- 15/EXT -->
-				/systems/fcs/flaps/fixed ge 0.52
-				/systems/fcs/flaps/fixed lt 0.68
+			<test logic="AND" value="4"> <!-- 12-14/MID -->
+				/systems/fcs/flaps/dial-a-flap-pos eq 4
+				/systems/fcs/flaps/fixed ge 0.47
+				/systems/fcs/flaps/fixed lt 0.58
 			</test>
-			<test logic="AND" value="4"> <!-- 28/EXT -->
-				/systems/fcs/flaps/fixed ge 0.68
-				/systems/fcs/flaps/fixed lt 0.84
+			<test logic="AND" value="5"> <!-- 15/EXT -->
+				/systems/fcs/flaps/fixed ge 0.58
+				/systems/fcs/flaps/fixed lt 0.69
 			</test>
-			<test value="5"> <!-- 40/EXT -->
-				/systems/fcs/flaps/fixed ge 0.84
+			<test logic="AND" value="6"> <!-- 16-24/EXT -->
+				/systems/fcs/flaps/dial-a-flap-pos eq 6
+				/systems/fcs/flaps/fixed ge 0.69
+				/systems/fcs/flaps/fixed lt 0.8
+			</test>
+			<test logic="AND" value="7"> <!-- 28/EXT -->
+				/systems/fcs/flaps/fixed ge 0.8
+				/systems/fcs/flaps/fixed lt 0.91
+			</test>
+			<test value="8"> <!-- 40/EXT -->
+				/systems/fcs/flaps/fixed ge 0.91
 			</test>
 		</switch>
 		
-		<fcs_function name="/systems/fcs/flaps/dial-a-flap-cmd"> <!-- Not used yet -->
-			<function>
-				<floor>
-					<sum>
-						<property>/controls/flight/dial-a-flap</property>
-						<value>0.5</value> <!-- Make the integer rounded correctly -->
-					</sum>
-				</floor>
-			</function>
-			<clipto>
-				<min>0</min>
-				<max>20</max>
-			</clipto>
-		</fcs_function>
-		
 		<switch name="/systems/fcs/flaps/cmd">
 			<default value="0"/>
-			<test value="11">
+			<test value="/systems/fcs/flaps/dial-a-flap-z1">
 				/systems/fcs/flaps/input eq 2
 			</test>
-			<test value="15"> 
+			<test value="11">
 				/systems/fcs/flaps/input eq 3
 			</test>
-			<test value="28">
+			<test value="/systems/fcs/flaps/dial-a-flap-z2"> 
 				/systems/fcs/flaps/input eq 4
 			</test>
-			<test value="40">
+			<test value="15"> 
 				/systems/fcs/flaps/input eq 5
+			</test>
+			<test value="/systems/fcs/flaps/dial-a-flap-z3"> 
+				/systems/fcs/flaps/input eq 6
+			</test>
+			<test value="28">
+				/systems/fcs/flaps/input eq 7
+			</test>
+			<test value="40">
+				/systems/fcs/flaps/input eq 8
 			</test>
 			<output>/systems/dfgs/flaps-cmd-feedback</output>
 		</switch>

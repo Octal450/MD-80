@@ -166,7 +166,7 @@
 		<input>
 			<less-than>
 				<property>/systems/fcs/flaps/input</property>
-				<value>4</value>
+				<value>7</value>
 			</less-than>
 		</input>
 		<output>/instrumentation/mk-viii/inputs/discretes/landing-flaps</output>
