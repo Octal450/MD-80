@@ -791,7 +791,7 @@
 			</function>
 		</fcs_function>
 		
-		<switch name="/systems/fcs/flaps/input"> <!-- When DAF not set, defaults to next fixed gate, see libraries.nas also -->
+		<switch name="/systems/fcs/flaps/input">
 			<default value="0"/> <!-- UP/RET -->
 			<test logic="AND" value="1"> <!-- UP/MID -->
 				/systems/fcs/flaps/fixed ge 0.14
