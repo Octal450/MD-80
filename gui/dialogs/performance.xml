@@ -202,55 +202,9 @@
 	
 	<hrule/>
 	
-	<group>
-		<layout>table</layout>
-		
-		<text>
-			<row>0</row>
-			<col>0</col>
-			<label>Takeoff Flap:</label>
-		</text>
-		
-		<button>
-			<row>0</row>
-			<col>1</col>
-			<pref-width>25</pref-width>
-			<pref-height>25</pref-height>
-			<legend>&lt;</legend>
-			<binding>
-				<command>property-adjust</command>
-				<property>/systems/performance/to-flaps</property>
-				<step>-1</step>
-				<min>0</min>
-				<max>20</max>
-			</binding>
-		</button>
-		
-		<input>
-			<row>0</row>
-			<col>2</col>
-			<pref-width>50</pref-width>
-			<property>/systems/performance/to-flaps</property>
-			<live>true</live>
-		</input>
-		
-		<button>
-			<row>0</row>
-			<col>3</col>
-			<pref-width>25</pref-width>
-			<pref-height>25</pref-height>
-			<legend>&gt;</legend>
-			<binding>
-				<command>property-adjust</command>
-				<property>/systems/performance/to-flaps</property>
-				<step>1</step>
-				<min>0</min>
-				<max>20</max>
-			</binding>
-		</button>
-	</group>
-	
-	<hrule/>
+	<text>
+		<label>Uses Pedestal T/O CONDTN Flap</label>
+	</text>
 	
 	<group>
 		<layout>table</layout>
@@ -292,19 +246,6 @@
 			<label>999</label>
 			<live>true</live>
 			<property>/sim/gui/dialogs/performance/v2-round</property>
-		</text>
-		
-		<text>
-			<row>3</row>
-			<col>0</col>
-			<label>T/O STAB: </label>
-		</text>
-		<text>
-			<row>3</row>
-			<col>1</col>
-			<label>9999999</label>
-			<live>true</live>
-			<property>/sim/gui/dialogs/performance/stabilizer-deg-round</property>
 		</text>
 	</group>
 	

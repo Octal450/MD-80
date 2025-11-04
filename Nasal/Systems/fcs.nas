@@ -2,6 +2,7 @@
 # Copyright (c) 2025 Josh Davidson (Octal450)
 
 var FCS = {
+	dialAFlapCalc: 0,
 	dialAFlapPos: props.globals.getNode("/systems/fcs/flaps/dial-a-flap-pos"),
 	dialAFlapPosTemp: 0,
 	flapsInput: props.globals.getNode("/systems/fcs/flaps/input"),
@@ -40,7 +41,12 @@ var FCS = {
 		if (me.flapsInputTemp == 2 or me.flapsInputTemp == 4 or me.flapsInputTemp == 6) {
 			gui.popupTip("You need to move the flap lever out of the Dial-A-Flap position to adjust");
 		} else {
-			pts.Controls.Flight.dialAFlap.setValue(math.round(pts.Controls.Flight.dialAFlap.getValue() + d, 0.25));
+			me.dialAFlapCalc = math.round(pts.Controls.Flight.dialAFlap.getValue() + d, 0.25);
+			
+			if (me.dialAFlapCalc < -1) me.dialAFlapCalc = -1;
+			else if (me.dialAFlapCalc > 24) me.dialAFlapCalc = 24;
+			
+			pts.Controls.Flight.dialAFlap.setValue(me.dialAFlapCalc);
 		}
 	},
 };

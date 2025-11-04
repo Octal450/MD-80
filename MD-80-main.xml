@@ -1710,6 +1710,10 @@
 			<sys-l-qty-input type="double">8</sys-l-qty-input> <!-- Randomized later in sim init -->
 			<sys-r-qty-input type="double">8</sys-r-qty-input> <!-- Randomized later in sim init -->
 		</hydraulics>
+		<performance n="0">
+			<to-cg type="double">20</to-cg>
+			<to-flaps type="double">11</to-flaps>
+		</performance>
 		<shake n="0">
 			<shaking type="double">0</shaking>
 		</shake>

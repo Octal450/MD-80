@@ -5,7 +5,6 @@
 
 <system name="MD-80: Performance"> <!-- Extra speed computations that are not computed by the DFGS -->
 	
-	<property value="11">/systems/performance/to-flaps</property>
 	<property value="40">/systems/performance/land-flaps</property>
 	<property value="0">/systems/performance/land-no-slats</property>
 	
@@ -713,7 +712,7 @@
 		<fcs_function name="/systems/performance/stabilizer-deg">
 			<function>
 				<table>
-					<independentVar lookup="row">inertia/cg-percent-mac</independentVar>
+					<independentVar lookup="row">/systems/performance/to-cg</independentVar>
 					<independentVar lookup="column">zero</independentVar> <!-- Take advantage of the table lookup to interpolate -->
 					<independentVar lookup="table">/systems/performance/to-flaps</independentVar>
 					<tableData breakPoint="4">

@@ -476,6 +476,21 @@
 			<output>/systems/engines/throttle-lever-feedback[1]</output>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/to-cg">
+			<input>/systems/performance/to-cg</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/to-flaps">
+			<input>/systems/performance/to-flaps</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/to-stab">
+			<input>/systems/performance/stabilizer-deg</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/x-bleed-l-lever">
 			<input>/controls/pneumatics/x-bleed-l</input>
 			<c1>20</c1>

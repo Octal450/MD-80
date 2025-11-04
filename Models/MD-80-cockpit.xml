@@ -1921,5 +1921,172 @@
 			</binding>
 		</action>
 	</animation>
+	
+	<!-- Takeoff Trim Computer -->
+	<animation>
+		<type>rotate</type>
+		<object-name>ToStabIndicator</object-name>
+		<object-name>ToStabWheel</object-name>
+		<property>controls/cockpit/to-stab</property>
+		<interpolation>
+			<entry><ind> 0</ind><dep>190.00</dep></entry>
+			<entry><ind>14</ind><dep>-74.85</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.67873</x-m>
+			<y-m>0</y-m>
+			<z-m>0.71114</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>CGIndicator</object-name>
+		<object-name>CGWheel</object-name>
+		<property>controls/cockpit/to-cg</property>
+		<interpolation>
+			<entry><ind> 0</ind><dep>   7.2</dep></entry>
+			<entry><ind>35</ind><dep>-304.8</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.67998</x-m>
+			<y-m>0</y-m>
+			<z-m>0.67166</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>FlapIndicator</object-name>
+		<object-name>FlapWheel</object-name>
+		<property>controls/cockpit/to-flaps</property>
+		<interpolation>
+			<entry><ind> 0</ind><dep>   7.2</dep></entry>
+			<entry><ind>35</ind><dep>-304.8</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.67998</x-m>
+			<y-m>0</y-m>
+			<z-m>0.67166</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>CGKnob</object-name>
+		<property>controls/cockpit/to-cg</property>
+		<drag-direction>vertical</drag-direction>
+		<interpolation>
+			<entry><ind>0</ind><dep>    0</dep></entry>
+			<entry><ind>35</ind><dep>-340</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.71759</x-m>
+			<y-m>0</y-m>
+			<z-m>0.67342</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>systems/performance/to-cg</property>
+				<factor>0.5</factor>
+				<min>0</min>
+				<max>35</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>FlapKnob</object-name>
+		<property>controls/cockpit/to-flaps</property>
+		<drag-direction>vertical</drag-direction>
+		<interpolation>
+			<entry><ind>0</ind><dep>    0</dep></entry>
+			<entry><ind>35</ind><dep>-340</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.71759</x-m>
+			<y-m>0</y-m>
+			<z-m>0.67342</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>systems/performance/to-flaps</property>
+				<factor>0.5</factor>
+				<min>0</min>
+				<max>24</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<!-- Stabilizer Trim Pointers -->
+	<animation>
+		<type>rotate</type>
+		<object-name>LongTrimToIndicator</object-name>
+		<property>controls/cockpit/to-stab</property>
+		<interpolation>
+			<entry><ind>-3</ind><dep>-19.61</dep></entry>
+			<entry><ind>13</ind><dep> 35.85</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.62</x-m>
+			<y-m>0</y-m>
+			<z-m>0.63</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>LongTrimIndicator</object-name>
+		<property>systems/fcs/stabilizer/final-deg</property>
+		<interpolation> <!-- Inverted because negative is ANU -->
+			<entry><ind>  3</ind><dep>-19.61</dep></entry>
+			<entry><ind>-13</ind><dep> 35.85</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.62</x-m>
+			<y-m>0</y-m>
+			<z-m>0.63</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
 
 </PropertyList>

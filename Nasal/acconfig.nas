@@ -267,7 +267,6 @@ var PANEL = {
 		libraries.systemsInit();
 		pts.Controls.Flight.speedbrake.setValue(0);
 		if (t == 1) {
-			pts.Controls.Flight.elevatorTrim.setValue(math.round(pts.Systems.Performance.stabilizerDeg.getValue(), 0.1) / -12.5); # Trim value for CG
 			pts.Controls.Flight.flaps.setValue(0.36); # 11/MID
 			pts.Controls.Flight.speedbrakeArm.setBoolValue(1);
 		} else {
@@ -280,7 +279,6 @@ var PANEL = {
 		# Performance Applet Reset
 		pts.Systems.Performance.landFlaps.setValue(40);
 		pts.Systems.Performance.landNoSlats.setBoolValue(0);
-		pts.Systems.Performance.toFlaps.setValue(11);
 		settimer(func() { # Ensure it recomputes
 			cockpit.setAsiBugs(0);
 		}, 0.5);
@@ -420,8 +418,10 @@ var PANEL = {
 				# XPDR TA/RA
 				
 				settimer(func() {
-					if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
-						fms.EditFlightData.setAcconfigData();
+					if (!me.stop) {
+						if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
+							fms.EditFlightData.setAcconfigData();
+						}
 					}
 				}, 0.25);
 				
@@ -439,6 +439,7 @@ var PANEL = {
 				settimer(func() {
 					if (!me.stop) {
 						if (t == 1) {
+							pts.Controls.Flight.elevatorTrim.setValue(math.round(pts.Systems.Performance.stabilizerDeg.getValue(), 0.1) / -12.5);
 							systems.BRAKES.Controls.abs.setValue(-1); # T/O
 							systems.BRAKES.Controls.arm.setBoolValue(1);
 							dfgs.Input.toga.setValue(1);

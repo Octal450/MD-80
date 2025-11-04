@@ -41,6 +41,8 @@ var variousReset = func() {
 	pts.Instrumentation.Ff.fuResetTrim[1].setValue(furt);
 	pts.Instrumentation.Hsi.slavedToGps[0].setBoolValue(0);
 	pts.Instrumentation.Hsi.slavedToGps[1].setBoolValue(0);
+	pts.Systems.Performance.toCg.setValue(math.round(pts.Fdm.JSBSim.Inertia.cgPercentMac.getValue(), 0.5));
+	pts.Systems.Performance.toFlaps.setValue(11);
 }
 
 var setAsiBugs = func(n) {

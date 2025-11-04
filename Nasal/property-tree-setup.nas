@@ -55,6 +55,7 @@ var Fdm = {
 			alphaDegDampedPli: props.globals.getNode("/fdm/jsbsim/aero/alpha-deg-damped-pli"),
 		},
 		Inertia: {
+			cgPercentMac: props.globals.getNode("/fdm/jsbsim/inertia/cg-percent-mac"),
 			weightLbs: props.globals.getNode("/fdm/jsbsim/inertia/weight-lbs"),
 			zfwLbs: props.globals.getNode("/fdm/jsbsim/inertia/zfw-lbs"),
 		},
@@ -254,6 +255,7 @@ var Systems = {
 		minManeuver: props.globals.getNode("/systems/performance/min-maneuver"),
 		slatRetract: props.globals.getNode("/systems/performance/slat-retract"),
 		stabilizerDeg: props.globals.getNode("/systems/performance/stabilizer-deg"),
+		toCg: props.globals.getNode("/systems/performance/to-cg"),
 		toFlaps: props.globals.getNode("/systems/performance/to-flaps"),
 		v1: props.globals.getNode("/systems/performance/v1"),
 		vapp: props.globals.getNode("/systems/performance/vapp"),
