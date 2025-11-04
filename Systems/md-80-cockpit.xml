@@ -424,6 +424,23 @@
 			<c1>30</c1>
 		</lag_filter>
 		
+		<fcs_function name="/controls/cockpit/nlg-ind-cmd">
+			<function>
+				<table>
+					<independentVar lookup="row">/systems/gear/unit[0]/pos-actuator</independentVar>
+					<tableData>
+						0.8  0
+						1.0  1
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/controls/cockpit/nlg-ind">
+			<input>/controls/cockpit/nlg-ind-cmd</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/reverse-lever[0]">
 			<input>/systems/engines/reverse-1/throttle-lever</input>
 			<c1>20</c1>

@@ -539,9 +539,10 @@
 			<test value="20">
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
-			<!--test logic="OR" value="0.1"--> <!-- Alternate -->
-				<!-- TBD -->
-			<!--/test-->
+			<test logic="OR" value="0.1"> <!-- Alternate -->
+				<!--/controls/flight/alternate-trim-lever-->
+				/systems/dfgs/afs/enabled eq 1
+			</test>
 		</switch>
 		
 		<switch name="/systems/fcs/stabilizer/rate">

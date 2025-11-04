@@ -16,8 +16,6 @@
 			setprop("/sim/gui/dialogs/performance/cg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/cg-percent-mac"), 0.1)) ~ "% MAC");
 			setprop("/sim/gui/dialogs/performance/zfwcg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/zfwcg-percent-mac"), 0.1)) ~ "% MAC");
 			
-			setprop("/sim/gui/dialogs/performance/current-stabilizer-deg-round", sprintf("%4.1f", math.round(getprop("/systems/fcs/stabilizer/final-deg"), 0.1) * -1) ~ " DEG");
-			
 			setprop("/sim/gui/dialogs/performance/opt-fl-fmt", "FL" ~ math.round(getprop("/systems/performance/opt-fl")));
 			setprop("/sim/gui/dialogs/performance/max-fl-fmt", "FL" ~ math.round(getprop("/systems/performance/max-fl")));
 			setprop("/sim/gui/dialogs/performance/flap-retract-round", math.round(getprop("/systems/performance/flap-retract")));
@@ -27,7 +25,6 @@
 			setprop("/sim/gui/dialogs/performance/v1-round", math.round(getprop("/systems/performance/v1")));
 			setprop("/sim/gui/dialogs/performance/vr-round", math.round(getprop("/systems/performance/vr")));
 			setprop("/sim/gui/dialogs/performance/v2-round", math.round(getprop("/systems/performance/v2")));
-			setprop("/sim/gui/dialogs/performance/stabilizer-deg-round", sprintf("%4.1f", math.round(getprop("/systems/performance/stabilizer-deg"), 0.1)) ~ " DEG");
 			
 			setprop("/sim/gui/dialogs/performance/vapp-round", math.round(getprop("/systems/performance/vapp")));
 			setprop("/sim/gui/dialogs/performance/vref-round", math.round(getprop("/systems/performance/vref")));
@@ -35,8 +32,6 @@
 			var loop = maketimer(0.1, func() {
 				setprop("/sim/gui/dialogs/performance/cg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/cg-percent-mac"), 0.1)) ~ "% MAC");
 				setprop("/sim/gui/dialogs/performance/zfwcg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/zfwcg-percent-mac"), 0.1)) ~ "% MAC");
-				
-				setprop("/sim/gui/dialogs/performance/current-stabilizer-deg-round", sprintf("%4.1f", math.round(getprop("/systems/fcs/stabilizer/final-deg"), 0.1) * -1) ~ " DEG");
 				
 				setprop("/sim/gui/dialogs/performance/opt-fl-fmt", "FL" ~ math.round(getprop("/systems/performance/opt-fl")));
 				setprop("/sim/gui/dialogs/performance/max-fl-fmt", "FL" ~ math.round(getprop("/systems/performance/max-fl")));
@@ -47,7 +42,6 @@
 				setprop("/sim/gui/dialogs/performance/v1-round", math.round(getprop("/systems/performance/v1")));
 				setprop("/sim/gui/dialogs/performance/vr-round", math.round(getprop("/systems/performance/vr")));
 				setprop("/sim/gui/dialogs/performance/v2-round", math.round(getprop("/systems/performance/v2")));
-				setprop("/sim/gui/dialogs/performance/stabilizer-deg-round", sprintf("%4.1f", math.round(getprop("/systems/performance/stabilizer-deg"), 0.1)) ~ " DEG");
 				
 				setprop("/sim/gui/dialogs/performance/vapp-round", math.round(getprop("/systems/performance/vapp")));
 				setprop("/sim/gui/dialogs/performance/vref-round", math.round(getprop("/systems/performance/vref")));
@@ -107,25 +101,6 @@
 			<label>999999999</label>
 			<live>true</live>
 			<property>/sim/gui/dialogs/performance/zfwcg-percent-mac</property>
-		</text>
-	</group>
-	
-	<hrule/>
-	
-	<group>
-		<layout>table</layout>
-		
-		<text>
-			<row>0</row>
-			<col>0</col>
-			<label>CURRENT STAB: </label>
-		</text>
-		<text>
-			<row>0</row>
-			<col>1</col>
-			<label>9999999</label>
-			<live>true</live>
-			<property>/sim/gui/dialogs/performance/current-stabilizer-deg-round</property>
 		</text>
 	</group>
 	

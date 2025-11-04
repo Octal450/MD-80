@@ -20,6 +20,15 @@
 		</axis>
 	</animation>
 	
+	<animation>
+		<type>select</type>
+		<object-name>ComAdfTcasLights</object-name>
+		<object-name>PmsLights</object-name>
+		<condition>
+			<property>controls/switches/annun-test</property>
+		</condition>
+	</animation>
+	
 	<!-- AI hole select -->
 	<animation>
 		<type>select</type>
@@ -47,6 +56,21 @@
 			<pitch-deg>63</pitch-deg>
 		</offsets>
 	</model>
+	
+	<!-- No lights without power! -->
+	<animation>
+		<type>select</type>
+		<object-name>Slat.Auto</object-name>
+		<object-name>Slat.Disag</object-name>
+		<object-name>Slat.Land</object-name>
+		<object-name>Slat.Takeoff</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/outputs/efis</property>
+				<value>25</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
 	
 	<!-- Lights -->
 	<animation>
@@ -1573,21 +1597,7 @@
 		</action>
 	</animation>
 	
-	<!-- No lights without power! -->
-	<animation>
-		<type>select</type>
-		<object-name>Slat.Auto</object-name>
-		<object-name>Slat.Disag</object-name>
-		<object-name>Slat.Land</object-name>
-		<object-name>Slat.Takeoff</object-name>
-		<condition>
-			<greater-than-equals>
-				<property>systems/electrical/outputs/efis</property>
-				<value>25</value>
-			</greater-than-equals>
-		</condition>
-	</animation>
-	
+	<!-- Slat Lights -->
 	<animation>
 		<type>select</type>
 		<object-name>Slat.Takeoff</object-name>
@@ -2081,6 +2091,46 @@
 			<x-m>2.62</x-m>
 			<y-m>0</y-m>
 			<z-m>0.63</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- NLG Indicator -->
+	<animation>
+		<type>translate</type>
+		<object-name>NlgIndicator</object-name>
+		<property>controls/cockpit/nlg-ind</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>0.007</dep></entry>
+			<entry><ind>1</ind><dep>0.000</dep></entry>
+		</interpolation>
+		<axis>
+			<x1-m>2.74835</x1-m>
+			<y1-m>-0.0609</y1-m>
+			<z1-m>0.67281</z1-m>
+			<x2-m>2.74643</x2-m>
+			<y2-m>-0.0609</y2-m>
+			<z2-m>0.66562</z2-m>
+		</axis>
+	</animation>
+	
+	<!-- Alternate Trim Handle: INOP -->
+	<animation>
+		<type>rotate</type>
+		<object-name>AltLongTrimLever</object-name>
+		<property>sim/model/unused</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-20</dep></entry>
+			<entry><ind>1</ind><dep>-20</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.608</x-m>
+			<y-m>0</y-m>
+			<z-m>0.630</z-m>
 		</center>
 		<axis>
 			<x>0</x>
