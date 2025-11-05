@@ -957,6 +957,46 @@
 	
 	</channel>
 	
+	<channel name="OSG Text Emission" execrate="2"> <!-- Required or it will be badly lit, colors are intentially slightly tweaked due to rendering differences -->
+		
+		<fcs_function name="/systems/lighting/pedestal-osg-red">
+			<function>
+				<table>
+					<independentVar lookup="row">/systems/lighting/pedestal-panel</independentVar>
+					<tableData>
+						0  0.1
+						1  1.0
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/lighting/pedestal-osg-green">
+			<function>
+				<table>
+					<independentVar lookup="row">/systems/lighting/pedestal-panel</independentVar>
+					<tableData>
+						0  0.1
+						1  0.9
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/lighting/pedestal-osg-blue">
+			<function>
+				<table>
+					<independentVar lookup="row">/systems/lighting/pedestal-panel</independentVar>
+					<tableData>
+						0  0.1
+						1  0.7
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+	
+	</channel>
+	
 	<channel name="Windshield Wipers" execrate="2">
 		
 		<switch name="/systems/cockpit/wipers/wipers-sw"> <!-- Switch release -->

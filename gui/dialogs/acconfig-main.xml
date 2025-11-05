@@ -423,6 +423,23 @@
 			</group>
 			
 			<checkbox>
+				<label>8.33KHz Radio Equipped</label>
+				<halign>left</halign>
+				<property>/systems/acconfig/options/eight-three-three-radios</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>
+						acconfig.OPTIONS.write();
+						instruments.COMM.toggle833();
+					</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
 				<label>Armed Altitude as Flight Level</label>
 				<halign>left</halign>
 				<property>/systems/acconfig/options/armed-alt-as-fl</property>

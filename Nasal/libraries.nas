@@ -43,6 +43,7 @@ var systemsInit = func() {
 	if (initDone) { # Anytime after sim init
 		mcdu_ht9100.BASE.reset();
 	} else { # Sim init
+		instruments.COMM.setup();
 		mcdu_ht9100.BASE.setup();
 	}
 	

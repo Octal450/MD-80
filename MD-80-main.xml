@@ -524,11 +524,24 @@
 			<master type="int">0</master>
 		</apu>
 		<cockpit n="0">
+			<adf n="0">
+				<major-rotate type="int">50000</major-rotate>
+				<med-rotate type="int">50000</med-rotate>
+				<minor-rotate type="int">50000</minor-rotate>
+			</adf>
 			<baro-rotate n="0" type="int">49984</baro-rotate> <!-- So the symbol is upright -->
 			<baro-rotate n="1" type="int">49984</baro-rotate> <!-- So the symbol is upright -->
 			<baro-rotate n="2" type="int">49984</baro-rotate> <!-- So the symbol is upright -->
 			<bug-rotate n="0" type="int">49984</bug-rotate> <!-- So the symbol is upright -->
 			<bug-rotate n="1" type="int">49984</bug-rotate> <!-- So the symbol is upright -->
+			<crp n="0">
+				<major-rotate type="int">50000</major-rotate>
+				<minor-rotate type="int">50000</minor-rotate>
+			</crp>
+			<crp n="1">
+				<major-rotate type="int">50000</major-rotate>
+				<minor-rotate type="int">50000</minor-rotate>
+			</crp>
 			<epr-cmd-rotate n="0" type="int">49984</epr-cmd-rotate> <!-- So the symbol is upright -->
 			<epr-cmd-rotate n="1" type="int">49984</epr-cmd-rotate> <!-- So the symbol is upright -->
 			<fgcp n="0">
@@ -1566,6 +1579,7 @@
 				<dual-cue-fd type="bool">0</dual-cue-fd>
 				<edp-sdp type="bool">0</edp-sdp>
 				<efis type="bool">0</efis>
+				<eight-three-three-radios type="bool">0</eight-three-three-radios>
 				<firetank type="bool">0</firetank>
 				<firetank-water type="bool">0</firetank-water>
 				<flight-director type="string">Single Cue</flight-director>

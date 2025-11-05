@@ -2728,52 +2728,6 @@
 	
 	</channel>
 	
-	<channel name="Radios" execrate="2">
-		
-		<!-- COMM -->
-		<pure_gain name="/instrumentation/comm[0]/frequencies/selected-mhz-fmt-x100">
-			<input>/instrumentation/comm[0]/frequencies/selected-mhz-fmt</input>
-			<gain>100</gain>
-		</pure_gain>
-		
-		<pure_gain name="/instrumentation/comm[0]/frequencies/standby-mhz-fmt-x100">
-			<input>/instrumentation/comm[0]/frequencies/standby-mhz-fmt</input>
-			<gain>100</gain>
-		</pure_gain>
-		
-		<pure_gain name="/instrumentation/comm[1]/frequencies/selected-mhz-fmt-x100">
-			<input>/instrumentation/comm[1]/frequencies/selected-mhz-fmt</input>
-			<gain>100</gain>
-		</pure_gain>
-		
-		<pure_gain name="/instrumentation/comm[1]/frequencies/standby-mhz-fmt-x100">
-			<input>/instrumentation/comm[1]/frequencies/standby-mhz-fmt</input>
-			<gain>100</gain>
-		</pure_gain>
-		
-		<pure_gain name="/instrumentation/comm[2]/frequencies/selected-mhz-fmt-x100">
-			<input>/instrumentation/comm[2]/frequencies/selected-mhz-fmt</input>
-			<gain>100</gain>
-		</pure_gain>
-		
-		<pure_gain name="/instrumentation/comm[2]/frequencies/standby-mhz-fmt-x100">
-			<input>/instrumentation/comm[2]/frequencies/standby-mhz-fmt</input>
-			<gain>100</gain>
-		</pure_gain>
-		
-		<!-- NAV -->
-		<pure_gain name="/instrumentation/nav[0]/frequencies/selected-mhz-fmt-x100">
-			<input>/instrumentation/nav[0]/frequencies/selected-mhz-fmt</input>
-			<gain>100</gain>
-		</pure_gain>
-		
-		<pure_gain name="/instrumentation/nav[1]/frequencies/selected-mhz-fmt-x100">
-			<input>/instrumentation/nav[1]/frequencies/selected-mhz-fmt</input>
-			<gain>100</gain>
-		</pure_gain>
-	
-	</channel>
-	
 	<channel name="Pneumatic System Gauges" execrate="2">
 		
 		<switch name="/instrumentation/air-press-l/power-avail">

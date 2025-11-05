@@ -110,6 +110,7 @@ Simulation:
 * Separate Tiller Axis: Separates the tiller from the rudder and maps it to /controls/gear/steering.
 
 Aircraft:
+* 8.33KHz Radio Equipped: Equips the COMM radios with the new 8.33KHz VHF frequency spacing.
 * Armed Altitude as Flight Levels: Equips the aircraft with the optional feature to show flight level on the FMA.
 * Auto Arm Altitude: Equips the aircraft with the optional feature to automatically arm altitude.
 * Firetank Equipped: Equips the aircraft with the firefighting tank and system (MD-87 only).

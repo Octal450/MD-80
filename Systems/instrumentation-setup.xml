@@ -56,16 +56,13 @@
 	<comm-radio>
 		<name>comm</name>
 		<number>0</number>
+		<eight-point-three>1</eight-point-three>
 	</comm-radio>
 	
 	<comm-radio>
 		<name>comm</name>
 		<number>1</number>
-	</comm-radio>
-	
-	<comm-radio>
-		<name>comm</name>
-		<number>2</number>
+		<eight-point-three>1</eight-point-three>
 	</comm-radio>
 	
 	<dme>
