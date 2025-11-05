@@ -134,16 +134,18 @@ var COMM = {
 
 var NAV = {
 	adjustDecimal: func(n, d) {
-		var input = split(".", sprintf("%3.2f", pts.Instrumentation.Nav.Frequencies.selectedMhzFmt[n].getValue()));
-		var val = input[1] + (5 * d);
-		
-		if (d > 0) {
-			if (val > 95) val = 0;
-		} else if (d < 0) {
-			if (val < 0) val = 95;
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
+			var input = split(".", sprintf("%3.2f", pts.Instrumentation.Nav.Frequencies.selectedMhzFmt[n].getValue()));
+			var val = input[1] + (5 * d);
+			
+			if (d > 0) {
+				if (val > 95) val = 0;
+			} else if (d < 0) {
+				if (val < 0) val = 95;
+			}
+			
+			val = sprintf("%02d", val);
+			pts.Instrumentation.Nav.Frequencies.selectedMhz[n].setValue(input[0] ~ "." ~ val);
 		}
-		
-		val = sprintf("%02d", val);
-		pts.Instrumentation.Nav.Frequencies.selectedMhz[n].setValue(input[0] ~ "." ~ val);
 	},
 };

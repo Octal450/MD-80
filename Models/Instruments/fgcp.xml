@@ -294,9 +294,6 @@
 		</axis>
 		<action>
 			<binding>
-				<condition>
-					<property>systems/electrical/outputs/fgcp</property>
-				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
 				<factor>1</factor>
@@ -332,18 +329,12 @@
 		</axis>
 		<increase>
 			<binding>
-				<condition>
-					<property>systems/electrical/outputs/fgcp</property>
-				</condition>
 				<command>nasal</command>
 				<script>instruments.NAV.adjustDecimal(0, 1);</script>
 			</binding>
 		</increase>
 		<decrease>
 			<binding>
-				<condition>
-					<property>systems/electrical/outputs/fgcp</property>
-				</condition>
 				<command>nasal</command>
 				<script>instruments.NAV.adjustDecimal(0, -1);</script>
 			</binding>
@@ -424,9 +415,6 @@
 		</axis>
 		<action>
 			<binding>
-				<condition>
-					<property>systems/electrical/outputs/fgcp</property>
-				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[0]/radials/selected-deg</property>
 				<factor>1</factor>
@@ -2314,9 +2302,6 @@
 		</axis>
 		<action>
 			<binding>
-				<condition>
-					<property>systems/electrical/outputs/fgcp</property>
-				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[1]/frequencies/selected-mhz</property>
 				<factor>1</factor>
@@ -2352,18 +2337,12 @@
 		</axis>
 		<increase>
 			<binding>
-				<condition>
-					<property>systems/electrical/outputs/fgcp</property>
-				</condition>
 				<command>nasal</command>
 				<script>instruments.NAV.adjustDecimal(1, 1);</script>
 			</binding>
 		</increase>
 		<decrease>
 			<binding>
-				<condition>
-					<property>systems/electrical/outputs/fgcp</property>
-				</condition>
 				<command>nasal</command>
 				<script>instruments.NAV.adjustDecimal(1, -1);</script>
 			</binding>
@@ -2444,9 +2423,6 @@
 		</axis>
 		<action>
 			<binding>
-				<condition>
-					<property>systems/electrical/outputs/fgcp</property>
-				</condition>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[1]/radials/selected-deg</property>
 				<factor>1</factor>
