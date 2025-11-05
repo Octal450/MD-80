@@ -768,8 +768,8 @@
 				/systems/fcs/flaps/dial-a-flap-cmd ge 12
 				/systems/fcs/flaps/dial-a-flap-cmd le 14
 			</test>
-			<test logic="AND" value="2"> <!-- 0-10 -->
-				/systems/fcs/flaps/dial-a-flap-cmd ge 0
+			<test logic="AND" value="2"> <!-- 1-10 -->
+				/systems/fcs/flaps/dial-a-flap-cmd ge 1
 				/systems/fcs/flaps/dial-a-flap-cmd le 10
 			</test>
 		</switch>
