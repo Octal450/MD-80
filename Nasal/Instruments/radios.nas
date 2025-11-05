@@ -149,3 +149,17 @@ var NAV = {
 		}
 	},
 };
+
+var ADF = {
+	adjust: func(n, d) {
+		if (systems.ELECTRICAL.Outputs.adf[n].getValue() >= 24) {
+			var input = pts.Instrumentation.Adf.Frequencies.selectedKhz[n].getValue();
+			var val = input + d;
+			
+			if (val > 1750) val = 1750;
+			else if (val < 190) val = 190;
+			
+			pts.Instrumentation.Adf.Frequencies.selectedKhz[n].setValue(val);
+		}
+	},
+};

@@ -2649,9 +2649,362 @@
 		</condition>
 	</animation>
 	
-	<!-- CRP Common -->
+	<!-- ADF -->
+	<animation>
+		<type>knob</type>
+		<object-name>AdfKnobLIn</object-name>
+		<property>controls/cockpit/adf[0]/minor-rotate</property>
+		<factor>-11.25</factor>
+		<axis>
+			<x1-m>2.86795</x1-m>
+			<y1-m>-0.10516</y1-m>
+			<z1-m>0.66577</z1-m>
+			<x2-m>2.86241</x2-m>
+			<y2-m>-0.10516</y2-m>
+			<z2-m>0.64507</z2-m>
+		</axis>
+		<increase>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(0, 1);</script>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(0, -1);</script>
+			</binding>
+		</decrease>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/cockpit/adf[0]/minor-rotate</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>AdfKnobLMed</object-name>
+		<property>controls/cockpit/adf[0]/med-rotate</property>
+		<factor>-11.25</factor>
+		<axis>
+			<x1-m>2.86795</x1-m>
+			<y1-m>-0.10516</y1-m>
+			<z1-m>0.66577</z1-m>
+			<x2-m>2.86241</x2-m>
+			<y2-m>-0.10516</y2-m>
+			<z2-m>0.64507</z2-m>
+		</axis>
+		<increase>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(0, 10);</script>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(0, -10);</script>
+			</binding>
+		</decrease>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/cockpit/adf[0]/med-rotate</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>AdfKnobLOut</object-name>
+		<property>controls/cockpit/adf[0]/major-rotate</property>
+		<factor>-11.25</factor>
+		<axis>
+			<x1-m>2.86795</x1-m>
+			<y1-m>-0.10516</y1-m>
+			<z1-m>0.66577</z1-m>
+			<x2-m>2.86241</x2-m>
+			<y2-m>-0.10516</y2-m>
+			<z2-m>0.64507</z2-m>
+		</axis>
+		<increase>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(0, 100);</script>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(0, -100);</script>
+			</binding>
+		</decrease>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/cockpit/adf[0]/major-rotate</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>AdfKnobRIn</object-name>
+		<property>controls/cockpit/adf[1]/minor-rotate</property>
+		<factor>-11.25</factor>
+		<axis>
+			<x1-m>2.86795</x1-m>
+			<y1-m>-0.03868</y1-m>
+			<z1-m>0.66577</z1-m>
+			<x2-m>2.86241</x2-m>
+			<y2-m>-0.03868</y2-m>
+			<z2-m>0.64507</z2-m>
+		</axis>
+		<increase>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(1, 1);</script>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(1, -1);</script>
+			</binding>
+		</decrease>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/cockpit/adf[1]/minor-rotate</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>AdfKnobRMed</object-name>
+		<property>controls/cockpit/adf[1]/med-rotate</property>
+		<factor>-11.25</factor>
+		<axis>
+			<x1-m>2.86795</x1-m>
+			<y1-m>-0.03868</y1-m>
+			<z1-m>0.66577</z1-m>
+			<x2-m>2.86241</x2-m>
+			<y2-m>-0.03868</y2-m>
+			<z2-m>0.64507</z2-m>
+		</axis>
+		<increase>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(1, 10);</script>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(1, -10);</script>
+			</binding>
+		</decrease>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/cockpit/adf[1]/med-rotate</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>AdfKnobROut</object-name>
+		<property>controls/cockpit/adf[1]/major-rotate</property>
+		<factor>-11.25</factor>
+		<axis>
+			<x1-m>2.86795</x1-m>
+			<y1-m>-0.03868</y1-m>
+			<z1-m>0.66577</z1-m>
+			<x2-m>2.86241</x2-m>
+			<y2-m>-0.03868</y2-m>
+			<z2-m>0.64507</z2-m>
+		</axis>
+		<increase>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(1, 100);</script>
+			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(1, -100);</script>
+			</binding>
+		</decrease>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/cockpit/adf[1]/major-rotate</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<text>
+		<name>AdfLDigits</name>
+		<offsets>
+			<x-m>2.83945</x-m>
+			<y-m>-0.09027</y-m>
+			<z-m>0.63793</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>%6.1f</format>
+		<property>instrumentation/adf[0]/frequencies/selected-khz</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.008</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>AdfLDigitsTest</name>
+		<offsets>
+			<x-m>2.83945</x-m>
+			<y-m>-0.09027</y-m>
+			<z-m>0.63793</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>8888.8</text>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.008</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<name>AdfLDisplay</name>
+		<object-name>AdfLDigits</object-name>
+		<object-name>AdfLDigitsTest</object-name>
+	</animation>
+	
 	<animation>
 		<type>select</type>
+		<object-name>AdfLDisplay</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/outputs/adf[0]</property>
+				<value>24</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>AdfRDigits</name>
+		<offsets>
+			<x-m>2.83945</x-m>
+			<y-m>-0.02379</y-m>
+			<z-m>0.63793</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>%6.1f</format>
+		<property>instrumentation/adf[1]/frequencies/selected-khz</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.008</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>AdfRDigitsTest</name>
+		<offsets>
+			<x-m>2.83945</x-m>
+			<y-m>-0.02379</y-m>
+			<z-m>0.63793</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>8888.8</text>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.008</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<name>AdfRDisplay</name>
+		<object-name>AdfRDigits</object-name>
+		<object-name>AdfRDigitsTest</object-name>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>AdfRDisplay</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/outputs/adf[1]</property>
+				<value>24</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<!-- Pedestal Screen Common -->
+	<animation>
+		<type>select</type>
+		<object-name>AdfLDigits</object-name>
+		<object-name>AdfRDigits</object-name>
 		<object-name>ComCptDigitsActive</object-name>
 		<object-name>ComCptDigitsStby</object-name>
 		<object-name>ComFoDigitsActive</object-name>
@@ -2662,6 +3015,8 @@
 	</animation>
 	<animation>
 		<type>select</type>
+		<object-name>AdfLDigitsTest</object-name>
+		<object-name>AdfRDigitsTest</object-name>
 		<object-name>ComCptDigitsTest</object-name>
 		<object-name>ComFoDigitsTest</object-name>
 		<condition>
@@ -2672,6 +3027,8 @@
 	<!-- LCD Color -->
 	<animation>
 		<type>material</type>
+		<object-name>AdfLDisplay</object-name>
+		<object-name>AdfRDisplay</object-name>
 		<object-name>ComCptDisplay</object-name>
 		<object-name>ComFoDisplay</object-name>
 		<diffuse>
