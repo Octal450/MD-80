@@ -294,6 +294,10 @@
 		</axis>
 		<action>
 			<binding>
+				<greater-than-equals>
+					<property>systems/electrical/outputs/fgcp</property>
+					<value>24</value>
+				</greater-than-equals>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
 				<factor>1</factor>
@@ -415,6 +419,10 @@
 		</axis>
 		<action>
 			<binding>
+				<greater-than-equals>
+					<property>systems/electrical/outputs/fgcp</property>
+					<value>24</value>
+				</greater-than-equals>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[0]/radials/selected-deg</property>
 				<factor>1</factor>
@@ -2302,6 +2310,10 @@
 		</axis>
 		<action>
 			<binding>
+				<greater-than-equals>
+					<property>systems/electrical/outputs/fgcp</property>
+					<value>24</value>
+				</greater-than-equals>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[1]/frequencies/selected-mhz</property>
 				<factor>1</factor>
@@ -2423,6 +2435,10 @@
 		</axis>
 		<action>
 			<binding>
+				<greater-than-equals>
+					<property>systems/electrical/outputs/fgcp</property>
+					<value>24</value>
+				</greater-than-equals>
 				<command>property-adjust</command>
 				<property>instrumentation/nav[1]/radials/selected-deg</property>
 				<factor>1</factor>
