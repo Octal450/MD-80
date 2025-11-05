@@ -22,7 +22,7 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>ComAdfTcasLights</object-name>
+		<object-name>TcasFailLed</object-name>
 		<object-name>PmsLights</object-name>
 		<condition>
 			<property>controls/switches/annun-test</property>
@@ -99,8 +99,14 @@
 	<animation>
 		<type>material</type>
 		<object-name>AileronTrimIndLight</object-name>
+		<object-name>CGInd</object-name>
+		<object-name>DialAFlapInd</object-name>
+		<object-name>FlapInd</object-name>
+		<object-name>ComCptTfrInd</object-name>
+		<object-name>ComFoTfrInd</object-name>
 		<object-name>IntegrityABSSel</object-name>
 		<object-name>PedestalText</object-name>
+		<object-name>PmsText</object-name>
 		<object-name>RudderTrimIndLight</object-name>
 		<emission>
 			<red>1.0</red>
@@ -1935,7 +1941,7 @@
 	<!-- Takeoff Trim Computer -->
 	<animation>
 		<type>rotate</type>
-		<object-name>ToStabIndicator</object-name>
+		<object-name>ToStabInd</object-name>
 		<object-name>ToStabWheel</object-name>
 		<property>controls/cockpit/to-stab</property>
 		<interpolation>
@@ -1956,7 +1962,7 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>CGIndicator</object-name>
+		<object-name>CGInd</object-name>
 		<object-name>CGWheel</object-name>
 		<property>controls/cockpit/to-cg</property>
 		<interpolation>
@@ -1977,7 +1983,7 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>FlapIndicator</object-name>
+		<object-name>FlapInd</object-name>
 		<object-name>FlapWheel</object-name>
 		<property>controls/cockpit/to-flaps</property>
 		<interpolation>
@@ -2061,7 +2067,7 @@
 	<!-- Stabilizer Trim Pointers -->
 	<animation>
 		<type>rotate</type>
-		<object-name>LongTrimToIndicator</object-name>
+		<object-name>LongTrimToInd</object-name>
 		<property>controls/cockpit/to-stab</property>
 		<interpolation>
 			<entry><ind>-3</ind><dep>-19.61</dep></entry>
@@ -2081,7 +2087,7 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>LongTrimIndicator</object-name>
+		<object-name>LongTrimInd</object-name>
 		<property>systems/fcs/stabilizer/final-deg</property>
 		<interpolation> <!-- Inverted because negative is ANU -->
 			<entry><ind>  3</ind><dep>-19.61</dep></entry>
@@ -2099,10 +2105,10 @@
 		</axis>
 	</animation>
 	
-	<!-- NLG Indicator -->
+	<!-- NLG Ind -->
 	<animation>
 		<type>translate</type>
-		<object-name>NlgIndicator</object-name>
+		<object-name>NlgInd</object-name>
 		<property>controls/cockpit/nlg-ind</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>0.007</dep></entry>
