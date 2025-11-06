@@ -3000,6 +3000,303 @@
 		</condition>
 	</animation>
 	
+	<!-- Transponder -->
+	<text>
+		<name>XpdrDigit3</name>
+		<offsets>
+			<x-m>2.9027</x-m>
+			<y-m>-0.07785</y-m>
+			<z-m>0.62044</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>%1.0f</format>
+		<property>instrumentation/transponder/inputs/digit[3]</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>XpdrDigitTest</name>
+		<offsets>
+			<x-m>2.9027</x-m>
+			<y-m>-0.07785</y-m>
+			<z-m>0.62044</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>8</text>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>XpdrDigit2</name>
+		<offsets>
+			<x-m>2.9027</x-m>
+			<y-m>-0.07185</y-m>
+			<z-m>0.62044</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>%1.0f</format>
+		<property>instrumentation/transponder/inputs/digit[2]</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>XpdrDigitTest</name>
+		<offsets>
+			<x-m>2.9027</x-m>
+			<y-m>-0.07185</y-m>
+			<z-m>0.62044</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>8</text>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>XpdrDigit1</name>
+		<offsets>
+			<x-m>2.9027</x-m>
+			<y-m>-0.06585</y-m>
+			<z-m>0.62044</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>%1.0f</format>
+		<property>instrumentation/transponder/inputs/digit[1]</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>XpdrDigitTest</name>
+		<offsets>
+			<x-m>2.9027</x-m>
+			<y-m>-0.06585</y-m>
+			<z-m>0.62044</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>8</text>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>XpdrDigit0</name>
+		<offsets>
+			<x-m>2.9027</x-m>
+			<y-m>-0.05985</y-m>
+			<z-m>0.62044</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>%1.0f</format>
+		<property>instrumentation/transponder/inputs/digit[0]</property>
+		<truncate>false</truncate>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>XpdrDigitTest</name>
+		<offsets>
+			<x-m>2.9027</x-m>
+			<y-m>-0.05985</y-m>
+			<z-m>0.62044</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>8</text>
+		<font>Std7SegCustom.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>XpdrAtc</name>
+		<offsets>
+			<x-m>2.89125</x-m>
+			<y-m>-0.07945</y-m>
+			<z-m>0.62351</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>ATC</text>
+		<font>LiberationFonts/LiberationSans-Regular.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0045</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	
+	<text>
+		<name>XpdrAtc1</name>
+		<offsets>
+			<x-m>2.89125</x-m>
+			<y-m>-0.0717</y-m>
+			<z-m>0.62351</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>1</text>
+		<font>LiberationFonts/LiberationSans-Regular.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0045</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>XpdrAtc1</object-name>
+		<condition>
+			<not><property>instrumentation/transponder/input/xpdr</property></not>
+		</condition>
+	</animation>
+	
+	<text>
+		<name>XpdrAtc2</name>
+		<offsets>
+			<x-m>2.89125</x-m>
+			<y-m>-0.0717</y-m>
+			<z-m>0.62351</z-m>
+			<pitch-deg>-75</pitch-deg>
+		</offsets>
+		<alignment>center-center</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>literal</type>
+		<text>2</text>
+		<font>LiberationFonts/LiberationSans-Regular.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0045</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	
+	<animation>
+		<type>select</type>
+		<object-name>XpdrAtc2</object-name>
+		<condition>
+			<property>instrumentation/transponder/input/xpdr</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<name>XpdrDisplay</name>
+		<object-name>XpdrAtc</object-name>
+		<object-name>XpdrAtc1</object-name>
+		<object-name>XpdrAtc2</object-name>
+		<object-name>XpdrDigit0</object-name>
+		<object-name>XpdrDigit1</object-name>
+		<object-name>XpdrDigit2</object-name>
+		<object-name>XpdrDigit3</object-name>
+		<object-name>XpdrDigitTest</object-name>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>XpdrDisplay</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/outputs/transponder</property>
+				<value>24</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
 	<!-- Pedestal Screen Common -->
 	<animation>
 		<type>select</type>
@@ -3009,6 +3306,10 @@
 		<object-name>ComCptDigitsStby</object-name>
 		<object-name>ComFoDigitsActive</object-name>
 		<object-name>ComFoDigitsStby</object-name>
+		<object-name>XpdrDigit0</object-name>
+		<object-name>XpdrDigit1</object-name>
+		<object-name>XpdrDigit2</object-name>
+		<object-name>XpdrDigit3</object-name>
 		<condition>
 			<not><property>controls/switches/annun-test</property></not>
 		</condition>
@@ -3019,6 +3320,7 @@
 		<object-name>AdfRDigitsTest</object-name>
 		<object-name>ComCptDigitsTest</object-name>
 		<object-name>ComFoDigitsTest</object-name>
+		<object-name>XpdrDigitTest</object-name>
 		<condition>
 			<property>controls/switches/annun-test</property>
 		</condition>
@@ -3031,6 +3333,7 @@
 		<object-name>AdfRDisplay</object-name>
 		<object-name>ComCptDisplay</object-name>
 		<object-name>ComFoDisplay</object-name>
+		<object-name>XpdrDisplay</object-name>
 		<diffuse>
 			<red>1</red>
 			<green>1</green>
