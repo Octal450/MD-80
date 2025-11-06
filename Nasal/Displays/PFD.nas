@@ -285,7 +285,7 @@ var canvasBase = {
 		me["Gndspd"].setText(sprintf("%d", math.round(pts.Velocities.groundspeedKt.getValue())));
 		
 		# ILS
-		Value.Nav.Freq.selected[n] = pts.Instrumentation.Nav.Frequencies.selectedMhzFmtX100[n].getValue();
+		Value.Nav.Freq.selected[n] = pts.Instrumentation.Nav.Frequencies.selectedMhzFmt[n].getValue() * 100;
 		Value.Nav.Freq.selectedDecimal[n] = right("" ~ Value.Nav.Freq.selected[n], 2);
 		Value.Nav.Freq.selectedInteger[n] = math.floor(Value.Nav.Freq.selected[n]);
 		Value.Nav.gsInRange[n] = pts.Instrumentation.Nav.gsInRange[n].getBoolValue();
