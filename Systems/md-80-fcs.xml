@@ -797,6 +797,11 @@
 				/systems/fcs/flaps/fixed ge 0.14
 				/systems/fcs/flaps/fixed lt 0.25
 			</test>
+			<test logic="AND" value="1"> <!-- UP/MID when no DAF -->
+				/systems/fcs/flaps/dial-a-flap-pos ne 2
+				/systems/fcs/flaps/fixed ge 0.25
+				/systems/fcs/flaps/fixed lt 0.36
+			</test>
 			<test logic="AND" value="2"> <!-- 0-10/MID -->
 				/systems/fcs/flaps/dial-a-flap-pos eq 2
 				/systems/fcs/flaps/fixed ge 0.25
@@ -806,6 +811,11 @@
 				/systems/fcs/flaps/fixed ge 0.36
 				/systems/fcs/flaps/fixed lt 0.47
 			</test>
+			<test logic="AND" value="3"> <!-- 11/MID when no DAF -->
+				/systems/fcs/flaps/dial-a-flap-pos ne 4
+				/systems/fcs/flaps/fixed ge 0.47
+				/systems/fcs/flaps/fixed lt 0.58
+			</test>
 			<test logic="AND" value="4"> <!-- 12-14/MID -->
 				/systems/fcs/flaps/dial-a-flap-pos eq 4
 				/systems/fcs/flaps/fixed ge 0.47
@@ -814,6 +824,11 @@
 			<test logic="AND" value="5"> <!-- 15/EXT -->
 				/systems/fcs/flaps/fixed ge 0.58
 				/systems/fcs/flaps/fixed lt 0.69
+			</test>
+			<test logic="AND" value="5"> <!-- 15/EXT when no DAF -->
+				/systems/fcs/flaps/dial-a-flap-pos ne 6
+				/systems/fcs/flaps/fixed ge 0.69
+				/systems/fcs/flaps/fixed lt 0.8
 			</test>
 			<test logic="AND" value="6"> <!-- 16-24/EXT -->
 				/systems/fcs/flaps/dial-a-flap-pos eq 6
