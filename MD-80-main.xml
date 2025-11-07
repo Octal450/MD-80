@@ -1485,6 +1485,7 @@
 		<transponder n="0">
 			<input n="0">
 				<alt-source type="bool">0</alt-source>
+				<tcas-dir type="int">-1</tcas-dir>
 				<xpdr type="bool">0</xpdr>
 			</input>
 			<inputs n="0">

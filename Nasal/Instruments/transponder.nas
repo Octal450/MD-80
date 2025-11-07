@@ -11,11 +11,13 @@ var XPDR = {
 	ident: props.globals.getNode("/instrumentation/transponder/inputs/ident-btn", 1),
 	identTime: 0,
 	power: props.globals.getNode("/systems/electrical/outputs/transponder", 1),
+	tcasDir: props.globals.getNode("/instrumentation/transponder/input/tcas-dir"),
 	tcasMode: props.globals.getNode("/instrumentation/tcas/inputs/mode"),
 	xpdr: props.globals.getNode("/instrumentation/transponder/input/xpdr"),
 	init: func() { # Don't reset the code
 		me.altSource.setBoolValue(0);
 		me.setMode(0);
+		me.tcasDir.setValue(-1);
 		me.xpdr.setBoolValue(0);
 	},
 	modeKnob: func(d) {

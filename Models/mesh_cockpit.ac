@@ -10464,6 +10464,7 @@ refs 4
 kids 0
 OBJECT poly
 name "AltSrcKnob"
+loc -5.00679e-06 -5.96046e-08 2.49967e-05
 data 10
 Circle.001
 texture "txt_cockpit_pedestal.png"
@@ -227108,7 +227109,7 @@ refs 4
 13 0.310038 0.144372
 kids 0
 OBJECT poly
-name "XpndrFlButton"
+name "XpdrFlButton"
 data 10
 Circle.007
 texture "txt_cockpit_palette.png"
@@ -227280,7 +227281,7 @@ refs 16
 14 0.583099 0.639383
 kids 0
 OBJECT poly
-name "XpndrIdentButton"
+name "XpdrIdentButton"
 data 10
 Circle.008
 texture "txt_cockpit_palette.png"
@@ -227452,7 +227453,7 @@ refs 16
 14 0.550457 0.606741
 kids 0
 OBJECT poly
-name "XpndrKnobLBase"
+name "XpdrKnobLBase"
 data 8
 Tube.088
 texture "txt_cockpit_pedestal.png"
@@ -227677,7 +227678,7 @@ refs 4
 46 0.546343 0.05084
 kids 0
 OBJECT poly
-name "XpndrKnobLIn"
+name "XpdrKnobLIn"
 data 8
 Tube.089
 texture "txt_cockpit_pedestal.png"
@@ -228121,7 +228122,7 @@ refs 4
 70 0.546343 0.05084
 kids 0
 OBJECT poly
-name "XpndrKnobLOut"
+name "XpdrKnobLOut"
 data 8
 Tube.090
 texture "txt_cockpit_pedestal.png"
@@ -228592,7 +228593,7 @@ refs 4
 70 0.73246 0.07895
 kids 0
 OBJECT poly
-name "XpndrKnobRBase"
+name "XpdrKnobRBase"
 data 8
 Tube.091
 texture "txt_cockpit_pedestal.png"
@@ -228817,7 +228818,7 @@ refs 4
 46 0.546343 0.05084
 kids 0
 OBJECT poly
-name "XpndrKnobRIn"
+name "XpdrKnobRIn"
 data 8
 Tube.092
 texture "txt_cockpit_pedestal.png"
@@ -229261,7 +229262,7 @@ refs 4
 46 0.546343 0.05084
 kids 0
 OBJECT poly
-name "XpndrKnobROut"
+name "XpdrKnobROut"
 data 8
 Tube.093
 texture "txt_cockpit_pedestal.png"
@@ -229735,7 +229736,7 @@ refs 4
 45 0.73246 0.07895
 kids 0
 OBJECT poly
-name "XpndrSelKnob"
+name "XpdrSelKnob"
 data 10
 Circle.009
 texture "txt_cockpit_pedestal.png"

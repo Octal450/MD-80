@@ -213,9 +213,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="8"
-     inkscape:cx="145.09101"
-     inkscape:cy="2400.0384"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="2271.3769"
+     inkscape:cy="3431.3402"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -693,14 +693,14 @@
 <image
        sodipodi:absref="D:\Aircraft\MD-80\Models\txt_cockpit_pedestal_text-UV.png"
        xlink:href="txt_cockpit_pedestal_text-UV.png"
-       width="4096"
-       height="4096"
-       preserveAspectRatio="none"
-       id="image1"
-       x="0"
-       y="-995.63788"
+       sodipodi:insensitive="true"
        style="display:none;stroke-width:0.5"
-       sodipodi:insensitive="true" /><text
+       y="-995.63788"
+       x="0"
+       id="image1"
+       preserveAspectRatio="none"
+       height="4096"
+       width="4096" /><text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:28px;line-height:83.4%;font-family:'Alata';-inkscape-font-specification:'Alata,  Condensed';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="1986.5238"
@@ -2571,12 +2571,12 @@
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:15px;line-height:83.39999914%;font-family:Alata;-inkscape-font-specification:'Alata,  Condensed';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="2149.959"
-       y="-239.71388"
+       y="-239.78789"
        id="text243"
        sodipodi:linespacing="83.399999%"><tspan
          sodipodi:role="line"
          x="2149.959"
-         y="-239.71388"
+         y="-239.78789"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:15px;line-height:83.39999914%;font-family:Alata;-inkscape-font-specification:'Alata,  Condensed';text-align:start;letter-spacing:0px;text-anchor:start;fill:#ffffff"
          id="tspan243">ALT SOURCE</tspan></text>
 <text
@@ -2595,12 +2595,12 @@
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:15px;line-height:83.39999914%;font-family:Alata;-inkscape-font-specification:'Alata,  Condensed';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="2167.625"
-       y="-354.01031"
+       y="-354.08432"
        id="text245"
        sodipodi:linespacing="83.399999%"><tspan
          sodipodi:role="line"
          x="2167.625"
-         y="-354.01031"
+         y="-354.08432"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:15px;line-height:83.39999914%;font-family:Alata;-inkscape-font-specification:'Alata,  Condensed';text-align:start;letter-spacing:0px;text-anchor:start;fill:#ffffff"
          id="tspan245">XPNDR</tspan></text>
 <text
@@ -2641,7 +2641,7 @@
          id="tspan249">XPDR</tspan></text>
 <g
        id="g251"
-       transform="translate(12.084678,0)"><text
+       transform="translate(12.084678,-0.07399755)"><text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:15px;line-height:83.39999914%;font-family:Alata;-inkscape-font-specification:'Alata,  Condensed';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          x="2162.9778"
@@ -2667,7 +2667,7 @@
            id="tspan251">2</tspan></text>
 </g><g
        id="g254"
-       transform="translate(12.084678,114.29582)"><text
+       transform="translate(12.084678,114.22182)"><text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:15px;line-height:83.39999914%;font-family:Alata;-inkscape-font-specification:'Alata,  Condensed';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          x="2162.9778"
@@ -2732,7 +2732,7 @@
          id="tspan97">STBY</tspan></text>
 <g
        id="g4960"
-       transform="translate(-3,-1.7609137)"><text
+       transform="translate(-3,-1.8349113)"><text
          sodipodi:linespacing="83.399999%"
          id="text98"
          y="-400.01483"
@@ -4548,7 +4548,8 @@
        d="m -223.97858,129.7928 0,-155.075752 134.299541,77.537877 z"
        inkscape:transform-center-x="-6.5409962"
        transform="matrix(0.29222736,0,0,0.07673409,128.04667,176.86717)" /><g
-       id="g4947"><path
+       id="g4947"
+       transform="translate(0,-0.07399755)"><path
          inkscape:transform-center-x="5.70255"
          inkscape:transform-center-y="-12.229107"
          sodipodi:nodetypes="cc"
@@ -4563,7 +4564,8 @@
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cc"
          inkscape:transform-center-y="-12.229107" /></g><g
-       id="g4953"><path
+       id="g4953"
+       transform="translate(0,-0.07399755)"><path
          style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          d="m 2190.8612,-275.71288 -11.4049,-24.4575"
          id="path4939"
@@ -4579,7 +4581,7 @@
          style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          inkscape:transform-center-x="-5.70255" /></g><g
        id="g4959"
-       transform="translate(0.11590099,-1.73845)"><path
+       transform="translate(0.11590099,-1.8124476)"><path
          inkscape:transform-center-y="-6.75003"
          inkscape:transform-center-x="-11.691411"
          style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"

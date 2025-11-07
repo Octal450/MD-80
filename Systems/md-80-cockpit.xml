@@ -508,6 +508,26 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/transponder/alt">
+			<input>/instrumentation/transponder/input/alt-source</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/transponder/knob">
+			<input>/instrumentation/transponder/output/knob</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/transponder/tcas-dir">
+			<input>/instrumentation/transponder/input/tcas-dir</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/transponder/xpdr">
+			<input>/instrumentation/transponder/input/xpdr</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/x-bleed-l-lever">
 			<input>/controls/pneumatics/x-bleed-l</input>
 			<c1>20</c1>
