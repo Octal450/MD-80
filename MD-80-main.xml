@@ -564,6 +564,12 @@
 			<overhead n="0">
 				<wipers-held type="bool">0</wipers-held>
 			</overhead>
+			<transponder n="0">
+				<major-rotate-l type="int">50000</major-rotate-l>
+				<major-rotate-r type="int">50000</major-rotate-r>
+				<minor-rotate-l type="int">50000</minor-rotate-l>
+				<minor-rotate-r type="int">50000</minor-rotate-r>
+			</transponder>
 		</cockpit>
 		<dfgs n="0">
 			<art type="bool">1</art>
@@ -1476,6 +1482,18 @@
 				<volume>0.8</volume>
 			</speaker>
 		</tcas>
+		<transponder n="0">
+			<input n="0">
+				<alt-source type="bool">0</alt-source>
+				<xpdr type="bool">0</xpdr>
+			</input>
+			<inputs n="0">
+				<knob-mode type="int">1</knob-mode>
+			</inputs>
+			<output n="0">
+				<knob type="int">0</knob>
+			</output>
+		</transponder>
 		<vertical-speed-indicator n="0">
 			<vert-speed-fpm type="double">0</vert-speed-fpm>
 		</vertical-speed-indicator>
@@ -1795,6 +1813,7 @@
 		<instruments>
 			<file>Aircraft/MD-80/Nasal/Instruments/efis.nas</file>
 			<file>Aircraft/MD-80/Nasal/Instruments/radios.nas</file>
+			<file>Aircraft/MD-80/Nasal/Instruments/transponder.nas</file>
 		</instruments>
 		<autopush>
 			<file>Aircraft/MD-80/Nasal/Autopush/autopush.nas</file>

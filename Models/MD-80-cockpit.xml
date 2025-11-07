@@ -3001,8 +3001,183 @@
 	</animation>
 	
 	<!-- Transponder -->
+	<animation>
+		<type>knob</type>
+		<object-name>XpndrKnobLOut</object-name>
+		<property>controls/cockpit/transponder/major-rotate-l</property>
+		<factor>-11.25</factor>
+		<axis>
+			<x1-m>2.92572</x1-m>
+			<y1-m>-0.09193</y1-m>
+			<z1-m>0.64822</z1-m>
+			<x2-m>2.92324</x2-m>
+			<y2-m>-0.09193</y2-m>
+			<z2-m>0.63899</z2-m>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/transponder/inputs/digit[3]</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>8</max>
+				<wrap>true</wrap>
+			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/cockpit/transponder/major-rotate-l</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>XpndrKnobLIn</object-name>
+		<property>controls/cockpit/transponder/minor-rotate-l</property>
+		<factor>-11.25</factor>
+		<axis>
+			<x1-m>2.92572</x1-m>
+			<y1-m>-0.09193</y1-m>
+			<z1-m>0.64822</z1-m>
+			<x2-m>2.92324</x2-m>
+			<y2-m>-0.09193</y2-m>
+			<z2-m>0.63899</z2-m>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/transponder/inputs/digit[2]</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>8</max>
+				<wrap>true</wrap>
+			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/cockpit/transponder/minor-rotate-l</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>XpndrKnobROut</object-name>
+		<property>controls/cockpit/transponder/major-rotate-r</property>
+		<factor>-11.25</factor>
+		<axis>
+			<x1-m>2.92572</x1-m>
+			<y1-m>-0.05192</y1-m>
+			<z1-m>0.64822</z1-m>
+			<x2-m>2.92324</x2-m>
+			<y2-m>-0.05192</y2-m>
+			<z2-m>0.63899</z2-m>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/transponder/inputs/digit[1]</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>8</max>
+				<wrap>true</wrap>
+			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/cockpit/transponder/major-rotate-r</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>XpndrKnobRIn</object-name>
+		<property>controls/cockpit/transponder/minor-rotate-r</property>
+		<factor>-11.25</factor>
+		<axis>
+			<x1-m>2.92572</x1-m>
+			<y1-m>-0.05192</y1-m>
+			<z1-m>0.64822</z1-m>
+			<x2-m>2.92324</x2-m>
+			<y2-m>-0.05192</y2-m>
+			<z2-m>0.63899</z2-m>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>instrumentation/transponder/inputs/digit[0]</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>8</max>
+				<wrap>true</wrap>
+			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/cockpit/transponder/minor-rotate-r</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>100000</max>
+				<wrap>true</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>XpndrIdentButton</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.XPDR.setIdent();</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/cockpit/transponder/ident</property>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>libraries.Sound.btn1();</script>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/transponder/ident</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>XpndrIdentButton</object-name>
+		<property>controls/cockpit/transponder/ident</property>
+		<factor>0.001</factor>
+		<axis>
+			<x1-m>2.92572</x1-m>
+			<y1-m>-0.07192</y1-m>
+			<z1-m>0.64822</z1-m>
+			<x2-m>2.92324</x2-m>
+			<y2-m>-0.07192</y2-m>
+			<z2-m>0.63899</z2-m>
+		</axis>
+	</animation>
+	
 	<text>
-		<name>XpdrDigit3</name>
+		<name>XpndrDigit3</name>
 		<offsets>
 			<x-m>2.9027</x-m>
 			<y-m>-0.07785</y-m>
@@ -3026,7 +3201,7 @@
 		</font-resolution>
 	</text>
 	<text>
-		<name>XpdrDigitTest</name>
+		<name>XpndrDigitTest</name>
 		<offsets>
 			<x-m>2.9027</x-m>
 			<y-m>-0.07785</y-m>
@@ -3049,7 +3224,7 @@
 	</text>
 	
 	<text>
-		<name>XpdrDigit2</name>
+		<name>XpndrDigit2</name>
 		<offsets>
 			<x-m>2.9027</x-m>
 			<y-m>-0.07185</y-m>
@@ -3073,7 +3248,7 @@
 		</font-resolution>
 	</text>
 	<text>
-		<name>XpdrDigitTest</name>
+		<name>XpndrDigitTest</name>
 		<offsets>
 			<x-m>2.9027</x-m>
 			<y-m>-0.07185</y-m>
@@ -3096,7 +3271,7 @@
 	</text>
 	
 	<text>
-		<name>XpdrDigit1</name>
+		<name>XpndrDigit1</name>
 		<offsets>
 			<x-m>2.9027</x-m>
 			<y-m>-0.06585</y-m>
@@ -3120,7 +3295,7 @@
 		</font-resolution>
 	</text>
 	<text>
-		<name>XpdrDigitTest</name>
+		<name>XpndrDigitTest</name>
 		<offsets>
 			<x-m>2.9027</x-m>
 			<y-m>-0.06585</y-m>
@@ -3143,7 +3318,7 @@
 	</text>
 	
 	<text>
-		<name>XpdrDigit0</name>
+		<name>XpndrDigit0</name>
 		<offsets>
 			<x-m>2.9027</x-m>
 			<y-m>-0.05985</y-m>
@@ -3167,7 +3342,7 @@
 		</font-resolution>
 	</text>
 	<text>
-		<name>XpdrDigitTest</name>
+		<name>XpndrDigitTest</name>
 		<offsets>
 			<x-m>2.9027</x-m>
 			<y-m>-0.05985</y-m>
@@ -3190,7 +3365,7 @@
 	</text>
 	
 	<text>
-		<name>XpdrAtc</name>
+		<name>XpndrAtc</name>
 		<offsets>
 			<x-m>2.89125</x-m>
 			<y-m>-0.07945</y-m>
@@ -3213,7 +3388,7 @@
 	</text>
 	
 	<text>
-		<name>XpdrAtc1</name>
+		<name>XpndrAtc1</name>
 		<offsets>
 			<x-m>2.89125</x-m>
 			<y-m>-0.0717</y-m>
@@ -3237,14 +3412,14 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>XpdrAtc1</object-name>
+		<object-name>XpndrAtc1</object-name>
 		<condition>
 			<not><property>instrumentation/transponder/input/xpdr</property></not>
 		</condition>
 	</animation>
 	
 	<text>
-		<name>XpdrAtc2</name>
+		<name>XpndrAtc2</name>
 		<offsets>
 			<x-m>2.89125</x-m>
 			<y-m>-0.0717</y-m>
@@ -3268,27 +3443,27 @@
 	
 	<animation>
 		<type>select</type>
-		<object-name>XpdrAtc2</object-name>
+		<object-name>XpndrAtc2</object-name>
 		<condition>
 			<property>instrumentation/transponder/input/xpdr</property>
 		</condition>
 	</animation>
 	
 	<animation>
-		<name>XpdrDisplay</name>
-		<object-name>XpdrAtc</object-name>
-		<object-name>XpdrAtc1</object-name>
-		<object-name>XpdrAtc2</object-name>
-		<object-name>XpdrDigit0</object-name>
-		<object-name>XpdrDigit1</object-name>
-		<object-name>XpdrDigit2</object-name>
-		<object-name>XpdrDigit3</object-name>
-		<object-name>XpdrDigitTest</object-name>
+		<name>XpndrDisplay</name>
+		<object-name>XpndrAtc</object-name>
+		<object-name>XpndrAtc1</object-name>
+		<object-name>XpndrAtc2</object-name>
+		<object-name>XpndrDigit0</object-name>
+		<object-name>XpndrDigit1</object-name>
+		<object-name>XpndrDigit2</object-name>
+		<object-name>XpndrDigit3</object-name>
+		<object-name>XpndrDigitTest</object-name>
 	</animation>
 	
 	<animation>
 		<type>select</type>
-		<object-name>XpdrDisplay</object-name>
+		<object-name>XpndrDisplay</object-name>
 		<condition>
 			<greater-than-equals>
 				<property>systems/electrical/outputs/transponder</property>
@@ -3306,10 +3481,10 @@
 		<object-name>ComCptDigitsStby</object-name>
 		<object-name>ComFoDigitsActive</object-name>
 		<object-name>ComFoDigitsStby</object-name>
-		<object-name>XpdrDigit0</object-name>
-		<object-name>XpdrDigit1</object-name>
-		<object-name>XpdrDigit2</object-name>
-		<object-name>XpdrDigit3</object-name>
+		<object-name>XpndrDigit0</object-name>
+		<object-name>XpndrDigit1</object-name>
+		<object-name>XpndrDigit2</object-name>
+		<object-name>XpndrDigit3</object-name>
 		<condition>
 			<not><property>controls/switches/annun-test</property></not>
 		</condition>
@@ -3320,7 +3495,7 @@
 		<object-name>AdfRDigitsTest</object-name>
 		<object-name>ComCptDigitsTest</object-name>
 		<object-name>ComFoDigitsTest</object-name>
-		<object-name>XpdrDigitTest</object-name>
+		<object-name>XpndrDigitTest</object-name>
 		<condition>
 			<property>controls/switches/annun-test</property>
 		</condition>
@@ -3333,7 +3508,7 @@
 		<object-name>AdfRDisplay</object-name>
 		<object-name>ComCptDisplay</object-name>
 		<object-name>ComFoDisplay</object-name>
-		<object-name>XpdrDisplay</object-name>
+		<object-name>XpndrDisplay</object-name>
 		<diffuse>
 			<red>1</red>
 			<green>1</green>

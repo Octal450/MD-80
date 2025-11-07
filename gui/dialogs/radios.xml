@@ -1,0 +1,1240 @@
+<?xml version="1.0"?>
+
+<!-- Modified by Josh Davidson (Octal450) -->
+
+<PropertyList>
+
+  <name>radios</name>
+
+  <modal>false</modal>
+
+  <nasal>
+    <open>
+      <![CDATA[
+        var poweroften = [1, 10, 100, 1000];
+        var idcode = getprop('/instrumentation/transponder/id-code');
+
+        if (idcode != nil)
+          {
+          for (var i = 0; i < 4 ; i = i+1)
+            {
+            setprop("/instrumentation/transponder/inputs/digit[" ~ i ~ "]", sprintf("%1d", math.mod(idcode/poweroften[i], 10)) );
+            }
+          }
+
+        var updateTransponderCode = func {
+          var goodcode = 1;
+          var code = 0;
+          for (var i = 3; i >= 0 ; i -= 1)
+            {
+            goodcode = goodcode and (num(getprop("/instrumentation/transponder/inputs/digit[" ~ i ~ "]")) != nil) ;
+            code = code * 10 + (num(getprop("/instrumentation/transponder/inputs/digit[" ~ i ~ "]")) or 0);
+            }
+          setprop('/instrumentation/transponder/goodcode', goodcode);
+          setprop('/instrumentation/transponder/id-code', code);
+        }
+      ]]>
+    </open>
+  </nasal>
+
+  <layout>vbox</layout>
+
+  <group>
+    <layout>hbox</layout>
+    <text>
+      <label>Radio Frequencies</label>
+    </text>
+
+    <empty>
+      <stretch>1</stretch>
+    </empty>
+
+    <button>
+      <pref-width>20</pref-width>
+      <pref-height>20</pref-height>
+      <legend>X</legend>
+      <key>Esc</key>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+  </group>
+
+  <hrule/>
+
+  <group>
+    <layout>table</layout>
+
+    <!-- headers -->
+    <text>
+      <row>0</row>
+      <col>1</col>
+      <label>Selected MHz</label>
+    </text>
+
+    <text>
+      <row>0</row>
+      <col>4</col>
+      <label>Standby MHz</label>
+    </text>
+
+    <!-- Dummy label to stretch table, as layout manager doesn't handle labels well -->
+    <text>
+      <row>0</row>
+      <col>5</col>
+      <label></label>
+    </text>
+
+    <text>
+      <row>1</row>
+      <col>0</col>
+      <halign>right</halign>
+      <label>VHF1</label>
+    </text>
+
+    <text>
+      <name>com1-selected</name>
+      <row>1</row>
+      <col>1</col>
+      <live>true</live>
+      <property>/instrumentation/comm[0]/frequencies/selected-mhz</property>
+    </text>
+
+    <button>
+      <row>1</row>
+      <col>2</col>
+      <width>35</width>
+      <height>26</height>
+      <border>1</border>
+      <legend>&lt;-&gt;</legend>
+      <binding>
+        <command>dialog-apply</command>
+        <object-name>com1-selected</object-name>
+      </binding>
+      <binding>
+        <command>dialog-apply</command>
+        <object-name>com1-standby</object-name>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>instruments.crp[0].swap(0);</script>
+      </binding>
+      <binding>
+        <command>dialog-update</command>
+        <object-name>com1-selected</object-name>
+      </binding>
+      <binding>
+        <command>dialog-update</command>
+        <object-name>com1-standby</object-name>
+      </binding>
+    </button>
+
+	<group>
+		<row>1</row>
+		<col>4</col>
+		<layout>table</layout>
+		
+		<button>
+			<row>0</row>
+			<col>0</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;&lt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.crp[0].adjustInt(-1, 0);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>1</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.crp[0].adjustDec(-1, 0, 0);</script>
+			</binding>
+		</button>
+		
+		<input>
+			<name>com1-standby</name>
+			<row>0</row>
+			<col>2</col>
+			<pref-width>75</pref-width>
+			<live>true</live>
+			<property>/instrumentation/comm[0]/frequencies/standby-mhz</property>
+			<binding>
+				<command>dialog-apply</command>
+				<object-name>com1-standby</object-name>
+			</binding>
+		</input>
+		
+		<button>
+			<row>0</row>
+			<col>3</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.crp[0].adjustDec(1, 0, 0);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>4</col>
+			<halign>left</halign>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.crp[0].adjustInt(1, 0);</script>
+			</binding>
+		</button>
+	
+	</group>
+
+    <text>
+      <row>2</row>
+      <col>0</col>
+      <halign>right</halign>
+      <label>VHF2</label>
+    </text>
+
+    <text>
+      <name>com2-selected</name>
+      <row>2</row>
+      <col>1</col>
+      <live>true</live>
+      <property>/instrumentation/comm[1]/frequencies/selected-mhz</property>
+    </text>
+
+    <button>
+      <row>2</row>
+      <col>2</col>
+      <width>35</width>
+      <height>26</height>
+      <border>1</border>
+      <legend>&lt;-&gt;</legend>
+      <binding>
+        <command>dialog-apply</command>
+        <object-name>com2-selected</object-name>
+      </binding>
+      <binding>
+        <command>dialog-apply</command>
+        <object-name>com2-standby</object-name>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>instruments.crp[0].swap(1);</script>
+      </binding>
+      <binding>
+        <command>dialog-update</command>
+        <object-name>com2-selected</object-name>
+      </binding>
+      <binding>
+        <command>dialog-update</command>
+        <object-name>com2-standby</object-name>
+      </binding>
+    </button>
+
+	<group>
+		<row>2</row>
+		<col>4</col>
+		<layout>table</layout>
+		
+		<button>
+			<row>0</row>
+			<col>0</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;&lt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.crp[0].adjustInt(-1, 1);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>1</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.crp[0].adjustDec(-1, 0, 1);</script>
+			</binding>
+		</button>
+		
+		<input>
+			<name>com2-standby</name>
+			<row>0</row>
+			<col>2</col>
+			<pref-width>75</pref-width>
+			<live>true</live>
+			<property>/instrumentation/comm[1]/frequencies/standby-mhz</property>
+			<binding>
+				<command>dialog-apply</command>
+				<object-name>com2-standby</object-name>
+			</binding>
+		</input>
+		
+		<button>
+			<row>0</row>
+			<col>3</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.crp[0].adjustDec(1, 0, 1);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>4</col>
+			<halign>left</halign>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.crp[0].adjustInt(1, 1);</script>
+			</binding>
+		</button>
+	
+	</group>
+
+  </group>
+
+  <hrule/>
+  
+  <group>
+    <layout>table</layout>
+
+    <!-- headers -->
+    <text>
+      <row>0</row>
+      <col>2</col>
+      <label>Selected MHz</label>
+    </text>
+
+    <text>
+      <row>0</row>
+      <col>4</col>
+      <label>Selected CRS</label>
+    </text>
+
+    <!-- Dummy label to stretch table, as layout manager doesn't handle labels well -->
+    <text>
+      <row>0</row>
+      <col>5</col>
+      <label></label>
+    </text>
+
+    <text>
+      <row>1</row>
+      <col>0</col>
+      <halign>right</halign>
+      <label>NAV1</label>
+    </text>
+
+    <text>
+      <row>1</row>
+      <col>1</col>
+      <label></label>
+    </text>
+
+	<group>
+		<row>1</row>
+		<col>2</col>
+		<layout>table</layout>
+		
+		<button>
+			<row>0</row>
+			<col>0</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;&lt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustInt(0, -1);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>1</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustDec(0, -1);</script>
+			</binding>
+		</button>
+		
+		<input>
+			<row>0</row>
+			<col>2</col>
+			<pref-width>75</pref-width>
+			<live>true</live>
+			<property>/instrumentation/nav[0]/frequencies/selected-mhz</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.roundFreq(0);</script>
+			</binding>
+		</input>
+		
+		<button>
+			<row>0</row>
+			<col>3</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustDec(0, 1);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>4</col>
+			<halign>left</halign>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustInt(0, 1);</script>
+			</binding>
+		</button>
+	
+	</group>
+
+    <text>
+      <row>1</row>
+      <col>3</col>
+      <label></label>
+    </text>
+
+	<group>
+		<row>1</row>
+		<col>4</col>
+		<layout>table</layout>
+		
+		<button>
+			<row>0</row>
+			<col>0</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;&lt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustCrs(0, -10);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>1</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustCrs(0, -1);</script>
+			</binding>
+		</button>
+		
+		<input>
+			<row>0</row>
+			<col>2</col>
+			<pref-width>55</pref-width>
+			<live>true</live>
+			<property>/instrumentation/nav[0]/radials/selected-deg</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.roundCrs(0);</script>
+			</binding>
+		</input>
+		
+		<button>
+			<row>0</row>
+			<col>3</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustCrs(0, 1);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>4</col>
+			<halign>left</halign>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustCrs(0, 10);</script>
+			</binding>
+		</button>
+	
+	</group>
+
+    <text>
+      <row>2</row>
+      <col>0</col>
+      <halign>right</halign>
+      <label>NAV2</label>
+    </text>
+
+    <text>
+      <row>2</row>
+      <col>1</col>
+      <label></label>
+    </text>
+
+	<group>
+		<row>2</row>
+		<col>2</col>
+		<layout>table</layout>
+		
+		<button>
+			<row>0</row>
+			<col>0</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;&lt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustInt(1, -1);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>1</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustDec(1, -1);</script>
+			</binding>
+		</button>
+		
+		<input>
+			<row>0</row>
+			<col>2</col>
+			<pref-width>75</pref-width>
+			<live>true</live>
+			<property>/instrumentation/nav[1]/frequencies/selected-mhz</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.roundFreq(1);</script>
+			</binding>
+		</input>
+		
+		<button>
+			<row>0</row>
+			<col>3</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustDec(1, 1);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>4</col>
+			<halign>left</halign>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustInt(1, 1);</script>
+			</binding>
+		</button>
+	
+	</group>
+
+    <text>
+      <row>2</row>
+      <col>3</col>
+      <label></label>
+    </text>
+
+	<group>
+		<row>2</row>
+		<col>4</col>
+		<layout>table</layout>
+		
+		<button>
+			<row>0</row>
+			<col>0</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;&lt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustCrs(1, -10);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>1</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustCrs(1, -1);</script>
+			</binding>
+		</button>
+		
+		<input>
+			<row>0</row>
+			<col>2</col>
+			<pref-width>55</pref-width>
+			<live>true</live>
+			<property>/instrumentation/nav[1]/radials/selected-deg</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.roundCrs(1);</script>
+			</binding>
+		</input>
+		
+		<button>
+			<row>0</row>
+			<col>3</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustCrs(1, 1);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>4</col>
+			<halign>left</halign>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustCrs(1, 10);</script>
+			</binding>
+		</button>
+	
+	</group>
+
+  </group>
+
+  <hrule/>
+
+  <group>
+    <layout>table</layout>
+
+    <!-- headers -->
+    <text>
+      <row>0</row>
+      <col>1</col>
+      <label>ADF1</label>
+    </text>
+
+    <text>
+      <row>0</row>
+      <col>3</col>
+      <label>ADF2</label>
+    </text>
+
+    <!-- Dummy label to stretch table, as layout manager doesn't handle labels well -->
+    <text>
+      <row>0</row>
+      <col>5</col>
+      <label></label>
+    </text>
+
+    <text>
+      <row>1</row>
+      <col>0</col>
+      <label></label>
+    </text>
+
+	<group>
+		<row>1</row>
+		<col>1</col>
+		<layout>table</layout>
+		
+		<button>
+			<row>0</row>
+			<col>0</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;&lt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(0, -100);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>1</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;-</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(0, -10);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>2</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(0, -1);</script>
+			</binding>
+		</button>
+		
+		<input>
+			<row>0</row>
+			<col>3</col>
+			<pref-width>55</pref-width>
+			<live>true</live>
+			<property>/instrumentation/adf[0]/frequencies/selected-khz</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</input>
+		
+		<button>
+			<row>0</row>
+			<col>4</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(0, 1);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>5</col>
+			<halign>left</halign>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>-&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(0, 10);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>6</col>
+			<halign>left</halign>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(0, 100);</script>
+			</binding>
+		</button>
+	
+	</group>
+
+    <text>
+      <row>1</row>
+      <col>2</col>
+      <label></label>
+    </text>
+
+	<group>
+		<row>1</row>
+		<col>3</col>
+		<layout>table</layout>
+		
+		<button>
+			<row>0</row>
+			<col>0</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;&lt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(1, -100);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>1</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;-</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(1, -10);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>2</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&lt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(1, -1);</script>
+			</binding>
+		</button>
+		
+		<input>
+			<row>0</row>
+			<col>3</col>
+			<pref-width>55</pref-width>
+			<live>true</live>
+			<property>/instrumentation/adf[1]/frequencies/selected-khz</property>
+			<binding>
+				<command>dialog-apply</command>
+			</binding>
+		</input>
+		
+		<button>
+			<row>0</row>
+			<col>4</col>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(1, 1);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>5</col>
+			<halign>left</halign>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>-&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(1, 10);</script>
+			</binding>
+		</button>
+		<button>
+			<row>0</row>
+			<col>6</col>
+			<halign>left</halign>
+			<pref-width>25</pref-width>
+			<pref-height>25</pref-height>
+			<legend>&gt;&gt;</legend>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.ADF.adjust(1, 100);</script>
+			</binding>
+		</button>
+	
+	</group>
+
+  </group>
+
+  <hrule/>
+
+  <button>
+    <legend>ATC Services in range</legend>
+    <binding>
+      <command>dialog-show</command>
+      <dialog-name>atc-freq-search</dialog-name>
+    </binding>
+  </button>
+
+  <hrule/>
+
+  <group>
+    <layout>hbox</layout>
+    
+    <text>
+      <label>ATIS speech</label>
+    </text>
+    
+    <empty><stretch>1</stretch></empty>
+    
+    <checkbox>
+      <label>Enabled</label>
+      <live>true</live>
+      <property>/sim/atis/enabled</property>
+        <binding>
+          <command>property-toggle</command>
+          <property>/sim/atis/enabled</property>
+        </binding>
+    </checkbox>
+    
+    <empty><stretch>1</stretch></empty>
+    
+    <group>
+      <layout>vbox</layout>
+      <default-padding>0</default-padding>
+      <button>
+        <pref-width>20</pref-width>
+        <pref-height>20</pref-height>
+        <legend>+</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/sim/atis/speed</property>
+          <step>+0.1</step>
+          <max>10</max>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+      <button>
+        <pref-width>20</pref-width>
+        <pref-height>20</pref-height>
+        <legend>-</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/sim/atis/speed</property>
+          <step>-0.1</step>
+          <min>0</min>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+    </group>
+    
+    <empty><stretch>0</stretch></empty>
+    <input>
+      <label>Speed</label>
+      <pref-width>50</pref-width>
+      <property>/sim/atis/speed</property>
+    </input>
+
+    <empty><stretch>1</stretch></empty>
+    
+    <group>
+      <layout>vbox</layout>
+      <default-padding>0</default-padding>
+      <button>
+        <pref-width>20</pref-width>
+        <pref-height>20</pref-height>
+        <legend>+</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/sim/atis/pitch</property>
+          <step>+0.1</step>
+          <max>10</max>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+      <button>
+        <pref-width>20</pref-width>
+        <pref-height>20</pref-height>
+        <legend>-</legend>
+        <binding>
+          <command>property-adjust</command>
+          <property>/sim/atis/pitch</property>
+          <step>-0.1</step>
+          <min>0</min>
+        </binding>
+        <binding>
+          <command>dialog-update</command>
+        </binding>
+      </button>
+    </group>
+    
+    <empty><stretch>0</stretch></empty>
+    <input>
+      <label>Pitch</label>
+      <pref-width>50</pref-width>
+      <property>/sim/atis/pitch</property>
+    </input>
+    
+    <empty><stretch>1</stretch></empty>
+    
+  </group>
+
+  <!-- transponder controls -->
+
+  <hrule/>
+
+  <group>
+    <layout>hbox</layout>
+    <text>
+      <label>  Transponder</label>
+    </text>
+
+    <combo>
+      <name>Tponder-1</name>
+      <pref-width>55</pref-width>
+      <pref-height>25</pref-height>
+      <live>true</live>
+      <property>/instrumentation/transponder/inputs/digit[3]</property>
+      <value>0</value>
+      <value>1</value>
+      <value>2</value>
+      <value>3</value>
+      <value>4</value>
+      <value>5</value>
+      <value>6</value>
+      <value>7</value>
+      <binding>
+        <command>dialog-apply</command>
+        <object-name>Tponder-1</object-name>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+            updateTransponderCode();
+          ]]>
+        </script>
+      </binding>
+    </combo>
+    <!-- -->
+    <combo>
+      <name>Tponder-2</name>
+      <pref-width>55</pref-width>
+      <pref-height>25</pref-height>
+      <live>true</live>
+      <property>/instrumentation/transponder/inputs/digit[2]</property>
+      <value>0</value>
+      <value>1</value>
+      <value>2</value>
+      <value>3</value>
+      <value>4</value>
+      <value>5</value>
+      <value>6</value>
+      <value>7</value>
+      <binding>
+        <command>dialog-apply</command>
+        <object-name>Tponder-2</object-name>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+            updateTransponderCode();
+          ]]>
+        </script>
+      </binding>
+    </combo>
+    <combo>
+      <name>Tponder-3</name>
+      <pref-width>55</pref-width>
+      <pref-height>25</pref-height>
+      <live>true</live>
+      <property>/instrumentation/transponder/inputs/digit[1]</property>
+      <value>0</value>
+      <value>1</value>
+      <value>2</value>
+      <value>3</value>
+      <value>4</value>
+      <value>5</value>
+      <value>6</value>
+      <value>7</value>
+      <binding>
+        <command>dialog-apply</command>
+        <object-name>Tponder-3</object-name>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+            updateTransponderCode();
+          ]]>
+        </script>
+      </binding>
+    </combo>
+    <combo>
+      <name>Tponder-4</name>
+      <pref-width>55</pref-width>
+      <pref-height>25</pref-height>
+      <live>true</live>
+      <property>/instrumentation/transponder/inputs/digit[0]</property>
+      <value>0</value>
+      <value>1</value>
+      <value>2</value>
+      <value>3</value>
+      <value>4</value>
+      <value>5</value>
+      <value>6</value>
+      <value>7</value>
+      <binding>
+        <command>dialog-apply</command>
+        <object-name>Tponder-4</object-name>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+            updateTransponderCode();
+          ]]>
+        </script>
+      </binding>
+    </combo>
+
+    <empty>
+      <stretch>true</stretch>
+    </empty>
+
+	<group>
+		<layout>vbox</layout>
+		
+		<text>
+			<visible>
+				<equals>
+					<property>/instrumentation/transponder/output/knob</property>
+					<value>0</value>
+				</equals>
+			</visible>
+			<label>&gt;</label>
+		</text>
+		<text>
+			<visible>
+				<equals>
+					<property>/instrumentation/transponder/output/knob</property>
+					<value>2</value>
+				</equals>
+			</visible>
+			<label>&gt;</label>
+		</text>
+	</group>
+	<group>
+		<layout>vbox</layout>
+		
+		<button>
+			<legend>STBY</legend>
+			<pref-height>20</pref-height>
+			<pref-width>50</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.XPDR.setMode(0);</script>
+			</binding>
+		</button>
+		<button>
+			<legend>TA</legend>
+			<pref-height>20</pref-height>
+			<pref-width>50</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.XPDR.setMode(2);</script>
+			</binding>
+		</button>
+	</group>
+	<group>
+		<layout>vbox</layout>
+		
+		<button>
+			<legend>XPDR</legend>
+			<pref-height>20</pref-height>
+			<pref-width>50</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.XPDR.setMode(1);</script>
+			</binding>
+		</button>
+		<button>
+			<legend>TA/RA</legend>
+			<pref-height>20</pref-height>
+			<pref-width>50</pref-width>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.XPDR.setMode(3);</script>
+			</binding>
+		</button>
+	</group>
+	<group>
+		<layout>vbox</layout>
+		
+		<text>
+			<visible>
+				<equals>
+					<property>/instrumentation/transponder/output/knob</property>
+					<value>1</value>
+				</equals>
+			</visible>
+			<label>&lt;</label>
+		</text>
+		<text>
+			<visible>
+				<equals>
+					<property>/instrumentation/transponder/output/knob</property>
+					<value>3</value>
+				</equals>
+			</visible>
+			<label>&lt;</label>
+		</text>
+	</group>
+
+    <button>
+      <legend>IDENT</legend>
+      <property>/instrumentation/transponder/inputs/ident-btn</property>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+    </button>
+
+    <text>
+      <label>  </label>
+    </text>
+  </group>
+  <!-- Transponder group -->
+
+  <!-- bottom button box -->
+  <hrule/>
+  <group>
+    <layout>hbox</layout>
+    <default-padding>6</default-padding>
+    <empty>
+      <stretch>true</stretch>
+    </empty>
+
+    <button>
+      <legend>Close</legend>
+      <default>true</default>
+      <equal>true</equal>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <empty>
+      <stretch>true</stretch>
+    </empty>
+  </group>
+
+</PropertyList>

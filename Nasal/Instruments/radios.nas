@@ -133,7 +133,20 @@ var COMM = {
 };
 
 var NAV = {
-	adjustDecimal: func(n, d) {
+	adjustCrs: func(n, d) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
+			var val = pts.Instrumentation.Nav.Radials.selectedDeg[n].getValue() + d;
+			
+			if (d > 0) {
+				if (val > 360) val = val - 360;
+			} else if (d < 0) {
+				if (val < 1) val = val + 360;
+			}
+			
+			pts.Instrumentation.Nav.Radials.selectedDeg[n].setValue(val);
+		}
+	},
+	adjustDec: func(n, d) {
 		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
 			var input = split(".", sprintf("%3.2f", pts.Instrumentation.Nav.Frequencies.selectedMhzFmt[n].getValue()));
 			var val = input[1] + (5 * d);
@@ -147,6 +160,32 @@ var NAV = {
 			val = sprintf("%02d", val);
 			pts.Instrumentation.Nav.Frequencies.selectedMhz[n].setValue(input[0] ~ "." ~ val);
 		}
+	},
+	adjustInt: func(n, d) {
+		if (systems.ELECTRICAL.Outputs.fgcp.getValue() >= 24) {
+			var input = split(".", sprintf("%3.2f", pts.Instrumentation.Nav.Frequencies.selectedMhzFmt[n].getValue()));
+			var val = input[0] + d;
+			
+			if (d > 0) {
+				if (val > 117) val = 108;
+			} else if (d < 0) {
+				if (val < 108) val = 117;
+			}
+			
+			val = sprintf("%02d", val);
+			pts.Instrumentation.Nav.Frequencies.selectedMhz[n].setValue(val ~ "." ~ input[1]);
+		}
+	},
+	roundCrs: func(n) {
+		var val = math.round(pts.Instrumentation.Nav.Radials.selectedDeg[n].getValue());
+		
+		if (val > 360) val = val - 360;
+		else if (val < 1) val = val + 360;
+		
+		pts.Instrumentation.Nav.Radials.selectedDeg[n].setValue(val);
+	},
+	roundFreq: func(n) {
+		pts.Instrumentation.Nav.Frequencies.selectedMhz[n].setValue(math.round(pts.Instrumentation.Nav.Frequencies.selectedMhz[n].getValue(), 0.05));
 	},
 };
 

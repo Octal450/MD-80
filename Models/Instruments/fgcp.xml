@@ -292,19 +292,19 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-		<action>
+		<increase>
 			<binding>
-				<greater-than-equals>
-					<property>systems/electrical/outputs/fgcp</property>
-					<value>24</value>
-				</greater-than-equals>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[0]/frequencies/selected-mhz</property>
-				<factor>1</factor>
-				<min>108</min>
-				<max>118</max>
-				<wrap>true</wrap>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustInt(0, 1);</script>
 			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustInt(0, -1);</script>
+			</binding>
+		</decrease>
+		<action>
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/cockpit/fgcp/nav1-major-rotate</property>
@@ -334,13 +334,13 @@
 		<increase>
 			<binding>
 				<command>nasal</command>
-				<script>instruments.NAV.adjustDecimal(0, 1);</script>
+				<script>instruments.NAV.adjustDec(0, 1);</script>
 			</binding>
 		</increase>
 		<decrease>
 			<binding>
 				<command>nasal</command>
-				<script>instruments.NAV.adjustDecimal(0, -1);</script>
+				<script>instruments.NAV.adjustDec(0, -1);</script>
 			</binding>
 		</decrease>
 		<action>
@@ -417,19 +417,19 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-		<action>
+		<increase>
 			<binding>
-				<greater-than-equals>
-					<property>systems/electrical/outputs/fgcp</property>
-					<value>24</value>
-				</greater-than-equals>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[0]/radials/selected-deg</property>
-				<factor>1</factor>
-				<min>1</min>
-				<max>361</max>
-				<wrap>true</wrap>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustCrs(0, 1);</script>
 			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustCrs(0, -1);</script>
+			</binding>
+		</decrease>
+		<action>
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/cockpit/fgcp/nav1-crs-rotate</property>
@@ -2308,19 +2308,19 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-		<action>
+		<increase>
 			<binding>
-				<greater-than-equals>
-					<property>systems/electrical/outputs/fgcp</property>
-					<value>24</value>
-				</greater-than-equals>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[1]/frequencies/selected-mhz</property>
-				<factor>1</factor>
-				<min>108</min>
-				<max>118</max>
-				<wrap>true</wrap>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustInt(1, 1);</script>
 			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustInt(1, -1);</script>
+			</binding>
+		</decrease>
+		<action>
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/cockpit/fgcp/nav2-major-rotate</property>
@@ -2350,13 +2350,13 @@
 		<increase>
 			<binding>
 				<command>nasal</command>
-				<script>instruments.NAV.adjustDecimal(1, 1);</script>
+				<script>instruments.NAV.adjustDec(1, 1);</script>
 			</binding>
 		</increase>
 		<decrease>
 			<binding>
 				<command>nasal</command>
-				<script>instruments.NAV.adjustDecimal(1, -1);</script>
+				<script>instruments.NAV.adjustDec(1, -1);</script>
 			</binding>
 		</decrease>
 		<action>
@@ -2433,19 +2433,19 @@
 			<y>0</y>
 			<z>0</z>
 		</axis>
-		<action>
+		<increase>
 			<binding>
-				<greater-than-equals>
-					<property>systems/electrical/outputs/fgcp</property>
-					<value>24</value>
-				</greater-than-equals>
-				<command>property-adjust</command>
-				<property>instrumentation/nav[1]/radials/selected-deg</property>
-				<factor>1</factor>
-				<min>1</min>
-				<max>361</max>
-				<wrap>true</wrap>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustCrs(1, 1);</script>
 			</binding>
+		</increase>
+		<decrease>
+			<binding>
+				<command>nasal</command>
+				<script>instruments.NAV.adjustCrs(1, -1);</script>
+			</binding>
+		</decrease>
+		<action>
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/cockpit/fgcp/nav2-crs-rotate</property>

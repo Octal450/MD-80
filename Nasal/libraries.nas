@@ -34,6 +34,7 @@ var systemsInit = func() {
 	fms_ht9100.CORE.init();
 	systems.THRLIM.init();
 	instruments.EFIS.init();
+	instruments.XPDR.init();
 	
 	if (firetankEquipped) {
 		firetank.FIRETANK.init();
