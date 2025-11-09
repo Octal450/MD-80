@@ -2,7 +2,6 @@
 # Copyright (c) 2025 Josh Davidson (Octal450)
 
 var ENGINES = {
-	atsCmdRawPid: props.globals.initNode("/systems/engines/ats-cmd-raw-pid", 0, "DOUBLE"),
 	egt: [props.globals.getNode("/engines/engine[0]/egt-actual"), props.globals.getNode("/engines/engine[1]/egt-actual")],
 	epr: [props.globals.getNode("/engines/engine[0]/epr-actual"), props.globals.getNode("/engines/engine[1]/epr-actual")],
 	ff: [props.globals.getNode("/engines/engine[0]/ff-actual"), props.globals.getNode("/engines/engine[1]/ff-actual")],
