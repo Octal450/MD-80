@@ -762,6 +762,43 @@
 			</function>
 		</fcs_function>
 		
+		<fcs_function name="/systems/performance/stabilizer-deg-round">
+			<function>
+				<quotient>
+					<floor>
+						<sum>
+							<product>
+								<property>/systems/performance/stabilizer-deg</property>
+								<value>10</value>
+							</product>
+							<value>0.5</value>
+						</sum>
+					</floor>
+					<value>10</value>
+				</quotient>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/performance/stabilizer-error">
+			<function>
+				<difference>
+					<quotient>
+						<floor>
+							<sum>
+								<product>
+									<property>/systems/fcs/stabilizer/final-deg</property>
+									<value>-10</value> <!-- Because ANU = negative -->
+								</product>
+								<value>0.5</value> <!-- Make the integer rounded correctly -->
+							</sum>
+						</floor>
+						<value>10</value>
+					</quotient>
+					<property>/systems/performance/stabilizer-deg-round</property>
+				</difference>
+			</function>
+		</fcs_function>
+		
 		<!-- Opt/Max Flight Levels -->
 		<fcs_function name="/systems/performance/opt-fl">
 			<function>
