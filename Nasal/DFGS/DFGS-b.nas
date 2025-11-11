@@ -312,7 +312,8 @@ setlistener("/it-autoflight/input/alt-armed", func() {
 
 # Seperated the Autothrottle from ITAF because its very different from ITAF Core. So we do it here!
 var Athr = {
-	atsCmdRawPid: 0,
+	throttlePid: props.globals.initNode("/it-autoflight/internal/throttle-cmd-raw-shape", 0, "DOUBLE"),
+	throttlePidTemp: 0,
 	ktsMach: 0,
 	retard: 0,
 	triMode: 0,
@@ -337,7 +338,7 @@ var Athr = {
 		}
 	},
 	modeZeroCheck: func() {
-		me.atsCmdRawPid = systems.ENGINES.atsCmdRawPid.getValue();
+		me.throttlePidTemp = me.throttlePid.getValue();
 		me.ktsMach = Input.ktsMach.getBoolValue();
 		if (Input.mach.getValue() < Speeds.vminMach.getValue() - 0.0000001 and me.ktsMach) {
 			Fma.thrA.setValue("ALFA");
@@ -349,14 +350,14 @@ var Athr = {
 			me.setVmaxCheckFma();
 		} else if (Input.kts.getValue() > Speeds.vmax.getValue() and !me.ktsMach) {
 			me.setVmaxCheckFma();
-		} else if (me.atsCmdRawPid >= systems.THRLIM.Control.atsMax[0].getValue() - 0.005 or me.atsCmdRawPid >= systems.THRLIM.Control.atsMax[1].getValue() - 0.005) {
+		} else if (me.throttlePidTemp >= systems.THRLIM.Control.atsMax[0].getValue() - 0.005 or me.throttlePidTemp >= systems.THRLIM.Control.atsMax[1].getValue() - 0.005) {
 			if (me.ktsMach) {
 				Fma.thrA.setValue("MACH");
 			} else {
 				Fma.thrA.setValue("SPD");
 			}
 			Fma.thrB.setValue("ATL");
-		} else if (me.atsCmdRawPid <= systems.THRLIM.Limit.idleNorm.getValue() + 0.005) {
+		} else if (me.throttlePidTemp <= systems.THRLIM.Limit.idleNorm.getValue() + 0.005) {
 			Fma.thrA.setValue("LOW");
 			Fma.thrB.setValue("LIM");
 		} else {
