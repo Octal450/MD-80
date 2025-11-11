@@ -395,10 +395,7 @@
 		<enable>
 			<condition>
 				<and>
-					<equals>
-						<property>/it-autoflight/output/athr</property>
-						<value>1</value>
-					</equals>
+					<property>/it-autoflight/output/athr-on</property>
 					<equals>
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>1</value>
@@ -433,10 +430,7 @@
 		<enable>
 			<condition>
 				<and>
-					<equals>
-						<property>/it-autoflight/output/athr</property>
-						<value>1</value>
-					</equals>
+					<property>/it-autoflight/output/athr-on</property>
 					<equals>
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>2</value>
@@ -516,10 +510,7 @@
 		<enable>
 			<condition>
 				<and>
-					<equals>
-						<property>/it-autoflight/output/athr</property>
-						<value>1</value>
-					</equals>
+					<property>/it-autoflight/output/athr-on</property>
 					<not-equals>
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>3</value> <!-- Clamp -->
@@ -580,10 +571,7 @@
 		<enable>
 			<condition>
 				<and>
-					<equals>
-						<property>/it-autoflight/output/athr</property>
-						<value>1</value>
-					</equals>
+					<property>/it-autoflight/output/athr-on</property>
 					<not-equals>
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>3</value> <!-- Clamp -->
@@ -646,10 +634,7 @@
 		<enable>
 			<condition>
 				<or>
-					<not-equals>
-						<property>/it-autoflight/output/athr</property>
-						<value>1</value>
-					</not-equals>
+					<not><property>/it-autoflight/output/athr-on</property></not>
 					<equals>
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>3</value> <!-- Clamp -->
@@ -671,10 +656,7 @@
 		<input>
 			<condition>
 				<and>
-					<equals>
-						<property>/it-autoflight/output/athr</property>
-						<value>1</value>
-					</equals>
+					<property>/it-autoflight/output/athr-on</property>
 					<not-equals>
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>3</value> <!-- Clamp -->
@@ -688,10 +670,7 @@
 		<max-rate-of-change>
 			<condition>
 				<and>
-					<equals>
-						<property>/it-autoflight/output/athr</property>
-						<value>1</value>
-					</equals>
+					<property>/it-autoflight/output/athr-on</property>
 					<not-equals>
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>3</value> <!-- Clamp -->
@@ -710,10 +689,7 @@
 		<enable>
 			<condition>
 				<and>
-					<equals>
-						<property>/it-autoflight/output/athr</property>
-						<value>1</value>
-					</equals>
+					<property>/it-autoflight/output/athr-on</property>
 					<not-equals>
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>3</value> <!-- Clamp -->
@@ -733,10 +709,7 @@
 		<input>
 			<condition>
 				<and>
-					<equals>
-						<property>/it-autoflight/output/athr</property>
-						<value>1</value>
-					</equals>
+					<property>/it-autoflight/output/athr-on</property>
 					<not-equals>
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>3</value> <!-- Clamp -->
@@ -750,10 +723,7 @@
 		<max-rate-of-change>
 			<condition>
 				<and>
-					<equals>
-						<property>/it-autoflight/output/athr</property>
-						<value>1</value>
-					</equals>
+					<property>/it-autoflight/output/athr-on</property>
 					<not-equals>
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>3</value> <!-- Clamp -->
@@ -772,10 +742,7 @@
 		<enable>
 			<condition>
 				<and>
-					<equals>
-						<property>/it-autoflight/output/athr</property>
-						<value>1</value>
-					</equals>
+					<property>/it-autoflight/output/athr-on</property>
 					<not-equals>
 						<property>/it-autoflight/output/thr-mode</property>
 						<value>3</value> <!-- Clamp -->
