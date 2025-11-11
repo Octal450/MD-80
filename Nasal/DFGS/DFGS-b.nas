@@ -312,10 +312,10 @@ setlistener("/it-autoflight/input/alt-armed", func() {
 
 # Seperated the Autothrottle from ITAF because its very different from ITAF Core. So we do it here!
 var Athr = {
-	throttlePid: props.globals.initNode("/it-autoflight/internal/throttle-cmd-raw-shape", 0, "DOUBLE"),
-	throttlePidTemp: 0,
 	ktsMach: 0,
 	retard: 0,
+	throttlePid: props.globals.initNode("/it-autoflight/internal/throttle-cmd-raw-shape", 0, "DOUBLE"),
+	throttlePidTemp: 0,
 	triMode: 0,
 	vmaxTypeTemp: 0,
 	loop: func() {
