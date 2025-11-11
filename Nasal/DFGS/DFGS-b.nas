@@ -338,8 +338,8 @@ var Athr = {
 		}
 	},
 	modeZeroCheck: func() {
-		me.throttlePidTemp = me.throttlePid.getValue();
 		me.ktsMach = Input.ktsMach.getBoolValue();
+		me.throttlePidTemp = me.throttlePid.getValue();
 		if (Input.mach.getValue() < Speeds.vminMach.getValue() - 0.0000001 and me.ktsMach) {
 			Fma.thrA.setValue("ALFA");
 			Fma.thrB.setValue("SPD");
