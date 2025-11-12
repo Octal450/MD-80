@@ -1152,29 +1152,51 @@
 	</animation>
 	
 	<animation>
+		<type>pick</type>
+		<object-name>LampABS</object-name>
+		<object-name>LampABSOn</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/abs/test-lamp</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/abs/test-lamp</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>LampABS</object-name>
+		<object-name>LampABSOn</object-name>
+		<factor>-0.002</factor>
+		<property>controls/abs/test-lamp</property>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
 		<type>select</type>
 		<object-name>LampABS</object-name>
 		<condition>
-			<or>
-				<not><property>systems/abs/lights/disarm</property></not>
-				<less-equals>
-					<property>systems/electrical/outputs/efis</property>
-					<value>25</value>
-				</less-equals>
-			</or>
+			<not><property>systems/abs/lights/disarm</property></not>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
-		<object-name>LampABSon</object-name>
+		<object-name>LampABSOn</object-name>
 		<condition>
-			<and>
-				<property>systems/abs/lights/disarm</property>
-				<greater-than-equals>
-					<property>systems/electrical/outputs/efis</property>
-					<value>25</value>
-				</greater-than-equals>
-			</and>
+			<property>systems/abs/lights/disarm</property>
 		</condition>
 	</animation>
 	
@@ -1437,7 +1459,6 @@
 			</mod-up>
 		</action>
 	</animation>
-	
 	<animation>
 		<type>translate</type>
 		<object-name>GearHornCutoutBtn</object-name>

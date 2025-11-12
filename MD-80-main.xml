@@ -519,6 +519,7 @@
 			<armed type="bool">0</armed>
 			<armed-momentary type="bool">0</armed-momentary>
 			<knob type="int">0</knob>
+			<test-lamp type="bool">0</test-lamp>
 		</abs>
 		<apu n="0">
 			<master type="int">0</master>

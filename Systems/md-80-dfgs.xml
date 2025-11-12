@@ -1211,6 +1211,12 @@
 			
 		<switch name="/systems/abs/lights/disarm">
 			<default value="0"/>
+			<test value="0">
+				/systems/dfgs/power-avail ne 1
+			</test>
+			<test value="1">
+				/controls/abs/test-lamp eq 1
+			</test>
 			<test logic="AND" value="1">
 				/controls/gear/lever ge 2
 				/systems/abs/knob-input ne 0
