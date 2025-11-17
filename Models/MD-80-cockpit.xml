@@ -32,14 +32,14 @@
 	<!-- AI hole select -->
 	<animation>
 		<type>select</type>
-		<object-name>PanelMainC3A</object-name>
+		<object-name>PanelMainCA</object-name>
 		<condition>
 			<not><property>systems/acconfig/options/edp-sdp</property></not>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
-		<object-name>PanelMainC3E</object-name>
+		<object-name>PanelMainCE</object-name>
 		<condition>
 			<property>systems/acconfig/options/edp-sdp</property>
 		</condition>

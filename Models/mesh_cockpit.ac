@@ -118762,7 +118762,7 @@ refs 4
 26 0.924479 0.59375
 kids 0
 OBJECT poly
-name "PanelMainC3A"
+name "PanelMainCA"
 data 9
 Plane.020
 texture "txt_cockpit_palette.png"
@@ -118925,7 +118925,7 @@ refs 3
 16 0.943668 0.561332
 kids 0
 OBJECT poly
-name "PanelMainC3E"
+name "PanelMainCE"
 data 9
 Plane.021
 texture "txt_cockpit_palette.png"
