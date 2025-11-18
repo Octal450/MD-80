@@ -52,7 +52,7 @@ var Rte = {
 			pageNum: "1/2",
 			
 			RColor: [COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.white, COLOR.green],
-			RFont: [FONT.large, FONT.small, FONT.small, FONT.large, FONT.large, FONT.large],
+			RFont: [FONT.large, FONT.large, FONT.large, FONT.large, FONT.large, FONT.large],
 			R1L: "DEST",
 			R1: "",
 			R2L: "FLT NO",
