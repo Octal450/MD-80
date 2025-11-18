@@ -38,7 +38,7 @@
 			</item>
 			<item>
 				<name>ELECTRICAL PANEL</name>
-				<value>AUTO, OPEN, OFF</value>
+				<value>AC TIE AUTO, DC TIE OPEN</value>
 			</item>
 			<item>
 				<name>BATTERY SWITCH</name>
@@ -357,7 +357,7 @@
 			</item>
 			<item>
 				<name>AIRSPEED BUGS</name>
-				<value>VREF SET</value>
+				<value>SET</value>
 			</item>
 			<item>
 				<name>MINIMUMS/DH</name>
