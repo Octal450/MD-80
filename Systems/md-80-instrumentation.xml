@@ -2378,8 +2378,8 @@
 		<switch name="/instrumentation/flap-slat/slat">
 			<default value="2"/> <!-- Disag -->
 			<test logic="AND" value="2"> <!-- Disag -->
-				/systems/fcs/flaps/cmd ge 12
-				/systems/fcs/flaps/cmd le 14
+				/systems/fcs/flaps/cmd ge 13.5
+				/systems/fcs/flaps/cmd le 14.5
 			</test>
 			<test value="3"> <!-- Auto and Disag -->
 				/systems/dfgs/auto-slat-ext eq 1
