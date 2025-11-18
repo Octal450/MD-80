@@ -108,6 +108,7 @@
 		<object-name>PedestalText</object-name>
 		<object-name>PmsText</object-name>
 		<object-name>RudderTrimIndLight</object-name>
+		<object-name>ToStabInd</object-name>
 		<emission>
 			<red>1.0</red>
 			<green>0.6</green>
