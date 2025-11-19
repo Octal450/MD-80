@@ -2684,10 +2684,13 @@
 					<property>/instrumentation/assumed-temp/d10-lag</property>
 					<product>
 						<floor>
-							<quotient>
-								<property>/instrumentation/assumed-temp/d10-lag</property>
-								<value>6</value>
-							</quotient>
+							<sum>
+								<quotient>
+									<property>/instrumentation/assumed-temp/d10-lag</property>
+									<value>6</value>
+								</quotient>
+								<value>0.499999</value> <!-- Epsilon to fix rounding -->
+							</sum>
 						</floor>
 						<value>6</value>
 					</product>

@@ -68,7 +68,7 @@ OBJECT poly
 name "flex1"
 data 10
 flex1.mesh
-texture "digits-roll.jpg"
+texture "assumedtemp-digits.jpg"
 crease 45.000000
 numvert 4
 0.00249 0.00677 0.0103976
@@ -79,16 +79,16 @@ numsurf 1
 SURF 0x10
 mat 0
 refs 4
-0 0.007812 0.239258
-2 0.007812 0.134766
-3 0.0625 0.134766
-1 0.0625 0.239258
+0 0.937496 0.239258
+2 0.937496 0.134766
+3 0.992184 0.134766
+1 0.992184 0.239258
 kids 0
 OBJECT poly
 name "flex2"
 data 10
 flex2.mesh
-texture "digits-roll.jpg"
+texture "assumedtemp-digits.jpg"
 crease 45.000000
 numvert 4
 0.00249 -0.00892 -0.0103976
