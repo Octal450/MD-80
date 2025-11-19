@@ -114,14 +114,26 @@
 						<label>Captain's PFD</label>
 						<binding>
 							<command>nasal</command>
-							<script>canvas_pfd.showPfd1();</script>
+							<script>
+								if (pts.Systems.Acconfig.Options.efis.getBoolValue()) {
+									canvas_pfd.showPfd1();
+								} else {
+									gui.popupTip("The aircraft is not equipped with EFIS");
+								}
+							</script>
 						</binding>
 					</item>
 					<item>
 						<label>First Officer's PFD</label>
 						<binding>
 							<command>nasal</command>
-							<script>canvas_pfd.showPfd2();</script>
+							<script>
+								if (pts.Systems.Acconfig.Options.efis.getBoolValue()) {
+									canvas_pfd.showPfd2();
+								} else {
+									gui.popupTip("The aircraft is not equipped with EFIS");
+								}
+							</script>
 						</binding>
 					</item>
 					<item>
