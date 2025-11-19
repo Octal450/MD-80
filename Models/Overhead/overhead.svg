@@ -17,7 +17,7 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="overhead.svg"
-   inkscape:export-filename="D:\Aircraft\MD-80\Models\Overhead\overhead.png"
+   inkscape:export-filename="D:\Aircraft\MD-80\Models\Overhead\overhead-labels.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -37,9 +37,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710688"
-     inkscape:cx="266.25807"
-     inkscape:cy="1814.3457"
+     inkscape:zoom="0.25000004"
+     inkscape:cx="344.39122"
+     inkscape:cy="1238.0736"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1824,7 +1824,8 @@
     </g>
     <g
        id="SwitchBacks-Extra"
-       inkscape:label="#g6348">
+       inkscape:label="#g6348"
+       style="display:none">
       <g
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
@@ -8355,6 +8356,21 @@
          d="m 1489.6275,-461.16239 a 49.998859,49.999126 0 0 1 23.2957,56.24124 49.998859,49.999126 0 0 1 -48.2951,37.0584 49.998859,49.999126 0 0 1 -48.2952,-37.0584 49.998859,49.999126 0 0 1 23.2957,-56.24124"
          inkscape:export-xdpi="90"
          inkscape:export-ydpi="90" />
+      <text
+         transform="scale(1.0000079,0.9999921)"
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:100%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         x="443.73645"
+         y="-858.95654"
+         id="text5423"
+         sodipodi:linespacing="100%"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90"><tspan
+           sodipodi:role="line"
+           x="443.73645"
+           y="-858.95654"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:100%;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff"
+           id="tspan5425">PUSH FOR RISE</tspan></text>
     </g>
     <g
        id="Labels-Extra"

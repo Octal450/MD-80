@@ -31,6 +31,8 @@
 		<object-name>ApuEgtNeedle</object-name>
 		<object-name>ApuRpmNeedle</object-name>
 		<object-name>ApuRpmNeedle2</object-name>
+		<object-name>CsdTempLNeedle</object-name>
+		<object-name>CsdTempRNeedle</object-name>
 		<object-name>DcLoadLNeedleL</object-name>
 		<object-name>DcLoadLNeedleR</object-name>
 		<object-name>DcLoadRNeedleL</object-name>
