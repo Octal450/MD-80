@@ -71,7 +71,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				position/wow eq 0
-				/position/gear-agl-ft ge 50
+				position/gear-agl-ft ge 50
 				/systems/dfgs/yaw/cmd-on eq 1
 				/systems/dfgs/power-avail eq 1
 			</test>
@@ -125,7 +125,7 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/it-autoflight/output/vert eq 7
-				/position/gear-agl-ft ge 350
+				position/gear-agl-ft ge 350
 				/instrumentation/vertical-speed-indicator/vert-speed-fpm le -0.5
 			</test>
 		</switch>
@@ -149,7 +149,7 @@
 			<default value="0"/>
 			<test logic="OR" value="0">
 				/it-autoflight/output/athr eq 0
-				/position/gear-agl-ft lt 350
+				position/gear-agl-ft lt 350
 				/engines/engine[0]/epr-actual ge /systems/dfgs/atr/go-around-buffer
 				/engines/engine[1]/epr-actual ge /systems/dfgs/atr/go-around-buffer
 			</test>
