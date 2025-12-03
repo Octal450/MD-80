@@ -41,9 +41,9 @@
      inkscape:window-height="1009"
      id="namedview371"
      showgrid="false"
-     inkscape:zoom="0.5"
-     inkscape:cx="602.26405"
-     inkscape:cy="659.29673"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="645.34312"
+     inkscape:cy="510.23995"
      inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -2251,27 +2251,23 @@
   <g
      id="AI_dual_cue"
      inkscape:label="#g4611">
-    <rect
-       inkscape:transform-center-x="0.0066984981"
-       style="fill:#333333;fill-opacity:1;stroke:#ffffff;stroke-width:5.16534281;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="AI_center"
-       width="15.559339"
-       height="16.040621"
-       x="508.14563"
-       y="395.59869"
-       inkscape:label="#rect4741" />
     <path
-       sodipodi:nodetypes="cccccccccccc"
+       style="fill:#333333;fill-opacity:1;stroke:#ffffff;stroke-width:5.16534281;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:transform-center-x="0.0066984981"
+       d="m 508.14563,395.59869 15.55934,0 0,16.04062 -15.55934,0 z"
+       id="AI_center" />
+    <path
+       sodipodi:nodetypes="ccccccccc"
        inkscape:connector-curvature="0"
        id="path4430"
-       d="m 633.56777,395.40581 -67.99244,-1.4e-4 0,16.44825 0,0 -1.9e-4,49.16347 16.44879,0 0.15585,-49.16347 0,0 154.16396,-6e-5 0,-16.44834 -102.77597,2.2e-4 z"
+       d="m 633.56777,395.40581 -67.99244,-1.4e-4 -1.9e-4,65.61172 16.44879,0 0.15585,-49.16347 154.16396,-6e-5 0,-16.44834 -102.77597,2.2e-4 z"
        style="fill:#333333;fill-opacity:1;stroke:#ffffff;stroke-width:4.79435682;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
        style="fill:#333333;fill-opacity:1;stroke:#ffffff;stroke-width:4.79435682;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 398.28358,395.40581 67.99244,-1.4e-4 0,16.44825 0,0 1.9e-4,49.16347 -16.44879,0 -0.15585,-49.16347 0,0 -154.16396,-6e-5 0,-16.44834 102.77597,2.2e-4 z"
+       d="m 398.28358,395.40581 67.99244,-1.4e-4 1.9e-4,65.61172 -16.44879,0 -0.15585,-49.16347 -154.16396,-6e-5 0,-16.44834 102.77597,2.2e-4 z"
        id="path3654"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccccccccccc" />
+       sodipodi:nodetypes="ccccccccc" />
   </g>
   <g
      id="FS_scale"
