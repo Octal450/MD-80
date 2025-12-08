@@ -924,7 +924,7 @@
 			</clipto>
 		</pure_gain>
 		
-		<switch name="/systems/dfgs/yaw/slip-skid-raw">
+		<switch name="/systems/dfgs/yaw/slip-skid-switched">
 			<default value="aero/beta-rad"/>
 			<test logic="OR" value="0">
 				position/wow eq 1
@@ -932,7 +932,7 @@
 		</switch>
 		
 		<lag_filter name="/systems/dfgs/yaw/slip-skid">
-			<input>/systems/dfgs/yaw/slip-skid-raw</input>
+			<input>/systems/dfgs/yaw/slip-skid-switched</input>
 			<c1>2.5</c1>
 		</lag_filter>
 		
