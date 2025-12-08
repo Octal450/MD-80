@@ -35,11 +35,6 @@
 		</offsets>
 	</model>
 	
-	<effect>
-		<inherits-from>Models/Effects/Exterior/exterior-glass-reflection</inherits-from>
-		<object-name>WindowsCockpit</object-name>
-	</effect>
-	
 	<!-- Sub-Model Imports -->
 	<model>
 		<name>Cockpit</name>
