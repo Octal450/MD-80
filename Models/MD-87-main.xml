@@ -1193,6 +1193,159 @@
 		<object-name>SlatStrutsR</object-name>
 	</animation>
 	
+	<!-- Wingflex -->	
+	<animation>
+		<type>rotate</type>
+		<object-name>AileronL</object-name>
+		<object-name>AilTabControlL</object-name>
+		<object-name>AilTabTrimL</object-name>
+		<object-name>FlapHorns2OutL</object-name>
+		<object-name>FlapOut2L</object-name>
+		<object-name>FlapOutL</object-name>
+		<object-name>SlatsL2</object-name>
+		<object-name>SlatsL3</object-name>
+		<object-name>SlatStrutsL2</object-name>
+		<object-name>SlatStrutsL3</object-name>
+		<object-name>SpoilerL2</object-name>
+		<object-name>SpoilerL3</object-name>
+		<object-name>WingL2</object-name>
+		<object-name>WingL3</object-name>
+		<object-name>WingLightL</object-name>
+		<!-- Lighting -->
+		<object-name>Left Landing Light</object-name>
+		<object-name>Left Landing Light Compositor</object-name>
+		<object-name>Left Position Light Aft</object-name>
+		<object-name>Left Position Light Aft Compositor</object-name>
+		<object-name>Left Position Light Fwd</object-name>
+		<object-name>Left Position Light Fwd Compositor</object-name>
+		<object-name>Left Strobe Light Aft</object-name>
+		<object-name>Left Strobe Light Aft Compositor</object-name>
+		<object-name>Left Strobe Light Fwd</object-name>
+		<object-name>Left Strobe Light Fwd Compositor</object-name>
+		<property>sim/multiplay/generic/float[22]</property>
+		<factor>-0.000005</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-5.14184</y-m>
+			<z-m>-0.46072</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AileronL</object-name>
+		<object-name>AilTabControlL</object-name>
+		<object-name>AilTabTrimL</object-name>
+		<object-name>SlatsL3</object-name>
+		<object-name>SlatStrutsL3</object-name>
+		<object-name>WingL3</object-name>
+		<object-name>WingLightL</object-name>
+		<!-- Lighting -->
+		<object-name>Left Landing Light</object-name>
+		<object-name>Left Landing Light Compositor</object-name>
+		<object-name>Left Position Light Aft</object-name>
+		<object-name>Left Position Light Aft Compositor</object-name>
+		<object-name>Left Position Light Fwd</object-name>
+		<object-name>Left Position Light Fwd Compositor</object-name>
+		<object-name>Left Strobe Light Aft</object-name>
+		<object-name>Left Strobe Light Aft Compositor</object-name>
+		<object-name>Left Strobe Light Fwd</object-name>
+		<object-name>Left Strobe Light Fwd Compositor</object-name>
+		<property>sim/multiplay/generic/float[22]</property>
+		<factor>-0.000005</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-10.4313</y-m>
+			<z-m>-0.2674</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AileronR</object-name>
+		<object-name>AilTabControlR</object-name>
+		<object-name>AilTabTrimR</object-name>
+		<object-name>FlapHorns2OutR</object-name>
+		<object-name>FlapOut2R</object-name>
+		<object-name>FlapOutR</object-name>
+		<object-name>SlatsR2</object-name>
+		<object-name>SlatsR3</object-name>
+		<object-name>SlatStrutsR2</object-name>
+		<object-name>SlatStrutsR3</object-name>
+		<object-name>SpoilerR2</object-name>
+		<object-name>SpoilerR3</object-name>
+		<object-name>WingR2</object-name>
+		<object-name>WingR3</object-name>
+		<object-name>WingRightR</object-name>
+		<!-- Lighting -->
+		<object-name>Right Landing Light</object-name>
+		<object-name>Right Landing Light Compositor</object-name>
+		<object-name>Right Position Light Aft</object-name>
+		<object-name>Right Position Light Aft Compositor</object-name>
+		<object-name>Right Position Light Fwd</object-name>
+		<object-name>Right Position Light Fwd Compositor</object-name>
+		<object-name>Right Strobe Light Aft</object-name>
+		<object-name>Right Strobe Light Aft Compositor</object-name>
+		<object-name>Right Strobe Light Fwd</object-name>
+		<object-name>Right Strobe Light Fwd Compositor</object-name>
+		<property>sim/multiplay/generic/float[22]</property>
+		<factor>0.000005</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>5.14184</y-m>
+			<z-m>-0.46072</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>AileronR</object-name>
+		<object-name>AilTabControlR</object-name>
+		<object-name>AilTabTrimR</object-name>
+		<object-name>SlatsR3</object-name>
+		<object-name>SlatStrutsR3</object-name>
+		<object-name>WingR3</object-name>
+		<object-name>WingRightR</object-name>
+		<!-- Lighting -->
+		<object-name>Right Landing Light</object-name>
+		<object-name>Right Landing Light Compositor</object-name>
+		<object-name>Right Position Light Aft</object-name>
+		<object-name>Right Position Light Aft Compositor</object-name>
+		<object-name>Right Position Light Fwd</object-name>
+		<object-name>Right Position Light Fwd Compositor</object-name>
+		<object-name>Right Strobe Light Aft</object-name>
+		<object-name>Right Strobe Light Aft Compositor</object-name>
+		<object-name>Right Strobe Light Fwd</object-name>
+		<object-name>Right Strobe Light Fwd Compositor</object-name>
+		<property>sim/multiplay/generic/float[22]</property>
+		<factor>0.000005</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>10.4313</y-m>
+			<z-m>-0.2674</z-m>
+		</center>
+	</animation>
+	
 	<!-- Slats -->
 	<animation>
 		<type>translate</type>

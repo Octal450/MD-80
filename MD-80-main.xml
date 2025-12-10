@@ -240,6 +240,8 @@
 				<yaw-mult type="float">1.0</yaw-mult>
 			</autopush>
 			<fallback-model-index type="int">219</fallback-model-index>
+			<wingflex type="double">0</wingflex>
+			<wingflex-enable type="bool">0</wingflex-enable>
 		</model>
 		<multiplay n="0">
 			<generic n="0">
@@ -266,6 +268,7 @@
 				<float n="19" alias="/systems/fcs/elevator-r/control-tab-final-deg"/>
 				<float n="20" alias="/systems/fcs/elevator-r/geared-tab-final-deg"/>
 				<float n="21" alias="/systems/fcs/elevator-r/anti-float-tab-final-deg"/>
+				<float n="22" alias="/sim/model/wingflex"/>
 			</generic>
 			<visibility-range-nm type="int">130</visibility-range-nm>
 		</multiplay>

@@ -47,6 +47,10 @@
 			</signal>
 			<signal>
 				<type>float</type>
+				<property>/sim/model/wingflex</property>
+			</signal>
+			<signal>
+				<type>float</type>
 				<property>/engines/engine[3]/n1</property>
 			</signal>
 			<signal>

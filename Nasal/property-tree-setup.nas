@@ -197,6 +197,9 @@ var Sim = {
 			},
 		},
 	},
+	Model: {
+		wingflexEnable: props.globals.getNode("/sim/model/wingflex-enable"),
+	},
 	Rendering: {
 		Headshake: {
 			enabled: props.globals.getNode("/sim/rendering/headshake/enabled"),

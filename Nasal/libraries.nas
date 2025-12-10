@@ -78,6 +78,12 @@ var systemsLoop = maketimer(0.1, func() {
 	systems.THRLIM.loop();
 	SHAKE.loop();
 	
+	if (pts.Sim.Replay.replayState.getBoolValue()) {
+		pts.Sim.Model.wingflexEnable.setBoolValue(0);
+	} else {
+		pts.Sim.Model.wingflexEnable.setBoolValue(1);
+	}
+	
 	pts.Services.Chocks.enableTemp = pts.Services.Chocks.enable.getBoolValue();
 	pts.Velocities.groundspeedKtTemp = pts.Velocities.groundspeedKt.getValue();
 	if ((pts.Velocities.groundspeedKtTemp >= 2 or !pts.Position.wow.getBoolValue()) and pts.Services.Chocks.enableTemp) {

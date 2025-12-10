@@ -75,6 +75,22 @@
 		<seconds>2.0</seconds>
 		<filter-gain>0.0</filter-gain>
 	</predict-simple>
+
+	<filter>
+		<name>Wingflex</name>
+		<type>exponential</type>
+		<enable>
+			<condition>
+				<equals>
+					<property>/sim/model/wingflex-enable</property>
+					<value>1</value>
+				</equals>
+			</condition>
+		</enable>
+		<input>/fdm/jsbsim/aero/coefficient/CLalpha</input>
+		<output>/sim/model/wingflex</output>
+		<filter-time>0.04</filter-time>
+	</filter>
 	
 	<filter>
 		<name>Minimums Horn</name>
@@ -96,7 +112,7 @@
 	</filter>
 	
 	<filter>
-		<name>Engine 1 Cutoff</name>
+		<name>Firetank Canceller</name>
 		<type>gain</type>
 		<enable>
 			<condition>
