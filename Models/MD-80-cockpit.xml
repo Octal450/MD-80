@@ -913,8 +913,8 @@
 		<property>controls/cockpit/rudder-pwr</property>
 		<drag-direction>vertical</drag-direction>
 		<drag-scale-px>30</drag-scale-px>
-		<factor>53</factor>
-		<offset-deg>-53</offset-deg>
+		<factor>42</factor>
+		<offset-deg>-42</offset-deg>
 		<center>
 			<x-m>2.608</x-m>
 			<y-m>0</y-m>
