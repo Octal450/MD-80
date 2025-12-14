@@ -1093,13 +1093,21 @@
 				/controls/switches/wipers eq 2
 			</test>
 		</switch>
-		
+
 		<actuator name="/systems/cockpit/wipers/wiper-r">
 			<input>/systems/cockpit/wipers/wiper-r-cmd</input>
 			<rate_limit>/systems/cockpit/wipers/wiper-r-rate</rate_limit>
 			<output>/systems/cockpit/wipers/wiper-r-out</output>
 		</actuator>
-	
+
+        <switch name="/environment/aircraft-effects/use-wipers">
+			<default value="0"/>
+            <test logic="OR" value="1">
+                /systems/cockpit/wipers/wiper-l gt 0
+                /systems/cockpit/wipers/wiper-r gt 0
+            </test>
+        </switch>
+
 	</channel>
 	
 	<channel name="Glass Effects">
