@@ -338,6 +338,11 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/alt-elevator-trim-lever">
+			<input>/controls/flight/alt-elevator-trim-lever</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<actuator name="/controls/cockpit/brake-lever">
 			<input>/controls/gear/brake-parking</input>
 			<rate_limit>2.5</rate_limit>
