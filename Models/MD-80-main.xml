@@ -1227,9 +1227,9 @@
 		<object-name>SlatStrutsR3</object-name>
 		<object-name>SpoilerR2</object-name>
 		<object-name>SpoilerR3</object-name>
+		<object-name>WingLightR</object-name>
 		<object-name>WingR2</object-name>
 		<object-name>WingR3</object-name>
-		<object-name>WingRightR</object-name>
 		<!-- Lighting -->
 		<object-name>Right Landing Light</object-name>
 		<object-name>Right Landing Light Compositor</object-name>
@@ -1262,8 +1262,8 @@
 		<object-name>AilTabTrimR</object-name>
 		<object-name>SlatsR3</object-name>
 		<object-name>SlatStrutsR3</object-name>
+		<object-name>WingLightR</object-name>
 		<object-name>WingR3</object-name>
-		<object-name>WingRightR</object-name>
 		<!-- Lighting -->
 		<object-name>Right Landing Light</object-name>
 		<object-name>Right Landing Light Compositor</object-name>
