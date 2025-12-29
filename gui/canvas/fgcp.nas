@@ -296,6 +296,8 @@ var fgcpCanvas = {
 					me["PitchMode_16seg"].setText("P");
 					if (me._pitch < 0 and me._pitchD > 0) {
 						me["Pitch_7seg"].setText("-" ~ sprintf("%02d", abs(me._pitchD)));
+					} else if (me._pitch > 0 and me._pitchD > 0) {
+						me["Pitch_7seg"].setText("+" ~ sprintf("%02d", abs(me._pitchD)));
 					} else {
 						me["Pitch_7seg"].setText(sprintf("%02d", abs(me._pitchD)));
 					}
