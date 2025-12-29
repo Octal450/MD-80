@@ -25,14 +25,14 @@
      guidetolerance="10"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1009"
+     inkscape:window-width="1536"
+     inkscape:window-height="793"
      id="namedview8"
      showgrid="false"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="528.73866"
-     inkscape:cy="91.784927"
-     inkscape:window-x="1912"
+     inkscape:zoom="4.0000001"
+     inkscape:cx="388.90545"
+     inkscape:cy="99.139254"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
@@ -992,7 +992,7 @@
            id="tspan4292"
            x="168.2589"
            y="930.44611"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.625px;font-family:Std7SegCustom;-inkscape-font-specification:Std7SegCustom;text-align:end;letter-spacing:0px;text-anchor:end;fill:#ff9b00;fill-opacity:1">000</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.625px;font-family:MD80FGCP7Seg;-inkscape-font-specification:MD80FGCP7Seg;text-align:end;letter-spacing:0px;text-anchor:end;fill:#ff9b00;fill-opacity:1">000</tspan></text>
       <text
          inkscape:label="#text4300"
          transform="scale(0.97029774,1.0306115)"
@@ -1002,14 +1002,14 @@
          x="350.84799"
          style="font-style:normal;font-weight:normal;font-size:20.625px;line-height:125%;font-family:'Alata';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.625px;font-family:Std7SegCustom;-inkscape-font-specification:Std7SegCustom;text-align:end;letter-spacing:0px;text-anchor:end;fill:#ff9b00;fill-opacity:1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.625px;font-family:MD80FGCP7Seg;-inkscape-font-specification:MD80FGCP7Seg;text-align:end;letter-spacing:0px;text-anchor:end;fill:#ff9b00;fill-opacity:1"
            y="930.44556"
            x="350.84799"
            id="tspan4259"
            sodipodi:role="line">000</tspan></text>
       <text
          xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:20.625px;line-height:125%;font-family:'Alata';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-weight:normal;font-size:20.625px;line-height:125%;font-family:Alata;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          x="474.76682"
          y="930.44556"
          id="Pitch_7seg"
@@ -1020,7 +1020,7 @@
            id="tspan4263"
            x="474.76682"
            y="930.44556"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.625px;font-family:Std7SegCustom;-inkscape-font-specification:Std7SegCustom;text-align:end;letter-spacing:0px;text-anchor:end;fill:#ff9b00;fill-opacity:1">-0000</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.625px;font-family:MD80FGCP7Seg;-inkscape-font-specification:MD80FGCP7Seg;text-align:end;letter-spacing:0px;text-anchor:end;fill:#ff9b00;fill-opacity:1">+0000</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:30.37724304px;line-height:125%;font-family:'Alata';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1044,7 +1044,7 @@
          x="694.91681"
          style="font-style:normal;font-weight:normal;font-size:20.625px;line-height:125%;font-family:'Alata';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.625px;font-family:Std7SegCustom;-inkscape-font-specification:Std7SegCustom;text-align:end;letter-spacing:0px;text-anchor:end;fill:#ff9b00;fill-opacity:1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.625px;font-family:MD80FGCP7Seg;-inkscape-font-specification:MD80FGCP7Seg;text-align:end;letter-spacing:0px;text-anchor:end;fill:#ff9b00;fill-opacity:1"
            y="934.15033"
            x="694.91681"
            id="tspan4285"
@@ -1062,7 +1062,7 @@
            id="tspan4289"
            x="644.01025"
            y="936.12012"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.56062698px;font-family:Std7SegCustom;-inkscape-font-specification:Std7SegCustom;text-align:end;letter-spacing:0px;text-anchor:end;fill:#ff9b00;fill-opacity:1">00</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.56062698px;font-family:MD80FGCP7Seg;-inkscape-font-specification:MD80FGCP7Seg;text-align:end;letter-spacing:0px;text-anchor:end;fill:#ff9b00;fill-opacity:1">00</tspan></text>
     </g>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:2.00582242;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
