@@ -653,6 +653,7 @@
 		</fcs>
 		<flight n="0">
 			<aileron-drives-tiller type="bool">0</aileron-drives-tiller>
+			<alt-elevator-trim-lever type="int">0</alt-elevator-trim-lever>
 			<dial-a-flap type="double">-1</dial-a-flap> <!-- Rounded in md-80-fcs.xml -->
 			<elevator-trim type="double">-0.24</elevator-trim> <!-- About 3.0ANU -->
 			<elevator-trim-lever type="int">0</elevator-trim-lever>

@@ -47,7 +47,7 @@ var fgcpCanvas = {
 		me._svgKeys = me.getKeys();
 		foreach(me._key; me._svgKeys) {
 			me[me._key] = me._svg.getElementById(me._key);
-			if (find("_7seg", me._key) != -1) me[me._key].setFont("Std7SegCustom.ttf");
+			if (find("_7seg", me._key) != -1) me[me._key].setFont("MD80FGCP7Seg.ttf");
 			else if (find("_16seg", me._key) != -1) me[me._key].setFont("Std16SegCustom.ttf");
 		}
 		
@@ -296,6 +296,8 @@ var fgcpCanvas = {
 					me["PitchMode_16seg"].setText("P");
 					if (me._pitch < 0 and me._pitchD > 0) {
 						me["Pitch_7seg"].setText("-" ~ sprintf("%02d", abs(me._pitchD)));
+					} else if (me._pitch > 0 and me._pitchD > 0) {
+						me["Pitch_7seg"].setText("+" ~ sprintf("%02d", abs(me._pitchD)));
 					} else {
 						me["Pitch_7seg"].setText(sprintf("%02d", abs(me._pitchD)));
 					}
@@ -306,6 +308,8 @@ var fgcpCanvas = {
 					me["PitchMode_16seg"].setText("V");
 					if (me._vs < 0 and me._vsD > 0) {
 						me["Pitch_7seg"].setText("-" ~ sprintf("%04d", me._vsD));
+					} else if (me._vs > 0 and me._vsD > 0) {
+						me["Pitch_7seg"].setText("+" ~ sprintf("%04d", me._vsD));
 					} else {
 						me["Pitch_7seg"].setText(sprintf("%04d", me._vsD));
 					}

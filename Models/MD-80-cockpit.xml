@@ -805,9 +805,175 @@
 			<z-m>0.63</z-m>
 		</center>
 		<axis>
-			<x>0.0</x>
-			<y>-1.0</y>
-			<z>0.0</z>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<!-- Alternate Pitch Trim -->
+	<animation>
+		<type>pick</type>
+		<object-name>LongTrimHandleUp</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<condition>
+					<greater-than-equals>
+						<property>systems/electrical/bus/emer-ac</property>
+						<value>112</value>
+					</greater-than-equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>controls/flight/elevator-trim</property>
+				<step>-0.001</step>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					if (dfgs.Output.ap1.getBoolValue()) {
+						dfgs.ITAF.ap1Master(0);
+					}
+					if (dfgs.Output.ap2.getBoolValue()) {
+						dfgs.ITAF.ap2Master(0);
+					}
+				</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/flight/elevator-trim-lever</property>
+				<value>-1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/flight/elevator-trim-lever</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+		<action>
+			<button>1</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<condition>
+					<greater-than-equals>
+						<property>systems/electrical/bus/emer-ac</property>
+						<value>112</value>
+					</greater-than-equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>controls/flight/elevator-trim</property>
+				<step>0.001</step>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>
+					if (dfgs.Output.ap1.getBoolValue()) {
+						dfgs.ITAF.ap1Master(0);
+					}
+					if (dfgs.Output.ap2.getBoolValue()) {
+						dfgs.ITAF.ap2Master(0);
+					}
+				</script>
+			</binding>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/flight/elevator-trim-lever</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/flight/elevator-trim-lever</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>AltLongTrimDown</object-name>
+		<visible>false</visible>
+		<action>
+			<button>0</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/flight/alt-elevator-trim-lever</property>
+				<value>1</value>
+			</binding>
+			<binding>
+				<condition>
+					<greater-than-equals>
+						<property>systems/electrical/bus/emer-ac</property>
+						<value>112</value>
+					</greater-than-equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>controls/flight/elevator-trim</property>
+				<step>0.0003</step>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/flight/alt-elevator-trim-lever</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>AltLongTrimUp</object-name>
+		<visible>false</visible>
+		<action>
+			<button>0</button>
+			<repeatable>true</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/flight/alt-elevator-trim-lever</property>
+				<value>-1</value>
+			</binding>
+			<binding>
+				<condition>
+					<greater-than-equals>
+						<property>systems/electrical/bus/emer-ac</property>
+						<value>112</value>
+					</greater-than-equals>
+				</condition>
+				<command>property-adjust</command>
+				<property>controls/flight/elevator-trim</property>
+				<step>-0.0003</step>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/flight/alt-elevator-trim-lever</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>AltLongTrimLever</object-name>
+		<property>controls/cockpit/alt-elevator-trim-lever</property>
+		<interpolation>
+			<entry><ind>-1</ind><dep>  0</dep></entry>
+			<entry><ind> 1</ind><dep>-36</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.608</x-m>
+			<y-m>0</y-m>
+			<z-m>0.63</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
 		</axis>
 	</animation>
 
@@ -825,7 +991,7 @@
 		<center>
 			<x-m>2.608</x-m>
 			<y-m>0</y-m>
-			<z-m>0.630</z-m>
+			<z-m>0.63</z-m>
 		</center>
 		<axis>
 			<x>0</x>
@@ -857,7 +1023,7 @@
 		<center>
 			<x-m>2.608</x-m>
 			<y-m>0</y-m>
-			<z-m>0.630</z-m>
+			<z-m>0.63</z-m>
 		</center>
 		<axis>
 			<x>0</x>
@@ -887,7 +1053,7 @@
 		<center>
 			<x-m>2.608</x-m>
 			<y-m>0</y-m>
-			<z-m>0.630</z-m>
+			<z-m>0.63</z-m>
 		</center>
 		<axis>
 			<x>0</x>
@@ -918,7 +1084,7 @@
 		<center>
 			<x-m>2.608</x-m>
 			<y-m>0</y-m>
-			<z-m>0.630</z-m>
+			<z-m>0.63</z-m>
 		</center>
 		<axis>
 			<x>0</x>
@@ -2163,27 +2329,6 @@
 			<x2-m>2.74643</x2-m>
 			<y2-m>-0.0609</y2-m>
 			<z2-m>0.66562</z2-m>
-		</axis>
-	</animation>
-	
-	<!-- Alternate Trim Handle: INOP -->
-	<animation>
-		<type>rotate</type>
-		<object-name>AltLongTrimLever</object-name>
-		<property>sim/model/unused</property>
-		<interpolation>
-			<entry><ind>0</ind><dep>-20</dep></entry>
-			<entry><ind>1</ind><dep>-20</dep></entry>
-		</interpolation>
-		<center>
-			<x-m>2.608</x-m>
-			<y-m>0</y-m>
-			<z-m>0.630</z-m>
-		</center>
-		<axis>
-			<x>0</x>
-			<y>1</y>
-			<z>0</z>
 		</axis>
 	</animation>
 	

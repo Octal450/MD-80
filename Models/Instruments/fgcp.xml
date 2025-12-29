@@ -22,8 +22,10 @@
 		<object-name>Digits.PitchModeVs</object-name>
 		<object-name>Digits.Turb</object-name>
 		<object-name>Digits.TurbMinus</object-name>
+		<object-name>Digits.TurbPlus</object-name>
 		<object-name>Digits.Vs</object-name>
 		<object-name>Digits.VsMinus</object-name>
+		<object-name>Digits.VsPlus</object-name>
 	</animation>
 	
 	<animation>
@@ -244,7 +246,7 @@
 		<format>%6.2f</format>
 		<property>instrumentation/nav[0]/frequencies/selected-mhz-fmt</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -265,7 +267,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>888.88</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -369,7 +371,7 @@
 		<format>%003.0f</format>
 		<property>instrumentation/nav[0]/radials/selected-deg</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -390,7 +392,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>888</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -655,7 +657,7 @@
 		<format>%003.0f</format>
 		<property>it-autoflight/input/kts</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -678,7 +680,7 @@
 		<format>.%003.0f</format>
 		<property>it-autoflight/input/mach-x1000</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -699,7 +701,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>.888</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -1065,7 +1067,7 @@
 		<format>%03.0f</format>
 		<property>it-autoflight/input/hdg</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -1086,7 +1088,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>888</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -1291,7 +1293,30 @@
 		<format>%04.0f</format>
 		<property>it-autoflight/input/vs-fma</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.VsPlus</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.0375</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>+%04.0f</format>
+		<property>it-autoflight/input/vs-fma</property>
+		<truncate>false</truncate>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -1314,7 +1339,7 @@
 		<format>-%04.0f</format>
 		<property>it-autoflight/input/vs-fma</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -1337,7 +1362,30 @@
 		<format>%02.0f</format>
 		<property>it-autoflight/input/pitch-abs</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
+		<draw-text>true</draw-text>
+		<draw-alignment>false</draw-alignment>
+		<draw-boundingbox>false</draw-boundingbox>
+		<character-size>0.0085</character-size>
+		<font-resolution>
+			<width>30</width>
+			<height>32</height>
+		</font-resolution>
+	</text>
+	<text>
+		<name>Digits.TurbPlus</name>
+		<offsets>
+			<x-m>-0.0059</x-m>
+			<y-m>0.0375</y-m>
+			<z-m>0.0059</z-m>
+		</offsets>
+		<alignment>right-bottom</alignment>
+		<axis-alignment>yz-plane</axis-alignment>
+		<type>number-value</type>
+		<format>+%02.0f</format>
+		<property>it-autoflight/input/pitch-abs</property>
+		<truncate>false</truncate>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -1360,7 +1408,7 @@
 		<format>-%02.0f</format>
 		<property>it-autoflight/input/pitch-abs</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -1383,7 +1431,7 @@
 		<format>%3.0f</format>
 		<property>it-autoflight/input/kts-flch</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -1406,7 +1454,7 @@
 		<format>.%3.0f</format>
 		<property>it-autoflight/input/mach-flch-x1000</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -1427,7 +1475,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>-8.888</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -1443,6 +1491,7 @@
 		<object-name>Digits.PitchModeVs</object-name>
 		<object-name>Digits.Vs</object-name>
 		<object-name>Digits.VsMinus</object-name>
+		<object-name>Digits.VsPlus</object-name>
 		<condition>
 			<and>
 				<not-equals>
@@ -1461,6 +1510,7 @@
 		<object-name>Digits.PitchModeTurb</object-name>
 		<object-name>Digits.Turb</object-name>
 		<object-name>Digits.TurbMinus</object-name>
+		<object-name>Digits.TurbPlus</object-name>
 		<condition>
 			<equals>
 				<property>it-autoflight/output/vert</property>
@@ -1484,6 +1534,22 @@
 					</greater-than>
 				</and>
 			</not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Digits.VsPlus</object-name>
+		<condition>
+			<and>
+				<greater-than>
+					<property>it-autoflight/input/vs</property>
+					<value>0.01</value>
+				</greater-than>
+				<greater-than>
+					<property>it-autoflight/input/vs-fma</property>
+					<value>0.01</value>
+				</greater-than>
+			</and>
 		</condition>
 	</animation>
 	<animation>
@@ -1518,6 +1584,22 @@
 					</greater-than>
 				</and>
 			</not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Digits.TurbPlus</object-name>
+		<condition>
+			<and>
+				<greater-than>
+					<property>it-autoflight/input/pitch</property>
+					<value>0.001</value>
+				</greater-than>
+				<greater-than>
+					<property>it-autoflight/input/pitch-abs</property>
+					<value>0.001</value>
+				</greater-than>
+			</and>
 		</condition>
 	</animation>
 	<animation>
@@ -2170,7 +2252,7 @@
 		<format>%s</format>
 		<property>it-autoflight/input/alt-thousands</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -2193,7 +2275,7 @@
 		<format>%s</format>
 		<property>it-autoflight/input/alt-hundreds</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -2214,7 +2296,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>88</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -2235,7 +2317,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>888</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -2260,7 +2342,7 @@
 		<format>%6.2f</format>
 		<property>instrumentation/nav[1]/frequencies/selected-mhz-fmt</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -2281,7 +2363,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>888.88</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -2385,7 +2467,7 @@
 		<format>%003.0f</format>
 		<property>instrumentation/nav[1]/radials/selected-deg</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -2406,7 +2488,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>888</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>

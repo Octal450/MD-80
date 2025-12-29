@@ -6,7 +6,7 @@
 
 	<name>acconfig-init-gauge</name>
 	<layout>vbox</layout>
-    <pref-width>260</pref-width>
+    <pref-width>300</pref-width>
 
     <group>
         <layout>hbox</layout>

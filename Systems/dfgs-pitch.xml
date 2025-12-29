@@ -23,6 +23,70 @@
 		<max>/it-autoflight/internal/max-vs</max>
 	</filter>
 	
+	<logic>
+		<input>
+			<and>
+				<equals>
+					<property>/it-autoflight/output/vert</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>/it-autoflight/input/vs</property>
+					<value>0</value>
+				</equals>
+			</and>
+		</input>
+		<output>/it-autoflight/internal/vs-alt-active</output>
+	</logic>
+	
+	<filter>
+		<name>Vertical Speed Altitude Hold Set/Inactive Sync</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<enable>
+			<condition>
+				<not><property>/it-autoflight/internal/vs-alt-active</property></not>
+			</condition>
+		</enable>
+		<input>
+			<expression>
+				<product>
+					<floor>
+						<sum>
+							<div>
+								<property>/instrumentation/altimeter/indicated-altitude-ft</property>
+								<value>100</value>
+							</div>
+							<value>0.5</value>
+						</sum>
+					</floor>
+					<value>100</value>
+				</product>
+			</expression>
+		</input>
+		<output>/it-autoflight/internal/vs-alt</output>
+		<min>0</min>
+		<max>50000</max>
+	</filter>
+	
+	<filter>
+		<name>IT-CONTROLLER: Vertical Speed Altitude Hold</name>
+		<type>gain</type>
+		<gain>-5</gain>
+		<input>
+			<expression>
+				<sum>
+					<property>/instrumentation/altimeter/indicated-altitude-ft</property>
+					<value>-2</value>
+				</sum>
+			</expression>
+		</input>
+		<reference>/it-autoflight/internal/vs-alt</reference>
+		<output>/it-autoflight/internal/target-fpm-vs-alt</output>
+		<min>-500</min>
+		<max>500</max>
+	</filter>
+	
 	<filter>
 		<name>Vertical Speed FPM Filter</name>
 		<type>noise-spike</type>
@@ -52,6 +116,7 @@
 			<condition>
 				<and>
 					<property>/it-autoflight/output/ap-on</property>
+					<not><property>/it-autoflight/internal/vs-alt-active</property></not> <!-- Keep it fast when rotated to ALT HLD -->
 					<equals>
 						<property>/it-autoflight/output/vert</property>
 						<value>1</value>
@@ -395,6 +460,12 @@
 		</input>
 		<input>
 			<condition>
+				<property>/it-autoflight/internal/vs-alt-active</property>
+			</condition>
+			<property>/it-autoflight/internal/target-fpm-vs-alt</property>
+		</input>
+		<input>
+			<condition>
 				<equals>
 					<property>/it-autoflight/output/vert</property>
 					<value>1</value>
@@ -480,6 +551,12 @@
 				<not><property>/it-autoflight/internal/vs-active</property></not>
 			</condition>
 			<property>/it-autoflight/internal/vert-speed-fpm</property>
+		</input>
+		<input>
+			<condition>
+				<property>/it-autoflight/internal/vs-alt-active</property>
+			</condition>
+			<property>/it-autoflight/internal/target-fpm-vs-alt</property>
 		</input>
 		<input>
 			<condition>

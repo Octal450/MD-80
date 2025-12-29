@@ -540,7 +540,7 @@
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 			<test logic="OR" value="0.1"> <!-- Alternate -->
-				<!--/controls/flight/alternate-trim-lever-->
+				/controls/flight/alt-elevator-trim-lever ne 0
 				/systems/dfgs/afs/enabled eq 1
 			</test>
 		</switch>
