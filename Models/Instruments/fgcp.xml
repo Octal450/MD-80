@@ -21,11 +21,11 @@
 		<object-name>Digits.PitchModeTurb</object-name>
 		<object-name>Digits.PitchModeVs</object-name>
 		<object-name>Digits.Turb</object-name>
-		<object-name>Digits.TurbPlus</object-name>
 		<object-name>Digits.TurbMinus</object-name>
+		<object-name>Digits.TurbPlus</object-name>
 		<object-name>Digits.Vs</object-name>
-		<object-name>Digits.VsPlus</object-name>
 		<object-name>Digits.VsMinus</object-name>
+		<object-name>Digits.VsPlus</object-name>
 	</animation>
 	
 	<animation>
@@ -1490,8 +1490,8 @@
 		<type>select</type>
 		<object-name>Digits.PitchModeVs</object-name>
 		<object-name>Digits.Vs</object-name>
-		<object-name>Digits.VsPlus</object-name>
 		<object-name>Digits.VsMinus</object-name>
+		<object-name>Digits.VsPlus</object-name>
 		<condition>
 			<and>
 				<not-equals>
@@ -1509,8 +1509,8 @@
 		<type>select</type>
 		<object-name>Digits.PitchModeTurb</object-name>
 		<object-name>Digits.Turb</object-name>
-		<object-name>Digits.TurbPlus</object-name>
 		<object-name>Digits.TurbMinus</object-name>
+		<object-name>Digits.TurbPlus</object-name>
 		<condition>
 			<equals>
 				<property>it-autoflight/output/vert</property>
