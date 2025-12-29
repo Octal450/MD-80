@@ -27,7 +27,6 @@
 				<path>gui/splash/MD-80.png</path>
 			</preview>
 		</previews>
-		<primary-set>true</primary-set>
 		<submodels n="0">
 			<serviceable type="bool">true</serviceable>
 			<path>Aircraft/MD-80/Models/submodels.xml</path>
@@ -37,6 +36,7 @@
 				<path>Aircraft/MD-80/Systems/firetank.xml</path>
 			</autopilot>
 		</systems>
+		<variant-of>MD-82</variant-of>
 		<!-- Overwrite -main views with correct positions -->
 		<view n="0">
 			<name>Captain View</name>

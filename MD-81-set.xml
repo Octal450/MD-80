@@ -27,7 +27,7 @@
 				<path>gui/splash/MD-80.png</path>
 			</preview>
 		</previews>
-		<primary-set>true</primary-set>
+		<variant-of>MD-82</variant-of>
     </sim>
 	
 	<fdm n="0">
