@@ -197,9 +197,6 @@ var canvasBase = {
 					if (dfgs.Fma.spdLow and Value.blink < 2) {
 						me["PitchLine1"].setText("SPD");
 						me["PitchLine2"].setText("LOW");
-					} else if (dfgs.Output.vert.getValue() == 1 and abs(dfgs.Input.vs.getValue()) < 50) {
-						me["PitchLine1"].setText("ALT");
-						me["PitchLine2"].setText("HLD");
 					} else {
 						me["PitchLine1"].setText(Modes.line1[3].getValue());
 						me["PitchLine2"].setText(Modes.line2[3].getValue());
