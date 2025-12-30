@@ -3,7 +3,7 @@ MATERIAL "ac3dmat1" rgb 1 1 1  amb 0.2 0.2 0.2  emis 0 0 0  spec 0.2 0.2 0.2  sh
 MATERIAL "DefaultWhite.028" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 64  trans 0
 MATERIAL "DefaultWhite.027" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 64  trans 0
 OBJECT world
-kids 153
+kids 152
 OBJECT poly
 name "ABSArm"
 data 13
@@ -152860,15 +152860,6 @@ refs 4
 300 0.043521 0.56664
 299 0.012107 0.56664
 298 0.012107 0.522421
-kids 0
-OBJECT poly
-name "Plane.010"
-data 9
-Plane.025
-crease 40.000000
-numvert 2
-2.72305 0.67864 0.16561
-2.72305 0.67864 0.17569
 kids 0
 OBJECT group
 name "Pms"
