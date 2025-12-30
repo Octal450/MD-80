@@ -144,19 +144,6 @@
 		<object-name>SlatText</object-name>
 	</effect>
 	
-	<!-- Panel glows -->
-	<animation>
-		<type>material</type>
-		<object-name>PedestalABS</object-name>
-		<object-name>PedestalDrumFace</object-name>
-		<emission>
-			<red>0.4</red>
-			<green>0.2</green>
-			<blue>0.1</blue>
-			<factor-prop>controls/lighting/panel-norm</factor-prop>
-		</emission>
-	</animation>
-	
 	<!-- Animations -->
 	<animation>
 		<type>rotate</type>
