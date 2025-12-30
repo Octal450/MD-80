@@ -633,7 +633,7 @@
 				</condition>
 				<command>property-adjust</command>
 				<property>controls/flight/elevator-trim</property>
-				<step>0.0015</step>
+				<step>0.001</step>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -671,7 +671,7 @@
 				</condition>
 				<command>property-adjust</command>
 				<property>controls/flight/elevator-trim</property>
-				<step>-0.0015</step>
+				<step>-0.001</step>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -799,87 +799,6 @@
 	</animation>
 	
 	<!-- Alternate Pitch Trim -->
-	<animation>
-		<type>pick</type>
-		<object-name>LongTrimHandleUp</object-name>
-		<action>
-			<button>0</button>
-			<repeatable>true</repeatable>
-			<binding>
-				<condition>
-					<greater-than-equals>
-						<property>systems/electrical/bus/emer-ac</property>
-						<value>112</value>
-					</greater-than-equals>
-				</condition>
-				<command>property-adjust</command>
-				<property>controls/flight/elevator-trim</property>
-				<step>-0.001</step>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>
-					if (dfgs.Output.ap1.getBoolValue()) {
-						dfgs.ITAF.ap1Master(0);
-					}
-					if (dfgs.Output.ap2.getBoolValue()) {
-						dfgs.ITAF.ap2Master(0);
-					}
-				</script>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/flight/elevator-trim-lever</property>
-				<value>-1</value>
-			</binding>
-			<mod-up>
-				<binding>
-					<command>property-assign</command>
-					<property>controls/flight/elevator-trim-lever</property>
-					<value>0</value>
-				</binding>
-			</mod-up>
-		</action>
-		<action>
-			<button>1</button>
-			<repeatable>true</repeatable>
-			<binding>
-				<condition>
-					<greater-than-equals>
-						<property>systems/electrical/bus/emer-ac</property>
-						<value>112</value>
-					</greater-than-equals>
-				</condition>
-				<command>property-adjust</command>
-				<property>controls/flight/elevator-trim</property>
-				<step>0.001</step>
-			</binding>
-			<binding>
-				<command>nasal</command>
-				<script>
-					if (dfgs.Output.ap1.getBoolValue()) {
-						dfgs.ITAF.ap1Master(0);
-					}
-					if (dfgs.Output.ap2.getBoolValue()) {
-						dfgs.ITAF.ap2Master(0);
-					}
-				</script>
-			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/flight/elevator-trim-lever</property>
-				<value>1</value>
-			</binding>
-			<mod-up>
-				<binding>
-					<command>property-assign</command>
-					<property>controls/flight/elevator-trim-lever</property>
-					<value>0</value>
-				</binding>
-			</mod-up>
-		</action>
-	</animation>
-	
 	<animation>
 		<type>pick</type>
 		<object-name>AltLongTrimDown</object-name>
