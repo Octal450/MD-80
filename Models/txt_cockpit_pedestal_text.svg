@@ -214,8 +214,8 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4228536"
-     inkscape:cx="879.1967"
-     inkscape:cy="3260.8967"
+     inkscape:cx="1395.3352"
+     inkscape:cy="2863.4696"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -693,14 +693,14 @@
 <image
        sodipodi:absref="D:\Aircraft\MD-80\Models\txt_cockpit_pedestal_text-UV.png"
        xlink:href="txt_cockpit_pedestal_text-UV.png"
-       width="4096"
-       height="4096"
-       preserveAspectRatio="none"
-       id="image1"
-       x="0"
-       y="-995.63788"
+       sodipodi:insensitive="true"
        style="display:none;stroke-width:0.5"
-       sodipodi:insensitive="true" /><text
+       y="-995.63788"
+       x="0"
+       id="image1"
+       preserveAspectRatio="none"
+       height="4096"
+       width="4096" /><text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:28px;line-height:83.4%;font-family:'Alata';-inkscape-font-specification:'Alata,  Condensed';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="1986.5238"
@@ -743,13 +743,8 @@
          sodipodi:role="line"
          x="1497.957"
          y="277.05768"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:28px;line-height:83.39999914%;font-family:Alata;-inkscape-font-specification:'Alata,  Condensed';text-align:end;letter-spacing:0px;text-anchor:end;fill:#ffffff"
-         id="tspan10">ALT</tspan><tspan
-         sodipodi:role="line"
-         x="1497.957"
-         y="300.4097"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:28px;line-height:83.39999914%;font-family:Alata;-inkscape-font-specification:'Alata,  Condensed';text-align:end;letter-spacing:0px;text-anchor:end;fill:#ffffff"
-         id="tspan11" /></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:28px;line-height:83.39999914%;font-family:Alata;-inkscape-font-specification:'Alata, Condensed';text-align:end;letter-spacing:0px;text-anchor:end;fill:#ffffff"
+         id="tspan11">ALT</tspan></text>
 <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:28px;line-height:83.4%;font-family:'Alata';-inkscape-font-specification:'Alata,  Condensed';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
