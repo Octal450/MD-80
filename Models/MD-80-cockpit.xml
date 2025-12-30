@@ -977,7 +977,7 @@
 			</binding>
 		</action>
 	</animation>
-
+	
 	<!-- Rudder Power Lever -->
 	<animation>
 		<type>knob</type>
