@@ -12,10 +12,13 @@
 			<livery>
 				<file type="string">White</file>
 			</livery>
-			<n1-tach n="0">
+			<egt n="0"> <!-- Same as 217C -->
+				<texture type="string">egt-217.png</texture>
+			</egt>
+			<n1-tach n="0"> <!-- Same as 217C -->
 				<texture type="string">n1-217a.png</texture>
 			</n1-tach>
-			<n2-tach n="0">
+			<n2-tach n="0"> <!-- Same as 217C -->
 				<texture type="string">n2-217a.png</texture>
 			</n2-tach>
 			<path>Aircraft/MD-80/Models/MD-87.xml</path>

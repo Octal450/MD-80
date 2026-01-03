@@ -616,7 +616,7 @@ name "Needle"
 loc 0 -9.09427e-05 -1.44743e-09
 data 9
 Plane.028
-texture "egt.png"
+texture "egt-217.png"
 crease 30.000000
 numvert 24
 0.00052 9.42666e-05 0.00432991
@@ -760,7 +760,7 @@ OBJECT poly
 name "Face"
 data 12
 Cylinder.048
-texture "egt.png"
+texture "egt-217.png"
 crease 30.000000
 numvert 9
 0.000122 0.019477 -0.019477

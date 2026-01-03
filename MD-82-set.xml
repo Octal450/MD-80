@@ -12,6 +12,9 @@
 			<livery>
 				<file type="string">White</file>
 			</livery>
+			<egt n="0"> <!-- Same as 217A -->
+				<texture type="string">egt-217.png</texture>
+			</egt>
 			<n1-tach n="0">
 				<texture type="string">n1-217a.png</texture>
 			</n1-tach>

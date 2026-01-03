@@ -10,6 +10,14 @@
 	<animation>
 		<type>material</type>
 		<object-name>Face</object-name>
+		<property-base>sim/model/egt</property-base>
+		<texture-prop>texture</texture-prop> 
+		<texture>egt-217.png</texture>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>Face</object-name>
 		<object-name>Needle</object-name>
 		<emission>
 			<red>1.0</red>
