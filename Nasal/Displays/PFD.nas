@@ -1,5 +1,5 @@
 # McDonnell Douglas MD-80 PFD
-# Copyright (c) 2025 Josh Davidson (Octal450)
+# Copyright (c) 2026 Josh Davidson (Octal450)
 
 var pfd1 = nil;
 var pfd1Display = nil;

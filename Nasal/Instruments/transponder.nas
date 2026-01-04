@@ -1,5 +1,5 @@
 # McDonnell Douglas MD-80 Transponder
-# Copyright (c) 2025 Josh Davidson (Octal450)
+# Copyright (c) 2026 Josh Davidson (Octal450)
 
 var XPDR = {
 	altSource: props.globals.initNode("/instrumentation/transponder/input/alt-source"),

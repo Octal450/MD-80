@@ -1,5 +1,5 @@
 # Honeywell Trimble HT9100 MCDU
-# Copyright (c) 2025 Josh Davidson (Octal450) and Jonathan Redpath (legoboyvdlp)
+# Copyright (c) 2026 Josh Davidson (Octal450) and Jonathan Redpath (legoboyvdlp)
 
 var NearestIndex = {
 	new: func(n) {

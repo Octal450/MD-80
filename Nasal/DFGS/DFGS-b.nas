@@ -1,5 +1,5 @@
 # McDonnell Douglas MD-80 DFGS
-# Copyright (c) 2025 Josh Davidson (Octal450)
+# Copyright (c) 2026 Josh Davidson (Octal450)
 
 var Main = {
 	art: props.globals.getNode("/controls/dfgs/art"),

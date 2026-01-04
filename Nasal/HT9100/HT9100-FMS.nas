@@ -1,5 +1,5 @@
 # Honeywell Trimble HT9100 FMS
-# Copyright (c) 2025 Josh Davidson (Octal450)
+# Copyright (c) 2026 Josh Davidson (Octal450)
 
 # Properties and Data
 var Internal = {
