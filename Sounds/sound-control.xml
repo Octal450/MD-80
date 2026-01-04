@@ -181,7 +181,7 @@
 			<expression>
 				<table>
 					<property>/velocities/airspeed-kt</property>
-					<entry><ind>100</ind><dep>0.0</dep></entry>
+					<entry><ind>102</ind><dep>0.0</dep></entry>
 					<entry><ind>198</ind><dep>0.1</dep></entry>
 					<entry><ind>250</ind><dep>0.5</dep></entry>
 				</table>
@@ -222,7 +222,7 @@
 					<property>/sim/sound/fake-n2[0]</property>
 					<entry><ind>054</ind> <dep>0.00</dep></entry>
 					<entry><ind>074</ind> <dep>0.10</dep></entry>
-					<entry><ind>100</ind> <dep>1.00</dep></entry>
+					<entry><ind>102</ind> <dep>1.00</dep></entry>
 				</table>
 			</product>
 		</expression>
@@ -242,7 +242,7 @@
 			<table>
 				<property>/sim/sound/fake-n2[0]</property>
 				<entry><ind>000</ind> <dep>0.0</dep></entry>
-				<entry><ind>100</ind> <dep>1.0</dep></entry>
+				<entry><ind>102</ind> <dep>1.0</dep></entry>
 			</table>
 		</product>
 	</expression>
@@ -263,7 +263,7 @@
 					<property>/sim/sound/fake-n2[1]</property>
 					<entry><ind>054</ind> <dep>0.00</dep></entry>
 					<entry><ind>074</ind> <dep>0.10</dep></entry>
-					<entry><ind>100</ind> <dep>1.00</dep></entry>
+					<entry><ind>102</ind> <dep>1.00</dep></entry>
 				</table>
 			</product>
 		</expression>
@@ -283,7 +283,7 @@
 			<table>
 				<property>/sim/sound/fake-n2[1]</property>
 				<entry><ind>000</ind> <dep>0.0</dep></entry>
-				<entry><ind>100</ind> <dep>1.0</dep></entry>
+				<entry><ind>102</ind> <dep>1.0</dep></entry>
 			</table>
 		</product>
 	</expression>
@@ -371,7 +371,7 @@
 				<table>
 					<property>/engines/engine[0]/n1-actual</property>
 					<entry><ind>25.3</ind> <dep>0.50</dep></entry>
-					<entry><ind>100.0</ind> <dep>2.00</dep></entry>
+					<entry><ind>102.0</ind> <dep>2.00</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -408,7 +408,7 @@
 			<table>
 				<property>/engines/engine[0]/n1-actual</property>
 				<entry><ind>25.3</ind> <dep>0.00</dep></entry>
-				<entry><ind>100</ind> <dep>2.00</dep></entry>
+				<entry><ind>102</ind> <dep>2.00</dep></entry>
 			</table>
 		</expression>
 		</input>
@@ -428,7 +428,7 @@
 					<entry><ind>060</ind>  <dep>0.520</dep></entry>
 					<entry><ind>91.4</ind> <dep>0.498</dep></entry>
 					<entry><ind>94.7</ind> <dep>0.276</dep></entry>
-					<entry><ind>100.0</ind><dep>0.052</dep></entry>
+					<entry><ind>102.0</ind><dep>0.052</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -445,7 +445,7 @@
 			<table>
 				<property>/engines/engine[0]/n1-actual</property>
 				<entry><ind>25.3</ind> <dep>0.25</dep></entry>
-				<entry><ind>100</ind> <dep>1.00</dep></entry>
+				<entry><ind>102</ind> <dep>1.00</dep></entry>
 			</table>
 		</expression>
 		</input>
@@ -480,7 +480,7 @@
 				<table>
 					<property>/engines/engine[0]/n1-actual</property>
 					<entry><ind>25.3</ind> <dep>0.25</dep></entry>
-					<entry><ind>100</ind> <dep>1.00</dep></entry>
+					<entry><ind>102</ind> <dep>1.00</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -498,7 +498,7 @@
 					<property>/engines/engine[0]/n1-actual</property>
 					<entry><ind>090</ind> <dep>0.00</dep></entry>
 					<entry><ind>95.8</ind> <dep>0.560</dep></entry>
-					<entry><ind>100</ind> <dep>0.516</dep></entry>
+					<entry><ind>102</ind> <dep>0.516</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -515,7 +515,7 @@
 				<table>
 					<property>/engines/engine[0]/n1-actual</property>
 					<entry><ind>25.3</ind> <dep>0.25</dep></entry>
-					<entry><ind>100</ind> <dep>1.00</dep></entry>
+					<entry><ind>102</ind> <dep>1.00</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -553,7 +553,7 @@
 			<table>
 				<property>/engines/engine[0]/n1-actual</property>
 				<entry><ind>25.3</ind> <dep>0.25</dep></entry>
-				<entry><ind>100</ind> <dep>1.00</dep></entry>
+				<entry><ind>102</ind> <dep>1.00</dep></entry>
 			</table>
 		</expression>
 		</input>
@@ -572,7 +572,7 @@
 					<entry><ind>15.0</ind>  <dep>0.000</dep></entry>
 					<entry><ind>25.3</ind>  <dep>0.400</dep></entry>
 					<entry><ind>50.0</ind>  <dep>0.250</dep></entry>
-					<entry><ind>100.0</ind> <dep>0.000</dep></entry>
+					<entry><ind>102.0</ind> <dep>0.000</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -589,7 +589,7 @@
 			<table>
 				<property>/engines/engine[0]/n1-actual</property>
 				<entry><ind>25.3</ind> <dep>1.00</dep></entry>
-				<entry><ind>100</ind>  <dep>1.80</dep></entry>
+				<entry><ind>102</ind>  <dep>1.80</dep></entry>
 			</table>
 		</expression>
 		</input>
@@ -609,7 +609,7 @@
 					<entry><ind>60.0</ind>  <dep>0.250</dep></entry>
 					<entry><ind>80.0</ind>  <dep>0.350</dep></entry>
 					<entry><ind>90.0</ind>  <dep>0.400</dep></entry>
-					<entry><ind>100.0</ind> <dep>0.350</dep></entry>
+					<entry><ind>102.0</ind> <dep>0.350</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -646,7 +646,7 @@
 				<table>
 					<property>/engines/engine[1]/n1-actual</property>
 					<entry><ind>25.3</ind> <dep>0.50</dep></entry>
-					<entry><ind>100.0</ind> <dep>2.00</dep></entry>
+					<entry><ind>102.0</ind> <dep>2.00</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -683,7 +683,7 @@
 				<table>
 					<property>/engines/engine[1]/n1-actual</property>
 					<entry><ind>25.3</ind> <dep>0.00</dep></entry>
-					<entry><ind>100</ind> <dep>2.00</dep></entry>
+					<entry><ind>102</ind> <dep>2.00</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -703,7 +703,7 @@
 					<entry><ind>060</ind>  <dep>0.520</dep></entry>
 					<entry><ind>91.4</ind> <dep>0.498</dep></entry>
 					<entry><ind>94.7</ind> <dep>0.276</dep></entry>
-					<entry><ind>100.0</ind><dep>0.052</dep></entry>
+					<entry><ind>102.0</ind><dep>0.052</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -720,7 +720,7 @@
 			<table>
 				<property>/engines/engine[1]/n1-actual</property>
 				<entry><ind>25.3</ind> <dep>0.25</dep></entry>
-				<entry><ind>100</ind> <dep>1.00</dep></entry>
+				<entry><ind>102</ind> <dep>1.00</dep></entry>
 			</table>
 		</expression>
 		</input>
@@ -755,7 +755,7 @@
 				<table>
 					<property>/engines/engine[1]/n1-actual</property>
 					<entry><ind>25.3</ind> <dep>0.25</dep></entry>
-					<entry><ind>100</ind> <dep>1.00</dep></entry>
+					<entry><ind>102</ind> <dep>1.00</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -773,7 +773,7 @@
 					<property>/engines/engine[1]/n1-actual</property>
 					<entry><ind>090</ind> <dep>0.00</dep></entry>
 					<entry><ind>95.8</ind> <dep>0.560</dep></entry>
-					<entry><ind>100</ind> <dep>0.516</dep></entry>
+					<entry><ind>102</ind> <dep>0.516</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -790,7 +790,7 @@
 				<table>
 					<property>/engines/engine[1]/n1-actual</property>
 					<entry><ind>25.3</ind> <dep>0.25</dep></entry>
-					<entry><ind>100</ind> <dep>1.00</dep></entry>
+					<entry><ind>102</ind> <dep>1.00</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -830,7 +830,7 @@
 					<entry><ind>15.0</ind>  <dep>0.000</dep></entry>
 					<entry><ind>25.3</ind>  <dep>0.400</dep></entry>
 					<entry><ind>50.0</ind>  <dep>0.250</dep></entry>
-					<entry><ind>100.0</ind> <dep>0.000</dep></entry>
+					<entry><ind>102.0</ind> <dep>0.000</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -847,7 +847,7 @@
 			<table>
 				<property>/engines/engine[1]/n1-actual</property>
 				<entry><ind>25.3</ind> <dep>1.00</dep></entry>
-				<entry><ind>100</ind>  <dep>1.80</dep></entry>
+				<entry><ind>102</ind>  <dep>1.80</dep></entry>
 			</table>
 		</expression>
 		</input>
@@ -867,7 +867,7 @@
 					<entry><ind>60.0</ind>  <dep>0.250</dep></entry>
 					<entry><ind>80.0</ind>  <dep>0.350</dep></entry>
 					<entry><ind>90.0</ind>  <dep>0.400</dep></entry>
-					<entry><ind>100.0</ind> <dep>0.350</dep></entry>
+					<entry><ind>102.0</ind> <dep>0.350</dep></entry>
 				</table>
 			</expression>
 		</input>
@@ -884,7 +884,7 @@
 			<table>
 				<property>/engines/engine[1]/n1-actual</property>
 				<entry><ind>25.3</ind> <dep>0.25</dep></entry>
-				<entry><ind>100</ind> <dep>1.00</dep></entry>
+				<entry><ind>102</ind> <dep>1.00</dep></entry>
 			</table>
 		</expression>
 		</input>
