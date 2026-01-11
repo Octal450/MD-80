@@ -16,7 +16,7 @@
    version="1.1"
    inkscape:version="0.91 r13725"
    sodipodi:docname="apu-egt.svg"
-   inkscape:export-filename="D:\Aircraft\MD-80\Models\Overhead\apu_egt_scale.png"
+   inkscape:export-filename="D:\Aircraft\MD-80\Models\Overhead\apu-egt-scale.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -29,15 +29,15 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.70710678"
-     inkscape:cx="571.72609"
+     inkscape:cx="330.60268"
      inkscape:cy="150.25312"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
-     inkscape:window-width="1920"
-     inkscape:window-height="1057"
-     inkscape:window-x="1912"
+     inkscape:window-width="1536"
+     inkscape:window-height="793"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
@@ -524,14 +524,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="77.944366"
-       y="720.20099"
+       x="78.23732"
+       y="745.46503"
        id="text4208"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4210"
-         x="77.944366"
-         y="720.20099"
+         x="78.23732"
+         y="745.46503"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:47.5px;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';fill:#ffffff">6</tspan></text>
     <text
        sodipodi:linespacing="125%"

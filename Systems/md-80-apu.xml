@@ -186,7 +186,25 @@
 			<function>
 				<sum>
 					<property>propulsion/tat-c</property>
+					<!-- Without fast response EGT gauge (no ECU), no visible EGT spike -->
 					<table>
+						<independentVar lookup="row">/systems/apu/n1-cmd</independentVar>
+						<independentVar lookup="column">atmosphere/density-altitude</independentVar>
+						<independentVar lookup="table">/controls/engines/engine[2]/cutoff</independentVar>
+						<tableData breakPoint="0">
+							       0    50000
+							 10    0    0
+							 20   54   32
+							100  391  301
+						</tableData>
+						<tableData breakPoint="1">
+							       0    50000
+							 14    0    0
+							100  391  301
+						</tableData>
+					</table>
+					<!-- With fast response EGT gauge (ECU equipped) -->
+					<!--table>
 						<independentVar lookup="row">/systems/apu/n1-cmd</independentVar>
 						<independentVar lookup="column">atmosphere/density-altitude</independentVar>
 						<independentVar lookup="table">/controls/engines/engine[2]/cutoff</independentVar>
@@ -204,7 +222,7 @@
 							 14    0    0
 							100  391  301
 						</tableData>
-					</table>
+					</table-->
 				</sum>
 			</function>
 		</fcs_function>
