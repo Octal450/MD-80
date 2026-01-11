@@ -211,9 +211,9 @@
 						<tableData breakPoint="0">
 							       0    50000
 							 10    0    0
-							 20  568  485
-							 35  523  441
-							 45  568  485
+							 20  508  434
+							 35  468  394
+							 45  508  434
 							 75  402  314
 							100  391  301
 						</tableData>
@@ -232,6 +232,16 @@
 			<c1>/systems/engines/egt-c1</c1>
 			<output>/engines/engine[2]/egt-actual</output>
 		</lag_filter>
+		
+		<fcs_function name="/systems/apu/egt-percent">
+			<function>
+				<quotient>
+					<property>/systems/apu/egt-actual</property>
+					<value>6.3</value> <!-- 100% = 630C -->
+				</quotient>
+			</function>
+			<output>/engines/engine[2]/egt-percent</output>
+		</fcs_function>
 		
 		<fcs_function name="/systems/apu/n2-cmd">
 			<function>
