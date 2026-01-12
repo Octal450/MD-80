@@ -41,6 +41,7 @@
 		<object-name>DcLoadRNeedleR</object-name>
 		<object-name>DcVoltAmpNeedle</object-name>
 		<object-name>Face</object-name>
+		<object-name>HeaterCurNeedle</object-name>
 		<object-name>IntegrityCadc</object-name>
 		<object-name>IntegrityEfisSel</object-name>
 		<object-name>IntegrityElecMeters</object-name>
@@ -2567,6 +2568,26 @@
 				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>HeaterCurNeedle</object-name>
+		<property>systems/electrical/unused/zero</property> <!-- Will be changed when I add calc -->
+		<interpolation>
+			<entry><ind> 0</ind><dep>-48</dep></entry>
+			<entry><ind>10</ind><dep> 48</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.19772</y-m>
+			<z-m>-0.41513</z-m>
+		</center>
 	</animation>
 	
 	<animation>
