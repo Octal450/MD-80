@@ -2076,8 +2076,14 @@
 			<c1>10</c1>
 		</lag_filter>
 		
-		<!-- APU EGT Gauge -->
-		<switch name="/instrumentation/apu-egt/power-avail">
+		<!-- APU EGT Gauge: Older (slower) gauge which does not require AC power -->
+		<lag_filter name="/instrumentation/apu-egt/egt">
+			<input>/systems/apu/egt-actual</input>
+			<c1>1.0</c1>
+		</lag_filter>
+		
+		<!-- APU EGT Percent Gauge: Newer gauge which require DC power -->
+		<switch name="/instrumentation/apu-egt-percent/power-avail">
 			<default value="0"/>
 			<test logic="OR" value="1">
 				/systems/electrical/bus/dc-bat ge 24
@@ -2085,16 +2091,16 @@
 			</test>
 		</switch>
 		
-		<switch name="/instrumentation/apu-egt/egt-input">
-			<default value="/instrumentation/apu-egt/egt-input"/>
-			<test value="/systems/apu/egt-actual">
-				/instrumentation/apu-egt/power-avail eq 1
+		<switch name="/instrumentation/apu-egt-percent/egt-percent-input">
+			<default value="/instrumentation/apu-egt-percent/egt-percent-input"/>
+			<test value="/systems/apu/egt-percent">
+				/instrumentation/apu-egt-percent/power-avail eq 1
 			</test>
 		</switch>
 		
-		<lag_filter name="/instrumentation/apu-egt/egt">
-			<input>/instrumentation/apu-egt/egt-input</input>
-			<c1>10</c1>
+		<lag_filter name="/instrumentation/apu-egt-percent/egt-percent">
+			<input>/instrumentation/apu-egt-percent/egt-percent-input</input>
+			<c1>15</c1>
 		</lag_filter>
 	
 	</channel>

@@ -29,8 +29,10 @@
 		<object-name>AirValveRNeedle</object-name>
 		<object-name>AcVoltNeedle</object-name>
 		<object-name>ApuEgtNeedle</object-name>
+		<object-name>ApuEgtNewNeedle</object-name>
 		<object-name>ApuRpmNeedle</object-name>
 		<object-name>ApuRpmNeedle2</object-name>
+		<object-name>ApuRpmNewNeedle</object-name>
 		<object-name>CsdTempLNeedle</object-name>
 		<object-name>CsdTempRNeedle</object-name>
 		<object-name>DcLoadLNeedleL</object-name>
@@ -71,6 +73,24 @@
 		<object-name>LabelsEfis</object-name>
 		<condition>
 			<property>systems/acconfig/options/efis</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ApuEgt</object-name>
+		<object-name>ApuRpm</object-name>
+		<condition>
+			<not><property>systems/acconfig/options/apu-ecu</property></not>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ApuEgtNew</object-name>
+		<object-name>ApuRpmNew</object-name>
+		<condition>
+			<property>systems/acconfig/options/apu-ecu</property>
 		</condition>
 	</animation>
 	
@@ -1157,7 +1177,52 @@
 		</center>
 	</animation>
 	
-	<!-- APU RPM and EGT -->
+	<!-- APU EGT and RPM -->
+	<animation>
+		<type>rotate</type>
+		<object-name>ApuEgtNeedle</object-name>
+		<property>instrumentation/apu-egt/egt</property>
+		<interpolation>
+			<entry><ind>  0</ind><dep>-45.0</dep></entry>
+			<entry><ind>300</ind><dep>  0.0</dep></entry>
+			<entry><ind>350</ind><dep>  7.5</dep></entry>
+			<entry><ind>400</ind><dep> 22.5</dep></entry>
+			<entry><ind>800</ind><dep>202.5</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.06524</y-m>
+			<z-m>-0.12411</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>ApuEgtNewNeedle</object-name>
+		<property>instrumentation/apu-egt-percent/egt-percent</property>
+		<interpolation>
+			<entry><ind>  0</ind><dep>-32</dep></entry>
+			<entry><ind> 40</ind><dep>  0</dep></entry>
+			<entry><ind> 50</ind><dep> 20</dep></entry>
+			<entry><ind>110</ind><dep>212</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.06524</y-m>
+			<z-m>-0.12411</z-m>
+		</center>
+	</animation>
+	
 	<animation>
 		<type>rotate</type>
 		<object-name>ApuRpmNeedle</object-name>
@@ -1194,14 +1259,13 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>ApuEgtNeedle</object-name>
-		<property>instrumentation/apu-egt/egt</property>
+		<object-name>ApuRpmNewNeedle</object-name>
+		<property>instrumentation/apu-n/n</property>
 		<interpolation>
-			<entry><ind>  0</ind><dep>-45.0</dep></entry>
-			<entry><ind>300</ind><dep>  0.0</dep></entry>
-			<entry><ind>350</ind><dep>  7.5</dep></entry>
-			<entry><ind>400</ind><dep> 22.5</dep></entry>
-			<entry><ind>800</ind><dep>202.5</dep></entry>
+			<entry><ind>  0</ind><dep>  0.0000</dep></entry>
+			<entry><ind> 60</ind><dep> 90.0000</dep></entry>
+			<entry><ind>101</ind><dep>270.0000</dep></entry>
+			<entry><ind>110</ind><dep>309.5122</dep></entry>
 		</interpolation>
 		<axis>
 			<x>-1</x>
@@ -1210,7 +1274,7 @@
 		</axis>
 		<center>
 			<x-m>0</x-m>
-			<y-m>-0.06524</y-m>
+			<y-m>-0.00647</y-m>
 			<z-m>-0.12411</z-m>
 		</center>
 	</animation>
@@ -1299,11 +1363,23 @@
 			<button>4</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<not><property>devices/status/keyboard/shift</property></not>
+				</condition>
 				<command>property-cycle</command>
 				<property>controls/apu/master</property>
 				<value>0</value>
 				<value>1</value>
 				<value>2</value>
+			</binding>
+			<binding>
+				<condition>
+					<property>devices/status/keyboard/shift</property>
+				</condition>
+				<command>property-cycle</command>
+				<property>controls/apu/master</property>
+				<value>1</value>
+				<value>0</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
