@@ -33,6 +33,7 @@
 		<object-name>ApuRpmNeedle</object-name>
 		<object-name>ApuRpmNeedle2</object-name>
 		<object-name>ApuRpmNewNeedle</object-name>
+		<object-name>CabinTempFNeedle</object-name>
 		<object-name>CsdTempLNeedle</object-name>
 		<object-name>CsdTempRNeedle</object-name>
 		<object-name>DcLoadLNeedleL</object-name>
@@ -42,7 +43,9 @@
 		<object-name>DcVoltAmpNeedle</object-name>
 		<object-name>Face</object-name>
 		<object-name>HeaterCurNeedle</object-name>
+		<object-name>IntegrityCabinTemp</object-name>
 		<object-name>IntegrityCadc</object-name>
+		<object-name>IntegrityCkptTemp</object-name>
 		<object-name>IntegrityEfisSel</object-name>
 		<object-name>IntegrityElecMeters</object-name>
 		<object-name>IntegrityEngSync</object-name>
@@ -3667,6 +3670,30 @@
 				<script>libraries.Sound.switch1();</script>
 			</binding>
 		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>CabinTempFNeedle</object-name>
+		<property>systems/pneumatics/unused/zero</property>
+		<interpolation> <!-- Temporary -->
+			<entry><ind>0</ind><dep>98</dep></entry>
+			<entry><ind>1</ind><dep>98</dep></entry>
+		</interpolation>
+		<!--interpolation>
+			<entry><ind> 30</ind><dep> 12</dep></entry>
+			<entry><ind>150</ind><dep>270</dep></entry>
+		</interpolation-->
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.24168</y-m>
+			<z-m>-0.26617</z-m>
+		</center>
 	</animation>
 	
 	<animation>
