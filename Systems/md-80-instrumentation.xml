@@ -2889,6 +2889,11 @@
 			<input>/instrumentation/elec-meters/dc-volt-amp-input</input>
 			<c1>10</c1>
 		</lag_filter>
+		
+		<lag_filter name="/instrumentation/elec-meters/heater-cur">
+			<input>/systems/misc/heater-cur</input>
+			<c1>10</c1>
+		</lag_filter>
 	
 	</channel>
 

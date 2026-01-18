@@ -416,6 +416,7 @@ var PANEL = {
 				systems.PNEUMATICS.Controls.xBleedL.setBoolValue(0);
 				systems.PNEUMATICS.Controls.xBleedR.setBoolValue(0);
 				# XPDR TA/RA
+				pts.Controls.Switches.heaterMeterSel.setValue(9);
 				
 				settimer(func() {
 					if (!me.stop) {

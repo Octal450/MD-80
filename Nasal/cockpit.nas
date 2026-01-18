@@ -26,6 +26,7 @@ var variousReset = func() {
 	pts.Controls.Lighting.wingLights.setValue(0);
 	pts.Controls.Switches.gpws.setValue(0);
 	pts.Controls.Switches.gpwsCover.setBoolValue(0);
+	pts.Controls.Switches.heaterMeterSel.setValue(0);
 	pts.Controls.Switches.maxSpdWarnTest.setValue(0);
 	pts.Controls.Switches.minimums.setValue(200);
 	pts.Controls.Switches.noSmokingSign.setValue(1); # Smoking is bad!

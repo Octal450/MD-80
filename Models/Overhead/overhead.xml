@@ -2575,26 +2575,6 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>HeaterCurNeedle</object-name>
-		<property>systems/electrical/unused/zero</property> <!-- Will be changed when I add calc -->
-		<interpolation>
-			<entry><ind> 0</ind><dep>-48</dep></entry>
-			<entry><ind>10</ind><dep> 48</dep></entry>
-		</interpolation>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-		<center>
-			<x-m>0</x-m>
-			<y-m>-0.19772</y-m>
-			<z-m>-0.41513</z-m>
-		</center>
-	</animation>
-	
-	<animation>
-		<type>rotate</type>
 		<object-name>NoSmok</object-name>
 		<property>controls/cockpit/overhead/no-smoke</property>
 		<interpolation>
@@ -2701,6 +2681,66 @@
 			<binding>
 				<command>nasal</command>
 				<script>libraries.Sound.switch1();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>HeaterCurNeedle</object-name>
+		<property>instrumentation/elec-meters/heater-cur</property>
+		<interpolation>
+			<entry><ind> 0</ind><dep>-48</dep></entry>
+			<entry><ind>10</ind><dep> 48</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.19772</y-m>
+			<z-m>-0.41513</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>MeterSelHeat</object-name>
+		<property>controls/cockpit/overhead/heater-meter-sel</property>
+		<drag-scale-px>15</drag-scale-px>
+		<interpolation>
+			<entry><ind> 0</ind><dep>  0</dep></entry>
+			<entry><ind> 1</ind><dep> 45</dep></entry>
+			<entry><ind> 2</ind><dep> 75</dep></entry>
+			<entry><ind> 3</ind><dep>105</dep></entry>
+			<entry><ind> 4</ind><dep>135</dep></entry>
+			<entry><ind> 5</ind><dep>180</dep></entry>
+			<entry><ind> 6</ind><dep>225</dep></entry>
+			<entry><ind> 7</ind><dep>255</dep></entry>
+			<entry><ind> 8</ind><dep>285</dep></entry>
+			<entry><ind> 9</ind><dep>315</dep></entry>
+			<entry><ind>10</ind><dep>360</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>0</x-m>
+			<y-m>-0.14183</y-m>
+			<z-m>-0.4167</z-m>
+		</center>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/switches/heater-meter-sel</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>10</max>
+				<wrap>true</wrap>
 			</binding>
 		</action>
 	</animation>

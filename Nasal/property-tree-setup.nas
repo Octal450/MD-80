@@ -39,6 +39,7 @@ var Controls = {
 		annunTest5Sec: props.globals.getNode("/controls/switches/annun-test-5sec"),
 		gpws: props.globals.getNode("/controls/switches/gpws"),
 		gpwsCover: props.globals.getNode("/controls/switches/gpws-cover"),
+		heaterMeterSel: props.globals.getNode("/controls/switches/heater-meter-sel"),
 		maxSpdWarnTest: props.globals.getNode("/controls/switches/max-spd-warn-test"),
 		minimums: props.globals.getNode("/controls/switches/minimums"),
 		noSmokingSign: props.globals.getNode("/controls/switches/no-smoking-sign"),

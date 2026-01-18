@@ -105,6 +105,46 @@
 			</test>
 			<output>/instrumentation/mk-viii/inputs/discretes/self-test</output>
 		</switch>
+		
+		<switch name="/systems/misc/heater-cur"> <!-- Pretends to be Pitot/Static/etc heaters -->
+			<default value="0"/>
+			<test logic="AND" value="4.3"> <!-- Pitot Capt -->
+				/controls/switches/heater-meter-sel eq 1
+				/systems/electrical/bus/emer-ac ge 112
+			</test>
+			<test logic="AND" value="4.1"> <!-- Pitot Aux -->
+				/controls/switches/heater-meter-sel eq 2
+				/systems/electrical/bus/ac-l ge 112
+			</test>
+			<test logic="AND" value="4.2"> <!-- Pitot FO -->
+				/controls/switches/heater-meter-sel eq 3
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+			<test logic="AND" value="4.0"> <!-- Rudder Limiter -->
+				/controls/switches/heater-meter-sel eq 4
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+			<test logic="AND" value="3.9"> <!-- Stall L -->
+				/controls/switches/heater-meter-sel eq 5
+				/systems/electrical/bus/emer-ac ge 112
+			</test>
+			<test logic="AND" value="3.8"> <!-- Stall R -->
+				/controls/switches/heater-meter-sel eq 6
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+			<test logic="AND" value="4.3"> <!-- Static R -->
+				/controls/switches/heater-meter-sel eq 7
+				/systems/electrical/bus/ac-r ge 112
+			</test>
+			<test logic="AND" value="4.2"> <!-- Static L -->
+				/controls/switches/heater-meter-sel eq 8
+				/systems/electrical/bus/ac-l ge 112
+			</test>
+			<test logic="AND" value="4.1"> <!-- RAT Probe -->
+				/controls/switches/heater-meter-sel eq 9
+				/systems/electrical/bus/emer-ac ge 112
+			</test>
+		</switch>
 	
 	</channel>
 	

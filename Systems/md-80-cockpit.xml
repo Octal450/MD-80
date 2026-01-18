@@ -725,6 +725,34 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<linear_actuator name="/controls/cockpit/overhead/heater-meter-sel-cmd">
+			<input>/controls/switches/heater-meter-sel</input>
+			<module>10</module>
+			<rate>0.5</rate>
+		</linear_actuator>
+		
+		<lag_filter name="/controls/cockpit/overhead/heater-meter-sel-lag">
+			<input>/controls/cockpit/overhead/heater-meter-sel-cmd</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<fcs_function name="/controls/cockpit/overhead/heater-meter-sel">
+			<function> <!-- Because the knob rotation is not linear and thus we need to normalize it -->
+				<difference>
+					<property>/controls/cockpit/overhead/heater-meter-sel-lag</property>
+					<product>
+						<value>10</value>
+						<floor>
+							<quotient>
+								<property>/controls/cockpit/overhead/heater-meter-sel-lag</property>
+								<value>10</value>
+							</quotient>
+						</floor>
+					</product>
+				</difference>
+			</function>
+		</fcs_function>
+		
 		<lag_filter name="/controls/cockpit/overhead/ign">
 			<input>/controls/ignition/ign</input>
 			<c1>20</c1>
