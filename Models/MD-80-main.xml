@@ -12,7 +12,7 @@
 	</offsets>
 	
 	<effect>
-		<inherits-from>Effects/glass</inherits-from>
+        <inherits-from>Aircraft/MD-80/Models/Effects/Interior/interior-glass-reflection-80</inherits-from>
 		<object-name>WindowsCockpit</object-name>
 	</effect>
 	
