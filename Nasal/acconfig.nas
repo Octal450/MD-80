@@ -340,6 +340,7 @@ var PANEL = {
 				systems.PNEUMATICS.Controls.bleedApu.setValue(1);
 				systems.PNEUMATICS.Controls.xBleedL.setBoolValue(1);
 				systems.PNEUMATICS.Controls.xBleedR.setBoolValue(1);
+				pts.Controls.Switches.heaterMeterSel.setValue(9);
 				
 				settimer(func() {
 					if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
