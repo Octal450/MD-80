@@ -440,31 +440,6 @@
 		<max>2</max>
 	</filter>
 	
-	<filter>
-		<name>IT-CONTROLLER: Align/Rollout Yaw Inactive Centering</name>
-		<type>gain</type>
-		<gain>1.0</gain>
-		<enable>
-			<condition>
-				<not>
-					<and>
-						<property>/it-autoflight/output/ap-on</property>
-						<equals>
-							<property>/it-autoflight/output/lat</property>
-							<value>4</value>
-						</equals>
-						<greater-than-equals>
-							<property>/velocities/groundspeed-kt</property>
-							<value>1</value>
-						</greater-than-equals>
-					</and>
-				</not>
-			</condition>
-		</enable>
-		<input>0</input>
-		<output>/it-autoflight/internal/rudder-cmd</output>
-	</filter>
-	
 	<pid-controller>
 		<name>IT-CONTROLLER: Align/Rollout Yaw</name>
 		<enable>
