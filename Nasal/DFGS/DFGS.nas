@@ -170,6 +170,7 @@ var Internal = {
 	navCourseTrackErrorDeg: [props.globals.initNode("/it-autoflight/internal/nav1-course-track-error-deg", 0, "DOUBLE"), props.globals.initNode("/it-autoflight/internal/nav2-course-track-error-deg", 0, "DOUBLE")],
 	navHeadingErrorDeg: [props.globals.initNode("/it-autoflight/internal/nav1-heading-error-deg", 0, "DOUBLE"), props.globals.initNode("/it-autoflight/internal/nav2-heading-error-deg", 0, "DOUBLE")],
 	navHeadingErrorDegTemp: [0, 0],
+	parallelRudderLand: props.globals.initNode("/it-autoflight/internal/parallel-rudder-land", 0, "BOOL"),
 	syncedAlt: 0,
 	takeoffHdg: props.globals.initNode("/it-autoflight/internal/takeoff-hdg", 0, "INT"),
 	takeoffLvl: props.globals.initNode("/it-autoflight/internal/takeoff-lvl", 1, "BOOL"),
@@ -278,6 +279,7 @@ var ITAF = {
 		UpdateFma.arm();
 		me.updateLatText("HDG");
 		me.updateVertText("V/S");
+		Internal.parallelRudderLand.setBoolValue(0);
 		if (t != 1) {
 			Sound.apOff.setBoolValue(0);
 			Warning.ap.setBoolValue(0);
@@ -422,6 +424,8 @@ var ITAF = {
 		}
 		
 		if (Internal.canAutoland) {
+			Internal.parallelRudderLand.setBoolValue(1);
+			
 			if (Output.vertTemp == 2) {
 				if (Position.gearAglFtTemp <= 1500 and Position.gearAglFtTemp >= 5) {
 					if (Output.latTemp != 4 and Text.lat.getValue() != "LAND") {
@@ -451,6 +455,8 @@ var ITAF = {
 				}
 			}
 		} else {
+			Internal.parallelRudderLand.setBoolValue(0);
+			
 			if (Output.vertTemp == 2) {
 				if (Output.ap1Temp or Output.ap2Temp) {
 					if (Position.gearAglFtTemp <= 100 and Position.gearAglFtTemp >= 5 and Text.vert.getValue() != "NO FLARE") {
