@@ -424,7 +424,11 @@ var ITAF = {
 		}
 		
 		if (Internal.canAutoland) {
-			Internal.parallelRudderLand.setBoolValue(1);
+			if (Position.gearAglFtTemp <= 1500) {
+				Internal.parallelRudderLand.setBoolValue(1);
+			} else {
+				Internal.parallelRudderLand.setBoolValue(0);
+			}
 			
 			if (Output.vertTemp == 2) {
 				if (Position.gearAglFtTemp <= 1500 and Position.gearAglFtTemp >= 5) {
