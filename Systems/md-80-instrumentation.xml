@@ -1802,7 +1802,7 @@
 		</lag_filter>
 		
 		<pure_gain name="/instrumentation/epr[0]/epr-d100">
-			<input>/instrumentation/epr[0]/epr-input</input>
+			<input>/instrumentation/epr[0]/epr</input>
 			<gain>1.0</gain>
 		</pure_gain>
 		
@@ -1810,9 +1810,9 @@
 			<function>
 				<product>
 					<difference>
-						<property>/instrumentation/epr[0]/epr-input</property>
+						<property>/instrumentation/epr[0]/epr</property>
 						<floor>
-							<property>/instrumentation/epr[0]/epr-input</property>
+							<property>/instrumentation/epr[0]/epr</property>
 						</floor>
 					</difference>
 					<value>10</value>
@@ -1825,7 +1825,7 @@
 				<product>
 					<fraction>
 						<product>
-							<property>/instrumentation/epr[0]/epr-input</property>
+							<property>/instrumentation/epr[0]/epr</property>
 							<value>10</value>
 						</product>
 					</fraction>
@@ -1911,7 +1911,7 @@
 		</lag_filter>
 		
 		<pure_gain name="/instrumentation/epr[1]/epr-d100">
-			<input>/instrumentation/epr[1]/epr-input</input>
+			<input>/instrumentation/epr[1]/epr</input>
 			<gain>1.0</gain>
 		</pure_gain>
 		
@@ -1919,9 +1919,9 @@
 			<function>
 				<product>
 					<difference>
-						<property>/instrumentation/epr[1]/epr-input</property>
+						<property>/instrumentation/epr[1]/epr</property>
 						<floor>
-							<property>/instrumentation/epr[1]/epr-input</property>
+							<property>/instrumentation/epr[1]/epr</property>
 						</floor>
 					</difference>
 					<value>10</value>
@@ -1934,7 +1934,7 @@
 				<product>
 					<fraction>
 						<product>
-							<property>/instrumentation/epr[1]/epr-input</property>
+							<property>/instrumentation/epr[1]/epr</property>
 							<value>10</value>
 						</product>
 					</fraction>
