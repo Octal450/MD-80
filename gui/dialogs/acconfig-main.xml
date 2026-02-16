@@ -614,7 +614,7 @@
 				<binding>
 					<command>nasal</command>
 					<script>
-						libraries.setPanelConfig();
+						core.setPanelConfig();
 						acconfig.OPTIONS.write();
 					</script>
 				</binding>

@@ -2,7 +2,7 @@
 # Copyright (c) 2025 Wayne Bragg
 # Modified by Josh Davidson (Octal450)
 
-libraries.firetankEquipped = 1; # Tell IS that the module has loaded
+core.firetankEquipped = 1; # Tell IS that the module has loaded
 
 var FIRETANK = {
 	blueCombined: props.globals.getNode("/systems/firetank/effects/particles/bluecombined"),

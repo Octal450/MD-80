@@ -980,7 +980,7 @@
 				/systems/caws/logic/altitude-alert eq 1
 				<test logic="AND">
 					/systems/caws/logic/altitude-alert eq 2
-					/systems/libraries/blink-med eq 1
+					/systems/core/blink-med eq 1
 				</test>
 			</test>
 		</switch>
@@ -1066,7 +1066,7 @@
 				/systems/caws/logic/altitude-alert eq 1
 				<test logic="AND">
 					/systems/caws/logic/altitude-alert eq 2
-					/systems/libraries/blink-med eq 1
+					/systems/core/blink-med eq 1
 				</test>
 			</test>
 		</switch>

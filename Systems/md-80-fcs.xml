@@ -5,7 +5,7 @@
 
 <system name="MD-80: FCS">
 	
-	<channel name="Libraries">
+	<channel name="Core">
 		
 		<fcs_function name="/systems/fcs/authority"> <!-- Guesses based on pilot info -->
 			<function>

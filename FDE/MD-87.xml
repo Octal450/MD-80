@@ -15,7 +15,7 @@
 	<mass_balance file="FDE/Config/md-87-mass-balance"/>
 	<metrics file="FDE/Config/md-80-metrics"/>
 	
-	<system file="md-80-libraries"/>
+	<system file="md-80-core"/>
 	<system file="md-80-electrical"/>
 	<system file="md-80-fuel"/>
 	<system file="md-80-hydraulics"/>

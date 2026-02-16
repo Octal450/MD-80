@@ -1032,14 +1032,14 @@
 			<button>3</button>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.retractSpeedbrake();</script>
+				<script>core.retractSpeedbrake();</script>
 			</binding>
 		</action>
 		<action>
 			<button>4</button>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.deploySpeedbrake();</script>
+				<script>core.deploySpeedbrake();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1186,7 +1186,7 @@
 			</mod-up>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1219,7 +1219,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.knb1();</script>
+				<script>core.Sound.knb1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1701,7 +1701,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -1711,7 +1711,7 @@
 				</binding>
 				<binding>
 					<command>nasal</command>
-					<script>libraries.Sound.switch1();</script>
+					<script>core.Sound.switch1();</script>
 				</binding>
 			</mod-up>
 		</action>
@@ -1811,7 +1811,7 @@
 					<not><property>controls/dfgs/art</property></not>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1873,7 +1873,7 @@
 					<property>controls/dfgs/covers/art</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1992,7 +1992,7 @@
 					<property>controls/fcs/stab-cutout</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -2047,7 +2047,7 @@
 					<property>controls/fcs/covers/stab-cutout</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -2341,7 +2341,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -2583,7 +2583,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -3223,7 +3223,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<mod-up>
 				<binding>

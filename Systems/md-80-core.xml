@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 
-<!-- McDonnell Douglas MD-80 Libraries -->
+<!-- McDonnell Douglas MD-80 JSBSim Core -->
 <!-- Copyright (c) 2026 Josh Davidson (Octal450) -->
 
-<system name="MD-80: Libraries">
+<system name="MD-80: Core">
 	
-	<channel name="FDM Rate Libraries">
+	<channel name="FDM Rate">
 		
 		<switch name="position/wow">
 			<default value="0"/>
@@ -123,7 +123,7 @@
 	
 	</channel>
 	
-	<channel name="Execrate 8 Libraries" execrate="8">
+	<channel name="Execrate 8" execrate="8">
 		
 		<switch name="/systems/engines/engine-out">
 			<default value="0"/>
@@ -133,7 +133,7 @@
 			</test>
 		</switch>
 		
-		<fcs_function name="/systems/libraries/blink-med">
+		<fcs_function name="/systems/core/blink-med">
 			<function>
 				<floor>
 					<mod>

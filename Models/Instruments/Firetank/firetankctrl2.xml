@@ -34,7 +34,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -62,7 +62,7 @@
                 <command>nasal</command>
                 <script>
                     setprop("controls/firetank/test/button", 1);
-                    libraries.Sound.btn1();
+                    core.Sound.btn1();
                 </script>
             </binding>
 			<mod-up>
@@ -107,7 +107,7 @@
 					<property>controls/firetank/droppower/switch</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -157,7 +157,7 @@
 					<property>controls/firetank/droppower/cover</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -235,7 +235,7 @@
 					<property>controls/firetank/droparm/switch</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -285,7 +285,7 @@
 					<property>controls/firetank/droparm/cover</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -362,7 +362,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.knb1();</script>
+				<script>core.Sound.knb1();</script>
 			</binding>
 		</action>
 	</animation>

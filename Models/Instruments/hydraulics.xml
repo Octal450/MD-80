@@ -47,7 +47,7 @@
 					<property>controls/hydraulics/trans</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -98,7 +98,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -138,7 +138,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -154,7 +154,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -194,7 +194,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -210,7 +210,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -250,7 +250,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -266,7 +266,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>

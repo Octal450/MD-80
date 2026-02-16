@@ -175,7 +175,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -214,7 +214,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -254,7 +254,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -293,7 +293,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -344,7 +344,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -355,7 +355,7 @@
 						</equals>
 					</condition>
 					<command>nasal</command>
-					<script>libraries.Sound.switch1();</script>
+					<script>core.Sound.switch1();</script>
 				</binding>
 				<binding>
 					<condition>
@@ -382,7 +382,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -393,7 +393,7 @@
 						</equals>
 					</condition>
 					<command>nasal</command>
-					<script>libraries.Sound.switch1();</script>
+					<script>core.Sound.switch1();</script>
 				</binding>
 				<binding>
 					<condition>
@@ -444,7 +444,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -495,7 +495,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -506,7 +506,7 @@
 						</equals>
 					</condition>
 					<command>nasal</command>
-					<script>libraries.Sound.switch1();</script>
+					<script>core.Sound.switch1();</script>
 				</binding>
 				<binding>
 					<condition>
@@ -533,7 +533,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -544,7 +544,7 @@
 						</equals>
 					</condition>
 					<command>nasal</command>
-					<script>libraries.Sound.switch1();</script>
+					<script>core.Sound.switch1();</script>
 				</binding>
 				<binding>
 					<condition>
@@ -660,7 +660,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.knb1();</script>
+				<script>core.Sound.knb1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -784,7 +784,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -841,7 +841,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -910,7 +910,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -964,7 +964,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1018,7 +1018,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1057,7 +1057,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1136,7 +1136,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1319,7 +1319,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -1335,7 +1335,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1387,7 +1387,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -1398,7 +1398,7 @@
 						</equals>
 					</condition>
 					<command>nasal</command>
-					<script>libraries.Sound.switch1();</script>
+					<script>core.Sound.switch1();</script>
 				</binding>
 				<binding>
 					<condition>
@@ -1425,7 +1425,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1460,7 +1460,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.knb1();</script>
+				<script>core.Sound.knb1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1532,7 +1532,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1572,7 +1572,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1612,7 +1612,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -1628,7 +1628,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1676,7 +1676,7 @@
 					<property>controls/engines/engine[0]/start-switch</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1738,7 +1738,7 @@
 					<property>controls/engines/covers/start-l</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1766,7 +1766,7 @@
 					<property>controls/engines/engine[1]/start-switch</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1828,7 +1828,7 @@
 					<property>controls/engines/covers/start-r</property>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1868,7 +1868,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1907,7 +1907,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1946,7 +1946,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -1985,7 +1985,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -2024,7 +2024,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -2063,7 +2063,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -2114,7 +2114,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -2125,7 +2125,7 @@
 						</equals>
 					</condition>
 					<command>nasal</command>
-					<script>libraries.Sound.switch1();</script>
+					<script>core.Sound.switch1();</script>
 				</binding>
 				<binding>
 					<condition>
@@ -2152,7 +2152,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -2163,7 +2163,7 @@
 						</equals>
 					</condition>
 					<command>nasal</command>
-					<script>libraries.Sound.switch1();</script>
+					<script>core.Sound.switch1();</script>
 				</binding>
 				<binding>
 					<condition>
@@ -2226,7 +2226,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -2237,7 +2237,7 @@
 						</equals>
 					</condition>
 					<command>nasal</command>
-					<script>libraries.Sound.switch1();</script>
+					<script>core.Sound.switch1();</script>
 				</binding>
 				<binding>
 					<condition>
@@ -2264,7 +2264,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -2275,7 +2275,7 @@
 						</equals>
 					</condition>
 					<command>nasal</command>
-					<script>libraries.Sound.switch1();</script>
+					<script>core.Sound.switch1();</script>
 				</binding>
 				<binding>
 					<condition>
@@ -2338,7 +2338,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -2349,7 +2349,7 @@
 						</equals>
 					</condition>
 					<command>nasal</command>
-					<script>libraries.Sound.switch1();</script>
+					<script>core.Sound.switch1();</script>
 				</binding>
 				<binding>
 					<condition>
@@ -2376,7 +2376,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -2387,7 +2387,7 @@
 						</equals>
 					</condition>
 					<command>nasal</command>
-					<script>libraries.Sound.switch1();</script>
+					<script>core.Sound.switch1();</script>
 				</binding>
 				<binding>
 					<condition>
@@ -2450,7 +2450,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -2461,7 +2461,7 @@
 						</equals>
 					</condition>
 					<command>nasal</command>
-					<script>libraries.Sound.switch1();</script>
+					<script>core.Sound.switch1();</script>
 				</binding>
 				<binding>
 					<condition>
@@ -2488,7 +2488,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -2499,7 +2499,7 @@
 						</equals>
 					</condition>
 					<command>nasal</command>
-					<script>libraries.Sound.switch1();</script>
+					<script>core.Sound.switch1();</script>
 				</binding>
 				<binding>
 					<condition>
@@ -2552,7 +2552,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -2568,7 +2568,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -2608,7 +2608,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -2624,7 +2624,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -2664,7 +2664,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -2680,7 +2680,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -2776,7 +2776,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.knb1();</script>
+				<script>core.Sound.knb1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -2917,7 +2917,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.knb1();</script>
+				<script>core.Sound.knb1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -2950,7 +2950,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.knb1();</script>
+				<script>core.Sound.knb1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -2988,7 +2988,7 @@
 					</equals>
 				</condition>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 			<binding>
 				<condition>
@@ -3055,7 +3055,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -3083,7 +3083,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -3122,7 +3122,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -3212,7 +3212,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -3228,7 +3228,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -3268,7 +3268,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -3284,7 +3284,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -3324,7 +3324,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -3340,7 +3340,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -3379,7 +3379,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -3418,7 +3418,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -3530,7 +3530,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -3546,7 +3546,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -3586,7 +3586,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 		<action>
@@ -3602,7 +3602,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -3668,7 +3668,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.knb1();</script>
+				<script>core.Sound.knb1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -3707,7 +3707,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -3770,7 +3770,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -3809,7 +3809,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.switch1();</script>
+				<script>core.Sound.switch1();</script>
 			</binding>
 		</action>
 	</animation>
@@ -3847,7 +3847,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.knb1();</script>
+				<script>core.Sound.knb1();</script>
 			</binding>
 		</action>
 		<release>
@@ -3872,7 +3872,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<mod-up>
 				<binding>
@@ -3882,7 +3882,7 @@
 				</binding>
 				<binding>
 					<command>nasal</command>
-					<script>libraries.Sound.btn1();</script>
+					<script>core.Sound.btn1();</script>
 				</binding>
 			</mod-up>
 		</action>

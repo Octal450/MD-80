@@ -1,4 +1,4 @@
-# McDonnell Douglas MD-80 Main Libraries
+# McDonnell Douglas MD-80 Aircraft Core
 # Copyright (c) 2026 Josh Davidson (Octal450)
 
 print("------------------------------------------------");

@@ -82,7 +82,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -122,7 +122,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -162,7 +162,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -202,7 +202,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -242,7 +242,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -282,7 +282,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -322,7 +322,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -362,7 +362,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -402,7 +402,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -442,7 +442,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -482,7 +482,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -522,7 +522,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -562,7 +562,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -602,7 +602,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -642,7 +642,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -682,7 +682,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -722,7 +722,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -762,7 +762,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -806,7 +806,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -846,7 +846,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -886,7 +886,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -926,7 +926,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -966,7 +966,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1006,7 +1006,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1048,7 +1048,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1088,7 +1088,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1128,7 +1128,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1168,7 +1168,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1208,7 +1208,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1248,7 +1248,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1288,7 +1288,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1328,7 +1328,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1368,7 +1368,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1408,7 +1408,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1448,7 +1448,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1488,7 +1488,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1528,7 +1528,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1568,7 +1568,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1608,7 +1608,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1648,7 +1648,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1688,7 +1688,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1728,7 +1728,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1768,7 +1768,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1808,7 +1808,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1848,7 +1848,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1888,7 +1888,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1928,7 +1928,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -1968,7 +1968,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -2008,7 +2008,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -2048,7 +2048,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -2088,7 +2088,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -2128,7 +2128,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -2168,7 +2168,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -2208,7 +2208,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -2248,7 +2248,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -2288,7 +2288,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -2328,7 +2328,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -2368,7 +2368,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -2408,7 +2408,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -2448,7 +2448,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -2488,7 +2488,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -2528,7 +2528,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -2568,7 +2568,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
@@ -2608,7 +2608,7 @@
 			</binding>
 			<binding>
 				<command>nasal</command>
-				<script>libraries.Sound.btn1();</script>
+				<script>core.Sound.btn1();</script>
 			</binding>
 			<binding>
 				<command>property-assign</command>
