@@ -2742,6 +2742,10 @@
 				<max>10</max>
 				<wrap>true</wrap>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>core.Sound.knb1();</script>
+			</binding>
 		</action>
 	</animation>
 	
