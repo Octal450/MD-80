@@ -3268,11 +3268,19 @@
 				<command>nasal</command>
 				<script>instruments.XPDR.modeKnob(1);</script>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>core.Sound.knb1();</script>
+			</binding>
 		</increase>
 		<decrease>
 			<binding>
 				<command>nasal</command>
 				<script>instruments.XPDR.modeKnob(-1);</script>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>core.Sound.knb1();</script>
 			</binding>
 		</decrease>
 	</animation>
@@ -3301,6 +3309,10 @@
 				<max>1</max>
 				<wrap>false</wrap>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>core.Sound.knb1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -3328,6 +3340,10 @@
 				<max>1</max>
 				<wrap>false</wrap>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>core.Sound.knb1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -3353,6 +3369,10 @@
 				<min>-1</min>
 				<max>1</max>
 				<wrap>false</wrap>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>core.Sound.knb1();</script>
 			</binding>
 		</action>
 	</animation>
