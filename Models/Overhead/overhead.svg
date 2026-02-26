@@ -37,15 +37,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.64"
-     inkscape:cx="398.99874"
-     inkscape:cy="449.68114"
+     inkscape:zoom="0.32"
+     inkscape:cx="1272.9243"
+     inkscape:cy="1141.4122"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
-     inkscape:window-width="1536"
-     inkscape:window-height="793"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -364,10 +364,27 @@
          id="rect7746"
          d="m 1265.485,-520.9368 971.375,0 0,252.036 -723.375,0 0,-66.80947 -97.713,0 0,66.80947 -150.287,0 z"
          style="opacity:1;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g5434"
+         transform="translate(-3.371869,5.45134)">
+        <path
+           sodipodi:nodetypes="ccszc"
+           inkscape:connector-curvature="0"
+           id="path5439"
+           d="M 420.851,442.6992 307.504,556.0422 297.031,454.72219 c -1.27766,-12.36056 10.09393,-22.49998 22.5,-22.49998 z"
+           style="opacity:1;fill:#101010;fill-opacity:1;stroke:none;stroke-width:25.50300026;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           sodipodi:nodetypes="sssss"
+           inkscape:connector-curvature="0"
+           id="path5428"
+           d="m 514.66732,546.04218 c -10e-6,57.3382 -46.4818,103.81999 -103.82,103.81999 -57.3382,0 -103.82031,-46.48177 -103.82032,-103.81997 0,-57.3382 46.48212,-103.82002 103.82032,-103.82002 57.3382,0 103.82,46.4818 103.82,103.82 z"
+           style="opacity:1;fill:#101010;fill-opacity:1;stroke:none;stroke-width:25.50300026;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
     </g>
     <g
        id="SwitchBacks"
-       inkscape:label="#g6115">
+       inkscape:label="#g6115"
+       style="display:none">
       <g
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
@@ -1824,8 +1841,7 @@
     </g>
     <g
        id="SwitchBacks-Extra"
-       inkscape:label="#g6348"
-       style="display:none">
+       inkscape:label="#g6348">
       <g
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
@@ -1908,7 +1924,7 @@
            height="135.108"
            width="186.26196"
            id="rect5536"
-           style="opacity:1;fill:#0e0e0e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+           style="opacity:1;fill:#1a1a1a;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:6;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
         <rect
            ry="3.112782"
            y="-752.78778"
@@ -8844,22 +8860,6 @@
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;text-anchor:middle;fill:#ffffff"
              id="tspan5668">2</tspan></text>
       </g>
-    </g>
-    <g
-       id="g5434"
-       transform="translate(-3.371869,5.45134)">
-      <path
-         sodipodi:nodetypes="ccszc"
-         inkscape:connector-curvature="0"
-         id="path5439"
-         d="M 420.851,442.6992 307.504,556.0422 297.031,454.72219 c -1.27766,-12.36056 10.09393,-22.49998 22.5,-22.49998 z"
-         style="opacity:1;fill:#101010;fill-opacity:1;stroke:none;stroke-width:25.50300026;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <path
-         sodipodi:nodetypes="sssss"
-         inkscape:connector-curvature="0"
-         id="path5428"
-         d="m 514.66732,546.04218 c -10e-6,57.3382 -46.4818,103.81999 -103.82,103.81999 -57.3382,0 -103.82031,-46.48177 -103.82032,-103.81997 0,-57.3382 46.48212,-103.82002 103.82032,-103.82002 57.3382,0 103.82,46.4818 103.82,103.82 z"
-         style="opacity:1;fill:#101010;fill-opacity:1;stroke:none;stroke-width:25.50300026;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
   </g>
 </svg>
