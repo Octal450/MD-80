@@ -75,7 +75,7 @@
 			<independentVar lookup="row">velocities/mach</independentVar>
 			<independentVar lookup="column">atmosphere/density-altitude</independentVar>
 			<tableData>
-				    -10000   0       10000   20000   30000   45000   50000
+				    -10000   0       10000   20000   30000   45000   52000
 				0.0  0.0430  0.0458  0.0378  0.0684  0.0654  0.0623  0.0000
 				0.2  0.0500  0.0291  0.0205  0.0514  0.0539  0.0563  0.0000
 				0.4  0.0040  0.0047  0.0012  0.0412  0.0460  0.0507  0.0000
