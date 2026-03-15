@@ -25,7 +25,7 @@ var Value = {
 	line2: ["", "", "", ""],
 };
 
-var canvasBase = {
+var CanvasBase = {
 	init: func(canvasGroup, file) {
 		var font_mapper = func(family, weight) {
 			return "Std16SegCustom.ttf";
@@ -215,9 +215,9 @@ var canvasBase = {
 	},
 };
 
-var canvasFmaL = {
+var CanvasFmaL = {
 	new: func(canvasGroup, file) {
-		var m = {parents: [canvasFmaL, canvasBase]};
+		var m = {parents: [CanvasFmaL, CanvasBase]};
 		m.init(canvasGroup, file);
 
 		return m;
@@ -230,9 +230,9 @@ var canvasFmaL = {
 	},
 };
 
-var canvasFmaR = {
+var CanvasFmaR = {
 	new: func(canvasGroup, file) {
-		var m = {parents: [canvasFmaR, canvasBase]};
+		var m = {parents: [CanvasFmaR, CanvasBase]};
 		m.init(canvasGroup, file);
 
 		return m;
@@ -265,12 +265,12 @@ var setup = func() {
 	var fmaLGroup = fmaLDisplay.createGroup();
 	var fmaRGroup = fmaRDisplay.createGroup();
 	
-	fmaL = canvasFmaL.new(fmaLGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma.svg");
-	fmaR = canvasFmaR.new(fmaRGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma.svg");
+	fmaL = CanvasFmaL.new(fmaLGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma.svg");
+	fmaR = CanvasFmaR.new(fmaRGroup, "Aircraft/MD-80/Nasal/Instruments/res/fma.svg");
 	
 	update.start();
 }
 
 var update = maketimer(0.25, func() {
-	canvasBase.update();
+	CanvasBase.update();
 });

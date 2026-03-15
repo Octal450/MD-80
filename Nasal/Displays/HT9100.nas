@@ -22,7 +22,7 @@ var Io = {
 	msgLight: [props.globals.initNode("/instrumentation/ht9100/msg-light", 0, "BOOL")],
 };
 
-var canvasBase = {
+var CanvasBase = {
 	init: func(canvasGroup, file) {
 		var font_mapper = func(family, weight) {
 			return mcdu_ht9100.FONT.large;
@@ -379,9 +379,9 @@ var canvasBase = {
 	},
 };
 
-var canvasMcdu1 = {
+var CanvasMcdu1 = {
 	new: func(canvasGroup, file) {
-		var m = {parents: [canvasMcdu1, canvasBase]};
+		var m = {parents: [CanvasMcdu1, CanvasBase]};
 		m.init(canvasGroup, file);
 		
 		return m;
@@ -401,8 +401,8 @@ var setup = func() {
 	
 	mcdu1Display.addPlacement({"node": "mcdu1.screen"});
 	var mcdu1Group = mcdu1Display.createGroup();
-	mcdu1 = canvasMcdu1.new(mcdu1Group, "Aircraft/MD-80/Nasal/Displays/res/HT9100.svg");
-	canvasBase.setup();
+	mcdu1 = CanvasMcdu1.new(mcdu1Group, "Aircraft/MD-80/Nasal/Displays/res/HT9100.svg");
+	CanvasBase.setup();
 	
 	mcdu1.update();
 	update.start();
@@ -423,7 +423,7 @@ var rateApply = func() {
 }
 
 var update = maketimer(0.1, func() { # 10FPS
-	canvasBase.update();
+	CanvasBase.update();
 });
 
 var showMcdu1 = func {

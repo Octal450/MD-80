@@ -41,7 +41,7 @@ var Value = {
 	},
 };
 
-var canvasBase = {
+var CanvasBase = {
 	init: func(canvasGroup, file) {
 		var font_mapper = func(family, weight) {
 			return "MD80DU.ttf";
@@ -343,9 +343,9 @@ var canvasBase = {
 	},
 };
 
-var canvasPfd1 = {
+var CanvasPfd1 = {
 	new: func(canvasGroup, file) {
-		var m = {parents: [canvasPfd1, canvasBase]};
+		var m = {parents: [CanvasPfd1, CanvasBase]};
 		m.init(canvasGroup, file);
 		
 		return m;
@@ -355,9 +355,9 @@ var canvasPfd1 = {
 	},
 };
 
-var canvasPfd2 = {
+var CanvasPfd2 = {
 	new: func(canvasGroup, file) {
-		var m = {parents: [canvasPfd2, canvasBase]};
+		var m = {parents: [CanvasPfd2, CanvasBase]};
 		m.init(canvasGroup, file);
 		
 		return m;
@@ -387,10 +387,10 @@ var setup = func() {
 	var pfd1Group = pfd1Display.createGroup();
 	var pfd2Group = pfd2Display.createGroup();
 	
-	pfd1 = canvasPfd1.new(pfd1Group, "Aircraft/MD-80/Nasal/Displays/res/PFD.svg");
-	pfd2 = canvasPfd2.new(pfd2Group, "Aircraft/MD-80/Nasal/Displays/res/PFD.svg");
+	pfd1 = CanvasPfd1.new(pfd1Group, "Aircraft/MD-80/Nasal/Displays/res/PFD.svg");
+	pfd2 = CanvasPfd2.new(pfd2Group, "Aircraft/MD-80/Nasal/Displays/res/PFD.svg");
 	
-	canvasBase.setup();
+	CanvasBase.setup();
 	update.start();
 	
 	if (pts.Systems.Acconfig.Options.Du.pfdFps.getValue() != 20) {
@@ -403,7 +403,7 @@ var rateApply = func() {
 }
 
 var update = maketimer(0.05, func() { # 20FPS
-	canvasBase.update();
+	CanvasBase.update();
 });
 
 var showPfd1 = func() {
