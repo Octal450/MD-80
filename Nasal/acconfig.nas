@@ -342,6 +342,11 @@ var PANEL = {
 				systems.PNEUMATICS.Controls.xBleedR.setBoolValue(1);
 				pts.Controls.Switches.heaterMeterSel.setValue(9);
 				
+				systems.ENGINES.Controls.fuReset.setBoolValue(1);
+				settimer(func() { # Switch needs to be held briefly
+					systems.ENGINES.Controls.fuReset.setBoolValue(0);
+				}, 0.25);
+				
 				settimer(func() {
 					if (pts.Systems.Acconfig.Options.nav.getValue() == 1) {
 						fms.EditFlightData.setAcconfigData();
@@ -389,6 +394,11 @@ var PANEL = {
 		systems.PNEUMATICS.Controls.xBleedR.setBoolValue(1);
 		systems.THRLIM.setMode(0); # T/O
 		systems.APU.stopRpm();
+		
+		systems.ENGINES.Controls.fuReset.setBoolValue(1);
+		settimer(func() { # Switch needs to be held briefly
+			systems.ENGINES.Controls.fuReset.setBoolValue(0);
+		}, 0.25);
 		
 		if (systems.ENGINES.state[0].getValue() != 3 or systems.ENGINES.state[1].getValue() != 3) {
 			engTimer = 3;
