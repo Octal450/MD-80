@@ -149,12 +149,14 @@
 		</actuator>
 		
 		<!-- Tank Feed Demand -->
-		<!-- No gravity feed since the -80s engines are up from the wing -->
 		<switch name="/systems/fuel/feed-l">
 			<default value="0"/>
 			<test logic="OR" value="1">
 				/systems/fuel/aft-pump-l eq 1
 				/systems/fuel/fwd-pump-l eq 1
+			</test>
+			<test logic="AND" value="1"> <!-- Suction feed, engine above tanks -->
+				/accelerations/pilot-gdamped le 1.5
 			</test>
 		</switch>
 		
@@ -164,6 +166,9 @@
 				/systems/fuel/aft-pump-c eq 1
 				/systems/fuel/fwd-pump-c eq 1
 			</test>
+			<test logic="AND" value="1"> <!-- Suction feed, engine above tanks -->
+				/accelerations/pilot-gdamped le 1.5
+			</test>
 		</switch>
 		
 		<switch name="/systems/fuel/feed-r">
@@ -172,6 +177,9 @@
 				/systems/fuel/aft-pump-r eq 1
 				/systems/fuel/fwd-pump-r eq 1
 				/systems/fuel/start-pump eq 1
+			</test>
+			<test logic="AND" value="1"> <!-- Suction feed, engine above tanks -->
+				/accelerations/pilot-gdamped le 1.5
 			</test>
 		</switch>
 	
