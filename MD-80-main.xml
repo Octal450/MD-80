@@ -660,19 +660,19 @@
 			<speedbrake-arm type="bool">0</speedbrake-arm>
 		</flight>
 		<fuel n="0">
-			<aux-trans-aft-a type="int">0</aux-trans-aft-a>
-			<aux-trans-aft-b type="int">0</aux-trans-aft-b>
-			<aux-trans-fwd-a type="int">0</aux-trans-fwd-a>
-			<aux-trans-fwd-b type="int">0</aux-trans-fwd-b>
+			<aft-pump-c type="int">0</aft-pump-c>
+			<aft-pump-l type="bool">0</aft-pump-l>
+			<aft-pump-r type="bool">0</aft-pump-r>
+			<aux-aft-trans-a type="int">0</aux-aft-trans-a>
+			<aux-aft-trans-b type="int">0</aux-aft-trans-b>
+			<aux-fwd-trans-a type="int">0</aux-fwd-trans-a>
+			<aux-fwd-trans-b type="int">0</aux-fwd-trans-b>
 			<channel-select type="bool">0</channel-select>
 			<channel-test type="bool">0</channel-test>
-			<pump-aft-c type="int">0</pump-aft-c>
-			<pump-aft-l type="bool">0</pump-aft-l>
-			<pump-aft-r type="bool">0</pump-aft-r>
-			<pump-fwd-c type="int">0</pump-fwd-c>
-			<pump-fwd-l type="bool">0</pump-fwd-l>
-			<pump-fwd-r type="bool">0</pump-fwd-r>
-			<pump-start type="bool">0</pump-start>
+			<fwd-pump-c type="int">0</fwd-pump-c>
+			<fwd-pump-l type="bool">0</fwd-pump-l>
+			<fwd-pump-r type="bool">0</fwd-pump-r>
+			<start-pump type="bool">0</start-pump>
 			<x-feed type="bool">0</x-feed>
 		</fuel>
 		<gear n="0">
@@ -1726,12 +1726,17 @@
 				<yaw-damper type="bool">0</yaw-damper>
 			</fcs>
 			<fuel n="0">
-				<aux-trans-a type="bool">0</aux-trans-a>
-				<aux-trans-b type="bool">0</aux-trans-b>
-				<pump-start type="bool">0</pump-start>
-				<pumps-c type="bool">0</pumps-c>
-				<pumps-l type="bool">0</pumps-l>
-				<pumps-r type="bool">0</pumps-r>
+				<aft-pump-c type="bool">0</aft-pump-c>
+				<aft-pump-l type="bool">0</aft-pump-l>
+				<aft-pump-r type="bool">0</aft-pump-r>
+				<aux-aft-trans-a type="bool">0</aux-aft-trans-a>
+				<aux-aft-trans-b type="bool">0</aux-aft-trans-b>
+				<aux-fwd-trans-a type="bool">0</aux-fwd-trans-a>
+				<aux-fwd-trans-b type="bool">0</aux-fwd-trans-b>
+				<fwd-pump-c type="bool">0</fwd-pump-c>
+				<fwd-pump-l type="bool">0</fwd-pump-l>
+				<fwd-pump-r type="bool">0</fwd-pump-r>
+				<start-pump type="bool">0</start-pump>
 			</fuel>
 			<gear n="0">
 				<left-actuator type="bool">0</left-actuator>

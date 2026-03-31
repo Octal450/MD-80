@@ -1568,7 +1568,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fuel/pump-start</property>
+				<property>controls/fuel/start-pump</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1837,7 +1837,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>AftFuelPumpL</object-name>
-		<property>controls/cockpit/overhead/pump-aft-l</property>
+		<property>controls/cockpit/overhead/aft-pump-l</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -1864,7 +1864,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fuel/pump-aft-l</property>
+				<property>controls/fuel/aft-pump-l</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1876,7 +1876,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>AftFuelPumpC</object-name>
-		<property>controls/cockpit/overhead/pump-aft-c</property>
+		<property>controls/cockpit/overhead/aft-pump-c</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -1903,7 +1903,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fuel/pump-aft-c</property>
+				<property>controls/fuel/aft-pump-c</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1915,7 +1915,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>AftFuelPumpR</object-name>
-		<property>controls/cockpit/overhead/pump-aft-r</property>
+		<property>controls/cockpit/overhead/aft-pump-r</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -1942,7 +1942,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fuel/pump-aft-r</property>
+				<property>controls/fuel/aft-pump-r</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1954,7 +1954,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>FwdFuelPumpL</object-name>
-		<property>controls/cockpit/overhead/pump-fwd-l</property>
+		<property>controls/cockpit/overhead/fwd-pump-l</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -1981,7 +1981,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fuel/pump-fwd-l</property>
+				<property>controls/fuel/fwd-pump-l</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -1993,7 +1993,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>FwdFuelPumpC</object-name>
-		<property>controls/cockpit/overhead/pump-fwd-c</property>
+		<property>controls/cockpit/overhead/fwd-pump-c</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -2020,7 +2020,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fuel/pump-fwd-c</property>
+				<property>controls/fuel/fwd-pump-c</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -2032,7 +2032,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>FwdFuelPumpR</object-name>
-		<property>controls/cockpit/overhead/pump-fwd-r</property>
+		<property>controls/cockpit/overhead/fwd-pump-r</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -2059,7 +2059,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-toggle</command>
-				<property>controls/fuel/pump-fwd-r</property>
+				<property>controls/fuel/fwd-pump-r</property>
 			</binding>
 			<binding>
 				<command>nasal</command>
@@ -2071,7 +2071,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>AftAuxTransA</object-name>
-		<property>controls/cockpit/overhead/aux-trans-aft-a</property>
+		<property>controls/cockpit/overhead/aux-aft-trans-a</property>
 		<interpolation>
 			<entry><ind>-1</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -2099,7 +2099,7 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/fuel/aux-trans-aft-a</property>
+				<property>controls/fuel/aux-aft-trans-a</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
@@ -2108,7 +2108,7 @@
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/fuel/aux-trans-aft-a</property>
+				<property>controls/fuel/aux-aft-trans-a</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -2120,7 +2120,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/aux-trans-aft-a</property>
+							<property>controls/fuel/aux-aft-trans-a</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -2130,12 +2130,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/aux-trans-aft-a</property>
+							<property>controls/fuel/aux-aft-trans-a</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/fuel/aux-trans-aft-a</property>
+					<property>controls/fuel/aux-aft-trans-a</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -2146,7 +2146,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/fuel/aux-trans-aft-a</property>
+				<property>controls/fuel/aux-aft-trans-a</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -2158,7 +2158,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/aux-trans-aft-a</property>
+							<property>controls/fuel/aux-aft-trans-a</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -2168,12 +2168,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/aux-trans-aft-a</property>
+							<property>controls/fuel/aux-aft-trans-a</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/fuel/aux-trans-aft-a</property>
+					<property>controls/fuel/aux-aft-trans-a</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -2183,7 +2183,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>AftAuxTransB</object-name>
-		<property>controls/cockpit/overhead/aux-trans-aft-b</property>
+		<property>controls/cockpit/overhead/aux-aft-trans-b</property>
 		<interpolation>
 			<entry><ind>-1</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -2211,7 +2211,7 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/fuel/aux-trans-aft-b</property>
+				<property>controls/fuel/aux-aft-trans-b</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
@@ -2220,7 +2220,7 @@
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/fuel/aux-trans-aft-b</property>
+				<property>controls/fuel/aux-aft-trans-b</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -2232,7 +2232,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/aux-trans-aft-b</property>
+							<property>controls/fuel/aux-aft-trans-b</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -2242,12 +2242,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/aux-trans-aft-b</property>
+							<property>controls/fuel/aux-aft-trans-b</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/fuel/aux-trans-aft-b</property>
+					<property>controls/fuel/aux-aft-trans-b</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -2258,7 +2258,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/fuel/aux-trans-aft-b</property>
+				<property>controls/fuel/aux-aft-trans-b</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -2270,7 +2270,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/aux-trans-aft-b</property>
+							<property>controls/fuel/aux-aft-trans-b</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -2280,12 +2280,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/aux-trans-aft-b</property>
+							<property>controls/fuel/aux-aft-trans-b</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/fuel/aux-trans-aft-b</property>
+					<property>controls/fuel/aux-aft-trans-b</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -2295,7 +2295,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>FwdAuxTransA</object-name>
-		<property>controls/cockpit/overhead/aux-trans-fwd-a</property>
+		<property>controls/cockpit/overhead/aux-fwd-trans-a</property>
 		<interpolation>
 			<entry><ind>-1</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -2323,7 +2323,7 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/fuel/aux-trans-fwd-a</property>
+				<property>controls/fuel/aux-fwd-trans-a</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
@@ -2332,7 +2332,7 @@
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/fuel/aux-trans-fwd-a</property>
+				<property>controls/fuel/aux-fwd-trans-a</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -2344,7 +2344,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/aux-trans-fwd-a</property>
+							<property>controls/fuel/aux-fwd-trans-a</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -2354,12 +2354,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/aux-trans-fwd-a</property>
+							<property>controls/fuel/aux-fwd-trans-a</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/fuel/aux-trans-fwd-a</property>
+					<property>controls/fuel/aux-fwd-trans-a</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -2370,7 +2370,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/fuel/aux-trans-fwd-a</property>
+				<property>controls/fuel/aux-fwd-trans-a</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -2382,7 +2382,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/aux-trans-fwd-a</property>
+							<property>controls/fuel/aux-fwd-trans-a</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -2392,12 +2392,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/aux-trans-fwd-a</property>
+							<property>controls/fuel/aux-fwd-trans-a</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/fuel/aux-trans-fwd-a</property>
+					<property>controls/fuel/aux-fwd-trans-a</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -2407,7 +2407,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>FwdAuxTransB</object-name>
-		<property>controls/cockpit/overhead/aux-trans-fwd-b</property>
+		<property>controls/cockpit/overhead/aux-fwd-trans-b</property>
 		<interpolation>
 			<entry><ind>-1</ind><dep>-30</dep></entry>
 			<entry><ind>1</ind><dep> 30</dep></entry>
@@ -2435,7 +2435,7 @@
 					<not><property>devices/status/keyboard/shift</property></not>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/fuel/aux-trans-fwd-b</property>
+				<property>controls/fuel/aux-fwd-trans-b</property>
 				<value>0</value>
 				<value>1</value>
 			</binding>
@@ -2444,7 +2444,7 @@
 					<property>devices/status/keyboard/shift</property>
 				</condition>
 				<command>property-cycle</command>
-				<property>controls/fuel/aux-trans-fwd-b</property>
+				<property>controls/fuel/aux-fwd-trans-b</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -2456,7 +2456,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/aux-trans-fwd-b</property>
+							<property>controls/fuel/aux-fwd-trans-b</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -2466,12 +2466,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/aux-trans-fwd-b</property>
+							<property>controls/fuel/aux-fwd-trans-b</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/fuel/aux-trans-fwd-b</property>
+					<property>controls/fuel/aux-fwd-trans-b</property>
 					<value>0</value>
 				</binding>
 			</mod-up>
@@ -2482,7 +2482,7 @@
 			<repeatable>false</repeatable>
 			<binding>
 				<command>property-cycle</command>
-				<property>controls/fuel/aux-trans-fwd-b</property>
+				<property>controls/fuel/aux-fwd-trans-b</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -2494,7 +2494,7 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/aux-trans-fwd-b</property>
+							<property>controls/fuel/aux-fwd-trans-b</property>
 							<value>-1</value>
 						</equals>
 					</condition>
@@ -2504,12 +2504,12 @@
 				<binding>
 					<condition>
 						<equals>
-							<property>controls/fuel/aux-trans-fwd-b</property>
+							<property>controls/fuel/aux-fwd-trans-b</property>
 							<value>-1</value>
 						</equals>
 					</condition>
 					<command>property-assign</command>
-					<property>controls/fuel/aux-trans-fwd-b</property>
+					<property>controls/fuel/aux-fwd-trans-b</property>
 					<value>0</value>
 				</binding>
 			</mod-up>

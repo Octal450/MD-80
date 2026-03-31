@@ -55,7 +55,7 @@
 			
 			<group>
 				<layout>hbox</layout>
-
+				
 				<hrule>
 					<stretch>true</stretch>
 				</hrule>
@@ -186,7 +186,7 @@
 			
 			<group>
 				<layout>hbox</layout>
-
+				
 				<hrule>
 					<stretch>true</stretch>
 				</hrule>
@@ -260,7 +260,7 @@
 			
 			<group>
 				<layout>hbox</layout>
-
+				
 				<hrule>
 					<stretch>true</stretch>
 				</hrule>
@@ -273,9 +273,69 @@
 			</group>
 			
 			<checkbox>
+				<label>Left Tank Aft Pump</label>
+				<halign>left</halign>
+				<property>/systems/failures/fuel/aft-pump-l</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Left Tank Forward Pump</label>
+				<halign>left</halign>
+				<property>/systems/failures/fuel/fwd-pump-l</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Center Tank Aft Pump</label>
+				<halign>left</halign>
+				<property>/systems/failures/fuel/aft-pump-c</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Center Tank Forward Pump</label>
+				<halign>left</halign>
+				<property>/systems/failures/fuel/fwd-pump-c</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Right Tank Aft Pump</label>
+				<halign>left</halign>
+				<property>/systems/failures/fuel/aft-pump-r</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Right Tank Forward Pump</label>
+				<halign>left</halign>
+				<property>/systems/failures/fuel/fwd-pump-r</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
 				<label>Start Pump</label>
 				<halign>left</halign>
-				<property>/systems/failures/fuel/pump-start</property>
+				<property>/systems/failures/fuel/start-pump</property>
 				<binding>
 					<command>dialog-apply</command>
 				</binding>
@@ -283,39 +343,9 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Left Tank Pumps</label>
+				<label>Aft Aux Trans Pumps A</label>
 				<halign>left</halign>
-				<property>/systems/failures/fuel/pumps-l</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Center Tank Pumps</label>
-				<halign>left</halign>
-				<property>/systems/failures/fuel/pumps-c</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Right Tank Pumps</label>
-				<halign>left</halign>
-				<property>/systems/failures/fuel/pumps-r</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<label>Aux Trans Pumps A</label>
-				<halign>left</halign>
-				<property>/systems/failures/fuel/aux-trans-a</property>
+				<property>/systems/failures/fuel/aux-aft-trans-a</property>
 				<enable>
 					<property>options/aux-tanks</property>
 				</enable>
@@ -326,9 +356,35 @@
 			</checkbox>
 			
 			<checkbox>
-				<label>Aux Trans Pumps B</label>
+				<label>Aft Aux Trans Pumps B</label>
 				<halign>left</halign>
-				<property>/systems/failures/fuel/aux-trans-b</property>
+				<property>/systems/failures/fuel/aux-aft-trans-b</property>
+				<enable>
+					<property>options/aux-tanks</property>
+				</enable>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Forward Aux Trans Pumps A</label>
+				<halign>left</halign>
+				<property>/systems/failures/fuel/aux-fwd-trans-a</property>
+				<enable>
+					<property>options/aux-tanks</property>
+				</enable>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Forward Aux Trans Pumps B</label>
+				<halign>left</halign>
+				<property>/systems/failures/fuel/aux-fwd-trans-b</property>
 				<enable>
 					<property>options/aux-tanks</property>
 				</enable>
@@ -347,7 +403,7 @@
 			
 			<group>
 				<layout>hbox</layout>
-
+				
 				<hrule>
 					<stretch>true</stretch>
 				</hrule>
@@ -411,7 +467,7 @@
 			
 			<group>
 				<layout>hbox</layout>
-
+				
 				<hrule>
 					<stretch>true</stretch>
 				</hrule>
@@ -455,7 +511,7 @@
 			
 			<group>
 				<layout>hbox</layout>
-
+				
 				<hrule>
 					<stretch>true</stretch>
 				</hrule>

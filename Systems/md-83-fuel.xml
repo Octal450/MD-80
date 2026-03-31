@@ -7,19 +7,80 @@
 	
 	<channel name="Main Fuel Logic" execrate="8">
 		
+		<!-- Pressure Level -->
+		<fcs_function name="/systems/fuel/tank-pump-pressure[0]">
+			<function>
+				<table>
+					<independentVar lookup="row">propulsion/tank[0]/contents-lbs</independentVar>
+					<tableData>
+						 10   0
+						130  15
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/fuel/tank-pump-pressure[1]">
+			<function>
+				<table>
+					<independentVar lookup="row">propulsion/tank[1]/contents-lbs</independentVar>
+					<tableData>
+						 10   0
+						130  15
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/fuel/tank-pump-pressure[2]">
+			<function>
+				<table>
+					<independentVar lookup="row">propulsion/tank[2]/contents-lbs</independentVar>
+					<tableData>
+						 10   0
+						130  15
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/fuel/tank-pump-pressure[6]">
+			<function>
+				<table>
+					<independentVar lookup="row">propulsion/tank[6]/contents-lbs</independentVar>
+					<tableData>
+						 10   0
+						130  15
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/fuel/tank-pump-pressure[7]">
+			<function>
+				<table>
+					<independentVar lookup="row">propulsion/tank[7]/contents-lbs</independentVar>
+					<tableData>
+						 10   0
+						130  15
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
 		<!-- Tank Pumps -->
 		<switch name="/systems/fuel/aft-pump-l">
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-l ge 112
-				/controls/fuel/pump-aft-l eq 1
-				/systems/failures/fuel/pumps-l ne 1
+				/controls/fuel/aft-pump-l eq 1
+				/systems/failures/fuel/aft-pump-l ne 1
 			</test>
 		</switch>
 		
 		<pure_gain name="/systems/fuel/aft-pump-l-psi-cmd">
 			<input>/systems/fuel/aft-pump-l</input>
-			<gain>15</gain>
+			<gain>/systems/fuel/tank-pump-pressure[0]</gain>
 		</pure_gain>
 		
 		<actuator name="/systems/fuel/aft-pump-l-psi">
@@ -32,14 +93,14 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-r ge 112
-				/controls/fuel/pump-fwd-l eq 1
-				/systems/failures/fuel/pumps-l ne 1
+				/controls/fuel/fwd-pump-l eq 1
+				/systems/failures/fuel/fwd-pump-l ne 1
 			</test>
 		</switch>
 		
 		<pure_gain name="/systems/fuel/fwd-pump-l-psi-cmd">
 			<input>/systems/fuel/fwd-pump-l</input>
-			<gain>15</gain>
+			<gain>/systems/fuel/tank-pump-pressure[0]</gain>
 		</pure_gain>
 		
 		<actuator name="/systems/fuel/fwd-pump-l-psi">
@@ -52,14 +113,14 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-r ge 112
-				/controls/fuel/pump-aft-c eq 1
-				/systems/failures/fuel/pumps-c ne 1
+				/controls/fuel/aft-pump-c eq 1
+				/systems/failures/fuel/aft-pump-c ne 1
 			</test>
 		</switch>
 		
 		<pure_gain name="/systems/fuel/aft-pump-c-psi-cmd">
 			<input>/systems/fuel/aft-pump-c</input>
-			<gain>15</gain>
+			<gain>/systems/fuel/tank-pump-pressure[1]</gain>
 		</pure_gain>
 		
 		<actuator name="/systems/fuel/aft-pump-c-psi">
@@ -72,14 +133,14 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-l ge 112
-				/controls/fuel/pump-fwd-c eq 1
-				/systems/failures/fuel/pumps-c ne 1
+				/controls/fuel/fwd-pump-c eq 1
+				/systems/failures/fuel/fwd-pump-c ne 1
 			</test>
 		</switch>
 		
 		<pure_gain name="/systems/fuel/fwd-pump-c-psi-cmd">
 			<input>/systems/fuel/fwd-pump-c</input>
-			<gain>15</gain>
+			<gain>/systems/fuel/tank-pump-pressure[1]</gain>
 		</pure_gain>
 		
 		<actuator name="/systems/fuel/fwd-pump-c-psi">
@@ -92,14 +153,14 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-gndsvc ge 112
-				/controls/fuel/pump-aft-r eq 1
-				/systems/failures/fuel/pumps-r ne 1
+				/controls/fuel/aft-pump-r eq 1
+				/systems/failures/fuel/aft-pump-r ne 1
 			</test>
 		</switch>
 		
 		<pure_gain name="/systems/fuel/aft-pump-r-psi-cmd">
 			<input>/systems/fuel/aft-pump-r</input>
-			<gain>15</gain>
+			<gain>/systems/fuel/tank-pump-pressure[2]</gain>
 		</pure_gain>
 		
 		<actuator name="/systems/fuel/aft-pump-r-psi">
@@ -112,14 +173,14 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-l ge 112
-				/controls/fuel/pump-fwd-r eq 1
-				/systems/failures/fuel/pumps-r ne 1
+				/controls/fuel/fwd-pump-r eq 1
+				/systems/failures/fuel/fwd-pump-r ne 1
 			</test>
 		</switch>
 		
 		<pure_gain name="/systems/fuel/fwd-pump-r-psi-cmd">
 			<input>/systems/fuel/fwd-pump-r</input>
-			<gain>15</gain>
+			<gain>/systems/fuel/tank-pump-pressure[2]</gain>
 		</pure_gain>
 		
 		<actuator name="/systems/fuel/fwd-pump-r-psi">
@@ -132,14 +193,14 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/dc-trans ge 24
-				/controls/fuel/pump-start eq 1
-				/systems/failures/fuel/pump-start ne 1
+				/controls/fuel/start-pump eq 1
+				/systems/failures/fuel/start-pump ne 1
 			</test>
 		</switch>
 		
 		<pure_gain name="/systems/fuel/start-pump-psi-cmd">
 			<input>/systems/fuel/start-pump</input>
-			<gain>15</gain>
+			<gain>/systems/fuel/tank-pump-pressure[2]</gain>
 		</pure_gain>
 		
 		<actuator name="/systems/fuel/start-pump-psi">
@@ -153,14 +214,14 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-l ge 112
-				/controls/fuel/aux-trans-aft-a eq 1
-				/systems/failures/fuel/aux-trans-a ne 1
+				/controls/fuel/aux-aft-trans-a eq 1
+				/systems/failures/fuel/aux-aft-trans-a ne 1
 			</test>
 		</switch>
 		
 		<pure_gain name="/systems/fuel/aux-aft-trans-a-psi-cmd">
 			<input>/systems/fuel/aux-aft-trans-a</input>
-			<gain>15</gain>
+			<gain>/systems/fuel/tank-pump-pressure[7]</gain>
 		</pure_gain>
 		
 		<actuator name="/systems/fuel/aux-aft-trans-a-psi">
@@ -173,14 +234,14 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-r ge 112
-				/controls/fuel/aux-trans-aft-b eq 1
-				/systems/failures/fuel/aux-trans-b ne 1
+				/controls/fuel/aux-aft-trans-b eq 1
+				/systems/failures/fuel/aux-aft-trans-b ne 1
 			</test>
 		</switch>
 		
 		<pure_gain name="/systems/fuel/aux-aft-trans-b-psi-cmd">
 			<input>/systems/fuel/aux-aft-trans-b</input>
-			<gain>15</gain>
+			<gain>/systems/fuel/tank-pump-pressure[7]</gain>
 		</pure_gain>
 		
 		<actuator name="/systems/fuel/aux-aft-trans-b-psi">
@@ -193,14 +254,14 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-l ge 112
-				/controls/fuel/aux-trans-fwd-a eq 1
-				/systems/failures/fuel/aux-trans-a ne 1
+				/controls/fuel/aux-fwd-trans-a eq 1
+				/systems/failures/fuel/aux-fwd-trans-a ne 1
 			</test>
 		</switch>
 		
 		<pure_gain name="/systems/fuel/aux-fwd-trans-a-psi-cmd">
 			<input>/systems/fuel/aux-fwd-trans-a</input>
-			<gain>15</gain>
+			<gain>/systems/fuel/tank-pump-pressure[6]</gain>
 		</pure_gain>
 		
 		<actuator name="/systems/fuel/aux-fwd-trans-a-psi">
@@ -213,14 +274,14 @@
 			<default value="0"/>
 			<test logic="AND" value="1">
 				/systems/electrical/bus/ac-r ge 112
-				/controls/fuel/aux-trans-fwd-b eq 1
-				/systems/failures/fuel/aux-trans-b ne 1
+				/controls/fuel/aux-fwd-trans-b eq 1
+				/systems/failures/fuel/aux-fwd-trans-b ne 1
 			</test>
 		</switch>
 		
 		<pure_gain name="/systems/fuel/aux-fwd-trans-b-psi-cmd">
 			<input>/systems/fuel/aux-fwd-trans-b</input>
-			<gain>15</gain>
+			<gain>/systems/fuel/tank-pump-pressure[6]</gain>
 		</pure_gain>
 		
 		<actuator name="/systems/fuel/aux-fwd-trans-b-psi">
@@ -230,12 +291,14 @@
 		</actuator>
 		
 		<!-- Tank Feed Demand -->
-		<!-- No gravity feed since the -80s engines are up from the wing -->
 		<switch name="/systems/fuel/feed-l">
 			<default value="0"/>
 			<test logic="OR" value="1">
 				/systems/fuel/aft-pump-l eq 1
 				/systems/fuel/fwd-pump-l eq 1
+			</test>
+			<test value="1"> <!-- Suction feed, engine above tanks -->
+				/accelerations/pilot-gdamped le 1.5
 			</test>
 		</switch>
 		
@@ -253,6 +316,9 @@
 				/systems/fuel/aft-pump-r eq 1
 				/systems/fuel/fwd-pump-r eq 1
 				/systems/fuel/start-pump eq 1
+			</test>
+			<test value="1"> <!-- Suction feed, engine above tanks -->
+				/accelerations/pilot-gdamped le 1.5
 			</test>
 		</switch>
 		

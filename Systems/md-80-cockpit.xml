@@ -554,6 +554,21 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/overhead/aft-pump-c">
+			<input>/controls/fuel/aft-pump-c</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/aft-pump-l">
+			<input>/controls/fuel/aft-pump-l</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/aft-pump-r">
+			<input>/controls/fuel/aft-pump-r</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/overhead/air-supply-l">
 			<input>/controls/pneumatics/supply-l</input>
 			<c1>20</c1>
@@ -599,13 +614,23 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/overhead/aux-trans-aft-a">
-			<input>/controls/fuel/aux-trans-aft-a</input>
+		<lag_filter name="/controls/cockpit/overhead/aux-aft-trans-a">
+			<input>/controls/fuel/aux-aft-trans-a</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/overhead/aux-trans-aft-b">
-			<input>/controls/fuel/aux-trans-aft-b</input>
+		<lag_filter name="/controls/cockpit/overhead/aux-aft-trans-b">
+			<input>/controls/fuel/aux-aft-trans-b</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/aux-fwd-trans-a">
+			<input>/controls/fuel/aux-fwd-trans-a</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/aux-fwd-trans-b">
+			<input>/controls/fuel/aux-fwd-trans-b</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -690,13 +715,18 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/overhead/aux-trans-fwd-a">
-			<input>/controls/fuel/aux-trans-fwd-a</input>
+		<lag_filter name="/controls/cockpit/overhead/fwd-pump-c">
+			<input>/controls/fuel/fwd-pump-c</input>
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/overhead/aux-trans-fwd-b">
-			<input>/controls/fuel/aux-trans-fwd-b</input>
+		<lag_filter name="/controls/cockpit/overhead/fwd-pump-l">
+			<input>/controls/fuel/fwd-pump-l</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/fwd-pump-r">
+			<input>/controls/fuel/fwd-pump-r</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -793,36 +823,6 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/overhead/pump-aft-c">
-			<input>/controls/fuel/pump-aft-c</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<lag_filter name="/controls/cockpit/overhead/pump-aft-l">
-			<input>/controls/fuel/pump-aft-l</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<lag_filter name="/controls/cockpit/overhead/pump-aft-r">
-			<input>/controls/fuel/pump-aft-r</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<lag_filter name="/controls/cockpit/overhead/pump-fwd-c">
-			<input>/controls/fuel/pump-fwd-c</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<lag_filter name="/controls/cockpit/overhead/pump-fwd-l">
-			<input>/controls/fuel/pump-fwd-l</input>
-			<c1>20</c1>
-		</lag_filter>
-		
-		<lag_filter name="/controls/cockpit/overhead/pump-fwd-r">
-			<input>/controls/fuel/pump-fwd-r</input>
-			<c1>20</c1>
-		</lag_filter>
-		
 		<lag_filter name="/controls/cockpit/overhead/radio-rack">
 			<input>/controls/pneumatics/radio-rack</input>
 			<c1>20</c1>
@@ -854,7 +854,7 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/start-pump">
-			<input>/controls/fuel/pump-start</input>
+			<input>/controls/fuel/start-pump</input>
 			<c1>20</c1>
 		</lag_filter>
 		

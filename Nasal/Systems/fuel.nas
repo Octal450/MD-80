@@ -3,48 +3,58 @@
 
 var FUEL = {
 	Controls: {
-		auxTransAftA: props.globals.getNode("/controls/fuel/aux-trans-aft-a"),
-		auxTransAftB: props.globals.getNode("/controls/fuel/aux-trans-aft-b"),
-		auxTransFwdA: props.globals.getNode("/controls/fuel/aux-trans-fwd-a"),
-		auxTransFwdB: props.globals.getNode("/controls/fuel/aux-trans-fwd-b"),
-		pumpAftC: props.globals.getNode("/controls/fuel/pump-aft-c"),
-		pumpAftL: props.globals.getNode("/controls/fuel/pump-aft-l"),
-		pumpAftR: props.globals.getNode("/controls/fuel/pump-aft-r"),
-		pumpFwdC: props.globals.getNode("/controls/fuel/pump-fwd-c"),
-		pumpFwdL: props.globals.getNode("/controls/fuel/pump-fwd-l"),
-		pumpFwdR: props.globals.getNode("/controls/fuel/pump-fwd-r"),
-		pumpStart: props.globals.getNode("/controls/fuel/pump-start"),
+		aftPumpC: props.globals.getNode("/controls/fuel/aft-pump-c"),
+		aftPumpL: props.globals.getNode("/controls/fuel/aft-pump-l"),
+		aftPumpR: props.globals.getNode("/controls/fuel/aft-pump-r"),
+		auxAftTransA: props.globals.getNode("/controls/fuel/aux-aft-trans-a"),
+		auxAftTransB: props.globals.getNode("/controls/fuel/aux-aft-trans-b"),
+		auxFwdTransA: props.globals.getNode("/controls/fuel/aux-fwd-trans-a"),
+		auxFwdTransB: props.globals.getNode("/controls/fuel/aux-fwd-trans-b"),
+		fwdPumpC: props.globals.getNode("/controls/fuel/fwd-pump-c"),
+		fwdPumpL: props.globals.getNode("/controls/fuel/fwd-pump-l"),
+		fwdPumpR: props.globals.getNode("/controls/fuel/fwd-pump-r"),
+		startPump: props.globals.getNode("/controls/fuel/start-pump"),
 		xFeed: props.globals.getNode("/controls/fuel/x-feed"),
 	},
 	Failures: {
-		auxTransA: props.globals.getNode("/systems/failures/fuel/aux-trans-a"),
-		auxTransB: props.globals.getNode("/systems/failures/fuel/aux-trans-b"),
-		pumpsC: props.globals.getNode("/systems/failures/fuel/pumps-c"),
-		pumpsL: props.globals.getNode("/systems/failures/fuel/pumps-l"),
-		pumpsR: props.globals.getNode("/systems/failures/fuel/pumps-r"),
-		pumpStart: props.globals.getNode("/systems/failures/fuel/pump-start"),
+		aftPumpC: props.globals.getNode("/systems/failures/fuel/aft-pump-c"),
+		aftPumpL: props.globals.getNode("/systems/failures/fuel/aft-pump-l"),
+		aftPumpR: props.globals.getNode("/systems/failures/fuel/aft-pump-r"),
+		auxAftTransA: props.globals.getNode("/systems/failures/fuel/aux-aft-trans-a"),
+		auxAftTransB: props.globals.getNode("/systems/failures/fuel/aux-aft-trans-b"),
+		auxFwdTransA: props.globals.getNode("/systems/failures/fuel/aux-fwd-trans-a"),
+		auxFwdTransB: props.globals.getNode("/systems/failures/fuel/aux-fwd-trans-b"),
+		fwdPumpC: props.globals.getNode("/systems/failures/fuel/fwd-pump-c"),
+		fwdPumpL: props.globals.getNode("/systems/failures/fuel/fwd-pump-l"),
+		fwdPumpR: props.globals.getNode("/systems/failures/fuel/fwd-pump-r"),
+		startPump: props.globals.getNode("/systems/failures/fuel/start-pump"),
 	},
 	init: func() {
 		me.resetFailures();
-		me.Controls.auxTransAftA.setValue(0);
-		me.Controls.auxTransAftB.setValue(0);
-		me.Controls.auxTransFwdA.setValue(0);
-		me.Controls.auxTransFwdB.setValue(0);
-		me.Controls.pumpAftC.setValue(0);
-		me.Controls.pumpAftL.setBoolValue(0);
-		me.Controls.pumpAftR.setBoolValue(0);
-		me.Controls.pumpFwdC.setValue(0);
-		me.Controls.pumpFwdL.setBoolValue(0);
-		me.Controls.pumpFwdR.setBoolValue(0);
-		me.Controls.pumpStart.setBoolValue(0);
+		me.Controls.aftPumpC.setValue(0);
+		me.Controls.aftPumpL.setBoolValue(0);
+		me.Controls.aftPumpR.setBoolValue(0);
+		me.Controls.auxAftTransA.setValue(0);
+		me.Controls.auxAftTransB.setValue(0);
+		me.Controls.auxFwdTransA.setValue(0);
+		me.Controls.auxFwdTransB.setValue(0);
+		me.Controls.fwdPumpC.setValue(0);
+		me.Controls.fwdPumpL.setBoolValue(0);
+		me.Controls.fwdPumpR.setBoolValue(0);
+		me.Controls.startPump.setBoolValue(0);
 		me.Controls.xFeed.setBoolValue(0);
 	},
 	resetFailures: func() {
-		me.Failures.auxTransA.setBoolValue(0);
-		me.Failures.auxTransB.setBoolValue(0);
-		me.Failures.pumpsC.setBoolValue(0);
-		me.Failures.pumpsL.setBoolValue(0);
-		me.Failures.pumpsR.setBoolValue(0);
-		me.Failures.pumpStart.setBoolValue(0);
+		me.Failures.aftPumpC.setBoolValue(0);
+		me.Failures.aftPumpL.setBoolValue(0);
+		me.Failures.aftPumpR.setBoolValue(0);
+		me.Failures.auxAftTransA.setBoolValue(0);
+		me.Failures.auxAftTransB.setBoolValue(0);
+		me.Failures.auxFwdTransA.setBoolValue(0);
+		me.Failures.auxFwdTransB.setBoolValue(0);
+		me.Failures.fwdPumpC.setBoolValue(0);
+		me.Failures.fwdPumpL.setBoolValue(0);
+		me.Failures.fwdPumpR.setBoolValue(0);
+		me.Failures.startPump.setBoolValue(0);
 	},
 };

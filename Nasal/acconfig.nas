@@ -309,7 +309,7 @@ var PANEL = {
 		pts.Services.Chocks.enable.setBoolValue(1);
 		systems.ELECTRICAL.Controls.battery.setBoolValue(1);
 		pts.Controls.Lighting.emerLt.setValue(0.5);
-		systems.FUEL.Controls.pumpStart.setBoolValue(1);
+		systems.FUEL.Controls.startPump.setBoolValue(1);
 		systems.APU.fastStart();
 		systems.IRS.Controls.knob[0].setValue(1);
 		systems.IRS.Controls.knob[1].setValue(1);
@@ -326,15 +326,15 @@ var PANEL = {
 				me.l1 = nil; # Important
 				systems.ELECTRICAL.Controls.apuPwrL.setBoolValue(1);
 				systems.ELECTRICAL.Controls.apuPwrR.setBoolValue(1);
-				systems.FUEL.Controls.pumpAftL.setBoolValue(1);
-				systems.FUEL.Controls.pumpAftR.setBoolValue(1);
-				systems.FUEL.Controls.pumpFwdL.setBoolValue(1);
-				systems.FUEL.Controls.pumpFwdR.setBoolValue(1);
+				systems.FUEL.Controls.aftPumpL.setBoolValue(1);
+				systems.FUEL.Controls.aftPumpR.setBoolValue(1);
+				systems.FUEL.Controls.fwdPumpL.setBoolValue(1);
+				systems.FUEL.Controls.fwdPumpR.setBoolValue(1);
 				if (pts.Fdm.JSBSim.Propulsion.Tank.contentLbs[1].getValue() > 10) {
-					systems.FUEL.Controls.pumpAftC.setValue(1);
-					systems.FUEL.Controls.pumpFwdC.setValue(1);
+					systems.FUEL.Controls.aftPumpC.setValue(1);
+					systems.FUEL.Controls.fwdPumpC.setValue(1);
 				}
-				systems.FUEL.Controls.pumpStart.setBoolValue(0);
+				systems.FUEL.Controls.startPump.setBoolValue(0);
 				systems.IRS.Controls.knob[0].setValue(2);
 				systems.IRS.Controls.knob[1].setValue(2);
 				systems.PNEUMATICS.Controls.bleedApu.setValue(1);
@@ -379,13 +379,13 @@ var PANEL = {
 		pts.Controls.Lighting.beacon.setBoolValue(1);
 		pts.Controls.Lighting.positionStrobeLight.setValue(0.5);
 		pts.Controls.Switches.seatbeltSign.setValue(1);
-		systems.FUEL.Controls.pumpAftL.setBoolValue(1);
-		systems.FUEL.Controls.pumpAftR.setBoolValue(1);
-		systems.FUEL.Controls.pumpFwdL.setBoolValue(1);
-		systems.FUEL.Controls.pumpFwdR.setBoolValue(1);
+		systems.FUEL.Controls.aftPumpL.setBoolValue(1);
+		systems.FUEL.Controls.aftPumpR.setBoolValue(1);
+		systems.FUEL.Controls.fwdPumpL.setBoolValue(1);
+		systems.FUEL.Controls.fwdPumpR.setBoolValue(1);
 		if (pts.Fdm.JSBSim.Propulsion.Tank.contentLbs[1].getValue() > 10) {
-			systems.FUEL.Controls.pumpAftC.setValue(1);
-			systems.FUEL.Controls.pumpFwdC.setValue(1);
+			systems.FUEL.Controls.aftPumpC.setValue(1);
+			systems.FUEL.Controls.fwdPumpC.setValue(1);
 		}
 		systems.IGNITION.Controls.ign.setValue(1);
 		systems.PNEUMATICS.Controls.supplyL.setValue(2);
