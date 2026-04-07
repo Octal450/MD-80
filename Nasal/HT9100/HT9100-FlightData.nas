@@ -12,6 +12,7 @@ var FlightData = {
 		m.airportPosRef = "";
 		m.airportTo = "";
 		m.airportToAlt = -2000;
+		m.coRte = "";
 		m.costIndex = -1;
 		m.cruiseAlt = 0;
 		m.cruiseFl = 0;
@@ -77,6 +78,27 @@ var EditFlightData = {
 	},
 	writeOut: func() { # Write out relevant parts of the FlightData object to property tree as required so that JSBSim can access it
 	},
+	insertCoRte: func(file) { # This behavior isn't 100% right, but it will do for now
+		flightplan().cleanPlan(); # Clear List function in Route Manager
+		
+		if (fgcommand("load-flightplan", props.Node.new({"path": getprop("/sim/fg-home/") ~ "/Export/" ~ file ~ ".gpx"}))) { # Try GPX
+			flightData.coRte = file;
+		} else if (fgcommand("load-flightplan", props.Node.new({"path": getprop("/sim/fg-home/") ~ "/Export/" ~ file ~ ".fgfp"}))) { # Try FGFP
+			flightData.coRte = file;
+		} else {
+			return 1;
+		}
+		
+		if (size(RouteManager.departureAirport.getValue()) < 3 or size(RouteManager.destinationAirport.getValue()) < 3) {
+			return 2;
+		}
+		
+		me.insertFrom(RouteManager.departureAirport.getValue(), 1);
+		me.insertTo(RouteManager.destinationAirport.getValue(), 1);
+		me.newFlightplan(flightData.airportFrom, flightData.airportTo, 1);
+		
+		return 0;
+	},
 	insertCruise: func(alt, type) { # Type 0: FL, 1: Alt
 		if (type) {
 			alt = math.round(alt, 100);
@@ -89,28 +111,32 @@ var EditFlightData = {
 			RouteManager.cruiseAlt.setValue(alt * 100);
 		}
 	},
-	insertFrom: func(arpt) { # Assumes validation is already done
+	insertFrom: func(aprt, skipNewFp = 0) { # Assumes validation is already done
 		if (flightData.airportFrom != "" and flightData.airportTo != "") {
 			flightData.airportTo = "";
 			flightData.airportToAlt = -2000;
 		}
 		
-		flightData.airportFrom = arpt;
+		flightData.airportFrom = aprt;
 		flightData.airportFromAlt = math.round(airportinfo(flightData.airportFrom).elevation * M2FT);
 		me.insertToAlts();
 		
-		me.newFlightplan(flightData.airportFrom, flightData.airportTo); # Does not matter if one is blank still
+		if (!skipNewFp) {
+			me.newFlightplan(flightData.airportFrom, flightData.airportTo); # Does not matter if one is blank still
+		}
 	},
-	insertTo: func(arpt) { # Assumes validation is already done
+	insertTo: func(aprt, skipNewFp = 0) { # Assumes validation is already done
 		if (flightData.airportFrom != "" and flightData.airportTo != "") {
 			flightData.airportFrom = "";
 			flightData.airportFromAlt = -2000;
 		}
 		
-		flightData.airportTo = arpt;
+		flightData.airportTo = aprt;
 		flightData.airportToAlt = math.round(airportinfo(flightData.airportTo).elevation * M2FT);
 		
-		me.newFlightplan(flightData.airportFrom, flightData.airportTo); # Does not matter if one is blank still
+		if (!skipNewFp) {
+			me.newFlightplan(flightData.airportFrom, flightData.airportTo); # Does not matter if one is blank still
+		}
 	},
 	insertToAlts: func(t = 0) {
 		if (flightData.airportFromAlt > -2000) {
@@ -119,14 +145,16 @@ var EditFlightData = {
 			flightData.climbThrustAlt = -2000;
 		}
 	},
-	newFlightplan: func(from, to) { # Assumes validation is already done
-		flightplan().cleanPlan(); # Clear List function in Route Manager
-		
-		if (from != "") {
-			RouteManager.departureAirport.setValue(from);
-		}
-		if (to != "") {
-			RouteManager.destinationAirport.setValue(to);
+	newFlightplan: func(from, to, skipRM = 0) { # Assumes validation is already done
+		if (!skipRM) {
+			flightplan().cleanPlan(); # Clear List function in Route Manager
+			
+			if (from != "") {
+				RouteManager.departureAirport.setValue(from);
+			}
+			if (to != "") {
+				RouteManager.destinationAirport.setValue(to);
+			}
 		}
 		
 		if (from != "" and to != "") {

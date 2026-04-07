@@ -58,7 +58,7 @@ var Rte = {
 			R2L: "FLT NO",
 			R2: "",
 			R3L: "CO ROUTE",
-			R3: "----------",
+			R3: "",
 			R4L: "",
 			R4: "",
 			R5L: "",
@@ -77,6 +77,10 @@ var Rte = {
 			
 			title: "RTE 1",
 			titleTranslate: 0,
+		};
+		
+		m.Value = {
+			coRteInsertStatus: 0,
 		};
 		
 		m.group = "fmc";
@@ -108,6 +112,14 @@ var Rte = {
 			me.Display.R2 = fms_ht9100.flightData.flightNumber;
 		} else {
 			me.Display.R2 = "----------";
+		}
+		
+		if (fms_ht9100.flightData.coRte != "") {
+			me.Display.R3 = fms_ht9100.flightData.coRte;
+			me.Display.RFont[2] = FONT.large;
+		} else {
+			me.Display.R3 = "----------";
+			me.Display.RFont[2] = FONT.small;
 		}
 		
 		#if () {
@@ -151,16 +163,34 @@ var Rte = {
 				unit[me.id].setMessage("INVALID CLEAR");
 			}
 		} else if (k == "r2") {
-			if (me.scratchpadState == 0) {
-				fms_ht9100.flightData.flightNumber = "";
-				unit[me.id].scratchpadClear();
-			} else if (me.scratchpadState == 2) {
+			if (me.scratchpadState == 2) {
 				if (unit[me.id].stringLengthInRange(1, 10)) {
 					fms_ht9100.flightData.flightNumber = me.scratchpad;
 					unit[me.id].scratchpadClear();
 				} else {
 					unit[me.id].setMessage("INVALID ENTRY");
 				}
+			} else if (me.scratchpadState == 0) {
+				fms_ht9100.flightData.flightNumber = "";
+				unit[me.id].scratchpadClear();
+			}
+		} else if (k == "r3") {
+			if (me.scratchpadState == 2) {
+				if (unit[me.id].stringLengthInRange(1, 10) and pts.Position.wow.getBoolValue()) {
+					me.Value.coRteInsertStatus = fms_ht9100.EditFlightData.insertCoRte(me.scratchpad);
+					
+					if (me.Value.coRteInsertStatus == 0) {
+						unit[me.id].scratchpadClear();
+					} else if (me.Value.coRteInsertStatus == 2) {
+						unit[me.id].setMessage("LOAD ERROR");
+					} else {
+						unit[me.id].setMessage("NOT IN DATA BASE");
+					}
+				} else {
+					unit[me.id].setMessage("INVALID ENTRY");
+				}
+			} else if (me.scratchpadState == 0) {
+				unit[me.id].setMessage("INVALID DELETE");
 			}
 		} else if (k == "r6") {
 			if (me.Display.R6 != "ACTIVATE>") {
