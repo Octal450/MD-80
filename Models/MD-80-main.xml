@@ -2117,7 +2117,7 @@
 		<object-name>LGNTorqueBarLow</object-name>
 		<object-name>NoseChock</object-name>
 		<property>gear/gear[0]/compression-norm</property>
-		<factor>0.051709</factor>
+		<factor>0.3</factor>
 		<axis>
 			<x>0.14</x>
 			<y>0</y>
@@ -2130,9 +2130,9 @@
 		<object-name>LGNTorqueBarUp</object-name>
 		<property>gear/gear[0]/compression-norm</property>
 		<interpolation>
-			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>11</dep></entry>
-			<entry><ind>2</ind><dep>20</dep></entry>
+			<entry><ind>0.0</ind><dep> 0</dep></entry>
+			<entry><ind>0.5</ind><dep>25</dep></entry>
+			<entry><ind>1.0</ind><dep>46</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>1.74994</x-m>
@@ -2150,9 +2150,9 @@
 		<object-name>LGNTorqueBarLow</object-name>
 		<property>gear/gear[0]/compression-norm</property>
 		<interpolation>
-			<entry><ind>0</ind><dep> 0.0</dep></entry>
-			<entry><ind>1</ind><dep>11.5</dep></entry>
-			<entry><ind>2</ind><dep>20.5</dep></entry>
+			<entry><ind>0.0</ind><dep> 0</dep></entry>
+			<entry><ind>0.5</ind><dep>25</dep></entry>
+			<entry><ind>1.0</ind><dep>41</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>1.68094</x-m>
@@ -2272,21 +2272,6 @@
 	</animation>
 	
 	<animation>
-		<type>translate</type>
-		<object-name>LGLStrutLow</object-name>
-		<object-name>LGLTires</object-name>
-		<object-name>LGLTorqueBarLow</object-name>
-		<object-name>LeftChock</object-name>
-		<property>gear/gear[1]/compression-norm</property>
-		<factor>0.169164</factor>
-		<axis>
-			<x>0</x>
-			<y>0</y>
-			<z>1</z>
-		</axis>
-	</animation>
-	
-	<animation>
 		<type>rotate</type>
 		<object-name>LGDoorOutL</object-name>
 		<property>gear/gear[1]/position-norm</property>
@@ -2324,13 +2309,28 @@
 	</animation>
 	
 	<animation>
+		<type>translate</type>
+		<object-name>LGLStrutLow</object-name>
+		<object-name>LGLTires</object-name>
+		<object-name>LGLTorqueBarLow</object-name>
+		<object-name>LeftChock</object-name>
+		<property>gear/gear[1]/compression-norm</property>
+		<factor>0.3</factor>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+	
+	<animation>
 		<type>rotate</type>
 		<object-name>LGLTorqueBarUp</object-name>
 		<property>gear/gear[1]/compression-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>24</dep></entry>
-			<entry><ind>2</ind><dep>40</dep></entry>
+			<entry><ind>1</ind><dep>37</dep></entry>
+			<entry><ind>2</ind><dep>64</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>24.545</x-m>
@@ -2349,8 +2349,8 @@
 		<property>gear/gear[1]/compression-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>24</dep></entry>
-			<entry><ind>2</ind><dep>40</dep></entry>
+			<entry><ind>1</ind><dep>36</dep></entry>
+			<entry><ind>2</ind><dep>59</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>24.545</x-m>
@@ -2467,21 +2467,6 @@
 	</animation>
 	
 	<animation>
-		<type>translate</type>
-		<object-name>LGRStrutLow</object-name>
-		<object-name>LGRTires</object-name>
-		<object-name>LGRTorqueBarLow</object-name>
-		<object-name>RightChock</object-name>
-		<property>gear/gear[2]/compression-norm</property>
-		<factor>0.169164</factor>
-		<axis>
-			<x>0</x>
-			<y>0</y>
-			<z>1</z>
-		</axis>
-	</animation>
-	
-	<animation>
 		<type>rotate</type>
 		<object-name>LGDoorOutR</object-name>
 		<property>gear/gear[2]/position-norm</property>
@@ -2519,13 +2504,28 @@
 	</animation>
 	
 	<animation>
+		<type>translate</type>
+		<object-name>LGRStrutLow</object-name>
+		<object-name>LGRTires</object-name>
+		<object-name>LGRTorqueBarLow</object-name>
+		<object-name>RightChock</object-name>
+		<property>gear/gear[2]/compression-norm</property>
+		<factor>0.3</factor>
+		<axis>
+			<x>0</x>
+			<y>0</y>
+			<z>1</z>
+		</axis>
+	</animation>
+	
+	<animation>
 		<type>rotate</type>
 		<object-name>LGRTorqueBarUp</object-name>
 		<property>gear/gear[2]/compression-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>24</dep></entry>
-			<entry><ind>2</ind><dep>40</dep></entry>
+			<entry><ind>1</ind><dep>37</dep></entry>
+			<entry><ind>2</ind><dep>64</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>24.545</x-m>
@@ -2544,8 +2544,8 @@
 		<property>gear/gear[2]/compression-norm</property>
 		<interpolation>
 			<entry><ind>0</ind><dep> 0</dep></entry>
-			<entry><ind>1</ind><dep>24</dep></entry>
-			<entry><ind>2</ind><dep>40</dep></entry>
+			<entry><ind>1</ind><dep>36</dep></entry>
+			<entry><ind>2</ind><dep>59</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>24.545</x-m>
