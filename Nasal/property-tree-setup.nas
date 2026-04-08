@@ -24,6 +24,8 @@ var Controls = {
 		emerLt: props.globals.getNode("/controls/lighting/emer-lt"),
 		fgcpDigital: props.globals.getNode("/controls/lighting/fgcp-digital"),
 		foDigital: props.globals.getNode("/controls/lighting/fo-digital"),
+		groundFloodLightL: props.globals.getNode("/controls/lighting/ground-flood-light-l"),
+		groundFloodLightR: props.globals.getNode("/controls/lighting/ground-flood-light-r"),
 		landingLightL: props.globals.getNode("/controls/lighting/landing-light-l"),
 		landingLightN: props.globals.getNode("/controls/lighting/landing-light-n"),
 		landingLightR: props.globals.getNode("/controls/lighting/landing-light-r"),

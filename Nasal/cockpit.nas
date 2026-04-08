@@ -15,6 +15,8 @@ var variousReset = func() {
 	pts.Controls.Lighting.emerLt.setValue(0);
 	pts.Controls.Lighting.fgcpDigital.setValue(1);
 	pts.Controls.Lighting.foDigital.setValue(1);
+	pts.Controls.Lighting.groundFloodLightL.setBoolValue(0);
+	pts.Controls.Lighting.groundFloodLightR.setBoolValue(0);
 	pts.Controls.Lighting.landingLightL.setValue(0);
 	pts.Controls.Lighting.landingLightN.setValue(0);
 	pts.Controls.Lighting.landingLightR.setValue(0);
