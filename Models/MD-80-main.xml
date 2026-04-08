@@ -3,7 +3,7 @@
 <!-- Copyright (c) 2010 Gary R. Neely (Buckaroo) -->
 <!-- Copyright (c) 2026 Josh Davidson (Octal450) -->
 
-<PropertyList> <!--  This file is not used for the MD-87 due to the amount of differences -->
+<PropertyList> <!-- This file is not used for the MD-87 due to the amount of differences -->
 	
 	<path>mesh_airframe.ac</path>
 	
@@ -12,7 +12,7 @@
 	</offsets>
 	
 	<effect>
-		<inherits-from>Effects/glass</inherits-from>
+		<inherits-from>Aircraft/MD-80/Models/Effects/interior-front-glass-reflection</inherits-from>
 		<object-name>WindowsCockpit</object-name>
 	</effect>
 	

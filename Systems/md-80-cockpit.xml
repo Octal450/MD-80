@@ -1119,7 +1119,7 @@
 				/systems/acconfig/autoconfig-running eq 1
 			</test>
 			<test logic="OR" value="0">
-				/systems/electrical/bus/dc-l lt 24
+				/systems/electrical/bus/dc-r lt 24
 				/controls/switches/wipers eq 0
 			</test>
 			<test value="2">
@@ -1132,12 +1132,53 @@
 			<rate_limit>/systems/cockpit/wipers/wiper-r-rate</rate_limit>
 			<output>/systems/cockpit/wipers/wiper-r-out</output>
 		</actuator>
+		
+		<!-- Wiper Shader Logic -->
+		<switch name="/systems/cockpit/wipers/use-wiper-l">
+			<default value="1"/>
+			<test logic="OR" value="0"> <!-- Off and parked or frozen in place due to loss of power -->
+				<test logic="AND">
+					/controls/switches/wipers eq 0
+					/systems/cockpit/wipers/wiper-l-cmd eq /systems/cockpit/wipers/wiper-l
+				</test>
+				/systems/cockpit/wipers/wiper-l-rate eq 0
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/cockpit/wipers/wiper-shader-l"> <!-- Zero position if it's frozen in place -->
+			<input>/systems/cockpit/wipers/wiper-l</input>
+			<gain>/systems/cockpit/wipers/use-wiper-l</gain>
+		</pure_gain>
+		
+		<switch name="/systems/cockpit/wipers/use-wiper-r">
+			<default value="1"/>
+			<test logic="OR" value="0"> <!-- Off and parked or frozen in place due to loss of power -->
+				<test logic="AND">
+					/controls/switches/wipers eq 0
+					/systems/cockpit/wipers/wiper-r-cmd eq /systems/cockpit/wipers/wiper-r
+				</test>
+				/systems/cockpit/wipers/wiper-r-rate eq 0
+			</test>
+		</switch>
+		
+		<pure_gain name="/systems/cockpit/wipers/wiper-shader-r"> <!-- Zero position if it's frozen in place -->
+			<input>/systems/cockpit/wipers/wiper-r</input>
+			<gain>/systems/cockpit/wipers/use-wiper-r</gain>
+		</pure_gain>
+		
+		<switch name="/systems/cockpit/wipers/use-wipers">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/cockpit/wipers/use-wiper-l eq 1
+				/systems/cockpit/wipers/use-wiper-r eq 1
+			</test>
+		</switch>
 	
 	</channel>
 	
 	<channel name="Glass Effects">
 		
-		<fcs_function name="glass-effects/airspeed-clamped-sqrt">
+		<fcs_function name="/environment/aircraft-effects/airspeed-clamped-sqrt">
 			<function>
 				<sqrt>
 					<quotient>
@@ -1151,37 +1192,77 @@
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="glass-effects/splash-x">
+		<fcs_function name="/environment/aircraft-effects/splash-vector-x">
 			<function>
 				<difference>
 					<value>-0.1</value>
 					<product>
 						<value>2</value>
-						<property>glass-effects/airspeed-clamped-sqrt</property>
+						<property>/environment/aircraft-effects/airspeed-clamped-sqrt</property>
 					</product>
 				</difference>
 			</function>
-			<output>/environment/aircraft-effects/splash-vector-x</output>
 		</fcs_function>
 		
-		<fcs_function name="glass-effects/splash-y">
+		<fcs_function name="/environment/aircraft-effects/splash-vector-y">
 			<function>
-				<value>0</value>
+				<table>
+					<independentVar lookup="row">/orientation/yaw-rate-degps</independentVar>
+					<tableData>
+						-1 -0.2
+						 1  0.2
+					</tableData>
+				</table>
 			</function>
-			<output>/environment/aircraft-effects/splash-vector-y</output>
 		</fcs_function>
 		
-		<fcs_function name="glass-effects/splash-z">
+		<fcs_function name="/environment/aircraft-effects/splash-vector-z">
 			<function>
 				<difference>
 					<value>1</value>
 					<product>
 						<value>1.35</value>
-						<property>glass-effects/airspeed-clamped-sqrt</property>
+						<property>/environment/aircraft-effects/airspeed-clamped-sqrt</property>
 					</product>
 				</difference>
 			</function>
-			<output>/environment/aircraft-effects/splash-vector-z</output>
+		</fcs_function>
+		
+		<fcs_function name="/environment/aircraft-effects/splash-vector-sides-x">
+			<function>
+				<difference>
+					<value>-0.1</value>
+					<product>
+						<value>2</value>
+						<property>/environment/aircraft-effects/airspeed-clamped-sqrt</property>
+					</product>
+				</difference>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/environment/aircraft-effects/splash-vector-sides-y">
+			<function>
+				<!--table>
+					<independentVar lookup="row">/orientation/yaw-rate-degps</independentVar>
+					<tableData>
+						-1  0
+						 1  0
+					</tableData>
+				</table-->
+				<value>0</value>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/environment/aircraft-effects/splash-vector-sides-z">
+			<function>
+				<difference>
+					<value>1</value>
+					<product>
+						<value>1.35</value>
+						<property>/environment/aircraft-effects/airspeed-clamped-sqrt</property>
+					</product>
+				</difference>
+			</function>
 		</fcs_function>
 	
 	</channel>
