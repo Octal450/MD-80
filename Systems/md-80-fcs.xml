@@ -74,8 +74,8 @@
 				<table>
 					<independentVar lookup="row">aero/qbar-psf</independentVar>
 					<tableData>
-						  7 -15
-						 60   0
+						 7 -15
+						30   0
 					</tableData>
 				</table>
 			</function>
@@ -86,8 +86,8 @@
 				<table>
 					<independentVar lookup="row">aero/qbar-psf</independentVar>
 					<tableData>
-						  7 -20
-						 60   0
+						 7 -20
+						30   0
 					</tableData>
 				</table>
 			</function>
