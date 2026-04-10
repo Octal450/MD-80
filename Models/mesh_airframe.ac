@@ -84293,7 +84293,7 @@ refs 4
 406 0.960801 0.062807
 kids 0
 OBJECT poly
-name "WiperModelL"
+name "WiperL"
 loc 1.4 -5.00679e-06 0.00508005
 data 12
 Fuselage.005
@@ -84700,7 +84700,7 @@ refs 4
 2 0.205396 0.0657603
 kids 0
 OBJECT poly
-name "WiperModelR"
+name "WiperR"
 loc 1.4 -5.00679e-06 0.00508005
 data 12
 Fuselage.007

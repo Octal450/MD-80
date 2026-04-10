@@ -2979,7 +2979,7 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>WiperModelL</object-name>
+		<object-name>WiperL</object-name>
 		<property>systems/cockpit/wipers/wiper-l-out</property>
 		<factor>68</factor>
 		<axis>
@@ -2989,7 +2989,7 @@
 	
 	<animation>
 		<type>rotate</type>
-		<object-name>WiperModelR</object-name>
+		<object-name>WiperR</object-name>
 		<property>systems/cockpit/wipers/wiper-r-out</property>
 		<factor>-68</factor>
 		<axis>
