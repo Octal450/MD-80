@@ -1789,11 +1789,9 @@
 	</animation>
 	
 	<animation>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>ARTCover</object-name>
 		<property>controls/cockpit/art-cover</property>
-		<drag-direction>vertical</drag-direction>
-		<drag-scale-px>15</drag-scale-px>
 		<factor>100</factor>
 		<center>
 			<x-m>2.20591</x-m>
@@ -1805,32 +1803,54 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-		<increase>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>ARTCover</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/dfgs/covers/art</property>
+			</binding>
 			<binding>
 				<condition>
-					<not><property>controls/dfgs/art</property></not>
+					<and>
+						<equals>
+							<property>controls/dfgs/covers/art</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>controls/dfgs/art</property>
+							<value>0</value>
+						</equals>
+					</and>
 				</condition>
 				<command>nasal</command>
 				<script>core.Sound.switch1();</script>
 			</binding>
 			<binding>
+				<condition>
+					<and>
+						<equals>
+							<property>controls/dfgs/covers/art</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>controls/dfgs/art</property>
+							<value>0</value>
+						</equals>
+					</and>
+				</condition>
 				<command>property-assign</command>
 				<property>controls/dfgs/art</property>
 				<value>1</value>
 			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/dfgs/covers/art</property>
-				<value>0</value>
-			</binding>
-		</increase>
-		<decrease>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/dfgs/covers/art</property>
-				<value>1</value>
-			</binding>
-		</decrease>
+		</action>
 	</animation>
 	
 	<animation>
@@ -1963,11 +1983,9 @@
 	
 	<!-- Stabilizer Cutout -->
 	<animation>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>StabCutoutCover</object-name>
 		<property>controls/cockpit/stab-cutout-cover</property>
-		<drag-direction>vertical</drag-direction>
-		<drag-scale-px>15</drag-scale-px>
 		<factor>-100</factor>
 		<center>
 			<x-m>3.02637</x-m>
@@ -1979,32 +1997,54 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-		<increase>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>StabCutoutCover</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>property-assign</command>
+				<command>property-toggle</command>
 				<property>controls/fcs/covers/stab-cutout</property>
-				<value>1</value>
 			</binding>
-		</increase>
-		<decrease>
 			<binding>
 				<condition>
-					<property>controls/fcs/stab-cutout</property>
+					<and>
+						<equals>
+							<property>controls/fcs/covers/stab-cutout</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>controls/fcs/stab-cutout</property>
+							<value>1</value>
+						</equals>
+					</and>
 				</condition>
 				<command>nasal</command>
 				<script>core.Sound.switch1();</script>
 			</binding>
 			<binding>
+				<condition>
+					<and>
+						<equals>
+							<property>controls/fcs/covers/stab-cutout</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>controls/fcs/stab-cutout</property>
+							<value>1</value>
+						</equals>
+					</and>
+				</condition>
 				<command>property-assign</command>
 				<property>controls/fcs/stab-cutout</property>
 				<value>0</value>
 			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/fcs/covers/stab-cutout</property>
-				<value>0</value>
-			</binding>
-		</decrease>
+		</action>
 	</animation>
 	
 	<animation>
