@@ -1854,8 +1854,8 @@
 			<file>Aircraft/MD-80/Nasal/Autopush/route.nas</file>
 		</autopush_route>
 		<panel2d>
-			<file>Aircraft/MD-80/gui/canvas/common.nas</file>
-			<file>Aircraft/MD-80/gui/canvas/fgcp.nas</file>
+			<file>Aircraft/MD-80/Nasal/Panel2D/common.nas</file>
+			<file>Aircraft/MD-80/Nasal/Panel2D/fgcp.nas</file>
 		</panel2d>
 	</nasal>
 
