@@ -260,6 +260,11 @@ var Systems = {
 			risingRunway: props.globals.getNode("/systems/acconfig/options/rising-runway"),
 		},
 	},
+	Caws: {
+		ApOff: {
+			hornSilenceEnabled: props.globals.getNode("/systems/caws/apoff/horn-silence-enabled"),
+		},
+	},
 	Misc: {
 		minimumsLatch: props.globals.getNode("/systems/misc/minimums-latch"),
 	},

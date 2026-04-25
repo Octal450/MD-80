@@ -89,7 +89,9 @@ var ApPanel = {
 		dfgs.UpdateFma.capTrkReCheck();
 	},
 	apDisc: func() {
-		dfgs.killApWarn();
+		if (pts.Systems.Caws.ApOff.hornSilenceEnabled.getBoolValue()) {
+			dfgs.killApWarn();
+		}
 		if (dfgs.Output.ap1.getBoolValue()) {
 			dfgs.ITAF.ap1Master(0);
 		}
