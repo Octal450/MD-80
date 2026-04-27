@@ -146,6 +146,13 @@
 		</view>
     </sim>
 	
+	<consumables n="0">
+		<fuel>
+			<tank n="3"><name>Aux Not Installed</name></tank>
+			<tank n="4"><name>Aux Not Installed</name></tank>
+		</fuel>
+	</consumables>
+	
 	<controls n="0">
 		<firetank n="0">
 			<bright n="0">

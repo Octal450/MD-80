@@ -387,6 +387,14 @@ var PANEL = {
 			systems.FUEL.Controls.aftPumpC.setValue(1);
 			systems.FUEL.Controls.fwdPumpC.setValue(1);
 		}
+		if (pts.Fdm.JSBSim.Propulsion.Tank.contentLbs[3].getValue() > 10) {
+			systems.FUEL.Controls.auxFwdTransA.setValue(1);
+			systems.FUEL.Controls.auxFwdTransB.setValue(1);
+		}
+		if (pts.Fdm.JSBSim.Propulsion.Tank.contentLbs[4].getValue() > 10) {
+			systems.FUEL.Controls.auxAftTransA.setValue(1);
+			systems.FUEL.Controls.auxAftTransB.setValue(1);
+		}
 		systems.IGNITION.Controls.ign.setValue(1);
 		systems.PNEUMATICS.Controls.supplyL.setValue(2);
 		systems.PNEUMATICS.Controls.supplyR.setValue(2);

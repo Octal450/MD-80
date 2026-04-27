@@ -524,9 +524,9 @@
 			<tank n="0"><name>Left Tank</name></tank>
 			<tank n="1"><name>Center Tank</name></tank>
 			<tank n="2"><name>Right Tank</name></tank>
-			<tank n="3"><name>Engine 1 Pipe</name></tank>
-			<tank n="4"><name>Engine 2 Pipe</name></tank>
-			<tank n="5"><name>APU Pipe</name></tank>
+			<tank n="5"><name>Engine 1 Pipe</name></tank>
+			<tank n="6"><name>Engine 2 Pipe</name></tank>
+			<tank n="7"><name>APU Pipe</name></tank>
 		</fuel>
 	</consumables>
 	

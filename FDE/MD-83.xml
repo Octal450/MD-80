@@ -17,7 +17,7 @@
 	
 	<system file="md-80-core"/>
 	<system file="md-80-electrical"/>
-	<system file="md-83-fuel"/>
+	<system file="md-80-fuel"/>
 	<system file="md-80-hydraulics"/>
 	<system file="md-80-irs-ahrs"/>
 	<system file="md-80-pneumatics"/>
@@ -34,7 +34,7 @@
 	
 	<propulsion>
 		<engine file="jt8d-219_1">
-			<feed>3</feed>
+			<feed>5</feed>
 			<thruster file="direct">
 				<location unit="M"> <!-- Fudged for accuracy -->
 					<x>33.7569</x>
@@ -50,7 +50,7 @@
 		</engine>
 		
 		<engine file="jt8d-219_2">
-			<feed>4</feed>
+			<feed>6</feed>
 			<thruster file="direct">
 				<location unit="M"> <!-- Fudged for accuracy -->
 					<x>33.7569</x>
@@ -66,7 +66,7 @@
 		</engine>
 		
 		<engine file="gtcp85-98dhf">
-			<feed>5</feed>
+			<feed>7</feed>
 			<thruster file="direct">
 				<location unit="M">
 					<x>35.4694</x>
@@ -121,6 +121,32 @@
 			<type>JET-A1</type>
 			<temperature>50</temperature>
 		</tank>
+		<tank type="FUEL"> <!-- Fwd Aux Tank -->
+			<location unit="M">
+				<x>22.71293</x>
+				<y>0</y>
+				<z>-0.30645</z>
+			</location>
+			<capacity unit="LBS">5500</capacity>
+			<contents unit="LBS">0</contents>
+			<standpipe unit="LBS">43</standpipe>
+			<priority>1</priority>
+			<type>JET-A1</type>
+			<temperature>50</temperature>
+		</tank>
+		<tank type="FUEL"> <!-- Aft Aux Tank -->
+			<location unit="M">
+				<x>24.86357</x>
+				<y>0</y>
+				<z>-0.30645</z>
+			</location>
+			<capacity unit="LBS">8399</capacity>
+			<contents unit="LBS">0</contents>
+			<standpipe unit="LBS">43</standpipe>
+			<priority>1</priority>
+			<type>JET-A1</type>
+			<temperature>50</temperature>
+		</tank>
 		<tank type="FUEL"> <!-- Engine 1 Pipe -->
 			<location unit="M">
 				<x>24.20826</x>
@@ -153,32 +179,6 @@
 			<contents unit="LBS">0</contents>
 			<priority>1</priority>
 			<type>JET-A1</type>
-		</tank>
-		<tank type="FUEL"> <!-- Fwd Aux Tank -->
-			<location unit="M">
-				<x>22.71293</x>
-				<y>0</y>
-				<z>-0.30645</z>
-			</location>
-			<capacity unit="LBS">5500</capacity>
-			<contents unit="LBS">0</contents>
-			<standpipe unit="LBS">43</standpipe>
-			<priority>1</priority>
-			<type>JET-A1</type>
-			<temperature>50</temperature>
-		</tank>
-		<tank type="FUEL"> <!-- Aft Aux Tank -->
-			<location unit="M">
-				<x>24.86357</x>
-				<y>0</y>
-				<z>-0.30645</z>
-			</location>
-			<capacity unit="LBS">8399</capacity>
-			<contents unit="LBS">0</contents>
-			<standpipe unit="LBS">43</standpipe>
-			<priority>1</priority>
-			<type>JET-A1</type>
-			<temperature>50</temperature>
 		</tank>
 	</propulsion>
 

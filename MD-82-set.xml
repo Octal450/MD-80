@@ -33,6 +33,13 @@
 		<primary-set>true</primary-set>
     </sim>
 	
+	<consumables n="0">
+		<fuel>
+			<tank n="3"><name>Aux Not Installed</name></tank>
+			<tank n="4"><name>Aux Not Installed</name></tank>
+		</fuel>
+	</consumables>
+	
 	<fdm n="0">
 		<jsbsim n="0">
 			<aero n="0">

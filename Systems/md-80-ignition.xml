@@ -41,7 +41,7 @@
 		<switch name="/systems/ignition/can-run-1">
 			<default value="0"/>
 			<test value="1">
-				propulsion/tank[3]/contents-lbs ge 1
+				propulsion/tank[5]/contents-lbs ge 1
 			</test>
 		</switch>
 		
@@ -112,7 +112,7 @@
 		<switch name="/systems/ignition/can-run-2">
 			<default value="0"/>
 			<test value="1">
-				propulsion/tank[4]/contents-lbs ge 1
+				propulsion/tank[6]/contents-lbs ge 1
 			</test>
 		</switch>
 		

@@ -69,7 +69,7 @@ var Fdm = {
 			},
 			setRunning: props.globals.getNode("/fdm/jsbsim/propulsion/set-running"),
 			Tank: {
-				contentLbs: [props.globals.getNode("/fdm/jsbsim/propulsion/tank[0]/contents-lbs"), props.globals.getNode("/fdm/jsbsim/propulsion/tank[1]/contents-lbs"), props.globals.getNode("/fdm/jsbsim/propulsion/tank[2]/contents-lbs")], 
+				contentLbs: [props.globals.getNode("/fdm/jsbsim/propulsion/tank[0]/contents-lbs"), props.globals.getNode("/fdm/jsbsim/propulsion/tank[1]/contents-lbs"), props.globals.getNode("/fdm/jsbsim/propulsion/tank[2]/contents-lbs"), props.globals.getNode("/fdm/jsbsim/propulsion/tank[3]/contents-lbs"), props.globals.getNode("/fdm/jsbsim/propulsion/tank[4]/contents-lbs")], 
 			},
 			tatC: props.globals.getNode("/fdm/jsbsim/propulsion/tat-c"),
 		},
