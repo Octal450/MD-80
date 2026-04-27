@@ -22,7 +22,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>NeedleL</object-name>
-		<property>environment/temperature-degc</property> <!-- Will be changed when I add the anti-ice system -->
+		<property>systems/fuel/tank-l-temp</property>
 		<interpolation>
 			<entry><ind>-60</ind><dep> 58</dep></entry>
 			<entry><ind>-40</ind><dep> 40</dep></entry>
@@ -45,7 +45,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>NeedleR</object-name>
-		<property>environment/temperature-degc</property> <!-- Will be changed when I add the anti-ice system -->
+		<property>systems/fuel/tank-r-temp</property>
 		<interpolation>
 			<entry><ind>-60</ind><dep>-58</dep></entry>
 			<entry><ind>-40</ind><dep>-40</dep></entry>
