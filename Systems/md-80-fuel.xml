@@ -301,7 +301,7 @@
 		<!-- Main Tanks to APU Pipe -->
 		<switch name="/systems/fuel/internal/tank-c-apu">
 			<default value="0"/>
-			<test logic="AND" value="9">
+			<test logic="AND" value="4">
 				/systems/apu/fuel-feed eq 1
 				/systems/fuel/center-feeding eq 1
 				propulsion/tank[5]/contents-lbs lt 4
@@ -310,7 +310,7 @@
 		
 		<switch name="/systems/fuel/internal/tank-l-apu">
 			<default value="0"/>
-			<test logic="AND" value="9">
+			<test logic="AND" value="4">
 				/systems/apu/fuel-feed eq 1
 				/systems/fuel/feed-l eq 1
 				/controls/fuel/x-feed eq 1
@@ -322,7 +322,7 @@
 		
 		<switch name="/systems/fuel/internal/tank-r-apu">
 			<default value="0"/>
-			<test logic="AND" value="9">
+			<test logic="AND" value="4">
 				/systems/apu/fuel-feed eq 1
 				/systems/fuel/feed-r eq 1
 				/systems/fuel/center-feeding ne 1
