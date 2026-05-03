@@ -1782,7 +1782,7 @@
 			<file>Aircraft/MD-80/Nasal/property-tree-setup.nas</file>
 		</pts>
 		<core>
-			<file>Aircraft/MD-80/Nasal/aircraft.nas</file>
+			<file>Aircraft/MD-80/Nasal/core.nas</file>
 			<file>Aircraft/MD-80/Nasal/hack-canvas.nas</file>
 			<file>Aircraft/MD-80/Nasal/thunder-effects.nas</file>
 			<file>Aircraft/MD-80/Nasal/view-controller.nas</file>
