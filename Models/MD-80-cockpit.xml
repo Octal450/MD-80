@@ -1551,6 +1551,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>SteeringHandle</object-name>
+		<object-name>SteeringWheel</object-name>
 		<object-name>ParkingBrakeButton</object-name>
 		<factor>82</factor>
 		<property>controls/cockpit/tiller-handle</property>

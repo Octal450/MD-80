@@ -337,6 +337,25 @@
 				/systems/fuel/aux-aft-trans-b eq 1
 			</test>
 		</switch>
+		
+		<!-- Fuel Temperature -->
+		<fcs_function name="/systems/fuel/tank-l-temp">
+			<function>
+				<max>
+					<property>/environment/temperature-degc</property>
+					<value>-33</value>
+				</max>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/fuel/tank-r-temp">
+			<function>
+				<max>
+					<property>/environment/temperature-degc</property>
+					<value>-33</value>
+				</max>
+			</function>
+		</fcs_function>
 	
 	</channel>
 	
