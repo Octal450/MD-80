@@ -29,6 +29,10 @@
 		</open>
 		<close>
 			loop.stop();
+			
+			mcdu_canvas_dlg.del();
+			mcdu_canvas_dlg = nil;
+			root = nil;
 		</close>
 	</nasal>
 	
@@ -231,13 +235,6 @@
 						root.createChild("image").set("src", "canvas://by-index/texture[5]");
 					]]>
 				</load>
-				<unload>
-					<![CDATA[
-						mcdu_canvas_dlg.del();
-						mcdu_canvas_dlg = nil;
-						root = nil;
-					]]>
-				</unload>
 			</nasal>
 		</canvas>
 		
