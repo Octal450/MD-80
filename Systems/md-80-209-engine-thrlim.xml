@@ -101,8 +101,8 @@
 							<independentVar lookup="row">/systems/engines/limit/rated-thrust-ref</independentVar>
 							<tableData>
 								0.03     81455.7
-								1.00  10571289.8
-								1.50  15856934.7
+								1.00   9722788.9
+								1.50  14692548.3
 							</tableData>
 						</table>
 						<quotient>
@@ -593,8 +593,8 @@
 							<independentVar lookup="row">/systems/engines/limit/active-norm-ref</independentVar>
 							<tableData>
 								0.03     81455.7
-								1.00  10571289.8
-								1.50  15856934.7
+								1.00   9722788.9
+								1.50  14692548.3
 							</tableData>
 						</table>
 						<quotient>
@@ -677,8 +677,8 @@
 							<independentVar lookup="row">/systems/engines/limit/highest-norm-ref</independentVar>
 							<tableData>
 								0.03     81455.7
-								1.00  10571289.8
-								1.50  15856934.7
+								1.00   9722788.9
+								1.50  14692548.3
 							</tableData>
 						</table>
 						<quotient>
@@ -748,8 +748,8 @@
 							<independentVar lookup="row">/systems/engines/limit/idle-input</independentVar>
 							<tableData>
 								   81455.7  0.03
-								10571289.8  1.00
-								15856934.7  1.50
+								 9722788.9  1.00
+								14692548.3  1.50
 							</tableData>
 						</table>
 						<property>/systems/engines/epr/c1</property>
@@ -799,8 +799,8 @@
 							<independentVar lookup="row">/systems/engines/limit/idle-norm-ref</independentVar>
 							<tableData>
 								0.03     81455.7
-								1.00  10571289.8
-								1.50  15856934.7
+								1.00   9722788.9
+								1.50  14692548.3
 							</tableData>
 						</table>
 						<quotient>
@@ -991,8 +991,8 @@
 							<independentVar lookup="row">/systems/engines/art/max-norm-ref</independentVar>
 							<tableData>
 								0.03     81455.7
-								1.00  10571289.8
-								1.50  15856934.7
+								1.00   9722788.9
+								1.50  14692548.3
 							</tableData>
 						</table>
 						<quotient>
@@ -1051,8 +1051,8 @@
 							<independentVar lookup="row">/systems/engines/art/normal-norm-ref</independentVar>
 							<tableData>
 								0.03     81455.7
-								1.00  10571289.8
-								1.50  15856934.7
+								1.00   9722788.9
+								1.50  14692548.3
 							</tableData>
 						</table>
 						<quotient>
@@ -1236,8 +1236,8 @@
 							<independentVar lookup="row">/systems/engines/limit/man-1-norm-ref</independentVar>
 							<tableData>
 								0.03     81455.7
-								1.00  10571289.8
-								1.50  15856934.7
+								1.00   9722788.9
+								1.50  14692548.3
 							</tableData>
 						</table>
 						<quotient>
@@ -1349,8 +1349,8 @@
 							<independentVar lookup="row">/systems/engines/limit/man-2-norm-ref</independentVar>
 							<tableData>
 								0.03     81455.7
-								1.00  10571289.8
-								1.50  15856934.7
+								1.00   9722788.9
+								1.50  14692548.3
 							</tableData>
 						</table>
 						<quotient>
@@ -1486,8 +1486,8 @@
 							<independentVar lookup="row">/systems/engines/epr-actual-1-ref</independentVar>
 							<tableData>
 								   81455.7  0.03
-								10571289.8  1.00
-								15856934.7  1.50
+								 9722788.9  1.00
+								14692548.3  1.50
 							</tableData>
 						</table>
 						<property>/systems/engines/epr/c1</property>
@@ -1532,8 +1532,8 @@
 							<independentVar lookup="row">/systems/engines/epr-actual-2-ref</independentVar>
 							<tableData>
 								   81455.7  0.03
-								10571289.8  1.00
-								15856934.7  1.50
+								 9722788.9  1.00
+								14692548.3  1.50
 							</tableData>
 						</table>
 						<property>/systems/engines/epr/c1</property>
