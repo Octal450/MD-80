@@ -28,7 +28,12 @@ var ENGINES = {
 		startL: props.globals.getNode("/controls/engines/covers/start-l"),
 		startR: props.globals.getNode("/controls/engines/covers/start-r"),
 	},
+	Failures: {
+		fire1: props.globals.getNode("/systems/failures/engines/fire-1"),
+		fire2: props.globals.getNode("/systems/failures/engines/fire-2"),
+	},
 	init: func() {
+		me.resetFailures();
 		me.reverseEngage[0].setBoolValue(0);
 		me.reverseEngage[1].setBoolValue(0);
 		me.Controls.engSync.setValue(0);
@@ -43,6 +48,10 @@ var ENGINES = {
 		me.Covers.startR.setBoolValue(0);
 		systems.ENGINES.oilQtyInput[0].setValue(math.round((rand() * 4) + 14 , 0.1)); # Random between 14 and 18
 		systems.ENGINES.oilQtyInput[1].setValue(math.round((rand() * 4) + 14 , 0.1)); # Random between 14 and 18
+	},
+	resetFailures: func() {
+		me.Failures.fire1.setBoolValue(0);
+		me.Failures.fire2.setBoolValue(0);
 	},
 	adjustManEpr: func(n, d) {
 		if (me.Controls.manEprSet[n].getBoolValue() and pts.Instrumentation.Epr.powerAvail[n].getBoolValue()) {

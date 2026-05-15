@@ -2048,6 +2048,10 @@
 			<test value="/systems/engines/egt-actual-1">
 				/instrumentation/egt[0]/power-avail eq 1
 			</test>
+			<clipto>
+				<min>0</min>
+				<max>800</max>
+			</clipto>
 		</switch>
 		
 		<lag_filter name="/instrumentation/egt[0]/egt">
@@ -2069,6 +2073,10 @@
 			<test value="/systems/engines/egt-actual-2">
 				/instrumentation/egt[1]/power-avail eq 1
 			</test>
+			<clipto>
+				<min>0</min>
+				<max>800</max>
+			</clipto>
 		</switch>
 		
 		<lag_filter name="/instrumentation/egt[1]/egt">
@@ -2077,8 +2085,17 @@
 		</lag_filter>
 		
 		<!-- APU EGT Gauge: Older (slower) gauge which does not require AC power -->
-		<lag_filter name="/instrumentation/apu-egt/egt">
+		<pure_gain name="/instrumentation/apu-egt/egt-input">
 			<input>/systems/apu/egt-actual</input>
+			<gain>1.0</gain>
+			<clipto>
+				<min>0</min>
+				<max>800</max>
+			</clipto>
+		</pure_gain>
+		
+		<lag_filter name="/instrumentation/apu-egt/egt">
+			<input>/instrumentation/apu-egt/egt-input</input>
 			<c1>1.0</c1>
 		</lag_filter>
 		
@@ -2096,6 +2113,10 @@
 			<test value="/systems/apu/egt-percent">
 				/instrumentation/apu-egt-percent/power-avail eq 1
 			</test>
+			<clipto>
+				<min>0</min>
+				<max>110</max>
+			</clipto>
 		</switch>
 		
 		<lag_filter name="/instrumentation/apu-egt-percent/egt-percent">

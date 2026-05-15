@@ -176,7 +176,50 @@
 				</binding>
 				<live>true</live>
 			</checkbox>
-		
+			
+			<group>
+				<layout>hbox</layout>
+				
+				<hrule>
+					<stretch>true</stretch>
+				</hrule>
+				<text>
+					<label>Engines</label>
+				</text>
+				<hrule>
+					<stretch>true</stretch>
+				</hrule>
+			</group>
+			
+			<checkbox>
+				<label>APU Fire</label>
+				<halign>left</halign>
+				<property>/systems/failures/apu/fire</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Engine 1 Fire</label>
+				<halign>left</halign>
+				<property>/systems/failures/engines/fire-1</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Engine 2 Fire</label>
+				<halign>left</halign>
+				<property>/systems/failures/engines/fire-2</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
 		</group>
 		
 		<vrule/>
@@ -393,7 +436,6 @@
 				</binding>
 				<live>true</live>
 			</checkbox>
-		
 		</group>
 		
 		<vrule/>
@@ -552,9 +594,7 @@
 				</binding>
 				<live>true</live>
 			</checkbox>
-		
 		</group>
-	
 	</group>
 
 </PropertyList>

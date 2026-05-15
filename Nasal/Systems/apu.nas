@@ -10,8 +10,15 @@ var APU = {
 	Controls: {
 		master: props.globals.getNode("/controls/apu/master"),
 	},
+	Failures: {
+		fire: props.globals.getNode("/systems/failures/apu/fire"),
+	},
 	init: func() {
+		me.resetFailures();
 		me.Controls.master.setValue(0);
+	},
+	resetFailures: func() {
+		me.Failures.fire.setBoolValue(0);
 	},
 	fastStart: func() {
 		me.Controls.master.setValue(1);

@@ -1561,7 +1561,7 @@
 			</test>
 		</switch>
 		
-		<fcs_function name="/systems/engines/egt-cmd-1">
+		<fcs_function name="/systems/engines/egt-table-1">
 			<function>
 				<sum>
 					<property>propulsion/tat-c</property>
@@ -1588,13 +1588,41 @@
 			</function>
 		</fcs_function>
 		
+		<fcs_function name="/systems/engines/egt-cmd-1">
+			<function>
+				<max>
+					<ifthen>
+						<eq>
+							<property>/engines/engine[0]/on-fire</property>
+							<value>1</value>
+						</eq>
+						<min>
+							<sum>
+								<quotient>
+									<property>propulsion/tat-c</property>
+									<value>4</value>
+								</quotient>
+								<value>690</value>
+							</sum>
+							<sum> <!-- Stop it from rising too fast -->
+								<property>/engines/engine[0]/egt-actual</property>
+								<value>50</value>
+							</sum>
+						</min>
+						<value>0</value>
+					</ifthen>
+					<property>/systems/engines/egt-table-1</property>
+				</max>
+			</function>
+		</fcs_function>
+		
 		<lag_filter name="/systems/engines/egt-actual-1">
 			<input>/systems/engines/egt-cmd-1</input>
 			<c1>/systems/engines/egt-c1</c1>
 			<output>/engines/engine[0]/egt-actual</output>
 		</lag_filter>
 		
-		<fcs_function name="/systems/engines/egt-cmd-2">
+		<fcs_function name="/systems/engines/egt-table-2">
 			<function>
 				<sum>
 					<property>propulsion/tat-c</property>
@@ -1618,6 +1646,34 @@
 						</tableData>
 					</table>
 				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/engines/egt-cmd-2">
+			<function>
+				<max>
+					<ifthen>
+						<eq>
+							<property>/engines/engine[1]/on-fire</property>
+							<value>1</value>
+						</eq>
+						<min>
+							<sum>
+								<quotient>
+									<property>propulsion/tat-c</property>
+									<value>4</value>
+								</quotient>
+								<value>690</value>
+							</sum>
+							<sum> <!-- Stop it from rising too fast -->
+								<property>/engines/engine[1]/egt-actual</property>
+								<value>50</value>
+							</sum>
+						</min>
+						<value>0</value>
+					</ifthen>
+					<property>/systems/engines/egt-table-2</property>
+				</max>
 			</function>
 		</fcs_function>
 		

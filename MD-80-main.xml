@@ -765,7 +765,6 @@
 			<n2 type="double">0</n2>
 			<n2-actual type="double">0</n2-actual>
 			<oil-qty-input type="double">16</oil-qty-input> <!-- Randomized later in sim init -->
-			<on-fire type="bool">0</on-fire>
 			<reverser-pos-norm type="double">0</reverser-pos-norm>
 			<running type="bool">0</running>
 			<state type="int">0</state>
@@ -780,7 +779,6 @@
 			<n2 type="double">0</n2>
 			<n2-actual type="double">0</n2-actual>
 			<oil-qty-input type="double">16</oil-qty-input> <!-- Randomized later in sim init -->
-			<on-fire type="bool">0</on-fire>
 			<reverser-pos-norm type="double">0</reverser-pos-norm>
 			<running type="bool">0</running>
 			<state type="int">0</state>
@@ -793,7 +791,6 @@
 			<n1-actual type="double">0</n1-actual>
 			<n2 type="double">0</n2>
 			<n2-actual type="double">0</n2-actual>
-			<on-fire type="bool">0</on-fire>
 			<running type="bool">0</running>
 			<state type="int">0</state>
 		</engine>
@@ -1707,6 +1704,9 @@
 			<throttle-lever-feedback n="1" type="double">0</throttle-lever-feedback>
 		</engines>
 		<failures n="0">
+			<apu n="0">
+				<fire type="bool">0</fire>
+			</apu>
 			<electrical n="0">
 				<ac-tie type="bool">0</ac-tie>
 				<apu type="bool">0</apu>
@@ -1720,6 +1720,10 @@
 				<tr-r1 type="bool">0</tr-r1>
 				<tr-r2 type="bool">0</tr-r2>
 			</electrical>
+			<engines n="0">
+				<fire-1 type="bool">0</fire-1>
+				<fire-2 type="bool">0</fire-2>
+			</engines>
 			<fcs n="0">
 				<elevator-pwr type="bool">0</elevator-pwr>
 				<rudder-pwr type="bool">0</rudder-pwr>

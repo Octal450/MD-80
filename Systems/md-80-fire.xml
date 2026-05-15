@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-80 Fire -->
+<!-- Copyright (c) 2026 Josh Davidson (Octal450) -->
+
+<system name="MD-80: Fire">
+	
+	<channel name="Engine Fire" execrate="8">
+		
+		<pure_gain name="/engines/engine[0]/on-fire">
+			<input>/systems/failures/engines/fire-1</input>
+			<gain>1.0</gain>
+		</pure_gain>
+		
+		<pure_gain name="/engines/engine[1]/on-fire">
+			<input>/systems/failures/engines/fire-2</input>
+			<gain>1.0</gain>
+		</pure_gain>
+		
+		<pure_gain name="/engines/engine[2]/on-fire">
+			<input>/systems/failures/apu/fire</input>
+			<gain>1.0</gain>
+		</pure_gain>
+	
+	</channel>
+
+</system>

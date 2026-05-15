@@ -17,6 +17,7 @@
 	
 	<system file="md-80-core"/>
 	<system file="md-80-electrical"/>
+	<system file="md-80-fire"/>
 	<system file="md-80-fuel"/>
 	<system file="md-80-hydraulics"/>
 	<system file="md-80-irs-ahrs"/>
