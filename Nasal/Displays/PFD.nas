@@ -87,9 +87,7 @@ var CanvasBase = {
 		return me;
 	},
 	getKeys: func() {
-		return ["AI_arrow_dn", "AI_arrow_up", "AI_background", "AI_bank", "AI_center", "AI_dual_cue", "AI_error", "AI_group", "AI_group2", "AI_group3", "AI_PLI", "AI_PLI_dual_cue", "AI_PLI_single_cue", "AI_rising_runway", "AI_scale", "AI_scale_dc",
-		"AI_single_cue", "DH_below", "DH_group", "DH_label", "DH_pointer", "DH_set", "FD_v", "FD_pitch", "FD_roll", "FS_pointer", "FS_scale", "Gndspd", "GS_group", "GS_no", "GS_pointer", "GS_scale", "ILS_group", "Inner_marker", "LOC_no", "LOC_pointer",
-		"LOC_scale", "Middle_marker", "NAV_ILS", "NAV_pointer", "NAV_scale", "Outer_marker", "RA_bars", "RA_scale"];
+		return KeyList;
 	},
 	setup: func() {
 		# Hide the pages by default
@@ -417,3 +415,51 @@ var showPfd2 = func() {
 	dlg.setCanvas(pfd2Display);
 	dlg.set("title", "First Officer's PFD");
 }
+
+# SVG Key List
+var KeyList = [
+	"AI_arrow_dn",
+	"AI_arrow_up",
+	"AI_background",
+	"AI_bank",
+	"AI_center",
+	"AI_dual_cue",
+	"AI_error",
+	"AI_group",
+	"AI_group2",
+	"AI_group3",
+	"AI_PLI",
+	"AI_PLI_dual_cue",
+	"AI_PLI_single_cue",
+	"AI_rising_runway",
+	"AI_scale",
+	"AI_scale_dc",
+	"AI_single_cue",
+	"DH_below",
+	"DH_group",
+	"DH_label",
+	"DH_pointer",
+	"DH_set",
+	"FD_pitch",
+	"FD_roll",
+	"FD_v",
+	"FS_pointer",
+	"FS_scale",
+	"GS_group",
+	"GS_no",
+	"GS_pointer",
+	"GS_scale",
+	"Gndspd",
+	"ILS_group",
+	"Inner_marker",
+	"LOC_no",
+	"LOC_pointer",
+	"LOC_scale",
+	"Middle_marker",
+	"NAV_ILS",
+	"NAV_pointer",
+	"NAV_scale",
+	"Outer_marker",
+	"RA_bars",
+	"RA_scale"
+];

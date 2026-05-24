@@ -42,9 +42,6 @@ var CanvasBase = {
 		
 		return me;
 	},
-	getKeys: func() {
-		return [];
-	},
 	update: func() {
 		# Blink Generator - We use this because the FMA updates only ever quarter second, so we need to ensure it is in sync
 		# Main
