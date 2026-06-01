@@ -130,6 +130,7 @@ var EditFlightData = {
 		me.insertToAlts();
 		
 		if (!skipNewFp) {
+			flightData.coRte = "";
 			me.newFlightplan(flightData.airportFrom, flightData.airportTo); # Does not matter if one is blank still
 		}
 	},
@@ -143,6 +144,7 @@ var EditFlightData = {
 		flightData.airportToAlt = math.round(airportinfo(flightData.airportTo).elevation * M2FT);
 		
 		if (!skipNewFp) {
+			flightData.coRte = "";
 			me.newFlightplan(flightData.airportFrom, flightData.airportTo); # Does not matter if one is blank still
 		}
 	},
@@ -156,6 +158,7 @@ var EditFlightData = {
 	newFlightplan: func(from, to, skipRM = 0) { # Assumes validation is already done
 		if (!skipRM) {
 			flightplan().cleanPlan(); # Clear List function in Route Manager
+			flightData.coRte = "";
 			
 			if (from != "") {
 				RouteManager.departureAirport.setValue(from);
