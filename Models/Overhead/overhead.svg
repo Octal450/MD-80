@@ -37,9 +37,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.16"
-     inkscape:cx="-187.5"
-     inkscape:cy="3228.125"
+     inkscape:zoom="0.45254834"
+     inkscape:cx="1108.1689"
+     inkscape:cy="2789.7572"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -326,7 +326,7 @@
          sodipodi:nodetypes="zccssccz"
          inkscape:connector-curvature="0"
          id="rect7716"
-         d="m 1949.9008,478.74091 c 74.4232,0 88.25,71.69275 88.25,81.41604 l 0,80.20525 c 0,5.54 -4.46,10 -10,10 l -156.5,0 c -5.54,0 -10,-4.46 -10,-10 l 0,-80.20525 c 0,-9.84428 13.8268,-81.41604 88.25,-81.41604 z"
+         d="m 1949.9008,478.74091 c 74.4232,0 88.25,71.69275 88.25,81.41604 v 82.20525 c 0,5.54 -4.46,10 -10,10 h -156.5 c -5.54,0 -10,-4.46 -10,-10 v -82.20525 c 0,-9.84428 13.8268,-81.41604 88.25,-81.41604 z"
          style="opacity:1;fill:#101010;fill-opacity:1;stroke:none;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <g
          inkscape:export-ydpi="90"
