@@ -600,6 +600,10 @@
 			<apu-pwr-l type="bool">0</apu-pwr-l>
 			<apu-pwr-r type="bool">0</apu-pwr-r>
 			<battery type="bool">0</battery>
+			<covers n="0">
+				<csd-l type="bool">0</csd-l>
+				<csd-r type="bool">0</csd-r>
+			</covers>
 			<csd-l type="bool">1</csd-l>
 			<csd-r type="bool">1</csd-r>
 			<dc-tie type="bool">0</dc-tie>

@@ -670,8 +670,18 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/overhead/csd-l-cover">
+			<input>/controls/electrical/covers/csd-l</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/overhead/csd-r">
 			<input>/controls/electrical/csd-r</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/csd-r-cover">
+			<input>/controls/electrical/covers/csd-r</input>
 			<c1>20</c1>
 		</lag_filter>
 		

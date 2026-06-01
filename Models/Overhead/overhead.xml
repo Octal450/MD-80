@@ -222,6 +222,71 @@
 	<!-- Electrical Panel Upper -->
 	<animation>
 		<type>rotate</type>
+		<object-name>CsdLCover</object-name>
+		<property>controls/cockpit/overhead/csd-l-cover</property>
+		<factor>-100</factor>
+		<center>
+			<x-m>0.00742</x-m>
+			<y-m>0</y-m>
+			<z-m>0.02002</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>CsdLCover</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/electrical/covers/csd-l</property>
+			</binding>
+			<binding>
+				<condition>
+					<and>
+						<equals>
+							<property>controls/electrical/covers/csd-l</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>controls/electrical/csd-l</property>
+							<value>0</value>
+						</equals>
+					</and>
+				</condition>
+				<command>nasal</command>
+				<script>core.Sound.switch1();</script>
+			</binding>
+			<binding>
+				<condition>
+					<and>
+						<equals>
+							<property>controls/electrical/covers/csd-l</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>controls/electrical/csd-l</property>
+							<value>0</value>
+						</equals>
+					</and>
+				</condition>
+				<command>property-assign</command>
+				<property>controls/electrical/csd-l</property>
+				<value>1</value>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
 		<object-name>CsdL</object-name>
 		<property>controls/cockpit/overhead/csd-l</property>
 		<interpolation>
@@ -249,12 +314,83 @@
 			<button>4</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<property>controls/electrical/covers/csd-l</property>
+				</condition>
 				<command>property-toggle</command>
 				<property>controls/electrical/csd-l</property>
 			</binding>
 			<binding>
+				<condition>
+					<property>controls/electrical/covers/csd-l</property>
+				</condition>
 				<command>nasal</command>
 				<script>core.Sound.switch1();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>CsdRCover</object-name>
+		<property>controls/cockpit/overhead/csd-r-cover</property>
+		<factor>-100</factor>
+		<center>
+			<x-m>0.00742</x-m>
+			<y-m>0</y-m>
+			<z-m>0.02002</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>CsdRCover</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/electrical/covers/csd-r</property>
+			</binding>
+			<binding>
+				<condition>
+					<and>
+						<equals>
+							<property>controls/electrical/covers/csd-r</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>controls/electrical/csd-r</property>
+							<value>0</value>
+						</equals>
+					</and>
+				</condition>
+				<command>nasal</command>
+				<script>core.Sound.switch1();</script>
+			</binding>
+			<binding>
+				<condition>
+					<and>
+						<equals>
+							<property>controls/electrical/covers/csd-r</property>
+							<value>0</value>
+						</equals>
+						<equals>
+							<property>controls/electrical/csd-r</property>
+							<value>0</value>
+						</equals>
+					</and>
+				</condition>
+				<command>property-assign</command>
+				<property>controls/electrical/csd-r</property>
+				<value>1</value>
 			</binding>
 		</action>
 	</animation>
@@ -288,10 +424,16 @@
 			<button>4</button>
 			<repeatable>false</repeatable>
 			<binding>
+				<condition>
+					<property>controls/electrical/covers/csd-r</property>
+				</condition>
 				<command>property-toggle</command>
 				<property>controls/electrical/csd-r</property>
 			</binding>
 			<binding>
+				<condition>
+					<property>controls/electrical/covers/csd-r</property>
+				</condition>
 				<command>nasal</command>
 				<script>core.Sound.switch1();</script>
 			</binding>
@@ -3871,6 +4013,26 @@
 	</animation>
 	
 	<!-- Rain Panel -->
+	<animation>
+		<type>rotate</type>
+		<object-name>RainRepellent</object-name>
+		<property>controls/cockpit/overhead/unused</property> <!-- Deactivated -->
+		<interpolation>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.00095</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.40392</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
 	<animation>
 		<type>knob</type>
 		<object-name>Wiper</object-name>

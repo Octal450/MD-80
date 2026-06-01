@@ -104,6 +104,10 @@ var ELECTRICAL = {
 		groundCart: props.globals.getNode("/controls/electrical/ground-cart"),
 		meters: props.globals.getNode("/controls/electrical/meters"),
 	},
+	Covers: {
+		csdL: props.globals.getNode("/controls/electrical/covers/csd-l"),
+		csdR: props.globals.getNode("/controls/electrical/covers/csd-r"),
+	},
 	Failures: {
 		acTie: props.globals.getNode("/systems/failures/electrical/ac-tie"),
 		apu: props.globals.getNode("/systems/failures/electrical/apu"),
@@ -137,6 +141,8 @@ var ELECTRICAL = {
 		me.Controls.genR.setValue(1);
 		me.Controls.groundCart.setBoolValue(0);
 		me.Controls.meters.setValue(2);
+		me.Covers.csdL.setBoolValue(0);
+		me.Covers.csdR.setBoolValue(0);
 		me.Source.Bat1.percent.setValue(99.9);
 		me.Source.Bat2.percent.setValue(99.9);
 	},
