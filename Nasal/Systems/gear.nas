@@ -5,6 +5,8 @@ var GEAR = {
 	allNorm: props.globals.getNode("/systems/gear/all-norm"),
 	cmd: props.globals.getNode("/systems/gear/cmd"),
 	Controls: {
+		antiSkid: props.globals.getNode("/controls/gear/anti-skid"),
+		antiSkidTest: props.globals.getNode("/controls/gear/anti-skid-test"),
 		brakeLeft: props.globals.getNode("/controls/gear/brake-left"),
 		brakeParking: props.globals.getNode("/controls/gear/brake-parking"),
 		brakeRight: props.globals.getNode("/controls/gear/brake-right"),
@@ -17,6 +19,8 @@ var GEAR = {
 	},
 	init: func() {
 		me.resetFailures();
+		me.Controls.antiSkid.setBoolValue(1);
+		me.Controls.antiSkidTest.setBoolValue(0);
 		me.Controls.brakeParking.setBoolValue(0);
 	},
 	resetFailures: func() {
