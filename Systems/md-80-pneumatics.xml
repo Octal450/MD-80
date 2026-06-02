@@ -330,10 +330,6 @@
 							<property>/systems/pneumatics/pack-l-cmd</property>
 							<value>1</value>
 						</eq>
-						<ge>
-							<property>/systems/electrical/bus/ac-l</property>
-							<value>112</value>
-						</ge>
 						<nq>
 							<property>/systems/failures/pneumatics/pack-l</property>
 							<value>1</value>
@@ -370,7 +366,6 @@
 			<default value="0"/>
 			<test logic="AND" value="12">
 				/systems/pneumatics/pack-l-valve-cmd gt 0
-				/systems/electrical/bus/ac-l ge 112
 				/systems/failures/pneumatics/pack-l ne 1
 			</test>
 		</switch>
@@ -411,10 +406,6 @@
 							<property>/systems/pneumatics/pack-r-cmd</property>
 							<value>1</value>
 						</eq>
-						<ge>
-							<property>/systems/electrical/bus/ac-r</property>
-							<value>112</value>
-						</ge>
 						<nq>
 							<property>/systems/failures/pneumatics/pack-r</property>
 							<value>1</value>
@@ -451,7 +442,6 @@
 			<default value="0"/>
 			<test logic="AND" value="12">
 				/systems/pneumatics/pack-r-valve-cmd gt 0
-				/systems/electrical/bus/ac-r ge 112
 				/systems/failures/pneumatics/pack-r ne 1
 			</test>
 		</switch>
