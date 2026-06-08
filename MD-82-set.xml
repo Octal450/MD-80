@@ -59,6 +59,7 @@
 	<options n="0">
 		<aux-tanks type="bool">0</aux-tanks>
 		<eng type="string">217A</eng>
+		<model-int type="int">2</model-int>
 		<panel-mod type="bool">0</panel-mod>
 	</options>
 	
