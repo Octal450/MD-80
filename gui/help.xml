@@ -91,6 +91,10 @@
 		<desc>Toggle MD-87 Firetank Salvo Drop</desc>
 	</key>
 	<key>
+		<name>SHIFT + L</name>
+		<desc>Open Load Manager</desc>
+	</key>
+	<key>
 		<name>SHIFT + P</name>
 		<desc>Open Performance Applet</desc>
 	</key>
@@ -114,8 +118,7 @@ Aircraft:
 * APU ECU Equipped: Equips the APU with an ECU with protections and adds the fast-response EGT gauge.
 * Armed Altitude as Flight Levels: Equips the aircraft with the optional feature to show flight level on the FMA.
 * Auto Arm Altitude: Equips the aircraft with the optional feature to automatically arm altitude.
-* Firetank Equipped: Equips the aircraft with the firefighting tank and system (MD-87 only).
-* Firetank Uses Water: Causes the firetank to be filled with water instead of fire retardant (MD-87 only).
+* Firetank Uses Water: Causes the firetank to be filled with water instead of fire retardant (MD-87 only, if equipped).
 * Rising Runway Equipped: Equips the PFD with the rising runway indication (EFIS panel only).
 
 Panel Configuration:

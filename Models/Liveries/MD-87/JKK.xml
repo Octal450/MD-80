@@ -22,5 +22,9 @@
 			</wing>
 		</model>
 	</sim>
+	
+	<options>
+		<firetank>0</firetank>
+	</options>
 
 </PropertyList>

@@ -503,7 +503,7 @@
 		<name>firetankctrl</name>
 		<path>Aircraft/MD-80/Models/Instruments/Firetank/firetankctrl.xml</path>
 		<condition>
-			<property>systems/acconfig/options/firetank</property>
+			<property>options/firetank</property>
 		</condition>
 		<offsets>
 			<x-m>2.18914</x-m>
@@ -517,7 +517,7 @@
 		<name>firetankctrl2</name>
 		<path>Aircraft/MD-80/Models/Instruments/Firetank/firetankctrl2.xml</path>
 		<condition>
-			<property>systems/acconfig/options/firetank</property>
+			<property>options/firetank</property>
 		</condition>
 		<offsets>
 			<x-m>2.265</x-m>

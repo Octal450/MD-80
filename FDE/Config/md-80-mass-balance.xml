@@ -54,7 +54,7 @@
 		</location>
 	</pointmass>
 	
-	<pointmass name="Nothing"> <!-- Various code expects 5 pointmasses -->
+	<pointmass name="Placeholder"> <!-- Various code expects 5 pointmasses -->
 		<weight unit="LBS">0</weight>
 		<location name="POINTMASS" unit="M">
 			<x>0</x>

@@ -118,13 +118,14 @@
 			<condition>
 				<or>
 					<not><property>/systems/firetank/loaded</property></not>
-					<not><property>/systems/acconfig/options/firetank</property></not>
+					<not><property>/options/firetank</property></not>
 				</or>
 			</condition>
 		</enable>
 		<gain>1.0</gain>
 		<input>0</input>
 		<output>/fdm/jsbsim/inertia/pointmass-weight-lbs[4]</output>
+		<output>/systems/load-manager/weight[4]</output>
 	</filter>
 	
 	<!-- Because overwriting from JSBSim doesn't work -->

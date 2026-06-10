@@ -97,6 +97,15 @@
 				</button>
 				<button>
 					<halign>center</halign>
+					<legend>Load Manager</legend>
+					<pref-width>140</pref-width>
+					<binding>
+						<command>dialog-show</command>
+						<dialog-name>load-manager</dialog-name>
+					</binding>
+				</button>
+				<button>
+					<halign>center</halign>
 					<legend>System Failures</legend>
 					<pref-width>140</pref-width>
 					<enable>
@@ -483,26 +492,9 @@
 			
 			<checkbox>
 				<enable>
-					<property>/systems/firetank/loaded</property>
-				</enable>
-				<label>Firetank Equipped</label>
-				<halign>left</halign>
-				<property>/systems/acconfig/options/firetank</property>
-				<binding>
-					<command>dialog-apply</command>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>acconfig.OPTIONS.write();</script>
-				</binding>
-				<live>true</live>
-			</checkbox>
-			
-			<checkbox>
-				<enable>
 					<and>
 						<property>/systems/firetank/loaded</property>
-						<property>/systems/acconfig/options/firetank</property>
+						<property>/options/firetank</property>
 					</and>
 				</enable>
 				<label>Firetank Uses Water</label>

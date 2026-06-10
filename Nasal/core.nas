@@ -60,6 +60,7 @@ var fdmInit = setlistener("/sim/signals/fdm-initialized", func() {
 	canvas_pfd.setup();
 	canvas_ht9100.setup();
 	canvas_fma.setup();
+	LoadManager.init();
 	acconfig.SYSTEM.finalInit();
 	settimer(func() { # Ensure it recomputes
 		cockpit.setAsiBugs(0);

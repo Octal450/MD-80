@@ -76,6 +76,13 @@
 						</binding>
 					</item>
 					<item>
+						<label>Load Manager</label>
+						<binding>
+							<command>dialog-show</command>
+							<dialog-name>load-manager</dialog-name>
+						</binding>
+					</item>
+					<item>
 						<label>System Failures</label>
 						<binding>
 							<command>dialog-show</command>
@@ -246,6 +253,7 @@
 		<multiplay n="0">
 			<generic n="0">
 				<bool n="0" alias="/services/chocks/enable"/>
+				<bool n="1" alias="/options/firetank"/>
 				<float n="0" alias="/gear/gear[0]/rollspeed-ms"/>
 				<float n="1" alias="/gear/gear[1]/rollspeed-ms"/>
 				<float n="2" alias="/gear/gear[2]/rollspeed-ms"/>
@@ -1124,6 +1132,14 @@
 					<script>systems.doFullThrust();</script>
 				</binding>
 			</key>
+			<key n="76">
+				<name>L</name>
+				<desc>Open Load Manager</desc>
+				<binding>
+					<command>nasal</command>
+					<script>core.LoadManager.openDialog();</script>
+				</binding>
+			</key>
 			<key n="80">
 				<name>P</name>
 				<desc>Open performance dialog</desc>
@@ -1558,6 +1574,10 @@
 		</sound>
 	</it-autoflight>
 	
+	<options n="0">
+		<firetank type="bool">0</firetank>
+	</options>
+	
 	<position n="0">
 		<wow type="bool">1</wow>
 	</position>
@@ -1622,11 +1642,11 @@
 				<edp-sdp type="bool">0</edp-sdp>
 				<efis type="bool">0</efis>
 				<eight-three-three-radios type="bool">0</eight-three-three-radios>
-				<firetank type="bool">0</firetank>
 				<firetank-water type="bool">0</firetank-water>
 				<flight-director type="string">Single Cue</flight-director>
 				<irs-aligns-instantly type="bool">0</irs-aligns-instantly>
 				<keyboard-mode type="bool">0</keyboard-mode>
+				<load-manager-pax-count type="bool">1</load-manager-pax-count>
 				<nav type="int">0</nav>
 				<rising-runway type="bool">1</rising-runway>
 				<separate-tiller-axis type="bool">0</separate-tiller-axis>
@@ -1778,6 +1798,26 @@
 			<sys-l-qty-input type="double">8</sys-l-qty-input> <!-- Randomized later in sim init -->
 			<sys-r-qty-input type="double">8</sys-r-qty-input> <!-- Randomized later in sim init -->
 		</hydraulics>
+		<load-manager n="0">
+			<pax n="0" type="int">0</pax>
+			<pax n="1" type="int">0</pax>
+			<tank-capacity n="0" type="int">0</tank-capacity>
+			<tank-capacity n="1" type="int">0</tank-capacity>
+			<tank-capacity n="2" type="int">0</tank-capacity>
+			<tank-capacity n="3" type="int">0</tank-capacity>
+			<tank-capacity n="4" type="int">0</tank-capacity>
+			<total-fuel-80 type="int">0</total-fuel-80>
+			<total-fuel-83 type="int">0</total-fuel-83>
+			<weight n="4" type="int">0</weight> <!-- Retardant tank -->
+			<weight-80 n="0" type="int">0</weight-80>
+			<weight-80 n="1" type="int">0</weight-80>
+			<weight-80 n="2" type="int">0</weight-80>
+			<weight-80 n="3" type="int">0</weight-80>
+			<weight-87 n="0" type="int">0</weight-87>
+			<weight-87 n="1" type="int">0</weight-87>
+			<weight-87 n="2" type="int">0</weight-87>
+			<weight-87 n="3" type="int">0</weight-87>
+		</load-manager>
 		<performance n="0">
 			<to-cg type="double">20</to-cg>
 			<to-flaps type="double">11</to-flaps>
@@ -1794,6 +1834,7 @@
 		<core>
 			<file>Aircraft/MD-80/Nasal/core.nas</file>
 			<file>Aircraft/MD-80/Nasal/hack-canvas.nas</file>
+			<file>Aircraft/MD-80/Nasal/load-manager.nas</file>
 			<file>Aircraft/MD-80/Nasal/thunder-effects.nas</file>
 			<file>Aircraft/MD-80/Nasal/view-controller.nas</file>
 			<file>Aircraft/MD-80/Models/Instruments/ND/ND.nas</file>

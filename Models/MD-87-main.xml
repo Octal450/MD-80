@@ -64,7 +64,7 @@
 		<name>FiretankModel</name>
 		<path>Aircraft/MD-80/Models/firetank.xml</path>
 		<condition>
-			<property>systems/acconfig/options/firetank</property>
+			<property>sim/multiplay/generic/bool[1]</property>
 		</condition>
 		<offsets>
 			<x-m>22.6</x-m>
@@ -77,7 +77,7 @@
 	<model>
 		<path>Aircraft/MD-80/Models/Effects/Firetank/retardantdrop1.xml</path>
 		<condition>
-			<property>systems/acconfig/options/firetank</property>
+			<property>sim/multiplay/generic/bool[1]</property>
 		</condition>
 		<offsets>
 			<x-m>18.4</x-m>
@@ -88,7 +88,7 @@
 	<model>
 		<path>Aircraft/MD-80/Models/Effects/Firetank/retardantdrop2.xml</path>
 		<condition>
-			<property>systems/acconfig/options/firetank</property>
+			<property>sim/multiplay/generic/bool[1]</property>
 		</condition>
 		<offsets>
 			<x-m>19.4</x-m>
@@ -99,7 +99,7 @@
 	<model>
 		<path>Aircraft/MD-80/Models/Effects/Firetank/retardantdrop3.xml</path>
 		<condition>
-			<property>systems/acconfig/options/firetank</property>
+			<property>sim/multiplay/generic/bool[1]</property>
 		</condition>
 		<offsets>
 			<x-m>20.4</x-m>

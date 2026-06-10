@@ -38,7 +38,7 @@ var FIRETANK = {
 		me.salvoDropCover.setBoolValue(0);
 	},
 	doorsUpdate: func() {
-		if (me.salvoDrop.getBoolValue() and me.dropArm.getBoolValue() and pts.Systems.Acconfig.Options.firetank.getBoolValue()) {
+		if (me.salvoDrop.getBoolValue() and me.dropArm.getBoolValue() and pts.Options.firetank.getBoolValue()) {
 			# Quantity is 0-3 = 1/8, 4-8 = 1/4, 9-14 = 1/5% 15-21 = full salvo
 			# 1/8 = 0=1, 1=2, 2=3, 3=4 sec
 			# 1/4 = 4=1, 5=2, 6=3, 7=4, 8=6 sec
@@ -46,7 +46,7 @@ var FIRETANK = {
 			# full salvo = 15=.5, 16=1, 17=2, 18=3, 19=4, 20=6, 21=8 sec
 			var quantity = me.distributionDial.getValue();
 			
-			if (pts.Systems.Acconfig.Options.firetankWater.getBoolValue()) {
+			if (pts.Options.firetankWater.getBoolValue()) {
 				me.redCombined.setValue(me.redDiffuse.getValue() * 0.95);
 				me.greenCombined.setValue(me.redDiffuse.getValue() * 0.98);
 				me.blueCombined.setValue(me.redDiffuse.getValue() * 1);
@@ -107,7 +107,7 @@ var FIRETANK = {
 	dropControl: func() {
 		me.hopperWeightTemp = me.hopperWeight.getValue();
 		
-		if (!pts.Systems.Acconfig.Options.firetank.getBoolValue()) {
+		if (!pts.Options.firetank.getBoolValue()) {
 			me.init();
 			return;
 		}

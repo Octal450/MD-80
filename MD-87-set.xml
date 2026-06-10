@@ -231,31 +231,31 @@
 			<name>Forward Cabin</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[0]"/>
 			<min-lb type="double">0</min-lb>
-			<max-lb type="double">15370</max-lb>
+			<max-lb type="double">11400</max-lb>
 		</weight>
 		<weight n="1">
 			<name>Aft Cabin</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[1]"/>
 			<min-lb type="double">0</min-lb>
-			<max-lb type="double">15185</max-lb>
+			<max-lb type="double">11200</max-lb>
 		</weight>
 		<weight n="2">
 			<name>Forward Cargo</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[2]"/>
 			<min-lb type="double">0</min-lb>
-			<max-lb type="double">10304</max-lb>
+			<max-lb type="double">7800</max-lb>
 		</weight>
 		<weight n="3">
 			<name>Aft Cargo</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[3]"/>
 			<min-lb type="double">0</min-lb>
-			<max-lb type="double">9619</max-lb>
+			<max-lb type="double">7000</max-lb>
 		</weight>
 		<weight n="4">
 			<name>Retardant Tank</name>
 			<weight-lb alias="/fdm/jsbsim/inertia/pointmass-weight-lbs[4]"/>
 			<min-lb type="double">0</min-lb>
-			<max-lb type="double">35480</max-lb> <!-- 6764.85 lb each blader -->
+			<max-lb type="double">33800</max-lb> <!-- 6760 lb each blader -->
 		</weight>
 	</payload>
 	

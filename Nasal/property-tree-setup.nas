@@ -4,6 +4,17 @@
 # Anything that says Temp is set by another file to avoid multiple getValue calls
 # Usage Example: pts.Class.SubClass.node.getValue()
 
+var Consumables = {
+	Fuel: {
+		Tank: {
+			capacityGalUs: [props.globals.getNode("/consumables/fuel/tank[0]/capacity-gal_us"), props.globals.getNode("/consumables/fuel/tank[1]/capacity-gal_us"), props.globals.getNode("/consumables/fuel/tank[2]/capacity-gal_us"), props.globals.getNode("/consumables/fuel/tank[3]/capacity-gal_us"), props.globals.getNode("/consumables/fuel/tank[4]/capacity-gal_us")],
+			densityPpg: [props.globals.getNode("/consumables/fuel/tank[0]/density-ppg"), props.globals.getNode("/consumables/fuel/tank[1]/density-ppg"), props.globals.getNode("/consumables/fuel/tank[2]/density-ppg"), props.globals.getNode("/consumables/fuel/tank[3]/density-ppg"), props.globals.getNode("/consumables/fuel/tank[4]/density-ppg")],
+			levelLbs: [props.globals.getNode("/consumables/fuel/tank[0]/level-lbs"), props.globals.getNode("/consumables/fuel/tank[1]/level-lbs"), props.globals.getNode("/consumables/fuel/tank[2]/level-lbs"), props.globals.getNode("/consumables/fuel/tank[3]/level-lbs"), props.globals.getNode("/consumables/fuel/tank[4]/level-lbs")],
+		},
+		totalFuelActual: props.globals.getNode("/consumables/fuel/total-fuel-actual"),
+	},
+};
+
 var Controls = {
 	Flight: {
 		aileronDrivesTiller: props.globals.getNode("/controls/flight/aileron-drives-tiller"),
@@ -157,9 +168,20 @@ var Instrumentation = {
 	},
 };
 
+var Options = {
+	firetank: props.globals.getNode("/options/firetank"),
+	modelInt: props.globals.getNode("/options/model-int"),
+};
+
 var Orientation = {
 	pitchDeg: props.globals.getNode("/orientation/pitch-deg"),
 	rollDeg: props.globals.getNode("/orientation/roll-deg"),
+};
+
+var Payload = {
+	Weight: {
+		weightLb: [props.globals.getNode("/payload/weight[0]/weight-lb"), props.globals.getNode("/payload/weight[1]/weight-lb"), props.globals.getNode("/payload/weight[2]/weight-lb"), props.globals.getNode("/payload/weight[3]/weight-lb"), props.globals.getNode("/payload/weight[4]/weight-lb")],
+	},
 };
 
 var Position = {
@@ -254,7 +276,6 @@ var Systems = {
 			dualCueFd: props.globals.getNode("/systems/acconfig/options/dual-cue-fd"),
 			edpSdp: props.globals.getNode("/systems/acconfig/options/edp-sdp"),
 			efis: props.globals.getNode("/systems/acconfig/options/efis"),
-			firetank: props.globals.getNode("/systems/acconfig/options/firetank"),
 			firetankWater: props.globals.getNode("/systems/acconfig/options/firetank-water"),
 			nav: props.globals.getNode("/systems/acconfig/options/nav"),
 			risingRunway: props.globals.getNode("/systems/acconfig/options/rising-runway"),

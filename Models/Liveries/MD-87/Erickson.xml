@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <PropertyList>
-
+	
 	<sim>
 		<model>
 			<livery>
@@ -22,5 +22,9 @@
 			</wing>
 		</model>
 	</sim>
+	
+	<options>
+		<firetank>1</firetank>
+	</options>
 
 </PropertyList>
