@@ -1724,7 +1724,7 @@
 								},
 								gwLbs: props.globals.getNode("/systems/load-manager/gw-lbs"),
 								gwLbsRound: 0,
-								modelInt: 0,
+								modelInt: pts.Options.modelInt.getValue(),
 								mtow: props.globals.getNode("/limits/mass-and-balance/maximum-takeoff-mass-lbs"),
 								mtowTemp: 0,
 								mzfw: props.globals.getNode("/limits/mass-and-balance/maximum-zero-fuel-mass-lbs"),
@@ -1760,7 +1760,6 @@
 								obj[key] = graphSvg.getElementById(key);
 							}
 							
-							Value.modelInt = pts.Options.modelInt.getValue();
 							if (Value.modelInt != 8) obj["Box88"].hide();
 							if (Value.modelInt != 7) obj["Box87"].hide();
 							if (Value.modelInt != 3) obj["Box83"].hide();
