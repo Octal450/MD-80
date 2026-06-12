@@ -587,6 +587,8 @@
 			<mins-rotate n="0" type="int">49984</mins-rotate> <!-- So the symbol is upright -->
 			<mins-rotate n="1" type="int">49984</mins-rotate> <!-- So the symbol is upright -->
 			<overhead n="0">
+				<csd-l-sw type="bool">0</csd-l-sw>
+				<csd-r-sw type="bool">0</csd-r-sw>
 				<wipers-held type="bool">0</wipers-held>
 			</overhead>
 			<transponder n="0">

@@ -128,8 +128,6 @@ var ELECTRICAL = {
 		me.Controls.apuPwrL.setBoolValue(0);
 		me.Controls.apuPwrR.setBoolValue(0);
 		me.Controls.battery.setBoolValue(0);
-		me.Controls.csdL.setBoolValue(1);
-		me.Controls.csdR.setBoolValue(1);
 		me.Controls.dcTie.setBoolValue(0);
 		me.Controls.emerPwr.setBoolValue(0);
 		me.Controls.extGndSvc.setBoolValue(0);

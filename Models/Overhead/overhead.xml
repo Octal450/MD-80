@@ -273,39 +273,6 @@
 				<command>property-toggle</command>
 				<property>controls/electrical/covers/csd-l</property>
 			</binding>
-			<binding>
-				<condition>
-					<and>
-						<equals>
-							<property>controls/electrical/covers/csd-l</property>
-							<value>0</value>
-						</equals>
-						<equals>
-							<property>controls/electrical/csd-l</property>
-							<value>0</value>
-						</equals>
-					</and>
-				</condition>
-				<command>nasal</command>
-				<script>core.Sound.switch1();</script>
-			</binding>
-			<binding>
-				<condition>
-					<and>
-						<equals>
-							<property>controls/electrical/covers/csd-l</property>
-							<value>0</value>
-						</equals>
-						<equals>
-							<property>controls/electrical/csd-l</property>
-							<value>0</value>
-						</equals>
-					</and>
-				</condition>
-				<command>property-assign</command>
-				<property>controls/electrical/csd-l</property>
-				<value>1</value>
-			</binding>
 		</action>
 	</animation>
 	
@@ -314,8 +281,8 @@
 		<object-name>CsdL</object-name>
 		<property>controls/cockpit/overhead/csd-l</property>
 		<interpolation>
-			<entry><ind>0</ind><dep>-30</dep></entry>
-			<entry><ind>1</ind><dep> 30</dep></entry>
+			<entry><ind>0</ind><dep> 30</dep></entry>
+			<entry><ind>1</ind><dep>-30</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.00095</x-m>
@@ -342,7 +309,15 @@
 					<property>controls/electrical/covers/csd-l</property>
 				</condition>
 				<command>property-toggle</command>
+				<property>controls/cockpit/overhead/csd-l-sw</property>
+			</binding>
+			<binding>
+				<condition>
+					<property>controls/electrical/covers/csd-l</property>
+				</condition>
+				<command>property-assign</command>
 				<property>controls/electrical/csd-l</property>
+				<value>0</value>
 			</binding>
 			<binding>
 				<condition>
@@ -351,6 +326,13 @@
 				<command>nasal</command>
 				<script>core.Sound.switch1();</script>
 			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/overhead/csd-l-sw</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
 	</animation>
 	
@@ -383,39 +365,6 @@
 				<command>property-toggle</command>
 				<property>controls/electrical/covers/csd-r</property>
 			</binding>
-			<binding>
-				<condition>
-					<and>
-						<equals>
-							<property>controls/electrical/covers/csd-r</property>
-							<value>0</value>
-						</equals>
-						<equals>
-							<property>controls/electrical/csd-r</property>
-							<value>0</value>
-						</equals>
-					</and>
-				</condition>
-				<command>nasal</command>
-				<script>core.Sound.switch1();</script>
-			</binding>
-			<binding>
-				<condition>
-					<and>
-						<equals>
-							<property>controls/electrical/covers/csd-r</property>
-							<value>0</value>
-						</equals>
-						<equals>
-							<property>controls/electrical/csd-r</property>
-							<value>0</value>
-						</equals>
-					</and>
-				</condition>
-				<command>property-assign</command>
-				<property>controls/electrical/csd-r</property>
-				<value>1</value>
-			</binding>
 		</action>
 	</animation>
 	
@@ -424,8 +373,8 @@
 		<object-name>CsdR</object-name>
 		<property>controls/cockpit/overhead/csd-r</property>
 		<interpolation>
-			<entry><ind>0</ind><dep>-30</dep></entry>
-			<entry><ind>1</ind><dep> 30</dep></entry>
+			<entry><ind>0</ind><dep> 30</dep></entry>
+			<entry><ind>1</ind><dep>-30</dep></entry>
 		</interpolation>
 		<center>
 			<x-m>-0.00095</x-m>
@@ -452,7 +401,15 @@
 					<property>controls/electrical/covers/csd-r</property>
 				</condition>
 				<command>property-toggle</command>
+				<property>controls/cockpit/overhead/csd-r-sw</property>
+			</binding>
+			<binding>
+				<condition>
+					<property>controls/electrical/covers/csd-r</property>
+				</condition>
+				<command>property-assign</command>
 				<property>controls/electrical/csd-r</property>
+				<value>0</value>
 			</binding>
 			<binding>
 				<condition>
@@ -461,6 +418,13 @@
 				<command>nasal</command>
 				<script>core.Sound.switch1();</script>
 			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/cockpit/overhead/csd-r-sw</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
 	</animation>
 	

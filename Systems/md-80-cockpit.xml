@@ -676,7 +676,7 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/csd-l">
-			<input>/controls/electrical/csd-l</input>
+			<input>/controls/cockpit/overhead/csd-l-sw</input>
 			<c1>20</c1>
 		</lag_filter>
 		
@@ -686,7 +686,7 @@
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/csd-r">
-			<input>/controls/electrical/csd-r</input>
+			<input>/controls/cockpit/overhead/csd-r-sw</input>
 			<c1>20</c1>
 		</lag_filter>
 		
