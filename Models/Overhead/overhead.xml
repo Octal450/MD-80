@@ -166,6 +166,36 @@
 	
 	<!-- Ground Service Panel -->
 	<animation>
+		<type>select</type>
+		<object-name>ApuGndSvcLightOff</object-name>
+		<condition>
+			<not><property>systems/electrical/lights/apu-gndsvc</property></not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ApuGndSvcLightOn</object-name>
+		<condition>
+			<property>systems/electrical/lights/apu-gndsvc</property>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>ExtGndSvcLightOff</object-name>
+		<condition>
+			<not><property>systems/electrical/lights/ext-gndsvc</property></not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>ExtGndSvcLightOn</object-name>
+		<condition>
+			<property>systems/electrical/lights/ext-gndsvc</property>
+		</condition>
+	</animation>
+	
+	<animation>
 		<type>rotate</type>
 		<object-name>ApuPwrGndSvc</object-name>
 		<property>controls/cockpit/overhead/apu-pwr-gndsvc</property>

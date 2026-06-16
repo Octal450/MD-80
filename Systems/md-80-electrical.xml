@@ -1453,6 +1453,17 @@
 			</test>
 		</switch>
 		
+		<switch name="/systems/electrical/lights/apu-gndsvc">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/dc-bat ge 24
+				<test logic="OR">
+					/systems/electrical/relay/apu-ac-gndsvc/contact-final eq 1
+					/controls/switches/annun-test eq 1
+				</test>
+			</test>
+		</switch>
+		
 		<switch name="/systems/electrical/lights/apu-bus-l">
 			<default value="0"/>
 			<test logic="AND" value="1">
@@ -1470,6 +1481,17 @@
 				/systems/electrical/bus/dc-bat ge 24
 				<test logic="OR">
 					/systems/electrical/relay/apu-ac-gen-r/contact-final eq 1
+					/controls/switches/annun-test eq 1
+				</test>
+			</test>
+		</switch>
+		
+		<switch name="/systems/electrical/lights/ext-gndsvc">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/electrical/bus/dc-bat ge 24
+				<test logic="OR">
+					/systems/electrical/relay/ext-ac-gndsvc/contact-final eq 1
 					/controls/switches/annun-test eq 1
 				</test>
 			</test>
