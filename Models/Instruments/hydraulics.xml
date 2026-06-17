@@ -18,11 +18,9 @@
 	</animation>
 	
 	<animation>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>TransCover</object-name>
 		<property>controls/cockpit/hyd-trans-cover</property>
-		<drag-direction>vertical</drag-direction>
-		<drag-scale-px>15</drag-scale-px>
 		<factor>-100</factor>
 		<center>
 			<x-m>0.00853</x-m>
@@ -34,32 +32,48 @@
 			<y>1</y>
 			<z>0</z>
 		</axis>
-		<increase>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>TransCover</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>property-assign</command>
+				<command>property-toggle</command>
 				<property>controls/hydraulics/covers/trans</property>
-				<value>1</value>
 			</binding>
-		</increase>
-		<decrease>
 			<binding>
 				<condition>
-					<property>controls/hydraulics/trans</property>
+					<and>
+						<equals>
+							<property>controls/hydraulics/covers/trans</property>
+							<value>0</value>
+						</equals>
+						<property>controls/hydraulics/trans</property>
+					</and>
 				</condition>
 				<command>nasal</command>
 				<script>core.Sound.switch1();</script>
 			</binding>
 			<binding>
+				<condition>
+					<and>
+						<equals>
+							<property>controls/hydraulics/covers/trans</property>
+							<value>0</value>
+						</equals>
+						<property>controls/hydraulics/trans</property>
+					</and>
+				</condition>
 				<command>property-assign</command>
 				<property>controls/hydraulics/trans</property>
 				<value>0</value>
 			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/hydraulics/covers/trans</property>
-				<value>0</value>
-			</binding>
-		</decrease>
+		</action>
 	</animation>
 	
 	<animation>
