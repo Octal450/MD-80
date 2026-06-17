@@ -316,7 +316,7 @@ var PANEL = {
 		systems.IRS.Controls.knob[0].setValue(1);
 		systems.IRS.Controls.knob[1].setValue(1);
 		pts.Controls.Lighting.beacon.setBoolValue(1);
-		pts.Controls.Lighting.positionStrobeLight.setValue(0.5);
+		pts.Controls.Lighting.positionStrobeLights.setValue(0.5);
 		pts.Controls.Switches.seatbeltSign.setValue(1);
 		
 		systems.IGNITION.fastStop(0);
@@ -379,7 +379,7 @@ var PANEL = {
 		systems.IRS.Controls.knob[0].setValue(1);
 		systems.IRS.Controls.knob[1].setValue(1);
 		pts.Controls.Lighting.beacon.setBoolValue(1);
-		pts.Controls.Lighting.positionStrobeLight.setValue(0.5);
+		pts.Controls.Lighting.positionStrobeLights.setValue(0.5);
 		pts.Controls.Switches.seatbeltSign.setValue(1);
 		systems.FUEL.Controls.aftPumpL.setBoolValue(1);
 		systems.FUEL.Controls.aftPumpR.setBoolValue(1);
@@ -448,7 +448,7 @@ var PANEL = {
 				}, 0.25);
 				
 				if (t == 1) {
-					pts.Controls.Lighting.positionStrobeLight.setValue(1);
+					pts.Controls.Lighting.positionStrobeLights.setValue(1);
 					pts.Controls.Lighting.landingLightL.setValue(1);
 					pts.Controls.Lighting.landingLightN.setValue(1);
 					pts.Controls.Lighting.landingLightR.setValue(1);
