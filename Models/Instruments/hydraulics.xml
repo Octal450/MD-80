@@ -105,10 +105,14 @@
 			<button>4</button>
 			<repeatable>false</repeatable>
 			<binding>
-				<command>property-cycle</command>
+				<condition>
+					<equals>
+						<property>controls/hydraulics/covers/trans</property>
+						<value>1</value>
+					</equals>
+				</condition>
+				<command>property-toggle</command>
 				<property>controls/hydraulics/trans</property>
-				<value>0</value>
-				<value>1</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
