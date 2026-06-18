@@ -1521,25 +1521,15 @@
 	</animation>
 	<animation>
 		<type>pick</type>
-		<object-name>ApuMaster</object-name>
+		<object-name>ApuMaster.dn</object-name>
+		<visible>false</visible>
 		<action>
 			<button>0</button>
+			<button>1</button>
+			<button>3</button>
 			<button>4</button>
 			<repeatable>false</repeatable>
 			<binding>
-				<condition>
-					<not><property>devices/status/keyboard/shift</property></not>
-				</condition>
-				<command>property-cycle</command>
-				<property>controls/apu/master</property>
-				<value>0</value>
-				<value>1</value>
-				<value>2</value>
-			</binding>
-			<binding>
-				<condition>
-					<property>devices/status/keyboard/shift</property>
-				</condition>
 				<command>property-cycle</command>
 				<property>controls/apu/master</property>
 				<value>1</value>
@@ -1549,17 +1539,28 @@
 				<command>nasal</command>
 				<script>core.Sound.switch1();</script>
 			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>ApuMaster.up</object-name>
+		<visible>false</visible>
+		<action>
+			<button>0</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/apu/master</property>
+				<value>0</value>
+				<value>1</value>
+				<value>2</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>core.Sound.switch1();</script>
+			</binding>
 			<mod-up>
-				<binding>
-					<condition>
-						<equals>
-							<property>controls/apu/master</property>
-							<value>2</value>
-						</equals>
-					</condition>
-					<command>nasal</command>
-					<script>core.Sound.switch1();</script>
-				</binding>
 				<binding>
 					<condition>
 						<equals>
