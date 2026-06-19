@@ -514,16 +514,6 @@
 							<value>-1</value>
 						</equals>
 					</condition>
-					<command>nasal</command>
-					<script>core.Sound.switch1();</script>
-				</binding>
-				<binding>
-					<condition>
-						<equals>
-							<property>controls/electrical/gen-l</property>
-							<value>-1</value>
-						</equals>
-					</condition>
 					<command>property-assign</command>
 					<property>controls/electrical/gen-l</property>
 					<value>0</value>
@@ -545,16 +535,6 @@
 				<script>core.Sound.switch1();</script>
 			</binding>
 			<mod-up>
-				<binding>
-					<condition>
-						<equals>
-							<property>controls/electrical/gen-l</property>
-							<value>-1</value>
-						</equals>
-					</condition>
-					<command>nasal</command>
-					<script>core.Sound.switch1();</script>
-				</binding>
 				<binding>
 					<condition>
 						<equals>
@@ -665,16 +645,6 @@
 							<value>-1</value>
 						</equals>
 					</condition>
-					<command>nasal</command>
-					<script>core.Sound.switch1();</script>
-				</binding>
-				<binding>
-					<condition>
-						<equals>
-							<property>controls/electrical/gen-r</property>
-							<value>-1</value>
-						</equals>
-					</condition>
 					<command>property-assign</command>
 					<property>controls/electrical/gen-r</property>
 					<value>0</value>
@@ -696,16 +666,6 @@
 				<script>core.Sound.switch1();</script>
 			</binding>
 			<mod-up>
-				<binding>
-					<condition>
-						<equals>
-							<property>controls/electrical/gen-r</property>
-							<value>-1</value>
-						</equals>
-					</condition>
-					<command>nasal</command>
-					<script>core.Sound.switch1();</script>
-				</binding>
 				<binding>
 					<condition>
 						<equals>
