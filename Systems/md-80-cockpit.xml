@@ -589,11 +589,6 @@
 			<c1>20</c1>
 		</lag_filter>
 		
-		<lag_filter name="/controls/cockpit/overhead/apu-bleed">
-			<input>/controls/pneumatics/bleed-apu</input>
-			<c1>20</c1>
-		</lag_filter>
-		
 		<lag_filter name="/controls/cockpit/overhead/apu-gen">
 			<input>/controls/electrical/gen-apu</input>
 			<c1>20</c1>
@@ -663,6 +658,11 @@
 			<input>/controls/cockpit/overhead/battery-in</input>
 			<c1>20</c1>
 			<output>/controls/cockpit/overhead/battery-out</output>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/bleed-apu">
+			<input>/controls/pneumatics/bleed-apu</input>
+			<c1>20</c1>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/overhead/cabin-temp">

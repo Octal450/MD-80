@@ -1447,7 +1447,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>ApuBleed</object-name>
-		<property>controls/cockpit/overhead/apu-bleed</property>
+		<property>controls/cockpit/overhead/bleed-apu</property>
 		<interpolation>
 			<entry><ind>0</ind><dep>-30</dep></entry>
 			<entry><ind>2</ind><dep> 30</dep></entry>
