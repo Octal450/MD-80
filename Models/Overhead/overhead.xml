@@ -479,26 +479,16 @@
 	</animation>
 	<animation>
 		<type>pick</type>
-		<object-name>EngGenL</object-name>
+		<object-name>EngGenL.dn</object-name>
+		<visible>false</visible>
 		<action>
 			<button>0</button>
 			<button>4</button>
 			<repeatable>false</repeatable>
 			<binding>
-				<condition>
-					<not><property>devices/status/keyboard/shift</property></not>
-				</condition>
 				<command>property-cycle</command>
 				<property>controls/electrical/gen-l</property>
-				<value>0</value>
 				<value>1</value>
-			</binding>
-			<binding>
-				<condition>
-					<property>devices/status/keyboard/shift</property>
-				</condition>
-				<command>property-cycle</command>
-				<property>controls/electrical/gen-l</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -528,25 +518,34 @@
 				<command>property-cycle</command>
 				<property>controls/electrical/gen-l</property>
 				<value>0</value>
-				<value>-1</value>
+				<value>1</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
 				<script>core.Sound.switch1();</script>
 			</binding>
-			<mod-up>
-				<binding>
-					<condition>
-						<equals>
-							<property>controls/electrical/gen-l</property>
-							<value>-1</value>
-						</equals>
-					</condition>
-					<command>property-assign</command>
-					<property>controls/electrical/gen-l</property>
-					<value>0</value>
-				</binding>
-			</mod-up>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>EngGenL.up</object-name>
+		<visible>false</visible>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/electrical/gen-l</property>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>core.Sound.switch1();</script>
+			</binding>
 		</action>
 	</animation>
 	
@@ -610,26 +609,16 @@
 	</animation>
 	<animation>
 		<type>pick</type>
-		<object-name>EngGenR</object-name>
+		<object-name>EngGenR.dn</object-name>
+		<visible>false</visible>
 		<action>
 			<button>0</button>
 			<button>4</button>
 			<repeatable>false</repeatable>
 			<binding>
-				<condition>
-					<not><property>devices/status/keyboard/shift</property></not>
-				</condition>
 				<command>property-cycle</command>
 				<property>controls/electrical/gen-r</property>
-				<value>0</value>
 				<value>1</value>
-			</binding>
-			<binding>
-				<condition>
-					<property>devices/status/keyboard/shift</property>
-				</condition>
-				<command>property-cycle</command>
-				<property>controls/electrical/gen-r</property>
 				<value>0</value>
 				<value>-1</value>
 			</binding>
@@ -659,25 +648,34 @@
 				<command>property-cycle</command>
 				<property>controls/electrical/gen-r</property>
 				<value>0</value>
-				<value>-1</value>
+				<value>1</value>
 			</binding>
 			<binding>
 				<command>nasal</command>
 				<script>core.Sound.switch1();</script>
 			</binding>
-			<mod-up>
-				<binding>
-					<condition>
-						<equals>
-							<property>controls/electrical/gen-r</property>
-							<value>-1</value>
-						</equals>
-					</condition>
-					<command>property-assign</command>
-					<property>controls/electrical/gen-r</property>
-					<value>0</value>
-				</binding>
-			</mod-up>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>EngGenR.up</object-name>
+		<visible>false</visible>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-cycle</command>
+				<property>controls/electrical/gen-r</property>
+				<value>0</value>
+				<value>1</value>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>core.Sound.switch1();</script>
+			</binding>
 		</action>
 	</animation>
 	
