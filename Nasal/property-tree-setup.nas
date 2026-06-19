@@ -150,6 +150,14 @@ var Instrumentation = {
 		middle: props.globals.getNode("/instrumentation/marker-beacon/middle"),
 		outer: props.globals.getNode("/instrumentation/marker-beacon/outer"),
 	},
+	MkViii: {
+		Inputs: {
+			Discretes: {
+				momentaryFlapOverride: props.globals.getNode("/instrumentation/mk-viii/inputs/discretes/momentary-flap-override"),
+				selfTest: props.globals.getNode("/instrumentation/mk-viii/inputs/discretes/self-test"),
+			},
+		},
+	},
 	Nav: {
 		Frequencies: {
 			selectedMhz: [props.globals.getNode("/instrumentation/nav[0]/frequencies/selected-mhz"), props.globals.getNode("/instrumentation/nav[1]/frequencies/selected-mhz")],

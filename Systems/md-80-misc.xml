@@ -90,22 +90,6 @@
 			</test>
 		</switch>
 		
-		<switch name="/instrumentation/mk-viii/inputs/discretes/audio-inhibit-tie">
-			<default value="0"/>
-			<test value="1">
-				/controls/switches/gpws eq -1
-			</test>
-			<output>/instrumentation/mk-viii/inputs/discretes/audio-inhibit</output>
-		</switch>
-		
-		<switch name="/instrumentation/mk-viii/inputs/discretes/self-test-tie">
-			<default value="0"/>
-			<test value="1">
-				/controls/switches/gpws eq 1
-			</test>
-			<output>/instrumentation/mk-viii/inputs/discretes/self-test</output>
-		</switch>
-		
 		<switch name="/systems/misc/heater-cur"> <!-- Pretends to be Pitot/Static/etc heaters -->
 			<default value="0"/>
 			<test logic="AND" value="4.3"> <!-- Pitot Capt -->
