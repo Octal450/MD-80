@@ -2466,12 +2466,12 @@ refs 4
 3 0.820312 0.910156
 kids 0
 OBJECT group
-name "tri"
-loc -5.06006e-05 0 5.7742e-10
+name "trp"
+loc -5.06006e-05 0 0
 kids 2
 OBJECT poly
 name "box"
-loc 0 0 -4.5076e-09
+loc 0 0 -3.72529e-09
 data 12
 box.mesh.001
 texture "trp.png"

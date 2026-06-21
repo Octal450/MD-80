@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2026 Josh Davidson (Octal450) -->
+
+<PropertyList>
+	
+	<path>trp.ac</path>
+	
+	<effect>
+		<inherits-from>Effects/model-transparent</inherits-from>
+		<object-name>clOn</object-name>
+		<object-name>crOn</object-name>
+		<object-name>flxOn</object-name>
+		<object-name>gaOn</object-name>
+		<object-name>mctOn</object-name>
+		<object-name>NoMode</object-name>
+		<object-name>Text</object-name>
+		<object-name>toOn</object-name>
+	</effect>
+	
+	<animation>
+		<type>select</type>
+		<object-name>clOn</object-name>
+		<object-name>crOn</object-name>
+		<object-name>flxOn</object-name>
+		<object-name>gaOn</object-name>
+		<object-name>mctOn</object-name>
+		<object-name>NoMode</object-name>
+		<object-name>toOn</object-name>
+		<condition>
+			<equals>
+				<property>systems/dfgs/power-avail</property>
+				<value>1</value>
+			</equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>NoMode</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>systems/engines/limit/active-mode-int</property>
+					<value>-1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+</PropertyList>

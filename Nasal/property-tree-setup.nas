@@ -276,6 +276,7 @@ var Systems = {
 			afms: props.globals.getNode("/systems/acconfig/options/afms"),
 			armedAltAsFl: props.globals.getNode("/systems/acconfig/options/armed-alt-as-fl"),
 			autoArmAlt: props.globals.getNode("/systems/acconfig/options/auto-arm-alt"),
+			combinedStandby: props.globals.getNode("/systems/acconfig/options/combined-standby"),
 			Du: {
 				mcduFps: props.globals.getNode("/systems/acconfig/options/du/mcdu-fps"),
 				ndFps: props.globals.getNode("/systems/acconfig/options/du/nd-fps"),

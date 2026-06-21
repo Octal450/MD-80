@@ -580,8 +580,7 @@
 			
 			<checkbox>
 				<enable>
-					<!--property>/systems/acconfig/options/efis</property-->
-					<property>/systems/acconfig/unused</property>
+					<property>/systems/acconfig/options/efis</property>
 				</enable>
 				<label>EDP &amp; SDP Equipped</label>
 				<halign>left</halign>

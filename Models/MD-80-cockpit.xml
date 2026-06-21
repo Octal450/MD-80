@@ -1600,16 +1600,29 @@
 	<!-- Select Slat/FU stuff -->
 	<animation>
 		<type>select</type>
+		<object-name>SlatLights</object-name>
+		<condition>
+			<not><property>systems/acconfig/options/edp-sdp</property></not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
 		<object-name>SlatFuGroup</object-name>
 		<condition>
-			<not><property>options/panel-mod</property></not>
+			<and>
+				<not><property>options/panel-mod</property></not>
+				<not><property>systems/acconfig/options/edp-sdp</property></not>
+			</and>
 		</condition>
 	</animation>
 	<animation>
 		<type>select</type>
 		<object-name>FuGroup</object-name>
 		<condition>
-			<property>options/panel-mod</property>
+			<and>
+				<property>options/panel-mod</property>
+				<not><property>systems/acconfig/options/edp-sdp</property></not>
+			</and>
 		</condition>
 	</animation>
 	<animation>
@@ -1780,8 +1793,15 @@
 	<animation>
 		<type>translate</type>
 		<object-name>ARTGroup</object-name>
-		<property>options/panel-mod</property>
-		<factor>-0.152</factor>
+		<expression>
+			<product>
+				<max>
+					<property>options/panel-mod</property>
+					<property>systems/acconfig/options/edp-sdp</property>
+				</max>
+				<value>-0.152</value>
+			</product>
+		</expression>
 		<axis>
 			<x>0</x>
 			<y>1</y>
