@@ -247,6 +247,9 @@
 	<model>
 		<name>stbycombo</name>
 		<path>Aircraft/MD-80/Models/Instruments/stbycombo.xml</path>
+		<condition>
+			<not><property>systems/acconfig/options/edp-sdp</property></not>
+		</condition>
 		<offsets>
 			<x-m>2.248</x-m>
 			<y-m>-0.295</y-m>
@@ -328,6 +331,46 @@
 	</model>
 	
 	<!-- Center Panel -->
+	<animation>
+		<type>select</type>
+		<object-name>assumedtemp</object-name>
+		<object-name>egtL</object-name>
+		<object-name>egtR</object-name>
+		<object-name>eprL</object-name>
+		<object-name>eprR</object-name>
+		<object-name>flaps</object-name>
+		<object-name>ft</object-name>
+		<object-name>fuelflowL</object-name>
+		<object-name>fuelflowR</object-name>
+		<object-name>hydpressL</object-name>
+		<object-name>hydpressR</object-name>
+		<object-name>hydqtyL</object-name>
+		<object-name>hydqtyR</object-name>
+		<object-name>n1L</object-name>
+		<object-name>n1R</object-name>
+		<object-name>n2L</object-name>
+		<object-name>n2R</object-name>
+		<object-name>opL</object-name>
+		<object-name>opR</object-name>
+		<object-name>oqL</object-name>
+		<object-name>oqR</object-name>
+		<object-name>otL</object-name>
+		<object-name>otR</object-name>
+		<object-name>revthrust_indicators</object-name>
+		<object-name>tri</object-name>
+		<condition>
+			<not><property>systems/acconfig/options/edp-sdp</property></not>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>edpsdp</object-name>
+		<object-name>trp</object-name>
+		<condition>
+			<property>systems/acconfig/options/edp-sdp</property>
+		</condition>
+	</animation>
+	
 	<model>
 		<name>stbyai</name>
 		<path>Aircraft/MD-80/Models/Instruments/stbyai.xml</path>
@@ -335,6 +378,42 @@
 			<x-m>2.2195</x-m>
 			<y-m>-0.19</y-m>
 			<z-m>0.916</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	<animation>
+		<type>translate</type>
+		<object-name>stbyai</object-name>
+		<property>systems/acconfig/options/edp-sdp</property>
+		<factor>0.01</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<model>
+		<name>stbycombo</name>
+		<path>Aircraft/MD-80/Models/Instruments/stbycombo.xml</path>
+		<condition>
+			<property>systems/acconfig/options/edp-sdp</property>
+		</condition>
+		<offsets>
+			<x-m>2.2355</x-m>
+			<y-m>-0.18</y-m>
+			<z-m>0.823</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>edpsdp</name>
+		<path>Aircraft/MD-80/Models/Instruments/EDP-SDP/EDP-SDP.xml</path>
+		<offsets>
+			<x-m>2.23</x-m>
+			<y-m>-0.023</y-m>
+			<z-m>0.875</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
@@ -349,6 +428,17 @@
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
+	<animation>
+		<type>translate</type>
+		<object-name>fuel</object-name>
+		<property>systems/acconfig/options/edp-sdp</property>
+		<factor>0.323</factor>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
 	
 	<model>
 		<name>tri</name>
@@ -639,6 +729,17 @@
 			<x-m>2.264</x-m>
 			<y-m>0.326</y-m>
 			<z-m>0.69</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<name>trp</name>
+		<path>Aircraft/MD-80/Models/Instruments/TRP/trp.xml</path>
+		<offsets>
+			<x-m>2.217</x-m>
+			<y-m>0.165</y-m>
+			<z-m>0.92</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>
 	</model>
