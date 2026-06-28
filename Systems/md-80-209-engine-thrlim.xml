@@ -867,7 +867,7 @@
 					<table>
 						<independentVar lookup="row">/controls/engines/engine[0]/throttle</independentVar>
 						<tableData>
-							0.05  0.00
+							0.00  0.00
 							1.00  0.72
 						</tableData>
 					</table>
@@ -883,7 +883,7 @@
 					<table>
 						<independentVar lookup="row">/controls/engines/engine[0]/throttle</independentVar>
 						<tableData>
-							0.05  0.25
+							0.00  0.25
 							1.00  1.00
 						</tableData>
 					</table>
@@ -929,7 +929,7 @@
 					<table>
 						<independentVar lookup="row">/controls/engines/engine[1]/throttle</independentVar>
 						<tableData>
-							0.05  0.00
+							0.00  0.00
 							1.00  0.72
 						</tableData>
 					</table>
@@ -945,7 +945,7 @@
 					<table>
 						<independentVar lookup="row">/controls/engines/engine[1]/throttle</independentVar>
 						<tableData>
-							0.05  0.25
+							0.00  0.25
 							1.00  1.00
 						</tableData>
 					</table>
