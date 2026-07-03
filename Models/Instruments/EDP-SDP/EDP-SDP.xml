@@ -7,8 +7,7 @@
 	<path>EDP-SDP.ac</path>
 	
     <effect>
-		<object-name>EDP.Decals</object-name>
-		<object-name>SDP.Decals</object-name>
+		<object-name>EDPSDP.Decals</object-name>
         <inherits-from>Effects/model-transparent</inherits-from>
     </effect>
 

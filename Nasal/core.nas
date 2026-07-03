@@ -58,8 +58,9 @@ var fdmInit = setlistener("/sim/signals/fdm-initialized", func() {
 	systemsLoop.start();
 	slowLoop.start();
 	canvas_pfd.setup();
-	canvas_ht9100.setup();
 	canvas_fma.setup();
+	canvas_edpsdp.setup();
+	canvas_ht9100.setup();
 	LoadManager.init();
 	acconfig.SYSTEM.finalInit();
 	settimer(func() { # Ensure it recomputes

@@ -1886,6 +1886,9 @@
 		<canvas_fma>
 			<file>Aircraft/MD-80/Nasal/Instruments/fma.nas</file>
 		</canvas_fma>
+		<canvas_edpsdp>
+			<file>Aircraft/MD-80/Nasal/Instruments/edp-sdp.nas</file>
+		</canvas_edpsdp>
 		<canvas_ht9100>
 			<file>Aircraft/MD-80/Nasal/Displays/HT9100.nas</file>
 		</canvas_ht9100>
