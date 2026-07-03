@@ -359,6 +359,20 @@
 			</group>
 			
 			<checkbox>
+				<label>Aileron Drives Tiller</label>
+				<halign>left</halign>
+				<property>/systems/acconfig/options/aileron-drives-tiller</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>acconfig.OPTIONS.write();</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
 				<enable>
 					<property>systems/acconfig/options/nav</property>
 				</enable>

@@ -666,7 +666,6 @@
 			<yaw-damper type="int">1</yaw-damper>
 		</fcs>
 		<flight n="0">
-			<aileron-drives-tiller type="bool">0</aileron-drives-tiller>
 			<alt-elevator-trim-lever type="int">0</alt-elevator-trim-lever>
 			<dial-a-flap type="double">-1</dial-a-flap> <!-- Rounded in md-80-fcs.xml -->
 			<elevator-trim type="double">-0.24</elevator-trim> <!-- About 3.0ANU -->
@@ -1627,6 +1626,7 @@
 		<acconfig n="0">
 			<autoconfig-running type="bool">0</autoconfig-running>
 			<options n="0">
+				<aileron-drives-tiller type="bool">0</aileron-drives-tiller>
 				<apu-ecu type="bool">1</apu-ecu>
 				<armed-alt-as-fl type="bool">1</armed-alt-as-fl>
 				<auto-arm-alt type="bool">1</auto-arm-alt>

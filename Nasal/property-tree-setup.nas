@@ -17,7 +17,6 @@ var Consumables = {
 
 var Controls = {
 	Flight: {
-		aileronDrivesTiller: props.globals.getNode("/controls/flight/aileron-drives-tiller"),
 		aileronTrim: props.globals.getNode("/controls/flight/aileron-trim"),
 		autoCoordination: props.globals.getNode("/controls/flight/auto-coordination", 1),
 		dialAFlap: props.globals.getNode("/controls/flight/dial-a-flap"),
