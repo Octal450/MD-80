@@ -94,9 +94,13 @@
 				<name>FUEL QUANTITY</name>
 				<value>CHECKED</value>
 			</item>
-			<item>
+			<!--item> Not implemented yet
 				<name>BRAKES/BRAKE TEMPS</name>
 				<value>SET, CHECKED</value>
+			</item-->
+			<item>
+				<name>BRAKES</name>
+				<value>SET</value>
 			</item>
 			<item>
 				<name>TAKEOFF WARNING</name>
