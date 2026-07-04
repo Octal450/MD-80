@@ -597,6 +597,9 @@
 				<minor-rotate-l type="int">50000</minor-rotate-l>
 				<minor-rotate-r type="int">50000</minor-rotate-r>
 			</transponder>
+			<trp n="0">
+				<assumed-temp-rotate type="int">50000</assumed-temp-rotate>
+			</trp>
 		</cockpit>
 		<dfgs n="0">
 			<art type="bool">1</art>

@@ -1737,9 +1737,12 @@
 		<object-name>Slat.Takeoff</object-name>
 		<condition>
 			<or>
-				<property>controls/switches/annun-test</property>
 				<equals>
 					<property>instrumentation/flap-slat/slat</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
 					<value>1</value>
 				</equals>
 			</or>
@@ -1750,7 +1753,6 @@
 		<object-name>Slat.Disag</object-name>
 		<condition>
 			<or>
-				<property>controls/switches/annun-test</property>
 				<equals>
 					<property>instrumentation/flap-slat/slat</property>
 					<value>2</value>
@@ -1758,6 +1760,10 @@
 				<equals>
 					<property>instrumentation/flap-slat/slat</property>
 					<value>3</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
 				</equals>
 			</or>
 		</condition>
@@ -1767,10 +1773,13 @@
 		<object-name>Slat.Auto</object-name>
 		<condition>
 			<or>
-				<property>controls/switches/annun-test</property>
 				<equals>
 					<property>instrumentation/flap-slat/slat</property>
 					<value>3</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
 				</equals>
 			</or>
 		</condition>
@@ -1780,10 +1789,13 @@
 		<object-name>Slat.Land</object-name>
 		<condition>
 			<or>
-				<property>controls/switches/annun-test</property>
 				<equals>
 					<property>instrumentation/flap-slat/slat</property>
 					<value>4</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
 				</equals>
 			</or>
 		</condition>
