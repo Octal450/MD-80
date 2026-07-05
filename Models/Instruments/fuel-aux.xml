@@ -66,7 +66,7 @@
 		<format>%05d</format>
 		<property>systems/fuel/tank-aux-fwd-lbs</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -90,7 +90,7 @@
 		<format>%02.0f</format>
 		<property>systems/fuel/tank-aux-aft-lbs</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>

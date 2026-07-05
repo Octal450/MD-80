@@ -343,7 +343,7 @@
 		<format>%5.0f</format>
 		<property>systems/firetank/tank-lbs</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>MD80FGCP7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>

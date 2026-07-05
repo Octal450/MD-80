@@ -1665,7 +1665,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>V</text>
-		<font>Std16SegCustom.ttf</font>
+		<font>MD80FGCP16Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -1686,7 +1686,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>P</text>
-		<font>Std16SegCustom.ttf</font>
+		<font>MD80FGCP16Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -1707,7 +1707,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>S</text>
-		<font>Std16SegCustom.ttf</font>
+		<font>MD80FGCP16Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -1728,7 +1728,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>M</text>
-		<font>Std16SegCustom.ttf</font>
+		<font>MD80FGCP16Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -1749,7 +1749,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>#</text> <!-- Shows all segments -->
-		<font>Std16SegCustom.ttf</font>
+		<font>MD80FGCP16Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
