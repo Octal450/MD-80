@@ -134,7 +134,7 @@
 		<format>%02.0f</format>
 		<property>systems/fuel/tank-l-lbs</property>
 		<truncate>false</truncate>
-		<font>MD80FGCP7Seg.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -158,7 +158,7 @@
 		<format>%02.0f</format>
 		<property>systems/fuel/tank-r-lbs</property>
 		<truncate>false</truncate>
-		<font>MD80FGCP7Seg.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -182,7 +182,7 @@
 		<format>%02.0f</format>
 		<property>systems/fuel/tank-c-lbs</property>
 		<truncate>false</truncate>
-		<font>MD80FGCP7Seg.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -206,7 +206,7 @@
 		<format>%02.0f</format>
 		<property>systems/fuel/tank-a-lbs</property>
 		<truncate>false</truncate>
-		<font>MD80FGCP7Seg.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -230,7 +230,7 @@
 		<format>%2.0f</format>
 		<property>instrumentation/fuel/gw-lbs</property>
 		<truncate>false</truncate>
-		<font>MD80FGCP7Seg.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
