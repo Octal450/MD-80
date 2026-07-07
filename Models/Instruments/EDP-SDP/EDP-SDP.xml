@@ -40,6 +40,24 @@
 		</condition>
 	</animation>
 	
+	<!-- Not yet implemented! -->
+	<animation>
+		<type>select</type>
+		<object-name>SDPLight.HydQtyL</object-name>
+		<object-name>SDPLight.HydQtyR</object-name>
+		<object-name>SDPLight.OilPressL1</object-name>
+		<object-name>SDPLight.OilPressL2</object-name>
+		<object-name>SDPLight.OilPressR1</object-name>
+		<object-name>SDPLight.OilPressR2</object-name>
+		<object-name>SDPLight.OilTempL1</object-name>
+		<object-name>SDPLight.OilTempL2</object-name>
+		<object-name>SDPLight.OilTempR1</object-name>
+		<object-name>SDPLight.OilTempR2</object-name>
+		<condition>
+			<property>instrumentation/edp-sdp/unused</property>
+		</condition>
+	</animation>
+	
 	<!-- Reverser Lights -->
 	<animation>
 		<type>select</type>
