@@ -1,12 +1,11 @@
 AC3Db
 MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 64  trans 0
-MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 64  trans 0
-MATERIAL "DefaultWhite" rgb 0 0 0  amb 0 0 0  emis 1 1 1  spec 0 0 0  shi 64  trans 0
+MATERIAL "red" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 64  trans 0
+MATERIAL "Decals" rgb 0 0 0  amb 0 0 0  emis 1 1 1  spec 0 0 0  shi 64  trans 0
 OBJECT world
 kids 26
 OBJECT poly
 name "EDP"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 5
 Plane
 texture "EDP-SDP.png"
@@ -2189,17 +2188,17 @@ numvert 3430
 -0.00267 0.00217 0.00985
 -0.00267 -0.02498 0.00987
 -0.00267 -0.03978 0.00987
-0.00556 -0.10731 0.02713
+0.00555 -0.10731 0.02713
 0.00556 -0.10637 0.02807
 0.00556 -0.10665 0.02741
-0.00566 -0.10636 0.05835
+0.00566 -0.10637 0.05835
 0.00567 -0.10731 0.05928
 0.00567 -0.10664 0.05901
 0.00556 -0.11847 0.02807
-0.00556 -0.11753 0.02713
+0.00555 -0.11753 0.02713
 0.00556 -0.1182 0.02741
 0.00567 -0.11753 0.05928
-0.00566 -0.11846 0.05835
+0.00566 -0.11847 0.05835
 0.00567 -0.1182 0.05901
 0.00282 -0.11847 0.05835
 0.00282 -0.11753 0.05928
@@ -15448,31 +15447,31 @@ SURF 0x10
 mat 0
 refs 4
 2196 0.265887 0.098248
-2177 0.265391 0.093695
-2184 0.28238 0.093695
+2177 0.265887 0.093698
+2184 0.282875 0.093698
 2198 0.282875 0.098248
 SURF 0x10
 mat 0
 refs 4
-2183 0.245332 0.086459
+2183 0.245216 0.086485
 2187 0.295559 0.086283
 2189 0.295559 0.091018
 2199 0.245214 0.091018
 SURF 0x10
 mat 0
 refs 12
-2180 0.245213 0.076571
-2182 0.244111 0.076104
+2180 0.245213 0.076556
+2182 0.244111 0.0761
 2181 0.243654 0.074997
 2186 0.243654 0.05799
-2188 0.244111 0.056891
-2187 0.245213 0.056444
-2183 0.29544 0.056911
-2185 0.296544 0.057381
-2184 0.297001 0.058495
-2177 0.297001 0.075483
-2179 0.296544 0.076588
-2178 0.29544 0.077038
+2188 0.244111 0.056887
+2187 0.245213 0.05643
+2183 0.295558 0.05643
+2185 0.296662 0.05689
+2184 0.297119 0.057999
+2177 0.297119 0.074987
+2179 0.296662 0.076097
+2178 0.295558 0.076556
 SURF 0x10
 mat 0
 refs 4
@@ -15486,62 +15485,62 @@ refs 4
 2186 0.26222 0.098248
 2190 0.26222 0.093509
 2191 0.26378 0.093509
-2188 0.26378 0.098247
+2188 0.263785 0.098247
 SURF 0x10
 mat 0
 refs 4
-2188 0.297119 0.08628
+2188 0.297117 0.08628
 2191 0.297119 0.091018
 2189 0.295559 0.091018
-2187 0.295559 0.086283
+2187 0.295552 0.086283
 SURF 0x10
 mat 0
 refs 4
-2180 0.295559 0.083782
+2180 0.295566 0.083782
 2193 0.295559 0.079047
 2194 0.297119 0.079047
-2182 0.297119 0.083785
+2182 0.297121 0.083785
 SURF 0x10
 mat 0
 refs 4
-2182 0.243654 0.098247
+2182 0.243659 0.098247
 2194 0.243654 0.093508
 2192 0.245213 0.093508
 2181 0.245213 0.098248
 SURF 0x10
 mat 0
 refs 4
-2177 0.265391 0.093695
+2177 0.26605 0.093689
 2196 0.265887 0.098248
 2197 0.264318 0.098248
-2179 0.263826 0.093731
+2179 0.26448 0.093721
 SURF 0x10
 mat 0
 refs 4
-2179 0.243771 0.083564
+2179 0.243385 0.083518
 2197 0.243654 0.079047
 2195 0.245214 0.079047
-2178 0.245332 0.083606
+2178 0.244951 0.083557
 SURF 0x10
 mat 0
 refs 4
-2183 0.245332 0.086459
+2183 0.245431 0.086509
 2199 0.245214 0.091018
 2200 0.243655 0.090956
-2185 0.243772 0.086464
+2185 0.243876 0.08651
 SURF 0x10
 mat 0
 refs 4
-2185 0.283949 0.093695
+2185 0.284482 0.093703
 2200 0.284438 0.098187
 2198 0.282875 0.098248
-2184 0.28238 0.093695
+2184 0.282919 0.093711
 SURF 0x10
 mat 0
 refs 4
 2193 0.295559 0.079047
 2180 0.295559 0.083782
-2178 0.245332 0.083606
+2178 0.245216 0.083581
 2195 0.245214 0.079047
 SURF 0x10
 mat 0
@@ -22531,9 +22530,9 @@ refs 4
 kids 0
 OBJECT poly
 name "EDPButton.FuelReset"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 10
 Circle.009
+texture "EDP-SDP.png"
 crease 40.000000
 numvert 72
 -0.00128 -0.11273 0.02169
@@ -22975,7 +22974,6 @@ refs 4
 kids 0
 OBJECT poly
 name "EDPButton.PPH"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 10
 Circle.006
 texture "EDP-SDP.png"
@@ -23612,7 +23610,6 @@ refs 4
 kids 0
 OBJECT poly
 name "EDPKnob.EPRL"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 10
 Circle.007
 texture "EDP-SDP.png"
@@ -24057,7 +24054,6 @@ refs 24
 kids 0
 OBJECT poly
 name "EDPKnob.EPRR"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 10
 Circle.001
 texture "EDP-SDP.png"
@@ -24502,7 +24498,6 @@ refs 4
 kids 0
 OBJECT poly
 name "EDPLight.RevThrL"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 9
 Plane.009
 texture "EDP-SDP.png"
@@ -24523,7 +24518,6 @@ refs 4
 kids 0
 OBJECT poly
 name "EDPLight.RevThrR"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 9
 Plane.097
 texture "EDP-SDP.png"
@@ -24544,7 +24538,6 @@ refs 4
 kids 0
 OBJECT poly
 name "EDPLight.RevUnlckL"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 9
 Plane.010
 texture "EDP-SDP.png"
@@ -24565,7 +24558,6 @@ refs 4
 kids 0
 OBJECT poly
 name "EDPLight.RevUnlckR"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 9
 Plane.098
 texture "EDP-SDP.png"
@@ -24586,7 +24578,6 @@ refs 4
 kids 0
 OBJECT poly
 name "EDPSDP.Canvas"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 10
 Circle.005
 texture "screen.png"
@@ -31712,7 +31703,6 @@ refs 4
 kids 0
 OBJECT poly
 name "EDPSDP.Decals"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 10
 Circle.010
 texture "EDP-SDP-Decals.png"
@@ -31815,7 +31805,6 @@ refs 4
 kids 0
 OBJECT poly
 name "SDP"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 9
 Plane.002
 texture "EDP-SDP.png"
@@ -43979,7 +43968,6 @@ refs 9
 kids 0
 OBJECT poly
 name "SDPLight.HydQtyL"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 10
 Circle.012
 texture "EDP-SDP.png"
@@ -44056,7 +44044,6 @@ refs 32
 kids 0
 OBJECT poly
 name "SDPLight.HydQtyR"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 10
 Circle.011
 texture "EDP-SDP.png"
@@ -44133,7 +44120,6 @@ refs 32
 kids 0
 OBJECT poly
 name "SDPLight.OilPressL1"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 10
 Circle.018
 texture "EDP-SDP.png"
@@ -44210,7 +44196,6 @@ refs 32
 kids 0
 OBJECT poly
 name "SDPLight.OilPressL2"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 10
 Circle.003
 texture "EDP-SDP.png"
@@ -44287,7 +44272,6 @@ refs 32
 kids 0
 OBJECT poly
 name "SDPLight.OilPressR1"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 10
 Circle.020
 texture "EDP-SDP.png"
@@ -44364,7 +44348,6 @@ refs 32
 kids 0
 OBJECT poly
 name "SDPLight.OilPressR2"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 10
 Circle.002
 texture "EDP-SDP.png"
@@ -44441,7 +44424,6 @@ refs 32
 kids 0
 OBJECT poly
 name "SDPLight.OilTempL1"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 10
 Circle.013
 texture "EDP-SDP.png"
@@ -44518,7 +44500,6 @@ refs 32
 kids 0
 OBJECT poly
 name "SDPLight.OilTempL2"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 10
 Circle.008
 texture "EDP-SDP.png"
@@ -44595,7 +44576,6 @@ refs 32
 kids 0
 OBJECT poly
 name "SDPLight.OilTempR1"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 10
 Circle.019
 texture "EDP-SDP.png"
@@ -44672,7 +44652,6 @@ refs 32
 kids 0
 OBJECT poly
 name "SDPLight.OilTempR2"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 10
 Circle.004
 texture "EDP-SDP.png"
@@ -44749,7 +44728,6 @@ refs 32
 kids 0
 OBJECT poly
 name "SDPLight.SlatsAuto"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 9
 Plane.016
 texture "EDP-SDP.png"
@@ -44770,7 +44748,6 @@ refs 4
 kids 0
 OBJECT poly
 name "SDPLight.SlatsDisag"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 9
 Plane.015
 texture "EDP-SDP.png"
@@ -44791,7 +44768,6 @@ refs 4
 kids 0
 OBJECT poly
 name "SDPLight.SlatsLand"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 9
 Plane.013
 texture "EDP-SDP.png"
@@ -44812,7 +44788,6 @@ refs 4
 kids 0
 OBJECT poly
 name "SDPLight.SlatsTO"
-loc 2.32831e-10 -5.99995e-05 3.49954e-05
 data 9
 Plane.014
 texture "EDP-SDP.png"

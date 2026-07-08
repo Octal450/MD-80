@@ -366,6 +366,7 @@
 		<type>select</type>
 		<object-name>edpsdp</object-name>
 		<object-name>trp</object-name>
+		<object-name>wntart</object-name>
 		<condition>
 			<property>systems/acconfig/options/edp-sdp</property>
 		</condition>
@@ -457,6 +458,16 @@
 		<offsets>
 			<x-m>2.201</x-m>
 			<y-m>-0.001</y-m>
+			<z-m>0.973</z-m>
+			<pitch-deg>-12</pitch-deg>
+		</offsets>
+	</model>
+	<model>
+		<name>wntart</name>
+		<path>Aircraft/MD-80/Models/Instruments/wntart.xml</path>
+		<offsets>
+			<x-m>2.201</x-m>
+			<y-m>0.108</y-m>
 			<z-m>0.973</z-m>
 			<pitch-deg>-12</pitch-deg>
 		</offsets>

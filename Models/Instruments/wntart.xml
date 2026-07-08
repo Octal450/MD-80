@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+
+<!-- Copyright (c) 2026 Josh Davidson (Octal450) -->
+
+<PropertyList>
+	
+	<path>wntart.ac</path>
+	
+	<animation>
+		<type>select</type>
+		<object-name>FaceARTOn</object-name>
+		<object-name>FaceARTReadyOn</object-name>
+		<object-name>FaceWNTOn</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/bus/dc-bat</property>
+				<value>24</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>FaceWNTOn</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>systems/gear/wheel-not-turning/active</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>FaceARTReadyOn</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>systems/dfgs/lights/art-ready</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>FaceARTOn</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>systems/dfgs/lights/art</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+
+</PropertyList>
+
