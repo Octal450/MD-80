@@ -2455,7 +2455,7 @@
 		<format>%7.3f</format>
 		<property>instrumentation/comm[0]/frequencies/selected-mhz-fmt</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -2477,7 +2477,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>888.888</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -2502,7 +2502,7 @@
 		<format>%7.3f</format>
 		<property>instrumentation/comm[0]/frequencies/standby-mhz-fmt</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -2524,7 +2524,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>888.888</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -2697,7 +2697,7 @@
 		<format>%7.3f</format>
 		<property>instrumentation/comm[1]/frequencies/selected-mhz-fmt</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -2719,7 +2719,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>888.888</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -2744,7 +2744,7 @@
 		<format>%7.3f</format>
 		<property>instrumentation/comm[1]/frequencies/standby-mhz-fmt</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -2766,7 +2766,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>888.888</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -3032,7 +3032,7 @@
 		<format>%6.1f</format>
 		<property>instrumentation/adf[0]/frequencies/selected-khz</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -3054,7 +3054,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>8888.8</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -3096,7 +3096,7 @@
 		<format>%6.1f</format>
 		<property>instrumentation/adf[1]/frequencies/selected-khz</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -3118,7 +3118,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>8888.8</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -3464,7 +3464,7 @@
 		<format>%1.0f</format>
 		<property>instrumentation/transponder/inputs/digit[3]</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -3486,7 +3486,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>8</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -3511,7 +3511,7 @@
 		<format>%1.0f</format>
 		<property>instrumentation/transponder/inputs/digit[2]</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -3533,7 +3533,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>8</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -3558,7 +3558,7 @@
 		<format>%1.0f</format>
 		<property>instrumentation/transponder/inputs/digit[1]</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -3580,7 +3580,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>8</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -3605,7 +3605,7 @@
 		<format>%1.0f</format>
 		<property>instrumentation/transponder/inputs/digit[0]</property>
 		<truncate>false</truncate>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
@@ -3627,7 +3627,7 @@
 		<axis-alignment>yz-plane</axis-alignment>
 		<type>literal</type>
 		<text>8</text>
-		<font>Std7SegCustom.ttf</font>
+		<font>Std7Seg.ttf</font>
 		<draw-text>true</draw-text>
 		<draw-alignment>false</draw-alignment>
 		<draw-boundingbox>false</draw-boundingbox>
