@@ -54,7 +54,7 @@
 		<object-name>SDPLight.OilTempR1</object-name>
 		<object-name>SDPLight.OilTempR2</object-name>
 		<condition>
-			<property>instrumentation/edp-sdp/unused</property>
+			<property>controls/switches/annun-test</property>
 		</condition>
 	</animation>
 	
