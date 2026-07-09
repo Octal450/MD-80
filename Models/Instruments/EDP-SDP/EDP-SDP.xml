@@ -11,6 +11,17 @@
         <inherits-from>Effects/model-transparent</inherits-from>
     </effect>
 	
+	<animation>
+		<type>material</type>
+		<object-name>EDPSDP.Decals</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>0.6</green>
+			<blue>0.3</blue>
+			<factor-prop>systems/lighting/center-panel</factor-prop>
+		</emission>
+	</animation>
+	
 	<!-- No lights without power! -->
 	<animation>
 		<type>select</type>
