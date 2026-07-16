@@ -464,36 +464,245 @@
 			</function>
 			<output>propulsion/engine[1]/bleed-factor</output>
 		</fcs_function>
+		
+		<!-- Trim Air -->
+		<switch name="/systems/pneumatics/trim-air-cmd">
+			<default value="1"/>
+		</switch>
+		
+		<fcs_function name="/systems/pneumatics/trim-air-psi-cmd">
+			<function>
+				<product>
+					<property>/systems/pneumatics/trim-air-cmd</property>
+					<min>
+						<max>
+							<property>/systems/pneumatics/bleed-l-psi</property>
+							<property>/systems/pneumatics/bleed-r-psi</property>
+						</max>
+						<value>24</value> <!-- Guess -->
+					</min>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<actuator name="/systems/pneumatics/trim-air-psi">
+			<input>/systems/pneumatics/trim-air-psi-cmd</input>
+			<rate_limit sense="incr">/systems/pneumatics/psi-incr-rate</rate_limit>
+			<rate_limit sense="decr">/systems/pneumatics/psi-decr-rate</rate_limit>
+		</actuator>
 	
 	</channel>
 	
-	<channel name="Cabin Temperature"> <!-- The airplane is calibrated in Fahrenheit since it's American designed, so that's what I'll use here -->
+	<channel name="Bleed Temperature" execrate="8">
 		
-		<fcs_function name="/systems/pneumatics/hvac/cockpit-target">
+		<fcs_function name="/systems/pneumatics/temp/apu">
+			<function>
+				<sum>
+					<property>propulsion/tat-c</property>
+					<table>
+						<independentVar lookup="row">/systems/pneumatics/apu-psi</independentVar>
+						<tableData>
+							 0    0
+							30   90
+							50  130
+						</tableData>
+					</table>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/pneumatics/temp/eng-l">
+			<function>
+				<sum>
+					<property>propulsion/tat-c</property>
+					<table>
+						<independentVar lookup="row">/systems/pneumatics/eng-l-psi</independentVar>
+						<tableData>
+							 0    0
+							30  100
+							50  210
+						</tableData>
+					</table>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/pneumatics/temp/eng-r">
+			<function>
+				<sum>
+					<property>propulsion/tat-c</property>
+					<table>
+						<independentVar lookup="row">/systems/pneumatics/eng-r-psi</independentVar>
+						<tableData>
+							 0    0
+							30  100
+							50  210
+						</tableData>
+					</table>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/pneumatics/temp/ground">
+			<function>
+				<sum>
+					<property>propulsion/tat-c</property>
+					<table>
+						<independentVar lookup="row">/systems/pneumatics/ground-psi</independentVar>
+						<tableData>
+							 0    0
+							30   90
+							50  130
+						</tableData>
+					</table>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<!-- Bleed L -->
+		<fcs_function name="/systems/pneumatics/temp/bleed-l-incr-rate">
 			<function>
 				<table>
-					<independentVar lookup="row">/controls/pneumatics/cockpit-temp</independentVar> <!-- 0 to 0.85 -->
+					<independentVar lookup="row">/systems/pneumatics/bleed-l-psi</independentVar>
 					<tableData>
-						0.00   0
-						0.05  66
-						0.85  82
+						 0  0.1
+						30  9.0
 					</tableData>
 				</table>
 			</function>
 		</fcs_function>
 		
-		<fcs_function name="/systems/pneumatics/hvac/cabin-target">
+		<fcs_function name="/systems/pneumatics/temp/bleed-l-decr-rate">
 			<function>
 				<table>
-					<independentVar lookup="row">/controls/pneumatics/cabin-temp</independentVar> <!-- 0 to 0.85 -->
+					<independentVar lookup="row">/systems/pneumatics/bleed-l-psi</independentVar>
 					<tableData>
-						0.00   0
-						0.05  66
-						0.85  82
+						 0  0.1
+						30  4.0
 					</tableData>
 				</table>
 			</function>
 		</fcs_function>
+		
+		<fcs_function name="/systems/pneumatics/temp/total-l-x-bleed">
+			<function>
+				<max>
+					<product>
+						<property>/systems/pneumatics/temp/eng-r</property>
+						<property>/systems/pneumatics/x-bleed/both-active</property>
+					</product>
+					<product>
+						<max>
+							<property>/systems/pneumatics/temp/apu</property>
+							<property>/systems/pneumatics/temp/ground</property>
+						</max>
+						<property>/systems/pneumatics/x-bleed/l-active</property>
+					</product>
+				</max>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/pneumatics/temp/bleed-l-cmd">
+			<function>
+				<max>
+					<property>/systems/pneumatics/temp/eng-l</property>
+					<property>/systems/pneumatics/temp/total-l-x-bleed</property>
+				</max>
+			</function>
+		</fcs_function>
+		
+		<actuator name="/systems/pneumatics/temp/bleed-l-actuator">
+			<input>/systems/pneumatics/temp/bleed-l-cmd</input>
+			<rate_limit sense="incr">/systems/pneumatics/temp/bleed-l-incr-rate</rate_limit>
+			<rate_limit sense="decr">/systems/pneumatics/temp/bleed-l-decr-rate</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/systems/pneumatics/temp/bleed-l">
+			<input>/systems/pneumatics/temp/bleed-l-actuator</input>
+			<c1>0.4</c1>
+		</lag_filter>
+		
+		<!-- Bleed R -->
+		<fcs_function name="/systems/pneumatics/temp/bleed-r-incr-rate">
+			<function>
+				<table>
+					<independentVar lookup="row">/systems/pneumatics/bleed-r-psi</independentVar>
+					<tableData>
+						 0  0.1
+						30  9.0
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/pneumatics/temp/bleed-r-decr-rate">
+			<function>
+				<table>
+					<independentVar lookup="row">/systems/pneumatics/bleed-r-psi</independentVar>
+					<tableData>
+						 0  0.1
+						30  4.0
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/pneumatics/temp/total-r-x-bleed">
+			<function>
+				<max>
+					<product>
+						<property>/systems/pneumatics/temp/eng-l</property>
+						<property>/systems/pneumatics/x-bleed/both-active</property>
+					</product>
+					<product>
+						<max>
+							<property>/systems/pneumatics/temp/apu</property>
+							<property>/systems/pneumatics/temp/ground</property>
+						</max>
+						<property>/systems/pneumatics/x-bleed/r-active</property>
+					</product>
+				</max>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/pneumatics/temp/bleed-r-cmd">
+			<function>
+				<max>
+					<property>/systems/pneumatics/temp/eng-r</property>
+					<property>/systems/pneumatics/temp/total-r-x-bleed</property>
+				</max>
+			</function>
+		</fcs_function>
+		
+		<actuator name="/systems/pneumatics/temp/bleed-r-actuator">
+			<input>/systems/pneumatics/temp/bleed-r-cmd</input>
+			<rate_limit sense="incr">/systems/pneumatics/temp/bleed-r-incr-rate</rate_limit>
+			<rate_limit sense="decr">/systems/pneumatics/temp/bleed-r-decr-rate</rate_limit>
+		</actuator>
+		
+		<lag_filter name="/systems/pneumatics/temp/bleed-r">
+			<input>/systems/pneumatics/temp/bleed-r-actuator</input>
+			<c1>0.4</c1>
+		</lag_filter>
+		
+		<!-- Trim Air (fast response) -->
+		<fcs_function name="/systems/pneumatics/temp/trim-air-cmd">
+			<function>
+				<interpolate1d>
+					<property>/systems/pneumatics/trim-air-psi</property>
+					<value>0</value><property>propulsion/tat-c</property>
+					<value>20</value><max>
+						<property>/systems/pneumatics/temp/bleed-l-actuator</property>
+						<property>/systems/pneumatics/temp/bleed-r-actuator</property>
+					</max>
+				</interpolate1d>
+			</function>
+		</fcs_function>
+		
+		<lag_filter name="/systems/pneumatics/temp/trim-air">
+			<input>/systems/pneumatics/temp/trim-air-cmd</input>
+			<c1>0.4</c1>
+		</lag_filter>
 	
 	</channel>
 

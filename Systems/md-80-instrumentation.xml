@@ -2917,5 +2917,25 @@
 		</lag_filter>
 	
 	</channel>
+	
+	<channel name="Cabin Temperature Meters" execrate="2">
+		
+		<switch name="/instrumentation/cabin-meters/temp-f-input">
+			<default value="/systems/pneumatics/hvac/duct-temp/cabin"/>
+			<test value="/systems/pneumatics/hvac/cabin-temp">
+				/controls/pneumatics/temp-sel eq 1
+			</test>
+			<clipto>
+				<min>30</min>
+				<max>150</max>
+			</clipto>
+		</switch>
+		
+		<lag_filter name="/instrumentation/cabin-meters/temp-f">
+			<input>/instrumentation/cabin-meters/temp-f-input</input>
+			<c1>20</c1>
+		</lag_filter>
+	
+	</channel>
 
 </system>

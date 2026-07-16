@@ -3679,6 +3679,26 @@
 	<!-- Air Panel -->
 	<animation>
 		<type>rotate</type>
+		<object-name>AirValveLNeedle</object-name>
+		<property>systems/pneumatics/hvac/duct-temp/cockpit-regulator-lag</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-75</dep></entry>
+			<entry><ind>1</ind><dep> 75</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.05364</y-m>
+			<z-m>-0.2256</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
 		<object-name>AirPressLNeedle</object-name>
 		<property>instrumentation/air-press-l/psi</property>
 		<interpolation>
@@ -3718,14 +3738,34 @@
 	</animation>
 	
 	<animation>
+		<type>rotate</type>
+		<object-name>AirValveRNeedle</object-name>
+		<property>systems/pneumatics/hvac/duct-temp/cabin-regulator-lag</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-75</dep></entry>
+			<entry><ind>1</ind><dep> 75</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.16376</y-m>
+			<z-m>-0.2256</z-m>
+		</center>
+	</animation>
+	
+	<animation>
 		<type>knob</type>
 		<object-name>CkptTemp</object-name>
 		<property>controls/cockpit/overhead/cockpit-temp</property>
 		<drag-scale-px>15</drag-scale-px>
 		<interpolation>
-			<entry><ind>0.00</ind><dep> 180</dep></entry>
-			<entry><ind>0.05</ind><dep> 130</dep></entry>
-			<entry><ind>0.85</ind><dep>-130</dep></entry>
+			<entry><ind>65</ind><dep> 180</dep></entry>
+			<entry><ind>66</ind><dep> 130</dep></entry>
+			<entry><ind>80</ind><dep>-130</dep></entry>
 		</interpolation>
 		<axis>
 			<x>1</x>
@@ -3741,10 +3781,70 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/pneumatics/cockpit-temp</property>
-				<factor>0.05</factor>
-				<min>0</min>
-				<max>0.85</max>
+				<factor>1</factor>
+				<min>65</min>
+				<max>80</max>
 			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>CkptTemp</object-name>
+		<property>controls/cockpit/overhead/cockpit-slew</property>
+		<factor>25</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.05383</y-m>
+			<z-m>-0.26613</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>CkptTemp.cold</object-name>
+		<visible>false</visible>
+		<action>
+			<button>0</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/pneumatics/cockpit-slew</property>
+				<value>-1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/pneumatics/cockpit-slew</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>CkptTemp.hot</object-name>
+		<visible>false</visible>
+		<action>
+			<button>0</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/pneumatics/cockpit-slew</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/pneumatics/cockpit-slew</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
 	</animation>
 	
@@ -3866,9 +3966,9 @@
 		<property>controls/cockpit/overhead/cabin-temp</property>
 		<drag-scale-px>15</drag-scale-px>
 		<interpolation>
-			<entry><ind>0.00</ind><dep> 180</dep></entry>
-			<entry><ind>0.05</ind><dep> 130</dep></entry>
-			<entry><ind>0.85</ind><dep>-130</dep></entry>
+			<entry><ind>65</ind><dep> 180</dep></entry>
+			<entry><ind>66</ind><dep> 130</dep></entry>
+			<entry><ind>80</ind><dep>-130</dep></entry>
 		</interpolation>
 		<axis>
 			<x>1</x>
@@ -3884,10 +3984,70 @@
 			<binding>
 				<command>property-adjust</command>
 				<property>controls/pneumatics/cabin-temp</property>
-				<factor>0.05</factor>
-				<min>0</min>
-				<max>0.85</max>
+				<factor>1</factor>
+				<min>65</min>
+				<max>80</max>
 			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>rotate</type>
+		<object-name>CabinTemp</object-name>
+		<property>controls/cockpit/overhead/cabin-slew</property>
+		<factor>25</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.16411</y-m>
+			<z-m>-0.26613</z-m>
+		</center>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>CabinTemp.cold</object-name>
+		<visible>false</visible>
+		<action>
+			<button>0</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/pneumatics/cabin-slew</property>
+				<value>-1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/pneumatics/cabin-slew</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
+		</action>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>CabinTemp.hot</object-name>
+		<visible>false</visible>
+		<action>
+			<button>0</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-assign</command>
+				<property>controls/pneumatics/cabin-slew</property>
+				<value>1</value>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>property-assign</command>
+					<property>controls/pneumatics/cabin-slew</property>
+					<value>0</value>
+				</binding>
+			</mod-up>
 		</action>
 	</animation>
 	
@@ -3968,15 +4128,11 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>CabinTempFNeedle</object-name>
-		<property>systems/pneumatics/unused/zero</property>
-		<interpolation> <!-- Temporary -->
-			<entry><ind>0</ind><dep>98</dep></entry>
-			<entry><ind>1</ind><dep>98</dep></entry>
-		</interpolation>
-		<!--interpolation>
+		<property>instrumentation/cabin-meters/temp-f</property>
+		<interpolation>
 			<entry><ind> 30</ind><dep> 12</dep></entry>
 			<entry><ind>150</ind><dep>270</dep></entry>
-		</interpolation-->
+		</interpolation>
 		<axis>
 			<x>-1</x>
 			<y>0</y>

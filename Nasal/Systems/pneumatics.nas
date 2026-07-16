@@ -17,7 +17,9 @@ var PNEUMATICS = {
 	Controls: {
 		autoPackShutdown: props.globals.getNode("/controls/pneumatics/auto-pack-shutdown"),
 		bleedApu: props.globals.getNode("/controls/pneumatics/bleed-apu"),
+		cabinSlew: props.globals.getNode("/controls/pneumatics/cabin-slew"),
 		cabinTemp: props.globals.getNode("/controls/pneumatics/cabin-temp"),
+		cockpitSlew: props.globals.getNode("/controls/pneumatics/cockpit-slew"),
 		cockpitTemp: props.globals.getNode("/controls/pneumatics/cockpit-temp"),
 		groundAir: props.globals.getNode("/controls/pneumatics/ground-air"), # No switch in cockpit
 		instrumentFlow: props.globals.getNode("/controls/pneumatics/instrument-flow"),
@@ -40,15 +42,17 @@ var PNEUMATICS = {
 		me.resetFailures();
 		me.Controls.autoPackShutdown.setBoolValue(1);
 		me.Controls.bleedApu.setValue(0);
-		me.Controls.cabinTemp.setValue(0.45);
-		me.Controls.cockpitTemp.setValue(0.45);
+		me.Controls.cabinSlew.setValue(0);
+		me.Controls.cabinTemp.setValue(72);
+		me.Controls.cockpitSlew.setValue(0);
+		me.Controls.cockpitTemp.setValue(72);
 		me.Controls.groundAir.setBoolValue(0);
 		me.Controls.instrumentFlow.setBoolValue(0);
 		me.Controls.radioRack.setBoolValue(1);
 		me.Controls.ramAir.setBoolValue(0);
 		me.Controls.supplyL.setValue(0);
 		me.Controls.supplyR.setValue(0);
-		me.Controls.tempSel.setBoolValue(0);
+		me.Controls.tempSel.setBoolValue(1);
 		me.Controls.xBleedL.setBoolValue(0);
 		me.Controls.xBleedR.setBoolValue(0);
 	},
