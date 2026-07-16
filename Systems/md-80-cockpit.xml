@@ -665,8 +665,32 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<switch name="/controls/cockpit/overhead/cabin-slew-input">
+			<default value="0"/>
+			<test value="/controls/pneumatics/cabin-slew">
+				/controls/pneumatics/cabin-temp lt 65.5
+			</test>
+		</switch>
+		
+		<lag_filter name="/controls/cockpit/overhead/cabin-slew">
+			<input>/controls/cockpit/overhead/cabin-slew-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/overhead/cabin-temp">
 			<input>/controls/pneumatics/cabin-temp</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<switch name="/controls/cockpit/overhead/cockpit-slew-input">
+			<default value="0"/>
+			<test value="/controls/pneumatics/cockpit-slew">
+				/controls/pneumatics/cockpit-temp lt 65.5
+			</test>
+		</switch>
+		
+		<lag_filter name="/controls/cockpit/overhead/cockpit-slew">
+			<input>/controls/cockpit/overhead/cockpit-slew-input</input>
 			<c1>20</c1>
 		</lag_filter>
 		

@@ -22,6 +22,7 @@
 	<system file="md-80-hydraulics"/>
 	<system file="md-80-irs-ahrs"/>
 	<system file="md-80-pneumatics"/>
+	<system file="md-80-hvac"/>
 	<system file="md-80-dfgs"/>
 	<system file="md-80-fcs"/>
 	<system file="md-80-spoilers"/>
