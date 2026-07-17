@@ -124,140 +124,6 @@
 	
 	<channel name="Pack Temperature" execrate="8">
 		
-		<!-- Pack Temperature Targets -->
-		<!-- This is complex because the ECS controls which packs respond based on which zones have error, and accounts for inoperative packs -->
-		<switch name="/systems/pneumatics/hvac/pack-l-flowing">
-			<default value="1"/>
-			<test value="0">
-				/systems/pneumatics/pack-l-flow lt 10
-			</test>
-		</switch>
-		
-		<switch name="/systems/pneumatics/hvac/pack-r-flowing">
-			<default value="1"/>
-			<test value="0">
-				/systems/pneumatics/pack-r-flow lt 10
-			</test>
-		</switch>
-		
-		<fcs_function name="/systems/pneumatics/hvac/pack-temp/pack-l-target-input">
-			<function>
-				<min>
-					<property>/systems/pneumatics/hvac/cockpit-target-switched</property>
-					<ifthen>
-						<eq>
-							<property>/systems/pneumatics/hvac/pack-r-flowing</property>
-							<value>0</value>
-						</eq>
-						<property>/systems/pneumatics/hvac/cabin-target-switched</property>
-						<value>1000</value> <!-- Ignore -->
-					</ifthen>
-				</min>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="/systems/pneumatics/hvac/pack-temp/pack-l-error-input">
-			<function>
-				<min>
-					<property>/systems/pneumatics/hvac/cockpit-error</property>
-					<ifthen>
-						<eq>
-							<property>/systems/pneumatics/hvac/pack-r-flowing</property>
-							<value>0</value>
-						</eq>
-						<property>/systems/pneumatics/hvac/cabin-error</property>
-						<value>1000</value> <!-- Ignore -->
-					</ifthen>
-				</min>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="/systems/pneumatics/hvac/pack-temp/pack-r-target-input">
-			<function>
-				<min>
-					<property>/systems/pneumatics/hvac/cabin-target-switched</property>
-					<ifthen>
-						<eq>
-							<property>/systems/pneumatics/hvac/pack-l-flowing</property>
-							<value>0</value>
-						</eq>
-						<property>/systems/pneumatics/hvac/cockpit-target-switched</property>
-						<value>1000</value> <!-- Ignore -->
-					</ifthen>
-				</min>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="/systems/pneumatics/hvac/pack-temp/pack-r-error-input">
-			<function>
-				<min>
-					<property>/systems/pneumatics/hvac/cabin-error</property>
-					<ifthen>
-						<eq>
-							<property>/systems/pneumatics/hvac/pack-l-flowing</property>
-							<value>0</value>
-						</eq>
-						<property>/systems/pneumatics/hvac/cockpit-error</property>
-						<value>1000</value> <!-- Ignore -->
-					</ifthen>
-				</min>
-			</function>
-		</fcs_function>
-		
-		<fcs_function name="/systems/pneumatics/hvac/pack-temp/pack-l-target">
-			<function>
-				<ifthen>
-					<lt>
-						<property>/systems/pneumatics/hvac/cockpit-target</property>
-						<value>60</value>
-					</lt>
-					<value>62</value>
-					<sum>
-						<property>/systems/pneumatics/hvac/pack-temp/pack-l-target-input</property>
-						<table>
-							<independentVar lookup="row">/systems/pneumatics/hvac/pack-temp/pack-l-error-input</independentVar>
-							<tableData>
-								-4 -8.4
-								 0 -0.4
-								 4  4.6
-							</tableData>
-						</table>
-					</sum>
-				</ifthen>
-			</function>
-			<clipto>
-				<min>55</min>
-				<max>95</max>
-			</clipto>
-		</fcs_function>
-		
-		<fcs_function name="/systems/pneumatics/hvac/pack-temp/pack-r-target">
-			<function>
-				<ifthen>
-					<lt>
-						<property>/systems/pneumatics/hvac/cabin-target</property>
-						<value>60</value>
-					</lt>
-					<value>62</value>
-					<sum>
-						<property>/systems/pneumatics/hvac/pack-temp/pack-r-target-input</property>
-						<table>
-							<independentVar lookup="row">/systems/pneumatics/hvac/pack-temp/pack-r-error-input</independentVar>
-							<tableData>
-								-4 -8.7
-								 0 -0.7
-								 4  4.3
-							</tableData>
-						</table>
-					</sum>
-				</ifthen>
-			</function>
-			<clipto>
-				<min>55</min>
-				<max>95</max>
-			</clipto>
-		</fcs_function>
-		
 		<!-- L Pack Temperature -->
 		<fcs_function name="/systems/pneumatics/hvac/pack-temp/pack-l-cmd">
 			<function>
@@ -266,7 +132,7 @@
 					<value>0</value><property>/systems/pneumatics/hvac/tat-f</property>
 					<value>10</value><min>
 						<property>/systems/pneumatics/hvac/bleed-l-f</property>
-						<property>/systems/pneumatics/hvac/pack-temp/pack-l-target</property>
+						<value>64</value>
 					</min>
 				</interpolate1d>
 			</function>
@@ -315,7 +181,7 @@
 					<value>0</value><property>/systems/pneumatics/hvac/tat-f</property>
 					<value>10</value><min>
 						<property>/systems/pneumatics/hvac/bleed-r-f</property>
-						<property>/systems/pneumatics/hvac/pack-temp/pack-r-target</property>
+						<value>64</value>
 					</min>
 				</interpolate1d>
 			</function>
