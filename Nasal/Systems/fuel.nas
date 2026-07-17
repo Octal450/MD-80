@@ -2,6 +2,10 @@
 # Copyright (c) 2026 Josh Davidson (Octal450)
 
 var FUEL = {
+	Temp: {
+		tankL: props.globals.getNode("/systems/fuel/tank-l-temp"),
+		tankR: props.globals.getNode("/systems/fuel/tank-r-temp"),
+	},
 	Controls: {
 		aftPumpC: props.globals.getNode("/controls/fuel/aft-pump-c"),
 		aftPumpL: props.globals.getNode("/controls/fuel/aft-pump-l"),

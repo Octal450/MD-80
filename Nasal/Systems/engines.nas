@@ -10,6 +10,7 @@ var ENGINES = {
 	oilPsi: [props.globals.getNode("/engines/engine[0]/oil-psi"), props.globals.getNode("/engines/engine[1]/oil-psi")],
 	oilQty: [props.globals.getNode("/engines/engine[0]/oil-qty"), props.globals.getNode("/engines/engine[1]/oil-qty")],
 	oilQtyInput: [props.globals.getNode("/engines/engine[0]/oil-qty-input"), props.globals.getNode("/engines/engine[1]/oil-qty-input")],
+	oilTemp: [props.globals.getNode("/engines/engine[0]/oil-temp"), props.globals.getNode("/engines/engine[1]/oil-temp")],
 	overspeed: props.globals.getNode("/systems/engines/limit/overspeed"),
 	reverseEngage: [props.globals.getNode("/systems/engines/reverse-1/engage"), props.globals.getNode("/systems/engines/reverse-2/engage")],
 	state: [props.globals.getNode("/engines/engine[0]/state"), props.globals.getNode("/engines/engine[1]/state")],
