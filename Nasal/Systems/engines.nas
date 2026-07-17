@@ -17,6 +17,7 @@ var ENGINES = {
 		cutoff: [props.globals.getNode("/controls/engines/engine[0]/cutoff-switch"), props.globals.getNode("/controls/engines/engine[1]/cutoff-switch")],
 		engSync: props.globals.getNode("/controls/engines/eng-sync"),
 		eprTemp: 0,
+		ffFu: props.globals.getNode("/controls/engines/ff-fu"),
 		fuReset: props.globals.getNode("/controls/engines/fu-reset"),
 		manEpr: [props.globals.getNode("/controls/engines/engine[0]/man-epr"), props.globals.getNode("/controls/engines/engine[1]/man-epr")],
 		manEprSet: [props.globals.getNode("/controls/engines/engine[0]/man-epr-set"), props.globals.getNode("/controls/engines/engine[1]/man-epr-set")],
@@ -37,6 +38,7 @@ var ENGINES = {
 		me.reverseEngage[0].setBoolValue(0);
 		me.reverseEngage[1].setBoolValue(0);
 		me.Controls.engSync.setValue(0);
+		me.Controls.ffFu.setBoolValue(0);
 		me.Controls.fuReset.setBoolValue(0);
 		me.Controls.manEpr[0].setValue(2);
 		me.Controls.manEpr[1].setValue(2);

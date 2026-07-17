@@ -657,6 +657,7 @@
 				<cutoff type="bool">1</cutoff>
 				<starter type="bool">0</starter>
 			</engine>
+			<ff-fu type="bool">0</ff-fu>
 			<fu-reset type="bool">0</fu-reset>
 		</engines>
 		<fcs n="0">
