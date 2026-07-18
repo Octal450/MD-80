@@ -438,7 +438,7 @@ var PANEL = {
 				systems.ELECTRICAL.Controls.extPwrR.setBoolValue(0);
 				systems.HYDRAULICS.Controls.lPump.setValue(2);
 				systems.HYDRAULICS.Controls.rPump.setValue(2);
-				systems.IGNITION.Controls.ign.setValue(0);
+				systems.IGNITION.Controls.ign.setValue(-1);
 				systems.IRS.Controls.knob[0].setValue(2);
 				systems.IRS.Controls.knob[1].setValue(2);
 				systems.PNEUMATICS.Controls.xBleedL.setBoolValue(0);
