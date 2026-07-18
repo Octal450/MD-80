@@ -118,7 +118,6 @@ var SYSTEM = {
 		setprop("/sim/menubar/default/menu[101]/enabled", 0);
 		setprop("/sim/menubar/default/menu[102]/enabled", 0);
 		setprop("/sim/menubar/default/menu[103]/enabled", 0);
-		setprop("/sim/menubar/default/menu[104]/enabled", 0);
 	},
 	spinning: func() {
 		if (me.spinner == "\\") {
