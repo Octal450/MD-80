@@ -118,7 +118,6 @@ var SYSTEM = {
 		setprop("/sim/menubar/default/menu[101]/enabled", 0);
 		setprop("/sim/menubar/default/menu[102]/enabled", 0);
 		setprop("/sim/menubar/default/menu[103]/enabled", 0);
-		setprop("/sim/menubar/default/menu[104]/enabled", 0);
 	},
 	spinning: func() {
 		if (me.spinner == "\\") {
@@ -336,6 +335,14 @@ var PANEL = {
 					systems.FUEL.Controls.aftPumpC.setValue(1);
 					systems.FUEL.Controls.fwdPumpC.setValue(1);
 				}
+				if (pts.Fdm.JSBSim.Propulsion.Tank.contentLbs[3].getValue() > 10) {
+					systems.FUEL.Controls.auxFwdTransA.setValue(1);
+					systems.FUEL.Controls.auxFwdTransB.setValue(1);
+				}
+				if (pts.Fdm.JSBSim.Propulsion.Tank.contentLbs[4].getValue() > 10) {
+					systems.FUEL.Controls.auxAftTransA.setValue(1);
+					systems.FUEL.Controls.auxAftTransB.setValue(1);
+				}
 				systems.FUEL.Controls.startPump.setBoolValue(0);
 				systems.IRS.Controls.knob[0].setValue(2);
 				systems.IRS.Controls.knob[1].setValue(2);
@@ -448,6 +455,7 @@ var PANEL = {
 				}, 0.25);
 				
 				if (t == 1) {
+					systems.IGNITION.Controls.ign.setValue(-1);
 					pts.Controls.Lighting.positionStrobeLights.setValue(1);
 					pts.Controls.Lighting.landingLightL.setValue(1);
 					pts.Controls.Lighting.landingLightN.setValue(1);
