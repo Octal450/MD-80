@@ -455,6 +455,7 @@ var PANEL = {
 				}, 0.25);
 				
 				if (t == 1) {
+					systems.IGNITION.Controls.ign.setValue(-1);
 					pts.Controls.Lighting.positionStrobeLights.setValue(1);
 					pts.Controls.Lighting.landingLightL.setValue(1);
 					pts.Controls.Lighting.landingLightN.setValue(1);
@@ -468,7 +469,6 @@ var PANEL = {
 				settimer(func() {
 					if (!me.stop) {
 						if (t == 1) {
-							systems.IGNITION.Controls.ign.setValue(-1);
 							pts.Controls.Flight.elevatorTrim.setValue(math.round(pts.Systems.Performance.stabilizerDeg.getValue(), 0.1) / -12.5);
 							systems.BRAKES.Controls.abs.setValue(-1); # T/O
 							systems.BRAKES.Controls.arm.setBoolValue(1);
