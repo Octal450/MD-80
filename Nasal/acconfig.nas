@@ -438,7 +438,7 @@ var PANEL = {
 				systems.ELECTRICAL.Controls.extPwrR.setBoolValue(0);
 				systems.HYDRAULICS.Controls.lPump.setValue(2);
 				systems.HYDRAULICS.Controls.rPump.setValue(2);
-				systems.IGNITION.Controls.ign.setValue(-1);
+				systems.IGNITION.Controls.ign.setValue(0);
 				systems.IRS.Controls.knob[0].setValue(2);
 				systems.IRS.Controls.knob[1].setValue(2);
 				systems.PNEUMATICS.Controls.xBleedL.setBoolValue(0);
@@ -468,6 +468,7 @@ var PANEL = {
 				settimer(func() {
 					if (!me.stop) {
 						if (t == 1) {
+							systems.IGNITION.Controls.ign.setValue(-1);
 							pts.Controls.Flight.elevatorTrim.setValue(math.round(pts.Systems.Performance.stabilizerDeg.getValue(), 0.1) / -12.5);
 							systems.BRAKES.Controls.abs.setValue(-1); # T/O
 							systems.BRAKES.Controls.arm.setBoolValue(1);
