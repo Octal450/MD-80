@@ -1637,11 +1637,6 @@
 					<show-wingtip type="bool">1</show-wingtip>
 				</autopush>
 				<combined-standby type="bool">0</combined-standby>
-				<du n="0">
-					<mcdu-fps type="double">10</mcdu-fps>
-					<nd-fps type="double">20</nd-fps>
-					<pfd-fps type="double">20</pfd-fps>
-				</du>
 				<dual-cue-fd type="bool">0</dual-cue-fd>
 				<edp-sdp type="bool">0</edp-sdp>
 				<efis type="bool">0</efis>
