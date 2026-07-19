@@ -12,10 +12,16 @@ var Value = {
 		dcTrans: 0,
 		emerDc: 0,
 	},
+	egt: [0, 0],
+	egtRound: [0, 0],
 	epr: [0, 0],
 	eprRound: [0, 0],
 	ffFu: 0,
 	ft: [0, 0],
+	n1: [0, 0],
+	n1Round: [0, 0],
+	n2: [0, 0],
+	n2Round: [0, 0],
 	tat: 0,
 };
 
@@ -62,6 +68,19 @@ var CanvasBase = {
 			}
 		}
 		
+		foreach (var key; GroupMatrixKeys5x10) {
+			foreach (var child; me[key].getChildren()) {
+				if (child.getType() == "group") {
+					foreach (var grandchild; child.getChildren()) {
+						if (grandchild.getType() == "text")
+							grandchild.setFont("MD80EDP5x10.ttf");
+					}
+				} else if (child.getType() == "text") {
+					child.setFont("MD80EDP5x10.ttf");
+				}
+			}
+		}
+		
 		me.page = canvasGroup;
 		
 		return me;
@@ -103,8 +122,8 @@ var CanvasEdpSdp = {
 				Value.epr[0] = systems.ENGINES.epr[0].getValue();
 				Value.eprRound[0] = math.round(Value.epr[0], 0.001);
 				
-				me["EPR1_ones"].setTranslation(0, genevaEprOnes(num(right(sprintf("%06.3f", Value.eprRound[0] * 10), 6))) * 32.959);
-				me["EPR1_tenths"].setTranslation(0, genevaEprTenths(num(right(sprintf("%05.3f", Value.eprRound[0] * 10), 5))) * 32.959);
+				me["EPR1_ones"].setTranslation(0, genevaEprOnes(num(right(sprintf("%05.2f", Value.eprRound[0] * 10), 5))) * 32.959);
+				me["EPR1_tenths"].setTranslation(0, genevaEprTenths(num(right(sprintf("%04.2f", Value.eprRound[0] * 10), 4))) * 32.959);
 				me["EPR1_hundreths"].setTranslation(0, 10 * (math.mod(Value.eprRound[0] * 10, 1) * 32.959));
 				
 				me["EPR1"].show();
@@ -123,8 +142,8 @@ var CanvasEdpSdp = {
 				Value.epr[1] = systems.ENGINES.epr[1].getValue();
 				Value.eprRound[1] = math.round(Value.epr[1], 0.001);
 				
-				me["EPR2_ones"].setTranslation(0, genevaEprOnes(num(right(sprintf("%06.3f", Value.eprRound[1] * 10), 6))) * 32.959);
-				me["EPR2_tenths"].setTranslation(0, genevaEprTenths(num(right(sprintf("%05.3f", Value.eprRound[1] * 10), 5))) * 32.959);
+				me["EPR2_ones"].setTranslation(0, genevaEprOnes(num(right(sprintf("%05.2f", Value.eprRound[1] * 10), 5))) * 32.959);
+				me["EPR2_tenths"].setTranslation(0, genevaEprTenths(num(right(sprintf("%04.2f", Value.eprRound[1] * 10), 4))) * 32.959);
 				me["EPR2_hundreths"].setTranslation(0, 10 * (math.mod(Value.eprRound[1] * 10, 1) * 32.959));
 				
 				me["EPR2"].show();
@@ -133,6 +152,179 @@ var CanvasEdpSdp = {
 		} else {
 			me["EPR2"].hide();
 			me["EPR2_test"].hide();
+		}
+		
+		# EDP N1
+		if (Value.Bus.emerDc) {
+			if (Value.annunTest) {
+				me["N11"].hide();
+				me["N11_test"].show();
+			} else {
+				Value.n1[0] = systems.ENGINES.n1[0].getValue();
+				Value.n1Round[0] = math.round(Value.n1[0], 0.1);
+				
+				if (Value.n1Round[0] < 99) { # Prepare to show the zero at 100
+					me["N11_tens_zero"].hide();
+				} else {
+					me["N11_tens_zero"].show();
+				}
+				
+				me["N11_hundreds"].setTranslation(0, genevaNHundreds(num(right(sprintf("%05.2f", Value.n1Round[0] / 10), 5))) * 32.959);
+				me["N11_tens"].setTranslation(0, genevaNTens(num(right(sprintf("%04.2f", Value.n1Round[0] / 10), 4))) * 32.959);
+				me["N11_ones"].setTranslation(0, 10 * (math.mod(Value.n1Round[0] / 10, 1) * 32.959));
+				
+				me["N11"].show();
+				me["N11_test"].hide();
+			}
+		} else {
+			me["N11"].hide();
+			me["N11_test"].hide();
+		}
+		
+		if (Value.Bus.dcTrans) {
+			if (Value.annunTest) {
+				me["N12"].hide();
+				me["N12_test"].show();
+			} else {
+				Value.n1[1] = systems.ENGINES.n1[1].getValue();
+				Value.n1Round[1] = math.round(Value.n1[1], 0.1);
+				
+				if (Value.n1Round[1] < 99) { # Prepare to show the zero at 100
+					me["N12_tens_zero"].hide();
+				} else {
+					me["N12_tens_zero"].show();
+				}
+				
+				me["N12_hundreds"].setTranslation(0, genevaNHundreds(num(right(sprintf("%05.2f", Value.n1Round[1] / 10), 5))) * 32.959);
+				me["N12_tens"].setTranslation(0, genevaNTens(num(right(sprintf("%04.2f", Value.n1Round[1] / 10), 4))) * 32.959);
+				me["N12_ones"].setTranslation(0, 10 * (math.mod(Value.n1Round[1] / 10, 1) * 32.959));
+				
+				me["N12"].show();
+				me["N12_test"].hide();
+			}
+		} else {
+			me["N12"].hide();
+			me["N12_test"].hide();
+		}
+		
+		# EDP EGT
+		if (Value.Bus.emerDc) {
+			if (Value.annunTest) {
+				me["EGT1"].hide();
+				me["EGT1_test"].show();
+			} else {
+				Value.egt[0] = systems.ENGINES.egt[0].getValue();
+				Value.egtRound[0] = math.round(Value.egt[0], 0.1);
+				
+				if (Value.egtRound[0] < 999) { # Prepare to show the zero at 1000
+					me["EGT1_hundreds_zero"].hide();
+				} else {
+					me["EGT1_hundreds_zero"].show();
+				}
+				
+				if (Value.egtRound[0] < 99) { # Prepare to show the zero at 100
+					me["EGT1_tens_zero"].hide();
+				} else {
+					me["EGT1_tens_zero"].show();
+				}
+				
+				me["EGT1_thousands"].setTranslation(0, genevaEgtThousands(num(right(sprintf("%06.2f", Value.egtRound[0] / 10), 6))) * 32.959);
+				me["EGT1_hundreds"].setTranslation(0, genevaEgtHundreds(num(right(sprintf("%05.2f", Value.egtRound[0] / 10), 5))) * 32.959);
+				me["EGT1_tens"].setTranslation(0, genevaEgtTens(num(right(sprintf("%04.2f", Value.egtRound[0] / 10), 4))) * 32.959);
+				me["EGT1_ones"].setTranslation(0, 10 * (math.mod(Value.egtRound[0] / 10, 1) * 32.959));
+				
+				me["EGT1"].show();
+				me["EGT1_test"].hide();
+			}
+		} else {
+			me["EGT1"].hide();
+			me["EGT1_test"].hide();
+		}
+		
+		if (Value.Bus.dcTrans) {
+			if (Value.annunTest) {
+				me["EGT2"].hide();
+				me["EGT2_test"].show();
+			} else {
+				Value.egt[1] = systems.ENGINES.egt[1].getValue();
+				Value.egtRound[1] = math.round(Value.egt[1], 0.1);
+				
+				if (Value.egtRound[1] < 999) { # Prepare to show the zero at 1000
+					me["EGT2_hundreds_zero"].hide();
+				} else {
+					me["EGT2_hundreds_zero"].show();
+				}
+				
+				if (Value.egtRound[1] < 99) { # Prepare to show the zero at 100
+					me["EGT2_tens_zero"].hide();
+				} else {
+					me["EGT2_tens_zero"].show();
+				}
+				
+				me["EGT2_thousands"].setTranslation(0, genevaEgtThousands(num(right(sprintf("%06.2f", Value.egtRound[1] / 10), 6))) * 32.959);
+				me["EGT2_hundreds"].setTranslation(0, genevaEgtHundreds(num(right(sprintf("%05.2f", Value.egtRound[1] / 10), 5))) * 32.959);
+				me["EGT2_tens"].setTranslation(0, genevaEgtTens(num(right(sprintf("%04.2f", Value.egtRound[1] / 10), 4))) * 32.959);
+				me["EGT2_ones"].setTranslation(0, 10 * (math.mod(Value.egtRound[1] / 10, 1) * 32.959));
+				
+				me["EGT2"].show();
+				me["EGT2_test"].hide();
+			}
+		} else {
+			me["EGT2"].hide();
+			me["EGT2_test"].hide();
+		}
+		
+		# EDP N2
+		if (Value.Bus.emerDc) {
+			if (Value.annunTest) {
+				me["N21"].hide();
+				me["N21_test"].show();
+			} else {
+				Value.n2[0] = systems.ENGINES.n2[0].getValue();
+				Value.n2Round[0] = math.round(Value.n2[0], 0.1);
+				
+				if (Value.n2Round[0] < 99) { # Prepare to show the zero at 100
+					me["N21_tens_zero"].hide();
+				} else {
+					me["N21_tens_zero"].show();
+				}
+				
+				me["N21_hundreds"].setTranslation(0, genevaNHundreds(num(right(sprintf("%05.2f", Value.n2Round[0] / 10), 5))) * 32.959);
+				me["N21_tens"].setTranslation(0, genevaNTens(num(right(sprintf("%04.2f", Value.n2Round[0] / 10), 4))) * 32.959);
+				me["N21_ones"].setTranslation(0, 10 * (math.mod(Value.n2Round[0] / 10, 1) * 32.959));
+				
+				me["N21"].show();
+				me["N21_test"].hide();
+			}
+		} else {
+			me["N21"].hide();
+			me["N21_test"].hide();
+		}
+		
+		if (Value.Bus.dcTrans) {
+			if (Value.annunTest) {
+				me["N22"].hide();
+				me["N22_test"].show();
+			} else {
+				Value.n2[1] = systems.ENGINES.n2[1].getValue();
+				Value.n2Round[1] = math.round(Value.n2[1], 0.1);
+				
+				if (Value.n2Round[1] < 99) { # Prepare to show the zero at 100
+					me["N22_tens_zero"].hide();
+				} else {
+					me["N22_tens_zero"].show();
+				}
+				
+				me["N22_hundreds"].setTranslation(0, genevaNHundreds(num(right(sprintf("%05.2f", Value.n2Round[1] / 10), 5))) * 32.959);
+				me["N22_tens"].setTranslation(0, genevaNTens(num(right(sprintf("%04.2f", Value.n2Round[1] / 10), 4))) * 32.959);
+				me["N22_ones"].setTranslation(0, 10 * (math.mod(Value.n2Round[1] / 10, 1) * 32.959));
+				
+				me["N22"].show();
+				me["N22_test"].hide();
+			}
+		} else {
+			me["N22"].hide();
+			me["N22_test"].hide();
 		}
 		
 		# EDP 7-Seg
@@ -301,6 +493,9 @@ var update = maketimer(0.05, func() { # 20FPS
 	CanvasBase.update();
 });
 
+var m = 0;
+var s = 0;
+
 var genevaEprOnes = func(input) {
 	m = math.floor(input / 10);
 	s = math.max(0, (math.mod(input, 1) - 0.9) * 10);
@@ -314,8 +509,57 @@ var genevaEprTenths = func(input) {
 	return m + s;
 }
 
+var genevaNHundreds = func(input) {
+	m = math.floor(input / 10);
+	s = math.max(0, (math.mod(input, 1) - 0.9) * 10);
+	if (math.mod(input / 10, 1) < 0.9) s = 0;
+	return m + s;
+}
+
+var genevaNTens = func(input) {
+	m = math.floor(input);
+	s = math.max(0, (math.mod(input, 1) - 0.9) * 10);
+	return m + s;
+}
+
+var genevaEgtThousands = func(input) {
+	m = math.floor(input / 100);
+	s = math.max(0, (math.mod(input, 1) - 0.9) * 10);
+	if (math.mod(input / 10, 1) < 0.9 or math.mod(input / 100, 1) < 0.9) s = 0;
+	return m + s;
+}
+
+var genevaEgtHundreds = func(input) {
+	m = math.floor(input / 10);
+	s = math.max(0, (math.mod(input, 1) - 0.9) * 10);
+	if (math.mod(input / 10, 1) < 0.9) s = 0;
+	return m + s;
+}
+
+var genevaEgtTens = func(input) {
+	m = math.floor(input);
+	s = math.max(0, (math.mod(input, 1) - 0.9) * 10);
+	return m + s;
+}
+
 # SVG Key List
 var KeyList = [
+	"EGT1",
+	"EGT1_hundreds",
+	"EGT1_hundreds_zero",
+	"EGT1_ones",
+	"EGT1_tens",
+	"EGT1_tens_zero",
+	"EGT1_thousands",
+	"EGT1_test",
+	"EGT2",
+	"EGT2_hundreds",
+	"EGT2_hundreds_zero",
+	"EGT2_ones",
+	"EGT2_tens",
+	"EGT2_tens_zero",
+	"EGT2_thousands",
+	"EGT2_test",
 	"EPRCmd1",
 	"EPRCmd2",
 	"EPRLimit",
@@ -337,6 +581,30 @@ var KeyList = [
 	"HydPressR",
 	"HydQtyL",
 	"HydQtyR",
+	"N11",
+	"N11_hundreds",
+	"N11_ones",
+	"N11_tens",
+	"N11_tens_zero",
+	"N11_test",
+	"N12",
+	"N12_hundreds",
+	"N12_ones",
+	"N12_tens",
+	"N12_tens_zero",
+	"N12_test",
+	"N21",
+	"N21_hundreds",
+	"N21_ones",
+	"N21_tens",
+	"N21_tens_zero",
+	"N21_test",
+	"N22",
+	"N22_hundreds",
+	"N22_ones",
+	"N22_tens",
+	"N22_tens_zero",
+	"N22_test",
 	"OilPress1",
 	"OilPress2",
 	"OilQty1",
@@ -356,4 +624,16 @@ var GroupMatrixKeys5x10B = [
 
 # Matrix 5x10 Font List
 var GroupMatrixKeys5x10 = [
+	"EGT1",
+	"EGT1_test",
+	"EGT2",
+	"EGT2_test",
+	"N11",
+	"N11_test",
+	"N12",
+	"N12_test",
+	"N21",
+	"N21_test",
+	"N22",
+	"N22_test"
 ];
