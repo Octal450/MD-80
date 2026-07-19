@@ -277,11 +277,6 @@ var Systems = {
 			armedAltAsFl: props.globals.getNode("/systems/acconfig/options/armed-alt-as-fl"),
 			autoArmAlt: props.globals.getNode("/systems/acconfig/options/auto-arm-alt"),
 			combinedStandby: props.globals.getNode("/systems/acconfig/options/combined-standby"),
-			Du: {
-				mcduFps: props.globals.getNode("/systems/acconfig/options/du/mcdu-fps"),
-				ndFps: props.globals.getNode("/systems/acconfig/options/du/nd-fps"),
-				pfdFps: props.globals.getNode("/systems/acconfig/options/du/pfd-fps"),
-			},
 			dualCueFd: props.globals.getNode("/systems/acconfig/options/dual-cue-fd"),
 			edpSdp: props.globals.getNode("/systems/acconfig/options/edp-sdp"),
 			efis: props.globals.getNode("/systems/acconfig/options/efis"),
