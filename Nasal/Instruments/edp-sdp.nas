@@ -12,6 +12,8 @@ var Value = {
 		dcTrans: 0,
 		emerDc: 0,
 	},
+	epr: [0, 0],
+	eprRound: [0, 0],
 	ffFu: 0,
 	ft: [0, 0],
 	tat: 0,
@@ -28,13 +30,46 @@ var CanvasBase = {
 		var svgKeys = me.getKeys();
 		foreach(var key; svgKeys) {
 			me[key] = canvasGroup.getElementById(key);
-			#if (find("_5x10B", me._key) != -1) me[me._key].setFont("MD80EDP5x10B.ttf");
-			#else if (find("_5x10", me._key) != -1) me[me._key].setFont("MD80EDP5x10.ttf");
+			
+			var clip_el = canvasGroup.getElementById(key ~ "_clip");
+			if (clip_el != nil) {
+				clip_el.setVisible(0);
+				var tranRect = clip_el.getTransformedBounds();
+				
+				var clip_rect = sprintf("rect(%d, %d, %d, %d)", 
+					tranRect[1], # 0 ys
+					tranRect[2], # 1 xe
+					tranRect[3], # 2 ye
+					tranRect[0] # 3 xs
+				);
+				
+				# Coordinates are top, right, bottom, left (ys, xe, ye, xs) ref: l621 of simgear/canvas/CanvasElement.cxx
+				me[key].set("clip", clip_rect);
+				me[key].set("clip-frame", canvas.Element.PARENT);
+			}
+		}
+		
+		foreach (var key; GroupMatrixKeys5x10B) {
+			foreach (var child; me[key].getChildren()) {
+				if (child.getType() == "group") {
+					foreach (var grandchild; child.getChildren()) {
+						if (grandchild.getType() == "text")
+							grandchild.setFont("MD80EDP5x10B.ttf");
+					}
+				} else if (child.getType() == "text") {
+					child.setFont("MD80EDP5x10B.ttf");
+				}
+			}
 		}
 		
 		me.page = canvasGroup;
 		
 		return me;
+	},
+	update: func() {
+		if (pts.Systems.Acconfig.Options.edpSdp.getBoolValue()) {
+			edpSdp.update();
+		}
 	},
 };
 
@@ -58,6 +93,47 @@ var CanvasEdpSdp = {
 		Value.ft[0] = math.round(systems.FUEL.Temp.tankL.getValue());
 		Value.ft[1] = math.round(systems.FUEL.Temp.tankR.getValue());
 		Value.tat = math.round(pts.Fdm.JSBSim.Propulsion.tatC.getValue());
+		
+		# EDP EPR
+		if (Value.Bus.dcTrans) {
+			if (Value.annunTest) {
+				me["EPR1"].hide();
+				me["EPR1_test"].show();
+			} else {
+				Value.epr[0] = systems.ENGINES.epr[0].getValue();
+				Value.eprRound[0] = math.round(Value.epr[0], 0.001);
+				
+				me["EPR1_ones"].setTranslation(0, genevaEprOnes(num(right(sprintf("%06.3f", Value.eprRound[0] * 10), 6))) * 32.959);
+				me["EPR1_tenths"].setTranslation(0, genevaEprTenths(num(right(sprintf("%05.3f", Value.eprRound[0] * 10), 5))) * 32.959);
+				me["EPR1_hundreths"].setTranslation(0, 10 * (math.mod(Value.eprRound[0] * 10, 1) * 32.959));
+				
+				me["EPR1"].show();
+				me["EPR1_test"].hide();
+			}
+		} else {
+			me["EPR1"].hide();
+			me["EPR1_test"].hide();
+		}
+		
+		if (Value.Bus.emerDc) {
+			if (Value.annunTest) {
+				me["EPR2"].hide();
+				me["EPR2_test"].show();
+			} else {
+				Value.epr[1] = systems.ENGINES.epr[1].getValue();
+				Value.eprRound[1] = math.round(Value.epr[1], 0.001);
+				
+				me["EPR2_ones"].setTranslation(0, genevaEprOnes(num(right(sprintf("%06.3f", Value.eprRound[1] * 10), 6))) * 32.959);
+				me["EPR2_tenths"].setTranslation(0, genevaEprTenths(num(right(sprintf("%05.3f", Value.eprRound[1] * 10), 5))) * 32.959);
+				me["EPR2_hundreths"].setTranslation(0, 10 * (math.mod(Value.eprRound[1] * 10, 1) * 32.959));
+				
+				me["EPR2"].show();
+				me["EPR2_test"].hide();
+			}
+		} else {
+			me["EPR2"].hide();
+			me["EPR2_test"].hide();
+		}
 		
 		# EDP 7-Seg
 		if (Value.Bus.dcTrans) {
@@ -221,15 +297,38 @@ var setup = func() {
 	update.start();
 }
 
-var update = maketimer(0.1, func() {
-	edpSdp.update();
+var update = maketimer(0.05, func() { # 20FPS
+	CanvasBase.update();
 });
+
+var genevaEprOnes = func(input) {
+	m = math.floor(input / 10);
+	s = math.max(0, (math.mod(input, 1) - 0.9) * 10);
+	if (math.mod(input / 10, 1) < 0.9) s = 0;
+	return m + s;
+}
+
+var genevaEprTenths = func(input) {
+	m = math.floor(input);
+	s = math.max(0, (math.mod(input, 1) - 0.9) * 10);
+	return m + s;
+}
 
 # SVG Key List
 var KeyList = [
 	"EPRCmd1",
 	"EPRCmd2",
 	"EPRLimit",
+	"EPR1",
+	"EPR1_hundreths",
+	"EPR1_ones",
+	"EPR1_tenths",
+	"EPR1_test",
+	"EPR2",
+	"EPR2_hundreths",
+	"EPR2_ones",
+	"EPR2_tenths",
+	"EPR2_test",
 	"FF1",
 	"FF2",
 	"FuelTempL",
@@ -245,4 +344,16 @@ var KeyList = [
 	"OilTemp1",
 	"OilTemp2",
 	"RAT"
+];
+
+# Matrix 5x10B Font List
+var GroupMatrixKeys5x10B = [
+	"EPR1",
+	"EPR1_test",
+	"EPR2",
+	"EPR2_test"
+];
+
+# Matrix 5x10 Font List
+var GroupMatrixKeys5x10 = [
 ];
