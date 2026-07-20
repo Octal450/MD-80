@@ -451,7 +451,7 @@
 			<condition>
 				<equals>
 					<property>/options/eng</property>
-					<value>209</value>
+					<value>217</value>
 				</equals>
 			</condition>
 			<expression> <!-- EPR non-linearity makes it hard -->
@@ -482,7 +482,7 @@
 			<condition>
 				<equals>
 					<property>/options/eng</property>
-					<value>209</value>
+					<value>217</value>
 				</equals>
 			</condition>
 			<expression> <!-- EPR non-linearity makes it hard -->

@@ -2,7 +2,7 @@
 A very advanced simulation of the McDonnell Douglas MD-80 for FlightGear.
 
 Present pack includes the following McDonnell Douglas MD-80 variants:
-- MD-81 (JT8D-209)
+- MD-81 (JT8D-217)
 - MD-82 (JT8D-217A)
 - MD-83 (JT8D-219)
 - MD-87 (JT8D-217C, Optional Firetank System)

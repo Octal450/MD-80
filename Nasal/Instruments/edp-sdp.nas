@@ -25,6 +25,7 @@ var Value = {
 	ft: [0, 0],
 	n1: [0, 0],
 	n1Needle: [0, 0],
+	n1NeedleCoeff: 0.74,
 	n1Round: [0, 0],
 	n2: [0, 0],
 	n2Needle: [0, 0],
@@ -92,6 +93,9 @@ var CanvasBase = {
 		
 		return me;
 	},
+	setup: func() {
+		edpSdp.setup();
+	},
 	update: func() {
 		if (pts.Systems.Acconfig.Options.edpSdp.getBoolValue()) {
 			edpSdp.update();
@@ -108,6 +112,13 @@ var CanvasEdpSdp = {
 	},
 	getKeys: func() {
 		return KeyList;
+	},
+	setup: func() {
+		if (pts.Options.eng.getValue() == "217") {
+			Value.n1NeedleCoeff = "0.76";
+		} else {
+			Value.n1NeedleCoeff = "0.74";
+		}
 	},
 	update: func() {
 		Value.annunTest = pts.Controls.Switches.annunTest.getBoolValue();
@@ -189,7 +200,7 @@ var CanvasEdpSdp = {
 			} else {
 				Value.n1[0] = systems.ENGINES.n1[0].getValue();
 				
-				Value.n1Needle[0] = math.round(Value.n1[0] * 0.74);
+				Value.n1Needle[0] = math.round(Value.n1[0] * Value.n1NeedleCoeff);
 				me["N11_needle"].setRotation(math.clamp(((Value.n1Needle[0] * 3.2) - 140.8), -140.8, 140.8) * D2R);
 				
 				Value.n1Round[0] = math.round(Value.n1[0], 0.1);
@@ -220,7 +231,7 @@ var CanvasEdpSdp = {
 			} else {
 				Value.n1[1] = systems.ENGINES.n1[1].getValue();
 				
-				Value.n1Needle[1] = math.round(Value.n1[1] * 0.74);
+				Value.n1Needle[1] = math.round(Value.n1[1] * Value.n1NeedleCoeff);
 				me["N12_needle"].setRotation(math.clamp(((Value.n1Needle[1] * 3.2) - 140.8), -140.8, 140.8) * D2R);
 				
 				Value.n1Round[1] = math.round(Value.n1[1], 0.1);
@@ -584,6 +595,7 @@ var setup = func() {
 	var edpSdpGroup = edpSdpDisplay.createGroup();
 	edpSdp = CanvasEdpSdp.new(edpSdpGroup, "Aircraft/MD-80/Nasal/Instruments/res/edp-sdp.svg");
 	
+	CanvasBase.setup();
 	update.start();
 }
 

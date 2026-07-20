@@ -6,20 +6,17 @@
 	
     <sim>
 		<aero>FDE/MD-81</aero>
-		<description>McDonnell Douglas MD-81 (JT8D-209)</description>
+		<description>McDonnell Douglas MD-81 (JT8D-217)</description>
 		<flight-model>jsb</flight-model>
 		<model n="0">
 			<livery>
 				<file type="string">White</file>
 			</livery>
-			<egt n="0">
-				<texture type="string">egt-209.png</texture>
-			</egt>
 			<n1-tach n="0">
-				<texture type="string">n1-209.png</texture>
+				<texture type="string">n1-217.png</texture>
 			</n1-tach>
 			<n2-tach n="0">
-				<texture type="string">n2-209.png</texture>
+				<texture type="string">n2-217.png</texture>
 			</n2-tach>
 			<path>Aircraft/MD-80/Models/MD-81.xml</path>
 		</model>
@@ -58,7 +55,7 @@
 	
 	<options n="0">
 		<aux-tanks type="bool">0</aux-tanks>
-		<eng type="string">209</eng>
+		<eng type="string">217</eng>
 		<model-int type="int">1</model-int>
 		<panel-mod type="bool">0</panel-mod>
 	</options>
@@ -99,7 +96,7 @@
 	<systems n="0">
 		<ht9100 n="0">
 			<options n="0">
-				<engines type="string">JT8D-209</engines>
+				<engines type="string">JT8D-217</engines>
 				<type type="string">DC-9-81</type>
 			</options>
 		</ht9100>

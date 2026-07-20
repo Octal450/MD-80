@@ -6,7 +6,7 @@
 	
 	<fileheader>
 		<author>Josh Davidson (Octal450)</author>
-		<description>MD-81 FDE with JT8D-209 Engines</description>
+		<description>MD-81 FDE with JT8D-217 Engines</description>
 	</fileheader>
 	
 	<aerodynamics file="FDE/Config/md-80-aerodynamics.xml"/>
@@ -27,7 +27,7 @@
 	<system file="md-80-fcs"/>
 	<system file="md-80-spoilers"/>
 	<system file="md-80-ignition"/>
-	<system file="md-80-209-engine-thrlim"/>
+	<system file="md-80-217-engine-thrlim"/>
 	<system file="md-80-apu"/>
 	<system file="md-80-misc"/>
 	<system file="md-80-performance"/>
@@ -35,7 +35,7 @@
 	<system file="md-80-instrumentation"/>
 	
 	<propulsion>
-		<engine file="jt8d-209_1">
+		<engine file="jt8d-217_1">
 			<feed>5</feed>
 			<thruster file="direct">
 				<location unit="M"> <!-- Fudged for accuracy -->
@@ -51,7 +51,7 @@
 			</thruster>
 		</engine>
 		
-		<engine file="jt8d-209_2">
+		<engine file="jt8d-217_2">
 			<feed>6</feed>
 			<thruster file="direct">
 				<location unit="M"> <!-- Fudged for accuracy -->

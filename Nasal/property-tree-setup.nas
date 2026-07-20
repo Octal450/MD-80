@@ -178,6 +178,7 @@ var Instrumentation = {
 };
 
 var Options = {
+	eng: props.globals.getNode("/options/eng"),
 	firetank: props.globals.getNode("/options/firetank"),
 	modelInt: props.globals.getNode("/options/model-int"),
 };
