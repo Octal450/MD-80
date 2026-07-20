@@ -581,7 +581,7 @@ var CanvasEdpSdp = {
 		}
 	},
 };
-setprop("/test", 0);
+
 var setup = func() {
 	edpSdpDisplay = canvas.new({
 		"name": "edpSdp",
