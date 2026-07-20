@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
-     inkscape:cx="205.25"
-     inkscape:cy="661.75"
+     inkscape:zoom="5.6568542"
+     inkscape:cx="713.91268"
+     inkscape:cy="769.59734"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -4276,4 +4276,8 @@
        style="fill:none;fill-rule:evenodd;stroke:#00ff00;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
        d="m 451.5,1640.3622 v 8 m 0,1 v 8 m 0,1 v 8"
        sodipodi:nodetypes="cccccc"
-       inkscape:transform-center-y="-84.26" /></g></svg>
+       inkscape:transform-center-y="-84.26" /><path
+       id="Flaps"
+       style="fill:none;fill-rule:evenodd;stroke:#00ff00;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="m 819,1622.3622 h -8 m -1,0 h -8 m -1,0 h -8 m 26,-6 h -8 m -1,0 h -8 m -1,0 h -8 m -49,6 h -8 m -1,0 h -8 m -1,0 h -8 m 26,-6 h -8 m -1,0 h -8 m -1,0 h -8"
+       sodipodi:nodetypes="cccccccccccccccccccccccc" /></g></svg>

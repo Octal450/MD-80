@@ -20,6 +20,8 @@ var Value = {
 	eprNeedle: [0, 0],
 	eprRound: [0, 0],
 	ffFu: 0,
+	flaps: 0,
+	flapsNeedle: 0,
 	ft: [0, 0],
 	n1: [0, 0],
 	n1Needle: [0, 0],
@@ -541,9 +543,34 @@ var CanvasEdpSdp = {
 			me["OilTemp2"].hide();
 			me["RAT"].hide();
 		}
+		
+		# SDP Flaps
+		if (Value.Bus.dcR) {
+			if (Value.annunTest) {
+				# TODO
+			} else {
+				Value.flaps = systems.FCS.flapsDeg.getValue();
+				if (Value.flaps <= 1) {
+					Value.flapsNeedle = Value.flaps * 6;
+				}
+				else if (Value.flaps <= 15) {
+					Value.flapsNeedle = 6 + (Value.flaps - 1) * (46 / 7);
+				}
+				else if (Value.flaps <= 28) {
+					Value.flapsNeedle = 98 + (Value.flaps - 15) * (88 / 13);
+				}
+				else {
+					Value.flapsNeedle = 186 + (Value.flaps - 28) * (3 / 2);
+				}
+				me["Flaps"].setTranslation(0, math.round(Value.flapsNeedle, 6));
+			}
+			me["Flaps"].show();
+		} else {
+			me["Flaps"].hide();
+		}
 	},
 };
-
+setprop("/test", 0);
 var setup = func() {
 	edpSdpDisplay = canvas.new({
 		"name": "edpSdp",
@@ -652,6 +679,7 @@ var KeyList = [
 	"EPR2_test",
 	"FF1",
 	"FF2",
+	"Flaps",
 	"FuelTempL",
 	"FuelTempR",
 	"HydPressL",

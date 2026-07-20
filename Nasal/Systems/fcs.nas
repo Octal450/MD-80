@@ -5,6 +5,7 @@ var FCS = {
 	dialAFlapCalc: 0,
 	dialAFlapPos: props.globals.getNode("/systems/fcs/flaps/dial-a-flap-pos"),
 	dialAFlapPosTemp: 0,
+	flapsDeg: props.globals.getNode("/fdm/jsbsim/fcs/flap-pos-deg"), # Must use this prop
 	flapsInput: props.globals.getNode("/systems/fcs/flaps/input"),
 	flapsInputTemp: 0,
 	mainGearAnd: props.globals.getNode("/systems/fcs/spoilers/main-gear-and"),
