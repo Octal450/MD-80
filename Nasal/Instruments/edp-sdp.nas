@@ -13,14 +13,19 @@ var Value = {
 		emerDc: 0,
 	},
 	egt: [0, 0],
+	egtNeedle: [0, 0],
 	egtRound: [0, 0],
 	epr: [0, 0],
+	eprLimit: [0, 0],
+	eprNeedle: [0, 0],
 	eprRound: [0, 0],
 	ffFu: 0,
 	ft: [0, 0],
 	n1: [0, 0],
+	n1Needle: [0, 0],
 	n1Round: [0, 0],
 	n2: [0, 0],
+	n2Needle: [0, 0],
 	n2Round: [0, 0],
 	tat: 0,
 };
@@ -120,8 +125,14 @@ var CanvasEdpSdp = {
 				me["EPR1_test"].show();
 			} else {
 				Value.epr[0] = systems.ENGINES.epr[0].getValue();
-				Value.eprRound[0] = math.round(Value.epr[0], 0.001);
 				
+				Value.eprLimit[0] = math.round(((pts.Instrumentation.Epr.eprBug[0].getValue() - 1.0) * (80.0 / 1.2)) + 8);
+				me["EPR1_limit"].setRotation(math.clamp(((Value.eprLimit[0] * 3.2) - 153.6), -153.6, 153.6) * D2R);
+				
+				Value.eprNeedle[0] = math.round(((Value.epr[0] - 1) * (80 / 1.2)) + 8);
+				me["EPR1_needle"].setRotation(math.clamp(((Value.eprNeedle[0] * 3.2) - 153.6), -153.6, 153.6) * D2R);
+				
+				Value.eprRound[0] = math.round(Value.epr[0], 0.001);
 				me["EPR1_ones"].setTranslation(0, genevaEprOnes(num(right(sprintf("%05.2f", Value.eprRound[0] * 10), 5))) * 32.959);
 				me["EPR1_tenths"].setTranslation(0, genevaEprTenths(num(right(sprintf("%04.2f", Value.eprRound[0] * 10), 4))) * 32.959);
 				me["EPR1_hundreths"].setTranslation(0, 10 * (math.mod(Value.eprRound[0] * 10, 1) * 32.959));
@@ -129,8 +140,12 @@ var CanvasEdpSdp = {
 				me["EPR1"].show();
 				me["EPR1_test"].hide();
 			}
+			me["EPR1_limit"].show();
+			me["EPR1_needle"].show();
 		} else {
 			me["EPR1"].hide();
+			me["EPR1_limit"].hide();
+			me["EPR1_needle"].hide();
 			me["EPR1_test"].hide();
 		}
 		
@@ -140,8 +155,14 @@ var CanvasEdpSdp = {
 				me["EPR2_test"].show();
 			} else {
 				Value.epr[1] = systems.ENGINES.epr[1].getValue();
-				Value.eprRound[1] = math.round(Value.epr[1], 0.001);
 				
+				Value.eprLimit[1] = math.round(((pts.Instrumentation.Epr.eprBug[1].getValue() - 1.0) * (80.0 / 1.2)) + 8);
+				me["EPR2_limit"].setRotation(math.clamp(((Value.eprLimit[1] * 3.2) - 153.6), -153.6, 153.6) * D2R);
+				
+				Value.eprNeedle[1] = math.round(((Value.epr[1] - 1) * (80 / 1.2)) + 8);
+				me["EPR2_needle"].setRotation(math.clamp(((Value.eprNeedle[1] * 3.2) - 153.6), -153.6, 153.6) * D2R);
+				
+				Value.eprRound[1] = math.round(Value.epr[1], 0.001);
 				me["EPR2_ones"].setTranslation(0, genevaEprOnes(num(right(sprintf("%05.2f", Value.eprRound[1] * 10), 5))) * 32.959);
 				me["EPR2_tenths"].setTranslation(0, genevaEprTenths(num(right(sprintf("%04.2f", Value.eprRound[1] * 10), 4))) * 32.959);
 				me["EPR2_hundreths"].setTranslation(0, 10 * (math.mod(Value.eprRound[1] * 10, 1) * 32.959));
@@ -149,8 +170,12 @@ var CanvasEdpSdp = {
 				me["EPR2"].show();
 				me["EPR2_test"].hide();
 			}
+			me["EPR2_limit"].show();
+			me["EPR2_needle"].show();
 		} else {
 			me["EPR2"].hide();
+			me["EPR2_limit"].hide();
+			me["EPR2_needle"].hide();
 			me["EPR2_test"].hide();
 		}
 		
@@ -161,8 +186,11 @@ var CanvasEdpSdp = {
 				me["N11_test"].show();
 			} else {
 				Value.n1[0] = systems.ENGINES.n1[0].getValue();
-				Value.n1Round[0] = math.round(Value.n1[0], 0.1);
 				
+				Value.n1Needle[0] = math.round(Value.n1[0] * 0.74);
+				me["N11_needle"].setRotation(math.clamp(((Value.n1Needle[0] * 3.2) - 140.8), -140.8, 140.8) * D2R);
+				
+				Value.n1Round[0] = math.round(Value.n1[0], 0.1);
 				if (Value.n1Round[0] < 99) { # Prepare to show the zero at 100
 					me["N11_tens_zero"].hide();
 				} else {
@@ -176,8 +204,10 @@ var CanvasEdpSdp = {
 				me["N11"].show();
 				me["N11_test"].hide();
 			}
+			me["N11_needle"].show();
 		} else {
 			me["N11"].hide();
+			me["N11_needle"].hide();
 			me["N11_test"].hide();
 		}
 		
@@ -187,8 +217,11 @@ var CanvasEdpSdp = {
 				me["N12_test"].show();
 			} else {
 				Value.n1[1] = systems.ENGINES.n1[1].getValue();
-				Value.n1Round[1] = math.round(Value.n1[1], 0.1);
 				
+				Value.n1Needle[1] = math.round(Value.n1[1] * 0.74);
+				me["N12_needle"].setRotation(math.clamp(((Value.n1Needle[1] * 3.2) - 140.8), -140.8, 140.8) * D2R);
+				
+				Value.n1Round[1] = math.round(Value.n1[1], 0.1);
 				if (Value.n1Round[1] < 99) { # Prepare to show the zero at 100
 					me["N12_tens_zero"].hide();
 				} else {
@@ -202,8 +235,10 @@ var CanvasEdpSdp = {
 				me["N12"].show();
 				me["N12_test"].hide();
 			}
+			me["N12_needle"].show();
 		} else {
 			me["N12"].hide();
+			me["N12_needle"].hide();
 			me["N12_test"].hide();
 		}
 		
@@ -214,8 +249,19 @@ var CanvasEdpSdp = {
 				me["EGT1_test"].show();
 			} else {
 				Value.egt[0] = systems.ENGINES.egt[0].getValue();
-				Value.egtRound[0] = math.round(Value.egt[0], 0.1);
 				
+				if (Value.egt[0] <= 500) {
+					Value.egtNeedle[0] = math.round(Value.egt[0] * (52 / 500));
+				}
+				else if (Value.egt[0] <= 580) {
+					Value.egtNeedle[0] = math.round(52 + (Value.egt[0] - 500) * (12 / 80));
+				}
+				else { # Extrapolates based on 580-630 range past 630
+					Value.egtNeedle[0] = math.round(64 + (Value.egt[0] - 580) * (5 / 50));
+				}
+				me["EGT1_needle"].setRotation(math.clamp(((Value.egtNeedle[0] * 3.2) - 140.8), -140.8, 140.8) * D2R);
+				
+				Value.egtRound[0] = math.round(Value.egt[0], 0.1);
 				if (Value.egtRound[0] < 999) { # Prepare to show the zero at 1000
 					me["EGT1_hundreds_zero"].hide();
 				} else {
@@ -236,8 +282,10 @@ var CanvasEdpSdp = {
 				me["EGT1"].show();
 				me["EGT1_test"].hide();
 			}
+			me["EGT1_needle"].show();
 		} else {
 			me["EGT1"].hide();
+			me["EGT1_needle"].hide();
 			me["EGT1_test"].hide();
 		}
 		
@@ -247,8 +295,19 @@ var CanvasEdpSdp = {
 				me["EGT2_test"].show();
 			} else {
 				Value.egt[1] = systems.ENGINES.egt[1].getValue();
-				Value.egtRound[1] = math.round(Value.egt[1], 0.1);
 				
+				if (Value.egt[1] <= 500) {
+					Value.egtNeedle[1] = math.round(Value.egt[1] * (52 / 500));
+				}
+				else if (Value.egt[1] <= 580) {
+					Value.egtNeedle[1] = math.round(52 + (Value.egt[1] - 500) * (12 / 80));
+				}
+				else { # Extrapolates based on 580-630 range past 630
+					Value.egtNeedle[1] = math.round(64 + (Value.egt[1] - 580) * (5 / 50));
+				}
+				me["EGT2_needle"].setRotation(math.clamp(((Value.egtNeedle[1] * 3.2) - 140.8), -140.8, 140.8) * D2R);
+				
+				Value.egtRound[1] = math.round(Value.egt[1], 0.1);
 				if (Value.egtRound[1] < 999) { # Prepare to show the zero at 1000
 					me["EGT2_hundreds_zero"].hide();
 				} else {
@@ -269,8 +328,10 @@ var CanvasEdpSdp = {
 				me["EGT2"].show();
 				me["EGT2_test"].hide();
 			}
+			me["EGT2_needle"].show();
 		} else {
 			me["EGT2"].hide();
+			me["EGT2_needle"].hide();
 			me["EGT2_test"].hide();
 		}
 		
@@ -281,8 +342,11 @@ var CanvasEdpSdp = {
 				me["N21_test"].show();
 			} else {
 				Value.n2[0] = systems.ENGINES.n2[0].getValue();
-				Value.n2Round[0] = math.round(Value.n2[0], 0.1);
 				
+				Value.n2Needle[0] = math.round(Value.n2[0] * 0.74);
+				me["N21_needle"].setRotation(math.clamp(((Value.n2Needle[0] * 3.2) - 140.8), -140.8, 140.8) * D2R);
+				
+				Value.n2Round[0] = math.round(Value.n2[0], 0.1);
 				if (Value.n2Round[0] < 99) { # Prepare to show the zero at 100
 					me["N21_tens_zero"].hide();
 				} else {
@@ -296,8 +360,10 @@ var CanvasEdpSdp = {
 				me["N21"].show();
 				me["N21_test"].hide();
 			}
+			me["N21_needle"].show();
 		} else {
 			me["N21"].hide();
+			me["N21_needle"].hide();
 			me["N21_test"].hide();
 		}
 		
@@ -307,8 +373,11 @@ var CanvasEdpSdp = {
 				me["N22_test"].show();
 			} else {
 				Value.n2[1] = systems.ENGINES.n2[1].getValue();
-				Value.n2Round[1] = math.round(Value.n2[1], 0.1);
 				
+				Value.n2Needle[1] = math.round(Value.n2[1] * 0.74);
+				me["N22_needle"].setRotation(math.clamp(((Value.n2Needle[1] * 3.2) - 140.8), -140.8, 140.8) * D2R);
+				
+				Value.n2Round[1] = math.round(Value.n2[1], 0.1);
 				if (Value.n2Round[1] < 99) { # Prepare to show the zero at 100
 					me["N22_tens_zero"].hide();
 				} else {
@@ -322,8 +391,10 @@ var CanvasEdpSdp = {
 				me["N22"].show();
 				me["N22_test"].hide();
 			}
+			me["N22_needle"].show();
 		} else {
 			me["N22"].hide();
+			me["N22_needle"].hide();
 			me["N22_test"].hide();
 		}
 		
@@ -547,6 +618,7 @@ var KeyList = [
 	"EGT1",
 	"EGT1_hundreds",
 	"EGT1_hundreds_zero",
+	"EGT1_needle",
 	"EGT1_ones",
 	"EGT1_tens",
 	"EGT1_tens_zero",
@@ -555,6 +627,7 @@ var KeyList = [
 	"EGT2",
 	"EGT2_hundreds",
 	"EGT2_hundreds_zero",
+	"EGT2_needle",
 	"EGT2_ones",
 	"EGT2_tens",
 	"EGT2_tens_zero",
@@ -565,11 +638,15 @@ var KeyList = [
 	"EPRLimit",
 	"EPR1",
 	"EPR1_hundreths",
+	"EPR1_limit",
+	"EPR1_needle",
 	"EPR1_ones",
 	"EPR1_tenths",
 	"EPR1_test",
 	"EPR2",
 	"EPR2_hundreths",
+	"EPR2_limit",
+	"EPR2_needle",
 	"EPR2_ones",
 	"EPR2_tenths",
 	"EPR2_test",
@@ -583,24 +660,28 @@ var KeyList = [
 	"HydQtyR",
 	"N11",
 	"N11_hundreds",
+	"N11_needle",
 	"N11_ones",
 	"N11_tens",
 	"N11_tens_zero",
 	"N11_test",
 	"N12",
 	"N12_hundreds",
+	"N12_needle",
 	"N12_ones",
 	"N12_tens",
 	"N12_tens_zero",
 	"N12_test",
 	"N21",
 	"N21_hundreds",
+	"N21_needle",
 	"N21_ones",
 	"N21_tens",
 	"N21_tens_zero",
 	"N21_test",
 	"N22",
 	"N22_hundreds",
+	"N22_needle",
 	"N22_ones",
 	"N22_tens",
 	"N22_tens_zero",

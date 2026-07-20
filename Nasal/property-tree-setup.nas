@@ -136,6 +136,7 @@ var Instrumentation = {
 		mode: [props.globals.initNode("/instrumentation/efis[0]/mode", 2, "INT"), props.globals.initNode("/instrumentation/efis[1]/mode", 2, "INT")],
 	},
 	Epr: {
+		eprBug: [props.globals.getNode("/instrumentation/epr[0]/epr-bug"), props.globals.getNode("/instrumentation/epr[1]/epr-bug")],
 		powerAvail: [props.globals.getNode("/instrumentation/epr[0]/power-avail"), props.globals.getNode("/instrumentation/epr[1]/power-avail")],
 	},
 	Ff: {
