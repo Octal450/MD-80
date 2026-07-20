@@ -1285,23 +1285,22 @@
 			</clipto>
 		</summer>
 		
-		<pure_gain name="/systems/engines/control-1/throttle-pos-appr">
-			<input>/systems/engines/control-1/throttle-pos-art</input>
-			<gain>1.0</gain>
-			<clipto>
-				<min>0.18219</min>
-				<max>1.0</max>
-			</clipto>
-		</pure_gain>
+		<switch name="/systems/engines/control-1/throttle-min">
+			<default value="0"/>
+			<test value="0.18219">
+				/systems/engines/approach-idle eq 1
+			</test>
+		</switch>
 		
 		<switch name="/systems/engines/control-1/throttle-output">
 			<default value="/systems/engines/control-1/throttle-pos-art"/>
 			<test value="/systems/engines/reverse-1/throttle-rev">
 				/systems/engines/reverse-1/engage eq 1
 			</test>
-			<test value="/systems/engines/control-1/throttle-pos-appr">
-				/systems/engines/approach-idle eq 1
-			</test>
+			<clipto>
+				<min>/systems/engines/control-1/throttle-min</min>
+				<max>1.0</max>
+			</clipto>
 		</switch>
 		
 		<lag_filter name="/systems/engines/control-1/throttle-fdm">
@@ -1398,23 +1397,22 @@
 			</clipto>
 		</summer>
 		
-		<pure_gain name="/systems/engines/control-2/throttle-pos-appr">
-			<input>/systems/engines/control-2/throttle-pos-art</input>
-			<gain>1.0</gain>
-			<clipto>
-				<min>0.18219</min>
-				<max>1.0</max>
-			</clipto>
-		</pure_gain>
+		<switch name="/systems/engines/control-1/throttle-min">
+			<default value="0"/>
+			<test value="0.18219">
+				/systems/engines/approach-idle eq 1
+			</test>
+		</switch>
 		
 		<switch name="/systems/engines/control-2/throttle-output">
 			<default value="/systems/engines/control-2/throttle-pos-art"/>
 			<test value="/systems/engines/reverse-2/throttle-rev">
 				/systems/engines/reverse-2/engage eq 1
 			</test>
-			<test value="/systems/engines/control-2/throttle-pos-appr">
-				/systems/engines/approach-idle eq 1
-			</test>
+			<clipto>
+				<min>/systems/engines/control-1/throttle-min</min>
+				<max>1.0</max>
+			</clipto>
 		</switch>
 		
 		<lag_filter name="/systems/engines/control-2/throttle-fdm">
