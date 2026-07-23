@@ -54,12 +54,6 @@
 	<!-- Not yet implemented! -->
 	<animation>
 		<type>select</type>
-		<object-name>SDPLight.HydQtyL</object-name>
-		<object-name>SDPLight.HydQtyR</object-name>
-		<object-name>SDPLight.OilPressL1</object-name>
-		<object-name>SDPLight.OilPressL2</object-name>
-		<object-name>SDPLight.OilPressR1</object-name>
-		<object-name>SDPLight.OilPressR2</object-name>
 		<object-name>SDPLight.OilTempL1</object-name>
 		<object-name>SDPLight.OilTempL2</object-name>
 		<object-name>SDPLight.OilTempR1</object-name>
@@ -130,6 +124,107 @@
 					<property>systems/engines/reverse-2/position-norm</property>
 					<value>0.05</value>
 				</greater-than-equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<!-- Oil Pressure Lights -->
+	<animation>
+		<type>select</type>
+		<object-name>SDPLight.OilPressL1</object-name>
+		<condition>
+			<or>
+				<less-than>
+					<property>engines/engine[0]/oil-psi</property>
+					<value>34.5</value>
+				</less-than>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>SDPLight.OilPressL2</object-name>
+		<condition>
+			<or>
+				<less-than>
+					<property>engines/engine[0]/oil-psi</property>
+					<value>39.5</value>
+				</less-than>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>SDPLight.OilPressR1</object-name>
+		<condition>
+			<or>
+				<less-than>
+					<property>engines/engine[1]/oil-psi</property>
+					<value>34.5</value>
+				</less-than>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>SDPLight.OilPressR2</object-name>
+		<condition>
+			<or>
+				<less-than>
+					<property>engines/engine[1]/oil-psi</property>
+					<value>39.5</value>
+				</less-than>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<!-- Hydraulic Qty Lights -->
+	<animation>
+		<type>select</type>
+		<object-name>SDPLight.HydQtyL</object-name>
+		<condition>
+			<or>
+				<less-than>
+					<property>systems/hydraulics/sys-l-qty</property>
+					<value>3.5</value>
+				</less-than>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>SDPLight.HydQtyR</object-name>
+		<condition>
+			<or>
+				<less-than>
+					<property>systems/hydraulics/sys-r-qty</property>
+					<value>3.5</value>
+				</less-than>
 				<equals>
 					<property>controls/switches/annun-test</property>
 					<value>1</value>
