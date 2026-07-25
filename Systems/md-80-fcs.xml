@@ -146,8 +146,8 @@
 			<input>/systems/fcs/elevators/stick-pusher</input>
 			<input>/systems/fcs/elevators/mach-trim</input>
 			<clipto>
-				<min>-1.0</min>
-				<max>1.0</max>
+				<min>-1</min>
+				<max>1</max>
 			</clipto>
 		</summer>
 		
@@ -172,8 +172,8 @@
 			<input>/systems/fcs/rudder/pedal-switch</input>
 			<input>/systems/fcs/rudder/trim</input>
 			<clipto>
-				<min>-1.0</min>
-				<max>1.0</max>
+				<min>-1</min>
+				<max>1</max>
 			</clipto>
 		</summer>
 		
@@ -260,7 +260,7 @@
 		
 		<pure_gain name="/systems/fcs/aileron-r/final-actuator"> <!-- Because both ailerons are linked -->
 			<input>/systems/fcs/aileron-l/final-actuator</input>
-			<gain>-1.0</gain>
+			<gain>-1</gain>
 			<output>/systems/fcs/aileron-r/final-deg</output>
 		</pure_gain>
 	
@@ -413,7 +413,7 @@
 		
 		<pure_gain name="/systems/fcs/elevator-l/geared-tab-final-gain">
 			<input>/systems/fcs/elevator-l/final-lag</input>
-			<gain>-1.0</gain>
+			<gain>-1</gain>
 			<output>/systems/fcs/elevator-l/geared-tab-final-deg</output>
 		</pure_gain>
 	
@@ -526,7 +526,7 @@
 		
 		<pure_gain name="/systems/fcs/elevator-r/geared-tab-final-gain">
 			<input>/systems/fcs/elevator-r/final-lag</input>
-			<gain>-1.0</gain>
+			<gain>-1</gain>
 			<output>/systems/fcs/elevator-r/geared-tab-final-deg</output>
 		</pure_gain>
 	
@@ -578,8 +578,8 @@
 			<input>/systems/dfgs/rudder-output</input>
 			<input>/systems/fcs/rudder/trim</input>
 			<clipto>
-				<min>-1.0</min>
-				<max>1.0</max>
+				<min>-1</min>
+				<max>1</max>
 			</clipto>
 		</summer>
 		
@@ -734,7 +734,7 @@
 		
 		<pure_gain name="/systems/fcs/flaps/dial-a-flap-z1">
 			<input>/systems/fcs/flaps/dial-a-flap-cmd</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 			<clipto>
 				<min>0</min>
 				<max>11</max>
@@ -743,7 +743,7 @@
 		
 		<pure_gain name="/systems/fcs/flaps/dial-a-flap-z2">
 			<input>/systems/fcs/flaps/dial-a-flap-cmd</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 			<clipto>
 				<min>11</min>
 				<max>15</max>
@@ -752,7 +752,7 @@
 		
 		<pure_gain name="/systems/fcs/flaps/dial-a-flap-z3">
 			<input>/systems/fcs/flaps/dial-a-flap-cmd</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 			<clipto>
 				<min>15</min>
 				<max>24</max>
@@ -1193,8 +1193,8 @@
 			<input>/systems/dfgs/afs/yaw-cmd</input>
 			<input>/systems/fcs/rudder/trim</input> <!-- 10 of 17 -->
 			<clipto>
-				<min>-1.0</min>
-				<max>1.0</max>
+				<min>-1</min>
+				<max>1</max>
 			</clipto>
 		</summer>
 		
@@ -1372,8 +1372,8 @@
 			</function>
 			<output>/systems/hydraulics/brakes/left-input-feedback</output>
 			<clipto>
-				<min>0.0</min>
-				<max>1.0</max>
+				<min>0</min>
+				<max>1</max>
 			</clipto>
 		</fcs_function>
 		
@@ -1401,8 +1401,8 @@
 			</function>
 			<output>/systems/hydraulics/brakes/right-input-feedback</output>
 			<clipto>
-				<min>0.0</min>
-				<max>1.0</max>
+				<min>0</min>
+				<max>1</max>
 			</clipto>
 		</fcs_function>
 		

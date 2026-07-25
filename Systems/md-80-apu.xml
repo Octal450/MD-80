@@ -88,7 +88,7 @@
 		
 		<pure_gain name="/systems/apu/starter-run-start">
 			<input>/controls/apu/master</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 			<clipto>
 				<min>1</min>
 				<max>2</max>
@@ -304,7 +304,7 @@
 		
 		<lag_filter name="/systems/apu/ff-actual">
 			<input>/engines/engine[2]/fuel-flow_pph</input>
-			<c1>3.0</c1>
+			<c1>3</c1>
 			<output>/engines/engine[2]/ff-actual</output>
 		</lag_filter>
 	

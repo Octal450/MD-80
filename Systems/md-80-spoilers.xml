@@ -180,8 +180,8 @@
 				<max>60</max>
 			</domain>
 			<range>
-				<min>0.0</min>
-				<max>1.0</max>
+				<min>0</min>
+				<max>1</max>
 			</range>
 		</aerosurface_scale>
 		
@@ -264,8 +264,8 @@
 			<input>-/systems/fcs/spoilers/aileron</input>
 			<input>/systems/fcs/spoilers/main-cmd</input>
 			<clipto>
-				<min>0.0</min>
-				<max>1.0</max>
+				<min>0</min>
+				<max>1</max>
 			</clipto>
 		</summer>
 		
@@ -306,8 +306,8 @@
 			<input>-/systems/fcs/spoilers/aileron</input>
 			<input>/systems/fcs/spoilers/main-cmd</input>
 			<clipto>
-				<min>0.0</min>
-				<max>1.0</max>
+				<min>0</min>
+				<max>1</max>
 			</clipto>
 		</summer>
 		
@@ -390,8 +390,8 @@
 			<input>/systems/fcs/spoilers/aileron</input>
 			<input>/systems/fcs/spoilers/main-cmd</input>
 			<clipto>
-				<min>0.0</min>
-				<max>1.0</max>
+				<min>0</min>
+				<max>1</max>
 			</clipto>
 		</summer>
 		
@@ -432,8 +432,8 @@
 			<input>/systems/fcs/spoilers/aileron</input>
 			<input>/systems/fcs/spoilers/main-cmd</input>
 			<clipto>
-				<min>0.0</min>
-				<max>1.0</max>
+				<min>0</min>
+				<max>1</max>
 			</clipto>
 		</summer>
 		

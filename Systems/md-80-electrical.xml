@@ -683,12 +683,12 @@
 		
 		<pure_gain name="/systems/electrical/bus/ac-l">
 			<input>/systems/electrical/bus/ac-gen-l</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 		</pure_gain>
 		
 		<pure_gain name="/systems/electrical/bus/ac-radio-l">
 			<input>/systems/electrical/bus/ac-l</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 		</pure_gain>
 		
 		<pure_gain name="/systems/electrical/bus/inst-ac-l"> <!-- AC transformer -->
@@ -734,12 +734,12 @@
 		
 		<pure_gain name="/systems/electrical/bus/ac-r">
 			<input>/systems/electrical/bus/ac-gen-r</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 		</pure_gain>
 		
 		<pure_gain name="/systems/electrical/bus/ac-radio-r">
 			<input>/systems/electrical/bus/ac-r</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 		</pure_gain>
 		
 		<pure_gain name="/systems/electrical/bus/inst-ac-r"> <!-- AC transformer -->
@@ -853,7 +853,7 @@
 		<!-- AC Ground Service Bus -->
 		<pure_gain name="/systems/electrical/bus/ac-gndsvc">
 			<input>/systems/electrical/relay/gndsvc-src-ac-gndsvc/output</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 		</pure_gain>
 		
 		<!-- Transformer Rectifier Relays -->
@@ -1082,7 +1082,7 @@
 		
 		<pure_gain name="/systems/electrical/bus/dc-radio-l">
 			<input>/systems/electrical/bus/dc-l</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 		</pure_gain>
 		
 		<!-- TR R2 DC Bus Relay -->
@@ -1139,7 +1139,7 @@
 		
 		<pure_gain name="/systems/electrical/bus/dc-radio-r">
 			<input>/systems/electrical/bus/dc-r</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 		</pure_gain>
 		
 		<!-- DC Tie Bus DC Bus Relays (continued) -->
@@ -1282,7 +1282,7 @@
 		<!-- Emergency AC Bus -->
 		<pure_gain name="/systems/electrical/bus/emer-ac">
 			<input>/systems/electrical/relay/ac-inv-src-emer-ac/output</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 		</pure_gain>
 		
 		<!-- Emergency DC Bus Relays -->
@@ -1320,7 +1320,7 @@
 		<!-- Emergency DC Bus -->
 		<pure_gain name="/systems/electrical/bus/emer-dc">
 			<input>/systems/electrical/relay/dc-bat-src-emer-dc/output</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 		</pure_gain>
 		
 		<!-- Battery Charger and Transfer Relays -->

@@ -866,7 +866,7 @@
 		
 		<actuator name="/systems/dfgs/stick-pusher/output">
 			<input>/systems/dfgs/stick-pusher/active</input>
-			<rate_limit sense="incr">5.0</rate_limit>
+			<rate_limit sense="incr">5</rate_limit>
 			<rate_limit sense="decr">1000</rate_limit>
 		</actuator>
 	
@@ -937,7 +937,7 @@
 		<pid name="/systems/dfgs/yaw/tc-pd">
 			<input>/systems/dfgs/yaw/slip-skid</input>
 			<kp>/systems/dfgs/yaw/tc-p-gain</kp>
-			<ki>0.0</ki>
+			<ki>0</ki>
 			<kd>/systems/dfgs/yaw/tc-d-gain</kd>
 			<clipto>
 				<min>-0.2</min>
@@ -977,8 +977,8 @@
 			<input>/systems/dfgs/yaw/rudder-nul</input>
 			<input>/systems/dfgs/yaw/output</input>
 			<clipto>
-				<min>-1.0</min>
-				<max>1.0</max>
+				<min>-1</min>
+				<max>1</max>
 			</clipto>
 		</summer>
 	
@@ -1153,14 +1153,14 @@
 		<pid name="/systems/abs/decel-rate-kts">
 			<descripton>Use D only to calculate rate of decel</descripton>
 			<input>/velocities/groundspeed-kt</input>
-			<kp>0.0</kp>
-			<ki>0.0</ki>
-			<kd>1.0</kd>
+			<kp>0</kp>
+			<ki>0</ki>
+			<kd>1</kd>
 		</pid>
 		
 		<lag_filter name="/systems/abs/decel-rate-kts-lag">
 			<input>/systems/abs/decel-rate-kts</input>
-			<c1>1.0</c1>
+			<c1>1</c1>
 		</lag_filter>
 		
 		<pure_gain name="/systems/abs/decel-rate-fps2">
@@ -1188,11 +1188,11 @@
 			<input>/systems/abs/decel-error</input>
 			<kp>0.45</kp>
 			<ki>0.25</ki>
-			<kd>0.0</kd>
+			<kd>0</kd>
 			<trigger>/systems/abs/brake-cmd-trigger</trigger>
 			<clipto>
-				<min>0.0</min>
-				<max>1.0</max>
+				<min>0</min>
+				<max>1</max>
 			</clipto>
 		</pid>
 		

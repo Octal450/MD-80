@@ -606,8 +606,8 @@
 				</difference>
 			</function>
 			<clipto>
-				<min>0.0</min>
-				<max>1.0</max>
+				<min>0</min>
+				<max>1</max>
 			</clipto>
 		</fcs_function>
 		
@@ -622,8 +622,8 @@
 				</table>
 			</function>
 			<clipto>
-				<min>0.0</min>
-				<max>1.0</max>
+				<min>0</min>
+				<max>1</max>
 			</clipto>
 		</fcs_function>
 		
@@ -690,8 +690,8 @@
 				</difference>
 			</function>
 			<clipto>
-				<min>0.0</min>
-				<max>1.0</max>
+				<min>0</min>
+				<max>1</max>
 			</clipto>
 		</fcs_function>
 		
@@ -1066,8 +1066,8 @@
 			<input>/systems/engines/art/max-norm</input>
 			<input>-/systems/engines/art/normal-norm</input>
 			<clipto>
-				<min>0.0</min>
-				<max>1.0</max>
+				<min>0</min>
+				<max>1</max>
 			</clipto>
 		</summer>
 		
@@ -1256,7 +1256,7 @@
 			</test>
 			<clipto>
 				<min>/systems/engines/limit/idle-norm</min>
-				<max>1.0</max>
+				<max>1</max>
 			</clipto>
 		</switch>
 		
@@ -1280,8 +1280,8 @@
 			<input>/systems/engines/control-1/throttle-pos</input>
 			<input>/systems/engines/art/output</input>
 			<clipto>
-				<min>0.0</min>
-				<max>1.0</max>
+				<min>0</min>
+				<max>1</max>
 			</clipto>
 		</summer>
 		
@@ -1299,7 +1299,7 @@
 			</test>
 			<clipto>
 				<min>/systems/engines/control-1/throttle-min</min>
-				<max>1.0</max>
+				<max>1</max>
 			</clipto>
 		</switch>
 		
@@ -1368,7 +1368,7 @@
 			</test>
 			<clipto>
 				<min>/systems/engines/limit/idle-norm</min>
-				<max>1.0</max>
+				<max>1</max>
 			</clipto>
 		</switch>
 		
@@ -1392,8 +1392,8 @@
 			<input>/systems/engines/control-2/throttle-pos</input>
 			<input>/systems/engines/art/output</input>
 			<clipto>
-				<min>0.0</min>
-				<max>1.0</max>
+				<min>0</min>
+				<max>1</max>
 			</clipto>
 		</summer>
 		
@@ -1411,7 +1411,7 @@
 			</test>
 			<clipto>
 				<min>/systems/engines/control-1/throttle-min</min>
-				<max>1.0</max>
+				<max>1</max>
 			</clipto>
 		</switch>
 		
@@ -1686,13 +1686,13 @@
 		
 		<lag_filter name="/systems/engines/ff-actual-1">
 			<input>/engines/engine[0]/fuel-flow_pph</input>
-			<c1>3.0</c1>
+			<c1>3</c1>
 			<output>/engines/engine[0]/ff-actual</output>
 		</lag_filter>
 		
 		<lag_filter name="/systems/engines/ff-actual-2">
 			<input>/engines/engine[1]/fuel-flow_pph</input>
-			<c1>3.0</c1>
+			<c1>3</c1>
 			<output>/engines/engine[1]/ff-actual</output>
 		</lag_filter>
 		

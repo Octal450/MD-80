@@ -30,7 +30,7 @@
 		
 		<pure_gain name="/systems/ignition/ign-avail">
 			<input>/systems/ignition/ign-hi</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 		</pure_gain>
 	
 	</channel>

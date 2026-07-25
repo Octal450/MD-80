@@ -46,10 +46,10 @@
 		<!-- Bleed Inputs -->
 		<pure_gain name="/systems/pneumatics/apu-valve-input"> <!-- Colder is 2, so clip to 1 -->
 			<input>/controls/pneumatics/bleed-apu</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 			<clipto>
-				<min>0.0</min>
-				<max>1.0</max>
+				<min>0</min>
+				<max>1</max>
 			</clipto>
 		</pure_gain>
 		

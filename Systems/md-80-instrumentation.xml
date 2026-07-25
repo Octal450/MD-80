@@ -503,7 +503,7 @@
 		
 		<lag_filter name="/instrumentation/ai[0]/slip-skid">
 			<input>/instrumentation/ai[0]/slip-skid-cmd</input>
-			<c1>5.0</c1>
+			<c1>5</c1>
 		</lag_filter>
 		
 		<!-- Attitude Indicator 2 -->
@@ -700,7 +700,7 @@
 		
 		<lag_filter name="/instrumentation/ai[1]/slip-skid">
 			<input>/instrumentation/ai[1]/slip-skid-cmd</input>
-			<c1>5.0</c1>
+			<c1>5</c1>
 		</lag_filter>
 		
 		<!-- Standby Attitude Indicator -->
@@ -719,7 +719,7 @@
 		
 		<lag_filter name="/instrumentation/stby-ai/spin">
 			<input>/instrumentation/stby-ai/spin-pos</input>
-			<c1>1.0</c1>
+			<c1>1</c1>
 		</lag_filter>
 		
 		<fcs_function name="/instrumentation/stby-ai/pitch-deg-cmd">
@@ -1704,7 +1704,7 @@
 		<!-- Computation -->
 		<lag_filter name="/instrumentation/vertical-speed-indicator/ground/rate-lag">
 			<input>/orientation/pitch-rate-degps</input>
-			<c1>5.0</c1>
+			<c1>5</c1>
 		</lag_filter>
 		
 		<pure_gain name="/instrumentation/vertical-speed-indicator/ground/rate">
@@ -1721,7 +1721,7 @@
 		
 		<lag_filter name="/instrumentation/vertical-speed-indicator/vert-speed-fpm">
 			<input>/instrumentation/vertical-speed-indicator/vert-speed-fpm-switch</input>
-			<c1>1.0</c1>
+			<c1>1</c1>
 		</lag_filter>
 		
 		<!-- Vertical Speed Indicator 1 -->
@@ -1803,7 +1803,7 @@
 		
 		<pure_gain name="/instrumentation/epr[0]/epr-d100">
 			<input>/instrumentation/epr[0]/epr</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 		</pure_gain>
 		
 		<fcs_function name="/instrumentation/epr[0]/epr-d10">
@@ -1841,7 +1841,7 @@
 		
 		<pure_gain name="/instrumentation/epr[0]/cmd-d100">
 			<input>/instrumentation/epr[0]/cmd-input</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 		</pure_gain>
 		
 		<fcs_function name="/instrumentation/epr[0]/cmd-d10">
@@ -1912,7 +1912,7 @@
 		
 		<pure_gain name="/instrumentation/epr[1]/epr-d100">
 			<input>/instrumentation/epr[1]/epr</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 		</pure_gain>
 		
 		<fcs_function name="/instrumentation/epr[1]/epr-d10">
@@ -1950,7 +1950,7 @@
 		
 		<pure_gain name="/instrumentation/epr[1]/cmd-d100">
 			<input>/instrumentation/epr[1]/cmd-input</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 		</pure_gain>
 		
 		<fcs_function name="/instrumentation/epr[1]/cmd-d10">
@@ -2087,7 +2087,7 @@
 		<!-- APU EGT Gauge: Older (slower) gauge which does not require AC power -->
 		<pure_gain name="/instrumentation/apu-egt/egt-input">
 			<input>/systems/apu/egt-actual</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 			<clipto>
 				<min>0</min>
 				<max>800</max>
@@ -2096,7 +2096,7 @@
 		
 		<lag_filter name="/instrumentation/apu-egt/egt">
 			<input>/instrumentation/apu-egt/egt-input</input>
-			<c1>1.0</c1>
+			<c1>1</c1>
 		</lag_filter>
 		
 		<!-- APU EGT Percent Gauge: Newer gauge which require DC power -->
@@ -2599,7 +2599,7 @@
 		
 		<pure_gain name="/instrumentation/tri/limit-d100">
 			<input>/instrumentation/tri/limit-active</input>
-			<gain>1.0</gain>
+			<gain>1</gain>
 		</pure_gain>
 		
 		<fcs_function name="/instrumentation/tri/limit-d10">

@@ -425,9 +425,9 @@
 		<!-- Stabilizer Buzz + Motion -->
 		<pid name="/systems/caws/logic/stabilizer-rate">
 			<input>/systems/fcs/stabilizer/final-deg</input>
-			<kp>0.0</kp>
-			<ki>0.0</ki>
-			<kd>1.0</kd>
+			<kp>0</kp>
+			<ki>0</ki>
+			<kd>1</kd>
 		</pid>
 		
 		<fcs_function name="/systems/caws/logic/stabilizer-rate-abs">
@@ -753,7 +753,7 @@
 		
 		<pure_gain name="/systems/caws/stabilizer-buzz/rate"> <!-- So that it goes off roughly every 0.5 degrees -->
 			<input>/systems/caws/logic/stabilizer-rate-abs</input>
-			<gain>2.0</gain>
+			<gain>2</gain>
 		</pure_gain>
 		
 		<actuator name="/systems/caws/stabilizer-buzz/actuator">
