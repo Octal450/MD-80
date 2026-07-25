@@ -350,29 +350,36 @@
 			<function>
 				<ifthen>
 					<lt>
-						<property>/systems/pneumatics/hvac/cockpit-target</property>
-						<value>60</value>
+						<property>/systems/electrical/bus/dc-l</property>
+						<value>24</value>
 					</lt>
-					<sum>
-						<property>/systems/pneumatics/hvac/duct-temp/cockpit-regulator-cmd</property>
+					<property>/systems/pneumatics/hvac/duct-temp/cockpit-regulator-cmd</property>
+					<ifthen>
+						<lt>
+							<property>/systems/pneumatics/hvac/cockpit-target</property>
+							<value>60</value>
+						</lt>
+						<sum>
+							<property>/systems/pneumatics/hvac/duct-temp/cockpit-regulator-cmd</property>
+							<product>
+								<property>/controls/pneumatics/cockpit-slew</property>
+								<value>0.01</value>
+							</product>
+						</sum>
 						<product>
-							<property>/controls/pneumatics/cockpit-slew</property>
-							<value>0.01</value>
+							<quotient>
+								<difference>
+									<property>/systems/pneumatics/hvac/duct-temp/cockpit-target</property>
+									<property>/systems/pneumatics/hvac/duct-temp/cockpit-cond-air</property>
+								</difference>
+								<difference>
+									<property>/systems/pneumatics/hvac/duct-temp/cockpit-trim-air</property>
+									<property>/systems/pneumatics/hvac/duct-temp/cockpit-target</property>
+								</difference>
+							</quotient>
+							<value>10</value> <!-- Compensate for the 0.1 gain in actual trim -->
 						</product>
-					</sum>
-					<product>
-						<quotient>
-							<difference>
-								<property>/systems/pneumatics/hvac/duct-temp/cockpit-target</property>
-								<property>/systems/pneumatics/hvac/duct-temp/cockpit-cond-air</property>
-							</difference>
-							<difference>
-								<property>/systems/pneumatics/hvac/duct-temp/cockpit-trim-air</property>
-								<property>/systems/pneumatics/hvac/duct-temp/cockpit-target</property>
-							</difference>
-						</quotient>
-						<value>10</value> <!-- Compensate for the 0.1 gain in actual trim -->
-					</product>
+					</ifthen>
 				</ifthen>
 			</function>
 			<clipto>
@@ -481,29 +488,36 @@
 			<function>
 				<ifthen>
 					<lt>
-						<property>/systems/pneumatics/hvac/cabin-target</property>
-						<value>60</value>
+						<property>/systems/electrical/bus/dc-r</property>
+						<value>24</value>
 					</lt>
-					<sum>
-						<property>/systems/pneumatics/hvac/duct-temp/cabin-regulator-cmd</property>
+					<property>/systems/pneumatics/hvac/duct-temp/cabin-regulator-cmd</property>
+					<ifthen>
+						<lt>
+							<property>/systems/pneumatics/hvac/cabin-target</property>
+							<value>60</value>
+						</lt>
+						<sum>
+							<property>/systems/pneumatics/hvac/duct-temp/cabin-regulator-cmd</property>
+							<product>
+								<property>/controls/pneumatics/cabin-slew</property>
+								<value>0.01</value>
+							</product>
+						</sum>
 						<product>
-							<property>/controls/pneumatics/cabin-slew</property>
-							<value>0.01</value>
+							<quotient>
+								<difference>
+									<property>/systems/pneumatics/hvac/duct-temp/cabin-target</property>
+									<property>/systems/pneumatics/hvac/duct-temp/cabin-cond-air</property>
+								</difference>
+								<difference>
+									<property>/systems/pneumatics/hvac/duct-temp/cabin-trim-air</property>
+									<property>/systems/pneumatics/hvac/duct-temp/cabin-target</property>
+								</difference>
+							</quotient>
+							<value>10</value> <!-- Compensate for the 0.1 gain in actual trim -->
 						</product>
-					</sum>
-					<product>
-						<quotient>
-							<difference>
-								<property>/systems/pneumatics/hvac/duct-temp/cabin-target</property>
-								<property>/systems/pneumatics/hvac/duct-temp/cabin-cond-air</property>
-							</difference>
-							<difference>
-								<property>/systems/pneumatics/hvac/duct-temp/cabin-trim-air</property>
-								<property>/systems/pneumatics/hvac/duct-temp/cabin-target</property>
-							</difference>
-						</quotient>
-						<value>10</value> <!-- Compensate for the 0.1 gain in actual trim -->
-					</product>
+					</ifthen>
 				</ifthen>
 			</function>
 			<clipto>
