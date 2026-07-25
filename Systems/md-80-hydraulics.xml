@@ -105,12 +105,18 @@
 			</function>
 		</fcs_function>
 		
-		<switch name="/systems/hydraulics/l-pump-psi">
+		<switch name="/systems/hydraulics/l-pump-psi-cmd">
 			<default value="40"/>
 			<test value="/systems/hydraulics/l-pump-psi-input">
 				/controls/hydraulics/l-pump gt 0
 			</test>
 		</switch>
+		
+		<actuator name="/systems/hydraulics/l-pump-psi">
+			<input>/systems/hydraulics/l-pump-psi-cmd</input>
+			<rate_limit sense="incr">6000</rate_limit>
+			<rate_limit sense="decr">2000</rate_limit>
+		</actuator>
 		
 		<fcs_function name="/systems/hydraulics/sys-l-pre-psi-cmd">
 			<function>
@@ -175,14 +181,20 @@
 			</function>
 		</fcs_function>
 		
-		<switch name="/systems/hydraulics/r-pump-psi">
+		<switch name="/systems/hydraulics/r-pump-psi-cmd">
 			<default value="40"/>
 			<test value="/systems/hydraulics/r-pump-psi-input">
 				/controls/hydraulics/r-pump gt 0
 			</test>
 		</switch>
 		
-		<switch name="/systems/hydraulics/aux-pump-psi">
+		<actuator name="/systems/hydraulics/r-pump-psi">
+			<input>/systems/hydraulics/r-pump-psi-cmd</input>
+			<rate_limit sense="incr">6000</rate_limit>
+			<rate_limit sense="decr">2000</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/hydraulics/aux-pump-psi-cmd">
 			<default value="0"/>
 			<test logic="AND" value="2980">
 				/systems/electrical/bus/ac-gen-l ge 112
@@ -191,6 +203,12 @@
 				/systems/hydraulics/sys-r-qty ge 1
 			</test>
 		</switch>
+		
+		<actuator name="/systems/hydraulics/aux-pump-psi">
+			<input>/systems/hydraulics/aux-pump-psi-cmd</input>
+			<rate_limit sense="incr">6000</rate_limit>
+			<rate_limit sense="decr">2000</rate_limit>
+		</actuator>
 		
 		<fcs_function name="/systems/hydraulics/sys-r-pre-psi-cmd">
 			<function>
