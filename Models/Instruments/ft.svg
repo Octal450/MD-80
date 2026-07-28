@@ -76,7 +76,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:39.58616638px;line-height:125%;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';text-align:center;letter-spacing:-1.96989441px;word-spacing:0px;text-anchor:middle;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"
        transform="scale(1.0478195,0.95436284)"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:44.32262421px;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;letter-spacing:-1.96989441px;text-anchor:middle;fill:#ffffff"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:44.32262421px;font-family:AlataCustom;-inkscape-font-specification:AlataCustom;text-align:center;letter-spacing:-1.96989441px;text-anchor:middle;fill:#ffffff"
          y="655.08441"
          x="242.48965"
          sodipodi:role="line"
@@ -93,7 +93,7 @@
          id="tspan4319"
          x="257.64337"
          y="664.02283"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32.50040817px;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;letter-spacing:-4.89967203px;word-spacing:0px;text-anchor:middle;fill:#ffffff">°C</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32.50040817px;font-family:AlataCustom;-inkscape-font-specification:AlataCustom;text-align:center;letter-spacing:-4.89967203px;word-spacing:0px;text-anchor:middle;fill:#ffffff">°C</tspan></text>
     <text
        transform="scale(1.0478178,0.95436436)"
        xml:space="preserve"
@@ -106,7 +106,7 @@
          sodipodi:role="line"
          x="242.38503"
          y="1045.911"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:44.32262421px;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;letter-spacing:-1.96989441px;text-anchor:middle;fill:#ffffff">TEMP</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:44.32262421px;font-family:AlataCustom;-inkscape-font-specification:AlataCustom;text-align:center;letter-spacing:-1.96989441px;text-anchor:middle;fill:#ffffff">TEMP</tspan></text>
     <g
        id="g4375"
        transform="matrix(1.0533756,0,0,1.0533756,-13.762114,-42.241052)">
@@ -122,7 +122,7 @@
            id="tspan4290"
            x="205.04155"
            y="797.97919"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.61026001px;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;letter-spacing:-5.67001867px;word-spacing:0px;text-anchor:middle;fill:#ffffff">0</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.61026001px;font-family:AlataCustom;-inkscape-font-specification:AlataCustom;text-align:center;letter-spacing:-5.67001867px;word-spacing:0px;text-anchor:middle;fill:#ffffff">0</tspan></text>
       <g
          transform="matrix(1.1572242,0,0,1.1572242,-40.272733,-124.42593)"
          id="g4228">
@@ -373,7 +373,7 @@
          x="187.03493"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;line-height:125%;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;fill:#ffffff"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;font-family:AlataCustom;-inkscape-font-specification:AlataCustom;text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;fill:#ffffff"
            y="752.84106"
            x="184.19995"
            id="tspan4282"
@@ -390,7 +390,7 @@
            id="tspan4286"
            x="150.92453"
            y="720.31122"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;fill:#ffffff">80</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;font-family:AlataCustom;-inkscape-font-specification:AlataCustom;text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;fill:#ffffff">80</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;line-height:125%;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -403,7 +403,7 @@
            id="tspan4291"
            x="167.26132"
            y="841.81262"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;fill:#ffffff">-40</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;font-family:AlataCustom;-inkscape-font-specification:AlataCustom;text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;fill:#ffffff">-40</tspan></text>
       <text
          transform="scale(0.97993217,1.0204788)"
          sodipodi:linespacing="125%"
@@ -412,7 +412,7 @@
          x="314.53156"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;line-height:125%;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;fill:#ffffff"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;font-family:AlataCustom;-inkscape-font-specification:AlataCustom;text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;fill:#ffffff"
            y="797.96918"
            x="311.69659"
            id="tspan4295"
@@ -429,7 +429,7 @@
            id="tspan4299"
            x="329.27737"
            y="752.84106"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;fill:#ffffff">40</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;font-family:AlataCustom;-inkscape-font-specification:AlataCustom;text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;fill:#ffffff">40</tspan></text>
       <text
          transform="scale(0.97993217,1.0204788)"
          sodipodi:linespacing="125%"
@@ -438,7 +438,7 @@
          x="368.60315"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;line-height:125%;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;fill:#ffffff"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;font-family:AlataCustom;-inkscape-font-specification:AlataCustom;text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;fill:#ffffff"
            y="720.31122"
            x="365.76819"
            id="tspan4303"
@@ -451,7 +451,7 @@
          x="347.82516"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;line-height:125%;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;fill:#ffffff"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:37.60978699px;font-family:AlataCustom;-inkscape-font-specification:AlataCustom;text-align:center;letter-spacing:-5.66994762px;word-spacing:0px;text-anchor:middle;fill:#ffffff"
            y="841.81262"
            x="344.9902"
            id="tspan4307"
@@ -464,7 +464,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:38.22383118px;line-height:125%;font-family:'Century Gothic';-inkscape-font-specification:'Century Gothic';text-align:center;letter-spacing:-1.90210164px;word-spacing:0px;text-anchor:middle;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"
          transform="scale(1.0117659,0.98837092)"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.79728699px;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;letter-spacing:-1.90210164px;text-anchor:middle;fill:#ffffff"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.79728699px;font-family:AlataCustom;-inkscape-font-specification:AlataCustom;text-align:center;letter-spacing:-1.90210164px;text-anchor:middle;fill:#ffffff"
            y="818.15283"
            x="111.64589"
            sodipodi:role="line"
@@ -481,7 +481,7 @@
            sodipodi:role="line"
            x="390.49799"
            y="818.15283"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.79728699px;font-family:Alata;-inkscape-font-specification:Alata;text-align:center;letter-spacing:-1.90210164px;text-anchor:middle;fill:#ffffff">R</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.79728699px;font-family:AlataCustom;-inkscape-font-specification:AlataCustom;text-align:center;letter-spacing:-1.90210164px;text-anchor:middle;fill:#ffffff">R</tspan></text>
     </g>
   </g>
 </svg>

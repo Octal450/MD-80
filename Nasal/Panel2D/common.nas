@@ -2,5 +2,5 @@
 # Copyright (c) 2026 Josh Davidson (Octal450)
 
 var font_mapper = func(family, weight) {
-	return "Alata.ttf";
+	return "AlataCustom.ttf";
 };
