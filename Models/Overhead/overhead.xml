@@ -33,6 +33,8 @@
 		<object-name>ApuRpmNeedle</object-name>
 		<object-name>ApuRpmNeedle2</object-name>
 		<object-name>ApuRpmNewNeedle</object-name>
+		<object-name>CabinAltNeedle</object-name>
+		<object-name>CabinPressNeedle</object-name>
 		<object-name>CabinRateNeedle</object-name>
 		<object-name>CabinTempFNeedle</object-name>
 		<object-name>CsdTempLNeedle</object-name>
