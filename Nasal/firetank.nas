@@ -46,7 +46,7 @@ var FIRETANK = {
 			# full salvo = 15=.5, 16=1, 17=2, 18=3, 19=4, 20=6, 21=8 sec
 			var quantity = me.distributionDial.getValue();
 			
-			if (pts.Options.firetankWater.getBoolValue()) {
+			if (pts.Systems.Acconfig.Options.firetankWater.getBoolValue()) {
 				me.redCombined.setValue(me.redDiffuse.getValue() * 0.95);
 				me.greenCombined.setValue(me.redDiffuse.getValue() * 0.98);
 				me.blueCombined.setValue(me.redDiffuse.getValue() * 1);
