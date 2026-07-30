@@ -20,7 +20,6 @@
 			<z>0</z>
 		</axis>
 	</animation>
-	
 	<animation>
 		<type>pick</type>
 		<object-name>brightswitch</object-name>
@@ -51,7 +50,6 @@
             <z>0</z>
         </axis>
     </animation>
-	
 	<animation>
         <type>pick</type>
         <object-name>lamptestbutton</object-name>
@@ -78,12 +76,10 @@
 	
 	<!-- Drop Power Logic -->
 	<animation>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>droppowercover</object-name>
 		<property>controls/cockpit/filetanker/droppower-cover</property>
-		<drag-direction>vertical</drag-direction>
-		<drag-scale-px>15</drag-scale-px>
-		<factor>60</factor>
+		<factor>70</factor>
 		<center>
 			<x-m>0.002847</x-m>
 			<y-m>-0.052246</y-m>
@@ -94,32 +90,42 @@
 			<y>-1</y>
 			<z>0</z>
 		</axis>
-		<increase>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>droppowercover</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>property-assign</command>
+				<command>property-toggle</command>
 				<property>controls/firetank/droppower/cover</property>
-				<value>1</value>
 			</binding>
-		</increase>
-		<decrease>
 			<binding>
 				<condition>
-					<property>controls/firetank/droppower/switch</property>
+					<and>
+						<property>controls/firetank/droppower/switch</property>
+						<not><property>controls/firetank/droppower/cover</property></not>
+					</and>
 				</condition>
 				<command>nasal</command>
 				<script>core.Sound.switch1();</script>
 			</binding>
 			<binding>
+				<condition>
+					<and>
+						<property>controls/firetank/droppower/switch</property>
+						<not><property>controls/firetank/droppower/cover</property></not>
+					</and>
+				</condition>
 				<command>property-assign</command>
 				<property>controls/firetank/droppower/switch</property>
 				<value>0</value>
 			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/firetank/droppower/cover</property>
-				<value>0</value>
-			</binding>
-		</decrease>
+		</action>
 	</animation>
 	
 	<animation>
@@ -138,7 +144,6 @@
 			<z>0</z>
 		</axis>
 	</animation>
-	
 	<animation>
 		<type>pick</type>
 		<object-name>droppowerswitch</object-name>
@@ -206,12 +211,10 @@
 	
 	<!-- Drop Arm Logic -->
 	<animation>
-		<type>knob</type>
+		<type>rotate</type>
 		<object-name>droparmcover</object-name>
 		<property>controls/cockpit/filetanker/droparm-cover</property>
-		<drag-direction>vertical</drag-direction>
-		<drag-scale-px>15</drag-scale-px>
-		<factor>60</factor>
+		<factor>70</factor>
 		<center>
 			<x-m>0.002847</x-m>
 			<y-m>-0.02615</y-m>
@@ -222,32 +225,42 @@
 			<y>-1</y>
 			<z>0</z>
 		</axis>
-		<increase>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>droparmcover</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<repeatable>false</repeatable>
 			<binding>
-				<command>property-assign</command>
+				<command>property-toggle</command>
 				<property>controls/firetank/droparm/cover</property>
-				<value>1</value>
 			</binding>
-		</increase>
-		<decrease>
 			<binding>
 				<condition>
-					<property>controls/firetank/droparm/switch</property>
+					<and>
+						<property>controls/firetank/droparm/switch</property>
+						<not><property>controls/firetank/droparm/cover</property></not>
+					</and>
 				</condition>
 				<command>nasal</command>
 				<script>core.Sound.switch1();</script>
 			</binding>
 			<binding>
+				<condition>
+					<and>
+						<property>controls/firetank/droparm/switch</property>
+						<not><property>controls/firetank/droparm/cover</property></not>
+					</and>
+				</condition>
 				<command>property-assign</command>
 				<property>controls/firetank/droparm/switch</property>
 				<value>0</value>
 			</binding>
-			<binding>
-				<command>property-assign</command>
-				<property>controls/firetank/droparm/cover</property>
-				<value>0</value>
-			</binding>
-		</decrease>
+		</action>
 	</animation>
 	
 	<animation>
@@ -266,7 +279,6 @@
 			<z>0</z>
 		</axis>
 	</animation>
-	
 	<animation>
 		<type>pick</type>
 		<object-name>droparmswitch</object-name>
