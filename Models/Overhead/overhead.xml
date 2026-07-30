@@ -10,6 +10,7 @@
 		<inherits-from>Effects/model-transparent</inherits-from>
 		<object-name>BackgroundAuxTanks</object-name>
 		<object-name>BackgroundIrs</object-name>
+		<object-name>CabinLights</object-name>
 		<object-name>IrsLights</object-name>
 		<object-name>Labels</object-name>
 		<object-name>LabelsAuxTanks</object-name>
@@ -34,6 +35,8 @@
 		<object-name>ApuRpmNeedle2</object-name>
 		<object-name>ApuRpmNewNeedle</object-name>
 		<object-name>CabinAltNeedle</object-name>
+		<object-name>CabinLdgAltTape</object-name>
+		<object-name>CabinLdgBaroTape</object-name>
 		<object-name>CabinPressNeedle</object-name>
 		<object-name>CabinRateNeedle</object-name>
 		<object-name>CabinTempFNeedle</object-name>
@@ -46,6 +49,7 @@
 		<object-name>DcVoltAmpNeedle</object-name>
 		<object-name>Face</object-name>
 		<object-name>HeaterCurNeedle</object-name>
+		<object-name>IntegrityCabinRateLimit</object-name>
 		<object-name>IntegrityCabinTemp</object-name>
 		<object-name>IntegrityCadc</object-name>
 		<object-name>IntegrityCkptTemp</object-name>
@@ -133,6 +137,7 @@
 		<object-name>ApuLoopBOn</object-name>
 		<object-name>ApuPwrAvailOn</object-name>
 		<object-name>ApuPwrAvail2On</object-name>
+		<object-name>CabinLights</object-name>
 		<object-name>EmerPwrInUseOn</object-name>
 		<object-name>ExtPwrAvailOn</object-name>
 		<object-name>ExtPwrAvail2On</object-name>
@@ -154,6 +159,7 @@
 		<type>select</type>
 		<object-name>ApuLoopAOn</object-name>
 		<object-name>ApuLoopBOn</object-name>
+		<object-name>CabinLights</object-name>
 		<object-name>LEngLoopAOn</object-name>
 		<object-name>LEngLoopBOn</object-name>
 		<object-name>REngLoopAOn</object-name>
@@ -4310,10 +4316,6 @@
 					<command>property-assign</command>
 					<property>controls/switches/annun-test</property>
 					<value>0</value>
-				</binding>
-				<binding>
-					<command>nasal</command>
-					<script>core.Sound.btn1();</script>
 				</binding>
 			</mod-up>
 		</action>

@@ -1523,6 +1523,10 @@
 				<property>controls/warnings/gear-warning-inhibit-switch</property>
 				<value>1</value>
 			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>core.Sound.btn1();</script>
+			</binding>
 			<mod-up>
 				<binding>
 					<command>property-assign</command>
