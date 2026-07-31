@@ -349,6 +349,16 @@
 			<lag>20</lag>
 		</actuator>
 		
+		<lag_filter name="/controls/cockpit/cabin-auto">
+			<input>/controls/pressurization/auto</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/cabin-outflow-valve">
+			<input>/systems/pressurization/outflow-valve/pos</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/elevator-trim-lever">
 			<input>/controls/flight/elevator-trim-lever</input>
 			<c1>20</c1>
@@ -490,12 +500,14 @@
 			<input>/systems/engines/control-1/throttle-pos</input>
 			<c1>20</c1>
 			<output>/systems/engines/throttle-lever-feedback[0]</output>
+			<output>/systems/pressurization/throttle-lever-feedback[0]</output>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/throttle-lever[1]">
 			<input>/systems/engines/control-2/throttle-pos</input>
 			<c1>20</c1>
 			<output>/systems/engines/throttle-lever-feedback[1]</output>
+			<output>/systems/pressurization/throttle-lever-feedback[1]</output>
 		</lag_filter>
 		
 		<lag_filter name="/controls/cockpit/to-cg">
@@ -662,6 +674,26 @@
 		
 		<lag_filter name="/controls/cockpit/overhead/bleed-apu">
 			<input>/controls/pneumatics/bleed-apu</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/cabin-auto-sel">
+			<input>/controls/pressurization/auto-sel</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/cabin-landing-alt">
+			<input>/controls/pressurization/landing-alt</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/cabin-landing-baro">
+			<input>/controls/pressurization/landing-baro</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<lag_filter name="/controls/cockpit/overhead/cabin-rate-limit">
+			<input>/controls/pressurization/rate-limit</input>
 			<c1>20</c1>
 		</lag_filter>
 		

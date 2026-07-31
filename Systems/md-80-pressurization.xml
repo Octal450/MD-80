@@ -1,0 +1,613 @@
+<?xml version="1.0"?>
+
+<!-- McDonnell Douglas MD-80 Pressurization -->
+<!-- Copyright (c) 2026 Josh Davidson (Octal450) -->
+
+<system name="MD-80: Pressurization">
+	
+	<property value="14.7">/systems/pressurization/cabin-psi</property>
+	<property value="0">/systems/pressurization/cabin-alt-ft</property>
+	<property value="0">/systems/pressurization/cabin-rate-fpm</property>
+	<property value="1">/systems/pressurization/outflow-valve/auto-cmd</property> <!-- Start open -->
+	<property value="1">/systems/pressurization/outflow-valve/cmd</property> <!-- Start open -->
+	<property value="0">/systems/pressurization/throttle-lever-feedback[0]</property>
+	<property value="0">/systems/pressurization/throttle-lever-feedback[1]</property>
+	
+	<channel name="Landing Baro Sync" execrate="8">
+		
+		<fcs_function name="/systems/pressurization/landing-baro-sync">
+			<function>
+				<ifthen>
+					<or>
+						<eq>
+							<property>/systems/acconfig/autoconfig-running</property>
+							<value>1</value>
+						</eq>
+						<eq>
+							<property>/systems/acconfig/options/sync-landing-baro</property>
+							<value>1</value>
+						</eq>
+					</or>
+					<product> <!-- Round to nearest 0.02 -->
+						<floor>
+							<sum>
+								<quotient>
+									<property>/instrumentation/altimeter/setting-inhg</property>
+									<value>0.02</value>
+								</quotient>
+								<value>0.5</value>
+							</sum>
+						</floor>
+						<value>0.02</value>
+					</product>
+					<property>/controls/pressurization/landing-baro</property> <!-- Leave it alone -->
+				</ifthen>
+			</function>
+			<output>/controls/pressurization/landing-baro</output>
+		</fcs_function>
+	
+	</channel>
+	
+	<channel name="Cabin Differential Pressure" execrate="8">
+		
+		<pure_gain name="/systems/pressurization/environment-psi">
+			<input>/environment/pressure-inhg</input>
+			<gain>0.491154</gain>
+		</pure_gain>
+		
+		<summer name="/systems/pressurization/cabin-diff-psi">
+			<input>/systems/pressurization/cabin-psi</input>
+			<input>-/systems/pressurization/environment-psi</input>
+		</summer>
+	
+	</channel>
+	
+	<channel name="CPCS Logic" execrate="8">
+		
+		<switch name="/systems/pressurization/auto">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/controls/pressurization/auto eq 1
+				/controls/pressurization/auto-sel eq 0
+				/systems/electrical/bus/dc-l ge 24
+				/systems/failures/pressurization/auto-1 eq 0
+			</test>
+			<test logic="AND" value="1">
+				/controls/pressurization/auto eq 1
+				/controls/pressurization/auto-sel eq 1
+				/systems/electrical/bus/dc-r ge 24
+				/systems/failures/pressurization/auto-2 eq 0
+			</test>
+		</switch>
+		
+		<fcs_function name="/systems/pressurization/environment-alt-ft"> <!-- Due to real system using pressure, corrected "automatically" -->
+			<function>
+				<product>
+					<value>145366.45</value>
+					<difference>
+						<value>1.0</value>
+						<pow>
+							<quotient>
+								<property>/systems/pressurization/environment-psi</property>
+								<value>14.6959</value>
+							</quotient>
+							<value>0.190284</value>
+						</pow>
+					</difference>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/pressurization/cpcs/takeoff-alt">
+			<default value="/systems/pressurization/cpcs/takeoff-alt"/> <!-- Memorize on takeoff -->
+			<test logic="AND" value="/systems/pressurization/environment-alt-ft"> <!-- Update before takeoff -->
+				position/wow eq 1
+				/systems/pressurization/throttle-lever-feedback[0] lt 0.7
+				/systems/pressurization/throttle-lever-feedback[1] lt 0.7
+			</test>
+		</switch>
+		
+		<fcs_function name="/systems/pressurization/cpcs/landing-alt"> <!-- Correct landing altitude with QNH setting -->
+			<function>
+				<product>
+					<value>145366.45</value>
+					<difference>
+						<value>1.0</value>
+						<pow>
+							<quotient>
+								<product>
+									<product>
+										<property>/controls/pressurization/landing-baro</property>
+										<value>0.4911738</value>
+									</product>
+									<pow>
+										<difference>
+											<value>1.0</value>
+											<quotient>
+												<property>/controls/pressurization/landing-alt</property>
+												<value>145366.45</value>
+											</quotient>
+										</difference>
+										<value>5.2558797</value>
+									</pow>
+								</product>
+								<value>14.6959</value>
+							</quotient>
+							<value>0.190284</value>
+						</pow>
+					</difference>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/pressurization/cpcs/flight-max-alt">
+			<default value="/systems/pressurization/cpcs/flight-max-alt"/>
+			<test value="/instrumentation/altimeter/indicated-altitude-ft"> <!-- Reset to current -->
+				position/wow eq 1
+			</test>
+			<test value="/instrumentation/altimeter/indicated-altitude-ft"> <!-- Store new altitude if higher -->
+				/instrumentation/altimeter/indicated-altitude-ft gt /systems/pressurization/cpcs/flight-max-alt
+			</test>
+		</switch>
+		
+		<summer name="/systems/pressurization/cpcs/flight-max-alt-error">
+			<input>/instrumentation/altimeter/indicated-altitude-ft</input>
+			<input>-/systems/pressurization/cpcs/flight-max-alt</input>
+		</summer>
+		
+		<switch name="/systems/pressurization/cpcs/descend-switch"> <!-- 0: Takeoff/Climb/Cruise, 1: Descend/Landing -->
+			<default value="/systems/pressurization/cpcs/descend-switch"/>
+			<test logic="AND" value="0"> <!-- Reset if engines are shut down on the ground -->
+				position/wow eq 1
+				/engines/engine[0]/state ne 3
+				/engines/engine[1]/state ne 3
+			</test>
+			<test logic="AND" value="0"> <!-- Reset if spooling up on the ground -->
+				position/wow eq 1
+				<test logic="OR">
+					/systems/pressurization/throttle-lever-feedback[0] ge 0.7
+					/systems/pressurization/throttle-lever-feedback[1] ge 0.7
+				</test>
+			</test>
+			<test logic="AND" value="1"> <!-- Set if lost 1000ft of altitude -->
+				position/wow eq 0
+				/systems/pressurization/cpcs/flight-max-alt-error le -1000
+			</test>
+		</switch>
+	
+	</channel>
+	
+	<channel name="Cabin Altitude Schedule" execrate="8">
+		
+		<fcs_function name="/systems/pressurization/cpcs/cabin-alt-schedule">
+			<function>
+				<max>
+					<table>
+						<independentVar lookup="row">/instrumentation/altimeter/indicated-altitude-ft</independentVar>
+						<tableData> <!-- Approaches 7.86 diff max -->
+							-1000 -1000
+							    0  -600
+							 5000   700
+							10000  1600
+							15000  2300
+							20000  3100
+							25000  4100
+							30000  5600
+							35000  7300
+							37000  8000
+						</tableData>
+					</table>
+					<min>
+						<ifthen>
+							<eq>
+								<property>/systems/pressurization/cpcs/descend-switch</property>
+								<value>1</value>
+							</eq>
+							<property>/systems/pressurization/cpcs/landing-alt</property>
+							<property>/systems/pressurization/cpcs/takeoff-alt</property>
+						</ifthen>
+						<value>8000</value> <!-- Maximum allowed -->
+					</min>
+				</max>
+			</function>
+		</fcs_function>
+		
+		<switch name="/systems/pressurization/cpcs/cabin-alt-target">
+			<default value="/systems/pressurization/cpcs/cabin-alt-schedule"/> <!-- Normal Schedule -->
+			<test logic="OR" value="/systems/pressurization/environment-alt-ft"> <!-- Cabin to environment altitude pressure -->
+				position/wow eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/pressurization/cpcs/outflow-cmd-open">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				position/wow eq 1
+				/systems/pressurization/throttle-lever-feedback[0] lt 0.7
+				/systems/pressurization/throttle-lever-feedback[1] lt 0.7
+			</test>
+		</switch>
+	
+	</channel>
+	
+	<channel name="Automatic Controller" execrate="8">
+		
+		<summer name="/systems/pressurization/controller/cabin-alt-error">
+			<input>/systems/pressurization/cpcs/cabin-alt-target</input>
+			<input>-/systems/pressurization/cabin-alt-ft</input>
+		</summer>
+		
+		<fcs_function name="/systems/pressurization/controller/min-rate">
+			<function>
+				<table>
+					<independentVar lookup="row">/controls/pressurization/rate-limit</independentVar>
+					<tableData>
+						-10 -800
+						  0 -350
+						 10  -20
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/pressurization/controller/max-rate">
+			<function>
+				<table>
+					<independentVar lookup="row">/controls/pressurization/rate-limit</independentVar>
+					<tableData>
+						-10    50
+						  0   750
+						 10  2000
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<pure_gain name="/systems/pressurization/controller/cabin-rate-target">
+			<input>/systems/pressurization/controller/cabin-alt-error</input>
+			<gain>5</gain>
+			<clipto>
+				<min>/systems/pressurization/controller/min-rate</min>
+				<max>/systems/pressurization/controller/max-rate</max>
+			</clipto>
+		</pure_gain>
+		
+		<summer name="/systems/pressurization/controller/cabin-fpm-error">
+			<input>/systems/pressurization/controller/cabin-rate-target</input>
+			<input>-/systems/pressurization/cabin-rate-fpm</input>
+			<clipto>
+				<min>-500</min>
+				<max>500</max>
+			</clipto>
+		</summer>
+		
+		<pid name="/systems/pressurization/controller/pid">
+			<input>/systems/pressurization/controller/cabin-fpm-error</input>
+			<kp>0.0005</kp>
+			<ki>0</ki> <!-- Not used, using command integrator instead -->
+			<kd>0.0001</kd>
+			<clipto>
+				<min>-0.25</min>
+				<max>0.25</max>
+			</clipto>
+		</pid>
+	
+	</channel>
+	
+	<channel name="Outflow Valve" execrate="8">
+		
+		<switch name="/systems/pressurization/outflow-valve/power">
+			<default value="0"/>
+			<test logic="OR" value="1"> <!-- Guess -->
+				/systems/electrical/bus/dc-bat ge 24
+				/systems/electrical/bus/dc-trans ge 24
+			</test>
+		</switch>
+		
+		<fcs_function name="/systems/pressurization/outflow-valve/auto-cmd"> <!-- Command integrator -->
+			<function>
+				<ifthen>
+					<and>
+						<eq>
+							<property>/systems/pressurization/outflow-valve/power</property>
+							<value>1</value>
+						</eq>
+						<eq>
+							<property>/systems/pressurization/auto</property>
+							<value>1</value>
+						</eq>
+					</and>
+					<max>
+						<sum>
+							<property>/systems/pressurization/outflow-valve/auto-cmd</property>
+							<product>
+								<property>/systems/pressurization/outflow-valve/power</property>
+								<property>/systems/pressurization/controller/pid</property>
+								<property>simulation/channel-dt</property>
+							</product>
+						</sum>
+						<property>/systems/pressurization/cpcs/outflow-cmd-open</property>
+					</max>
+					<property>/systems/pressurization/outflow-valve/cmd</property>
+				</ifthen>
+			</function>
+			<clipto>
+				<min>0</min>
+				<max>1</max>
+			</clipto>
+		</fcs_function>
+		
+		<fcs_function name="/systems/pressurization/outflow-valve/cmd-calc">
+			<function>
+				<ifthen>
+					<and>
+						<eq>
+							<property>/systems/pressurization/outflow-valve/power</property>
+							<value>1</value>
+						</eq>
+						<eq>
+							<property>/systems/pressurization/auto</property>
+							<value>1</value>
+						</eq>
+					</and>
+					<property>/systems/pressurization/outflow-valve/auto-cmd</property>
+					<property>/systems/pressurization/outflow-valve/cmd</property>
+				</ifthen>
+			</function>
+			<output>/systems/pressurization/outflow-valve/cmd</output>
+			<clipto>
+				<min>0</min>
+				<max>1</max>
+			</clipto>
+		</fcs_function>
+		
+		<switch name="/systems/pressurization/outflow-valve/rate">
+			<default value="1000"/> <!-- Manual -->
+			<test logic="AND" value="0.25">
+				/systems/pressurization/outflow-valve/power eq 1
+				/systems/pressurization/auto eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/systems/pressurization/outflow-valve/pos">
+			<input>/systems/pressurization/outflow-valve/cmd</input>
+			<rate_limit>/systems/pressurization/outflow-valve/rate</rate_limit>
+		</actuator>
+	
+	</channel>
+	
+	<channel name="Relief Valves" execrate="8">
+		
+		<fcs_function name="/systems/pressurization/relief-valves/overpressure-valve">
+			<function>
+				<table>
+					<independentVar lookup="row">/systems/pressurization/cabin-diff-psi</independentVar>
+					<tableData>
+						8.11  0
+						8.16  1
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/pressurization/relief-valves/underpressure-valve">
+			<function>
+				<table>
+					<independentVar lookup="row">/systems/pressurization/cabin-diff-psi</independentVar>
+					<tableData>
+						-0.06  1
+						-0.01  0
+					</tableData>
+				</table>
+			</function>
+		</fcs_function>
+	
+	</channel>
+	
+	<channel name="Cabin Pressure" execrate="8">
+		
+		<fcs_function name="/systems/pressurization/outflow-psi-rate">
+			<function>
+				<product>
+					<pow> <!-- Flow isn't linear -->
+						<max>
+							<property>/systems/pressurization/outflow-valve/pos</property>
+							<property>/systems/failures/pressurization/depressurization</property> <!-- Depressurization failure -->
+						</max>
+						<value>2</value>
+					</pow>
+					<value>-0.009</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<pure_gain name="/systems/pressurization/overpressure-relief-psi-rate">
+			<input>/systems/pressurization/relief-valves/overpressure-valve</input>
+			<gain>-0.009</gain>
+			<clipto>
+				<min>-0.04</min>
+				<max>0</max>
+			</clipto>
+		</pure_gain>
+		
+		<pure_gain name="/systems/pressurization/underpressure-relief-psi-rate">
+			<input>/systems/pressurization/relief-valves/underpressure-valve</input>
+			<gain>-0.081</gain>
+			<clipto>
+				<min>-0.36</min>
+				<max>0</max>
+			</clipto>
+		</pure_gain>
+		
+		<fcs_function name="/systems/pressurization/pack-psi">
+			<function>
+				<sum>
+					<min>
+						<property>/systems/pressurization/cabin-psi</property>
+						<value>15.82</value>
+					</min>
+					<value>4</value>
+				</sum>
+			</function>
+		</fcs_function>
+		
+		<summer name="/systems/pressurization/pack-flow-sum">
+			<input>/systems/pneumatics/pack-l-flow</input>
+			<input>/systems/pneumatics/pack-r-flow</input>
+			<clipto>
+				<min>0</min>
+				<max>24</max>
+			</clipto>
+		</summer>
+		
+		<summer name="/systems/pressurization/pack-psi-error">
+			<input>/systems/pressurization/cabin-psi</input>
+			<input>-/systems/pressurization/pack-psi</input>
+			<clipto> <!-- It can never depressurize -->
+				<min>-100</min>
+				<max>0</max>
+			</clipto>
+		</summer>
+		
+		<fcs_function name="/systems/pressurization/pack-psi-rate">
+			<function>
+				<product>
+					<difference>
+						<value>1</value>
+						<pow> <!-- Flow isn't linear -->
+							<property>/systems/pressurization/outflow-valve/pos</property>
+							<value>2</value>
+						</pow>
+					</difference>
+					<table>
+						<independentVar lookup="row">/systems/pressurization/pack-flow-sum</independentVar>
+						<tableData>
+							 0  0
+							24  1
+						</tableData>
+					</table>
+					<value>-0.004</value>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<fcs_function name="/systems/pressurization/cabin-psi-calc">
+			<function>
+				<ifthen>
+					<or> <!-- Workaround for sim starting with bogus pressure, and reset to environment when loading panel state -->
+						<le>
+							<property>/sim/time/elapsed-sec</property>
+							<value>1</value>
+						</le>
+						<eq>
+							<property>/systems/acconfig/autoconfig-running</property>
+							<value>1</value>
+						</eq>
+					</or>
+					<property>/systems/pressurization/environment-psi</property>
+					<sum>
+						<property>/systems/pressurization/cabin-psi</property>
+						<product> <!-- Leakage factor -->
+							<property>/systems/pressurization/cabin-diff-psi</property>
+							<value>-0.00001</value>
+							<property>simulation/channel-dt</property>
+						</product>
+						<product> <!-- Outflow factor -->
+							<property>/systems/pressurization/cabin-diff-psi</property>
+							<property>/systems/pressurization/outflow-psi-rate</property>
+							<property>simulation/channel-dt</property>
+						</product>
+						<product> <!-- Overpressure relief factor -->
+							<property>/systems/pressurization/cabin-diff-psi</property>
+							<property>/systems/pressurization/overpressure-relief-psi-rate</property>
+							<property>simulation/channel-dt</property>
+						</product>
+						<product> <!-- Underpressure relief factor -->
+							<property>/systems/pressurization/cabin-diff-psi</property>
+							<property>/systems/pressurization/underpressure-relief-psi-rate</property>
+							<property>simulation/channel-dt</property>
+						</product>
+						<product> <!-- Packs factor -->
+							<property>/systems/pressurization/pack-psi-error</property>
+							<property>/systems/pressurization/pack-psi-rate</property>
+							<property>simulation/channel-dt</property>
+						</product>
+					</sum>
+				</ifthen>
+			</function>
+			<output>/systems/pressurization/cabin-psi</output>
+			<clipto> <!-- Keep it reasonable -->
+				<min>1</min>
+				<max>30</max>
+			</clipto>
+		</fcs_function>
+		
+		<fcs_function name="/systems/pressurization/cabin-alt-ft">
+			<function>
+				<product>
+					<value>145366.45</value>
+					<difference>
+						<value>1</value>
+						<pow>
+							<quotient>
+								<property>/systems/pressurization/cabin-psi</property>
+								<value>14.6959</value>
+							</quotient>
+							<value>0.190284</value>
+						</pow>
+					</difference>
+				</product>
+			</function>
+		</fcs_function>
+		
+		<pid name="/systems/pressurization/cabin-rate-fps">
+			<descripton>Use D only to calculate rate</descripton>
+			<input>/systems/pressurization/cabin-alt-ft</input>
+			<kp>0</kp>
+			<ki>0</ki>
+			<kd>1</kd>
+		</pid>
+		
+		<pure_gain name="/systems/pressurization/cabin-rate-fpm-raw">
+			<input>/systems/pressurization/cabin-rate-fps</input>
+			<gain>60</gain>
+			<clipto> <!-- Keep it sane -->
+				<min>-9990</min>
+				<max>9990</max>
+			</clipto>
+		</pure_gain>
+		
+		<lag_filter name="/systems/pressurization/cabin-rate-fpm">
+			<input>/systems/pressurization/cabin-rate-fpm-raw</input>
+			<c1>5</c1>
+		</lag_filter>
+	
+	</channel>
+	
+	<channel name="Overhead/Synoptic Lights">
+		
+		<switch name="/systems/pressurization/lights/auto-inop">
+			<default value="0"/>
+			<test logic="AND" value="1">
+				/systems/failures/pressurization/auto-1 eq 1
+				/systems/failures/pressurization/auto-2 eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/pressurization/lights/auto-1-inop">
+			<default value="0"/>
+			<test value="1">
+				/systems/failures/pressurization/auto-1 eq 1
+			</test>
+		</switch>
+		
+		<switch name="/systems/pressurization/lights/auto-2-inop">
+			<default value="0"/>
+			<test value="1">
+				/systems/failures/pressurization/auto-2 eq 1
+			</test>
+		</switch>
+	
+	</channel>
+
+</system>

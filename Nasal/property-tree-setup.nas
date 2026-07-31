@@ -285,6 +285,7 @@ var Systems = {
 			firetankWater: props.globals.getNode("/systems/acconfig/options/firetank-water"),
 			nav: props.globals.getNode("/systems/acconfig/options/nav"),
 			risingRunway: props.globals.getNode("/systems/acconfig/options/rising-runway"),
+			syncLandingBaro: props.globals.getNode("/systems/acconfig/options/sync-landing-baro"),
 		},
 	},
 	Caws: {

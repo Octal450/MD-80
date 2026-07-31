@@ -4231,6 +4231,279 @@
 		</action>
 	</animation>
 	
+	<!-- Pressurization Panel -->
+	<animation>
+		<type>rotate</type>
+		<object-name>CabinAutoSelect</object-name>
+		<property>controls/cockpit/overhead/cabin-auto-sel</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>-30</dep></entry>
+			<entry><ind>1</ind><dep> 30</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>-0.00095</x-m>
+			<y-m>0</y-m>
+			<z-m>-0.35425</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	<animation>
+		<type>pick</type>
+		<object-name>CabinAutoSelect</object-name>
+		<action>
+			<button>0</button>
+			<button>1</button>
+			<button>3</button>
+			<button>4</button>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/pressurization/auto-sel</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>core.Sound.switch1();</script>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>Cabin.AutoInop</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>systems/pressurization/lights/auto-inop</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Cabin.Inop1</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>systems/pressurization/lights/auto-1-inop</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>Cabin.Inop2</object-name>
+		<condition>
+			<or>
+				<equals>
+					<property>systems/pressurization/lights/auto-2-inop</property>
+					<value>1</value>
+				</equals>
+				<equals>
+					<property>controls/switches/annun-test</property>
+					<value>1</value>
+				</equals>
+			</or>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>CabinLdgAltKnob</object-name>
+		<property>controls/cockpit/overhead/cabin-landing-alt</property>
+		<factor>-0.55</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.08007</y-m>
+			<z-m>-0.36991</z-m>
+		</center>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/pressurization/landing-alt</property>
+				<factor>20</factor>
+				<min>-1000</min>
+				<max>14000</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>CabinLdgAltTape</object-name>
+		<property>controls/cockpit/overhead/cabin-landing-alt</property>
+		<interpolation>
+			<entry><ind>-1000</ind><dep>-0.0610</dep></entry>
+			<entry><ind>    0</ind><dep> 0.0000</dep></entry>
+			<entry><ind>14000</ind><dep> 0.8545</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>CabinLdgBaroKnob</object-name>
+		<property>controls/cockpit/overhead/cabin-landing-baro</property>
+		<factor>-550</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.11641</y-m>
+			<z-m>-0.36991</z-m>
+		</center>
+		<action>
+			<binding>
+				<command>nasal</command>
+				<script>
+					if (pts.Systems.Acconfig.Options.syncLandingBaro.getBoolValue()) {
+						gui.popupTip("Sync Cabin Landing QNH to Altimeter is currently enabled, disable in Aircraft Configuration Center to adjust Landing QNH independently");
+					}
+				</script>
+			</binding>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/pressurization/landing-baro</property>
+				<factor>0.02</factor>
+				<min>-27.06</min>
+				<max>31.98</max>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>textranslate</type>
+		<object-name>CabinLdgBaroTape</object-name>
+		<property>controls/cockpit/overhead/cabin-landing-baro</property>
+		<interpolation>
+			<entry><ind>27.06</ind><dep>-0.3467</dep></entry>
+			<entry><ind>29.90</ind><dep> 0.0000</dep></entry>
+			<entry><ind>31.98</ind><dep> 0.2539</dep></entry>
+		</interpolation>
+		<axis>
+			<x>0</x>
+			<y>1</y>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>CabinRateLimit</object-name>
+		<property>controls/cockpit/overhead/cabin-rate-limit</property>
+		<drag-scale-px>15</drag-scale-px>
+		<factor>-3</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.1446</y-m>
+			<z-m>-0.35824</z-m>
+		</center>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/pressurization/rate-limit</property>
+				<factor>1</factor>
+				<min>-10</min>
+				<max>10</max>
+			</binding>
+		</action>
+	</animation>
+	
+	<!-- Pressurization Gauges -->
+	<animation>
+		<type>rotate</type>
+		<object-name>CabinAltNeedle</object-name>
+		<property>instrumentation/cabin-meters/alt</property>
+		<interpolation>
+			<entry><ind>    0</ind><dep>  0</dep></entry>
+			<entry><ind> 8000</ind><dep>140</dep></entry>
+			<entry><ind>11000</ind><dep>185</dep></entry>
+			<entry><ind>15000</ind><dep>235</dep></entry>
+			<entry><ind>20000</ind><dep>254</dep></entry>
+			<entry><ind>25000</ind><dep>269</dep></entry>
+			<entry><ind>30000</ind><dep>281</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.21944</y-m>
+			<z-m>-0.33818</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>CabinPressNeedle</object-name>
+		<property>instrumentation/cabin-meters/dp</property>
+		<interpolation>
+			<entry><ind>0</ind><dep>  0</dep></entry>
+			<entry><ind>9</ind><dep>295</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.21944</y-m>
+			<z-m>-0.33818</z-m>
+		</center>
+	</animation>
+	
+	<animation>
+		<type>rotate</type>
+		<object-name>CabinRateNeedle</object-name>
+		<property>instrumentation/cabin-meters/rate</property>
+		<interpolation>
+			<entry><ind>-1500</ind><dep>-145</dep></entry>
+			<entry><ind>-1000</ind><dep>-104</dep></entry>
+			<entry><ind> -500</ind><dep> -45</dep></entry>
+			<entry><ind>  500</ind><dep>  45</dep></entry>
+			<entry><ind> 1000</ind><dep> 104</dep></entry>
+			<entry><ind> 1500</ind><dep> 145</dep></entry>
+		</interpolation>
+		<axis>
+			<x>-1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+		<center>
+			<x-m>0</x-m>
+			<y-m>0.20774</y-m>
+			<z-m>-0.41093</z-m>
+		</center>
+	</animation>
+	
 	<!-- Rain Panel -->
 	<animation>
 		<type>rotate</type>

@@ -422,6 +422,20 @@
 				<live>true</live>
 			</checkbox>
 			
+			<checkbox>
+				<label>Sync Landing QNH to Altimeter</label>
+				<halign>left</halign>
+				<property>/systems/acconfig/options/sync-landing-baro</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<binding>
+					<command>nasal</command>
+					<script>acconfig.OPTIONS.write();</script>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
 			<group>
 				<layout>hbox</layout>
 				

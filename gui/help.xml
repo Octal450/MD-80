@@ -113,6 +113,7 @@ Simulation:
 * Keyboard Mode: Maps flight controls to number pad and number rows instead of view shortcuts.
 * Open When FlightGear Starts: Opens the Aircraft Configuration Center automatically when FlightGear starts.
 * Separate Tiller Axis: Separates the tiller from the rudder and maps it to /controls/gear/steering.
+* Sync Cabin Landing QNH to Altimeter: Syncs the cabin landing QNH to the altimeter QNH setting.
 
 Aircraft:
 * 8.33KHz Radio Equipped: Equips the COMM radios with the new 8.33KHz VHF frequency spacing.

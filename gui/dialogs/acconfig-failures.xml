@@ -514,6 +514,50 @@
 					<stretch>true</stretch>
 				</hrule>
 				<text>
+					<label>Pressurization</label>
+				</text>
+				<hrule>
+					<stretch>true</stretch>
+				</hrule>
+			</group>
+			
+			<checkbox>
+				<label>Automatic 1</label>
+				<halign>left</halign>
+				<property>/systems/failures/pressurization/auto-1</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Automatic 2</label>
+				<halign>left</halign>
+				<property>/systems/failures/pressurization/auto-2</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<checkbox>
+				<label>Depressurization</label>
+				<halign>left</halign>
+				<property>/systems/failures/pressurization/depressurization</property>
+				<binding>
+					<command>dialog-apply</command>
+				</binding>
+				<live>true</live>
+			</checkbox>
+			
+			<group>
+				<layout>hbox</layout>
+				
+				<hrule>
+					<stretch>true</stretch>
+				</hrule>
+				<text>
 					<label>Flight Controls</label>
 				</text>
 				<hrule>

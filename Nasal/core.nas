@@ -30,6 +30,7 @@ var systemsInit = func() {
 	systems.IGNITION.init();
 	systems.IRS.init();
 	systems.PNEUMATICS.init();
+	systems.PRESSURIZATION.init();
 	dfgs.ITAF.init();
 	fms_ht9100.CORE.init();
 	systems.THRLIM.init();

@@ -3823,5 +3823,84 @@
 			<blue-prop>systems/lighting/pedestal-osg-blue</blue-prop>
 		</emission>
 	</animation>
+	
+	<!-- Pressurization Controls -->
+	<animation>
+		<type>rotate</type>
+		<object-name>OutFlowValvePos</object-name>
+		<property>controls/cockpit/cabin-outflow-valve</property>
+		<drag-direction>vertical</drag-direction>
+		<interpolation>
+			<entry><ind>0</ind><dep> 95</dep></entry>
+			<entry><ind>1</ind><dep>-20</dep></entry>
+		</interpolation>
+		<center>
+			<x-m>2.62</x-m>
+			<y-m>0</y-m>
+			<z-m>0.63</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>CabinAltWheel</object-name>
+		<property>controls/cockpit/cabin-outflow-valve</property>
+		<drag-direction>vertical</drag-direction>
+		<factor>-600</factor>
+		<center>
+			<x-m>2.65039</x-m>
+			<y-m>0</y-m>
+			<z-m>0.68354</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>systems/pressurization/outflow-valve/cmd</property>
+				<factor>-0.01</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
+	
+	<animation>
+		<type>knob</type>
+		<object-name>CabinAltCtlLever</object-name>
+		<property>controls/cockpit/cabin-auto</property>
+		<drag-direction>vertical</drag-direction>
+		<drag-scale-px>30</drag-scale-px>
+		<factor>22</factor>
+		<center>
+			<x-m>2.64389</x-m>
+			<y-m>0</y-m>
+			<z-m>0.67535</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+		<action>
+			<binding>
+				<command>property-adjust</command>
+				<property>controls/pressurization/auto</property>
+				<factor>1</factor>
+				<min>0</min>
+				<max>1</max>
+				<wrap>false</wrap>
+			</binding>
+		</action>
+	</animation>
 
 </PropertyList>

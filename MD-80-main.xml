@@ -759,6 +759,13 @@
 			<x-bleed-l type="bool">0</x-bleed-l>
 			<x-bleed-r type="bool">0</x-bleed-r>
 		</pneumatics>
+		<pressurization n="0">
+			<auto type="bool">1</auto>
+			<auto-sel type="bool">0</auto-sel>
+			<landing-alt type="int">1000</landing-alt>
+			<landing-baro type="double">29.92</landing-baro>
+			<rate-limit type="int">0</rate-limit>
+		</pressurization>
 		<switches n="0">
 			<annun-test type="bool">0</annun-test>
 			<gpws type="int">0</gpws>
@@ -1653,6 +1660,7 @@
 				<nav type="int">0</nav>
 				<rising-runway type="bool">1</rising-runway>
 				<separate-tiller-axis type="bool">0</separate-tiller-axis>
+				<sync-landing-baro type="bool">1</sync-landing-baro>
 			</options>
 		</acconfig>
 		<apu n="0">
@@ -1791,6 +1799,11 @@
 				<pack-l type="bool">0</pack-l>
 				<pack-r type="bool">0</pack-r>
 			</pneumatics>
+			<pressurization n="0">
+				<auto-1 type="bool">0</auto-1>
+				<auto-2 type="bool">0</auto-2>
+				<depressurization type="bool">0</depressurization>
+			</pressurization>
 		</failures>
 		<fcs n="0">
 			<stabilizer n="0">
@@ -1857,6 +1870,7 @@
 			<file>Aircraft/MD-80/Nasal/Systems/ignition.nas</file>
 			<file>Aircraft/MD-80/Nasal/Systems/irs-ahrs.nas</file>
 			<file>Aircraft/MD-80/Nasal/Systems/pneumatics.nas</file>
+			<file>Aircraft/MD-80/Nasal/Systems/pressurization.nas</file>
 			<file>Aircraft/MD-80/Nasal/Systems/thrlim.nas</file>
 			<file>Aircraft/MD-80/Nasal/Systems/warnings.nas</file>
 			<file>Aircraft/MD-80/Nasal/Displays/DU-controller.nas</file>

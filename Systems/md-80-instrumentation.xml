@@ -2918,7 +2918,71 @@
 	
 	</channel>
 	
-	<channel name="Cabin Temperature Meters" execrate="2">
+	<channel name="Cabin Meters" execrate="2">
+		
+		<switch name="/instrumentation/cabin-meters/alt-dp-power-avail">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/dc-bat ge 24
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/cabin-meters/alt-input">
+			<default value="/instrumentation/cabin-meters/alt-input"/>
+			<test value="/systems/pressurization/cabin-alt-ft">
+				/instrumentation/cabin-meters/alt-dp-power-avail eq 1
+			</test>
+			<clipto>
+				<min>0</min>
+				<max>30000</max>
+			</clipto>
+		</switch>
+		
+		<lag_filter name="/instrumentation/cabin-meters/alt">
+			<input>/instrumentation/cabin-meters/alt-input</input>
+			<c1>15</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/cabin-meters/dp-input">
+			<default value="/instrumentation/cabin-meters/dp-input"/>
+			<test value="/systems/pressurization/cabin-diff-psi">
+				/instrumentation/cabin-meters/alt-dp-power-avail eq 1
+			</test>
+			<clipto>
+				<min>0</min>
+				<max>9</max>
+			</clipto>
+		</switch>
+		
+		<lag_filter name="/instrumentation/cabin-meters/dp">
+			<input>/instrumentation/cabin-meters/dp-input</input>
+			<c1>20</c1>
+		</lag_filter>
+		
+		<switch name="/instrumentation/cabin-meters/rate-power-avail">
+			<default value="0"/>
+			<test logic="OR" value="1">
+				/systems/electrical/bus/dc-bat ge 24
+				/systems/acconfig/autoconfig-running eq 1
+			</test>
+		</switch>
+		
+		<switch name="/instrumentation/cabin-meters/rate-input">
+			<default value="/instrumentation/cabin-meters/rate-input"/>
+			<test value="/systems/pressurization/cabin-rate-fpm">
+				/instrumentation/cabin-meters/rate-power-avail eq 1
+			</test>
+			<clipto>
+				<min>-1500</min>
+				<max>1500</max>
+			</clipto>
+		</switch>
+		
+		<lag_filter name="/instrumentation/cabin-meters/rate">
+			<input>/instrumentation/cabin-meters/rate-input</input>
+			<c1>15</c1>
+		</lag_filter>
 		
 		<switch name="/instrumentation/cabin-meters/temp-f-input">
 			<default value="/systems/pneumatics/hvac/duct-temp/cabin"/>
