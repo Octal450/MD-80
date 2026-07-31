@@ -333,7 +333,7 @@
 		
 		<switch name="/systems/fcs/elevator-l/rate-incr">
 			<default value="/systems/fcs/surface-rate"/> <!-- For aerodynamically flown -->
-			<test logic="AND" value="80">
+			<test logic="AND" value="75">
 				/systems/hydraulics/sys-l-psi ge 950
 				/systems/fcs/elevators/pwr-active eq 1
 			</test>
@@ -349,7 +349,7 @@
 		
 		<switch name="/systems/fcs/elevator-l/anti-up-rate">
 			<default value="100000"/> <!-- So it won't blip -->
-			<test logic="AND" value="80">
+			<test logic="AND" value="75">
 				/systems/hydraulics/sys-l-psi ge 950
 				/systems/fcs/elevators/pwr-active eq 1
 			</test>
@@ -446,7 +446,7 @@
 		
 		<switch name="/systems/fcs/elevator-r/rate-incr">
 			<default value="/systems/fcs/surface-rate"/> <!-- For aerodynamically flown -->
-			<test logic="AND" value="80"> <!-- Not a typo, left hydraulic on both -->
+			<test logic="AND" value="75"> <!-- Not a typo, left hydraulic on both -->
 				/systems/hydraulics/sys-l-psi ge 950
 				/systems/fcs/elevators/pwr-active eq 1
 			</test>
@@ -462,7 +462,7 @@
 		
 		<switch name="/systems/fcs/elevator-r/anti-up-rate">
 			<default value="100000"/> <!-- So it won't blip -->
-			<test logic="AND" value="80"> <!-- Not a typo, left hydraulic on both -->
+			<test logic="AND" value="75"> <!-- Not a typo, left hydraulic on both -->
 				/systems/hydraulics/sys-l-psi ge 950
 				/systems/fcs/elevators/pwr-active eq 1
 			</test>
