@@ -109,7 +109,6 @@ var CanvasBase = {
 		if (n == 0) Value.Ai.fd[0] = dfgs.Output.fd1.getBoolValue();
 		if (n == 1) Value.Ai.fd[1] = dfgs.Output.fd2.getBoolValue();
 		Value.Misc.lat = dfgs.Output.lat.getValue();
-		Value.Ra.agl = pts.Position.gearAglFt.getValue();
 		
 		# IRS
 		if (systems.PLATFORM.Unit.attAvail[n].getBoolValue()) {
@@ -241,6 +240,7 @@ var CanvasBase = {
 		}
 		
 		# RA and DH
+		Value.Ra.agl = pts.Position.gearAglFt.getValue();
 		Value.Ra.dh = pts.Controls.Switches.minimums.getValue();
 		if (Value.Ra.agl <= 3000) {
 			if (Value.Ra.dh > 0) {
@@ -250,7 +250,7 @@ var CanvasBase = {
 				me["DH_pointer"].hide();
 			}
 			me["RA_bars"].show();
-			me["RA_scale"].setTranslation(0, math.clamp(Value.Ra.agl, 0, 3100) * 2.079);
+			me["RA_scale"].setTranslation(0, Value.Ra.agl * 2.079);
 			me["RA_scale"].show();
 		} else {
 			me["DH_pointer"].hide();
@@ -264,13 +264,11 @@ var CanvasBase = {
 				me["DH_below"].show();
 				me["DH_label"].hide();
 				me["DH_pointer"].setColor(0.9647, 0.8196, 0.0784);
-				me["DH_pointer"].setColorFill(0.9647, 0.8196, 0.0784);
 				me["DH_set"].hide();
 			} else {
 				me["DH_below"].hide();
 				me["DH_label"].show();
 				me["DH_pointer"].setColor(0, 0.7059, 0);
-				me["DH_pointer"].setColorFill(0, 0.7059, 0);
 				me["DH_set"].setText(sprintf("%d", Value.Ra.dh));
 				me["DH_set"].show();
 			}
