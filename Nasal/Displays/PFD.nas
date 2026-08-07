@@ -162,7 +162,7 @@ var CanvasBase = {
 			me["AI_single_cue"].hide();
 			me["FS_scale"].setTranslation(0, 0);
 			me["GS_group"].setTranslation(0, 0);
-			Value.Ai.risingRunwayMultiplier = 1.032375;
+			Value.Ai.risingRunwayMultiplier = 1.028925;
 			Value.Ai.risingRunwayOffset = 0;
 		} else {
 			me["AI_dual_cue"].hide();
@@ -170,8 +170,8 @@ var CanvasBase = {
 			me["AI_single_cue"].show();
 			me["FS_scale"].setTranslation(619.7825, 0);
 			me["GS_group"].setTranslation(-619.7825, 0);
-			Value.Ai.risingRunwayMultiplier = 0.972045;
-			Value.Ai.risingRunwayOffset = 12.066; # Align it properly
+			Value.Ai.risingRunwayMultiplier = 0.965585;
+			Value.Ai.risingRunwayOffset = 12.668; # Align it properly
 		}
 		
 		Value.Ai.alpha = pts.Fdm.JSBSim.Aero.alphaDegDampedPli.getValue();
