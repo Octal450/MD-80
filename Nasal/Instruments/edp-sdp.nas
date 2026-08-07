@@ -294,7 +294,7 @@ var CanvasEdpSdp = {
 				me["EGT1_tens"].setTranslation(0, genevaEgtTens(num(right(sprintf("%04.2f", Value.egtRound[0] / 10), 4))) * 32.959);
 				me["EGT1_ones"].setTranslation(0, 10 * (math.mod(Value.egtRound[0] / 10, 1) * 32.959));
 				
-				if (Value.egtRound[0] >= 629.5 and Value.blinkMed) {
+				if (Value.egtRound[0] >= 630 and Value.blinkMed) {
 					me["EGT1"].hide();
 				} else {
 					me["EGT1"].show();
@@ -345,7 +345,7 @@ var CanvasEdpSdp = {
 				me["EGT2_tens"].setTranslation(0, genevaEgtTens(num(right(sprintf("%04.2f", Value.egtRound[1] / 10), 4))) * 32.959);
 				me["EGT2_ones"].setTranslation(0, 10 * (math.mod(Value.egtRound[1] / 10, 1) * 32.959));
 				
-				if (Value.egtRound[1] >= 629.5 and Value.blinkMed) {
+				if (Value.egtRound[1] >= 630 and Value.blinkMed) {
 					me["EGT2"].hide();
 				} else {
 					me["EGT2"].show();
