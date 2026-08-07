@@ -20,6 +20,23 @@
 	
 	<animation>
 		<type>material</type>
+		<object-name>clOn</object-name>
+		<object-name>crOn</object-name>
+		<object-name>flxOn</object-name>
+		<object-name>gaOn</object-name>
+		<object-name>mctOn</object-name>
+		<object-name>NoMode</object-name>
+		<object-name>toOn</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>1.0</green>
+			<blue>1.0</blue>
+			<factor-prop>systems/lighting/annunciator-brightness</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
 		<object-name>Text</object-name>
 		<emission>
 			<red>1.0</red>

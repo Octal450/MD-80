@@ -26,6 +26,8 @@ var variousReset = func() {
 	pts.Controls.Lighting.taxiLight.setBoolValue(0);
 	pts.Controls.Lighting.thunderstorm.setBoolValue(0);
 	pts.Controls.Lighting.wingLights.setValue(0);
+	pts.Controls.Switches.annunDim.setBoolValue(0);
+	pts.Controls.Switches.annunTest.setBoolValue(0);
 	pts.Controls.Switches.gpws.setValue(0);
 	pts.Controls.Switches.gpwsCover.setBoolValue(0);
 	pts.Controls.Switches.heaterMeterSel.setValue(0);

@@ -1,7 +1,6 @@
 AC3Db
-MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0.6 0.6 0.6  spec 0.5 0.5 0.5  shi 64  trans 0
-MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
-MATERIAL "exterior_medium" rgb 0.7 0.7 0.7  amb 0.7 0.7 0.7  emis 0 0 0  spec 0.85 0.85 0.85  shi 64  trans 0
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0 0 0  shi 64  trans 0
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 1 1 1  spec 0 0 0  shi 64  trans 0
 OBJECT world
 kids 12
 OBJECT poly
@@ -18,7 +17,7 @@ numvert 4
 0.00921669 -0.0086305 0.0166507
 numsurf 1
 SURF 0x0
-mat 1
+mat 0
 refs 4
 0 0 1
 2 0 0.75
@@ -39,7 +38,7 @@ numvert 4
 0.00921214 -0.0086305 0.0166507
 numsurf 1
 SURF 0x0
-mat 0
+mat 1
 refs 4
 0 0.25 1
 2 0.25 0.75
@@ -60,7 +59,7 @@ numvert 4
 0.00761658 -0.00863 -0.0108384
 numsurf 1
 SURF 0x0
-mat 0
+mat 1
 refs 4
 0 0.5 0.75
 2 0.5 0.5
@@ -81,7 +80,7 @@ numvert 4
 0.00777009 -0.00863 -0.0108384
 numsurf 1
 SURF 0x0
-mat 1
+mat 0
 refs 4
 0 0 0.75
 2 0 0.5
@@ -102,7 +101,7 @@ numvert 4
 0.00761658 -0.00863 -0.0108384
 numsurf 1
 SURF 0x0
-mat 0
+mat 1
 refs 4
 0 0.25 0.75
 2 0.25 0.5
@@ -123,7 +122,7 @@ numvert 4
 0.00770761 -0.00863 -0.0298263
 numsurf 1
 SURF 0x0
-mat 0
+mat 1
 refs 4
 0 0.5 0.5
 2 0.5 0.25
@@ -144,7 +143,7 @@ numvert 4
 0.00779668 -0.00863 -0.0298263
 numsurf 1
 SURF 0x0
-mat 1
+mat 0
 refs 4
 0 0 0.5
 2 0 0.25
@@ -165,12 +164,33 @@ numvert 4
 0.00772569 -0.00863 -0.0298263
 numsurf 1
 SURF 0x0
-mat 0
+mat 1
 refs 4
 0 0.25 0.5
 2 0.25 0.25
 3 0.5 0.25
 1 0.5 0.5
+kids 0
+OBJECT poly
+name "FaceRightGreen"
+loc 0.00125766 0 0.0080484
+data 8
+Cube.014
+texture "txt_cockpit_warnings_1.png"
+crease 30.000000
+numvert 4
+0.00771404 0.00863 -0.0315584
+0.00771404 0.00863 -0.0488184
+0.00771404 -0.00863 -0.0315584
+0.00771404 -0.00863 -0.0488184
+numsurf 1
+SURF 0x0
+mat 1
+refs 4
+0 0.5 0.25
+2 0.5 0
+3 0.75 0
+1 0.75 0.25
 kids 0
 OBJECT poly
 name "FaceRightOff"
@@ -186,7 +206,7 @@ numvert 4
 0.00779871 -0.00863 -0.0488184
 numsurf 1
 SURF 0x0
-mat 1
+mat 0
 refs 4
 0 0 0.25
 2 0 0
@@ -207,33 +227,12 @@ numvert 4
 0.00775032 -0.00863 -0.0488184
 numsurf 1
 SURF 0x0
-mat 0
+mat 1
 refs 4
 0 0.25 0.25
 2 0.25 0
 3 0.5 0
 1 0.5 0.25
-kids 0
-OBJECT poly
-name "FaceRightGreen"
-loc 0.00125766 0 0.0080484
-data 8
-Cube.014
-texture "txt_cockpit_warnings_1.png"
-crease 30.000000
-numvert 4
-0.00771404 0.00863 -0.0315584
-0.00771404 0.00863 -0.0488184
-0.00771404 -0.00863 -0.0315584
-0.00771404 -0.00863 -0.0488184
-numsurf 1
-SURF 0x0
-mat 0
-refs 4
-0 0.5 0.25
-2 0.5 0
-3 0.75 0
-1 0.75 0.25
 kids 0
 OBJECT poly
 name "Shells"
@@ -277,112 +276,112 @@ numvert 32
 0.000751743 0.00863 -0.0108384
 numsurf 16
 SURF 0x0
-mat 2
+mat 0
 refs 4
 5 0 0
 0 0 0
 1 0 0
 4 0 0
 SURF 0x0
-mat 2
+mat 0
 refs 4
 2 0 0
 7 0 0
 6 0 0
 3 0 0
 SURF 0x0
-mat 2
+mat 0
 refs 4
 3 0 0
 6 0 0
 4 0 0
 1 0 0
 SURF 0x0
-mat 2
+mat 0
 refs 4
 0 0 0
 5 0 0
 7 0 0
 2 0 0
 SURF 0x0
-mat 2
+mat 0
 refs 4
 13 0 0
 8 0 0
 9 0 0
 12 0 0
 SURF 0x0
-mat 2
+mat 0
 refs 4
 10 0 0
 15 0 0
 14 0 0
 11 0 0
 SURF 0x0
-mat 2
+mat 0
 refs 4
 11 0 0
 14 0 0
 12 0 0
 9 0 0
 SURF 0x0
-mat 2
+mat 0
 refs 4
 8 0 0
 13 0 0
 15 0 0
 10 0 0
 SURF 0x0
-mat 2
+mat 0
 refs 4
 21 0 0
 16 0 0
 17 0 0
 20 0 0
 SURF 0x0
-mat 2
+mat 0
 refs 4
 18 0 0
 23 0 0
 22 0 0
 19 0 0
 SURF 0x0
-mat 2
+mat 0
 refs 4
 19 0 0
 22 0 0
 20 0 0
 17 0 0
 SURF 0x0
-mat 2
+mat 0
 refs 4
 16 0 0
 21 0 0
 23 0 0
 18 0 0
 SURF 0x0
-mat 2
+mat 0
 refs 4
 29 0 0
 24 0 0
 25 0 0
 28 0 0
 SURF 0x0
-mat 2
+mat 0
 refs 4
 26 0 0
 31 0 0
 30 0 0
 27 0 0
 SURF 0x0
-mat 2
+mat 0
 refs 4
 27 0 0
 30 0 0
 28 0 0
 25 0 0
 SURF 0x0
-mat 2
+mat 0
 refs 4
 24 0 0
 29 0 0

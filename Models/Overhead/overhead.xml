@@ -130,6 +130,36 @@
 		</condition>
 	</animation>
 	
+	<!-- Annunciator dimming -->
+	<animation>
+		<type>material</type>
+		<object-name>ApuGndSvcLightOn</object-name>
+		<object-name>ApuLBusLightOn</object-name>
+		<object-name>ApuLoopAOn</object-name>
+		<object-name>ApuLoopBOn</object-name>
+		<object-name>ApuPwrAvailOn</object-name>
+		<object-name>ApuPwrAvail2On</object-name>
+		<object-name>ApuRBusLightOn</object-name>
+		<object-name>CabinLights</object-name>
+		<object-name>EmerPwrInUseOn</object-name>
+		<object-name>ExtGndSvcLightOn</object-name>
+		<object-name>ExtLBusLightOn</object-name>
+		<object-name>ExtPwrAvailOn</object-name>
+		<object-name>ExtPwrAvail2On</object-name>
+		<object-name>ExtRBusLightOn</object-name>
+		<object-name>IrsLights</object-name>
+		<object-name>LEngLoopAOn</object-name>
+		<object-name>LEngLoopBOn</object-name>
+		<object-name>REngLoopAOn</object-name>
+		<object-name>REngLoopBOn</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>1.0</green>
+			<blue>1.0</blue>
+			<factor-prop>systems/lighting/annunciator-brightness</factor-prop>
+		</emission>
+	</animation>
+	
 	<!-- No button lights without power! -->
 	<animation>
 		<type>select</type>
@@ -4593,12 +4623,39 @@
 			</mod-up>
 		</action>
 	</animation>
-	
 	<animation>
 		<type>translate</type>
 		<object-name>AnnunTest</object-name>
 		<property>controls/switches/annun-test</property>
 		<factor>-0.0025</factor>
+		<axis>
+			<x>1</x>
+			<y>0</y>
+			<z>0</z>
+		</axis>
+	</animation>
+	
+	<animation>
+		<type>pick</type>
+		<object-name>PullToDim</object-name>
+		<action>
+			<button>0</button>
+			<repeatable>false</repeatable>
+			<binding>
+				<command>property-toggle</command>
+				<property>controls/switches/annun-dim</property>
+			</binding>
+			<binding>
+				<command>nasal</command>
+				<script>core.Sound.switch1();</script>
+			</binding>
+		</action>
+	</animation>
+	<animation>
+		<type>translate</type>
+		<object-name>PullToDim</object-name>
+		<property>controls/cockpit/overhead/annun-dim</property>
+		<factor>0.005</factor>
 		<axis>
 			<x>1</x>
 			<y>0</y>

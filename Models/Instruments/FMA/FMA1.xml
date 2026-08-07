@@ -33,6 +33,27 @@
 	
 	<animation>
 		<type>material</type>
+		<object-name>AP</object-name>
+		<object-name>AP1</object-name>
+		<object-name>AP2</object-name>
+		<object-name>APTrim</object-name>
+		<object-name>FD</object-name>
+		<object-name>Heading</object-name>
+		<object-name>Horizon</object-name>
+		<object-name>ILS</object-name>
+		<object-name>Monitor</object-name>
+		<object-name>NoAutoland</object-name>
+		<object-name>Throttle</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>1.0</green>
+			<blue>1.0</blue>
+			<factor-prop>systems/lighting/annunciator-brightness</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
 		<object-name>fma1.screen</object-name>
 		<emission>
 			<red>1.0</red>
@@ -46,10 +67,10 @@
 		<type>select</type>
 		<object-name>fma1.screen</object-name>
 		<condition>
-			<greater-than>
+			<greater-than-equals>
 				<property>systems/lighting/capt-digital</property>
 				<value>0.01</value>
-			</greater-than>
+			</greater-than-equals>
 		</condition>
 	</animation>
 	

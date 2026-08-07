@@ -767,6 +767,7 @@
 			<rate-limit type="int">0</rate-limit>
 		</pressurization>
 		<switches n="0">
+			<annun-dim type="bool">0</annun-dim>
 			<annun-test type="bool">0</annun-test>
 			<gpws type="int">0</gpws>
 			<gpws-cover type="bool">0</gpws-cover>

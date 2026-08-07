@@ -24,6 +24,23 @@
 	</animation>
 	
 	<animation>
+		<type>material</type>
+		<object-name>FaceARTOn</object-name>
+		<object-name>FaceARTReadyOn</object-name>
+		<object-name>FaceEngRevLOn</object-name>
+		<object-name>FaceEngRevROn</object-name>
+		<object-name>FaceEngULLOn</object-name>
+		<object-name>FaceEngULROn</object-name>
+		<object-name>FaceWNTOn</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>1.0</green>
+			<blue>1.0</blue>
+			<factor-prop>systems/lighting/annunciator-brightness</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
 		<type>select</type>
 		<object-name>FaceEngRevLOn</object-name>
 		<condition>

@@ -591,6 +591,11 @@
 			<c1>20</c1>
 		</lag_filter>
 		
+		<lag_filter name="/controls/cockpit/overhead/annun-dim">
+			<input>/controls/switches/annun-dim</input>
+			<c1>20</c1>
+		</lag_filter>
+		
 		<lag_filter name="/controls/cockpit/overhead/anti-skid">
 			<input>/controls/gear/anti-skid</input>
 			<c1>20</c1>
@@ -967,6 +972,13 @@
 	</channel>
 	
 	<channel name="Cockpit Lighting" execrate="2">
+		
+		<switch name="/systems/lighting/annunciator-brightness">
+			<default value="1"/>
+			<test value="0.6">
+				/controls/switches/annun-dim eq 1
+			</test>
+		</switch>
 		
 		<switch name="/systems/lighting/capt-digital">
 			<default value="0"/>

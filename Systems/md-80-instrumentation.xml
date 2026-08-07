@@ -816,7 +816,7 @@
 			<test value="0">
 				/instrumentation/agl[0]/power-avail ne 1
 			</test>
-			<test logic="OR" value="1">
+			<test logic="OR" value="/systems/lighting/annunciator-brightness">
 				/controls/switches/annun-test eq 1
 				<test logic="AND">
 					/systems/misc/minimums-latch eq 1
@@ -871,7 +871,7 @@
 			<test value="0">
 				/instrumentation/agl[1]/power-avail ne 1
 			</test>
-			<test logic="OR" value="1">
+			<test logic="OR" value="/systems/lighting/annunciator-brightness">
 				/controls/switches/annun-test eq 1
 				<test logic="AND">
 					/systems/misc/minimums-latch eq 1

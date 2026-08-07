@@ -22,6 +22,66 @@
 		</emission>
 	</animation>
 	
+	<animation>
+		<type>material</type>
+		<object-name>EDPLight.RevThrL</object-name>
+		<object-name>EDPLight.RevThrR</object-name>
+		<object-name>EDPLight.RevUnlckL</object-name>
+		<object-name>EDPLight.RevUnlckR</object-name>
+		<object-name>SDPLight.HydQtyL</object-name>
+		<object-name>SDPLight.HydQtyR</object-name>
+		<object-name>SDPLight.OilPressL1</object-name>
+		<object-name>SDPLight.OilPressL2</object-name>
+		<object-name>SDPLight.OilPressR1</object-name>
+		<object-name>SDPLight.OilPressR2</object-name>
+		<object-name>SDPLight.OilTempL1</object-name>
+		<object-name>SDPLight.OilTempL2</object-name>
+		<object-name>SDPLight.OilTempR1</object-name>
+		<object-name>SDPLight.OilTempR2</object-name>
+		<object-name>SDPLight.SlatsAuto</object-name>
+		<object-name>SDPLight.SlatsDisag</object-name>
+		<object-name>SDPLight.SlatsLand</object-name>
+		<object-name>SDPLight.SlatsTO</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>1.0</green>
+			<blue>1.0</blue>
+			<factor-prop>systems/lighting/annunciator-brightness</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>material</type>
+		<object-name>EDPSDP.Canvas</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>1.0</green>
+			<blue>1.0</blue>
+			<factor-prop>systems/lighting/pedestal-digital</factor-prop>
+		</emission>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>EDPSDP.Canvas</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/lighting/pedestal-digital</property>
+				<value>0.01</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	<animation>
+		<type>select</type>
+		<object-name>EDPSDP.CanvasOff</object-name>
+		<condition>
+			<less-than>
+				<property>systems/lighting/pedestal-digital</property>
+				<value>0.01</value>
+			</less-than>
+		</condition>
+	</animation>
+	
 	<!-- No lights without power! -->
 	<animation>
 		<type>select</type>

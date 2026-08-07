@@ -6,6 +6,23 @@
 <PropertyList>
 	
 	<path>landing_gear_ind.ac</path>
+	
+	<animation>
+		<type>material</type>
+		<object-name>FaceDoorOn</object-name>
+		<object-name>FaceNoseGreen</object-name>
+		<object-name>FaceNoseRed</object-name>
+		<object-name>FaceLeftGreen</object-name>
+		<object-name>FaceLeftRed</object-name>
+		<object-name>FaceRightGreen</object-name>
+		<object-name>FaceRightRed</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>1.0</green>
+			<blue>1.0</blue>
+			<factor-prop>systems/lighting/annunciator-brightness</factor-prop>
+		</emission>
+	</animation>
 
 	<!-- Doors -->
 	<animation>

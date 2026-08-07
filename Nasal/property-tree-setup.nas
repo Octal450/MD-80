@@ -47,6 +47,7 @@ var Controls = {
 		wingLights: props.globals.getNode("/controls/lighting/wing-lights"),
 	},
 	Switches: {
+		annunDim: props.globals.getNode("/controls/switches/annun-dim"),
 		annunTest: props.globals.getNode("/controls/switches/annun-test"),
 		annunTest5Sec: props.globals.getNode("/controls/switches/annun-test-5sec"),
 		gpws: props.globals.getNode("/controls/switches/gpws"),

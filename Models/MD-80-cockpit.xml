@@ -20,15 +20,6 @@
 		</axis>
 	</animation>
 	
-	<animation>
-		<type>select</type>
-		<object-name>TcasFailLed</object-name>
-		<object-name>PmsLights</object-name>
-		<condition>
-			<property>controls/switches/annun-test</property>
-		</condition>
-	</animation>
-	
 	<!-- AI hole select -->
 	<animation>
 		<type>select</type>
@@ -57,9 +48,28 @@
 		</offsets>
 	</model>
 	
+	<!-- Annunciator dimming -->
+	<animation>
+		<type>material</type>
+		<object-name>LampABSOn</object-name>
+		<object-name>PmsLights</object-name>
+		<object-name>Slat.Auto</object-name>
+		<object-name>Slat.Disag</object-name>
+		<object-name>Slat.Land</object-name>
+		<object-name>Slat.Takeoff</object-name>
+		<object-name>TcasFailLed</object-name>
+		<emission>
+			<red>1.0</red>
+			<green>1.0</green>
+			<blue>1.0</blue>
+			<factor-prop>systems/lighting/annunciator-brightness</factor-prop>
+		</emission>
+	</animation>
+	
 	<!-- No lights without power! -->
 	<animation>
 		<type>select</type>
+		<object-name>PmsLights</object-name>
 		<object-name>Slat.Auto</object-name>
 		<object-name>Slat.Disag</object-name>
 		<object-name>Slat.Land</object-name>
@@ -67,8 +77,28 @@
 		<condition>
 			<greater-than-equals>
 				<property>systems/electrical/outputs/efis</property>
-				<value>25</value>
+				<value>24</value>
 			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>TcasFailLed</object-name>
+		<condition>
+			<greater-than-equals>
+				<property>systems/electrical/outputs/transponder</property>
+				<value>24</value>
+			</greater-than-equals>
+		</condition>
+	</animation>
+	
+	<animation>
+		<type>select</type>
+		<object-name>PmsLights</object-name>
+		<object-name>TcasFailLed</object-name>
+		<condition>
+			<property>controls/switches/annun-test</property>
 		</condition>
 	</animation>
 	

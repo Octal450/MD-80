@@ -68,10 +68,10 @@
 					<property>systems/electrical/outputs/fgcp</property>
 					<value>24</value>
 				</greater-than-equals>
-				<greater-than>
+				<greater-than-equals>
 					<property>systems/lighting/fgcp-digital</property>
 					<value>0.01</value>
-				</greater-than>
+				</greater-than-equals>
 			</and>
 		</condition>
 	</animation>
@@ -113,10 +113,10 @@
 					<property>systems/electrical/outputs/fgcp</property>
 					<value>24</value>
 				</greater-than-equals>
-				<greater-than>
+				<greater-than-equals>
 					<property>systems/lighting/fgcp-digital</property>
 					<value>0.01</value>
-				</greater-than>
+				</greater-than-equals>
 			</and>
 		</condition>
 	</animation>
