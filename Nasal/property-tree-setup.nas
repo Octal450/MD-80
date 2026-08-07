@@ -293,6 +293,9 @@ var Systems = {
 			hornSilenceEnabled: props.globals.getNode("/systems/caws/apoff/horn-silence-enabled"),
 		},
 	},
+	Core: {
+		blinkMed: props.globals.getNode("/systems/core/blink-med"),
+	},
 	Misc: {
 		minimumsLatch: props.globals.getNode("/systems/misc/minimums-latch"),
 	},

@@ -6,6 +6,7 @@ var edpSdpDisplay = nil;
 
 var Value = {
 	annunTest: 0,
+	blinkMed: 0,
 	Bus: {
 		dcL: 0,
 		dcR: 0,
@@ -122,6 +123,7 @@ var CanvasEdpSdp = {
 	},
 	update: func() {
 		Value.annunTest = pts.Controls.Switches.annunTest.getBoolValue();
+		Value.blinkMed = pts.Systems.Core.blinkMed.getBoolValue();
 		Value.Bus.dcL = systems.ELECTRICAL.Bus.dcL.getValue() >= 24;
 		Value.Bus.dcR = systems.ELECTRICAL.Bus.dcR.getValue() >= 24;
 		Value.Bus.dcTrans = systems.ELECTRICAL.Bus.dcTrans.getValue() >= 24;
@@ -292,7 +294,12 @@ var CanvasEdpSdp = {
 				me["EGT1_tens"].setTranslation(0, genevaEgtTens(num(right(sprintf("%04.2f", Value.egtRound[0] / 10), 4))) * 32.959);
 				me["EGT1_ones"].setTranslation(0, 10 * (math.mod(Value.egtRound[0] / 10, 1) * 32.959));
 				
-				me["EGT1"].show();
+				if (Value.egtRound[0] >= 629.5 and Value.blinkMed) {
+					me["EGT1"].hide();
+				} else {
+					me["EGT1"].show();
+				}
+				
 				me["EGT1_test"].hide();
 			}
 			me["EGT1_needle"].show();
@@ -338,7 +345,12 @@ var CanvasEdpSdp = {
 				me["EGT2_tens"].setTranslation(0, genevaEgtTens(num(right(sprintf("%04.2f", Value.egtRound[1] / 10), 4))) * 32.959);
 				me["EGT2_ones"].setTranslation(0, 10 * (math.mod(Value.egtRound[1] / 10, 1) * 32.959));
 				
-				me["EGT2"].show();
+				if (Value.egtRound[1] >= 629.5 and Value.blinkMed) {
+					me["EGT2"].hide();
+				} else {
+					me["EGT2"].show();
+				}
+				
 				me["EGT2_test"].hide();
 			}
 			me["EGT2_needle"].show();
