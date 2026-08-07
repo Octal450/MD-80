@@ -10,10 +10,10 @@
 	<animation>
 		<type>material</type>
 		<object-name>FaceDoorOn</object-name>
-		<object-name>FaceNoseGreen</object-name>
-		<object-name>FaceNoseRed</object-name>
 		<object-name>FaceLeftGreen</object-name>
 		<object-name>FaceLeftRed</object-name>
+		<object-name>FaceNoseGreen</object-name>
+		<object-name>FaceNoseRed</object-name>
 		<object-name>FaceRightGreen</object-name>
 		<object-name>FaceRightRed</object-name>
 		<emission>
