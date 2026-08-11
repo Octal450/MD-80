@@ -16,8 +16,6 @@
 			setprop("/sim/gui/dialogs/performance/cg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/cg-percent-mac"), 0.1)) ~ "% MAC");
 			setprop("/sim/gui/dialogs/performance/zfwcg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/zfwcg-percent-mac"), 0.1)) ~ "% MAC");
 			
-			setprop("/sim/gui/dialogs/performance/opt-fl-fmt", "FL" ~ math.round(getprop("/systems/performance/opt-fl")));
-			setprop("/sim/gui/dialogs/performance/max-fl-fmt", "FL" ~ math.round(getprop("/systems/performance/max-fl")));
 			setprop("/sim/gui/dialogs/performance/flap-retract-round", math.round(getprop("/systems/performance/flap-retract")));
 			setprop("/sim/gui/dialogs/performance/slat-retract-round", math.round(getprop("/systems/performance/slat-retract")));
 			setprop("/sim/gui/dialogs/performance/min-maneuver-round", math.round(getprop("/systems/performance/min-maneuver")));
@@ -33,8 +31,6 @@
 				setprop("/sim/gui/dialogs/performance/cg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/cg-percent-mac"), 0.1)) ~ "% MAC");
 				setprop("/sim/gui/dialogs/performance/zfwcg-percent-mac", sprintf("%4.1f", math.round(getprop("/fdm/jsbsim/inertia/zfwcg-percent-mac"), 0.1)) ~ "% MAC");
 				
-				setprop("/sim/gui/dialogs/performance/opt-fl-fmt", "FL" ~ math.round(getprop("/systems/performance/opt-fl")));
-				setprop("/sim/gui/dialogs/performance/max-fl-fmt", "FL" ~ math.round(getprop("/systems/performance/max-fl")));
 				setprop("/sim/gui/dialogs/performance/flap-retract-round", math.round(getprop("/systems/performance/flap-retract")));
 				setprop("/sim/gui/dialogs/performance/slat-retract-round", math.round(getprop("/systems/performance/slat-retract")));
 				setprop("/sim/gui/dialogs/performance/min-maneuver-round", math.round(getprop("/systems/performance/min-maneuver")));
@@ -112,36 +108,10 @@
 		<text>
 			<row>0</row>
 			<col>0</col>
-			<label>OPT CRZ FL: </label>
-		</text>
-		<text>
-			<row>0</row>
-			<col>1</col>
-			<label>99999</label>
-			<live>true</live>
-			<property>/sim/gui/dialogs/performance/opt-fl-fmt</property>
-		</text>
-		
-		<text>
-			<row>1</row>
-			<col>0</col>
-			<label>MAX CRZ FL: </label>
-		</text>
-		<text>
-			<row>1</row>
-			<col>1</col>
-			<label>99999</label>
-			<live>true</live>
-			<property>/sim/gui/dialogs/performance/max-fl-fmt</property>
-		</text>
-		
-		<text>
-			<row>2</row>
-			<col>0</col>
 			<label>FLAP RET: </label>
 		</text>
 		<text>
-			<row>2</row>
+			<row>0</row>
 			<col>1</col>
 			<label>999</label>
 			<live>true</live>
@@ -149,12 +119,12 @@
 		</text>
 		
 		<text>
-			<row>3</row>
+			<row>1</row>
 			<col>0</col>
 			<label>SLAT RET: </label>
 		</text>
 		<text>
-			<row>3</row>
+			<row>1</row>
 			<col>1</col>
 			<label>999</label>
 			<live>true</live>
@@ -162,12 +132,12 @@
 		</text>
 		
 		<text>
-			<row>4</row>
+			<row>2</row>
 			<col>0</col>
 			<label>CLEAN MNVR: </label>
 		</text>
 		<text>
-			<row>4</row>
+			<row>2</row>
 			<col>1</col>
 			<label>999</label>
 			<live>true</live>
