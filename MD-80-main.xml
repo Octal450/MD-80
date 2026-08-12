@@ -1326,6 +1326,7 @@
 			<pointer-1-input type="int">140</pointer-1-input>
 			<pointer-2-input type="int">160</pointer-2-input>
 			<pointer-3-input type="int">180</pointer-3-input>
+			<pointer-4-input type="int">200</pointer-4-input>
 		</airspeed-indicator>
 		<altimeter n="0">
 			<bug-input type="int">0</bug-input>
@@ -1836,6 +1837,7 @@
 			<weight-87 n="3" type="int">0</weight-87>
 		</load-manager>
 		<performance n="0">
+			<asi-bugs type="bool">0</asi-bugs>
 			<to-cg type="double">20</to-cg>
 			<to-flaps type="double">11</to-flaps>
 		</performance>

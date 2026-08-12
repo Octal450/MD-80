@@ -194,16 +194,6 @@
 		</text>
 	</group>
 	
-	<button>
-		<pref-width>190</pref-width>
-		<pref-height>25</pref-height>
-		<legend>Set Takeoff ASI Bugs</legend>
-		<binding>
-			<command>nasal</command>
-			<script>cockpit.setAsiBugs(0);</script>
-		</binding>
-	</button>
-	
 	<hrule/>
 	
 	<group>
@@ -315,15 +305,5 @@
 			<property>/sim/gui/dialogs/performance/vref-round</property>
 		</text>
 	</group>
-	
-	<button>
-		<pref-width>190</pref-width>
-		<pref-height>25</pref-height>
-		<legend>Set Landing ASI Bugs</legend>
-		<binding>
-			<command>nasal</command>
-			<script>cockpit.setAsiBugs(1);</script>
-		</binding>
-	</button>
 
 </PropertyList>

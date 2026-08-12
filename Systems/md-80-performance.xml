@@ -798,6 +798,83 @@
 				</difference>
 			</function>
 		</fcs_function>
+		
+		<!-- Airspeed Bugs -->
+		<fcs_function name="/systems/performance/asi-bug-1">
+			<function>
+				<floor>
+					<sum>
+						<ifthen>
+							<eq>
+								<property>/systems/performance/asi-bugs</property>
+								<value>1</value>
+							</eq>
+							<property>/systems/performance/vref</property>
+							<property>/systems/performance/v1</property>
+						</ifthen>
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</function>
+			<output>/instrumentation/airspeed-indicator/pointer-1-input</output>
+		</fcs_function>
+		
+		<fcs_function name="/systems/performance/asi-bug-2">
+			<function>
+				<floor>
+					<sum>
+						<ifthen>
+							<eq>
+								<property>/systems/performance/asi-bugs</property>
+								<value>1</value>
+							</eq>
+							<property>/systems/performance/vapp</property>
+							<property>/systems/performance/vr</property>
+						</ifthen>
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</function>
+			<output>/instrumentation/airspeed-indicator/pointer-2-input</output>
+		</fcs_function>
+		
+		<fcs_function name="/systems/performance/asi-bug-3">
+			<function>
+				<floor>
+					<sum>
+						<ifthen>
+							<eq>
+								<property>/systems/performance/asi-bugs</property>
+								<value>1</value>
+							</eq>
+							<property>/systems/performance/slat-retract</property>
+							<property>/systems/performance/flap-retract</property>
+						</ifthen>
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</function>
+			<output>/instrumentation/airspeed-indicator/pointer-3-input</output>
+		</fcs_function>
+		
+		<fcs_function name="/systems/performance/asi-bug-4">
+			<function>
+				<floor>
+					<sum>
+						<ifthen>
+							<eq>
+								<property>/systems/performance/asi-bugs</property>
+								<value>1</value>
+							</eq>
+							<property>/systems/performance/min-maneuver</property>
+							<property>/systems/performance/slat-retract</property>
+						</ifthen>
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</function>
+			<output>/instrumentation/airspeed-indicator/pointer-4-input</output>
+		</fcs_function>
 	
 	</channel>
 
