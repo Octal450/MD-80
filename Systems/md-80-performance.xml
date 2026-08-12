@@ -829,7 +829,7 @@
 								<value>1</value>
 							</eq>
 							<property>/systems/performance/vapp</property>
-							<property>/systems/performance/vr</property>
+							<property>/systems/performance/v2</property>
 						</ifthen>
 						<value>0.5</value>
 					</sum>

@@ -89,7 +89,7 @@
 					if (pts.Systems.Performance.asiBugs.getBoolValue()) {
 						gui.popupTip("Landing Bugs Set:\nVREF, VAPP, Flap Ext, Slat Ext");
 					} else {
-						gui.popupTip("Takeoff Bugs Set:\nV1, VR, Flap Ret, Slat Ret");
+						gui.popupTip("Takeoff Bugs Set:\nV1, V2, Flap Ret, Slat Ret");
 					}
 				</script>
 			</binding>
