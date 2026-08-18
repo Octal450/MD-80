@@ -119,6 +119,46 @@
 			<input>/systems/pneumatics/hvac/cabin-target-switched</input>
 			<input>-/systems/pneumatics/hvac/cabin-temp</input>
 		</summer>
+		
+		<!-- Trim Valve Slew -->
+		<!-- According to a pilot, there is about a half second lag between knob actuation/release and the movement of the valve -->
+		<actuator name="/systems/pneumatics/hvac/cockpit-slew-input">
+			<input>/controls/pneumatics/cockpit-slew</input>
+			<rate_limit>2</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/pneumatics/hvac/cockpit-slew">
+			<default value="/systems/pneumatics/hvac/cockpit-slew"/>
+			<test logic="AND" value="0">
+				/systems/pneumatics/hvac/cockpit-slew-input ge -0.01
+				/systems/pneumatics/hvac/cockpit-slew-input le 0.01
+			</test>
+			<test value="1">
+				/systems/pneumatics/hvac/cockpit-slew-input ge 0.99
+			</test>
+			<test value="-1">
+				/systems/pneumatics/hvac/cockpit-slew-input le -0.99
+			</test>
+		</switch>
+		
+		<actuator name="/systems/pneumatics/hvac/cabin-slew-input">
+			<input>/controls/pneumatics/cabin-slew</input>
+			<rate_limit>2</rate_limit>
+		</actuator>
+		
+		<switch name="/systems/pneumatics/hvac/cabin-slew">
+			<default value="/systems/pneumatics/hvac/cabin-slew"/>
+			<test logic="AND" value="0">
+				/systems/pneumatics/hvac/cabin-slew-input ge -0.01
+				/systems/pneumatics/hvac/cabin-slew-input le 0.01
+			</test>
+			<test value="1">
+				/systems/pneumatics/hvac/cabin-slew-input ge 0.99
+			</test>
+			<test value="-1">
+				/systems/pneumatics/hvac/cabin-slew-input le -0.99
+			</test>
+		</switch>
 	
 	</channel>
 	
@@ -362,7 +402,7 @@
 						<sum>
 							<property>/systems/pneumatics/hvac/duct-temp/cockpit-regulator-cmd</property>
 							<product>
-								<property>/controls/pneumatics/cockpit-slew</property>
+								<property>/systems/pneumatics/hvac/cockpit-slew</property>
 								<value>0.01</value>
 							</product>
 						</sum>
@@ -500,7 +540,7 @@
 						<sum>
 							<property>/systems/pneumatics/hvac/duct-temp/cabin-regulator-cmd</property>
 							<product>
-								<property>/controls/pneumatics/cabin-slew</property>
+								<property>/systems/pneumatics/hvac/cabin-slew</property>
 								<value>0.01</value>
 							</product>
 						</sum>
