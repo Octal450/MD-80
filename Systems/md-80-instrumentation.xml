@@ -1802,7 +1802,7 @@
 		
 		<actuator name="/instrumentation/edp/epr-test-raw">
 			<input>/instrumentation/edp/epr-test-cmd</input>
-			<rate_limit sense="incr">16</rate_limit>
+			<rate_limit sense="incr">11</rate_limit> <!-- 8 seconds -->
 			<rate_limit sense="decr">1000000</rate_limit> <!-- Instant -->
 		</actuator>
 		
@@ -1833,7 +1833,7 @@
 		
 		<actuator name="/instrumentation/edp/n1-egt-n2-test-raw">
 			<input>/instrumentation/edp/n1-egt-n2-test-cmd</input>
-			<rate_limit sense="incr">16</rate_limit>
+			<rate_limit sense="incr">11</rate_limit> <!-- 8 seconds -->
 			<rate_limit sense="decr">1000000</rate_limit> <!-- Instant -->
 		</actuator>
 		
@@ -1849,6 +1849,37 @@
 			<clipto>
 				<min>0</min>
 				<max>88</max> <!-- Steps -->
+			</clipto>
+		</fcs_function>
+		
+		<switch name="/instrumentation/sdp/flaps-test-cmd">
+			<default value="0"/>
+			<test value="0"> <!-- Reset at end of tape -->
+				/instrumentation/sdp/flaps-test-raw ge 39.5
+			</test>
+			<test value="40"> <!-- Steps + 1 -->
+				/controls/switches/annun-test eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/sdp/flaps-test-raw">
+			<input>/instrumentation/sdp/flaps-test-cmd</input>
+			<rate_limit sense="incr">6.5</rate_limit> <!-- 6 seconds -->
+			<rate_limit sense="decr">1000000</rate_limit> <!-- Instant -->
+		</actuator>
+		
+		<fcs_function name="/instrumentation/sdp/flaps-test">
+			<function>
+				<floor>
+					<sum>
+						<property>/instrumentation/sdp/flaps-test-raw</property>
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</function>
+			<clipto>
+				<min>0</min>
+				<max>39</max> <!-- Steps -->
 			</clipto>
 		</fcs_function>
 	

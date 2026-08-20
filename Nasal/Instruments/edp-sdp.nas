@@ -24,6 +24,7 @@ var Value = {
 	ffFu: 0,
 	flaps: 0,
 	flapsNeedle: 0,
+	flapsTest: 0,
 	ft: [0, 0],
 	n1: [0, 0],
 	n1EgtN2Test: 0,
@@ -131,6 +132,7 @@ var CanvasEdpSdp = {
 		Value.Bus.dcTrans = systems.ELECTRICAL.Bus.dcTrans.getValue() >= 24;
 		Value.Bus.emerDc = systems.ELECTRICAL.Bus.emerDc.getValue() >= 24;
 		Value.eprTest = pts.Instrumentation.Edp.eprTest.getValue();
+		Value.flapsTest = pts.Instrumentation.Sdp.flapsTest.getValue();
 		Value.n1EgtN2Test = pts.Instrumentation.Edp.n1EgtN2Test.getValue();
 		Value.ffFu = systems.ENGINES.Controls.ffFu.getBoolValue();
 		Value.ft[0] = math.round(systems.FUEL.Temp.tankL.getValue());
@@ -440,8 +442,9 @@ var CanvasEdpSdp = {
 		# EDP 7-Seg
 		if (Value.Bus.dcTrans) {
 			if (Value.annunTest) {
-				me["EPRLimit"].setText("8.88");
 				me["EPRCmd1"].setText("8.88");
+				me["EPRCmd1"].show();
+				me["EPRLimit"].setText("8.88");
 				me["FF1"].setText("8888");
 			} else {
 				if (systems.THRLIM.Limit.activeModeInt.getValue() == -1) {
@@ -475,6 +478,7 @@ var CanvasEdpSdp = {
 		if (Value.Bus.emerDc) {
 			if (Value.annunTest) {
 				me["EPRCmd2"].setText("8.88");
+				me["EPRCmd2"].show();
 				me["FF2"].setText("8888");
 			} else {
 				if (systems.ENGINES.Controls.manEprSet[1].getBoolValue()) {
@@ -584,7 +588,7 @@ var CanvasEdpSdp = {
 		# SDP Flaps
 		if (Value.Bus.dcR) {
 			if (Value.annunTest) {
-				# TODO
+				me["Flaps"].setTranslation(0, Value.flapsTest * 6);
 			} else {
 				Value.flaps = systems.FCS.flapsDeg.getValue();
 				if (Value.flaps <= 1) {

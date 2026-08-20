@@ -177,6 +177,9 @@ var Instrumentation = {
 		},
 		signalQualityNorm: [props.globals.getNode("/instrumentation/nav[0]/signal-quality-norm"), props.globals.getNode("/instrumentation/nav[1]/signal-quality-norm")],
 	},
+	Sdp: {
+		flapsTest: props.globals.getNode("/instrumentation/sdp/flaps-test"),
+	},
 };
 
 var Options = {
