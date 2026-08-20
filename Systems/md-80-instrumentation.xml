@@ -985,7 +985,7 @@
 			<test value="0">
 				/instrumentation/altimeter[0]/power-avail eq 0
 			</test>
-			<test logic="OR" value="1">
+			<test logic="OR" value="/systems/lighting/annunciator-brightness">
 				/controls/switches/annun-test eq 1
 				/systems/caws/logic/altitude-alert eq 1
 				<test logic="AND">
@@ -1071,7 +1071,7 @@
 			<test value="0">
 				/instrumentation/altimeter[1]/power-avail eq 0
 			</test>
-			<test logic="OR" value="1">
+			<test logic="OR" value="/systems/lighting/annunciator-brightness">
 				/controls/switches/annun-test eq 1
 				/systems/caws/logic/altitude-alert eq 1
 				<test logic="AND">
@@ -1785,6 +1785,72 @@
 			<input>/instrumentation/vertical-speed-indicator[1]/vs-fpm-actuator</input>
 			<c1>15</c1>
 		</lag_filter>
+	
+	</channel>
+	
+	<channel name="EDP Gauge Test" execrate="2">
+		
+		<switch name="/instrumentation/edp/epr-test-cmd">
+			<default value="0"/>
+			<test value="0"> <!-- Reset at end of dial -->
+				/instrumentation/edp/epr-test-raw ge 96.5
+			</test>
+			<test value="97"> <!-- Steps + 1 -->
+				/controls/switches/annun-test eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/edp/epr-test-raw">
+			<input>/instrumentation/edp/epr-test-cmd</input>
+			<rate_limit sense="incr">16</rate_limit>
+			<rate_limit sense="decr">1000000</rate_limit> <!-- Instant -->
+		</actuator>
+		
+		<fcs_function name="/instrumentation/edp/epr-test">
+			<function>
+				<floor>
+					<sum>
+						<property>/instrumentation/edp/epr-test-raw</property>
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</function>
+			<clipto>
+				<min>0</min>
+				<max>96</max> <!-- Steps -->
+			</clipto>
+		</fcs_function>
+		
+		<switch name="/instrumentation/edp/n1-egt-n2-test-cmd">
+			<default value="0"/>
+			<test value="0"> <!-- Reset at end of dial -->
+				/instrumentation/edp/n1-egt-n2-test-raw ge 88.5
+			</test>
+			<test value="89"> <!-- Steps + 1 -->
+				/controls/switches/annun-test eq 1
+			</test>
+		</switch>
+		
+		<actuator name="/instrumentation/edp/n1-egt-n2-test-raw">
+			<input>/instrumentation/edp/n1-egt-n2-test-cmd</input>
+			<rate_limit sense="incr">16</rate_limit>
+			<rate_limit sense="decr">1000000</rate_limit> <!-- Instant -->
+		</actuator>
+		
+		<fcs_function name="/instrumentation/edp/n1-egt-n2-test">
+			<function>
+				<floor>
+					<sum>
+						<property>/instrumentation/edp/n1-egt-n2-test-raw</property>
+						<value>0.5</value>
+					</sum>
+				</floor>
+			</function>
+			<clipto>
+				<min>0</min>
+				<max>88</max> <!-- Steps -->
+			</clipto>
+		</fcs_function>
 	
 	</channel>
 	

@@ -114,6 +114,10 @@ var Instrumentation = {
 		ndDimmer: [props.globals.getNode("/instrumentation/du/nd1-dimmer"), props.globals.getNode("/instrumentation/du/nd2-dimmer")],
 		pfdDimmer: [props.globals.getNode("/instrumentation/du/pfd1-dimmer"), props.globals.getNode("/instrumentation/du/pfd2-dimmer")],
 	},
+	Edp: {
+		eprTest: props.globals.getNode("/instrumentation/edp/epr-test"),
+		n1EgtN2Test: props.globals.getNode("/instrumentation/edp/n1-egt-n2-test"),
+	},
 	Efis: {
 		hdgTrkSelected: [props.globals.initNode("/instrumentation/efis[0]/hdg-trk-selected", 0, "BOOL"), props.globals.initNode("/instrumentation/efis[1]/hdg-trk-selected", 0, "BOOL")],
 		Inputs: {

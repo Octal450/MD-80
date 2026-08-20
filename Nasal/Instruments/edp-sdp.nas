@@ -20,11 +20,13 @@ var Value = {
 	eprLimit: [0, 0],
 	eprNeedle: [0, 0],
 	eprRound: [0, 0],
+	eprTest: 0,
 	ffFu: 0,
 	flaps: 0,
 	flapsNeedle: 0,
 	ft: [0, 0],
 	n1: [0, 0],
+	n1EgtN2Test: 0,
 	n1Needle: [0, 0],
 	n1NeedleCoeff: 0.74,
 	n1Round: [0, 0],
@@ -128,6 +130,8 @@ var CanvasEdpSdp = {
 		Value.Bus.dcR = systems.ELECTRICAL.Bus.dcR.getValue() >= 24;
 		Value.Bus.dcTrans = systems.ELECTRICAL.Bus.dcTrans.getValue() >= 24;
 		Value.Bus.emerDc = systems.ELECTRICAL.Bus.emerDc.getValue() >= 24;
+		Value.eprTest = pts.Instrumentation.Edp.eprTest.getValue();
+		Value.n1EgtN2Test = pts.Instrumentation.Edp.n1EgtN2Test.getValue();
 		Value.ffFu = systems.ENGINES.Controls.ffFu.getBoolValue();
 		Value.ft[0] = math.round(systems.FUEL.Temp.tankL.getValue());
 		Value.ft[1] = math.round(systems.FUEL.Temp.tankR.getValue());
@@ -137,6 +141,8 @@ var CanvasEdpSdp = {
 		if (Value.Bus.dcTrans) {
 			if (Value.annunTest) {
 				me["EPR1"].hide();
+				me["EPR1_limit"].setRotation(math.clamp(((Value.eprTest * 3.2) - 153.6), -153.6, 153.6) * D2R);
+				me["EPR1_needle"].setRotation(math.clamp(((Value.eprTest * 3.2) - 153.6), -153.6, 153.6) * D2R);
 				me["EPR1_test"].show();
 			} else {
 				Value.epr[0] = systems.ENGINES.epr[0].getValue();
@@ -167,6 +173,8 @@ var CanvasEdpSdp = {
 		if (Value.Bus.emerDc) {
 			if (Value.annunTest) {
 				me["EPR2"].hide();
+				me["EPR2_limit"].setRotation(math.clamp(((Value.eprTest * 3.2) - 153.6), -153.6, 153.6) * D2R);
+				me["EPR2_needle"].setRotation(math.clamp(((Value.eprTest * 3.2) - 153.6), -153.6, 153.6) * D2R);
 				me["EPR2_test"].show();
 			} else {
 				Value.epr[1] = systems.ENGINES.epr[1].getValue();
@@ -198,6 +206,7 @@ var CanvasEdpSdp = {
 		if (Value.Bus.emerDc) {
 			if (Value.annunTest) {
 				me["N11"].hide();
+				me["N11_needle"].setRotation(math.clamp(((Value.n1EgtN2Test * 3.2) - 140.8), -140.8, 140.8) * D2R);
 				me["N11_test"].show();
 			} else {
 				Value.n1[0] = systems.ENGINES.n1[0].getValue();
@@ -229,6 +238,7 @@ var CanvasEdpSdp = {
 		if (Value.Bus.dcTrans) {
 			if (Value.annunTest) {
 				me["N12"].hide();
+				me["N12_needle"].setRotation(math.clamp(((Value.n1EgtN2Test * 3.2) - 140.8), -140.8, 140.8) * D2R);
 				me["N12_test"].show();
 			} else {
 				Value.n1[1] = systems.ENGINES.n1[1].getValue();
@@ -261,6 +271,7 @@ var CanvasEdpSdp = {
 		if (Value.Bus.emerDc) {
 			if (Value.annunTest) {
 				me["EGT1"].hide();
+				me["EGT1_needle"].setRotation(math.clamp(((Value.n1EgtN2Test * 3.2) - 140.8), -140.8, 140.8) * D2R);
 				me["EGT1_test"].show();
 			} else {
 				Value.egt[0] = systems.ENGINES.egt[0].getValue();
@@ -312,6 +323,7 @@ var CanvasEdpSdp = {
 		if (Value.Bus.dcTrans) {
 			if (Value.annunTest) {
 				me["EGT2"].hide();
+				me["EGT2_needle"].setRotation(math.clamp(((Value.n1EgtN2Test * 3.2) - 140.8), -140.8, 140.8) * D2R);
 				me["EGT2_test"].show();
 			} else {
 				Value.egt[1] = systems.ENGINES.egt[1].getValue();
@@ -364,6 +376,7 @@ var CanvasEdpSdp = {
 		if (Value.Bus.emerDc) {
 			if (Value.annunTest) {
 				me["N21"].hide();
+				me["N21_needle"].setRotation(math.clamp(((Value.n1EgtN2Test * 3.2) - 140.8), -140.8, 140.8) * D2R);
 				me["N21_test"].show();
 			} else {
 				Value.n2[0] = systems.ENGINES.n2[0].getValue();
@@ -395,6 +408,7 @@ var CanvasEdpSdp = {
 		if (Value.Bus.dcTrans) {
 			if (Value.annunTest) {
 				me["N22"].hide();
+				me["N22_needle"].setRotation(math.clamp(((Value.n1EgtN2Test * 3.2) - 140.8), -140.8, 140.8) * D2R);
 				me["N22_test"].show();
 			} else {
 				Value.n2[1] = systems.ENGINES.n2[1].getValue();
