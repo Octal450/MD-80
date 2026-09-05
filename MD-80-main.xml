@@ -1883,8 +1883,8 @@
 			<file>Aircraft/MD-80/Nasal/DFGS/DFGS-b.nas</file>
 		</dfgs>
 		<fms_ht9100>
-			<file>Aircraft/MD-80/Nasal/HT9100/HT9100-FlightData.nas</file>
 			<file>Aircraft/MD-80/Nasal/HT9100/HT9100-FMS.nas</file>
+			<file>Aircraft/MD-80/Nasal/HT9100/HT9100-flight-data.nas</file>
 		</fms_ht9100>
 		<mcdu_ht9100>
 			<file>Aircraft/MD-80/Nasal/HT9100/HT9100-MCDU.nas</file>
