@@ -64,17 +64,21 @@ var LoadManager = {
 			}
 		}
 	},
-	setLoad: func() {
+	setLoad: func(t = 0) { # 0 = All, 1 = Fuel, 2 = Payload
 		settimer(func() {
-			for (var i = 0; i < 5; i = i + 1) {
-				pts.Consumables.Fuel.Tank.levelLbs[i].setValue(me.Fuel.tank[i].getValue());
+			if (t != 2) {
+				for (var i = 0; i < 5; i = i + 1) {
+					pts.Consumables.Fuel.Tank.levelLbs[i].setValue(me.Fuel.tank[i].getValue());
+				}
 			}
 			
-			for (var i = 0; i < 5; i = i + 1) {
-				if (me.modelInt == 7) {
-					pts.Payload.Weight.weightLb[i].setValue(math.round(me.weight87[i].getValue(), 100));
-				} else {
-					pts.Payload.Weight.weightLb[i].setValue(math.round(me.weight80[i].getValue(), 100));
+			if (t != 1) {
+				for (var i = 0; i < 5; i = i + 1) {
+					if (me.modelInt == 7) {
+						pts.Payload.Weight.weightLb[i].setValue(math.round(me.weight87[i].getValue(), 100));
+					} else {
+						pts.Payload.Weight.weightLb[i].setValue(math.round(me.weight80[i].getValue(), 100));
+					}
 				}
 			}
 			
@@ -104,3 +108,56 @@ setlistener("/systems/load-manager/weight-87[0]", func() {
 setlistener("/systems/load-manager/weight-87[1]", func() {
 	LoadManager.updatePax(1);
 }, 0, 0);
+
+# SimBrief Import Add-On Support
+globals.simbriefFuelCallback = func(blockFuel) {
+	if (LoadManager.modelInt == 3) {
+		LoadManager.totalFuel83.setValue(math.round(blockFuel * KG2LB, 100));
+	} else {
+		LoadManager.totalFuel80.setValue(math.round(blockFuel * KG2LB, 100));
+	}
+	LoadManager.setLoad(1);
+};
+
+var payloadCapacityLb = [pts.Payload.Weight.maxLb[0].getValue(), pts.Payload.Weight.maxLb[1].getValue(), pts.Payload.Weight.maxLb[2].getValue(), pts.Payload.Weight.maxLb[3].getValue()];
+globals.simbriefPayloadCallback = func(cargoWeight, paxWeight, paxCount) {
+	var totalPaxCapacityLb = 0;
+	var totalCargoCapacityLb = 0;
+	
+	# Passengers
+	for (var i = 0; i < 2; i += 1) {
+		totalPaxCapacityLb += payloadCapacityLb[i];
+	}
+	
+	for (var i = 0; i < 2; i += 1) {
+		var weight = math.round(paxWeight * KG2LB * (payloadCapacityLb[i] / totalPaxCapacityLb), 200);
+		if (LoadManager.modelInt == 7) {
+			LoadManager.weight87[i].setValue(weight);
+		} else {
+			LoadManager.weight80[i].setValue(weight);
+		}
+	}
+	
+	# Lower Cargo
+	for (var i = 2; i < 4; i += 1) {
+		totalCargoCapacityLb += payloadCapacityLb[i];
+	}
+	
+	for (var i = 2; i < 4; i += 1) {
+		var weight = math.round(cargoWeight * KG2LB * (payloadCapacityLb[i] / totalCargoCapacityLb), 100);
+		if (LoadManager.modelInt == 7) {
+			LoadManager.weight87[i].setValue(weight);
+		} else {
+			LoadManager.weight80[i].setValue(weight);
+		}
+	}
+	
+	# Reset retardant tank
+	if (LoadManager.modelInt == 7) {
+		LoadManager.weight87[4].setValue(0);
+	} else {
+		LoadManager.weight80[4].setValue(0); # Placeholder but we'll reset it anyways
+	}
+	
+	LoadManager.setLoad(2);
+}

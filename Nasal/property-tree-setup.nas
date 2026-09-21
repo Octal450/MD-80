@@ -195,6 +195,7 @@ var Orientation = {
 
 var Payload = {
 	Weight: {
+		maxLb: [props.globals.getNode("/payload/weight[0]/max-lb"), props.globals.getNode("/payload/weight[1]/max-lb"), props.globals.getNode("/payload/weight[2]/max-lb"), props.globals.getNode("/payload/weight[3]/max-lb"), props.globals.getNode("/payload/weight[4]/max-lb")],
 		weightLb: [props.globals.getNode("/payload/weight[0]/weight-lb"), props.globals.getNode("/payload/weight[1]/weight-lb"), props.globals.getNode("/payload/weight[2]/weight-lb"), props.globals.getNode("/payload/weight[3]/weight-lb"), props.globals.getNode("/payload/weight[4]/weight-lb")],
 	},
 };
