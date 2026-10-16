@@ -722,7 +722,7 @@
 	<filter>
 		<name>System Command: Target Pitch Rate</name>
 		<type>gain</type>
-		<gain>-0.5</gain>
+		<gain>-0.6</gain>
 		<input>/orientation/pitch-deg</input>
 		<reference>
 			<condition>
