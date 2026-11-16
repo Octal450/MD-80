@@ -1717,7 +1717,7 @@
 					<independentVar lookup="row">/engines/engine[0]/n2</independentVar>
 					<independentVar lookup="column">atmosphere/density-altitude</independentVar>
 					<tableData>
-						        0   50000
+						       0   50000
 						 12.0   0   0
 						 54.2  44  46
 						102.5  52  54
@@ -1737,7 +1737,7 @@
 					<independentVar lookup="row">/engines/engine[1]/n2</independentVar>
 					<independentVar lookup="column">atmosphere/density-altitude</independentVar>
 					<tableData>
-						        0   50000
+						       0   50000
 						 12.0   0   0
 						 54.2  44  46
 						102.5  52  54
