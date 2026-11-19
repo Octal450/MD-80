@@ -3,23 +3,25 @@
 
 var mcdu1 = nil;
 var mcdu1Display = nil;
+var mcdu2 = nil;
+var mcdu2Display = nil;
 
 var Value = {
 	annunTest: 0,
-	CFont: [["", "", "", "", "", ""]],
-	CTranslate: [[0, 0, 0, 0, 0, 0]],
-	CLTranslate: [[0, 0, 0, 0, 0, 0]],
-	LFont: [["", "", "", "", "", ""]],
-	LBFont: [["", "", "", "", "", ""]],
-	RFont: [["", "", "", "", "", ""]],
-	RBFont: [["", "", "", "", "", ""]],
-	title: [""],
-	titleTranslate: [0],
+	CFont: [["", "", "", "", "", ""], ["", "", "", "", "", ""]],
+	CTranslate: [[0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]],
+	CLTranslate: [[0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]],
+	LFont: [["", "", "", "", "", ""], ["", "", "", "", "", ""]],
+	LBFont: [["", "", "", "", "", ""], ["", "", "", "", "", ""]],
+	RFont: [["", "", "", "", "", ""], ["", "", "", "", "", ""]],
+	RBFont: [["", "", "", "", "", ""], ["", "", "", "", "", ""]],
+	title: ["", ""],
+	titleTranslate: [0, 0],
 };
 
 var Io = {
-	execLight: [props.globals.initNode("/instrumentation/ht9100/exec-light", 0, "BOOL")],
-	msgLight: [props.globals.initNode("/instrumentation/ht9100/msg-light", 0, "BOOL")],
+	execLight: [props.globals.initNode("/instrumentation/ht9100[0]/exec-light", 0, "BOOL"), props.globals.initNode("/instrumentation/ht9100[1]/exec-light", 0, "BOOL")],
+	msgLight: [props.globals.initNode("/instrumentation/ht9100[0]/msg-light", 0, "BOOL"), props.globals.initNode("/instrumentation/ht9100[1]/msg-light", 0, "BOOL")],
 };
 
 var CanvasBase = {
@@ -46,13 +48,20 @@ var CanvasBase = {
 	setup: func() {
 		# Hide the pages by default
 		mcdu1.page.hide();
+		mcdu2.page.hide();
 	},
 	update: func() {
-		if (systems.DUController.updateHt9100) {
+		if (systems.DUController.updateHt9100_1) {
 			mcdu1.update();
 		} else {
 			Io.execLight[0].setBoolValue(0);
 			Io.msgLight[0].setBoolValue(0);
+		}
+		if (systems.DUController.updateHt9100_2) {
+			mcdu2.update();
+		} else {
+			Io.execLight[1].setBoolValue(0);
+			Io.msgLight[1].setBoolValue(0);
 		}
 	},
 	updateBase: func(n) {
@@ -373,6 +382,18 @@ var CanvasMcdu1 = {
 	},
 };
 
+var CanvasMcdu2 = {
+	new: func(canvasGroup, file) {
+		var m = {parents: [CanvasMcdu2, CanvasBase]};
+		m.init(canvasGroup, file);
+		
+		return m;
+	},
+	update: func() {
+		me.updateBase(1);
+	},
+};
+
 var setup = func() {
 	mcdu1Display = canvas.new({
 		"name": "MCDU1",
@@ -380,19 +401,35 @@ var setup = func() {
 		"view": [1024, 870],
 		"mipmapping": 1
 	});
+	mcdu2Display = canvas.new({
+		"name": "MCDU2",
+		"size": [512, 435],
+		"view": [1024, 870],
+		"mipmapping": 1
+	});
 	
 	mcdu1Display.addPlacement({"node": "mcdu1.screen"});
+	mcdu2Display.addPlacement({"node": "mcdu2.screen"});
+	
 	var mcdu1Group = mcdu1Display.createGroup();
+	var mcdu2Group = mcdu2Display.createGroup();
+	
 	mcdu1 = CanvasMcdu1.new(mcdu1Group, "Aircraft/MD-80/Nasal/Displays/res/HT9100.svg");
+	mcdu2 = CanvasMcdu2.new(mcdu2Group, "Aircraft/MD-80/Nasal/Displays/res/HT9100.svg");
+	
 	CanvasBase.setup();
 	
 	mcdu1.update();
+	mcdu2.update();
+	
 	update.start();
 }
 
 var updateMcdu = func(n) {
 	if (n == 0) {
 		mcdu1.update();
+	} else if (n == 1) {
+		mcdu2.update();
 	}
 }
 
@@ -401,7 +438,11 @@ var update = maketimer(0.1, func() { # 10FPS
 });
 
 var showMcdu1 = func {
-	gui.showDialog("ht9100");
+	gui.showDialog("ht9100-1");
+}
+
+var showMcdu2 = func {
+	gui.showDialog("ht9100-2");
 }
 
 # SVG Key List

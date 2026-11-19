@@ -22,13 +22,13 @@
 	</filter>
 	
 	<filter>
-		<name>HT9100 LCD Contrast</name>
+		<name>HT9100 1 LCD Contrast</name>
 		<type>gain</type>
 		<gain>1.0</gain>
 		<input>
 			<condition>
 				<not>
-					<property>/instrumentation/ht9100/mcdu1-on</property>
+					<property>/instrumentation/ht9100[0]/lcd-on</property>
 				</not>
 			</condition>
 			<expression>
@@ -48,7 +48,37 @@
 				</table>
 			</expression>
 		</input>
-		<output>/instrumentation/ht9100/mcdu1-contrast</output>
+		<output>/instrumentation/ht9100[0]/lcd-contrast</output>
+	</filter>
+	
+	<filter>
+		<name>HT9100 2 LCD Contrast</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>
+			<condition>
+				<not>
+					<property>/instrumentation/ht9100[1]/lcd-on</property>
+				</not>
+			</condition>
+			<expression>
+				<table>
+					<property>/rendering/scene/diffuse/red</property>
+					<entry><ind>0.8</ind><dep>0.97</dep></entry>
+					<entry><ind>0.0</ind><dep>0.98</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<input>
+			<expression>
+				<table>
+					<property>/rendering/scene/diffuse/red</property>
+					<entry><ind>0.8</ind><dep>0.95</dep></entry>
+					<entry><ind>0.0</ind><dep>0.90</dep></entry>
+				</table>
+			</expression>
+		</input>
+		<output>/instrumentation/ht9100[1]/lcd-contrast</output>
 	</filter>
 	
 	<filter>

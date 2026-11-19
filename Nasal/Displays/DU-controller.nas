@@ -3,14 +3,15 @@
 # This controls the DU's in an efficient and synchronized way
 
 var DUController = {
-	ht9100On: props.globals.initNode("/instrumentation/ht9100/mcdu1-on", 0, "BOOL"),
+	ht9100On: [props.globals.initNode("/instrumentation/ht9100[0]/lcd-on", 0, "BOOL"), props.globals.initNode("/instrumentation/ht9100[1]/lcd-on", 0, "BOOL")],
 	PowerSource: {
 		acRadioR: 0,
 		emerAc: 0,
 	},
 	showNd1: props.globals.initNode("/instrumentation/nd/show-nd1", 0, "BOOL"),
 	showNd2: props.globals.initNode("/instrumentation/nd/show-nd2", 0, "BOOL"),
-	updateHt9100: 0,
+	updateHt9100_1: 0,
+	updateHt9100_2: 0,
 	updateNd1: 0,
 	updateNd2: 0,
 	updatePfd1: 0,
@@ -83,20 +84,41 @@ var DUController = {
 		# HT9100
 		if (pts.Systems.Acconfig.Options.nav.getValue() == 0) {
 			if (mcdu_ht9100.unit[0].powerSource.getValue() >= 24) {
-				if (!me.updateHt9100) {
-					me.updateHt9100 = 1;
+				if (!me.updateHt9100_1) {
+					me.updateHt9100_1 = 1;
 					canvas_ht9100.mcdu1.update();
+					me.ht9100On[0].setBoolValue(1);
 					canvas_ht9100.mcdu1.page.show();
 				}
 			} else {
-				if (me.updateHt9100) {
-					me.updateHt9100 = 0;
+				if (me.updateHt9100_1) {
+					me.updateHt9100_1 = 0;
 					canvas_ht9100.mcdu1.page.hide();
+					me.ht9100On[0].setBoolValue(0);
+				}
+			}
+			if (mcdu_ht9100.unit[1].powerSource.getValue() >= 24) {
+				if (!me.updateHt9100_2) {
+					me.updateHt9100_2 = 1;
+					canvas_ht9100.mcdu2.update();
+					me.ht9100On[1].setBoolValue(1);
+					canvas_ht9100.mcdu2.page.show();
+				}
+			} else {
+				if (me.updateHt9100_2) {
+					me.updateHt9100_2 = 0;
+					canvas_ht9100.mcdu2.page.hide();
+					me.ht9100On[1].setBoolValue(0);
 				}
 			}
 		} else {
-			me.updateHt9100 = 0;
+			me.updateHt9100_1 = 0;
 			canvas_ht9100.mcdu1.page.hide();
+			me.ht9100On[0].setBoolValue(0);
+			
+			me.updateHt9100_2 = 0;
+			canvas_ht9100.mcdu2.page.hide();
+			me.ht9100On[1].setBoolValue(0);
 		}
 	},
 };

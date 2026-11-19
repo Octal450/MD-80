@@ -1,7 +1,7 @@
 # Honeywell Trimble HT9100 MCDU
 # Copyright (c) 2026 Josh Davidson (Octal450)
 
-var unit = [nil];
+var unit = [nil, nil];
 
 var MCDU = {
 	new: func(n, ps) {
@@ -344,28 +344,26 @@ var MCDU = {
 var BASE = {
 	setup: func() {
 		unit[0] = MCDU.new(0, systems.ELECTRICAL.Bus.emerDc);
+		unit[1] = MCDU.new(1, systems.ELECTRICAL.Bus.dcRadioR);
 	},
 	loop: func() {
 		unit[0].loop();
+		unit[1].loop();
 	},
-	# Only one unit is simulated currently, so the for loops aren't needed
 	reset: func() {
-		#for (var i = 0; i < 2; i = i + 1) {
-		#	unit[i].reset();
-		#}
-		unit[0].reset();
+		for (var i = 0; i < 2; i = i + 1) {
+			unit[i].reset();
+		}
 	},
 	removeGlobalMessage: func(m) {
-		#for (var i = 0; i < 2; i = i + 1) {
-		#	unit[i].removeMessage(m);
-		#}
-		unit[0].removeMessage(m);
+		for (var i = 0; i < 2; i = i + 1) {
+			unit[i].removeMessage(m);
+		}
 	},
 	setGlobalMessage: func(m) {
-		#for (var i = 0; i < 2; i = i + 1) {
-		#	unit[i].setMessage(m);
-		#}
-		unit[0].setMessage(m);
+		for (var i = 0; i < 2; i = i + 1) {
+			unit[i].setMessage(m);
+		}
 	},
 };
 

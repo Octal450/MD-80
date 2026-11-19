@@ -4,7 +4,7 @@
 
 <PropertyList>
 
-	<name>ht9100</name>
+	<name>ht9100-2</name>
 	<layout>table</layout>
 	
 	<x>0</x>
@@ -12,17 +12,17 @@
 	
 	<nasal>
 		<open>
-			if (getprop("/instrumentation/ht9100/exec-light")) {
-				setprop("/sim/gui/dialogs/ht9100/exec-text", " |");
+			if (getprop("/instrumentation/ht9100[1]/exec-light")) {
+				setprop("/sim/gui/dialogs/ht9100-2/exec-text", " |");
 			} else {
-				setprop("/sim/gui/dialogs/ht9100/exec-text", "");
+				setprop("/sim/gui/dialogs/ht9100-2/exec-text", "");
 			}
 			
 			var loop = maketimer(0.1, func() {
-				if (getprop("/instrumentation/ht9100/exec-light")) {
-					setprop("/sim/gui/dialogs/ht9100/exec-text", " |");
+				if (getprop("/instrumentation/ht9100[1]/exec-light")) {
+					setprop("/sim/gui/dialogs/ht9100-2/exec-text", " |");
 				} else {
-					setprop("/sim/gui/dialogs/ht9100/exec-text", "");
+					setprop("/sim/gui/dialogs/ht9100-2/exec-text", "");
 				}
 			});
 			loop.start();
@@ -43,7 +43,7 @@
 		
 		<text>
 			<halign>left</halign>
-			<label>HT9100 MCDU</label>
+			<label>First Officer's MCDU</label>
 		</text>
 		
 		<button>
@@ -79,7 +79,7 @@
 			<pref-width>41</pref-width>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu_ht9100.unit[0].pageKey("rte");</script>
+				<script>mcdu_ht9100.unit[1].pageKey("rte");</script>
 			</binding>
 		</button>
 		
@@ -89,7 +89,7 @@
 			<pref-width>41</pref-width>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu_ht9100.unit[0].pageKey("legs");</script>
+				<script>mcdu_ht9100.unit[1].pageKey("legs");</script>
 			</binding>
 		</button>
 		
@@ -99,7 +99,7 @@
 			<pref-width>41</pref-width>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu_ht9100.unit[0].pageKey("depArr");</script>
+				<script>mcdu_ht9100.unit[1].pageKey("depArr");</script>
 			</binding>
 		</button>
 		
@@ -109,7 +109,7 @@
 			<pref-width>41</pref-width>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu_ht9100.unit[0].pageKey("hold");</script>
+				<script>mcdu_ht9100.unit[1].pageKey("hold");</script>
 			</binding>
 		</button>
 		
@@ -119,7 +119,7 @@
 			<pref-width>41</pref-width>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu_ht9100.unit[0].pageKey("prog");</script>
+				<script>mcdu_ht9100.unit[1].pageKey("prog");</script>
 			</binding>
 		</button>
 		
@@ -159,7 +159,7 @@
 				<pref-width>30</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].softKey("l1");</script>
+					<script>mcdu_ht9100.unit[1].softKey("l1");</script>
 				</binding>
 			</button>
 			
@@ -169,7 +169,7 @@
 				<pref-width>30</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].softKey("l2");</script>
+					<script>mcdu_ht9100.unit[1].softKey("l2");</script>
 				</binding>
 			</button>
 			
@@ -179,7 +179,7 @@
 				<pref-width>30</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].softKey("l3");</script>
+					<script>mcdu_ht9100.unit[1].softKey("l3");</script>
 				</binding>
 			</button>
 			
@@ -189,7 +189,7 @@
 				<pref-width>30</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].softKey("l4");</script>
+					<script>mcdu_ht9100.unit[1].softKey("l4");</script>
 				</binding>
 			</button>
 			
@@ -199,7 +199,7 @@
 				<pref-width>30</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].softKey("l5");</script>
+					<script>mcdu_ht9100.unit[1].softKey("l5");</script>
 				</binding>
 			</button>
 			
@@ -209,7 +209,7 @@
 				<pref-width>30</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].softKey("l6");</script>
+					<script>mcdu_ht9100.unit[1].softKey("l6");</script>
 				</binding>
 			</button>
 			
@@ -232,7 +232,7 @@
 						var root = mcdu_canvas_dlg.createGroup();
 						root.setScale(0.307, 0.248);
 						mcdu_canvas_dlg.setColorBackground(0, 0, 0, 1.0);
-						root.createChild("image").set("src", "canvas://by-index/texture[5]");
+						root.createChild("image").set("src", "canvas://by-index/texture[9]");
 					]]>
 				</load>
 			</nasal>
@@ -251,7 +251,7 @@
 				<pref-width>30</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].softKey("r1");</script>
+					<script>mcdu_ht9100.unit[1].softKey("r1");</script>
 				</binding>
 			</button>
 			
@@ -261,7 +261,7 @@
 				<pref-width>30</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].softKey("r2");</script>
+					<script>mcdu_ht9100.unit[1].softKey("r2");</script>
 				</binding>
 			</button>
 			
@@ -271,7 +271,7 @@
 				<pref-width>30</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].softKey("r3");</script>
+					<script>mcdu_ht9100.unit[1].softKey("r3");</script>
 				</binding>
 			</button>
 			
@@ -281,7 +281,7 @@
 				<pref-width>30</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].softKey("r4");</script>
+					<script>mcdu_ht9100.unit[1].softKey("r4");</script>
 				</binding>
 			</button>
 			
@@ -291,7 +291,7 @@
 				<pref-width>30</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].softKey("r5");</script>
+					<script>mcdu_ht9100.unit[1].softKey("r5");</script>
 				</binding>
 			</button>
 			
@@ -301,7 +301,7 @@
 				<pref-width>30</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].softKey("r6");</script>
+					<script>mcdu_ht9100.unit[1].softKey("r6");</script>
 				</binding>
 			</button>
 			
@@ -322,7 +322,7 @@
 			<pref-width>41</pref-width>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu_ht9100.unit[0].alphaNumKey("CLR");</script>
+				<script>mcdu_ht9100.unit[1].alphaNumKey("CLR");</script>
 			</binding>
 		</button>
 		
@@ -332,7 +332,7 @@
 			<pref-width>41</pref-width>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu_ht9100.unit[0].alphaNumKey("/");</script>
+				<script>mcdu_ht9100.unit[1].alphaNumKey("/");</script>
 			</binding>
 		</button>
 		
@@ -342,7 +342,7 @@
 			<pref-width>41</pref-width>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu_ht9100.unit[0].prevPageKey();</script>
+				<script>mcdu_ht9100.unit[1].prevPageKey();</script>
 			</binding>
 		</button>
 		
@@ -352,7 +352,7 @@
 			<pref-width>41</pref-width>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu_ht9100.unit[0].nextPageKey();</script>
+				<script>mcdu_ht9100.unit[1].nextPageKey();</script>
 			</binding>
 		</button>
 		
@@ -362,7 +362,7 @@
 			<pref-width>41</pref-width>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu_ht9100.unit[0].pageKey("menu");</script>
+				<script>mcdu_ht9100.unit[1].pageKey("menu");</script>
 			</binding>
 		</button>
 		
@@ -372,7 +372,7 @@
 			<pref-width>41</pref-width>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu_ht9100.unit[0].pageKey("dataIndex");</script>
+				<script>mcdu_ht9100.unit[1].pageKey("dataIndex");</script>
 			</binding>
 		</button>
 		
@@ -388,7 +388,7 @@
 			<pref-width>41</pref-width>
 			<binding>
 				<command>nasal</command>
-				<script>mcdu_ht9100.unit[0].execKey();</script>
+				<script>mcdu_ht9100.unit[1].execKey();</script>
 			</binding>
 		</button>
 	</group>
@@ -409,7 +409,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("1");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("1");</script>
 				</binding>
 			</button>
 			
@@ -421,7 +421,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("4");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("4");</script>
 				</binding>
 			</button>
 			
@@ -433,7 +433,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("7");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("7");</script>
 				</binding>
 			</button>
 			
@@ -445,7 +445,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey(".");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey(".");</script>
 				</binding>
 			</button>
 			
@@ -457,7 +457,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("2");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("2");</script>
 				</binding>
 			</button>
 			
@@ -469,7 +469,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("5");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("5");</script>
 				</binding>
 			</button>
 			
@@ -481,7 +481,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("8");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("8");</script>
 				</binding>
 			</button>
 			
@@ -493,7 +493,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("0");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("0");</script>
 				</binding>
 			</button>
 			
@@ -505,7 +505,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("3");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("3");</script>
 				</binding>
 			</button>
 			
@@ -517,7 +517,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("6");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("6");</script>
 				</binding>
 			</button>
 			
@@ -529,7 +529,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("9");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("9");</script>
 				</binding>
 			</button>
 			
@@ -541,7 +541,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("+/-");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("+/-");</script>
 				</binding>
 			</button>
 		</group>
@@ -561,7 +561,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("A");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("A");</script>
 				</binding>
 			</button>
 			
@@ -573,7 +573,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("H");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("H");</script>
 				</binding>
 			</button>
 			
@@ -585,7 +585,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("O");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("O");</script>
 				</binding>
 			</button>
 			
@@ -597,7 +597,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("V");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("V");</script>
 				</binding>
 			</button>
 			
@@ -609,7 +609,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("B");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("B");</script>
 				</binding>
 			</button>
 			
@@ -621,7 +621,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("I");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("I");</script>
 				</binding>
 			</button>
 			
@@ -633,7 +633,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("P");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("P");</script>
 				</binding>
 			</button>
 			
@@ -645,7 +645,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("W");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("W");</script>
 				</binding>
 			</button>
 			
@@ -657,7 +657,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("C");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("C");</script>
 				</binding>
 			</button>
 			
@@ -669,7 +669,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("J");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("J");</script>
 				</binding>
 			</button>
 			
@@ -681,7 +681,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("Q");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("Q");</script>
 				</binding>
 			</button>
 			
@@ -693,7 +693,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("X");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("X");</script>
 				</binding>
 			</button>
 			
@@ -705,7 +705,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("D");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("D");</script>
 				</binding>
 			</button>
 			
@@ -717,7 +717,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("K");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("K");</script>
 				</binding>
 			</button>
 			
@@ -729,7 +729,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("R");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("R");</script>
 				</binding>
 			</button>
 			
@@ -741,7 +741,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("Y");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("Y");</script>
 				</binding>
 			</button>
 			
@@ -753,7 +753,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("E");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("E");</script>
 				</binding>
 			</button>
 			
@@ -765,7 +765,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("L");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("L");</script>
 				</binding>
 			</button>
 			
@@ -777,7 +777,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("S");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("S");</script>
 				</binding>
 			</button>
 			
@@ -789,7 +789,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("Z");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("Z");</script>
 				</binding>
 			</button>
 			
@@ -801,7 +801,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("F");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("F");</script>
 				</binding>
 			</button>
 			
@@ -813,7 +813,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("M");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("M");</script>
 				</binding>
 			</button>
 			
@@ -825,7 +825,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("T");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("T");</script>
 				</binding>
 			</button>
 			
@@ -837,7 +837,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey(" ");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey(" ");</script>
 				</binding>
 			</button>
 			
@@ -849,7 +849,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("G");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("G");</script>
 				</binding>
 			</button>
 			
@@ -861,7 +861,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("N");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("N");</script>
 				</binding>
 			</button>
 			
@@ -873,7 +873,7 @@
 				<pref-width>25</pref-width>
 				<binding>
 					<command>nasal</command>
-					<script>mcdu_ht9100.unit[0].alphaNumKey("U");</script>
+					<script>mcdu_ht9100.unit[1].alphaNumKey("U");</script>
 				</binding>
 			</button>
 		</group>
