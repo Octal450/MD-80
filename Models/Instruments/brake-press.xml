@@ -22,7 +22,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>NeedleL</object-name>
-		<property>systems/hydraulics/brakes/sys-l-psi-needle</property>
+		<property>instrumentation/brakes/sys-l-psi</property>
 		<interpolation>
 			<entry><ind>   0</ind><dep>  0</dep></entry>
 			<entry><ind>4000</ind><dep>320</dep></entry>
@@ -37,7 +37,7 @@
 	<animation>
 		<type>rotate</type>
 		<object-name>NeedleR</object-name>
-		<property>systems/hydraulics/brakes/sys-r-psi-needle</property>
+		<property>instrumentation/brakes/sys-r-psi</property>
 		<interpolation>
 			<entry><ind>   0</ind><dep>  0</dep></entry>
 			<entry><ind>4000</ind><dep>320</dep></entry>

@@ -2624,6 +2624,17 @@
 			<input>/instrumentation/hyd-qty/qty-input-r</input>
 			<c1>20</c1>
 		</lag_filter>
+		
+		<!-- Brake Pressure Gauge -->
+		<lag_filter name="/instrumentation/brakes/sys-l-psi">
+			<input>/systems/hydraulics/brakes/sys-l-psi</input>
+			<c1>10</c1>
+		</lag_filter>
+		
+		<lag_filter name="/instrumentation/brakes/sys-r-psi">
+			<input>/systems/hydraulics/brakes/sys-r-psi</input>
+			<c1>10</c1>
+		</lag_filter>
 	
 	</channel>
 	
